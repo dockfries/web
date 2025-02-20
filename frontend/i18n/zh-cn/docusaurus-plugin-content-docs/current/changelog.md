@@ -1,39 +1,39 @@
 ---
-title: Changelog
-sidebar_label: Changelog
-description: open.mp development progress and changelog.
+title: 更新日志
+sidebar_label: 更新日志
+description: open.mp开发进度与更新日志。
 ---
 
-## **[v1.4.0.2779](https://github.com/openmultiplayer/open.mp/releases/tag/v1.4.0.2779) (Latest)**
+## **[v1.4.0.2779](https://github.com/openmultiplayer/open.mp/releases/tag/v1.4.0.2779) (最新版)**
 
-We're excited to announce the release of out latest server version!
+我们很高兴宣布最新服务器版本的发布！
 
-This update brings several important fixes and introduces an exciting new feature: **openmp Packet Encryption**.
+本次更新带来了多项重要修复，并引入激动人心的新功能：**open.mp 数据包加密**。
 
-For full changelog please read it from [here](https://github.com/openmultiplayer/open.mp/releases/tag/v1.4.0.2779).
+完整更新日志请查阅[此处](https://github.com/openmultiplayer/open.mp/releases/tag/v1.4.0.2779)。
 
-**Added:**
+**新增功能:**
 
-- Implement open.mp encryption to be used with the open.mp launcher. Must be enabled in `config.json` first (`network.use_omp_encryption`).
-- open.mp player detection using [IsPlayerUsingOmp](scripting/functions/IsPlayerUsingOmp) native.
-- Recursively load components in folders.
-- Load components starting with $ sooner than others and load them with RTLD_GLOBAL on Linux.
+- 实现与 open.mp 启动器配套使用的加密功能（需在`config.json`中启用`network.use_omp_encryption`）
+- 通过[IsPlayerUsingOmp](scripting/functions/IsPlayerUsingOmp)原生函数检测 open.mp 玩家
+- 递归加载文件夹中的组件
+- 优先加载以$开头的组件（Linux 系统使用 RTLD_GLOBAL 加载）
 
-**Changes:**
+**功能调整:**
 
-- Camera mode validity check.
-- Disable dynamic DLL loading for AMX runtime, especially when the user has the default Pawn installed from the Compuphase website.
+- 优化视角模式有效性检查
+- 禁用 AMX 运行时的动态 DLL 加载（特别是用户安装 Compuphase 官网默认 Pawn 时）
 
-**Fixes:**
+**问题修复:**
 
-- Fix a small issue for SetPlayerSkin in mobile clients.
-- Fix GetTickCount return value for Windows.
-- Fix crash when destroying a vehicle in some events and Pawn callbacks.
-- Fix inverted return value in GetVehicleLandingGearState.
-- Fix players randomly staying in the player list in launchers even if they leave the server.
-- More validity checks for trailers and trailer sync.
-- Fix crash related to moving objects.
-- Fix player vehicle data resetting before OnPlayerDeath is called.
+- 修复移动端玩家设置皮肤的小问题
+- 修正 Windows 系统 GetTickCount 返回值
+- 修复特定事件和 Pawn 回调中销毁车辆导致的崩溃
+- 修正 GetVehicleLandingGearState 返回值反转问题
+- 修复玩家退出后启动器列表残留问题
+- 增强拖车和拖车同步的校验机制
+- 修复移动物体相关的崩溃问题
+- 修正 OnPlayerDeath 回调前玩家车辆数据重置问题
 
 <br />
 
@@ -42,43 +42,43 @@ For full changelog please read it from [here](https://github.com/openmultiplayer
 ## [v1.3.1.2748](https://github.com/openmultiplayer/open.mp/releases/tag/v1.3.1.2748)
 
 <details>
-<summary>Click here to expand</summary>
+<summary>点击展开</summary>
 
-A new version of open.mp server is finally out, there has been a lot of fixes, bunch of performance improvements, and a few additions.
+新版 open.mp 服务器终于发布！本次更新包含大量修复、多项性能改进和新增功能。
 
-Our launcher also now received a new update which you can get by simply opening your launcher and updating it through the update dialog. For changelog please read it from here: https://github.com/openmultiplayer/launcher/releases/tag/v1.4.0
+启动器已同步更新，打开启动器即可通过更新对话框获取新版。完整更新日志请查阅：https://github.com/openmultiplayer/launcher/releases/tag/v1.4.0
 
-### Server
+### 服务器端
 
-**Added:**
+**新增功能:**
 
-- Add server logo config variable to [config.json](server/config.json), allowing servers to set a logo to be shown in our launcher and discord status.
-- Add more data validity checks for dialog responses.
-- Add validity checks for menu rows.
-- Add human readable HTTP errors.
-- New definition for general SA-MP API compatibility. (`#define SAMP_COMPAT`)
-- New definition to silence legacy scripting api warnings. (`#define LEGACY_SCRIPTING_API`)
+- 在[config.json](server/config.json)中添加服务器 Logo 配置项，可在启动器和 Discord 状态显示
+- 增强对话框响应的数据校验
+- 新增菜单行的有效性检查
+- 添加人性化 HTTP 错误提示
+- 新增 SA-MP API 兼容性定义(`#define SAMP_COMPAT`)
+- 新增旧版脚本 API 警告静默定义(`#define LEGACY_SCRIPTING_API`)
 
-**Changes:**
+**功能调整:**
 
-- Remove unnecessary OnPlayerConnect and OnPlayerDisconnect when a side script (filterscript) is (un)loaded. Instead introduced [OnScriptLoadPlayer](scripting/callbacks/OnScriptLoadPlayer) and [OnScriptUnloadPlayer](scripting/callbacks/OnScriptUnloadPlayer) callbacks.
-- Remove bunch of pawn native deprecation from runtime warnings.
-- Check CDN URL validity.
-- Stop spectator sync being broadcasted.
-- Default values for health and armour.
-- Improve performance for responding to Scores And Pings RPC. (scoreboard)
-- Change invalid weapon slot to `-1`
+- 移除侧脚本加载/卸载时不必要的 OnPlayerConnect/OnPlayerDisconnect 回调，改用[OnScriptLoadPlayer](scripting/callbacks/OnScriptLoadPlayer)和[OnScriptUnloadPlayer](scripting/callbacks/OnScriptUnloadPlayer)
+- 移除 Pawn 原生函数的废弃警告
+- 校验 CDN 链接有效性
+- 停止广播观战者同步数据
+- 调整生命值和护甲默认值
+- 优化 Scores And Pings RPC 响应性能（计分板）
+- 无效武器槽位返回`-1`
 
-**Fixes:**
+**问题修复:**
 
-- Fix the infamous RakNet crash we've been dealing with since the beginning, affecting a few servers.
-- Fix string not shown in rare cases of using format.
-- Fix the problem with crashdetect not being able to find file name and line number when more than one script was loaded.
-- Fix a lot of RakNet crashes and safer internal memory management.
-- Fix several connection issues and proper internal player pool cleanups.
-- Fix [GetGameText](scripting/functions/GetGameText) function giving incorrect/corrupt values.
-- Fix open.mp windows version not loading when user's windows is set to a language with non-ascii names.
-- Fix callback headings in `qawno/filterscript.new` and `qawno/gamemode.new` files.
+- 修复长期存在的 RakNet 崩溃问题
+- 修复罕见情况下格式化字符串显示异常
+- 解决多个脚本加载时 crashdetect 无法定位文件行号的问题
+- 修复多个 RakNet 崩溃问题，优化内存管理
+- 修复若干连接问题和玩家池清理机制
+- 修正[GetGameText](scripting/functions/GetGameText)返回值异常
+- 修复非 ASCII 系统语言环境下 Windows 版加载失败问题
+- 修正`qawno/filterscript.new`和`qawno/gamemode.new`回调头信息
 
 </details>
 
@@ -89,27 +89,27 @@ Our launcher also now received a new update which you can get by simply opening 
 ## [v1.2.0.2670](https://github.com/openmultiplayer/open.mp/releases/tag/v1.2.0.2670)
 
 <details>
-<summary>Click here to expand</summary>
+<summary>点击展开</summary>
 
-We encourage every open.mp server to update to this version. There has been not only noticeable performance improvements, but also **critical security fixes**.
+我们强烈建议所有 open.mp 服务器升级至此版本。本次更新不仅显著提升性能，还包含**关键安全修复**。
 
-### Server
+### 服务器端
 
-**Added:**
+**新增功能:**
 
-- New config variables to set banners and discord invite link to be shown in [open.mp launcher](https://github.com/openmultiplayer/launcher/releases/latest).
-- New config variable for join messages. (`logging.log_connection_messages`)
-- New config variable for animation validation. (`game.validate_animations`)
-- New definition to allow mixed spelling functions in your code. (`#define MIXED_SPELLINGS`)
+- 新增横幅和 Discord 邀请链接配置项（显示于[open.mp 启动器](https://github.com/openmultiplayer/launcher/releases/latest)）
+- 新增连接消息日志开关(`logging.log_connection_messages`)
+- 新增动画验证配置项(`game.validate_animations`)
+- 新增混合拼写函数兼容定义(`#define MIXED_SPELLINGS`)
 
-**Fixes:**
+**问题修复:**
 
-- A few security fixes.
-- Announcer system now uses IPv4 by default, instead of using IPv6 when it's available.
-- Fix `Get(Player)ObjectMaterial(Text)` returning colours in the wrong format and modelid.
-- Fix `Get(Player)Gravity` returning integer instead of float.
-- Validate damage reasons (weapons) in various places.
-- Synchronize bans so multiple players are banned at once if needed.
+- 多项安全修复
+- 公告系统默认使用 IPv4（原 IPv6 优先问题）
+- 修正`Get(Player)ObjectMaterial(Text)`返回颜色格式和模型 ID 错误
+- 修正`Get(Player)Gravity`返回整型而非浮点型问题
+- 完善多处伤害原因（武器）验证机制
+- 同步封禁操作以支持批量处理
 
 </details>
 
@@ -120,28 +120,32 @@ We encourage every open.mp server to update to this version. There has been not 
 ## [v1.1.0.2612](https://github.com/openmultiplayer/open.mp/releases/tag/v1.1.0.2612)
 
 <details>
-<summary>Click here to expand</summary>
+<summary>点击展开</summary>
 
-open.mp is now out of RC phase, and we are happy to announce we are finally stable enough to go down the consistent development road. with v1.1.0.2612, we fixed a lot of bugs and issues, and resolved so many behavior differences. so make sure you update to latest builds and run your server smoothly.
+open.mp 现已结束 RC 阶段，正式进入稳定开发周期。v1.1.0.2612 修复了大量问题并统一了多项行为差异，建议及时更新以获得最佳体验。
 
-open.mp launcher is finally out, you can now reliably browse servers, select a server you want to play on, and join it!
-Bringing a lot of new features into it, you're going to have a much better experience compared to old experience you always had to have with samp launcher.
-It can be found at https://github.com/openmultiplayer/launcher/releases
+open.mp 官方启动器正式发布！您现在可以：
 
-### Server
+- 可靠地浏览服务器列表
+- 选择心仪服务器
+- 一键加入游戏
 
-**Added:**
+相较于传统启动器，新版带来诸多改进，访问地址：https://github.com/openmultiplayer/launcher/releases
 
-- x64 version of omp-server.
-- Add `.so` to plugin names automatically.
+### 服务器端
 
-**Changes:**
+**新增功能:**
 
-- Return `estimatedTime` in `Move(Player)Object` functions.
+- 发布 omp-server x64 版本
+- 自动为插件名添加`.so`扩展
 
-**Fixes:**
+**功能调整:**
 
-- Fixed `GetVehicleLastDriver` returning 0 when invalid `vehicleid` is passed.
+- 在`Move(Player)Object`函数中返回`estimatedTime`
+
+**问题修复:**
+
+- 修正`GetVehicleLastDriver`参数无效时返回 0 的问题
 
 </details>
 
@@ -152,17 +156,17 @@ It can be found at https://github.com/openmultiplayer/launcher/releases
 ## [RC2](https://github.com/openmultiplayer/open.mp/releases/tag/v1-RC2)
 
 <details>
-<summary>Click here to expand</summary>
+<summary>点击展开</summary>
 
-Release Candidate 2 (RC2) of the open.mp server.
+open.mp 服务器第二候选发布版(RC2)
 
-### Server
+### 服务器端
 
-**New functions:**
+**新增函数:**
 
 - [GetPlayerMarkerForPlayer](scripting/functions/GetPlayerMarkerForPlayer)
 
-**Deprecated functions:**
+**废弃函数:**
 
 - GetPlayer3DTextLabelVirtualW
 - SetPlayer3DTextLabelDrawDist
@@ -217,11 +221,11 @@ Release Candidate 2 (RC2) of the open.mp server.
 - GetVehicleTower
 - ChangeVehicleColor
 
-**Fixes:**
+**问题修复:**
 
-- Fix `.so` being required on Linux legacy plugins.
-- Attached objects are correctly shown to other players.
-- Fix a crash when loading invalid pawn memory.
+- 修复 Linux 旧版插件需要`.so`的问题
+- 正确显示附加物体给其他玩家
+- 修复加载无效 Pawn 内存导致的崩溃
 
 </details>
 
@@ -232,19 +236,19 @@ Release Candidate 2 (RC2) of the open.mp server.
 ## [RC1](https://github.com/openmultiplayer/open.mp/releases/tag/v1-RC1)
 
 <details>
-<summary>Click here to expand</summary>
+<summary>点击展开</summary>
 
-[Release Candidate 1 (RC1)](https://www.open.mp/blog/release-candidate-1) of the open.mp server! We're now out of beta.
+[第一候选发布版(RC1)](https://www.open.mp/blog/release-candidate-1)！我们已结束测试阶段。
 
-### Server
+### 服务器端
 
-**Added:**
+**新增功能:**
 
-- Added `\{Float, _\}:...` to `AddMenuItem`, `Create3DTextLabel`, `CreateMenu`, `CreatePlayer3DTextLabel`, `CreatePlayerTextDraw`, `GameTextForAll`, `GameTextForPlayer`, `PlayerTextDrawSetString`, `SendClientMessage`, `SendClientMessageToAll`, `SendRconCommand`, `SetMenuColumnHeader`, `SetObjectMaterialText`, `SetPlayerObjectMaterialText`, `SetPVarString`, `SetSVarString`, `ShowPlayerDialog`, `TextDrawCreate`, `TextDrawSetString`, `Update3DTextLabelText`, `UpdatePlayer3DTextLabelText` functions. They all format now.
+- 为`AddMenuItem`, `Create3DTextLabel`, `CreateMenu`, `CreatePlayer3DTextLabel`, `CreatePlayerTextDraw`, `GameTextForAll`, `GameTextForPlayer`, `PlayerTextDrawSetString`, `SendClientMessage`, `SendClientMessageToAll`, `SendRconCommand`, `SetMenuColumnHeader`, `SetObjectMaterialText`, `SetPlayerObjectMaterialText`, `SetPVarString`, `SetSVarString`, `ShowPlayerDialog`, `TextDrawCreate`, `TextDrawSetString`, `Update3DTextLabelText`, `UpdatePlayer3DTextLabelText`函数添加`\{Float, _\}:...`格式化支持
 
-**Fixes:**
+**问题修复:**
 
-- Memory reduction.
+- 内存优化
 
 </details>
 
@@ -255,11 +259,11 @@ Release Candidate 2 (RC2) of the open.mp server.
 ## [Beta v0.0.11.2331](https://github.com/openmultiplayer/open.mp/releases/tag/v0.0.11.2331)
 
 <details>
-<summary>Click here to expand</summary>
+<summary>点击展开</summary>
 
-### Server
+### 服务器端
 
-**New functions:**
+**新增函数:**
 
 - [TogglePlayerWidescreen](scripting/functions/TogglePlayerWidescreen)
 - [IsPlayerWidescreenToggled](scripting/functions/IsPlayerWidescreenToggled)
@@ -498,7 +502,7 @@ Release Candidate 2 (RC2) of the open.mp server.
 - [EnableAllAnimations](scripting/functions/EnableAllAnimations)
 - [GetWeather](scripting/functions/GetWeather)
 
-**New callbacks:**
+**新增回调:**
 
 - [OnPlayerEnterGangZone](scripting/callbacks/OnPlayerEnterGangZone)
 - [OnPlayerLeaveGangZone](scripting/callbacks/OnPlayerLeaveGangZone)

@@ -54,5 +54,5 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 
 以下函数可能与本回调函数相关：
 
-- [RemovePlayerFromVehicle](../functions/RemovePlayerFromVehicle): 强制将玩家移出载具
+- [RemovePlayerFromVehicle](../functions/RemovePlayerFromVehicle): 强制将玩家移出车辆
 - [GetPlayerVehicleSeat](../functions/GetPlayerVehicleSeat): 获取玩家所在车辆座位

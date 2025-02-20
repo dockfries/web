@@ -14,7 +14,7 @@ tags: ["player"]
 | playerid                | 射击的玩家ID                                             |
 | WEAPON:weaponid         | 使用的[武器ID](../resources/weaponids)                       |
 | BULLET_HIT_TYPE:hittype | 子弹命中的[目标类型](../resources/bullethittypes)            |
-| hitid                   | 被击中的玩家/载具/物体ID                                     |
+| hitid                   | 被击中的玩家/车辆/物体ID                                     |
 | Float:fX                | 命中点的X坐标                                                |
 | Float:fY                | 命中点的Y坐标                                                |
 | Float:fZ                | 命中点的Z坐标                                                |
@@ -54,11 +54,11 @@ public OnPlayerWeaponShot(playerid, WEAPON:weaponid, BULLET_HIT_TYPE:hittype, hi
 
 **已知问题**
 
-- 作为载具驾驶员射击时不会触发
+- 作为车辆驾驶员射击时不会触发
 - 开启瞄准镜向后射击时不会触发
-- 击中载具内玩家时返回BULLET_HIT_TYPE_VEHICLE而非PLAYER类型
+- 击中车辆内玩家时返回BULLET_HIT_TYPE_VEHICLE而非PLAYER类型
 - 0.3.7版本后需校验weaponid真实性以防止客户端崩溃
-- 武装载具（如直升机机炮）射击时不会触发
+- 武装车辆（如直升机机炮）射击时不会触发
 
 :::
 

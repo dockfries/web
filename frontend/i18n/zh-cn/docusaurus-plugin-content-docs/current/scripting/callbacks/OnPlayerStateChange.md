@@ -26,10 +26,10 @@ tags: ["player"]
 ```c
 public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
-    if (oldstate == PLAYER_STATE_ONFOOT && newstate == PLAYER_STATE_DRIVER) // 玩家以驾驶员身份进入载具
+    if (oldstate == PLAYER_STATE_ONFOOT && newstate == PLAYER_STATE_DRIVER) // 玩家以驾驶员身份进入车辆
     {
         new vehicleid = GetPlayerVehicleID(playerid);
-        AddVehicleComponent(vehicleid, 1010); // 为载具添加氮气加速系统
+        AddVehicleComponent(vehicleid, 1010); // 为车辆添加氮气加速系统
     }
     return 1;
 }

@@ -44,13 +44,13 @@ public OnTrailerUpdate(playerid, vehicleid)
 
 以下回调可能与该回调存在关联：
 
-- [OnUnoccupiedVehicleUpdate](OnUnoccupiedVehicleUpdate): 当无驾驶员载具位置同步时触发
+- [OnUnoccupiedVehicleUpdate](OnUnoccupiedVehicleUpdate): 当无驾驶员车辆位置同步时触发
 
 ## 相关函数
 
 以下函数可能与该回调存在关联：
 
-- [GetVehicleTrailer](../functions/GetVehicleTrailer): 获取载具牵引的拖车ID
+- [GetVehicleTrailer](../functions/GetVehicleTrailer): 获取车辆牵引的拖车ID
 - [IsTrailerAttachedToVehicle](../functions/IsTrailerAttachedToVehicle): 检测拖车是否连接
-- [AttachTrailerToVehicle](../functions/AttachTrailerToVehicle): 连接拖车到载具
+- [AttachTrailerToVehicle](../functions/AttachTrailerToVehicle): 连接拖车到车辆
 - [DetachTrailerFromVehicle](../functions/DetachTrailerFromVehicle): 分离拖车连接

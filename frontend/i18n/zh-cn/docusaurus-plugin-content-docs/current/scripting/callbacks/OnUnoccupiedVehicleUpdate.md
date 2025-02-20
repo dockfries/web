@@ -1,27 +1,27 @@
 ---
 title: OnUnoccupiedVehicleUpdate
 sidebar_label: OnUnoccupiedVehicleUpdate
-description: 当玩家的客户端同步未驾驶载具的位置时触发该回调函数。
+description: 当玩家的客户端同步未驾驶车辆的位置时触发该回调函数。
 tags: ["vehicle"]
 ---
 
 ## 描述
 
-当玩家的客户端同步其未驾驶载具的位置时触发该回调函数。触发场景包括：
-- 玩家处于载具外部时
-- 玩家作为乘客乘坐无驾驶员载具时
+当玩家的客户端同步其未驾驶车辆的位置时触发该回调函数。触发场景包括：
+- 玩家处于车辆外部时
+- 玩家作为乘客乘坐无驾驶员车辆时
 
 | 参数名           | 说明                                                                                                       |
 | -------------- | --------------------------------------------------------------------------------------------------------- |
-| vehicleid      | 被同步位置的载具ID                                                                                        |
+| vehicleid      | 被同步位置的车辆ID                                                                                        |
 | playerid       | 发起位置同步的玩家ID                                                                                      |
-| passenger_seat | 乘客座位号（0=不在载具内，1=前排乘客，2=左后座，3=右后座，4+为巴士/客车等多座位载具）                     |
-| Float:new_x    | 载具新的X坐标                                                                                             |
-| Float:new_y    | 载具新的Y坐标                                                                                             |
-| Float:new_z    | 载具新的Z坐标                                                                                             |
-| Float:vel_x    | 载具X轴速度分量                                                                                           |
-| Float:vel_y    | 载具Y轴速度分量                                                                                           |
-| Float:vel_z    | 载具Z轴速度分量                                                                                           |
+| passenger_seat | 乘客座位号（0=不在车辆内，1=前排乘客，2=左后座，3=右后座，4+为巴士/客车等多座位车辆）                     |
+| Float:new_x    | 车辆新的X坐标                                                                                             |
+| Float:new_y    | 车辆新的Y坐标                                                                                             |
+| Float:new_z    | 车辆新的Z坐标                                                                                             |
+| Float:vel_x    | 车辆X轴速度分量                                                                                           |
+| Float:vel_y    | 车辆Y轴速度分量                                                                                           |
+| Float:vel_z    | 车辆Z轴速度分量                                                                                           |
 
 ## 返回值
 
@@ -50,7 +50,7 @@ public OnUnoccupiedVehicleUpdate(vehicleid, playerid, passenger_seat, Float:new_
 
 :::warning
 
-- 本回调触发频率极高（每秒多次/每个载具），请避免在此执行复杂计算或文件操作
+- 本回调触发频率极高（每秒多次/每个车辆），请避免在此执行复杂计算或文件操作
 - [GetVehiclePos](../functions/GetVehiclePos) 将返回同步前的旧坐标
 
 :::
@@ -65,6 +65,6 @@ public OnUnoccupiedVehicleUpdate(vehicleid, playerid, passenger_seat, Float:new_
 
 以下函数可能与该回调存在关联：
 
-- [SetVehiclePos](../functions/SetVehiclePos): 强制设置载具位置
-- [GetVehicleVelocity](../functions/GetVehicleVelocity): 获取载具速度向量
-- [SetVehicleVelocity](../functions/SetVehicleVelocity): 设置载具速度向量
+- [SetVehiclePos](../functions/SetVehiclePos): 强制设置车辆位置
+- [GetVehicleVelocity](../functions/GetVehicleVelocity): 获取车辆速度向量
+- [SetVehicleVelocity](../functions/SetVehicleVelocity): 设置车辆速度向量

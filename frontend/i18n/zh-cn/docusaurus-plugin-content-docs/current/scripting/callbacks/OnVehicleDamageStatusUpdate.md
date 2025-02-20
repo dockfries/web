@@ -1,24 +1,24 @@
 ---
 title: OnVehicleDamageStatusUpdate
 sidebar_label: OnVehicleDamageStatusUpdate
-description: 当载具部件（车门/轮胎/面板/车灯）的损坏状态发生变更时触发该回调函数。
+description: 当车辆部件（车门/轮胎/面板/车灯）的损坏状态发生变更时触发该回调函数。
 tags: ["vehicle"]
 ---
 
 :::tip
 
-处理载具损坏状态的相关实用函数请参阅[此处](../resources/damagestatus)
+处理车辆损坏状态的相关实用函数请参阅[此处](../resources/damagestatus)
 
 :::
 
 ## 描述
 
-当载具部件（车门、轮胎、面板或车灯）的损坏状态发生变更时触发该回调函数。
+当车辆部件（车门、轮胎、面板或车灯）的损坏状态发生变更时触发该回调函数。
 
 | 参数名      | 说明                                                                                            |
 | --------- | ---------------------------------------------------------------------------------------------- |
-| vehicleid | 损坏状态发生变化的载具ID                                                                        |
-| playerid  | 同步损坏状态变更的玩家ID（造成损坏或修复载具的玩家）                                            |
+| vehicleid | 损坏状态发生变化的车辆ID                                                                        |
+| playerid  | 同步损坏状态变更的玩家ID（造成损坏或修复车辆的玩家）                                            |
 
 ## 返回值
 
@@ -44,7 +44,7 @@ public OnVehicleDamageStatusUpdate(vehicleid, playerid)
     // 将轮胎状态重置为未爆胎
     tyres = VEHICLE_TYRE_STATUS_NONE;
 
-    // 更新载具损坏状态（修复所有轮胎）
+    // 更新车辆损坏状态（修复所有轮胎）
     UpdateVehicleDamageStatus(vehicleid, panels, doors, lights, tyres);
     return 1;
 }
@@ -54,7 +54,7 @@ public OnVehicleDamageStatusUpdate(vehicleid, playerid)
 
 :::tip
 
-本回调不包含载具生命值（Health）变化的检测
+本回调不包含车辆生命值（Health）变化的检测
 
 :::
 
@@ -62,5 +62,5 @@ public OnVehicleDamageStatusUpdate(vehicleid, playerid)
 
 以下函数可能与该回调存在关联：
 
-- [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus): 获取载具各部件损坏状态
-- [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus): 更新载具损坏状态
+- [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus): 获取车辆各部件损坏状态
+- [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus): 更新车辆损坏状态

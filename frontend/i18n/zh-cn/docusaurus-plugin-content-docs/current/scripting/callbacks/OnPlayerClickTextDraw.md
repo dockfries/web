@@ -1,18 +1,18 @@
 ---
 title: OnPlayerClickTextDraw
 sidebar_label: OnPlayerClickTextDraw
-description: 当玩家点击文本绘制或按ESC键取消选择模式时触发该回调
+description: 当玩家点击文本绘图或按ESC键取消选择模式时触发该回调
 tags: ["player", "textdraw"]
 ---
 
 ## 描述
 
-当玩家点击文本绘制或按ESC键取消选择模式时触发该回调。
+当玩家点击文本绘图或按ESC键取消选择模式时触发该回调。
 
 | 参数            | 说明                                                                 |
 |-----------------|----------------------------------------------------------------------|
 | playerid        | 触发点击操作的玩家ID                                                 |
-| Text:clickedid  | 被点击的文本绘制ID（取消选择时返回INVALID_TEXT_DRAW）                 |
+| Text:clickedid  | 被点击的文本绘图ID（取消选择时返回INVALID_TEXT_DRAW）                 |
 
 ## 返回值
 
@@ -52,7 +52,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 {
     if (clickedid == gTextDraw)
     {
-        SendClientMessage(playerid, 0xFFFFFFAA, "您点击了文本绘制");
+        SendClientMessage(playerid, 0xFFFFFFAA, "您点击了文本绘图");
         CancelSelectTextDraw(playerid);
         return 1;
     }
@@ -74,12 +74,12 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 
 以下回调可能与当前回调存在关联：
 
-- [OnPlayerClickPlayerTextDraw](OnPlayerClickPlayerTextDraw)：当玩家点击个人文本绘制时触发
+- [OnPlayerClickPlayerTextDraw](OnPlayerClickPlayerTextDraw)：当玩家点击个人文本绘图时触发
 - [OnPlayerClickPlayer](OnPlayerClickPlayer)：当玩家点击其他玩家时触发
 
 ## 相关函数
 
 以下函数可能与当前回调相关：
 
-- [SelectTextDraw](../functions/SelectTextDraw)：启用鼠标选择文本绘制模式
-- [CancelSelectTextDraw](../functions/CancelSelectTextDraw)：取消文本绘制选择模式
+- [SelectTextDraw](../functions/SelectTextDraw)：启用鼠标选择文本绘图模式
+- [CancelSelectTextDraw](../functions/CancelSelectTextDraw)：取消文本绘图选择模式

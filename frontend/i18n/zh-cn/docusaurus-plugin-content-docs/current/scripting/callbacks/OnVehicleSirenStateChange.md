@@ -1,7 +1,7 @@
 ---
 title: OnVehicleSirenStateChange
 sidebar_label: OnVehicleSirenStateChange
-description: 当载具警笛状态发生变更时触发该回调函数。
+description: 当车辆警笛状态发生变更时触发该回调函数。
 tags: ["vehicle"]
 ---
 
@@ -9,12 +9,12 @@ tags: ["vehicle"]
 
 ## 描述
 
-当载具的警笛状态被切换时触发该回调函数。
+当车辆的警笛状态被切换时触发该回调函数。
 
 | 参数名      | 说明                                               |
 | --------- | ------------------------------------------------- |
 | playerid  | 切换警笛状态的玩家ID（驾驶员）                     |
-| vehicleid | 警笛状态发生变更的载具ID                           |
+| vehicleid | 警笛状态发生变更的车辆ID                           |
 | newstate  | 警笛新状态（0=关闭，1=开启）                       |
 
 ## 返回值
@@ -53,9 +53,9 @@ public OnVehicleSirenStateChange(playerid, vehicleid, newstate)
 
 以下函数可能与该回调存在关联：
 
-- [GetVehicleParamsSirenState](../functions/GetVehicleParamsSirenState): 检测载具警笛当前状态
-- [SetVehicleParamsSirenState](../functions/SetVehicleParamsSirenState): 设置载具警笛状态
+- [GetVehicleParamsSirenState](../functions/GetVehicleParamsSirenState): 检测车辆警笛当前状态
+- [SetVehicleParamsSirenState](../functions/SetVehicleParamsSirenState): 设置车辆警笛状态
 
 ## 相关资源
 
-- [载具参数类型](../resources/vehicleparams)
+- [车辆参数类型](../resources/vehicleparams)

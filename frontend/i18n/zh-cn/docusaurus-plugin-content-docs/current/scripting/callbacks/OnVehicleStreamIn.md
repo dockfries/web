@@ -1,17 +1,17 @@
 ---
 title: OnVehicleStreamIn
 sidebar_label: OnVehicleStreamIn
-description: 当载具被流加载到玩家客户端时触发该回调函数。
+description: 当车辆被流加载到玩家客户端时触发该回调函数。
 tags: ["vehicle"]
 ---
 
 ## 描述
 
-当载具被流加载到玩家客户端时触发该回调函数。
+当车辆被流加载到玩家客户端时触发该回调函数。
 
 | 参数名        | 说明                                            |
 | ----------- | ---------------------------------------------- |
-| vehicleid   | 被流加载的载具ID                                |
+| vehicleid   | 被流加载的车辆ID                                |
 | forplayerid | 发起流加载的玩家ID                              |
 
 ## 返回值
@@ -24,7 +24,7 @@ tags: ["vehicle"]
 public OnVehicleStreamIn(vehicleid, forplayerid)
 {
     new string[32];
-    format(string, sizeof(string), "您现在可以看到载具 %d。", vehicleid);
+    format(string, sizeof(string), "您现在可以看到车辆 %d。", vehicleid);
     SendClientMessage(forplayerid, 0xFFFFFFFF, string);
     return 1;
 }
@@ -36,6 +36,6 @@ public OnVehicleStreamIn(vehicleid, forplayerid)
 
 ## 相关回调
 
-- [OnVehicleStreamOut](OnVehicleStreamOut): 当载具从玩家客户端流卸载时触发
+- [OnVehicleStreamOut](OnVehicleStreamOut): 当车辆从玩家客户端流卸载时触发
 - [OnPlayerStreamIn](OnPlayerStreamIn): 当玩家被其他客户端流加载时触发
 - [OnPlayerStreamOut](OnPlayerStreamOut): 当玩家被其他客户端流卸载时触发

@@ -21,7 +21,7 @@ tags: ["player", "checkpoint"]
 
 ```c
 // 这个示例中，玩家生成时会创建检查点
-// 当进入检查点时生成载具并禁用检查点
+// 当进入检查点时生成车辆并禁用检查点
 public OnPlayerSpawn(playerid)
 {
     SetPlayerCheckpoint(playerid, 1982.6150, -220.6680, -0.2432, 3.0);

@@ -1,24 +1,29 @@
 ---
-title: Introduction
+title: 简介
 sidebar_label: Introduction
-description: Documentations for open.mp and SA-MP modifications
+description: 关于 open.mp 和 SA-MP 修改版的文档
 sidebar_position: 1
 ---
 
-# SA-MP Wiki and open.mp Documentation
+# SA-MP Wiki 与 open.mp 文档
 
-Welcome to the SA-MP/open.mp wiki, maintained by the open.mp team and wider SA-MP community!
+欢迎来到由 open.mp 团队及广大 SA-MP 社区共同维护的 SA-MP/open.mp 知识库！
 
-This site aims to provide an easily accessible, easy to contribute to documentation source for SA-MP and open.mp.
+本站致力于为 SA-MP 和 open.mp 提供易于访问且方便贡献的文档资源。
 
-## The SA-MP wiki is gone
+## SA-MP 原版 Wiki 现状
 
-Unfortunately, the SA-MP wiki was taken offline in late september of 2020 and then restored as uneditable archive.
+遗憾的是，原 SA-MP Wiki 已于 2020 年 9 月下旬下线，后以不可编辑的存档形式恢复。
 
-Alas, we need the community's help to transfer the old wiki's content to its new home, here!
+我们需要社区的力量将原 Wiki 内容迁移至这个新家！若您有意参与，请查阅[贡献指南](/docs/meta/Contributing)了解详情。
 
-If you're interested, check out [this page](/docs/meta/Contributing) for more information.
+如果您不熟悉 GitHub 使用或 HTML 转换也无需担心！您可以通过以下方式提供帮助：
+- 通过 [Discord](https://discord.gg/samp)、[论坛](https://forum.open.mp) 或社交媒体反馈问题
+- 最重要的事：_广而告之！_ 欢迎收藏本站并分享给所有寻找 SA-MP Wiki 下落的开发者
 
-If you're not experienced with using GitHub or converting HTML, don't worry! You can help by just letting us know about issues (via [Discord](https://discord.gg/samp), [forum](https://forum.open.mp) or social media) and the most important thing: _spreading the word!_ So be sure to bookmark this site and share it with anyone you know who's wondering where the SA-MP Wiki went.
+我们诚邀您参与以下内容的完善：
+- 文档改进
+- 常见任务教程（如构建基础游戏模式）
+- 常用库与插件使用指南
 
-We welcome contributions for improvements to documentation as well as tutorials and guides for common tasks such as building simple gamemodes and using common libraries and plugins. If you're interested in contributing then head over to the [GitHub page](https://github.com/openmultiplayer/web).
+若您有意贡献，请访问 [GitHub 项目页](https://github.com/openmultiplayer/web)。

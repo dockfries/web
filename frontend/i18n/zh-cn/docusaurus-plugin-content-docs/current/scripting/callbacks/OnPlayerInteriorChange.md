@@ -43,4 +43,4 @@ public OnPlayerInteriorChange(playerid, newinteriorid, oldinteriorid)
 
 - [SetPlayerInterior](../functions/SetPlayerInterior): 设置玩家室内区域
 - [GetPlayerInterior](../functions/GetPlayerInterior): 获取玩家当前室内区域
-- [LinkVehicleToInterior](../functions/LinkVehicleToInterior): 设置载具关联的室内区域
+- [LinkVehicleToInterior](../functions/LinkVehicleToInterior): 设置车辆关联的室内区域

@@ -1,23 +1,23 @@
 ---
 title: OnVehicleSpawn
 sidebar_label: OnVehicleSpawn
-description: 当载具重生时触发该回调函数。
+description: 当车辆重生时触发该回调函数。
 tags: ["vehicle"]
 ---
 
 :::warning
 
-本回调**仅**在载具**重新**生成时触发！使用CreateVehicle和AddStaticVehicle(Ex)创建载具**不会**触发此回调
+本回调**仅**在车辆**重新**生成时触发！使用CreateVehicle和AddStaticVehicle(Ex)创建车辆**不会**触发此回调
 
 :::
 
 ## 描述
 
-当载具重生时触发该回调函数。
+当车辆重生时触发该回调函数。
 
 | 参数名      | 说明                         |
 | --------- | --------------------------- |
-| vehicleid | 重生的载具ID                 |
+| vehicleid | 重生的车辆ID                 |
 
 ## 返回值
 
@@ -31,7 +31,7 @@ tags: ["vehicle"]
 ```c
 public OnVehicleSpawn(vehicleid)
 {
-    printf("载具 %i 已重生！",vehicleid);
+    printf("车辆 %i 已重生！",vehicleid);
     return 1;
 }
 ```
@@ -40,12 +40,12 @@ public OnVehicleSpawn(vehicleid)
 
 以下回调可能与该回调存在关联：
 
-- [OnVehicleDeath](OnVehicleDeath): 当载具被摧毁时触发
+- [OnVehicleDeath](OnVehicleDeath): 当车辆被摧毁时触发
 - [OnPlayerSpawn](OnPlayerSpawn): 当玩家生成时触发
 
 ## 相关函数
 
 以下函数可能与该回调存在关联：
 
-- [SetVehicleToRespawn](../functions/SetVehicleToRespawn): 立即重生指定载具
-- [CreateVehicle](../functions/CreateVehicle): 创建新载具
+- [SetVehicleToRespawn](../functions/SetVehicleToRespawn): 立即重生指定车辆
+- [CreateVehicle](../functions/CreateVehicle): 创建新车辆

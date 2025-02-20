@@ -46,4 +46,4 @@ public OnPlayerStreamOut(playerid, forplayerid)
 
 - [OnPlayerStreamIn](OnPlayerStreamIn): 当玩家被其他客户端流加载时触发
 - [OnActorStreamIn](OnPlayerStreamOut): 当角色被玩家客户端流加载时触发
-- [OnVehicleStreamIn](OnPlayerStreamOut): 当载具被玩家客户端流加载时触发
+- [OnVehicleStreamIn](OnPlayerStreamOut): 当车辆被玩家客户端流加载时触发

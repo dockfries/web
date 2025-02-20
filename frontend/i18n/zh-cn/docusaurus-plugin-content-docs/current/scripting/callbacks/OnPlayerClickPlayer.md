@@ -47,7 +47,7 @@ public OnPlayerClickPlayer(playerid, clickedplayerid, CLICK_SOURCE:source)
 
 以下回调可能与当前回调存在关联：
 
-- [OnPlayerClickTextDraw](OnPlayerClickTextDraw)：当玩家点击文本绘制时触发
+- [OnPlayerClickTextDraw](OnPlayerClickTextDraw)：当玩家点击文本绘图时触发
 
 ## 相关资源
 

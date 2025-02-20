@@ -56,4 +56,4 @@ public OnEnterExitModShop(playerid, enterexit, interiorid)
 以下函数可能与当前回调相关：
 
 - [IsPlayerInModShop](../functions/IsPlayerInModShop)：检测玩家是否在改装店内
-- [AddVehicleComponent](../functions/AddVehicleComponent)：为载具添加改装组件
+- [AddVehicleComponent](../functions/AddVehicleComponent)：为车辆添加改装组件
