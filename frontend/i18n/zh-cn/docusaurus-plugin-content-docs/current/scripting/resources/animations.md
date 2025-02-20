@@ -13,12 +13,13 @@ These animations are used by [ApplyAnimation](../functions/ApplyAnimation) funct
 
 :::note
 
-Please note that some of the listed animations may not be useable in SA-MP.
+- Please note that some of the listed animations may not be useable in SA-MP.
+- Animations suffixed with `_O` were meant to be applied to objects (e.g. parachute movement). These will not work when applied to players.
 
 :::
 
 | Index | Library      | Name                   | Frames | Duration (sec) | Description                                                   | Notes                |
-|-------|--------------|------------------------|--------|----------------|---------------------------------------------------------------|----------------------|
+| ----- | ------------ | ---------------------- | ------ | -------------- | ------------------------------------------------------------- | -------------------- |
 | 1     | AIRPORT      | thrw_barl_thrw         | 120    | 2.00           | Opening a door with two hands                                 |                      |
 | 2     | Attractors   | Stepsit_in             | 100    | 1.67           | Sitting on the ground                                         |                      |
 | 3     | Attractors   | Stepsit_loop           | 200    | 3.33           | Sitting on the ground loop                                    |                      |
@@ -98,7 +99,7 @@ Please note that some of the listed animations may not be useable in SA-MP.
 | 77    | BIKEH        | BIKEh_drivebyFT        | 12     | 0.20           | Freeway lean back                                             |                      |
 | 78    | BIKEH        | BIKEh_drivebyLHS       | 12     | 0.20           | Freeway drive by left                                         |                      |
 | 79    | BIKEH        | BIKEh_drivebyRHS       | 12     | 0.20           | Freeway drive by right                                        |                      |
-| 80    | BIKEH        | BIKEh_Fwd              | 12     | 0.20           | Freeway  lean front                                           |                      |
+| 80    | BIKEH        | BIKEh_Fwd              | 12     | 0.20           | Freeway lean front                                            |                      |
 | 81    | BIKEH        | BIKEh_getoffBACK       | 102    | 1.70           | Freeway bail at high speed                                    |                      |
 | 82    | BIKEH        | BIKEh_getoffLHS        | 46     | 0.77           | Getting off a Freeway from the left                           |                      |
 | 83    | BIKEH        | BIKEh_getoffRHS        | 44     | 0.73           | Getting off a Freeway from the right                          |                      |

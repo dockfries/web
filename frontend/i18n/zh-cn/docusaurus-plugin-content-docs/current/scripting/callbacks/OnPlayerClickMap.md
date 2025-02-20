@@ -44,7 +44,7 @@ As the callback name says, its only called when the player click to mark the tar
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [GetPlayerPos](../functions/GetPlayerPos): Get a player's position.
 - [SetPlayerPos](../functions/SetPlayerPos): Set a player's position.

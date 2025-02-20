@@ -1,199 +1,186 @@
 ---
 title: OnDialogResponse
 sidebar_label: OnDialogResponse
-description: This callback is called when a player responds to a dialog shown using ShowPlayerDialog by either clicking a button, pressing ENTER/ESC or double-clicking a list item (if using a list style dialog).
+description: 当玩家响应通过ShowPlayerDialog显示的对话框时触发该回调。响应方式包括点击按钮、按下ENTER/ESC键或双击列表项（列表式对话框）。
 tags: ["dialog"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player responds to a dialog shown using ShowPlayerDialog by either clicking a button, pressing ENTER/ESC or double-clicking a list item (if using a list style dialog).
+当玩家响应通过ShowPlayerDialog显示的对话框时触发该回调。响应方式包括：
+- 点击按钮
+- 按下ENTER/ESC键
+- 双击列表项（针对列表式对话框）
 
-| Name        | Description                                                                                                             |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| playerid    | The ID of the player that responded to the dialog.                                                                      |
-| dialogid    | The ID of the dialog the player responded to, assigned in ShowPlayerDialog.                                             |
-| response    | 1 for left button and 0 for right button (if only one button shown, always 1)                                           |
-| listitem    | The ID of the list item selected by the player (starts at 0) (only if using a list style dialog, otherwise will be -1). |
-| inputtext[] | The text entered into the input box by the player or the selected list item text.                                       |
+| 参数          | 说明                                                                                     |
+|--------------|-----------------------------------------------------------------------------------------|
+| playerid     | 响应对话框的玩家ID                                                                       |
+| dialogid     | 对话框ID（与ShowPlayerDialog中设置的ID对应）                                             |
+| response     | 按钮响应值：1=左按钮，0=右按钮（若仅显示单个按钮则始终为1）                                |
+| listitem     | 玩家选择的列表项ID（从0开始计数），非列表式对话框该值为-1                                  |
+| inputtext[]  | 玩家在输入框中输入的文本内容 或 选中的列表项文本                                          |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts so returning 1 there blocks other filterscripts from seeing it.
+该回调在滤镜脚本中总是优先触发。返回1将阻止其他滤镜脚本处理该回调。
 
-## Examples
+## 示例
 
-**DIALOG_STYLE_MSGBOX**
+**消息框样式 (DIALOG_STYLE_MSGBOX)**
 
 ```c
-// Define the dialog ID so we can handle responses
+// 定义对话框ID
 #define DIALOG_RULES 1
 
-// In some command
-ShowPlayerDialog(playerid, DIALOG_RULES, DIALOG_STYLE_MSGBOX, "Server Rules", "- No Cheating\n- No Spamming\n- Respect Admins\n\nDo you agree to these rules?", "Yes", "No");
+// 在某个指令中
+ShowPlayerDialog(playerid, DIALOG_RULES, DIALOG_STYLE_MSGBOX, "服务器规则", 
+"- 禁止作弊\n- 禁止刷屏\n- 尊重管理员\n\n您是否同意遵守这些规则？", "同意", "拒绝");
 
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
     if (dialogid == DIALOG_RULES)
     {
-        if (response) // If they clicked 'Yes' or pressed enter
+        if (response) // 点击左按钮或按下ENTER
         {
-            SendClientMessage(playerid, COLOR_GREEN, "Thank you for agreeing to the server rules!");
+            SendClientMessage(playerid, COLOR_GREEN, "感谢您同意遵守服务器规则！");
         }
-        else // Pressed ESC or clicked cancel
+        else // 按下ESC或点击右按钮
         {
             Kick(playerid);
         }
-        return 1; // We handled a dialog, so return 1. Just like OnPlayerCommandText.
+        return 1; // 返回1表示已处理该对话框
     }
 
-    return 0; // You MUST return 0 here! Just like OnPlayerCommandText.
+    return 0; // 返回0表示未处理其他对话框
 }
 ```
 
-**DIALOG_STYLE_INPUT**
+**输入框样式 (DIALOG_STYLE_INPUT)**
 
 ```c
 #define DIALOG_LOGIN 2
 
-// In some command
-ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, "Login", "Please enter your password:", "Login", "Cancel");
+// 在某个指令中
+ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, "登录", 
+"请输入您的密码：", "登录", "取消");
 
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
     if (dialogid == DIALOG_LOGIN)
     {
-        if (!response) // If they clicked 'Cancel' or pressed esc
+        if (!response) // 按下ESC或点击右按钮
         {
             Kick(playerid);
         }
-        else // Pressed ENTER or clicked 'Login' button
+        else 
         {
             if (CheckPassword(playerid, inputtext))
             {
-                SendClientMessage(playerid, COLOR_RED, "You are now logged in!");
+                SendClientMessage(playerid, COLOR_RED, "登录成功！");
             }
             else
             {
-                SendClientMessage(playerid, COLOR_RED, "LOGIN FAILED.");
+                SendClientMessage(playerid, COLOR_RED, "登录失败");
 
-                // Re-show the login dialog
-                ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, "Login", "Please enter your password:", "Login", "Cancel");
+                // 重新显示登录对话框
+                ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, 
+                "登录", "请输入您的密码：", "登录", "取消");
             }
         }
-        return 1; // We handled a dialog, so return 1. Just like OnPlayerCommandText.
+        return 1; 
     }
 
-    return 0; // You MUST return 0 here! Just like OnPlayerCommandText.
+    return 0; 
 }
 ```
 
-**DIALOG_STYLE_LIST**
+**列表样式 (DIALOG_STYLE_LIST)**
 
 ```c
 #define DIALOG_WEAPONS 3
 
-// In some command
-ShowPlayerDialog(playerid, DIALOG_WEAPONS, DIALOG_STYLE_LIST, "Weapons", "Desert Eagle\nAK-47\nCombat Shotgun", "Select", "Close");
+// 在某个指令中
+ShowPlayerDialog(playerid, DIALOG_WEAPONS, DIALOG_STYLE_LIST, "武器库", 
+"沙漠之鹰\nAK-47\n战斗霰弹枪", "选择", "关闭");
 
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
     if (dialogid == DIALOG_WEAPONS)
     {
-        if (response) // If they clicked 'Select' or double-clicked a weapon
+        if (response) // 点击选择按钮或双击列表项
         {
-            // Give them the weapon
             switch (listitem)
             {
-                case 0:
-                {
-                    GivePlayerWeapon(playerid, WEAPON_DEAGLE, 14); // Give them a desert eagle
-                }
-                case 1:
-                {
-                    GivePlayerWeapon(playerid, WEAPON_AK47, 120); // Give them an AK-47
-                }
-                case 2:
-                {
-                    GivePlayerWeapon(playerid, WEAPON_SHOTGSPA, 28); // Give them a Combat Shotgun
-                }
+                case 0: GivePlayerWeapon(playerid, WEAPON_DEAGLE, 14);   // 沙漠之鹰
+                case 1: GivePlayerWeapon(playerid, WEAPON_AK47, 120);    // AK-47
+                case 2: GivePlayerWeapon(playerid, WEAPON_SHOTGSPA, 28); // 战斗霰弹枪
             }
         }
-        return 1; // We handled a dialog, so return 1. Just like OnPlayerCommandText.
+        return 1;
     }
 
-    return 0; // You MUST return 0 here! Just like OnPlayerCommandText.
+    return 0;
 }
 ```
 
-**DIALOG_STYLE_TABLIST**
+**表格列表样式 (DIALOG_STYLE_TABLIST)**
 
 ```c
 #define DIALOG_WEAPONS 3
 
-// In some command
-ShowPlayerDialog(playerid, DIALOG_WEAPONS, DIALOG_STYLE_TABLIST, "Weapons",
-"Weapon\tAmmo\tPrice\n\
+// 在某个指令中
+ShowPlayerDialog(playerid, DIALOG_WEAPONS, DIALOG_STYLE_TABLIST, "武器商店",
+"武器\t弹药\t价格\n\
 M4\t120\t500\n\
 MP5\t90\t350\n\
 AK-47\t120\t400",
-"Select", "Close");
+"购买", "关闭");
 
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
     if (dialogid == DIALOG_WEAPONS)
     {
-        if (response) // If they clicked 'Select' or double-clicked a weapon
+        if (response) // 点击购买或双击武器
         {
-            // Give them the weapon
             switch (listitem)
             {
-                case 0:
-                {
-                    GivePlayerWeapon(playerid, WEAPON_M4, 120); // Give them an M4
-                }
-                case 1:
-                {
-                    GivePlayerWeapon(playerid, WEAPON_MP5, 90); // Give them an MP5
-                }
-                case 2:
-                {
-                    GivePlayerWeapon(playerid, WEAPON_AK47, 120); // Give them an AK-47
-                }
+                case 0: GivePlayerWeapon(playerid, WEAPON_M4, 120);    // M4
+                case 1: GivePlayerWeapon(playerid, WEAPON_MP5, 90);    // MP5
+                case 2: GivePlayerWeapon(playerid, WEAPON_AK47, 120);  // AK-47
             }
         }
-        return 1; // We handled a dialog, so return 1. Just like OnPlayerCommandText.
+        return 1; 
     }
 
-    return 0; // You MUST return 0 here! Just like OnPlayerCommandText.
+    return 0; 
 }
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-Parameters can contain different values, based on dialog's style ([click for more examples](../resources/dialogstyles)).
+参数值会根据对话框样式不同而变化（[点击查看详细示例](../resources/dialogstyles)）
 
 :::
 
 :::tip
 
-It is appropriate to switch through different dialogids, if you have many.
+使用switch-case语句处理多个对话框比if语句更高效
 
 :::
 
 :::warning
 
-A player's dialog doesn't hide when the gamemode restarts, causing the server to print "Warning: PlayerDialogResponse PlayerId: 0 dialog ID doesn't match last sent dialog ID" if a player responded to this dialog after restart.
+服务器重启后玩家的对话框不会自动关闭。若玩家在服务器重启后响应对话框，服务端会提示警告："Warning: PlayerDialogResponse PlayerId: 0 dialog ID doesn't match last sent dialog ID"
 
 :::
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+以下函数可能与当前回调相关：
 
-- [ShowPlayerDialog](../functions/ShowPlayerDialog): Show a dialog to a player.
-- [GetPlayerDialogID](../functions/GetPlayerDialogID): Get the ID of the dialog currently show to the player.
-- [GetPlayerDialogData](../functions/GetPlayerDialogData): Get the data of the dialog currently show to the player.
-- [HidePlayerDialog](../functions/HidePlayerDialog): Hides the dialog currently show to the player.
+- [ShowPlayerDialog](../functions/ShowPlayerDialog)：向玩家显示对话框
+- [GetPlayerDialogID](../functions/GetPlayerDialogID)：获取玩家当前对话框ID
+- [GetPlayerDialogData](../functions/GetPlayerDialogData)：获取玩家当前对话框数据
+- [HidePlayerDialog](../functions/HidePlayerDialog)：隐藏玩家当前对话框

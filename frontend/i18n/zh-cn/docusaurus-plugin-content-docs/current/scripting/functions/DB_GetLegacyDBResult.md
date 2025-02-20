@@ -12,7 +12,7 @@ tags: ["sqlite"]
 The function gets the memory handle for a SQLite database result set that was allocated with [DB_ExecuteQuery](DB_ExecuteQuery).
 
 | Name            | Description                                                              |
-|-----------------|--------------------------------------------------------------------------|
+| --------------- | ------------------------------------------------------------------------ |
 | DBResult:result | The index of the query (returned by [DB_ExecuteQuery](DB_ExecuteQuery)). |
 
 ## Returns

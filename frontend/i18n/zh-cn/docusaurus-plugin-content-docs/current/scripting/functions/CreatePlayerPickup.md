@@ -12,7 +12,7 @@ tags: ["player", "pickup", "playerpickup"]
 Creates a pickup which will be visible to only one player.
 
 | Name                             | Description                                                                       |
-|----------------------------------|-----------------------------------------------------------------------------------|
+| -------------------------------- | --------------------------------------------------------------------------------- |
 | playerid                         | The ID of the player to create the pickup for.                                    |
 | [model](../resources/pickupids)  | The model of the pickup.                                                          |
 | [type](../resources/pickuptypes) | The pickup type. Determines how the pickup responds when picked up.               |

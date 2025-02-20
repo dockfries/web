@@ -8,12 +8,13 @@ This page covers everything you need to know about gametext styles, and how they
 Mainly used by [GameText](../functions/GameTextForPlayer) and [GameTextForAll](../functions/GameTextForAll).
 
 ---
-  
+
 ## Text Colors
+
 It is possible to draw certain parts of your text in different colors. To do this, you simply need to use the colour slugs listed below, and encapsulate the part of your text which you want to draw in a specific color (e.g. \~y\~I'm drawn in yellow!\~y\~).
 
-| Code                 | Colour                                 | Description                                      |
-| -------------------- | -------------------------------------- | ------------------------------------------------ |
+| Code                 | Colour                                                              | Description                                      |
+| -------------------- | ------------------------------------------------------------------- | ------------------------------------------------ |
 | N/A                  | ![](https://assets.open.mp/assets/images/gameTextStyles/-.png)      | Default colour, has no code.                     |
 | `~h~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/h.png)      | Lighter version of the default colour.           |
 | `~h~~h~`             | ![](https://assets.open.mp/assets/images/gameTextStyles/hh.png)     | Lighter version of the default colour.           |
@@ -38,25 +39,26 @@ It is possible to draw certain parts of your text in different colors. To do thi
 | `~y~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/y.png)      | Has two levels of lightening.                    |
 | `~y~~h~`             | ![](https://assets.open.mp/assets/images/gameTextStyles/yh.png)     |                                                  |
 | `~y~~h~~h~`          | ![](https://assets.open.mp/assets/images/gameTextStyles/yhh.png)    | Same as `~g~~h~~h~~h~~h~`.                       |
-| `~l~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/l.png)      | Lower case "L".  Can't be lightened.             |
+| `~l~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/l.png)      | Lower case "L". Can't be lightened.              |
 | `~w~ (or ~s~)`       | ![](https://assets.open.mp/assets/images/gameTextStyles/w.png)      | Has one level of lightening.                     |
 | `~w~~h~ (or ~s~~h~)` | ![](https://assets.open.mp/assets/images/gameTextStyles/wh.png)     | All colours become this when lightened too much. |
 
 ---
-  
+
 ## Special Text Letters
+
 Unlike text colors, these slugs do not require encapsulation. They can be used as-is.
 
-|  Code  | Description                                                                                                                        |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `~n~` | New line                                                                                                                            |
-| `~h~` | Turn selected colours lighter.  Text can appear between the main colour and the lightening, for example `~r~Hello ~h~world` will make "Hello" red and "world" slightly lighter red. |
-| `~u~` | Up arrow (gray)                                                                                                                     |
-| `~d~` | Down arrow (gray)                                                                                                                   |
-| `~<~` | Left arrow (gray)                                                                                                                   |
-| `~>~` | Right arrow (gray)                                                                                                                  |
-| `~]~` | Displays a `*` symbol (Only in text styles 3, 4 and 5)                                                                              |
-| `~k~` | Keyboard key mapping (e.g. `~k~~VEHICLE_TURRETLEFT~` and `~k~~PED_FIREWEAPON~`). Look [here](../resources/keys) for a list of keys. |
+| Code  | Description                                                                                                                                                                        |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `~n~` | New line                                                                                                                                                                           |
+| `~h~` | Turn selected colours lighter. Text can appear between the main colour and the lightening, for example `~r~Hello ~h~world` will make "Hello" red and "world" slightly lighter red. |
+| `~u~` | Up arrow (gray)                                                                                                                                                                    |
+| `~d~` | Down arrow (gray)                                                                                                                                                                  |
+| `~<~` | Left arrow (gray)                                                                                                                                                                  |
+| `~>~` | Right arrow (gray)                                                                                                                                                                 |
+| `~]~` | Displays a `*` symbol (Only in text styles 3, 4 and 5)                                                                                                                             |
+| `~k~` | Keyboard key mapping (e.g. `~k~~VEHICLE_TURRETLEFT~` and `~k~~PED_FIREWEAPON~`). Look [here](../resources/keys) for a list of keys.                                                |
 
 :::caution
 
@@ -65,24 +67,25 @@ Be careful, using too many text colors or special characters in one gametext may
 :::
 
 ## Text Styles
+
 You can use the following text styles in game texts.
 
-|  Style  | Preview                                | Description                                                                                                              |
-| ------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Style 0 | ![](https://assets.open.mp/assets/images/gameTextStyles/style0.png) | Appears for 9 seconds regardless of time setting. Hides textdraws and any other gametext on screen (fixed in fixes.inc)  |
+| Style   | Preview                                                             | Description                                                                                                                                                                            |
+| ------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Style 0 | ![](https://assets.open.mp/assets/images/gameTextStyles/style0.png) | Appears for 9 seconds regardless of time setting. Hides textdraws and any other gametext on screen (fixed in fixes.inc)                                                                |
 | Style 1 | ![](https://assets.open.mp/assets/images/gameTextStyles/style1.png) | Fades out after 8 seconds, regardless of time set. If you have a time setting longer than that, it will re-appear after fading out and repeat until the time ends (fixed in fixes.inc) |
-| Style 2 | ![](https://assets.open.mp/assets/images/gameTextStyles/style2.png) | N/A                                                                                                                      |
-| Style 3 | ![](https://assets.open.mp/assets/images/gameTextStyles/style3.png) | N/A                                                                                                                      |
-| Style 4 | ![](https://assets.open.mp/assets/images/gameTextStyles/style4.png) | N/A                                                                                                                      |
-| Style 5 | ![](https://assets.open.mp/assets/images/gameTextStyles/style5.png) | Displays for 3 seconds, regardless of what time you set. Will refuse to be shown if it is 'spammed' (fixed in fixes.inc) |
-| Style 6 | ![](https://assets.open.mp/assets/images/gameTextStyles/style6.png) | N/A                                                                                                                      |
+| Style 2 | ![](https://assets.open.mp/assets/images/gameTextStyles/style2.png) | N/A                                                                                                                                                                                    |
+| Style 3 | ![](https://assets.open.mp/assets/images/gameTextStyles/style3.png) | N/A                                                                                                                                                                                    |
+| Style 4 | ![](https://assets.open.mp/assets/images/gameTextStyles/style4.png) | N/A                                                                                                                                                                                    |
+| Style 5 | ![](https://assets.open.mp/assets/images/gameTextStyles/style5.png) | Displays for 3 seconds, regardless of what time you set. Will refuse to be shown if it is 'spammed' (fixed in fixes.inc)                                                               |
+| Style 6 | ![](https://assets.open.mp/assets/images/gameTextStyles/style6.png) | N/A                                                                                                                                                                                    |
 
 ---
-  
+
 ## Text Styles added by [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes)
 
-|  Style   | Preview                                 | Description                                        |
-| -------- | --------------------------------------- | -------------------------------------------------- |
+| Style    | Preview                                                              | Description                                        |
+| -------- | -------------------------------------------------------------------- | -------------------------------------------------- |
 | Style 7  | ![](https://assets.open.mp/assets/images/gameTextStyles/style7.png)  | Based on SA vehicle names.                         |
 | Style 8  | ![](https://assets.open.mp/assets/images/gameTextStyles/style8.png)  | Based on SA location names.                        |
 | Style 9  | ![](https://assets.open.mp/assets/images/gameTextStyles/style9.png)  | Based on SA radio station names (once selected).   |

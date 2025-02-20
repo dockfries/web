@@ -41,14 +41,14 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
-- [OnPlayerEnterVehicle](OnPlayerEnterVehicle): This callback is called when a player starts to enter a vehicle. 
-- [OnPlayerStateChange](OnPlayerStateChange): This callback is called when a player changes state. 
+- [OnPlayerEnterVehicle](OnPlayerEnterVehicle): This callback is called when a player starts to enter a vehicle.
+- [OnPlayerStateChange](OnPlayerStateChange): This callback is called when a player changes state.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [RemovePlayerFromVehicle](../functions/RemovePlayerFromVehicle): Throw a player out of their vehicle.
 - [GetPlayerVehicleSeat](../functions/GetPlayerVehicleSeat): Check what seat a player is in.

@@ -20,15 +20,15 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### fonts.txd
 
-| Texture | Preview                              |
-| ------- | ------------------------------------ |
+| Texture | Preview                                                           |
+| ------- | ----------------------------------------------------------------- |
 | font1   | ![](https://assets.open.mp/assets/images/sprites/fonts/font1.png) |
 | font2   | ![](https://assets.open.mp/assets/images/sprites/fonts/font2.png) |
 
 ### hud.txd
 
-| Texture             | Preview                                          |
-| ------------------- | ------------------------------------------------ |
+| Texture             | Preview                                                                       |
+| ------------------- | ----------------------------------------------------------------------------- |
 | arrow               | ![](https://assets.open.mp/assets/images/sprites/hud/arrow.png)               |
 | fist                | ![](https://assets.open.mp/assets/images/sprites/hud/fist.png)                |
 | radardisc           | ![](https://assets.open.mp/assets/images/sprites/hud/radardisc.png)           |
@@ -101,8 +101,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### Weapon Icons
 
-| Texture                       | Weapon ID | Preview                                       |
-|-------------------------------|-----------|-----------------------------------------------|
+| Texture                       | Weapon ID | Preview                                                                    |
+| ----------------------------- | --------- | -------------------------------------------------------------------------- |
 | hud:fist                      | 0         | ![](https://assets.open.mp/assets/images/weaponIcons/fist.png)             |
 | brassknuckle:BRASSKNUCKLEicon | 1         | ![](https://assets.open.mp/assets/images/weaponIcons/brassKnuckles.png)    |
 | golfclub:golfclubicon         | 2         | ![](https://assets.open.mp/assets/images/weaponIcons/golfClub.png)         |
@@ -153,32 +153,32 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### intro1.txd
 
-| Texture | Preview                                |
-| ------- | -------------------------------------- |
+| Texture | Preview                                                             |
+| ------- | ------------------------------------------------------------------- |
 | intro1  | ![](https://assets.open.mp/assets/images/sprites/intro1/intro1.png) |
 
 ### intro2.txd
 
-| Texture | Preview                                |
-| ------- | -------------------------------------- |
+| Texture | Preview                                                             |
+| ------- | ------------------------------------------------------------------- |
 | intro2  | ![](https://assets.open.mp/assets/images/sprites/intro2/intro2.png) |
 
 ### intro3.txd
 
-| Texture | Preview                                |
-| ------- | -------------------------------------- |
+| Texture | Preview                                                             |
+| ------- | ------------------------------------------------------------------- |
 | intro3  | ![](https://assets.open.mp/assets/images/sprites/intro3/intro3.png) |
 
 ### intro4.txd
 
-| Texture | Preview                                |
-| ------- | -------------------------------------- |
+| Texture | Preview                                                             |
+| ------- | ------------------------------------------------------------------- |
 | intro4  | ![](https://assets.open.mp/assets/images/sprites/intro4/intro4.png) |
 
 ### LD_BEAT.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | chit    | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/chit.png)   |
 | circle  | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/circle.png) |
 | cring   | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/cring.png)  |
@@ -196,15 +196,15 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_BUM.txd
 
-| Texture | Preview                              |
-| ------- | ------------------------------------ |
+| Texture | Preview                                                           |
+| ------- | ----------------------------------------------------------------- |
 | bum1    | ![](https://assets.open.mp/assets/images/sprites/LD_BUM/bum1.png) |
 | bum2    | ![](https://assets.open.mp/assets/images/sprites/LD_BUM/bum2.png) |
 
 ### LD_CARD.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | cd10c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10c.png)  |
 | cd10d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10d.png)  |
 | cd10h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10h.png)  |
@@ -261,8 +261,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_CHAT.txd
 
-| Texture | Preview                                  |
-| ------- | ---------------------------------------- |
+| Texture | Preview                                                               |
+| ------- | --------------------------------------------------------------------- |
 | badchat | ![](https://assets.open.mp/assets/images/sprites/LD_CHAT/badchat.png) |
 | dpad_64 | ![](https://assets.open.mp/assets/images/sprites/LD_CHAT/dpad_64.png) |
 | dpad_lr | ![](https://assets.open.mp/assets/images/sprites/LD_CHAT/dpad_lr.png) |
@@ -272,8 +272,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_DRV.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | brboat  | ![](https://assets.open.mp/assets/images/sprites/LD_DRV/brboat.png)  |
 | brfly   | ![](https://assets.open.mp/assets/images/sprites/LD_DRV/brfly.png)   |
 | bronze  | ![](https://assets.open.mp/assets/images/sprites/LD_DRV/bronze.png)  |
@@ -292,8 +292,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_DUAL.txd
 
-| Texture | Preview                                  |
-| ------- | ---------------------------------------- |
+| Texture | Preview                                                               |
+| ------- | --------------------------------------------------------------------- |
 | backgnd | ![](https://assets.open.mp/assets/images/sprites/LD_DUAL/backgnd.png) |
 | dark    | ![](https://assets.open.mp/assets/images/sprites/LD_DUAL/dark.png)    |
 | DUALITY | ![](https://assets.open.mp/assets/images/sprites/LD_DUAL/DUALITY.png) |
@@ -311,8 +311,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_GRAV.txd
 
-| Texture  | Preview                                   |
-| -------- | ----------------------------------------- |
+| Texture  | Preview                                                                |
+| -------- | ---------------------------------------------------------------------- |
 | bee1     | ![](https://assets.open.mp/assets/images/sprites/LD_GRAV/bee1.png)     |
 | bee2     | ![](https://assets.open.mp/assets/images/sprites/LD_GRAV/bee2.png)     |
 | beea     | ![](https://assets.open.mp/assets/images/sprites/LD_GRAV/beea.png)     |
@@ -337,8 +337,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_NONE.txd
 
-| Texture | Preview                                  |
-| ------- | ---------------------------------------- |
+| Texture | Preview                                                               |
+| ------- | --------------------------------------------------------------------- |
 | explm01 | ![](https://assets.open.mp/assets/images/sprites/LD_NONE/explm01.png) |
 | explm02 | ![](https://assets.open.mp/assets/images/sprites/LD_NONE/explm02.png) |
 | explm03 | ![](https://assets.open.mp/assets/images/sprites/LD_NONE/explm03.png) |
@@ -365,8 +365,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_OTB.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | bckgrnd | ![](https://assets.open.mp/assets/images/sprites/LD_OTB/bckgrnd.png) |
 | bride1  | ![](https://assets.open.mp/assets/images/sprites/LD_OTB/bride1.png)  |
 | bride2  | ![](https://assets.open.mp/assets/images/sprites/LD_OTB/bride2.png)  |
@@ -423,8 +423,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_OTB2.txd
 
-| Texture | Preview                                  |
-| ------- | ---------------------------------------- |
+| Texture | Preview                                                               |
+| ------- | --------------------------------------------------------------------- |
 | backbet | ![](https://assets.open.mp/assets/images/sprites/LD_OTB2/backbet.png) |
 | butnA   | ![](https://assets.open.mp/assets/images/sprites/LD_OTB2/butnA.png)   |
 | butnAo  | ![](https://assets.open.mp/assets/images/sprites/LD_OTB2/butnAo.png)  |
@@ -439,14 +439,14 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_PLAN.txd
 
-| Texture | Preview                                  |
-| ------- | ---------------------------------------- |
+| Texture | Preview                                                               |
+| ------- | --------------------------------------------------------------------- |
 | AirLogo | ![](https://assets.open.mp/assets/images/sprites/LD_PLAN/AirLogo.png) |
 
 ### LD_POKE.txd
 
-| Texture  | Preview                                   |
-| -------- | ----------------------------------------- |
+| Texture  | Preview                                                                |
+| -------- | ---------------------------------------------------------------------- |
 | addcoin  | ![](https://assets.open.mp/assets/images/sprites/LD_POKE/addcoin.png)  |
 | backcyan | ![](https://assets.open.mp/assets/images/sprites/LD_POKE/backcyan.png) |
 | backred  | ![](https://assets.open.mp/assets/images/sprites/LD_POKE/backred.png)  |
@@ -457,15 +457,15 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_POOL.txd
 
-| Texture | Preview                               |
-| ------- | ------------------------------------- |
+| Texture | Preview                                                            |
+| ------- | ------------------------------------------------------------------ |
 | ball    | ![](https://assets.open.mp/assets/images/sprites/LD_POOL/ball.png) |
 | nib     | ![](https://assets.open.mp/assets/images/sprites/LD_POOL/nib.png)  |
 
 ### LD_RACE.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | race00  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race00.png) |
 | race01  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race01.png) |
 | race02  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race02.png) |
@@ -482,8 +482,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_RCE1.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | race00  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race00.png) |
 | race01  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race01.png) |
 | race02  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race02.png) |
@@ -493,8 +493,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_RCE2.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | race06  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race06.png) |
 | race07  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race07.png) |
 | race08  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race08.png) |
@@ -504,8 +504,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_RCE3.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | race12  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race12.png) |
 | race13  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race13.png) |
 | race14  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race14.png) |
@@ -515,8 +515,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_RCE4.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | race18  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race18.png) |
 | race19  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race19.png) |
 | race20  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race20.png) |
@@ -526,22 +526,22 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_RCE5.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | race24  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE5/race24.png) |
 
 ### LD_ROUL.txd
 
-| Texture | Preview                                  |
-| ------- | ---------------------------------------- |
+| Texture | Preview                                                               |
+| ------- | --------------------------------------------------------------------- |
 | roulbla | ![](https://assets.open.mp/assets/images/sprites/LD_ROUL/roulbla.png) |
 | roulgre | ![](https://assets.open.mp/assets/images/sprites/LD_ROUL/roulgre.png) |
 | roulred | ![](https://assets.open.mp/assets/images/sprites/LD_ROUL/roulred.png) |
 
 ### LD_SHTR.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | bstars  | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/bstars.png) |
 | cbarl   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/cbarl.png)  |
 | cbarm   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/cbarm.png)  |
@@ -575,8 +575,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_SLOT.txd
 
-| Texture | Preview                                 |
-| ------- | --------------------------------------- |
+| Texture | Preview                                                              |
+| ------- | -------------------------------------------------------------------- |
 | bar1_o  | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/bar1_o.png) |
 | bar2_o  | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/bar2_o.png) |
 | bell    | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/bell.png)   |
@@ -586,8 +586,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_TATT.txd
 
-| Texture | Preview                                  |
-| ------- | ---------------------------------------- |
+| Texture | Preview                                                               |
+| ------- | --------------------------------------------------------------------- |
 | 10ls    | ![](https://assets.open.mp/assets/images/sprites/LD_TATT/10ls.png)    |
 | 10ls2   | ![](https://assets.open.mp/assets/images/sprites/LD_TATT/10ls2.png)   |
 | 10ls3   | ![](https://assets.open.mp/assets/images/sprites/LD_TATT/10ls3.png)   |
@@ -639,8 +639,8 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_LOADSCS.txd
 
-| Texture     | Preview                                      |
-| ----------- | -------------------------------------------- |
+| Texture     | Preview                                                                   |
+| ----------- | ------------------------------------------------------------------------- |
 | eax         | ![](https://assets.open.mp/assets/images/sprites/LOADSCS/eax.png)         |
 | loadsc0     | ![](https://assets.open.mp/assets/images/sprites/LOADSCS/loadsc0.png)     |
 | loadsc1     | ![](https://assets.open.mp/assets/images/sprites/LOADSCS/loadsc1.png)     |
@@ -663,14 +663,14 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### outro.txd
 
-| Texture | Preview                              |
-| ------- | ------------------------------------ |
+| Texture | Preview                                                           |
+| ------- | ----------------------------------------------------------------- |
 | outro   | ![](https://assets.open.mp/assets/images/sprites/outro/outro.png) |
 
 ### samaps.txd
 
-| Texture      | Preview                                      |
-| ------------ | -------------------------------------------- |
+| Texture      | Preview                                                                   |
+| ------------ | ------------------------------------------------------------------------- |
 | gtasamapbit1 | ![](https://assets.open.mp/assets/images/sprites/samaps/gtasamapbit1.png) |
 | gtasamapbit2 | ![](https://assets.open.mp/assets/images/sprites/samaps/gtasamapbit2.png) |
 | gtasamapbit3 | ![](https://assets.open.mp/assets/images/sprites/samaps/gtasamapbit3.png) |
@@ -679,12 +679,12 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### splash1.txd
 
-| Texture      | Preview                                  |
-| ------------ | ---------------------------------------- |
+| Texture      | Preview                                                               |
+| ------------ | --------------------------------------------------------------------- |
 | gtasamapbit1 | ![](https://assets.open.mp/assets/images/sprites/splash1/splash1.png) |
 
 ### splash2.txd
 
-| Texture      | Preview                                  |
-| ------------ | ---------------------------------------- |
+| Texture      | Preview                                                               |
+| ------------ | --------------------------------------------------------------------- |
 | gtasamapbit1 | ![](https://assets.open.mp/assets/images/sprites/splash2/splash2.png) |

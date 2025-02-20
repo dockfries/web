@@ -9,9 +9,9 @@ tags: ["npc"]
 
 This callback is called when a NPC successfully connects to the server.
 
-| Name         | Description                                        |
-| ------------ | -------------------------------------------------- |
-| myplayerid   | The playerid the NPC has been given                |
+| Name       | Description                         |
+| ---------- | ----------------------------------- |
+| myplayerid | The playerid the NPC has been given |
 
 ## Examples
 
@@ -24,7 +24,7 @@ public OnNPCConnect(myplayerid)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnNPCDisconnect](OnNPCDisconnect): This callback is called when the NPC gets disconnected from the server.
 - [OnPlayerConnect](OnPlayerConnect): This callback is called when a player connects to the server.

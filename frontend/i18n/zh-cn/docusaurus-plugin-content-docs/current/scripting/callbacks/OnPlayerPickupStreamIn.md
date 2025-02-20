@@ -12,7 +12,7 @@ tags: ["player", "pickup", "playerpickup"]
 This callback is called when a player-pickup enters the visual range of the player.
 
 | Name     | Description                                                                                    |
-|----------|------------------------------------------------------------------------------------------------|
+| -------- | ---------------------------------------------------------------------------------------------- |
 | pickupid | The ID of the player-pickup, returned by [CreatePlayerPickup](../functions/CreatePlayerPickup) |
 | playerid | The ID of the player that player-pickup enters the visual range.                               |
 
@@ -43,14 +43,14 @@ public OnPlayerPickupStreamIn(pickupid, playerid)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnPlayerPickUpPlayerPickup](OnPlayerPickUpPlayerPickup): Called when a player picks up a player-pickup.
 - [OnPlayerPickupStreamOut](OnPlayerPickupStreamOut): Called when a player-pickup leaves the visual range of the player.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [CreatePlayerPickup](../functions/CreatePlayerPickup): Creates a pickup which will be visible to only one player.
 - [DestroyPlayerPickup](../functions/DestroyPlayerPickup): Destroy a player-pickup.

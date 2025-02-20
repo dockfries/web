@@ -1,6 +1,5 @@
 ---
 description: This page has most of the available interiors in SAMP.
-sidebar_label: Interiors
 ---
 
 ## How to get the Interior ID
@@ -21,8 +20,8 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## 24/7's
 
-| Interior | Interior ID | X        | Y         | Z         | Picture                                |
-| -------- | ----------- | -------- | --------- | --------- | -------------------------------------- |
+| Interior | Interior ID | X        | Y         | Z         | Picture                                                             |
+| -------- | ----------- | -------- | --------- | --------- | ------------------------------------------------------------------- |
 | 24/7 1   | 17          | -25.7220 | -187.8216 | 1003.5469 | ![](https://assets.open.mp/assets/images/interiors/interior20.png)  |
 | 24/7 2   | 10          | 6.0856   | -28.8966  | 1003.5494 | ![](https://assets.open.mp/assets/images/interiors/interior28.png)  |
 | 24/7 3   | 18          | -30.9875 | -89.6806  | 1003.5469 | ![](https://assets.open.mp/assets/images/interiors/interior52.png)  |
@@ -32,16 +31,16 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Modding shops
 
-| Interior          | Interior ID | X        | Y         | Z         | Picture                               |
-| ----------------- | ----------- | -------- | --------- | --------- | ------------------------------------- |
+| Interior          | Interior ID | X        | Y         | Z         | Picture                                                            |
+| ----------------- | ----------- | -------- | --------- | --------- | ------------------------------------------------------------------ |
 | Loco Low Co.      | 2           | 611.3536 | -77.5574  | 997.9995  | ![](https://assets.open.mp/assets/images/interiors/interior26.png) |
 | Wheel Arch Angels | 3           | 612.2191 | -123.9028 | 997.9922  | ![](https://assets.open.mp/assets/images/interiors/interior11.png) |
 | TransFender       | 1           | 621.4528 | -23.7289  | 1000.9219 | ![](https://assets.open.mp/assets/images/interiors/interior30.png) |
 
 ## Casinos
 
-| Interior               | Interior ID | X         | Y         | Z         | Picture                                |
-| ---------------------- | ----------- | --------- | --------- | --------- | -------------------------------------- |
+| Interior               | Interior ID | X         | Y         | Z         | Picture                                                             |
+| ---------------------- | ----------- | --------- | --------- | --------- | ------------------------------------------------------------------- |
 | Four Dragons           | 10          | 2016.1156 | 1017.1541 | 996.875   | ![](https://assets.open.mp/assets/images/interiors/interior41.png)  |
 | Casino (Redsands West) | 12          | 1000.6797 | 1133.35   | -7.8462   | ![](https://assets.open.mp/assets/images/interiors/interior62.png)  |
 | Caligula's Casino      | 1           | 2233.9363 | 1711.8038 | 1011.6312 | ![](https://assets.open.mp/assets/images/interiors/interior48.png)  |
@@ -49,8 +48,8 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Clothing Shops
 
-| Interior     | Interior ID | X        | Y         | Z         | Picture                               |
-| ------------ | ----------- | -------- | --------- | --------- | ------------------------------------- |
+| Interior     | Interior ID | X        | Y         | Z         | Picture                                                            |
+| ------------ | ----------- | -------- | --------- | --------- | ------------------------------------------------------------------ |
 | Victim       | 5           | 225.0306 | -9.1838   | 1002.218  | ![](https://assets.open.mp/assets/images/interiors/interior25.png) |
 | Sub Urban    | 1           | 204.1174 | -46.8047  | 1001.8047 | ![](https://assets.open.mp/assets/images/interiors/interior33.png) |
 | Zip          | 18          | 161.4048 | -94.2416  | 1001.8047 | ![](https://assets.open.mp/assets/images/interiors/interior53.png) |
@@ -60,8 +59,8 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Restaurants, bars
 
-| Interior             | Interior ID | X         | Y         | Z         | Picture                                |
-| -------------------- | ----------- | --------- | --------- | --------- | -------------------------------------- |
+| Interior             | Interior ID | X         | Y         | Z         | Picture                                                             |
+| -------------------- | ----------- | --------- | --------- | --------- | ------------------------------------------------------------------- |
 | Pizza Stack          | 5           | 372.5565  | -131.3607 | 1001.4922 | ![](https://assets.open.mp/assets/images/interiors/interior22.png)  |
 | Rusty Brown's Donuts | 17          | 378.026   | -190.5155 | 1000.6328 | ![](https://assets.open.mp/assets/images/interiors/interior23.png)  |
 | Burger Shot          | 10          | 366.0248  | -73.3478  | 1001.5078 | ![](https://assets.open.mp/assets/images/interiors/interior47.png)  |
@@ -71,8 +70,8 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Barber, tattoo, sex shops
 
-| Interior      | Interior ID | X         | Y        | Z         | Picture                                |
-| ------------- | ----------- | --------- | -------- | --------- | -------------------------------------- |
+| Interior      | Interior ID | X         | Y        | Z         | Picture                                                             |
+| ------------- | ----------- | --------- | -------- | --------- | ------------------------------------------------------------------- |
 | Barber shop 1 | 12          | 411.9707  | -51.9217 | 1001.8984 | ![](https://assets.open.mp/assets/images/interiors/interior107.png) |
 | Barber shop 2 | 2           | 414.2987  | -18.8044 | 1001.8047 | ![](https://assets.open.mp/assets/images/interiors/interior50.png)  |
 | Barber shop 3 | 3           | 418.4666  | -80.4595 | 1001.8047 | ![](https://assets.open.mp/assets/images/interiors/interior13.png)  |
@@ -81,32 +80,32 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Burglary houses
 
-| Interior          | Interior ID | X             | Y         | Z         | Picture                                |
-| ----------------- | ----------- | ------------- | --------- | --------- | -------------------------------------- |
-| Burglary house 1  | 3           | 234.6087      | 1187.8195 | 1080.2578 | ![](https://assets.open.mp/assets/images/interiors/interior75.png)  |
-| Burglary house 2  | 2           | 225.5707      | 1240.0643 | 1082.1406 | ![](https://assets.open.mp/assets/images/interiors/interior76.png)  |
-| Burglary house 3  | 1           | 224.288       | 1289.1907 | 1082.1406 | ![](https://assets.open.mp/assets/images/interiors/interior77.png)  |
-| Burglary house 4  | 5           | 239.2819      | 1114.1991 | 1080.9922 | ![](https://assets.open.mp/assets/images/interiors/interior78.png)  |
-| Burglary house 5  | 15          | 295.1391      | 1473.3719 | 1080.2578 | ![](https://assets.open.mp/assets/images/interiors/interior80.png)  |
-| Burglary house 6  | 2           | 446.626       | 1397.738  | 1084.3047 | ![](https://assets.open.mp/assets/images/interiors/interior91.png)  |
-| Burglary house 7  | 5           | 227.7559      | 1114.3844 | 1080.9922 | ![](https://assets.open.mp/assets/images/interiors/interior93.png)  |
-| Burglary house 8  | 4           | 261.1165      | 1287.2197 | 1080.2578 | ![](https://assets.open.mp/assets/images/interiors/interior94.png)  |
-| Burglary house 9  | 10          | 24.3769       | 1341.1829 | 1084.375  | ![](https://assets.open.mp/assets/images/interiors/interior100.png) |
-| Burglary house 10 | 4           | 221.6766      | 1142.4962 | 1082.6094 | ![](https://assets.open.mp/assets/images/interiors/interior104.png) |
-| Burglary house 11 | 4           | -262.1759     | 1456.6158 | 1084.3672 | ![](https://assets.open.mp/assets/images/interiors/interior112.png) |
-| Burglary house 12 | 5           | 22.861        | 1404.9165 | 1084.4297 | ![](https://assets.open.mp/assets/images/interiors/interior113.png) |
-| Burglary house 13 | 5           | 140.3679      | 1367.8837 | 1083.8621 | ![](https://assets.open.mp/assets/images/interiors/interior114.png) |
-| Burglary house 14 | 6           | 234.2826      | 1065.229  | 1084.2101 | ![](https://assets.open.mp/assets/images/interiors/interior118.png) |
-| Burglary house 15 | 6           | -68.5145      | 1353.8485 | 1080.2109 | ![](https://assets.open.mp/assets/images/interiors/interior119.png) |
-| Burglary house 16 | 15          | -285.2511     | 1471.197  | 1084.375  | ![](https://assets.open.mp/assets/images/interiors/interior123.png) |
-| Burglary house 17 | 8           | -42.5267      | 1408.23   | 1084.4297 | ![](https://assets.open.mp/assets/images/interiors/interior139.png) |
-| Burglary house 18 | 9           | 84.9244       | 1324.2983 | 1083.8594 | ![](https://assets.open.mp/assets/images/interiors/interior141.png) |
-| Burglary house 19 | 9           | 260.7421      | 1238.2261 | 1084.2578 | ![](https://assets.open.mp/assets/images/interiors/interior142.png) |
+| Interior          | Interior ID | X         | Y         | Z         | Picture                                                             |
+| ----------------- | ----------- | --------- | --------- | --------- | ------------------------------------------------------------------- |
+| Burglary house 1  | 3           | 234.6087  | 1187.8195 | 1080.2578 | ![](https://assets.open.mp/assets/images/interiors/interior75.png)  |
+| Burglary house 2  | 2           | 225.5707  | 1240.0643 | 1082.1406 | ![](https://assets.open.mp/assets/images/interiors/interior76.png)  |
+| Burglary house 3  | 1           | 224.288   | 1289.1907 | 1082.1406 | ![](https://assets.open.mp/assets/images/interiors/interior77.png)  |
+| Burglary house 4  | 5           | 239.2819  | 1114.1991 | 1080.9922 | ![](https://assets.open.mp/assets/images/interiors/interior78.png)  |
+| Burglary house 5  | 15          | 295.1391  | 1473.3719 | 1080.2578 | ![](https://assets.open.mp/assets/images/interiors/interior80.png)  |
+| Burglary house 6  | 2           | 446.626   | 1397.738  | 1084.3047 | ![](https://assets.open.mp/assets/images/interiors/interior91.png)  |
+| Burglary house 7  | 5           | 227.7559  | 1114.3844 | 1080.9922 | ![](https://assets.open.mp/assets/images/interiors/interior93.png)  |
+| Burglary house 8  | 4           | 261.1165  | 1287.2197 | 1080.2578 | ![](https://assets.open.mp/assets/images/interiors/interior94.png)  |
+| Burglary house 9  | 10          | 24.3769   | 1341.1829 | 1084.375  | ![](https://assets.open.mp/assets/images/interiors/interior100.png) |
+| Burglary house 10 | 4           | 221.6766  | 1142.4962 | 1082.6094 | ![](https://assets.open.mp/assets/images/interiors/interior104.png) |
+| Burglary house 11 | 4           | -262.1759 | 1456.6158 | 1084.3672 | ![](https://assets.open.mp/assets/images/interiors/interior112.png) |
+| Burglary house 12 | 5           | 22.861    | 1404.9165 | 1084.4297 | ![](https://assets.open.mp/assets/images/interiors/interior113.png) |
+| Burglary house 13 | 5           | 140.3679  | 1367.8837 | 1083.8621 | ![](https://assets.open.mp/assets/images/interiors/interior114.png) |
+| Burglary house 14 | 6           | 234.2826  | 1065.229  | 1084.2101 | ![](https://assets.open.mp/assets/images/interiors/interior118.png) |
+| Burglary house 15 | 6           | -68.5145  | 1353.8485 | 1080.2109 | ![](https://assets.open.mp/assets/images/interiors/interior119.png) |
+| Burglary house 16 | 15          | -285.2511 | 1471.197  | 1084.375  | ![](https://assets.open.mp/assets/images/interiors/interior123.png) |
+| Burglary house 17 | 8           | -42.5267  | 1408.23   | 1084.4297 | ![](https://assets.open.mp/assets/images/interiors/interior139.png) |
+| Burglary house 18 | 9           | 84.9244   | 1324.2983 | 1083.8594 | ![](https://assets.open.mp/assets/images/interiors/interior141.png) |
+| Burglary house 19 | 9           | 260.7421  | 1238.2261 | 1084.2578 | ![](https://assets.open.mp/assets/images/interiors/interior142.png) |
 
 ## Ammunations
 
-| Interior      | Interior ID | X        | Y         | Z         | Picture                                |
-| ------------- | ----------- | -------- | --------- | --------- | -------------------------------------- |
+| Interior      | Interior ID | X        | Y         | Z         | Picture                                                             |
+| ------------- | ----------- | -------- | --------- | --------- | ------------------------------------------------------------------- |
 | Ammu-nation 1 | 7           | 315.244  | -140.8858 | 999.6016  | ![](https://assets.open.mp/assets/images/interiors/interior24.png)  |
 | Ammu-nation 2 | 1           | 285.8361 | -39.0166  | 1001.5156 | ![](https://assets.open.mp/assets/images/interiors/interior32.png)  |
 | Ammu-nation 3 | 4           | 291.7626 | -80.1306  | 1001.5156 | ![](https://assets.open.mp/assets/images/interiors/interior95.png)  |
@@ -115,8 +114,8 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Safe houses
 
-| Interior                  | Interior ID | X         | Y          | Z         | Picture                                |
-| ------------------------- | ----------- | --------- | ---------- | --------- | -------------------------------------- |
+| Interior                  | Interior ID | X         | Y          | Z         | Picture                                                             |
+| ------------------------- | ----------- | --------- | ---------- | --------- | ------------------------------------------------------------------- |
 | The Johnson house         | 3           | 2496.0549 | -1695.1749 | 1014.7422 | ![](https://assets.open.mp/assets/images/interiors/interior46.png)  |
 | Angel Pine trailer        | 2           | 1.1853    | -3.2387    | 999.4284  | ![](https://assets.open.mp/assets/images/interiors/interior51.png)  |
 | Abandoned AC tower        | 10          | 419.8936  | 2537.1155  | 10.0000   | ![](https://assets.open.mp/assets/images/interiors/interior59.png)  |
@@ -131,8 +130,8 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Girlfriend related
 
-| Interior          | Interior ID | X        | Y        | Z         | Picture                               |
-| ----------------- | ----------- | -------- | -------- | --------- | ------------------------------------- |
+| Interior          | Interior ID | X        | Y        | Z         | Picture                                                            |
+| ----------------- | ----------- | -------- | -------- | --------- | ------------------------------------------------------------------ |
 | Denise's house    | 1           | 245.2307 | 304.7632 | 999.1484  | ![](https://assets.open.mp/assets/images/interiors/interior34.png) |
 | Helena's barn     | 3           | 290.623  | 309.0622 | 999.1484  | ![](https://assets.open.mp/assets/images/interiors/interior35.png) |
 | Barbara's "house" | 5           | 322.5014 | 303.6906 | 999.1484  | ![](https://assets.open.mp/assets/images/interiors/interior36.png) |
@@ -141,8 +140,8 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Departments
 
-| Interior                       | Interior ID | X        | Y        | Z         | Picture                                |
-| ------------------------------ | ----------- | -------- | -------- | --------- | -------------------------------------- |
+| Interior                       | Interior ID | X        | Y        | Z         | Picture                                                             |
+| ------------------------------ | ----------- | -------- | -------- | --------- | ------------------------------------------------------------------- |
 | Planning Department            | 3           | 386.5259 | 173.6381 | 1008.3828 | ![](https://assets.open.mp/assets/images/interiors/interior14.png)  |
 | Los Santos Police Department   | 6           | 246.6695 | 65.8039  | 1003.6406 | ![](https://assets.open.mp/assets/images/interiors/interior110.png) |
 | Las Venturas Police Department | 3           | 288.4723 | 170.0647 | 1007.1794 | ![](https://assets.open.mp/assets/images/interiors/interior15.png)  |
@@ -150,31 +149,31 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Stadiums
 
-| Interior           | Interior ID | X          | Y         | Z         | Picture                                |
-| ------------------ | ----------- | ---------- | --------- | --------- | -------------------------------------- |
+| Interior           | Interior ID | X          | Y         | Z         | Picture                                                             |
+| ------------------ | ----------- | ---------- | --------- | --------- | ------------------------------------------------------------------- |
 | Oval Stadium       | 1           | -1402.6613 | 106.3897  | 1032.2734 | ![](https://assets.open.mp/assets/images/interiors/interior38.png)  |
 | Vice Stadium       | 16          | -1401.067  | 1265.3706 | 1039.8672 | ![](https://assets.open.mp/assets/images/interiors/interior117.png) |
 | Blood Bowl Stadium | 15          | -1417.8927 | 932.4482  | 1041.5313 | ![](https://assets.open.mp/assets/images/interiors/interior81.png)  |
 
 ## Schools
 
-| Interior       | Interior ID | X          | Y         | Z         | Picture                                |
-| -------------- | ----------- | ---------- | --------- | --------- | -------------------------------------- |
+| Interior       | Interior ID | X          | Y         | Z         | Picture                                                             |
+| -------------- | ----------- | ---------- | --------- | --------- | ------------------------------------------------------------------- |
 | Bike school    | 3           | 1494.8589  | 1306.48   | 1093.2953 | ![](https://assets.open.mp/assets/images/interiors/interior115.png) |
 | Driving school | 3           | -2031.1196 | -115.8287 | 1035.1719 | ![](https://assets.open.mp/assets/images/interiors/interior133.png) |
 
 ## GYMs
 
-| Interior           | Interior ID | X        | Y        | Z         | Picture                                |
-| ------------------ | ----------- | -------- | -------- | --------- | -------------------------------------- |
+| Interior           | Interior ID | X        | Y        | Z         | Picture                                                             |
+| ------------------ | ----------- | -------- | -------- | --------- | ------------------------------------------------------------------- |
 | Ganton Gym         | 5           | 770.8033 | -0.7033  | 1000.7267 | ![](https://assets.open.mp/assets/images/interiors/interior1.png)   |
 | Cobra Gym          | 3           | 773.8887 | -47.7698 | 1000.5859 | ![](https://assets.open.mp/assets/images/interiors/interior29.png)  |
 | Below The Belt Gym | 1           | 773.7318 | -74.6957 | 1000.6542 | ![](https://assets.open.mp/assets/images/interiors/interior109.png) |
 
 ## Clubs, Brothels
 
-| Interior                   | Interior ID | X         | Y         | Z         | Picture                                |
-| -------------------------- | ----------- | --------- | --------- | --------- | -------------------------------------- |
+| Interior                   | Interior ID | X         | Y         | Z         | Picture                                                             |
+| -------------------------- | ----------- | --------- | --------- | --------- | ------------------------------------------------------------------- |
 | Brothel 1                  | 3           | 974.0177  | -9.5937   | 1001.1484 | ![](https://assets.open.mp/assets/images/interiors/interior2.png)   |
 | Brothel 2                  | 3           | 961.9308  | -51.9071  | 1001.1172 | ![](https://assets.open.mp/assets/images/interiors/interior3.png)   |
 | The Big Spread Ranch       | 3           | 1212.1489 | -28.5388  | 1000.9531 | ![](https://assets.open.mp/assets/images/interiors/interior6.png)   |
@@ -184,15 +183,15 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Warehouses
 
-| Interior    | Interior ID | X         | Y       | Z         | Picture                              |
-| ----------- | ----------- | --------- | ------- | --------- | ------------------------------------ |
+| Interior    | Interior ID | X         | Y       | Z         | Picture                                                           |
+| ----------- | ----------- | --------- | ------- | --------- | ----------------------------------------------------------------- |
 | Warehouse 1 | 18          | 1290.4106 | 1.9512  | 1001.0201 | ![](https://assets.open.mp/assets/images/interiors/interior7.png) |
 | Warehouse 2 | 1           | 1412.1472 | -2.2836 | 1000.9241 | ![](https://assets.open.mp/assets/images/interiors/interior8.png) |
 
 ## Cutscene, Missions
 
-| Interior                       | Interior ID | X          | Y          | Z         | Picture                                |
-| ------------------------------ | ----------- | ---------- | ---------- | --------- | -------------------------------------- |
+| Interior                       | Interior ID | X          | Y          | Z         | Picture                                                             |
+| ------------------------------ | ----------- | ---------- | ---------- | --------- | ------------------------------------------------------------------- |
 | Inside Track Betting           | 3           | 830.6016   | 5.9404     | 1004.1797 | ![](https://assets.open.mp/assets/images/interiors/interior4.png)   |
 | Blastin' Fools Records         | 3           | 1037.8276  | 0.397      | 1001.2845 | ![](https://assets.open.mp/assets/images/interiors/interior5.png)   |
 | B Dup's Apartment              | 3           | 1527.0468  | -12.0236   | 1002.0971 | ![](https://assets.open.mp/assets/images/interiors/interior9.png)   |
@@ -233,7 +232,7 @@ and you'll see the ID of the interior universe. Now you can safely use [SetPlaye
 
 ## Non-categorized
 
-| Interior              | Interior ID | X         | Y          | Z         | Picture                                |
-| --------------------- | ----------- | --------- | ---------- | --------- | -------------------------------------- |
+| Interior              | Interior ID | X         | Y          | Z         | Picture                                                             |
+| --------------------- | ----------- | --------- | ---------- | --------- | ------------------------------------------------------------------- |
 | Random House          | 2           | 2236.6997 | -1078.9478 | 1049.0234 | ![](https://assets.open.mp/assets/images/interiors/interior132.png) |
 | Budget Inn Motel Room | 12          | 446.3247  | 509.9662   | 1001.4195 | ![](https://assets.open.mp/assets/images/interiors/interior82.png)  |

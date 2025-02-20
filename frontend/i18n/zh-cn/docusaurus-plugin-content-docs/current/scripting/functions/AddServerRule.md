@@ -11,11 +11,11 @@ tags: ["rule"]
 
 Add a server rule.
 
-| Name              | Description                                                 |
-| ----------------- | ----------------------------------------------------------- |
-| const rule[]      | The server rule name to add.                                |
-| const format[]    | The server rule value.                                      |
-| OPEN_MP_TAGS:...  | Indefinite number of arguments of any tag.                  |
+| Name             | Description                                |
+| ---------------- | ------------------------------------------ |
+| const rule[]     | The server rule name to add.               |
+| const format[]   | The server rule value.                     |
+| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag. |
 
 ## Returns
 

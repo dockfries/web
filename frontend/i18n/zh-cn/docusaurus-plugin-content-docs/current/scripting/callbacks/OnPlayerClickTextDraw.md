@@ -16,7 +16,7 @@ This callback is called when a player clicks on a textdraw or cancels the select
 
 ## Returns
 
-It is always called first in filterscripts so returning 1 there also blocks other scripts from seeing it.
+It is always called first in filterscripts so returning 1 there also blocks other scripts from processing it.
 
 ## Examples
 
@@ -72,14 +72,14 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnPlayerClickPlayerTextDraw](OnPlayerClickPlayerTextDraw): This callback is called when a player clicks on a player-textdraw.
 - [OnPlayerClickPlayer](OnPlayerClickPlayer): This callback is called when a player click on another.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [SelectTextDraw](../functions/SelectTextDraw): Enables the mouse, so the player can select a textdraw.
 - [CancelSelectTextDraw](../functions/CancelSelectTextDraw): Cancel textdraw selection with the mouse.

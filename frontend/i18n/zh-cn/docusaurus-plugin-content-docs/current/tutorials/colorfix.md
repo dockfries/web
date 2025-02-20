@@ -4,9 +4,9 @@ sidebar_label: "Color Fix"
 descripion: A basic script to add more player colours.
 ---
 
-本教程将与 [GetPlayerColor](../scripting/functions/GetPlayerColor) 一起使用, 当玩家连接至服务器时, 如果你在脚本中不使用 [SetPlayerColor](../scripting/functions/SetPlayerColor) 设置玩家的颜色, 则 [GetPlayerColor](../scripting/functions/GetPlayerColor) 无法获取正确的玩家颜色.
+This tutorial is to be used with [GetPlayerColor](../scripting/functions/GetPlayerColor), if you do not use [SetPlayerColor](../scripting/functions/SetPlayerColor) in your script when players connect.
 
-```c
+```pawn
 new PlayerColors[] = {
     0xFF8C13FF,0xC715FFFF,0x20B2AAFF,0xDC143CFF,0x6495EDFF,0xf0e68cFF,0x778899FF,0xFF1493FF,0xF4A460FF,0xEE82EEFF,
     0xFFD720FF,0x8b4513FF,0x4949A0FF,0x148b8bFF,0x14ff7fFF,0x556b2fFF,0x0FD9FAFF,0x10DC29FF,0x534081FF,0x0495CDFF,
@@ -21,19 +21,19 @@ new PlayerColors[] = {
 };
 ```
 
-首先将其放在脚本的顶端.
+First place that at the top of your script.
 
-接下来，将以下内容放在 OnPlayerConnect 回调下:
+Next place this under the OnPlayerConnect callback:
 
-```c
+```pawn
 SetPlayerColor(playerid, PlayerColors[playerid % sizeof PlayerColors]);
 ```
 
-现在 [GetPlayerColor](../scripting/functions/GetPlayerColor) 可以正确获取玩家颜色!
+Now [GetPlayerColor](../scripting/functions/GetPlayerColor) will work!
 
-对于 SA-MP 的新版本，你可以添加这个数组:
+For new versions of SA-MP you can add this array:
 
-```c
+```pawn
 new PlayerRainbowColors[511] = {
     /*OKStyle*/ 0x000022FF, 0x000044FF, 0x000066FF, 0x000088FF, 0x0000AAFF, 0x0000CCFF, 0x0000EEFF,
     0x002200FF, 0x002222FF, 0x002244FF, 0x002266FF, 0x002288FF, 0x0022AAFF, 0x0022CCFF, 0x0022EEFF,
@@ -109,4 +109,4 @@ new PlayerRainbowColors[511] = {
 };
 ```
 
-现在没有重复的颜色，颜色被分配到最大的插槽数，颜色的步长 - 34，服务器的 TAB 玩家列表菜单看起来就像一道彩虹!
+Now there are no duplicated colors, the colors are distributed to the maximum number of slots, the step of color - 34, and the TAB of full server looks like a rainbow!

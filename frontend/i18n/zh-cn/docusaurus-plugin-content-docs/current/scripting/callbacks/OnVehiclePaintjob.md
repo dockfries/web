@@ -17,7 +17,7 @@ This callback is called when a player previews a vehicle paintjob inside a mod s
 
 ## Returns
 
-It is always called first in gamemode so returning 0 there blocks other filterscripts from seeing it.
+It is always called first in gamemode so returning 0 there blocks other filterscripts from processing it.
 
 ## Examples
 
@@ -41,14 +41,14 @@ This callback is not called by ChangeVehiclePaintjob. You might use OnVehicleCha
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnVehicleRespray](OnVehicleRespray): This callback is called when a vehicle is resprayed.
 - [OnVehicleMod](OnVehicleMod): This callback is called when a vehicle is modded.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [ChangeVehiclePaintjob](../functions/ChangeVehiclePaintjob): Change the paintjob on a vehicle.
 - [ChangeVehicleColor](../functions/ChangeVehicleColor): Set the color of a vehicle.

@@ -11,7 +11,7 @@ These flags are used by [DB_Open](../functions/db_open).
 :::
 
 | Definitions               | Description   |
-|---------------------------|---------------|
+| ------------------------- | ------------- |
 | UNKNOWN_SQLITE_OPEN       |               |
 | SQLITE_OPEN_READONLY      |               |
 | SQLITE_OPEN_READWRITE     |               |

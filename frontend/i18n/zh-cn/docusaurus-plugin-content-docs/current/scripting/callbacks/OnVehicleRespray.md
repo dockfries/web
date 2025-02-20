@@ -18,7 +18,7 @@ This callback is called when a player exits a mod shop, even if the colors weren
 
 ## Returns
 
-It is always called first in gamemode so returning 0 there also blocks other filterscripts from seeing it.
+It is always called first in gamemode so returning 0 there also blocks other filterscripts from processing it.
 
 ## Examples
 
@@ -52,7 +52,7 @@ Known Bug(s):
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnVehiclePaintjob](OnVehiclePaintjob): This callback is called when a vehicle's paintjob is changed.
 - [OnVehicleMod](OnVehicleMod): This callback is called when a vehicle is modded.
@@ -60,7 +60,7 @@ The following callbacks might be useful, as they're related to this callback in 
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [ChangeVehicleColor](../functions/ChangeVehicleColor): Set the color of a vehicle.
 - [ChangeVehiclePaintjob](../functions/ChangeVehiclePaintjob): Change the paintjob on a vehicle.

@@ -1,30 +1,30 @@
 ---
 title: OnFilterScriptExit
 sidebar_label: OnFilterScriptExit
-description: This callback is called when a filterscript is unloaded.
+description: 当滤镜脚本卸载时触发该回调
 tags: []
 ---
 
-## Description
+## 描述
 
-This callback is called when a filterscript is unloaded. It is only called inside the filterscript which is unloaded.
+当滤镜脚本被卸载时触发该回调。该回调仅在当前被卸载的滤镜脚本内部触发。
 
-## Examples
+## 示例
 
 ```c
 public OnFilterScriptExit()
 {
     print("\n--------------------------------------");
-    print(" My filterscript unloaded");
+    print(" 我的滤镜脚本已卸载");
     print("--------------------------------------\n");
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+以下回调可能与当前回调存在关联：
 
-- [OnFilterScriptInit](OnFilterScriptInit): This callback is called when a filterscript is loaded.
-- [OnGameModeInit](OnGameModeInit): This callback is called when a gamemode starts.
-- [OnGameModeExit](OnGameModeExit): This callback is called when a gamemode ends.
+- [OnFilterScriptInit](OnFilterScriptInit)：当滤镜脚本加载时触发
+- [OnGameModeInit](OnGameModeInit)：当游戏模式启动时触发
+- [OnGameModeExit](OnGameModeExit)：当游戏模式结束时触发

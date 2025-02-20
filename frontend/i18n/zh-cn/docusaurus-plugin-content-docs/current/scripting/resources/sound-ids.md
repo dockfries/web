@@ -83,7 +83,7 @@ You have to use sound ID **0** to stop the sound ID that is currently playing.
 ```
 
 ---
-  
+
 :::note
 
 These Sound IDs below only work since version 0.3d!
@@ -476,7 +476,7 @@ You can find all available Sound IDs in the file located within your GTA San And
 ```
 
 ---
-  
+
 :::note
 
 These Sound IDs work in every version!

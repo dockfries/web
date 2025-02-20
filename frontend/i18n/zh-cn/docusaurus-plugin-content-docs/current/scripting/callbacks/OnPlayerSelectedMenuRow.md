@@ -61,14 +61,14 @@ The menu ID is not passed to this callback. [GetPlayerMenu](../functions/GetPlay
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
-- [OnPlayerExitedMenu](OnPlayerExitedMenu): This callback is called when a player exits a menu. 
-- [OnDialogResponse](OnDialogResponse): This callback is called when a player responds to a dialog. 
+- [OnPlayerExitedMenu](OnPlayerExitedMenu): This callback is called when a player exits a menu.
+- [OnDialogResponse](OnDialogResponse): This callback is called when a player responds to a dialog.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [CreateMenu](../functions/CreateMenu): Create a menu.
 - [DestroyMenu](../functions/DestroyMenu): Destroy a menu.

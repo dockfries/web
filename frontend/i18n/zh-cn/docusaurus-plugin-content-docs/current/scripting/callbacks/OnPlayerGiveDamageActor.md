@@ -12,7 +12,7 @@ tags: ["player", "actor"]
 This callback is called when a player gives damage to an actor.
 
 | Name            | Description                                           |
-|-----------------|-------------------------------------------------------|
+| --------------- | ----------------------------------------------------- |
 | playerid        | The ID of the player that gave damage.                |
 | damaged_actorid | The ID of the actor that received damage.             |
 | Float:amount    | The amount of health/armour damaged_actorid has lost. |
@@ -25,7 +25,7 @@ This callback is called when a player gives damage to an actor.
 
 0 - Allows this callback to be called in other filterscripts.
 
-It is always called first in filterscripts so returning 1 there blocks other filterscripts from seeing it.
+It is always called first in filterscripts so returning 1 there blocks other filterscripts from processing it.
 
 ## Examples
 
@@ -55,7 +55,7 @@ This function does not get called if the actor is set invulnerable (WHICH IS BY 
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnActorStreamOut](OnActorStreamOut): This callback is called when an actor is streamed out by a player's client.
 - [OnActorStreamIn](OnActorStreamOut): This callback is called when an actor is streamed in by a player's client.

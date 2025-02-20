@@ -1,26 +1,26 @@
 ---
 title: OnClientCheckResponse
 sidebar_label: OnClientCheckResponse
-description: This callback is called when a SendClientCheck request completes
+description: 当SendClientCheck请求完成时触发该回调
 tags: []
 ---
 
-## Description
+## 描述
 
-This callback is called when a SendClientCheck request completes.
+当SendClientCheck请求完成时触发该回调。
 
-| Name          | Description                       |
-| ------------- | --------------------------------- |
-| playerid      | The ID of the player checked.     |
-| actionid      | The type of check performed.      |
-| memaddr       | The address requested.            |
-| retndata      | The result of the check.          |
+| 参数          | 说明                     |
+|--------------|--------------------------|
+| playerid     | 被检测的玩家ID            |
+| actionid     | 执行的检测类型            |
+| memaddr      | 请求的内存地址            |
+| retndata     | 检测结果                 |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+在滤镜脚本中总是优先被调用。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerConnect(playerid)
@@ -31,30 +31,30 @@ public OnPlayerConnect(playerid)
 
 public OnClientCheckResponse(playerid, actionid, memaddr, retndata)
 {
-    if (actionid == 0x48) // or 72
+    if (actionid == 0x48) // 或72
     {
-        print("The player is connecting using the PC client.");
+        print("玩家正在使用PC客户端连接。");
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意
 
 :::warning
 
-**SA:MP Server**: This callback is only called when it is in a filterscript.
+**SA:MP 服务端**：该回调仅在滤镜脚本中触发
 
-**Open Multiplayer Server**: This callback functions normally inside a gamemode / filterscript. 
+**Open Multiplayer 服务端**：该回调在游戏模式/滤镜脚本中均可正常触发
 
 :::
 
-## Related Functions
+## 相关函数
 
-The following function might be useful, as they're related to this callback in one way or another. 
+以下函数可能与当前回调存在关联：
 
-- [SendClientCheck](../functions/SendClientCheck): Perform a memory check on the client.
+- [SendClientCheck](../functions/SendClientCheck)：对客户端执行内存检测
 
-## Related Resources
+## 相关资源
 
-- [opcodes](../resources/opcodes): Action opcodes IDs and their purpose.
+- [操作码](../resources/opcodes)：检测类型ID及其用途说明

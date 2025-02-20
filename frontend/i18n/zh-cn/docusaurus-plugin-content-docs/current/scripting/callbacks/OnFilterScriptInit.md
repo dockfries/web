@@ -1,30 +1,30 @@
 ---
 title: OnFilterScriptInit
 sidebar_label: OnFilterScriptInit
-description: This callback is called when a filterscript is initialized (loaded).
+description: 当滤镜脚本初始化（加载）时触发该回调
 tags: []
 ---
 
-## Description
+## 描述
 
-This callback is called when a filterscript is initialized (loaded). It is only called inside the filterscript which is starting.
+当滤镜脚本初始化（加载）时触发该回调。该回调仅在当前启动的滤镜脚本内部触发。
 
-## Examples
+## 示例
 
 ```c
 public OnFilterScriptInit()
 {
     print("\n--------------------------------------");
-    print("The filterscript is loaded.");
+    print("滤镜脚本已加载");
     print("--------------------------------------\n");
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+以下回调可能与当前回调存在关联：
 
-- [OnFilterSciptExit](OnFilterScriptExit): This callback is called when a filterscript is unloaded.
-- [OnGameModeInit](OnGameModeInit): This callback is called when a gamemode starts.
-- [OnGameModeExit](OnGameModeExit): This callback is called when a gamemode ends.
+- [OnFilterSciptExit](OnFilterScriptExit)：当滤镜脚本卸载时触发
+- [OnGameModeInit](OnGameModeInit)：当游戏模式启动时触发
+- [OnGameModeExit](OnGameModeExit)：当游戏模式结束时触发

@@ -13,7 +13,7 @@ The table below contains a list of valid weapon skill types used by [SetPlayerSk
 ## Skill Types
 
 | Value | Definition                  |
-|-------|-----------------------------|
+| ----- | --------------------------- |
 | 0     | WEAPONSKILL_PISTOL          |
 | 1     | WEAPONSKILL_PISTOL_SILENCED |
 | 2     | WEAPONSKILL_DESERT_EAGLE    |
@@ -27,7 +27,7 @@ The table below contains a list of valid weapon skill types used by [SetPlayerSk
 | 10    | WEAPONSKILL_SNIPERRIFLE     |
 
 ---
-  
+
 ## Skill Levels
 
 There are 3 weapon skill levels: Poor, Gangster and Hitman. The follow table shows the weapon skill levels needed to advance to the next skill level:

@@ -40,7 +40,7 @@ AttachObjectToObject(gObjectId, gAttachToId, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, true)
 
 :::tip
 
-Both objects need to be created before attempting to attach them. 
+Both objects need to be created before attempting to attach them.
 
 :::
 

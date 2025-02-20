@@ -43,7 +43,7 @@ public OnPlayerUpdate(playerid)
 forward OnPlayerWeaponChange(playerid, WEAPON:oldWeapon, WEAPON:newWeapon);
 public OnPlayerWeaponChange(playerid, WEAPON:oldWeapon, WEAPON:newWeapon)
 {
-    new 
+    new
         string[128],
         oldWeaponName[24],
         newWeaponName[24];

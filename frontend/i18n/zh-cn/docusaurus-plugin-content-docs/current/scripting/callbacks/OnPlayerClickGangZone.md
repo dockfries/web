@@ -11,10 +11,10 @@ tags: ["player", "gangzone"]
 
 This callback is called when a player clicked a gangzone on the pause menu map (by right-clicking).
 
-| Name     | Description                                                                   |
-| -------- | ----------------------------------------------------------------------------- |
-| playerid | The ID of the player that clicked a gangzone                                  |
-| zoneid   | The ID of the gangzone the player clicked                                     |
+| Name     | Description                                  |
+| -------- | -------------------------------------------- |
+| playerid | The ID of the player that clicked a gangzone |
+| zoneid   | The ID of the gangzone the player clicked    |
 
 ## Returns
 
@@ -36,7 +36,7 @@ public OnPlayerClickGangZone(playerid, zoneid)
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [GangZoneCreate](../functions/GangZoneCreate): Create a gangzone (colored radar area).
 - [GangZoneDestroy](../functions/GangZoneDestroy): Destroy a gangzone.

@@ -12,7 +12,7 @@ tags: ["player", "object", "playerobject"]
 You can use this function to attach player-objects to other player-objects. The objects will follow the main object.
 
 | Name              | Description                                                             |
-|-------------------|-------------------------------------------------------------------------|
+| ----------------- | ----------------------------------------------------------------------- |
 | playerid          | The ID of the player.                                                   |
 | objectid          | The player-object to attach to another player-object.                   |
 | parentid          | The object to attach the object to.                                     |

@@ -10,7 +10,7 @@ tags: ["pickup"]
 This function adds a 'static' pickup to the game. These pickups support weapons, health, armor etc., with the ability to function without scripting them (weapons/health/armor will be given automatically).
 
 | Name                             | Description                                                                         |
-|----------------------------------|-------------------------------------------------------------------------------------|
+| -------------------------------- | ----------------------------------------------------------------------------------- |
 | [model](../resources/pickupids)  | The model of the pickup.                                                            |
 | [type](../resources/pickuptypes) | The pickup type. Determines how the pickup responds when picked up.                 |
 | Float:x                          | The X coordinate to create the pickup at.                                           |

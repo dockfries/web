@@ -9,10 +9,10 @@ tags: ["npc"]
 
 This callback is called when a NPC enters a vehicle.
 
-| Name         | Description                                             |
-| ------------ | ------------------------------------------------------- |
-| vehicleid    | The vehicle ID the NPC enter                            |
-| seatid       | The seatid the NPC uses                                 |
+| Name      | Description                  |
+| --------- | ---------------------------- |
+| vehicleid | The vehicle ID the NPC enter |
+| seatid    | The seatid the NPC uses      |
 
 ## Examples
 
@@ -26,6 +26,6 @@ public OnNPCEnterVehicle(vehicleid, seatid)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnNPCExitVehicle](OnNPCExitVehicle): This callback is called when a NPC leaves a Vehicle.

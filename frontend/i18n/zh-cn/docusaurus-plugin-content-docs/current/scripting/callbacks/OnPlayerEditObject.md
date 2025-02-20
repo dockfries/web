@@ -10,7 +10,7 @@ tags: ["player", "object"]
 This callback is called when a player finishes editing an object ([BeginObjectEditing](../functions/BeginObjectEditing)/[BeginPlayerObjectEditing](../functions/BeginPlayerObjectEditing)).
 
 | Name                   | Description                                                     |
-|------------------------|-----------------------------------------------------------------|
+| ---------------------- | --------------------------------------------------------------- |
 | playerid               | The ID of the player that edited an object                      |
 | playerobject           | 0 if it is a global object or 1 if it is a playerobject.        |
 | objectid               | The ID of the edited object                                     |
@@ -45,7 +45,7 @@ public OnPlayerEditObject(playerid, playerobject, objectid, EDIT_RESPONSE:respon
 
     GetObjectPos(objectid, oldX, oldY, oldZ);
     GetObjectRot(objectid, oldRotX, oldRotY, oldRotZ);
-    
+
     if (!playerobject) // If this is a global object, sync the position for other players
     {
         if (!IsValidObject(objectid))
@@ -93,7 +93,7 @@ When using 'EDIT_RESPONSE_UPDATE' be aware that this callback will not be called
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [BeginPlayerObjectEditing](../functions/BeginPlayerObjectEditing): Edit a player-object.
 - [BeginObjectEditing](../functions/BeginObjectEditing): Edit an object.

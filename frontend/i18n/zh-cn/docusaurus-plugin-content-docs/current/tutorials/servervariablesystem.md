@@ -1,48 +1,48 @@
 ---
-title: 服务器变量系统
-sidebar_label: 服务器变量系统
+title: Server variable system
+sidebar_label: Server variable system
 
-description: 服务器变量系统（简称 SVar）是一种以高效动态方式创建服务器变量的新方法, 这意味着它们可以在服务器的游戏模式和脚本中同时使用.
+description: The server variable system (put short, SVar) is a new way of creating server variables in an efficient dynamically created method globally, meaning they can be used in server's gamemode and filterscripts at the same time.
 ---
 
-**服务器变量系统** (简称 **SVar**) 是一种高效、动态地创建全局服务器变量的新方法, 这意味着它们可以在服务器的游戏模式和过滤脚本中同时使用.
+The **server variable system** (put short, **SVar**) is a new way of creating global server variables efficient and dynamically, meaning that they can be used in server's gamemode and filterscripts at the same time.
 
-它们与 [PVars](每个玩家的变量系统) 类似, 但不与玩家 ID 绑定.
+They are similar to [PVars](perplayervariablesystem), but are not tied to a player ID.
 
-:::警告
+:::warning
 
-该系统在 SA-MP 0.3.7 R2-1 中引入，在早期版本中无法运行!
-
-:::
-
-:::提示
-
-SVar 系统与 PVars 系统相同，但所创建的变量是服务器范围的变量，不与任何玩家 ID 关联，并且在游戏模式改变时也会持续存在.
+This system was introduced in SA-MP 0.3.7 R2-1 and will not work in earlier versions!
 
 :::
 
-## 优点
+:::note
 
-- SVars 可跨游戏模式脚本和过滤脚本共享/访问.
+The SVar system is the same as the PVars, although the variables created are server-wide, not attached to any player ID, and persist through gamemode changes.
 
-- 您可以轻松枚举并打印/存储 SVar 列表。这使调试变得更容易.
+:::
 
-- 即使 SVar 尚未创建，也会返回默认值 0.
+## Advantages
 
-- SVars 可以使用动态分配的内存来保存非常大的字符串.
+- SVars can be shared/accessed across gamemode scripts and filterscripts.
 
-- 您可以在游戏中设置、获取和创建 SVars.
+- You can easily enumerate and print/store the SVar list. This makes debugging easier.
 
-## 缺点
+- Even if a SVar hasn't been created, it still will return a default value of 0.
 
-- SVars 比普通变量慢几倍. 一般来说，用内存换速度比用速度换内存更有利.
+- SVars can hold very large strings using dynamically allocated memory.
 
-## 相关函数
+- You can Set, Get, Create SVars ingame.
 
-- [SetSVarInt](../scripting/functions/SetSVarInt): 为服务器变量设置一个整数.
-- [GetSVarInt](../scripting/functions/GetSVarInt): 获取服务器变量的整数值.
-- [SetSVarString](../scripting/functions/SetSVarString): 为服务器变量设置字符串.
-- [GetSVarString](../scripting/functions/GetSVarString): 获取服务器变量的字符串.
-- [SetSVarFloat](../scripting/functions/SetSVarFloat): 为服务器变量设置一个浮点数.
-- [GetSVarFloat](../scripting/functions/GetSVarFloat): 获取服务器变量的浮点数.
-- [DeleteSVar](../scripting/functions/DeleteSVar): 删除一个服务器变量.
+## Drawbacks
+
+- SVars are several times slower than regular variables. It is generally more favorable to trade in memory for speed, rather than the other way round.
+
+## Related Functions
+
+- [SetSVarInt](../scripting/functions/SetSVarInt): set an integer for a server variable.
+- [GetSVarInt](../scripting/functions/GetSVarInt): get a player server as an integer.
+- [SetSVarString](../scripting/functions/SetSVarString): set a string for a server variable.
+- [GetSVarString](../scripting/functions/GetSVarString): get the previously set string from a server variable.
+- [SetSVarFloat](../scripting/functions/SetSVarFloat): set a float for a server variable.
+- [GetSVarFloat](../scripting/functions/GetSVarFloat): get the previously set float from a server variable
+- [DeleteSVar](../scripting/functions/DeleteSVar): delete a server variable.

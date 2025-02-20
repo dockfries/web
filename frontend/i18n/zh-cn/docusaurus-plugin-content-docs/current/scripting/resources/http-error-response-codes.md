@@ -11,7 +11,7 @@ These codes compliment ordinary [HTTP](../functions/HTTP) response codes returne
 :::
 
 | Code | Error                         | Description                                                                                                                                                                                                                  |
-|------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1    | HTTP_ERROR_BAD_HOST           | Indicates that the URL used in an HTTP request is invalid or cannot be resolved by the DNS server.                                                                                                                           |
 | 2    | HTTP_ERROR_NO_SOCKET          | Indicates that there was a failure in establishing a network socket connection when making an HTTP request.                                                                                                                  |
 | 3    | HTTP_ERROR_CANT_CONNECT       | Indicates that the client is unable to establish a connection to the server when making an HTTP request. This error can occur due to various reasons, including network connectivity issues or unavailability of the server. |
@@ -24,7 +24,7 @@ These codes compliment ordinary [HTTP](../functions/HTTP) response codes returne
 ### 1xx Informational
 
 | Code |                     |
-|------|---------------------|
+| ---- | ------------------- |
 | 100  | Continue            |
 | 101  | Switching Protocols |
 | 102  | Processing          |
@@ -32,7 +32,7 @@ These codes compliment ordinary [HTTP](../functions/HTTP) response codes returne
 ### 2xx Success
 
 | Code |                 |
-|------|-----------------|
+| ---- | --------------- |
 | 200  | OK              |
 | 201  | Created         |
 | 204  | No Content      |
@@ -41,7 +41,7 @@ These codes compliment ordinary [HTTP](../functions/HTTP) response codes returne
 ### 3xx Redirection
 
 | Code |                    |
-|------|--------------------|
+| ---- | ------------------ |
 | 301  | Moved Permanently  |
 | 302  | Found              |
 | 304  | Not Modified       |
@@ -50,7 +50,7 @@ These codes compliment ordinary [HTTP](../functions/HTTP) response codes returne
 ### 4xx Client Errors
 
 | Code |                    |
-|------|--------------------|
+| ---- | ------------------ |
 | 400  | Bad Request        |
 | 401  | Unauthorized       |
 | 403  | Forbidden          |
@@ -61,7 +61,7 @@ These codes compliment ordinary [HTTP](../functions/HTTP) response codes returne
 ### 5xx Server Errors
 
 | Code |                       |
-|------|-----------------------|
+| ---- | --------------------- |
 | 500  | Internal Server Error |
 | 502  | Bad Gateway           |
 | 503  | Service Unavailable   |

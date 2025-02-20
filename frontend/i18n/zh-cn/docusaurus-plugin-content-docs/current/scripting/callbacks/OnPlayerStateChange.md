@@ -41,13 +41,13 @@ public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstat
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnPlayerInteriorChange](OnPlayerInteriorChange): This callback is called when a player changes interior.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [GetPlayerState](../functions/GetPlayerState): Get a player's current state.
 - [GetPlayerSpecialAction](../functions/GetPlayerSpecialAction): Get a player's current special action.

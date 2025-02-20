@@ -31,6 +31,7 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
     return 1;
 }
 ```
+
 ## Snippets
 
 ```c
@@ -65,6 +66,7 @@ new VehicleColoursTableRGBA[256] = {
 0x561A28FF, 0x4E0E27FF, 0x706C67FF, 0x3B3E42FF, 0x2E2D33FF, 0x7B7E7DFF, 0x4A4442FF, 0x28344EFF
 };
 ```
+
 ## Notes
 
 :::tip

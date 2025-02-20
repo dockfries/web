@@ -1,49 +1,48 @@
 ---
 title: OnIncomingConnection
 sidebar_label: OnIncomingConnection
-description: This callback is called when an IP address attempts a connection to the server.
+description: 当IP地址尝试连接服务器时触发该回调
 tags: []
 ---
 
-## Description
+## 描述
 
-This callback is called when an IP address attempts a connection to the server. To block incoming connections, use BlockIpAddress.
+当IP地址尝试连接服务器时触发该回调。如需阻止连接，请使用BlockIpAddress函数。
 
-| Name         | Description                                        |
-| ------------ | -------------------------------------------------- |
-| playerid     | The ID of the player attempting to connect         |
-| ip_address[] | The IP address of the player attempting to connect |
-| port         | The port of the attempted connection               |
+| 参数          | 说明                          |
+|--------------|-------------------------------|
+| playerid     | 尝试连接的玩家临时ID            |
+| ip_address[] | 尝试连接的玩家IP地址            |
+| port         | 连接使用的端口号                |
 
-## Returns
+## 返回值
 
-1 - Will prevent other filterscripts from receiving this callback.
+1 - 阻止其他滤镜脚本接收此回调  
+0 - 允许传递给后续滤镜脚本  
 
-0 - Indicates that this callback will be passed to the next filterscript.
+该回调在滤镜脚本中总是优先触发。
 
-It is always called first in filterscripts.
-
-## Examples
+## 示例
 
 ```c
 public OnIncomingConnection(playerid, ip_address[], port)
 {
-    printf("Incoming connection for player ID %i [IP/port: %s:%i]", playerid, ip_address, port);
+    printf("玩家ID %i 的入站连接请求 [IP/端口: %s:%i]", playerid, ip_address, port);
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+以下回调可能与当前回调存在关联：
 
-- [OnPlayerConnect](OnPlayerConnect): This callback is called when a player connects to the server.
-- [OnPlayerDisconnect](OnPlayerDisconnect): This callback is called when a player disconnects from the server.
-- [OnPlayerFinishedDownloading](OnPlayerFinishedDownloading): This callback is called when a player finishes downloading custom models.
+- [OnPlayerConnect](OnPlayerConnect)：当玩家成功连接服务器时触发
+- [OnPlayerDisconnect](OnPlayerDisconnect)：当玩家断开连接时触发
+- [OnPlayerFinishedDownloading](OnPlayerFinishedDownloading)：当玩家完成自定义模型下载时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+以下函数可能与当前回调相关：
 
-- [BlockIpAddress](../functions/BlockIpAddress): Block an IP address from connecting to the server for a set amount of time.
-- [UnBlockIpAddress](../functions/UnBlockIpAddress): Unblock an IP that was previously blocked.
+- [BlockIpAddress](../functions/BlockIpAddress)：阻止指定IP地址在指定时间内连接服务器
+- [UnBlockIpAddress](../functions/UnBlockIpAddress)：解除已被阻止的IP地址

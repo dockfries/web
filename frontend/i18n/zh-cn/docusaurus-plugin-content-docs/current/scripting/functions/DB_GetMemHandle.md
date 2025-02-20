@@ -12,7 +12,7 @@ tags: ["sqlite"]
 The function gets the memory handle for a SQLite database connection that was opened with [DB_Open](DB_Open).
 
 | Name  | Description                                                            |
-|-------|------------------------------------------------------------------------|
+| ----- | ---------------------------------------------------------------------- |
 | DB:db | The index of the database connection (returned by [DB_Open](DB_Open)). |
 
 ## Returns

@@ -11,13 +11,13 @@ tags: ["player", "gangzone", "playergangzone"]
 
 Create player gangzone. This can be used as a way around the global gangzone limit.
 
-| Name        | Description                                                       |
-| ----------- | ----------------------------------------------------------------- |
-| playerid    | The ID of the player to whom the player gangzone will be created. |
-| Float:minX  | The X coordinate for the west side of the player gangzone.        |
-| Float:minY  | The Y coordinate for the south side of the player gangzone.       |
-| Float:maxX  | The X coordinate for the east side of the player gangzone.        |
-| Float:maxY  | The Y coordinate for the north side of the player gangzone.       |
+| Name       | Description                                                       |
+| ---------- | ----------------------------------------------------------------- |
+| playerid   | The ID of the player to whom the player gangzone will be created. |
+| Float:minX | The X coordinate for the west side of the player gangzone.        |
+| Float:minY | The Y coordinate for the south side of the player gangzone.       |
+| Float:maxX | The X coordinate for the east side of the player gangzone.        |
+| Float:maxY | The Y coordinate for the north side of the player gangzone.       |
 
 ## Returns
 
@@ -54,7 +54,7 @@ public OnPlayerConnect(playerid)
 
 :::warning
 
-- There is a limit of 1024 gangzones. 
+- There is a limit of 1024 gangzones.
 - Putting the parameters in the wrong order results in glitchy behavior.
 
 :::

@@ -42,12 +42,12 @@ This callback is also called when a player presses F4.
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
-- [OnPlayerRequestSpawn](OnPlayerRequestSpawn): This callback is called when a player attempts to spawn via class selection. 
+- [OnPlayerRequestSpawn](OnPlayerRequestSpawn): This callback is called when a player attempts to spawn via class selection.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [AddPlayerClass](../functions/AddPlayerClass): Add a player class.

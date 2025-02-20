@@ -11,7 +11,7 @@ Weapon Slots used by [GetWeaponSlot](../functions/GetWeaponSlot) and [GetPlayerW
 :::
 
 | Definition                | Value |
-|---------------------------|-------|
+| ------------------------- | ----- |
 | WEAPON_SLOT_UNKNOWN       | -1    |
 | WEAPON_SLOT_UNARMED       | 0     |
 | WEAPON_SLOT_MELEE         | 1     |

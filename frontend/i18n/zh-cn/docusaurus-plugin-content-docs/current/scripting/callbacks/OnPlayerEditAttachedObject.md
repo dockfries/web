@@ -10,7 +10,7 @@ tags: ["player", "object", "attachment"]
 This callback is called when a player ends attached object edition mode.
 
 | Name                   | Description                                                  |
-|------------------------|--------------------------------------------------------------|
+| ---------------------- | ------------------------------------------------------------ |
 | playerid               | The ID of the player that ended edition mode                 |
 | EDIT_RESPONSE:response | 0 if they cancelled (ESC) or 1 if they clicked the save icon |
 | index                  | The index of the attached object (0-9)                       |
@@ -91,7 +91,7 @@ Editions should be discarded if response was '0' (cancelled). This must be done 
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [EditAttachedObject](../functions/EditAttachedObject): Edit an attached object.
 - [SetPlayerAttachedObject](../functions/SetPlayerAttachedObject): Attach an object to a player

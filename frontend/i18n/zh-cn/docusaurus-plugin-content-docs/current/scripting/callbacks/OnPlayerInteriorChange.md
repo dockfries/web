@@ -33,13 +33,13 @@ public OnPlayerInteriorChange(playerid, newinteriorid, oldinteriorid)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnPlayerStateChange](OnPlayerStateChange): This callback is called when a player changes state.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [SetPlayerInterior](../functions/SetPlayerInterior): Set a player's interior.
 - [GetPlayerInterior](../functions/GetPlayerInterior): Get the current interior of a player.

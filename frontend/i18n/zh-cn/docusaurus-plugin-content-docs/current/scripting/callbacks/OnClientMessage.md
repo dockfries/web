@@ -1,37 +1,41 @@
 ---
 title: OnClientMessage
 sidebar_label: OnClientMessage
-description: This callback gets called whenever the NPC sees a ClientMessage.
+description: 当NPC接收到客户端消息时触发该回调
 tags: []
 ---
 
-## Description
+## 描述
 
-This callback gets called whenever the NPC sees a ClientMessage. This will be everytime a [SendClientMessageToAll](../functions/SendClientMessageToAll) function is used and everytime a [SendClientMessage](../functions/SendClientMessage) function is sent towards the NPC. This callback won't be called when someone says something. For a version of this with player text, see [NPC:OnPlayerText](OnPlayerText).
+当NPC检测到客户端消息时触发该回调。以下情况均会触发：
+- 使用[SendClientMessageToAll](../functions/SendClientMessageToAll)函数时
+- 向NPC发送[SendClientMessage](../functions/SendClientMessage)函数时
 
-| Name   | Description                     |
-| ------ | ------------------------------- |
-| color  | The color the ClientMessage is. |
-| text[] | The actual message.             |
+该回调不会在玩家发送聊天消息时触发，相关功能请参阅[NPC:OnPlayerText](OnPlayerText)。
 
-## Returns
+| 参数     | 说明                 |
+|---------|----------------------|
+| color   | 客户端消息的颜色值     |
+| text[]  | 实际消息内容          |
 
-This callback does not handle returns.
+## 返回值
 
-## Examples
+本回调不处理返回值。
+
+## 示例
 
 ```c
 public OnClientMessage(color, text[])
 {
-    if (strfind(text,"Bank Balance: $0") != -1)
+    if (strfind(text,"银行余额: $0") != -1)
     {
-        SendClientMessage(playerid, -1, "I am poor :(");
+        SendClientMessage(playerid, -1, "我是个穷光蛋 :(");
     }
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+以下回调可能与当前回调存在关联：
 
-- [OnPlayerText](OnPlayerText): This callback is called everytime anyone says anything in the chat. This includes any player, any other NPC, or the same NPC himself.
+- [OnPlayerText](OnPlayerText)：当任意实体（玩家、其他NPC或当前NPC自身）发送聊天消息时触发

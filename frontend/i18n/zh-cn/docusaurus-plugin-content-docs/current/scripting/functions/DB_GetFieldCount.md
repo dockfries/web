@@ -12,7 +12,7 @@ tags: ["sqlite"]
 The function gets the number of fields from the specified result set allocated with [DB_ExecuteQuery](DB_ExecuteQuery).
 
 | Name              | Description                                       |
-|-------------------|---------------------------------------------------|
+| ----------------- | ------------------------------------------------- |
 | DBResult:dbresult | The result of [DB_ExecuteQuery](DB_ExecuteQuery). |
 
 ## Returns

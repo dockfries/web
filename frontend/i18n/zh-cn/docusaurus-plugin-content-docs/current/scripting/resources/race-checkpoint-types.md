@@ -11,7 +11,7 @@ These definitions are used by [SetPlayerRaceCheckpoint](../functions/SetPlayerRa
 :::
 
 | Definition            | Value | Description                                          |
-|-----------------------|-------|------------------------------------------------------|
+| --------------------- | ----- | ---------------------------------------------------- |
 | UNKNOWN_CP_TYPE       | -1    |                                                      |
 | CP_TYPE_GROUND_NORMAL | 0     | Normal                                               |
 | CP_TYPE_GROUND_FINISH | 1     | Finish                                               |

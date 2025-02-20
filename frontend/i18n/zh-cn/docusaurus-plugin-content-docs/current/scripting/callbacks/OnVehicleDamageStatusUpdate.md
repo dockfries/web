@@ -34,7 +34,7 @@ It is always called first in filterscripts.
 public OnVehicleDamageStatusUpdate(vehicleid, playerid)
 {
     // Get the damage status of all the components
-    new 
+    new
         VEHICLE_PANEL_STATUS:panels,
         VEHICLE_DOOR_STATUS:doors,
         VEHICLE_LIGHT_STATUS:lights,
@@ -61,7 +61,7 @@ This does not include vehicle health changes.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus): Get the vehicle damage state for each part individually.
 - [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus): Update the vehicle damage.

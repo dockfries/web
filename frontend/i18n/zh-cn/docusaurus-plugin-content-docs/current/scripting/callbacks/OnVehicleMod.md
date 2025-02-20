@@ -17,7 +17,7 @@ This callback is called when a vehicle is modded.
 
 ## Returns
 
-It is always called first in gamemode so returning 0 there also blocks other filterscripts from seeing it.
+It is always called first in gamemode so returning 0 there also blocks other filterscripts from processing it.
 
 ## Examples
 
@@ -46,7 +46,7 @@ This callback is NOT called by AddVehicleComponent.
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnEnterExitModShop](OnEnterExitModShop): This callback is called when a vehicle enters or exits a mod shop.
 - [OnVehiclePaintjob](OnVehiclePaintjob): This callback is called when a vehicle's paintjob is changed.
@@ -54,6 +54,6 @@ The following callbacks might be useful, as they're related to this callback in 
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [AddVehicleComponent](../functions/AddVehicleComponent): Add a component to a vehicle.

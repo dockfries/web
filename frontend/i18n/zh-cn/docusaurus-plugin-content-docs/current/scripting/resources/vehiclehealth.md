@@ -10,10 +10,10 @@ The vehicle health value used by [SetVehicleHealth](../functions/SetVehicleHealt
 
 :::
 
-| Vehicle health | Effect on the engine                 |
-| -------------- | ------------------------------------ |
-| > 650          | None. The engine is still pretty much fine |
-| 550-650        | The engine is overheating, and will emit white smoke |
-| 390-550        | The engine is overheating pretty badly, and will emit grey smoke |
-| 250-390        | The engine is getting really hot, and will emit black smoke |
+| Vehicle health | Effect on the engine                                                                                  |
+| -------------- | ----------------------------------------------------------------------------------------------------- |
+| > 650          | None. The engine is still pretty much fine                                                            |
+| 550-650        | The engine is overheating, and will emit white smoke                                                  |
+| 390-550        | The engine is overheating pretty badly, and will emit grey smoke                                      |
+| 250-390        | The engine is getting really hot, and will emit black smoke                                           |
 | < 250          | The engine will catch fire, and the vehicle will explode a few seconds later, unless it gets repaired |

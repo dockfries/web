@@ -12,7 +12,7 @@ tags: ["sqlite"]
 Get the content of a field as an integer from DB_ExecuteQuery
 
 | Name            | Description                      |
-|-----------------|----------------------------------|
+| --------------- | -------------------------------- |
 | DBResult:result | The result to get the data from. |
 | field = 0       | The field to get the data from.  |
 

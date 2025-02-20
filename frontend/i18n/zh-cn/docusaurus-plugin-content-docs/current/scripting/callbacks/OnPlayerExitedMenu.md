@@ -29,13 +29,13 @@ public OnPlayerExitedMenu(playerid)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnPlayerSelectedMenuRow](OnPlayerSelectedMenuRow): This callback is called when a player selected a row in a menu.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [CreateMenu](../functions/CreateMenu): Create a menu.
 - [DestroyMenu](../functions/DestroyMenu): Destroy a menu.

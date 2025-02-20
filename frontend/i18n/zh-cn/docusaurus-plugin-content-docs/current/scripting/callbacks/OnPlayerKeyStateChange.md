@@ -9,9 +9,9 @@ tags: ["player"]
 
 This callback is called when the state of any [supported](../resources/keys) key is changed (pressed/released).<br/>Directional keys do not trigger OnPlayerKeyStateChange (up/down/left/right).
 
-| Name     | Description                                                                                      |
-| -------- | ------------------------------------------------------------------------------------------------ |
-| playerid | The ID of the player that pressed or released a key.                                             |
+| Name     | Description                                                                                   |
+| -------- | --------------------------------------------------------------------------------------------- |
+| playerid | The ID of the player that pressed or released a key.                                          |
 | newkeys  | A map (bitmask) of the keys currently held - [see here](../resources/keys)                    |
 | oldkeys  | A map (bitmask) of the keys held prior to the current change - [see here](../resources/keys). |
 
@@ -36,7 +36,7 @@ Directional keys do not trigger OnPlayerKeyStateChange (up/down/left/right).<br/
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [GetPlayerKeys](../functions/GetPlayerKeys): Check what keys a player is holding.
 

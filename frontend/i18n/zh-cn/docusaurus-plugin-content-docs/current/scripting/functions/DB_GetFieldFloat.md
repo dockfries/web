@@ -12,7 +12,7 @@ tags: ["sqlite"]
 The function gets the content of a field as a floating point number with the specified field index.
 
 | Name            | Description                      |
-|-----------------|----------------------------------|
+| --------------- | -------------------------------- |
 | DBResult:result | The result to get the data from. |
 | field = 0       | The field to get the data from.  |
 

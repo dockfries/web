@@ -1,59 +1,59 @@
 ---
 title: OnEnterExitModShop
 sidebar_label: OnEnterExitModShop
-description: This callback is called when a player enters or exits a mod shop.
+description: 当玩家进入或离开改装店时触发该回调
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player enters or exits a mod shop.
+当玩家进入或离开车辆改装店时触发该回调。
 
-| Name       | Description                                                                  |
-| ---------- | ---------------------------------------------------------------------------- |
-| playerid   | The ID of the player that entered or exited the modshop                      |
-| enterexit  | 1 if the player entered or 0 if they exited                                  |
-| interiorid | The interior ID of the modshop that the player is entering (or 0 if exiting) |
+| 参数          | 说明                                                                 |
+|--------------|----------------------------------------------------------------------|
+| playerid     | 触发事件的玩家ID                                                     |
+| enterexit    | 状态标识：1=进入改装店，0=离开改装店                                   |
+| interiorid   | 玩家进入的改装店内部ID（离开时为0）                                    |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+在滤镜脚本中总是优先被调用。
 
-## Examples
+## 示例
 
 ```c
 public OnEnterExitModShop(playerid, enterexit, interiorid)
 {
-    if (enterexit == 0) // If enterexit is 0, this means they are exiting
+    if (enterexit == 0) // 当enterexit为0时表示玩家离开
     {
-        SendClientMessage(playerid, COLOR_WHITE, "Nice car! You have been taxed $100.");
+        SendClientMessage(playerid, COLOR_WHITE, "改装完成！已扣除改装费¥100。");
         GivePlayerMoney(playerid, -100);
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意
 
 :::warning
 
-Known Bug(s):
+已知问题：
 
-- Players collide when they get into the same mod shop.
+- 多名玩家同时进入同一改装店时会发生模型碰撞
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+以下回调可能与当前回调存在关联：
 
-- [OnVehicleMod](OnVehicleMod): This callback is called when a vehicle is modded.
-- [OnVehicleRespray](OnVehicleRespray): This callback is called when a player exits a mod shop, even if the colors weren't changed.
-- [OnVehiclePaintjob](OnVehiclePaintjob): This callback is called when a player previews a vehicle paintjob inside a mod shop.
+- [OnVehicleMod](OnVehicleMod)：当车辆被改装时触发
+- [OnVehicleRespray](OnVehicleRespray)：玩家离开改装店时触发（即使未更改颜色）
+- [OnVehiclePaintjob](OnVehiclePaintjob)：玩家在改装店内预览车辆涂装时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+以下函数可能与当前回调相关：
 
-- [IsPlayerInModShop](../functions/IsPlayerInModShop): Check if the player is in the mod shop.
-- [AddVehicleComponent](../functions/AddVehicleComponent): Add a component to a vehicle.
+- [IsPlayerInModShop](../functions/IsPlayerInModShop)：检测玩家是否在改装店内
+- [AddVehicleComponent](../functions/AddVehicleComponent)：为载具添加改装组件

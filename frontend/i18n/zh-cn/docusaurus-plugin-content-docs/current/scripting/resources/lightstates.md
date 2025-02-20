@@ -34,7 +34,7 @@ The damage of all lights will be saved together in 1 byte (which is 8 bits). Eac
 Notice that the bits are counted from behind, so the first bit is the rightmost bit.
 
 ---
-  
+
 ## Example
 
 The following code tells that both front lights are broken and the back lights are not:
@@ -46,7 +46,7 @@ However, SA-MP returns a decimal number so you have to convert it to a binary nu
 `5`
 
 ---
-  
+
 ## Info table
 
 Here is a visual representation of the light states. Vehicle viewed from a top-down perspective, with the upper values being the front of the vehicle and the lower values the back of the vehicle.
@@ -125,13 +125,13 @@ x - disabled light
 Other values not listed here can change the lights, but they are just repeats of other values (e.g. 15 has the same outcome as 5). After 255 the values will wrap around, 256 will be set as 0, 257 as 1 and so on.
 
 ---
-  
+
 ## Example usage
 
 To disable the back two lights of a vehicle while keeping the front unchanged:
 
 ```c
-new 
+new
 	VEHICLE_PANEL_STATUS:panels,
 	VEHICLE_DOOR_STATUS:doors,
 	VEHICLE_LIGHT_STATUS:lights,

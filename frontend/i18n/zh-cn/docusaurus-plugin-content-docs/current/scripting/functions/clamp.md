@@ -11,11 +11,11 @@ tags: ["core"]
 
 Force a value to be inside a range.
 
-| Name  | Description                                        |
-| ----- | -------------------------------------------------- |
-| value | The value to force in a range.                     |
-| min   | The low bound of the range. *(optional=cellmin)*   |
-| max   | The high bound of the range. *(optional=cellmax)*  |
+| Name  | Description                                       |
+| ----- | ------------------------------------------------- |
+| value | The value to force in a range.                    |
+| min   | The low bound of the range. _(optional=cellmin)_  |
+| max   | The high bound of the range. _(optional=cellmax)_ |
 
 ## Returns
 

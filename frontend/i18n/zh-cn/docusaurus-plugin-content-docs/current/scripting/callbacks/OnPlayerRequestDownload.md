@@ -12,7 +12,7 @@ tags: ["player"]
 This callback is called when a player request for custom model downloads.
 
 | Name                  | Description                                                |
-|-----------------------|------------------------------------------------------------|
+| --------------------- | ---------------------------------------------------------- |
 | playerid              | The ID of the player that request custom model download.   |
 | DOWNLOAD_REQUEST:type | The [type](../resources/download-requests) of the request. |
 | crc                   | The CRC checksum of custom model file.                     |
@@ -64,7 +64,7 @@ public OnPlayerRequestDownload(playerid, DOWNLOAD_REQUEST:type, crc)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnPlayerFinishedDownloading](OnPlayerFinishedDownloading): This callback is called when a player finishes downloading custom models.
 

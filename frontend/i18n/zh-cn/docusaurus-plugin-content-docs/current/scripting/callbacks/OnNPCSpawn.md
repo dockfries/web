@@ -9,7 +9,6 @@ tags: ["npc"]
 
 This callback is called when a NPC spawned.
 
-
 ## Examples
 
 ```c

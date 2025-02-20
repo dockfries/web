@@ -12,7 +12,7 @@ Spectate Types used by [GetPlayerSpectateType](../functions/GetPlayerSpectateTyp
 :::
 
 | Type    | Value |
-|---------|-------|
+| ------- | ----- |
 | None    | 0     |
 | Vehicle | 1     |
 | Player  | 2     |

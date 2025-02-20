@@ -11,8 +11,8 @@ ANY valid object model can be used for [CreatePickup](../functions/CreatePickup)
 
 ## Pickup model IDs
 
-| ID    | Icon                              | Description                        |
-| ----- | --------------------------------- | ---------------------------------- |
+| ID    | Icon                                                           | Description                        |
+| ----- | -------------------------------------------------------------- | ---------------------------------- |
 | 954   | ![](https://assets.open.mp/assets/images/pickups/pickup1.png)  | Horse shoe                         |
 | 1210  | ![](https://assets.open.mp/assets/images/pickups/pickup2.png)  | Briefcase                          |
 | 1212  | ![](https://assets.open.mp/assets/images/pickups/pickup3.png)  | Money                              |

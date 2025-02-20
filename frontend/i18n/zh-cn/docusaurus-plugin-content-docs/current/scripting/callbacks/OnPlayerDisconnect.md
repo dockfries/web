@@ -24,19 +24,19 @@ It is always called first in filterscripts.
 
 ## Reasons
 
-| ID | Reason        | Details                                                                                   |
-| -- | ------------- | ----------------------------------------------------------------------------------------- |
-| 0  | Timeout/Crash | The player's connection was lost. Either their game crashed or their network had a fault. |
-| 1  | Quit          | The player purposefully quit, either using the /quit (/q) command or via the pause menu.  |
-| 2  | Kick/Ban      | The player was kicked or banned by the server. |
-| 3  | Custom        | Used by some libraries.  Reserved for modes' private uses. |
-| 4  | Mode End      | The current mode is ending so disconnecting all players from it (they are still on the server).|
+| ID  | Reason        | Details                                                                                         |
+| --- | ------------- | ----------------------------------------------------------------------------------------------- |
+| 0   | Timeout/Crash | The player's connection was lost. Either their game crashed or their network had a fault.       |
+| 1   | Quit          | The player purposefully quit, either using the /quit (/q) command or via the pause menu.        |
+| 2   | Kick/Ban      | The player was kicked or banned by the server.                                                  |
+| 3   | Custom        | Used by some libraries. Reserved for modes' private uses.                                       |
+| 4   | Mode End      | The current mode is ending so disconnecting all players from it (they are still on the server). |
 
 :::warning
 
 Reason 3 was originally added in SA:MP by [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes)
 
-Reasons 3 and 4 were added by the Open Multiplayer server.  
+Reasons 3 and 4 were added by the Open Multiplayer server.
 
 :::
 
@@ -79,8 +79,8 @@ This issue is solved in open.mp server.
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnPlayerConnect](OnPlayerConnect): This callback is called when a player connects to the server.
-- [OnIncomingConnection](OnIncomingConnection): This callback is called when a player is attempting to connect to the server. 
-- [OnPlayerFinishedDownloading](OnPlayerFinishedDownloading): This callback is called when a player finishes downloading custom models. 
+- [OnIncomingConnection](OnIncomingConnection): This callback is called when a player is attempting to connect to the server.
+- [OnPlayerFinishedDownloading](OnPlayerFinishedDownloading): This callback is called when a player finishes downloading custom models.

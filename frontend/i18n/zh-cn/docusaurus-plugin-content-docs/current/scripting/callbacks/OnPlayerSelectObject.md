@@ -10,7 +10,7 @@ tags: ["player", "object"]
 This callback is called when a player selects an object after [BeginObjectSelecting](../functions/BeginObjectSelecting) has been used.
 
 | Name               | Description                                             |
-|--------------------|---------------------------------------------------------|
+| ------------------ | ------------------------------------------------------- |
 | playerid           | The ID of the player that selected an object            |
 | SELECT_OBJECT:type | The [type](../resources/selectobjecttypes) of selection |
 | objectid           | The ID of the selected object                           |
@@ -50,7 +50,7 @@ public OnPlayerSelectObject(playerid, SELECT_OBJECT:type, objectid, modelid, Flo
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [BeginObjectSelecting](../functions/BeginObjectSelecting): Select an object.
 

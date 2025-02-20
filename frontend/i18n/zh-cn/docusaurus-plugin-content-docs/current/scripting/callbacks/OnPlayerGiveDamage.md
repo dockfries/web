@@ -10,7 +10,7 @@ tags: ["player"]
 This callback is called when a player gives damage to another player.
 
 | Name            | Description                                                |
-|-----------------|------------------------------------------------------------|
+| --------------- | ---------------------------------------------------------- |
 | playerid        | The ID of the player that gave damage.                     |
 | damagedid       | The ID of the player that received damage.                 |
 | Float:amount    | The amount of health/armour damagedid has lost (combined). |
@@ -23,7 +23,7 @@ This callback is called when a player gives damage to another player.
 
 0 - Allows this callback to be called in other filterscripts.
 
-It is always called first in filterscripts so returning 1 there blocks other filterscripts from seeing it.
+It is always called first in filterscripts so returning 1 there blocks other filterscripts from processing it.
 
 ## Examples
 
@@ -59,8 +59,8 @@ public OnPlayerGiveDamage(playerid, damagedid, Float:amount, WEAPON:weaponid, bo
 
 The following callbacks might be useful, as they're related to this callback in one way or another.
 
-- [OnPlayerTakeDamage](OnPlayerTakeDamage): This callback is called when a player takes damage. 
-- [OnPlayerWeaponShot](OnPlayerWeaponShot): This callback is called when a player fires a weapon. 
+- [OnPlayerTakeDamage](OnPlayerTakeDamage): This callback is called when a player takes damage.
+- [OnPlayerWeaponShot](OnPlayerWeaponShot): This callback is called when a player fires a weapon.
 
 ## Related Resources
 

@@ -10,7 +10,7 @@ tags: ["pickup"]
 This function does exactly the same as AddStaticPickup, except it returns a pickup ID which can be used to destroy it afterwards and be tracked using OnPlayerPickUpPickup.
 
 | Name                             | Description                                                                       |
-|----------------------------------|-----------------------------------------------------------------------------------|
+| -------------------------------- | --------------------------------------------------------------------------------- |
 | [model](../resources/pickupids)  | The model of the pickup.                                                          |
 | [type](../resources/pickuptypes) | The pickup type. Determines how the pickup responds when picked up.               |
 | Float:x                          | The X coordinate to create the pickup at.                                         |

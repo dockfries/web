@@ -12,7 +12,7 @@ tags: ["player"]
 Reset the player's world boundaries to default world boundaries.
 
 | Name     | Description                                               |
-|----------|-----------------------------------------------------------|
+| -------- | --------------------------------------------------------- |
 | playerid | The ID of the player to reset/clear the world boundaries. |
 
 ## Returns

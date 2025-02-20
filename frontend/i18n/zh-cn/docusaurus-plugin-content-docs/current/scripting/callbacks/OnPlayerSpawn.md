@@ -28,7 +28,7 @@ public OnPlayerSpawn(playerid)
 {
     new PlayerName[MAX_PLAYER_NAME];
     GetPlayerName(playerid, PlayerName, sizeof(PlayerName));
-    
+
     new string[64];
     format(string, sizeof(string), "%s has spawned successfully.", PlayerName);
 
@@ -51,14 +51,14 @@ GivePlayerMoney(playerid, -100);
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
-- [OnPlayerDeath](OnPlayerDeath): This callback is called when a player dies. 
-- [OnVehicleSpawn](OnVehicleSpawn): This callback is called when a vehicle respawns. 
+- [OnPlayerDeath](OnPlayerDeath): This callback is called when a player dies.
+- [OnVehicleSpawn](OnVehicleSpawn): This callback is called when a vehicle respawns.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [SpawnPlayer](../functions/SpawnPlayer): Force a player to spawn.
 - [AddPlayerClass](../functions/AddPlayerClass): Add a class.

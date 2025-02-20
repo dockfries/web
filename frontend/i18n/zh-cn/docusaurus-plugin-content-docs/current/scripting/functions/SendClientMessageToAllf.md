@@ -23,7 +23,7 @@ Displays a formatted message in chat to all players. This is a multi-player equi
 | --------------- | ------------------------------------------------- |
 | color           | The color of the message (0xRRGGBBAA Hex format). |
 | const message[] | The message to show (max 144 characters).         |
-| \{Float, _}:...   | Indefinite number of arguments of any tag         |
+| \{Float, _\}:...   | Indefinite number of arguments of any tag         |
 
 ## Returns
 

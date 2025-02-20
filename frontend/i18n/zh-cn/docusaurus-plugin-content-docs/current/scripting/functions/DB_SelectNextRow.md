@@ -12,7 +12,7 @@ tags: ["sqlite"]
 The function moves to the next row of the result set allocated with [DB_ExecuteQuery](DB_ExecuteQuery).
 
 | Name              | Description                                       |
-|-------------------|---------------------------------------------------|
+| ----------------- | ------------------------------------------------- |
 | DBResult:dbresult | The result of [DB_ExecuteQuery](DB_ExecuteQuery). |
 
 ## Returns

@@ -15,7 +15,6 @@ The function gets the number of open database connections for debugging purposes
 | Name | Description |
 | ---- | ----------- |
 
-
 ## Related Functions
 
 - [db_open](db_open): Open a connection to an SQLite database

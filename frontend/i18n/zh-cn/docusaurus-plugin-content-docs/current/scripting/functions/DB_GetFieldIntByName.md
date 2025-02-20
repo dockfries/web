@@ -12,7 +12,7 @@ tags: ["sqlite"]
 Get the contents of field as an integer with specified name.
 
 | Name            | Description                        |
-|-----------------|------------------------------------|
+| --------------- | ---------------------------------- |
 | DBResult:result | The result to get the data from    |
 | const field[]   | The fieldname to get the data from |
 

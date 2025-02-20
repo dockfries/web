@@ -15,7 +15,7 @@ This callback is called when a player attempts to spawn via class selection eith
 
 ## Returns
 
-It is always called first in filterscripts so returning 0 there also blocks other scripts from seeing it.
+It is always called first in filterscripts so returning 0 there also blocks other scripts from processing it.
 
 ## Examples
 
@@ -43,7 +43,7 @@ To prevent players from spawning with certain classes, the last viewed class mus
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
-- [OnPlayerSpawn](OnPlayerSpawn): This callback is called when a player spawns. 
-- [OnPlayerRequestClass](OnPlayerRequestClass): This callback is called when a player changes class at class selection. 
+- [OnPlayerSpawn](OnPlayerSpawn): This callback is called when a player spawns.
+- [OnPlayerRequestClass](OnPlayerRequestClass): This callback is called when a player changes class at class selection.

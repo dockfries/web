@@ -24,7 +24,7 @@ This function sends a formatted message to a specific player with a chosen color
 | playerid        | The ID of the player to display the message to.       |
 | color           | The color of the message (0xRRGGBBAA Hex format).     |
 | const message[] | The text that will be displayed (max 144 characters). |
-| \{Float, _}:...   | Indefinite number of arguments of any tag             |
+| \{Float, _\}:...   | Indefinite number of arguments of any tag             |
 
 ## Returns
 

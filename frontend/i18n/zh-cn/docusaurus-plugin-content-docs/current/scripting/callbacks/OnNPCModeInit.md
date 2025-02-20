@@ -9,7 +9,6 @@ tags: ["npc"]
 
 This callback is called when a NPC script is loaded.
 
-
 ## Examples
 
 ```c
@@ -22,6 +21,6 @@ public OnNPCModeInit()
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnNPCModeExit](OnNPCModeExit): This callback is called when a NPC script unloaded.

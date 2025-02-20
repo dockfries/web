@@ -52,4 +52,3 @@ There is a limit as to how many explosions can be seen at once by a player. This
 ## See Also
 
 - [Explosion Types](../resources/explosionlist): A list of all the explosion types.
-

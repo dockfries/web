@@ -10,7 +10,7 @@ tags: ["player", "textdraw", "playertextdraw"]
 Creates a textdraw for a single player. This can be used as a way around the global text-draw limit.
 
 | Name             | Description                                     |
-|------------------|-------------------------------------------------|
+| ---------------- | ----------------------------------------------- |
 | playerid         | The ID of the player to create the textdraw for |
 | Float:x          | X-Coordinate                                    |
 | Float:y          | Y-Coordinate                                    |

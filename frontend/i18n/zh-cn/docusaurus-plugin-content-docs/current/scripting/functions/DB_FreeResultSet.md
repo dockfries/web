@@ -12,7 +12,7 @@ tags: ["sqlite"]
 Frees result memory allocated from DB_ExecuteQuery.
 
 | Name              | Description                                                            |
-|-------------------|------------------------------------------------------------------------|
+| ----------------- | ---------------------------------------------------------------------- |
 | DBResult:dbresult | The result set to free allocated by [DB_ExecuteQuery](DB_ExecuteQuery) |
 
 ## Returns

@@ -34,13 +34,13 @@ public OnPlayerLeaveGangZone(playerid, zoneid)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
-- [OnPlayerEnterGangZone](OnPlayerEnterGangZone): This callback is called when a player enters a gangzone. 
+- [OnPlayerEnterGangZone](OnPlayerEnterGangZone): This callback is called when a player enters a gangzone.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [GangZoneCreate](../functions/GangZoneCreate): Create a gangzone (colored radar area).
 - [GangZoneDestroy](../functions/GangZoneDestroy): Destroy a gangzone.

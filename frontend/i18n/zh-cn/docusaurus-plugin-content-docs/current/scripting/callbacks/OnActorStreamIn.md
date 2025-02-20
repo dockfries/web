@@ -1,43 +1,43 @@
 ---
 title: OnActorStreamIn
 sidebar_label: OnActorStreamIn
-description: This callback is called when an actor is streamed in by a player's client.
+description: 当角色被玩家客户端流加载时触发该回调。
 tags: ["actor"]
 ---
 
 <VersionWarn name='callback' version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-This callback is called when an actor is streamed in by a player's client.
+当角色被玩家客户端流加载时触发该回调。
 
-| Name        | Description                                                   |
-| ----------- | ------------------------------------------------------------- |
-| actorid     | The ID of the actor that has been streamed in for the player. |
-| forplayerid | The ID of the player that streamed the actor in.              |
+| 参数          | 说明                                   |
+|--------------|----------------------------------------|
+| actorid      | 已为玩家流加载的角色ID                  |
+| forplayerid  | 触发流加载操作的玩家ID                  |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+在滤镜脚本中总是优先被调用。
 
-## Examples
+## 示例
 
 ```c
 public OnActorStreamIn(actorid, forplayerid)
 {
     new string[48];
-    format(string, sizeof(string), "Actor %d is now streamed in for you.", actorid);
+    format(string, sizeof(string), "角色 %d 已为您完成流加载。", actorid);
     SendClientMessage(forplayerid, 0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意
 
 <TipNPCCallbacks />
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+以下回调可能与当前回调存在关联：
 
-- [OnActorStreamOut](OnActorStreamOut): This callback is called when an actor is streamed out by a player's client.
+- [OnActorStreamOut](OnActorStreamOut): 当角色被玩家客户端流卸载时触发

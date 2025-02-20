@@ -10,7 +10,7 @@ tags: ["player"]
 This callback is called when a player dies, either by suicide or by being killed by another player.
 
 | Name          | Description                                                                                   |
-|---------------|-----------------------------------------------------------------------------------------------|
+| ------------- | --------------------------------------------------------------------------------------------- |
 | playerid      | The ID of the player that died.                                                               |
 | killerid      | The ID of the player that killed the player who died, or INVALID_PLAYER_ID if there was none. |
 | WEAPON:reason | The ID of the reason ([weapon id](../resources/weaponids)) for the player's death.            |
@@ -61,13 +61,13 @@ You MUST check whether 'killerid' is valid (not INVALID_PLAYER_ID) before using 
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnPlayerSpawn](OnPlayerSpawn): This callback is called when a player spawns.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [SendDeathMessage](../functions/SendDeathMessage): Add a kill to the death list.
 - [SetPlayerHealth](../functions/SetPlayerHealth): Set a player's health.

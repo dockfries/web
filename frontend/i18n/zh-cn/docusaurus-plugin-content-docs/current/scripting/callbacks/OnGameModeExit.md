@@ -1,50 +1,54 @@
 ---
 title: OnGameModeExit
 sidebar_label: OnGameModeExit
-description: This callback is called when a gamemode ends, either through 'gmx', the server being shut down, or GameModeExit.
+description: 当游戏模式结束时触发该回调（可能由'gmx'指令、服务器关闭或GameModeExit函数触发）
 tags: []
 ---
 
-## Description
+## 描述
 
-This callback is called when a gamemode ends, either through 'gmx', the server being shut down, or GameModeExit.
+当游戏模式结束时触发该回调。触发条件包括：
+- 执行'gmx'指令
+- 服务器关闭
+- 调用GameModeExit函数
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeExit()
 {
-    print("Gamemode ended.");
+    print("游戏模式已结束。");
     return 1;
 }
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-This function can also be used in a filterscript to detect if the gamemode changes with RCON commands like changemode or gmx, as changing the gamemode does not reload a filterscript. 
+该回调也可用于滤镜脚本中，通过RCON指令（如changemode或gmx）检测游戏模式变更，因为更换游戏模式不会重新加载滤镜脚本
 
 :::
 
 :::warning
 
-When using OnGameModeExit in conjunction with the 'rcon gmx' console command keep in mind there is a potential for client bugs to occur.
-
-An example of this is excessive [RemoveBuildingForPlayer](RemoveBuildingForPlayer) calls during [OnGameModeInit](OnGameModeInit) which could result in a client crash. This callback will NOT be called if the server crashes or the process is killed by other means, such as using the Linux kill command or pressing the close-button on the Windows console.
+使用OnGameModeExit时需注意：
+- 配合`rcon gmx`指令使用时可能导致客户端异常
+- 在[OnGameModeInit](OnGameModeInit)中过度调用[RemoveBuildingForPlayer](../functions/RemoveBuildingForPlayer)可能引发客户端崩溃
+- 服务器崩溃或进程被强制终止（如Linux kill命令/Windows控制台关闭按钮）不会触发本回调
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+以下回调可能与当前回调存在关联：
 
-- [OnGameModeInit](OnGameModeInit): This callback is called when a gamemode starts.
-- [OnFilterScriptInit](OnFilterScriptInit): This callback is called when a filterscript is loaded.
-- [OnFilterSciptExit](OnFilterScriptExit): This callback is called when a filterscript is unloaded.
+- [OnGameModeInit](OnGameModeInit)：当游戏模式启动时触发
+- [OnFilterScriptInit](OnFilterScriptInit)：当滤镜脚本加载时触发
+- [OnFilterSciptExit](OnFilterScriptExit)：当滤镜脚本卸载时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+以下函数可能与当前回调相关：
 
-- [GameModeExit](../functions/GameModeExit): Exit the current gamemode.
+- [GameModeExit](../functions/GameModeExit)：退出当前游戏模式

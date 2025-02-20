@@ -55,7 +55,7 @@ This function is separate from the CreateObject / CreatePlayerObject pools.
 
 :::warning
 
-Atleast 10 objects can be attached to a single player (index 0-9)
+Up to 10 objects can be attached to a single player (index 0-9)
 
 :::
 

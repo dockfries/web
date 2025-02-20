@@ -37,13 +37,13 @@ public OnObjectMoved(objectid)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnPlayerObjectMoved](OnPlayerObjectMoved): This callback is called when a player-object stops moving.
 
 ## Related Functions
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [MoveObject](../functions/MoveObject): Move an object.
 - [MovePlayerObject](../functions/MovePlayerObject): Move a player object.

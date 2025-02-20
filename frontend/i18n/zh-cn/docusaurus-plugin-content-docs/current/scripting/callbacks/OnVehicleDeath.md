@@ -41,12 +41,12 @@ public OnVehicleDeath(vehicleid, killerid)
 
 ## Related Callbacks
 
-The following callbacks might be useful, as they're related to this callback in one way or another. 
+The following callbacks might be useful, as they're related to this callback in one way or another.
 
-- [OnVehicleSpawn](OnVehicleSpawn): This callback is called when a vehicle respawns. 
+- [OnVehicleSpawn](OnVehicleSpawn): This callback is called when a vehicle respawns.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [SetVehicleHealth](../functions/SetVehicleHealth): Set the health of a vehicle.

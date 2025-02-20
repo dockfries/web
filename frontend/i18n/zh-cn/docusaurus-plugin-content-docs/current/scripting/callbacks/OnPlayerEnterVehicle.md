@@ -36,7 +36,7 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 :::tip
 
 - This callback is called when a player BEGINS to enter a vehicle, not when they HAVE entered it. See [OnPlayerStateChange](OnPlayerStateChange).
-- This callback is still called if the player is denied entry to the vehicle (e.g. it is locked or full).
+- This callback is still called if the player is denied entry to a vehicle (e.g. it is locked or full) but only as a passenger.
 
 :::
 
@@ -44,12 +44,12 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 
 The following callbacks might be useful, as they are related to this callback in one way or another.
 
-- [OnPlayerExitVehicle](OnPlayerExitVehicle): This callback is called when a player leaves a vehicle. 
-- [OnPlayerStateChange](OnPlayerStateChange): This callback is called when a player changes state. 
+- [OnPlayerExitVehicle](OnPlayerExitVehicle): This callback is called when a player leaves a vehicle.
+- [OnPlayerStateChange](OnPlayerStateChange): This callback is called when a player changes state.
 
 ## Related Functions
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+The following functions might be useful, as they're related to this callback in one way or another.
 
 - [PutPlayerInVehicle](../functions/PutPlayerInVehicle): Put a player in a vehicle.
 - [GetPlayerVehicleSeat](../functions/GetPlayerVehicleSeat): Check what seat a player is in.

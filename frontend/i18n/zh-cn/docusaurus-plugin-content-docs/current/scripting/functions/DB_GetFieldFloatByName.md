@@ -12,7 +12,7 @@ tags: ["sqlite"]
 The function gets the contents of the field as a floating point number from the specified field name.
 
 | Name            | Description                         |
-|-----------------|-------------------------------------|
+| --------------- | ----------------------------------- |
 | DBResult:result | The result to get the data from     |
 | const field[]   | The field name to get the data from |
 

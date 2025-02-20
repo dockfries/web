@@ -12,7 +12,7 @@ tags: ["sqlite"]
 The function is used to execute an SQL query on an opened SQLite database.
 
 | Name             | Description                                |
-|------------------|--------------------------------------------|
+| ---------------- | ------------------------------------------ |
 | DB:db            | The database handle to query.              |
 | const query[]    | The query to execute.                      |
 | OPEN_MP_TAGS:... | Indefinite number of arguments of any tag. |

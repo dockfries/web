@@ -14,7 +14,7 @@ tags: ["sqlite"]
 The function is used to open a connection to a SQLite database, which is inside the "/scriptfiles" folder.
 
 | Name                                                                | Description                                           |
-|---------------------------------------------------------------------|-------------------------------------------------------|
+| ------------------------------------------------------------------- | ----------------------------------------------------- |
 | const name[]                                                        | File name of the database                             |
 | SQLITE_OPEN:flags = SQLITE_OPEN_READWRITE &#124; SQLITE_OPEN_CREATE | [Permissions / Flags](../resources/sqlite-open-flags) |
 

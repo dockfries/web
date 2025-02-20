@@ -12,7 +12,7 @@ tags: ["sqlite"]
 Returns the number of rows from a DB_ExecuteQuery
 
 | Name              | Description                                      |
-|-------------------|--------------------------------------------------|
+| ----------------- | ------------------------------------------------ |
 | DBResult:dbresult | The result of [DB_ExecuteQuery](DB_ExecuteQuery) |
 
 ## Returns
