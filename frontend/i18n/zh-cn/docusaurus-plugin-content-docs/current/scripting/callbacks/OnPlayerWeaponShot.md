@@ -1,97 +1,79 @@
 ---
 title: OnPlayerWeaponShot
 sidebar_label: OnPlayerWeaponShot
-description: This callback is called when a player fires a weapon.
+description: 当玩家射击时触发该回调函数。
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player fires a weapon. Only firearms are supported.
+当玩家射击时触发该回调函数（仅支持枪械类武器）。
 
-| Name                    | Description                                                         |
-| ----------------------- | ------------------------------------------------------------------- |
-| playerid                | The ID of the player who fired the weapon.                          |
-| WEAPON:weaponid         | The ID of the [weapon](../resources/weaponids) fired by the player. |
-| BULLET_HIT_TYPE:hittype | The [type](../resources/bullethittypes) of target hit by the shot.  |
-| hitid                   | The ID of the player, vehicle, or object that was hit.              |
-| Float:fX                | The X coordinate where the shot hit.                                |
-| Float:fY                | The Y coordinate where the shot hit.                                |
-| Float:fZ                | The Z coordinate where the shot hit.                                |
+| 参数名                    | 说明                                                         |
+| ----------------------- | ------------------------------------------------------------ |
+| playerid                | 射击的玩家ID                                             |
+| WEAPON:weaponid         | 使用的[武器ID](../resources/weaponids)                       |
+| BULLET_HIT_TYPE:hittype | 子弹命中的[目标类型](../resources/bullethittypes)            |
+| hitid                   | 被击中的玩家/载具/物体ID                                     |
+| Float:fX                | 命中点的X坐标                                                |
+| Float:fY                | 命中点的Y坐标                                                |
+| Float:fZ                | 命中点的Z坐标                                                |
 
-## Returns
+## 返回值
 
-0 - Prevent the bullet from causing damage.
+0 - 阻止子弹造成伤害
 
-1 - Allow the bullet to cause damage.
+1 - 允许子弹造成伤害
 
-It is always called first in filterscripts so returning 0 there also blocks other scripts from processing it.
+该回调始终在滤镜脚本中优先触发，返回0将阻止其他脚本处理此事件。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerWeaponShot(playerid, WEAPON:weaponid, BULLET_HIT_TYPE:hittype, hitid, Float:fX, Float:fY, Float:fZ)
 {
     new string[144];
-    format(string, sizeof(string), "Weapon %i fired. hittype: %i   hitid: %i   pos: %f, %f, %f", weaponid, hittype, hitid, fX, fY, fZ);
+    format(string, sizeof(string), "武器ID %i，命中类型: %i，目标ID: %i，坐标: %f, %f, %f", weaponid, hittype, hitid, fX, fY, fZ);
     SendClientMessage(playerid, -1, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This callback is only called when lag compensation is enabled. If hittype is:
-
-- BULLET_HIT_TYPE_NONE: The fX, fY, and fZ parameters are absolute coordinates. These will return 0.0 if nothing was hit (e.g., a distant object that the bullet can't reach).
-- Other values: The fX, fY, and fZ values are offsets relative to hitid.
-
-:::
-
-:::tip
-
-[GetPlayerLastShotVectors](../functions/GetPlayerLastShotVectors) can be used in this callback for more detailed bullet vector information.
-
-# Known bugs and issues
-
-:::warning
-
-This callback isn't called when firing from a vehicle as the driver or when shooting while looking backward with the aim enabled (shooting into the air).
+- 仅在启用延迟补偿时触发此回调
+- 当hittype为BULLET_HIT_TYPE_NONE时，fX/fY/fZ为绝对坐标（若未命中则返回0.0）
+- 其他命中类型时，坐标为相对于hitid的偏移量
+- 使用[GetPlayerLastShotVectors](../functions/GetPlayerLastShotVectors)可获取更详细的弹道向量信息
 
 :::
 
 :::warning
 
-When shooting a player inside a vehicle, this callback will be triggered as BULLET_HIT_TYPE_VEHICLE with the correct hitid (the hit player's vehicleid). It won't be triggered as BULLET_HIT_TYPE_PLAYER.
+**已知问题**
+
+- 作为载具驾驶员射击时不会触发
+- 开启瞄准镜向后射击时不会触发
+- 击中载具内玩家时返回BULLET_HIT_TYPE_VEHICLE而非PLAYER类型
+- 0.3.7版本后需校验weaponid真实性以防止客户端崩溃
+- 武装载具（如直升机机炮）射击时不会触发
 
 :::
 
-:::warning
+## 相关回调
 
-Partially fixed in SA-MP 0.3.7: If fake weapon data is sent by a malicious client, other players' clients may freeze or crash. To prevent this, check if the reported weaponid can, in fact, fire projectiles.
+以下回调可能与该回调存在关联：
 
-:::
+- [OnPlayerGiveDamage](OnPlayerGiveDamage): 当玩家造成伤害时触发
 
-:::warning
+## 相关函数
 
-This callback is not called when driving-by as a driver, firing the turret of a Seasparrow, Hunter, or any other armed vehicle.
+以下函数可能与该回调存在关联：
 
-:::
+- [GetPlayerLastShotVectors](../functions/GetPlayerLastShotVectors): 获取玩家最后发射的子弹向量
 
-## Related Callbacks
+## 相关资源
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
-
-- [OnPlayerGiveDamage](OnPlayerGiveDamage): This callback is called when a player gives damage.
-
-## Related Functions
-
-The following functions might be useful, as they're related to this callback in one way or another.
-
-- [GetPlayerLastShotVectors](../functions/GetPlayerLastShotVectors): Retrieves the vector of the last shot a player fired.
-
-## Related Resources
-
-- [Bullet Hit Types](../resources/bullethittypes)
+- [子弹命中类型](../resources/bullethittypes)

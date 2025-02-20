@@ -1,46 +1,46 @@
 ---
 title: OnScriptUnloadPlayer
 sidebar_label: OnScriptUnloadPlayer
-description: This callback is called for each connected player when a script is unloaded.
+description: 当脚本卸载时，会为每个已连接的玩家调用该回调函数。
 tags: ["player"]
 ---
 
 <VersionWarn name='callback' version='omp v1.3.1.2748' />
 
-## Description
+## 描述
 
-This callback is called for each connected player when a script is unloaded.
+当脚本卸载时，会为每个已连接的玩家调用该回调函数。
 
-| Name               | Description                                                              |
-| ------------------ | ------------------------------------------------------------------------ |
-| playerid           | The ID of the player that script is unloaded for.                        |
-| bool:isEntryScript | Determining whether it's an entry script (main script) or a side script. |
+| 参数名               | 说明                                                              |
+| ------------------ | ---------------------------------------------------------------- |
+| playerid           | 脚本卸载对应的玩家ID                                             |
+| bool:isEntryScript | 标识是否为入口脚本（主脚本）或侧脚本（滤镜脚本）                   |
 
-## Returns
+## 返回值
 
-This callback does not handle returns.
+本回调函数不处理返回值。
 
-## Examples
+## 示例
 
 ```c
 public OnScriptUnloadPlayer(playerid, bool:isEntryScript)
 {
-    printf("Script unloaded for player ID %d (isEntryScript: %s)", playerid, isEntryScript ? "Yes" : "No");
+    printf("为玩家ID %d 卸载脚本（主脚本：%s）", playerid, isEntryScript ? "是" : "否");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This callback is called when you are **unloading** a side script (filterscript) at runtime.
+本回调在**运行时卸载**侧脚本（滤镜脚本）时触发
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与该回调存在关联：
 
-- [OnScriptLoadPlayer](OnScriptLoadPlayer): This callback is called for each connected player when a script is loaded.
-- [OnPlayerConnect](OnPlayerConnect): This callback is called when a player connects to the server.
-- [OnPlayerDisconnect](OnPlayerDisconnect): This callback is called when a player leaves the server.
+- [OnScriptLoadPlayer](OnScriptLoadPlayer): 当脚本加载时为每个玩家触发
+- [OnPlayerConnect](OnPlayerConnect): 当玩家连接服务器时触发
+- [OnPlayerDisconnect](OnPlayerDisconnect): 当玩家断开连接时触发

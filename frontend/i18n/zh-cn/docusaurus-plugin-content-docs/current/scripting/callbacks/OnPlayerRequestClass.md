@@ -1,53 +1,56 @@
 ---
 title: OnPlayerRequestClass
 sidebar_label: OnPlayerRequestClass
-description: This callback is called when a player changes class at class selection (and when class selection first appears).
+description: 当玩家在职业选择界面切换职业类别（或首次进入选择界面）时触发该回调函数。
 tags: ["player", "class"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player changes class at class selection (and when class selection first appears).
+当玩家在职业选择界面切换职业类别（或首次进入选择界面）时触发该回调函数。
 
-| Name     | Description                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------------------- |
-| playerid | The ID of the player that changed class.                                                              |
-| classid  | The ID of the current class being viewed (returned by [AddPlayerClass](../functions/AddPlayerClass)). |
+| 参数名     | 说明                                                                       |
+| -------- | ------------------------------------------------------------------------- |
+| playerid | 切换职业类别的玩家ID                                                       |
+| classid  | 当前查看的职业类别ID（由[AddPlayerClass](../functions/AddPlayerClass)返回） |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发
 
-## Examples
+## 示例
 
 ```c
-public OnPlayerRequestClass(playerid,classid)
+public OnPlayerRequestClass(playerid, classid)
 {
+    // 若选择第3号职业且非管理员，则禁止选择
     if (classid == 3 && !IsPlayerAdmin(playerid))
     {
-        SendClientMessage(playerid, COLOR_RED, "This skin is only for admins!");
-        return 0;
+        SendClientMessage(playerid, COLOR_RED, "该皮肤仅管理员可用！");
+        return 0; // 阻止选择
     }
-    return 1;
+    return 1; // 允许选择
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This callback is also called when a player presses F4.
+当玩家按下F4键时也会触发此回调
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnPlayerRequestSpawn](OnPlayerRequestSpawn): This callback is called when a player attempts to spawn via class selection.
+- [OnPlayerRequestSpawn](OnPlayerRequestSpawn): 当玩家尝试通过职业选择界面生成时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调函数相关：
 
-- [AddPlayerClass](../functions/AddPlayerClass): Add a player class.
+- [AddPlayerClass](../functions/AddPlayerClass): 添加职业类别
+- [SetSpawnInfo](../functions/SetSpawnInfo): 设置玩家生成信息
+- [SetPlayerTeam](../functions/SetPlayerTeam): 设置玩家队伍（影响职业选择）

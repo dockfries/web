@@ -1,24 +1,24 @@
 ---
 title: OnPlayerText
 sidebar_label: OnPlayerText
-description: This callback is called when a player sends a chat message.
+description: 当玩家发送聊天消息时触发该回调函数。
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player sends a message in chat.
+当玩家在聊天框发送消息时触发该回调函数。
 
-| Name     | Description                                      |
-| -------- | ------------------------------------------------ |
-| playerid | The ID of the player who sent the message.       |
-| text[]   | The content of the message that the player sent. |
+| 参数名     | 说明                                      |
+| -------- | ---------------------------------------- |
+| playerid | 发送消息的玩家ID                          |
+| text[]   | 玩家发送的消息内容                         |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts so returning 0 on it blocks other scripts from processing it.
+该回调始终在滤镜脚本中优先触发，返回0将阻止其他脚本处理此消息。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerText(playerid, text[])
@@ -27,32 +27,32 @@ public OnPlayerText(playerid, text[])
     format(string, sizeof (string), "(%d) %s", playerid, text);
     SendPlayerMessageToAll(playerid, string);
 
-    // Returning 0 ignores the default message format and sends the custom one instead.
-    // Returning 1 will result in the message being duplicated, as the default message will also be sent.
+    // 返回0将忽略默认消息格式，发送自定义消息
+    // 返回1会导致消息重复显示（默认消息也会发送）
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 <TipNPCCallbacks />
 
 :::tip
 
-By default, this callback sends a message containing the content of the message, the player's name, and their ID. Returning 0 will ignore this default behaviour, as demonstrated in the code example above.
+默认情况下，此回调会发送包含玩家名称、ID和消息内容的系统格式消息。返回0可禁用此默认行为（如示例代码所示）。
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与该回调存在关联：
 
-- [OnPlayerCommandText](OnPlayerCommandText): Called when a player types a command.
+- [OnPlayerCommandText](OnPlayerCommandText): 当玩家输入指令时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与该回调存在关联：
 
-- [SendPlayerMessageToPlayer](../functions/SendPlayerMessageToPlayer): Force a player to send text for one player.
-- [SendPlayerMessageToAll](../functions/SendPlayerMessageToAll): Force a player to send text for all players.
-- [ToggleChatTextReplacement](../functions/ToggleChatTextReplacement): Toggles the chat input filter.
+- [SendPlayerMessageToPlayer](../functions/SendPlayerMessageToPlayer): 向指定玩家发送玩家消息
+- [SendPlayerMessageToAll](../functions/SendPlayerMessageToAll): 向全体玩家发送玩家消息
+- [ToggleChatTextReplacement](../functions/ToggleChatTextReplacement): 切换聊天过滤器状态

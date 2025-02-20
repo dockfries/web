@@ -1,31 +1,31 @@
 ---
 title: OnNPCEnterVehicle
 sidebar_label: OnNPCEnterVehicle
-description: This callback is called when a NPC enters a vehicle.
+description: 当NPC进入载具时触发该回调
 tags: ["npc"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a NPC enters a vehicle.
+当NPC进入载具时触发该回调。
 
-| Name      | Description                  |
-| --------- | ---------------------------- |
-| vehicleid | The vehicle ID the NPC enter |
-| seatid    | The seatid the NPC uses      |
+| 参数        | 说明                 |
+|------------|----------------------|
+| vehicleid  | NPC进入的载具ID       |
+| seatid     | NPC使用的座位ID       |
 
-## Examples
+## 示例
 
 ```c
 public OnNPCEnterVehicle(vehicleid, seatid)
 {
-    printf("OnNPCEnterVehicle ID: %d Seat: %d", vehicleid, seatid);
+    printf("NPC进入载具事件 - 载具ID: %d 座位ID: %d", vehicleid, seatid);
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与当前回调存在关联：
 
-- [OnNPCExitVehicle](OnNPCExitVehicle): This callback is called when a NPC leaves a Vehicle.
+- [OnNPCExitVehicle](OnNPCExitVehicle)：当NPC离开载具时触发

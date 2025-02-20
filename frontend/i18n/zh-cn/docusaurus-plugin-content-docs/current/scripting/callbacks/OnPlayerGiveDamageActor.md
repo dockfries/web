@@ -1,33 +1,33 @@
 ---
 title: OnPlayerGiveDamageActor
 sidebar_label: OnPlayerGiveDamageActor
-description: This callback is called when a player gives damage to an actor.
+description: 当玩家对角色造成伤害时触发该回调函数。
 tags: ["player", "actor"]
 ---
 
 <VersionWarn name='callback' version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-This callback is called when a player gives damage to an actor.
+当玩家对角色造成伤害时触发该回调函数。
 
-| Name            | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| playerid        | The ID of the player that gave damage.                |
-| damaged_actorid | The ID of the actor that received damage.             |
-| Float:amount    | The amount of health/armour damaged_actorid has lost. |
-| WEAPON:weaponid | The reason that caused the damage.                    |
-| bodypart        | The [body part](../resources/bodyparts) that was hit  |
+| 参数名            | 说明                                      |
+| --------------- | ---------------------------------------- |
+| playerid        | 造成伤害的玩家ID                         |
+| damaged_actorid | 受到伤害的角色ID                         |
+| Float:amount    | 损失的生命值/护甲值（单位：浮点数）        |
+| WEAPON:weaponid | 造成伤害的武器类型                        |
+| bodypart        | 被击中的[身体部位](../resources/bodyparts) |
 
-## Returns
+## 返回值
 
-1 - Callback will not be called in other filterscripts.
+1 - 阻止其他滤镜脚本接收此回调
 
-0 - Allows this callback to be called in other filterscripts.
+0 - 允许将此回调传递给其他滤镜脚本
 
-It is always called first in filterscripts so returning 1 there blocks other filterscripts from processing it.
+该回调始终在滤镜脚本中优先触发，返回1将阻止其他滤镜脚本处理
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerGiveDamageActor(playerid, damaged_actorid, Float:amount, WEAPON:weaponid, bodypart)
@@ -39,38 +39,38 @@ public OnPlayerGiveDamageActor(playerid, damaged_actorid, Float:amount, WEAPON:w
     GetPlayerName(playerid, attackerName, sizeof (attackerName));
     GetWeaponName(weaponid, weaponName, sizeof (weaponName));
 
-    format(string, sizeof(string), "%s has made %.0f damage to actor id %d, weapon: %s", attackerName, amount, damaged_actorid, weaponName);
+    format(string, sizeof(string), "%s 对角色ID %d 造成了 %.0f 点伤害，武器：%s", attackerName, damaged_actorid, amount, weaponName);
     SendClientMessageToAll(0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function does not get called if the actor is set invulnerable (WHICH IS BY DEFAULT). See [SetActorInvulnerable](../functions/SetActorInvulnerable).
+若角色设置为无敌状态（默认状态），此回调不会被触发。详见[SetActorInvulnerable](../functions/SetActorInvulnerable)。
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnActorStreamOut](OnActorStreamOut): This callback is called when an actor is streamed out by a player's client.
-- [OnActorStreamIn](OnActorStreamOut): This callback is called when an actor is streamed in by a player's client.
+- [OnActorStreamOut](OnActorStreamOut): 当角色被玩家客户端流卸载时触发
+- [OnActorStreamIn](OnActorStreamOut): 当角色被玩家客户端流加载时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调函数相关：
 
-- [CreateActor](../functions/CreateActor): Create an actor (static NPC).
-- [SetActorInvulnerable](../functions/SetActorInvulnerable): Set actor invulnerable.
-- [SetActorHealth](../functions/SetActorHealth): Set the health of an actor.
-- [GetActorHealth](../functions/GetActorHealth): Gets the health of an actor.
-- [IsActorInvulnerable](../functions/IsActorInvulnerable): Check if actor is invulnerable.
-- [IsValidActor](../functions/IsValidActor): Check if actor id is valid.
+- [CreateActor](../functions/CreateActor): 创建角色（静态NPC）
+- [SetActorInvulnerable](../functions/SetActorInvulnerable): 设置角色无敌状态
+- [SetActorHealth](../functions/SetActorHealth): 设置角色生命值
+- [GetActorHealth](../functions/GetActorHealth): 获取角色生命值
+- [IsActorInvulnerable](../functions/IsActorInvulnerable): 检测角色是否无敌
+- [IsValidActor](../functions/IsValidActor): 验证角色ID有效性
 
-## Related Resources
+## 相关资源
 
-- [Body Parts](../resources/bodyparts)
+- [身体部位列表](../resources/bodyparts)

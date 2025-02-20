@@ -1,52 +1,56 @@
 ---
 title: OnVehicleDeath
 sidebar_label: OnVehicleDeath
-description: This callback is called when a vehicle is destroyed - either by exploding or becoming submerged in water.
+description: 当载具被摧毁（爆炸或浸没水中）时触发该回调函数。
 tags: ["vehicle"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a vehicle is destroyed - either by exploding or becoming submerged in water.
+当载具被摧毁时触发该回调函数，触发条件包括：
+- 载具爆炸
+- 载具完全浸没水中
 
-| Name      | Description                                                                                                                                                     |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| vehicleid | The ID of the vehicle that was destroyed.                                                                                                                       |
-| killerid  | The ID of the player that reported (synced) the vehicle's destruction (name is misleading). Generally the driver or a passenger (if any) or the closest player. |
+| 参数名      | 说明                                                                                             |
+| --------- | ----------------------------------------------------------------------------------------------- |
+| vehicleid | 被摧毁的载具ID                                                                                   |
+| killerid  | 报告载具摧毁状态的玩家ID（参数名易误解，通常为驾驶员/乘客或最近玩家）                             |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发。
 
-## Examples
+## 示例
 
 ```c
 public OnVehicleDeath(vehicleid, killerid)
 {
     new string[64];
-    format(string, sizeof(string), "Vehicle %i was destroyed. Reported by player %i.", vehicleid, killerid);
+    format(string, sizeof(string), "载具 %i 已被摧毁。报告者：玩家 %i。", vehicleid, killerid);
     SendClientMessageToAll(0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- This callback will also be called when a vehicle enters water, but the vehicle can be saved from destruction by teleportation or driving out (if only partially submerged).
-- The callback won't be called a second time, and the vehicle may disappear when the driver exits, or after a short time.
+- 载具部分浸没水中时也会触发本回调，此时通过传送或驶出水域仍可挽救载具
+- 载具完全摧毁后，当驾驶员离开或经过短暂时间，载具会消失且不会再次触发本回调
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与该回调存在关联：
 
-- [OnVehicleSpawn](OnVehicleSpawn): This callback is called when a vehicle respawns.
+- [OnVehicleSpawn](OnVehicleSpawn): 当载具重新生成时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与该回调存在关联：
 
-- [SetVehicleHealth](../functions/SetVehicleHealth): Set the health of a vehicle.
+- [SetVehicleHealth](../functions/SetVehicleHealth): 设置载具生命值
+- [GetVehicleHealth](../functions/GetVehicleHealth): 获取载具生命值
+- [RepairVehicle](../functions/RepairVehicle): 完全修复载具

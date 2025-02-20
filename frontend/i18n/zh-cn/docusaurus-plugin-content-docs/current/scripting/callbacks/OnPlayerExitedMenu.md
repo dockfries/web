@@ -1,41 +1,41 @@
 ---
 title: OnPlayerExitedMenu
 sidebar_label: OnPlayerExitedMenu
-description: This callback is called when a player exits a menu.
+description: 当玩家退出菜单时触发该回调函数。
 tags: ["player", "menu"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player exits a menu.
+当玩家退出菜单时触发该回调函数。
 
-| Name     | Description                               |
-| -------- | ----------------------------------------- |
-| playerid | The ID of the player that exited the menu |
+| 参数名     | 说明                  |
+| -------- | --------------------- |
+| playerid | 退出菜单的玩家ID      |
 
-## Returns
+## 返回值
 
-It is always called first in gamemode.
+该回调始终在游戏模式中优先触发
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerExitedMenu(playerid)
 {
-    TogglePlayerControllable(playerid, true); // unfreeze the player when they exit a menu
+    TogglePlayerControllable(playerid, true); // 当玩家退出菜单时解除冻结状态
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnPlayerSelectedMenuRow](OnPlayerSelectedMenuRow): This callback is called when a player selected a row in a menu.
+- [OnPlayerSelectedMenuRow](OnPlayerSelectedMenuRow): 当玩家选择菜单中的某行时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调函数相关：
 
-- [CreateMenu](../functions/CreateMenu): Create a menu.
-- [DestroyMenu](../functions/DestroyMenu): Destroy a menu.
+- [CreateMenu](../functions/CreateMenu): 创建菜单
+- [DestroyMenu](../functions/DestroyMenu): 销毁菜单

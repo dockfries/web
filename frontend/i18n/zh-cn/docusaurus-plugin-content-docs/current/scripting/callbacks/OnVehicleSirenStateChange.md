@@ -1,57 +1,61 @@
 ---
 title: OnVehicleSirenStateChange
 sidebar_label: OnVehicleSirenStateChange
-description: This callback is called when a vehicle's siren is toggled.
+description: 当载具警笛状态发生变更时触发该回调函数。
 tags: ["vehicle"]
 ---
 
 <VersionWarn name='callback' version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-This callback is called when a vehicle's siren is toggled.
+当载具的警笛状态被切换时触发该回调函数。
 
-| Name      | Description                                               |
-| --------- | --------------------------------------------------------- |
-| playerid  | The ID of the player that toggled the siren (driver).     |
-| vehicleid | The ID of the vehicle of which the siren was toggled for. |
-| newstate  | 0 if siren was turned off, 1 if siren was turned on.      |
+| 参数名      | 说明                                               |
+| --------- | ------------------------------------------------- |
+| playerid  | 切换警笛状态的玩家ID（驾驶员）                     |
+| vehicleid | 警笛状态发生变更的载具ID                           |
+| newstate  | 警笛新状态（0=关闭，1=开启）                       |
 
-## Returns
+## 返回值
 
-1 - Will prevent gamemode from receiving this callback.
+1 - 阻止游戏模式接收此回调  
+0 - 允许回调传递给游戏模式  
 
-0 - Indicates that this callback will be passed to the gamemode.
+该回调始终在滤镜脚本中优先触发。
 
-It is always called first in filterscripts.
-
-## Examples
+## 示例
 
 ```c
 public OnVehicleSirenStateChange(playerid, vehicleid, newstate)
 {
     if (newstate)
     {
-        GameTextForPlayer(playerid, "~W~Siren ~G~on", 1000, 3);
+        GameTextForPlayer(playerid, "~W~警笛 ~G~开启", 1000, 3);
     }
     else
     {
-        GameTextForPlayer(playerid, "~W~Siren ~r~off", 1000, 3);
+        GameTextForPlayer(playerid, "~W~警笛 ~r~关闭", 1000, 3);
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This callback is only called when a vehicle's siren is toggled on or off, NOT when the alternate siren is in use (holding horn).
+本回调仅在警笛开关状态切换时触发，长按喇叭触发的交替警笛声不会触发
 
 :::
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与该回调存在关联：
 
-- [GetVehicleParamsSirenState](../functions/GetVehicleParamsSirenState): Check whether a vehicle's siren is on or off.
+- [GetVehicleParamsSirenState](../functions/GetVehicleParamsSirenState): 检测载具警笛当前状态
+- [SetVehicleParamsSirenState](../functions/SetVehicleParamsSirenState): 设置载具警笛状态
+
+## 相关资源
+
+- [载具参数类型](../resources/vehicleparams)

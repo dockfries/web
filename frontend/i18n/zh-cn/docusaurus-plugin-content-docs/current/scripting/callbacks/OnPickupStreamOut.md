@@ -1,26 +1,26 @@
 ---
-title: OnPickupStreamOut
-sidebar_label: OnPickupStreamOut
-description: This callback is called when a pickup leaves the visual range of a player.
+title: OnPickupStreamIn
+sidebar_label: OnPickupStreamIn
+description: 当拾取物进入玩家的可视范围时触发该回调
 tags: ["player"]
 ---
 
 <VersionWarn name='callback' version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-This callback is called when a pickup leaves the visual range of a player.
+当拾取物进入玩家的可视范围时触发该回调。
 
-| Name     | Description                                                                 |
-| -------- | --------------------------------------------------------------------------- |
-| pickupid | The ID of the pickup, returned by [CreatePickup](../functions/CreatePickup) |
-| playerid | The ID of the player that pickup leaves the visual range.                   |
+| 参数        | 说明                                                                 |
+|------------|----------------------------------------------------------------------|
+| pickupid   | 拾取物ID（由[CreatePickup](../functions/CreatePickup)函数返回）       |
+| playerid   | 触发流加载的玩家ID                                                   |
 
-## Returns
+## 返回值
 
-It is always called first in gamemode.
+该回调在游戏模式中总是优先触发。
 
-## Examples
+## 示例
 
 ```c
 new g_PickupHealth;
@@ -31,26 +31,26 @@ public OnGameModeInit()
     return 1;
 }
 
-public OnPickupStreamOut(pickupid, playerid)
+public OnPickupStreamIn(pickupid, playerid)
 {
     if (pickupid == g_PickupHealth)
     {
-        printf("g_PickupHealth is streamed out for player id %d", playerid);
+        printf("生命值拾取物已为玩家 %d 完成流加载", playerid);
     }
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与当前回调存在关联：
 
-- [OnPlayerPickUpPickup](OnPlayerPickUpPickup): Called when a player picks up a pickup.
-- [OnPickupStreamIn](OnPickupStreamIn): Called when a pickup enters the visual range of a player.
+- [OnPlayerPickUpPickup](OnPlayerPickUpPickup)：当玩家拾取物品时触发
+- [OnPickupStreamOut](OnPickupStreamOut)：当拾取物离开玩家可视范围时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与当前回调相关：
 
-- [CreatePickup](../functions/CreatePickup): Create a pickup.
-- [DestroyPickup](../functions/DestroyPickup): Destroy a pickup.
+- [CreatePickup](../functions/CreatePickup)：创建拾取物
+- [DestroyPickup](../functions/DestroyPickup)：销毁拾取物

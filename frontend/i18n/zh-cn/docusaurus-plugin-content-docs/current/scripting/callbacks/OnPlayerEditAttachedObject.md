@@ -1,40 +1,39 @@
 ---
 title: OnPlayerEditAttachedObject
 sidebar_label: OnPlayerEditAttachedObject
-description: This callback is called when a player ends attached object edition mode.
+description: 当玩家结束附着物体编辑模式时触发该回调
 tags: ["player", "object", "attachment"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player ends attached object edition mode.
+当玩家结束附着物体编辑模式时触发该回调。
 
-| Name                   | Description                                                  |
-| ---------------------- | ------------------------------------------------------------ |
-| playerid               | The ID of the player that ended edition mode                 |
-| EDIT_RESPONSE:response | 0 if they cancelled (ESC) or 1 if they clicked the save icon |
-| index                  | The index of the attached object (0-9)                       |
-| modelid                | The model of the attached object that was edited             |
-| boneid                 | The bone of the attached object that was edited              |
-| Float:fOffsetX         | The X offset for the attached object that was edited         |
-| Float:fOffsetY         | The Y offset for the attached object that was edited         |
-| Float:fOffsetZ         | The Z offset for the attached object that was edited         |
-| Float:fRotX            | The X rotation for the attached object that was edited       |
-| Float:fRotY            | The Y rotation for the attached object that was edited       |
-| Float:fRotZ            | The Z rotation for the attached object that was edited       |
-| Float:fScaleX          | The X scale for the attached object that was edited          |
-| Float:fScaleY          | The Y scale for the attached object that was edited          |
-| Float:fScaleZ          | The Z scale for the attached object that was edited          |
+| 参数                   | 说明                                                                 |
+|------------------------|----------------------------------------------------------------------|
+| playerid               | 结束编辑的玩家ID                                                     |
+| EDIT_RESPONSE:response | 操作结果：0=取消（ESC），1=保存（点击保存图标）                        |
+| index                  | 附着物体的索引号（0-9）                                               |
+| modelid                | 被编辑附着物体的模型ID                                                |
+| boneid                 | 被编辑附着物体的骨骼ID                                                |
+| Float:fOffsetX         | 被编辑附着物体的X轴偏移量                                             |
+| Float:fOffsetY         | 被编辑附着物体的Y轴偏移量                                             |
+| Float:fOffsetZ         | 被编辑附着物体的Z轴偏移量                                             |
+| Float:fRotX            | 被编辑附着物体的X轴旋转角度                                           |
+| Float:fRotY            | 被编辑附着物体的Y轴旋转角度                                           |
+| Float:fRotZ            | 被编辑附着物体的Z轴旋转角度                                           |
+| Float:fScaleX          | 被编辑附着物体的X轴缩放比例                                           |
+| Float:fScaleY          | 被编辑附着物体的Y轴缩放比例                                           |
+| Float:fScaleZ          | 被编辑附着物体的Z轴缩放比例                                           |
 
-## Returns
+## 返回值
 
-1 - Will prevent other scripts from receiving this callback.
+1 - 阻止其他脚本接收此回调  
+0 - 允许传递给后续脚本  
 
-0 - Indicates that this callback will be passed to the next script.
+该回调在滤镜脚本中总是优先触发。
 
-It is always called first in filterscripts.
-
-## Examples
+## 示例
 
 ```c
 enum attached_object_data
@@ -52,13 +51,13 @@ enum attached_object_data
 
 new ao[MAX_PLAYERS][MAX_PLAYER_ATTACHED_OBJECTS][attached_object_data];
 
-// The data should be stored in the above array when attached objects are attached.
+// 当附着物体被附加时，应将数据存储到上述数组中
 
 public OnPlayerEditAttachedObject(playerid, EDIT_RESPONSE:response, index, modelid, boneid, Float:fOffsetX, Float:fOffsetY, Float:fOffsetZ, Float:fRotX, Float:fRotY, Float:fRotZ, Float:fScaleX, Float:fScaleY, Float:fScaleZ)
 {
     if (response == EDIT_RESPONSE_FINAL)
     {
-        SendClientMessage(playerid, COLOR_GREEN, "Attached object edition saved.");
+        SendClientMessage(playerid, COLOR_GREEN, "附着物体编辑已保存");
 
         ao[playerid][index][ao_x] = fOffsetX;
         ao[playerid][index][ao_y] = fOffsetY;
@@ -72,26 +71,45 @@ public OnPlayerEditAttachedObject(playerid, EDIT_RESPONSE:response, index, model
     }
     else if (response == EDIT_RESPONSE_CANCEL)
     {
-        SendClientMessage(playerid, COLOR_RED, "Attached object edition not saved.");
+        SendClientMessage(playerid, COLOR_RED, "附着物体编辑未保存");
 
         new i = index;
-        SetPlayerAttachedObject(playerid, index, modelid, boneid, ao[playerid][i][ao_x], ao[playerid][i][ao_y], ao[playerid][i][ao_z], ao[playerid][i][ao_rx], ao[playerid][i][ao_ry], ao[playerid][i][ao_rz], ao[playerid][i][ao_sx], ao[playerid][i][ao_sy], ao[playerid][i][ao_sz]);
+        SetPlayerAttachedObject(playerid, index, modelid, boneid, 
+            ao[playerid][i][ao_x], 
+            ao[playerid][i][ao_y], 
+            ao[playerid][i][ao_z], 
+            ao[playerid][i][ao_rx], 
+            ao[playerid][i][ao_ry], 
+            ao[playerid][i][ao_rz], 
+            ao[playerid][i][ao_sx], 
+            ao[playerid][i][ao_sy], 
+            ao[playerid][i][ao_sz]);
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意
 
-:::warning
+:::tip
 
-Editions should be discarded if response was '0' (cancelled). This must be done by storing the offsets etc. in an array BEFORE using [EditAttachedObject](../functions/EditAttachedObject).
+使用[SetPlayerAttachedObject](../functions/SetPlayerAttachedObject)可还原附着物体的原始参数
 
 :::
 
-## Related Functions
+## 相关回调
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下回调可能与当前回调存在关联：
 
-- [EditAttachedObject](../functions/EditAttachedObject): Edit an attached object.
-- [SetPlayerAttachedObject](../functions/SetPlayerAttachedObject): Attach an object to a player
+- [OnPlayerEditObject](OnPlayerEditObject)：当玩家结束普通物体编辑时触发
+- [OnPlayerSelectObject](OnPlayerSelectObject)：当玩家通过[SelectObject](../functions/SelectObject)选择物体后触发
+
+## 相关函数
+
+以下函数可能与当前回调相关：
+
+- [EditAttachedObject](../functions/EditAttachedObject)：进入附着物体编辑模式
+- [SetPlayerAttachedObject](../functions/SetPlayerAttachedObject)：为玩家附加物体
+- [RemovePlayerAttachedObject](../functions/RemovePlayerAttachedObject)：移除玩家的附着物体
+- [IsPlayerEditingAttachedObject](../functions/IsPlayerEditingAttachedObject)：检测玩家是否正在编辑附着物体
+- [CancelEdit](../functions/CancelEdit)：取消物体编辑

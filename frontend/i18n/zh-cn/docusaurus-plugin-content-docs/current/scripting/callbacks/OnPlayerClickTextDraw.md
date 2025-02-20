@@ -1,31 +1,31 @@
 ---
 title: OnPlayerClickTextDraw
 sidebar_label: OnPlayerClickTextDraw
-description: This callback is called when a player clicks on a textdraw or cancels the select mode with the Escape key.
+description: 当玩家点击文本绘制或按ESC键取消选择模式时触发该回调
 tags: ["player", "textdraw"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player clicks on a textdraw or cancels the select mode with the Escape key.
+当玩家点击文本绘制或按ESC键取消选择模式时触发该回调。
 
-| Name           | Description                                                                   |
-| -------------- | ----------------------------------------------------------------------------- |
-| playerid       | The ID of the player that clicked on the textdraw.                            |
-| Text:clickedid | The ID of the clicked textdraw. INVALID_TEXT_DRAW if selection was cancelled. |
+| 参数            | 说明                                                                 |
+|-----------------|----------------------------------------------------------------------|
+| playerid        | 触发点击操作的玩家ID                                                 |
+| Text:clickedid  | 被点击的文本绘制ID（取消选择时返回INVALID_TEXT_DRAW）                 |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts so returning 1 there also blocks other scripts from processing it.
+该回调在滤镜脚本中总是优先触发，返回1将阻止其他脚本处理此事件。
 
-## Examples
+## 示例
 
 ```c
 new Text:gTextDraw;
 
 public OnGameModeInit()
 {
-    gTextDraw = TextDrawCreate(10.000000, 141.000000, "MyTextDraw");
+    gTextDraw = TextDrawCreate(10.000000, 141.000000, "我的文本");
     TextDrawTextSize(gTextDraw, 60.000000, 20.000000);
     TextDrawAlignment(gTextDraw, TEXT_DRAW_ALIGN_LEFT);
     TextDrawBackgroundColor(gTextDraw, 0x000000FF);
@@ -52,7 +52,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 {
     if (clickedid == gTextDraw)
     {
-        SendClientMessage(playerid, 0xFFFFFFAA, "You clicked on a textdraw.");
+        SendClientMessage(playerid, 0xFFFFFFAA, "您点击了文本绘制");
         CancelSelectTextDraw(playerid);
         return 1;
     }
@@ -60,26 +60,26 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 }
 ```
 
-## Notes
+## 注意
 
 :::warning
 
-- The clickable area is defined by [TextDrawTextSize](../functions/TextDrawTextSize).
-- The `x` and `y` parameters passed to that function must not be zero or negative.
-- Do not use [CancelSelectTextDraw](../functions/CancelSelectTextDraw) unconditionally within this callback. This results in an **infinite loop**.
+- 点击区域由[TextDrawTextSize](../functions/TextDrawTextSize)定义
+- 该函数的x/y参数值不可为零或负数
+- 禁止无条件调用[CancelSelectTextDraw](../functions/CancelSelectTextDraw)，否则会导致无限循环
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与当前回调存在关联：
 
-- [OnPlayerClickPlayerTextDraw](OnPlayerClickPlayerTextDraw): This callback is called when a player clicks on a player-textdraw.
-- [OnPlayerClickPlayer](OnPlayerClickPlayer): This callback is called when a player click on another.
+- [OnPlayerClickPlayerTextDraw](OnPlayerClickPlayerTextDraw)：当玩家点击个人文本绘制时触发
+- [OnPlayerClickPlayer](OnPlayerClickPlayer)：当玩家点击其他玩家时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与当前回调相关：
 
-- [SelectTextDraw](../functions/SelectTextDraw): Enables the mouse, so the player can select a textdraw.
-- [CancelSelectTextDraw](../functions/CancelSelectTextDraw): Cancel textdraw selection with the mouse.
+- [SelectTextDraw](../functions/SelectTextDraw)：启用鼠标选择文本绘制模式
+- [CancelSelectTextDraw](../functions/CancelSelectTextDraw)：取消文本绘制选择模式

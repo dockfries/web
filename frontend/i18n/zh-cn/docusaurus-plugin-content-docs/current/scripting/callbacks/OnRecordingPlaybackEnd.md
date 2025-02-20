@@ -1,26 +1,26 @@
 ---
 title: OnRecordingPlaybackEnd
 sidebar_label: OnRecordingPlaybackEnd
-description: This callback is called when a recorded file being reproduced with StartRecordingPlayback has reached to its end.
+description: 当使用StartRecordingPlayback播放的录制文件结束时触发该回调函数。
 tags: []
 ---
 
-## Description
+## 描述
 
-This callback is called when a .rec file, being played with [StartRecordingPlayback](../functions/StartRecordingPlayback), has reached its end.
+当使用 [StartRecordingPlayback](../functions/StartRecordingPlayback) 播放的.rec文件到达结尾时触发该回调函数。
 
-## Examples
+## 示例
 
 ```c
 public OnRecordingPlaybackEnd()
 {
-    StartRecordingPlayback(PLAYER_RECORDING_TYPE_DRIVER, "all_around_lv_bus"); // This will play the recording again once it has reached its end.
+    StartRecordingPlayback(PLAYER_RECORDING_TYPE_DRIVER, "all_around_lv_bus"); // 当回放结束时将重新开始播放录制
 }
 ```
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与该回调存在关联：
 
-- [StartRecordingPlayback](../functions/StartRecordingPlayback): Starts reproducing an already recorded .rec file.
-- [StopRecordingPlayback](../functions/StopRecordingPlayback): Stops reproducing a .rec file.
+- [StartRecordingPlayback](../functions/StartRecordingPlayback): 开始回放录制文件
+- [StopRecordingPlayback](../functions/StopRecordingPlayback): 停止回放录制文件

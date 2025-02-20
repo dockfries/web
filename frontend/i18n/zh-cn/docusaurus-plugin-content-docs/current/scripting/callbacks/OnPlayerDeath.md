@@ -1,29 +1,30 @@
 ---
 title: OnPlayerDeath
 sidebar_label: OnPlayerDeath
-description: This callback is called when a player dies, either by suicide or by being killed by another player.
+description: 当玩家死亡时触发该回调（自杀或被其他玩家击杀）
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player dies, either by suicide or by being killed by another player.
+当玩家死亡时触发该回调，包括以下情况：
+- 自杀
+- 被其他玩家击杀
 
-| Name          | Description                                                                                   |
-| ------------- | --------------------------------------------------------------------------------------------- |
-| playerid      | The ID of the player that died.                                                               |
-| killerid      | The ID of the player that killed the player who died, or INVALID_PLAYER_ID if there was none. |
-| WEAPON:reason | The ID of the reason ([weapon id](../resources/weaponids)) for the player's death.            |
+| 参数            | 说明                                                                 |
+|-----------------|----------------------------------------------------------------------|
+| playerid        | 死亡的玩家ID                                                         |
+| killerid        | 凶手玩家ID（若无凶手则为INVALID_PLAYER_ID）                          |
+| WEAPON:reason   | 死亡原因（对应[武器ID](../resources/weaponids)）                      |
 
-## Returns
+## 返回值
 
-0 - Will prevent other filterscripts from receiving this callback.
+0 - 阻止其他滤镜脚本接收此回调  
+1 - 允许传递给后续滤镜脚本  
 
-1 - Indicates that this callback will be passed to the next filterscript.
+该回调在滤镜脚本中总是优先触发。
 
-It is always called first in filterscripts.
-
-## Examples
+## 示例
 
 ```c
 new PlayerDeaths[MAX_PLAYERS];
@@ -31,47 +32,54 @@ new PlayerKills[MAX_PLAYERS];
 
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    SendDeathMessage(killerid, playerid, reason); // Shows the kill in the killfeed
+    SendDeathMessage(killerid, playerid, reason); // 在击杀feed中显示击杀信息
 
-    // Check that the killerid is valid before doing anything with it
+    // 使用前必须验证killerid有效性
     if (killerid != INVALID_PLAYER_ID)
     {
-        PlayerKills[killerid] ++;
+        PlayerKills[killerid]++;
     }
 
-    // Outside the check, handle stuff for playerid (it's always valid)
-    PlayerDeaths[playerid] ++;
+    // 处理死亡玩家数据（playerid始终有效）
+    PlayerDeaths[playerid]++;
     return 1;
 }
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-The reason will return 37 (flame thrower) from any fire sources (e.g. molotov, 18) The reason will return 51 from any weapon that creates an explosion (e.g. RPG, grenade) You do not need to check whether killerid is valid before using it in [SendDeathMessage](../functions/SendDeathMessage). INVALID_PLAYER_ID is a valid killerid ID parameter in that function. playerid is the only one who can call the callback. (good to know for anti fake death)
+特殊原因ID说明：
+- 火焰伤害（如燃烧瓶/武器18）会返回37（火焰喷射器ID）
+- 爆炸伤害（如RPG/手雷）会返回51  
+[SendDeathMessage](../functions/SendDeathMessage)函数可直接使用INVALID_PLAYER_ID作为参数  
+只有实际死亡的玩家会触发此回调（可用于反伪造死亡检测）
 
 :::
 
 :::warning
 
-You MUST check whether 'killerid' is valid (not INVALID_PLAYER_ID) before using it in an array (or really anywhere), as it will cause the OnPlayerDeath script to crash (not the entire script). This is because INVALID_PLAYER_ID is defined as 65535, and if an array only has 'MAX_PLAYERS' elements, e.g. 500, you're trying to access an index that is above 499, which is out of bounds.
+必须在使用killerid前检查有效性：
+- INVALID_PLAYER_ID定义为65535
+- 若数组大小为MAX_PLAYERS（默认500），访问索引65535将导致数组越界错误
+- 可能引发OnPlayerDeath脚本崩溃（不会影响整个服务端）
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与当前回调存在关联：
 
-- [OnPlayerSpawn](OnPlayerSpawn): This callback is called when a player spawns.
+- [OnPlayerSpawn](OnPlayerSpawn)：当玩家重生时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与当前回调相关：
 
-- [SendDeathMessage](../functions/SendDeathMessage): Add a kill to the death list.
-- [SetPlayerHealth](../functions/SetPlayerHealth): Set a player's health.
+- [SendDeathMessage](../functions/SendDeathMessage)：向击杀列表添加记录
+- [SetPlayerHealth](../functions/SetPlayerHealth)：设置玩家生命值
 
-## Related Resources
+## 相关资源
 
-- [Weapon IDs](../resources/weaponids)
+- [武器ID对照表](../resources/weaponids)

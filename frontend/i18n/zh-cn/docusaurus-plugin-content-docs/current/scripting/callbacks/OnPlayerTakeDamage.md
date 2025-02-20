@@ -1,36 +1,36 @@
 ---
 title: OnPlayerTakeDamage
 sidebar_label: OnPlayerTakeDamage
-description: This callback is called when a player takes damage.
+description: 当玩家受到伤害时触发该回调函数。
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player takes damage.
+当玩家受到伤害时触发该回调函数。
 
-| Name            | Description                                                                       |
-| --------------- | --------------------------------------------------------------------------------- |
-| playerid        | The ID of the player that took damage.                                            |
-| issuerid        | The ID of the player that caused the damage. INVALID_PLAYER_ID if self-inflicted. |
-| Float:amount    | The amount of damage the player took (health and armour combined).                |
-| WEAPON:weaponid | The ID of the weapon/reason for the damage.                                       |
-| bodypart        | The [body part](../resources/bodyparts) that was hit.                             |
+| 参数名            | 说明                                                                       |
+| --------------- | -------------------------------------------------------------------------- |
+| playerid        | 受到伤害的玩家ID                                                           |
+| issuerid        | 造成伤害的玩家ID（若为自伤则返回INVALID_PLAYER_ID）                        |
+| Float:amount    | 玩家承受的伤害值（生命值与护甲值合计）                                       |
+| WEAPON:weaponid | 造成伤害的武器ID/原因                                                      |
+| bodypart        | 受击的[身体部位](../resources/bodyparts)                                   |
 
-## Returns
+## 返回值
 
-1 - Callback will not be called in other filterscripts.
+1 - 阻止其他滤镜脚本接收此回调。
 
-0 - Allows this callback to be called in other filterscripts.
+0 - 允许此回调传递给其他滤镜脚本。
 
-It is always called first in filterscripts so returning 1 there blocks other filterscripts from processing it.
+该回调始终在滤镜脚本中优先触发，返回1将阻止其他滤镜脚本处理该事件。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerTakeDamage(playerid, issuerid, Float:amount, WEAPON:weaponid, bodypart)
 {
-    if (issuerid != INVALID_PLAYER_ID) // If not self-inflicted
+    if (issuerid != INVALID_PLAYER_ID) // 若非自伤
     {
         new
             infoString[128],
@@ -43,7 +43,7 @@ public OnPlayerTakeDamage(playerid, issuerid, Float:amount, WEAPON:weaponid, bod
 
         GetWeaponName(weaponid, weaponName, sizeof (weaponName));
 
-        format(infoString, sizeof(infoString), "%s has made %.0f damage to %s, weapon: %s, bodypart: %d", attackerName, amount, victimName, weaponName, bodypart);
+        format(infoString, sizeof(infoString), "%s 对 %s 造成了 %.0f 点伤害，武器：%s，部位：%d", attackerName, amount, victimName, weaponName, bodypart);
         SendClientMessageToAll(-1, infoString);
     }
     return 1;
@@ -57,38 +57,38 @@ public OnPlayerTakeDamage(playerid, issuerid, Float:amount, WEAPON:weaponid, bod
 {
     if (issuerid != INVALID_PLAYER_ID && weaponid == 34 && bodypart == 9)
     {
-        // One shot to the head to kill with sniper rifle
+        // 使用狙击步枪爆头一击必杀
         SetPlayerHealth(playerid, 0.0);
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- The weaponid will return 37 (flame thrower) from any fire sources (e.g. molotov, 18).
-- The weaponid will return 51 from any weapon that creates an explosion (e.g. RPG, grenade)
-- **playerid** is the only one who can call the callback.
-- The amount is always the maximum damage the weaponid can do, even when the health left is less than that maximum damage. So when a player has 100.0 health and gets shot with a Desert Eagle which has a damage value of 46.2, it takes 3 shots to kill that player. All 3 shots will show an amount of 46.2, even though when the last shot hits, the player only has 7.6 health left.
+- 火焰类武器（如燃烧瓶，ID18）的weaponid将始终返回37（火焰喷射器）
+- 爆炸类武器（如RPG，手雷）的weaponid将始终返回51
+- 只有**playerid**参数对应的玩家会触发此回调
+- 伤害值始终显示武器最大伤害值，即使实际剩余生命值不足。例如：玩家有100点生命值时，使用伤害值46.2的沙漠之鹰需要3枪致死，所有3次伤害都会显示46.2点
 
 :::
 
 :::warning
 
-- [GetPlayerHealth](../functions/GetPlayerHealth) and [GetPlayerArmour](../functions/GetPlayerArmour) will return the old amounts of the player before this callback.
-- Always check if issuerid is valid before using it as an array index.
+- [GetPlayerHealth](../functions/GetPlayerHealth) 和 [GetPlayerArmour](../functions/GetPlayerArmour) 将返回玩家受伤前的数值
+- 使用issuerid作为数组索引前请务必验证其有效性
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与该回调存在关联：
 
-- [OnPlayerGiveDamage](OnPlayerGiveDamage): This callback is called when a player gives damage.
-- [OnPlayerWeaponShot](OnPlayerWeaponShot): This callback is called when a player fires a weapon.
+- [OnPlayerGiveDamage](OnPlayerGiveDamage): 当玩家造成伤害时触发
+- [OnPlayerWeaponShot](OnPlayerWeaponShot): 当玩家发射武器时触发
 
-## Related Resources
+## 相关资源
 
-- [Body Parts](../resources/bodyparts)
+- [身体部位](../resources/bodyparts)

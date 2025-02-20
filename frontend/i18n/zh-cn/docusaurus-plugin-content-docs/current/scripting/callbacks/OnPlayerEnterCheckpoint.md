@@ -1,27 +1,27 @@
 ---
 title: OnPlayerEnterCheckpoint
 sidebar_label: OnPlayerEnterCheckpoint
-description: This callback is called when a player enters the checkpoint set for that player.
+description: 当玩家进入为其设置的检查点时触发该回调函数。
 tags: ["player", "checkpoint"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player enters the checkpoint set for that player.
+当玩家进入为其设置的检查点时触发该回调函数。
 
-| Name     | Description                            |
-| -------- | -------------------------------------- |
-| playerid | The player who entered the checkpoint. |
+| 参数名     | 说明                 |
+| -------- | -------------------- |
+| playerid | 进入检查点的玩家ID   |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发
 
-## Examples
+## 示例
 
 ```c
-//In this example, a checkpoint is created for the player when spawning,
-//which creates a vehicle and disables the checkpoint.
+// 这个示例中，玩家生成时会创建检查点
+// 当进入检查点时生成载具并禁用检查点
 public OnPlayerSpawn(playerid)
 {
     SetPlayerCheckpoint(playerid, 1982.6150, -220.6680, -0.2432, 3.0);
@@ -36,25 +36,25 @@ public OnPlayerEnterCheckpoint(playerid)
 }
 ```
 
-## Notes
+## 注意事项
 
 <TipNPCCallbacks />
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnPlayerLeaveCheckpoint](OnPlayerLeaveCheckpoint): This callback is called when a player leaves a checkpoint.
-- [OnPlayerEnterRaceCheckpoint](OnPlayerEnterRaceCheckpoint): This callback is called when a player enters a race checkpoint.
-- [OnPlayerLeaveRaceCheckpoint](OnPlayerLeaveRaceCheckpoint): This callback is called when a player leaves a race checkpoint.
+- [OnPlayerLeaveCheckpoint](OnPlayerLeaveCheckpoint): 当玩家离开检查点时触发
+- [OnPlayerEnterRaceCheckpoint](OnPlayerEnterRaceCheckpoint): 当玩家进入竞速检查点时触发
+- [OnPlayerLeaveRaceCheckpoint](OnPlayerLeaveRaceCheckpoint): 当玩家离开竞速检查点时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调函数相关：
 
-- [SetPlayerCheckpoint](../functions/SetPlayerCheckpoint): Create a checkpoint for a player.
-- [DisablePlayerCheckpoint](../functions/DisablePlayerCheckpoint): Disable the player's current checkpoint.
-- [IsPlayerInCheckpoint](../functions/IsPlayerInRaceCheckpoint): Check if a player is in a checkpoint.
-- [SetPlayerRaceCheckpoint](../functions/SetPlayerRaceCheckpoint): Create a race checkpoint for a player.
-- [DisablePlayerRaceCheckpoint](../functions/DisablePlayerRaceCheckpoint): Disable the player's current race checkpoint.
-- [IsPlayerInRaceCheckpoint](../functions/IsPlayerInRaceCheckpoint): Check if a player is in a race checkpoint.
+- [SetPlayerCheckpoint](../functions/SetPlayerCheckpoint): 为玩家创建检查点
+- [DisablePlayerCheckpoint](../functions/DisablePlayerCheckpoint): 禁用玩家的当前检查点
+- [IsPlayerInCheckpoint](../functions/IsPlayerInRaceCheckpoint): 检测玩家是否在检查点内
+- [SetPlayerRaceCheckpoint](../functions/SetPlayerRaceCheckpoint): 为玩家创建竞速检查点
+- [DisablePlayerRaceCheckpoint](../functions/DisablePlayerRaceCheckpoint): 禁用玩家的当前竞速检查点
+- [IsPlayerInRaceCheckpoint](../functions/IsPlayerInRaceCheckpoint): 检测玩家是否在竞速检查点内

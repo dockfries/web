@@ -1,36 +1,36 @@
 ---
 title: OnPlayerEditObject
 sidebar_label: OnPlayerEditObject
-description: This callback is called when a player finishes editing an object (BeginObjectEditing/BeginPlayerObjectEditing).
+description: 当玩家完成物体编辑时（通过BeginObjectEditing/BeginPlayerObjectEditing）会触发该回调函数。
 tags: ["player", "object"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player finishes editing an object ([BeginObjectEditing](../functions/BeginObjectEditing)/[BeginPlayerObjectEditing](../functions/BeginPlayerObjectEditing)).
+当玩家完成物体编辑（[BeginObjectEditing](../functions/BeginObjectEditing)/[BeginPlayerObjectEditing](../functions/BeginPlayerObjectEditing)）时触发该回调函数。
 
-| Name                   | Description                                                     |
-| ---------------------- | --------------------------------------------------------------- |
-| playerid               | The ID of the player that edited an object                      |
-| playerobject           | 0 if it is a global object or 1 if it is a playerobject.        |
-| objectid               | The ID of the edited object                                     |
-| EDIT_RESPONSE:response | The [type of response](../resources/objecteditionresponsetypes) |
-| Float:fX               | The X offset for the object that was edited                     |
-| Float:fY               | The Y offset for the object that was edited                     |
-| Float:fZ               | The Z offset for the object that was edited                     |
-| Float:fRotX            | The X rotation for the object that was edited                   |
-| Float:fRotY            | The Y rotation for the object that was edited                   |
-| Float:fRotZ            | The Z rotation for the object that was edited                   |
+| 参数名                 | 说明                                                         |
+| ---------------------- | ------------------------------------------------------------ |
+| playerid               | 进行物体编辑的玩家ID                                         |
+| playerobject           | 0表示全局物体，1表示玩家物体                                 |
+| objectid               | 被编辑物体的ID                                               |
+| EDIT_RESPONSE:response | [编辑响应类型](../resources/objecteditionresponsetypes)      |
+| Float:fX               | 物体编辑后的X轴偏移量                                        |
+| Float:fY               | 物体编辑后的Y轴偏移量                                        |
+| Float:fZ               | 物体编辑后的Z轴偏移量                                        |
+| Float:fRotX            | 物体编辑后的X轴旋转角度                                      |
+| Float:fRotY            | 物体编辑后的Y轴旋转角度                                      |
+| Float:fRotZ            | 物体编辑后的Z轴旋转角度                                      |
 
-## Returns
+## 返回值
 
-1 - Will prevent other scripts from receiving this callback.
+1 - 阻止其他脚本接收此回调
 
-0 - Indicates that this callback will be passed to the next script.
+0 - 允许将此回调传递给下一个脚本
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerEditObject(playerid, playerobject, objectid, EDIT_RESPONSE:response, Float:fX, Float:fY, Float:fZ, Float:fRotX, Float:fRotY, Float:fRotZ)
@@ -46,7 +46,7 @@ public OnPlayerEditObject(playerid, playerobject, objectid, EDIT_RESPONSE:respon
     GetObjectPos(objectid, oldX, oldY, oldZ);
     GetObjectRot(objectid, oldRotX, oldRotY, oldRotZ);
 
-    if (!playerobject) // If this is a global object, sync the position for other players
+    if (!playerobject) // 如果是全局物体，同步位置给其他玩家
     {
         if (!IsValidObject(objectid))
         {
@@ -60,14 +60,14 @@ public OnPlayerEditObject(playerid, playerobject, objectid, EDIT_RESPONSE:respon
     {
         case EDIT_RESPONSE_FINAL:
         {
-            // The player clicked on the save icon
-            // Do anything here to save the updated object position (and rotation)
+            // 玩家点击了保存图标
+            // 在此保存物体新位置（和旋转角度）
         }
 
         case EDIT_RESPONSE_CANCEL:
         {
-            //The player cancelled, so put the object back to it's old position
-            if (!playerobject) //Object is not a playerobject
+            // 玩家取消编辑，还原物体位置
+            if (!playerobject) // 非玩家物体
             {
                 SetObjectPos(objectid, oldX, oldY, oldZ);
                 SetObjectRot(objectid, oldRotX, oldRotY, oldRotZ);
@@ -83,24 +83,24 @@ public OnPlayerEditObject(playerid, playerobject, objectid, EDIT_RESPONSE:respon
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-When using 'EDIT_RESPONSE_UPDATE' be aware that this callback will not be called when releasing an edit in progress resulting in the last update of 'EDIT_RESPONSE_UPDATE' being out of sync of the objects current position.
+使用'EDIT_RESPONSE_UPDATE'时需注意：当编辑中途释放操作时，最后一次'EDIT_RESPONSE_UPDATE'的物体位置可能与实际最终位置不同步。
 
 :::
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调函数相关：
 
-- [BeginPlayerObjectEditing](../functions/BeginPlayerObjectEditing): Edit a player-object.
-- [BeginObjectEditing](../functions/BeginObjectEditing): Edit an object.
-- [CreateObject](../functions/CreateObject): Create an object.
-- [DestroyObject](../functions/DestroyObject): Destroy an object.
-- [MoveObject](../functions/MoveObject): Move an object.
+- [BeginPlayerObjectEditing](../functions/BeginPlayerObjectEditing): 开始编辑玩家物体
+- [BeginObjectEditing](../functions/BeginObjectEditing): 开始编辑物体
+- [CreateObject](../functions/CreateObject): 创建物体
+- [DestroyObject](../functions/DestroyObject): 销毁物体
+- [MoveObject](../functions/MoveObject): 移动物体
 
-## Related Resources
+## 相关资源
 
-- [Object Edition Response Types](../resources/objecteditionresponsetypes)
+- [物体编辑响应类型](../resources/objecteditionresponsetypes)

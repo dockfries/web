@@ -1,51 +1,51 @@
 ---
 title: OnScriptCash
 sidebar_label: OnScriptCash
-description: This callback is called when something in-game like casinos give the player money.
+description: 当游戏内系统（如赌场）向玩家发放金钱时触发该回调函数。
 tags: ["player"]
 ---
 
 :::warning
 
-This callback is currently NOT working.
+该回调函数当前**不可用**
 
 :::
 
-## Description
+## 描述
 
-This callback is called when something in-game like casinos give the player money.
+当游戏内系统（如赌场）向玩家发放或扣除金钱时触发该回调函数。
 
-| Name     | Description                                     |
-|----------|-------------------------------------------------|
-| playerid | The ID of the player who got cash from the game |
-| amount   | The amount of cash given or taken               |
-| source   | Where the money came from                       |
+| 参数名     | 说明                                     |
+|----------|-----------------------------------------|
+| playerid | 获得/失去游戏内金钱的玩家ID              |
+| amount   | 金钱变动数值（正数为获得，负数为扣除）    |
+| source   | 金钱来源标识                             |
 
-## Returns
+## 返回值
 
-Unknown as this function does not currently work.
+由于该功能当前不可用，返回值状态未知。
 
-## Examples
+## 示例
 
 ```c
-// Imaginary:
+// 假设性示例：
 
 public OnScriptCash(playerid, amount, source)
 {
     if (source == SCRIPT_CASH_CASINO)
     {
-        SendClientMessage(playerid, -1, "You have won $%d from the casino!", amount);
+        SendClientMessage(playerid, -1, "您从赌场赢得了$%d！", amount);
     }
     else if (source == SCRIPT_CASH_VENDING_MACHINE)
     {
-        SendClientMessage(playerid, -1, "You buyed a coke from vending machine for $%d", amount);
+        SendClientMessage(playerid, -1, "您花费$%d从自动售货机购买了可乐", amount);
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another. 
+以下函数可能与该回调存在关联：
 
-- [GetPlayerMoney](../functions/GetPlayerMoney): Retrieves the amount of money a player has.
+- [GetPlayerMoney](../functions/GetPlayerMoney): 获取玩家当前持有金额

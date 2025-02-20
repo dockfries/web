@@ -1,21 +1,21 @@
 ---
 title: OnNPCSpawn
 sidebar_label: OnNPCSpawn
-description: This callback is called when a NPC spawned.
+description: 当NPC生成时触发该回调
 tags: ["npc"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a NPC spawned.
+当NPC生成时触发该回调。
 
-## Examples
+## 示例
 
 ```c
 public OnNPCSpawn()
 {
-    print("NPC spawned");
-    SendChat("Hello World. I'm a bot.");
+    print("NPC已生成");
+    SendChat("大家好，我是一个机器人。");
     return 1;
 }
 ```

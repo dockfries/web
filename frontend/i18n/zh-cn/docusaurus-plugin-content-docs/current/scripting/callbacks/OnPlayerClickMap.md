@@ -1,30 +1,29 @@
 ---
 title: OnPlayerClickMap
 sidebar_label: OnPlayerClickMap
-description: This callback is called when a player places a target/waypoint on the pause menu map (by right-clicking).
+description: 当玩家在暂停菜单地图上右键点击放置目标/路径点时触发该回调
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player places a target/waypoint on the pause menu map (by right-clicking).
+当玩家在暂停菜单地图上右键点击放置目标/路径点时触发该回调。
 
-| Name     | Description                                                                   |
-| -------- | ----------------------------------------------------------------------------- |
-| playerid | The ID of the player that placed a target/waypoint                            |
-| Float:fX | The X float coordinate where the player clicked                               |
-| Float:fY | The Y float coordinate where the player clicked                               |
-| Float:fZ | The Z float coordinate where the player clicked (inaccurate - see note below) |
+| 参数        | 说明                                   |
+|------------|----------------------------------------|
+| playerid   | 放置目标/路径点的玩家ID                 |
+| Float:fX   | 玩家点击位置的X坐标（浮点数）            |
+| Float:fY   | 玩家点击位置的Y坐标（浮点数）            |
+| Float:fZ   | 玩家点击位置的Z坐标（浮点数，不精确）     |
 
-## Returns
+## 返回值
 
-1 - Will prevent other filterscripts from receiving this callback.
+1 - 阻止其他滤镜脚本接收此回调  
+0 - 允许传递给后续滤镜脚本  
 
-0 - Indicates that this callback will be passed to the next filterscript.
+该回调在游戏模式中总是优先触发。
 
-It is always called first in gamemode.
-
-## Examples
+## 示例
 
 ```c
 public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ)
@@ -34,18 +33,18 @@ public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ)
 }
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-As the callback name says, its only called when the player click to mark the target and not when pressed the key. The Z value returned will be 0 (invalid) if the clicked area on the map is far away from the player; use the [MapAndreas](https://github.com/philip1337/samp-plugin-mapandreas) or [ColAndreas](https://github.com/Pottus/ColAndreas) plugin to get a more accurate Z coordinate.
+本回调仅在玩家通过点击地图标记目标时触发，按键操作不会触发。若点击位置距离玩家过远，返回的Z坐标将为0（无效值），建议使用[MapAndreas](https://github.com/philip1337/samp-plugin-mapandreas)或[ColAndreas](https://github.com/Pottus/ColAndreas)插件获取精确Z坐标
 
 :::
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与当前回调相关：
 
-- [GetPlayerPos](../functions/GetPlayerPos): Get a player's position.
-- [SetPlayerPos](../functions/SetPlayerPos): Set a player's position.
-- [SetPlayerPosFindZ](../functions/SetPlayerPosFindZ): Set a player's position and find the ground.
+- [GetPlayerPos](../functions/GetPlayerPos)：获取玩家当前位置
+- [SetPlayerPos](../functions/SetPlayerPos)：设置玩家位置
+- [SetPlayerPosFindZ](../functions/SetPlayerPosFindZ)：设置玩家位置并自动获取地面高度

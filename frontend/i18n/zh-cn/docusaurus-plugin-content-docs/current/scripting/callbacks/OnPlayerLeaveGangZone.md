@@ -1,46 +1,46 @@
 ---
 title: OnPlayerLeaveGangZone
 sidebar_label: OnPlayerLeaveGangZone
-description: This callback is called when a player exited a gangzone
+description: 当玩家离开帮派区域时触发该回调函数
 tags: ["player", "gangzone"]
 ---
 
 <VersionWarn name='callback' version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-This callback is called when a player exited a gangzone
+当玩家离开帮派区域时触发该回调函数
 
-| Name     | Description                                    |
-| -------- | ---------------------------------------------- |
-| playerid | The ID of the player that exited the gangzone. |
-| zoneid   | The ID of the gangzone the player exited.      |
+| 参数名     | 说明                          |
+| -------- | ----------------------------- |
+| playerid | 离开帮派区域的玩家ID          |
+| zoneid   | 玩家离开的帮派区域ID          |
 
-## Returns
+## 返回值
 
-It is always called first in gamemode.
+该回调始终在游戏模式中优先触发
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerLeaveGangZone(playerid, zoneid)
 {
     new string[128];
-    format(string, sizeof(string), "You are leaving gangzone %i", zoneid);
+    format(string, sizeof(string), "你正在离开帮派区域 %i", zoneid);
     SendClientMessage(playerid, 0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnPlayerEnterGangZone](OnPlayerEnterGangZone): This callback is called when a player enters a gangzone.
+- [OnPlayerEnterGangZone](OnPlayerEnterGangZone): 当玩家进入帮派区域时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调函数相关：
 
-- [GangZoneCreate](../functions/GangZoneCreate): Create a gangzone (colored radar area).
-- [GangZoneDestroy](../functions/GangZoneDestroy): Destroy a gangzone.
+- [GangZoneCreate](../functions/GangZoneCreate): 创建帮派区域（彩色雷达区域）
+- [GangZoneDestroy](../functions/GangZoneDestroy): 销毁帮派区域

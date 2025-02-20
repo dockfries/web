@@ -1,51 +1,51 @@
 ---
 title: OnObjectMoved
 sidebar_label: OnObjectMoved
-description: This callback is called when an object is moved after MoveObject (when it stops moving).
+description: 当物体通过MoveObject移动并停止时触发该回调
 tags: ["object"]
 ---
 
-## Description
+## 描述
 
-This callback is called when an object is moved after MoveObject (when it stops moving).
+当物体通过MoveObject函数移动并停止时触发该回调。
 
-| Name     | Description                         |
-| -------- | ----------------------------------- |
-| objectid | The ID of the object that was moved |
+| 参数        | 说明               |
+|------------|--------------------|
+| objectid   | 已完成移动的物体ID  |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+该回调在滤镜脚本中总是优先触发。
 
-## Examples
+## 示例
 
 ```c
 public OnObjectMoved(objectid)
 {
-    printf("Object %d finished moving.", objectid);
+    printf("物体 %d 移动完成。", objectid);
     return 1;
 }
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-[SetObjectPos](../functions/SetObjectPos) does not work when used in this callback. To fix it, recreate the object.
+在回调中使用[SetObjectPos](../functions/SetObjectPos)函数无效，需通过重新创建物体解决此问题
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与当前回调存在关联：
 
-- [OnPlayerObjectMoved](OnPlayerObjectMoved): This callback is called when a player-object stops moving.
+- [OnPlayerObjectMoved](OnPlayerObjectMoved)：当玩家物体停止移动时触发
 
-## Related Functions
+## 相关函数
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下函数可能与当前回调相关：
 
-- [MoveObject](../functions/MoveObject): Move an object.
-- [MovePlayerObject](../functions/MovePlayerObject): Move a player object.
-- [IsObjectMoving](../functions/IsObjectMoving): Check if the object is moving.
-- [StopObject](../functions/StopObject): Stop an object from moving.
+- [MoveObject](../functions/MoveObject)：移动全局物体
+- [MovePlayerObject](../functions/MovePlayerObject)：移动玩家个人物体
+- [IsObjectMoving](../functions/IsObjectMoving)：检测物体是否在移动中
+- [StopObject](../functions/StopObject)：停止物体移动

@@ -1,52 +1,51 @@
 ---
 title: OnVehicleSpawn
 sidebar_label: OnVehicleSpawn
-description: This callback is called when a vehicle respawns.
+description: 当载具重生时触发该回调函数。
 tags: ["vehicle"]
 ---
 
 :::warning
 
-This callback is called **only** when vehicle **re**spawns! CreateVehicle and AddStaticVehicle(Ex) **won't** trigger this callback.
+本回调**仅**在载具**重新**生成时触发！使用CreateVehicle和AddStaticVehicle(Ex)创建载具**不会**触发此回调
 
 :::
 
-## Description
+## 描述
 
-This callback is called when a vehicle respawns.
+当载具重生时触发该回调函数。
 
-| Name      | Description                         |
-| --------- | ----------------------------------- |
-| vehicleid | The ID of the vehicle that spawned. |
+| 参数名      | 说明                         |
+| --------- | --------------------------- |
+| vehicleid | 重生的载具ID                 |
 
-## Returns
+## 返回值
 
-0 - Will prevent other filterscripts from receiving this callback.
+0 - 阻止其他滤镜脚本接收此回调  
+1 - 允许此回调传递给其他滤镜脚本  
 
-1 - Indicates that this callback will be passed to the next filterscript.
+该回调始终在滤镜脚本中优先触发。
 
-It is always called first in filterscripts.
-
-## Examples
+## 示例
 
 ```c
 public OnVehicleSpawn(vehicleid)
 {
-    printf("Vehicle %i spawned!",vehicleid);
+    printf("载具 %i 已重生！",vehicleid);
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与该回调存在关联：
 
-- [OnVehicleDeath](OnVehicleDeath): This callback is called when a vehicle is destroyed.
-- [OnPlayerSpawn](OnPlayerSpawn): This callback is called when a player spawns.
+- [OnVehicleDeath](OnVehicleDeath): 当载具被摧毁时触发
+- [OnPlayerSpawn](OnPlayerSpawn): 当玩家生成时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与该回调存在关联：
 
-- [SetVehicleToRespawn](../functions/SetVehicleToRespawn): Respawn a vehicle.
-- [CreateVehicle](../functions/CreateVehicle): Create a vehicle.
+- [SetVehicleToRespawn](../functions/SetVehicleToRespawn): 立即重生指定载具
+- [CreateVehicle](../functions/CreateVehicle): 创建新载具

@@ -1,47 +1,47 @@
 ---
 title: OnPlayerLeavePlayerGangZone
 sidebar_label: OnPlayerLeavePlayerGangZone
-description: This callback is called when a player exited a player gangzone
+description: 当玩家退出玩家帮派区域时触发该回调函数
 tags: ["player", "gangzone"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-This callback is called when a player exited a player gangzone.
+当玩家退出玩家帮派区域时触发该回调函数
 
-| Name     | Description                                           |
-| -------- | ----------------------------------------------------- |
-| playerid | The ID of the player that exited the player gangzone. |
-| zoneid   | The ID of the player gangzone the player exited.      |
+| 参数名     | 说明                              |
+| -------- | --------------------------------- |
+| playerid | 退出玩家帮派区域的玩家ID          |
+| zoneid   | 玩家退出的玩家帮派区域ID          |
 
-## Returns
+## 返回值
 
-It is always called first in gamemode.
+该回调始终在游戏模式中优先触发
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerLeavePlayerGangZone(playerid, zoneid)
 {
     new string[128];
-    format(string, sizeof(string), "You are leaving player gangzone %i", zoneid);
+    format(string, sizeof(string), "你正在退出玩家帮派区域 %i", zoneid);
     SendClientMessage(playerid, 0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnPlayerEnterPlayerGangZone](OnPlayerEnterPlayerGangZone): This callback is called when a player exited a player gangzone.
+- [OnPlayerEnterPlayerGangZone](OnPlayerEnterPlayerGangZone): 当玩家进入玩家帮派区域时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调函数相关：
 
-- [CreatePlayerGangZone](../functions/CreatePlayerGangZone): Create player gangzone.
-- [PlayerGangZoneDestroy](../functions/PlayerGangZoneDestroy): Destroy player gangzone.
-- [UsePlayerGangZoneCheck](../functions/UsePlayerGangZoneCheck): Enables the callback when a player exited this zone.
+- [CreatePlayerGangZone](../functions/CreatePlayerGangZone): 创建玩家帮派区域
+- [PlayerGangZoneDestroy](../functions/PlayerGangZoneDestroy): 销毁玩家帮派区域
+- [UsePlayerGangZoneCheck](../functions/UsePlayerGangZoneCheck): 启用玩家退出该区域时的回调检测

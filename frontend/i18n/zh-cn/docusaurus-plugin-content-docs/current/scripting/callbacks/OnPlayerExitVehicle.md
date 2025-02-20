@@ -1,54 +1,58 @@
 ---
 title: OnPlayerExitVehicle
 sidebar_label: OnPlayerExitVehicle
-description: This callback is called when a player starts to exit a vehicle.
+description: 当玩家开始退出车辆时触发该回调函数。
 tags: ["player", "vehicle"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player starts to exit a vehicle.
+当玩家开始退出车辆时触发该回调函数。
 
-| Name      | Description                                     |
-| --------- | ----------------------------------------------- |
-| playerid  | The ID of the player that is exiting a vehicle. |
-| vehicleid | The ID of the vehicle the player is exiting.    |
+| 参数名      | 说明                          |
+| --------- | ----------------------------- |
+| playerid  | 正在退出车辆的玩家ID          |
+| vehicleid | 玩家正在退出的车辆ID          |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerExitVehicle(playerid, vehicleid)
 {
     new string[64];
-    format(string, sizeof(string), "INFO: You are exiting vehicle %i", vehicleid);
+    format(string, sizeof(string), "提示：你正在退出车辆 %i", vehicleid);
     SendClientMessage(playerid, 0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-- Not called if the player falls off a bike or is removed from a vehicle by other means such as using [SetPlayerPos](../functions/SetPlayerPos).
-- You must use [OnPlayerStateChange](OnPlayerStateChange) and check if their old state is `PLAYER_STATE_DRIVER` or `PLAYER_STATE_PASSENGER` and their new state is `PLAYER_STATE_ONFOOT`.
+- 以下情况不会触发该回调：
+  - 玩家从摩托车上摔落
+  - 使用[SetPlayerPos](../functions/SetPlayerPos)等函数强制移出玩家
+- 如需检测这些情况，请使用[OnPlayerStateChange](OnPlayerStateChange)回调：
+  - 检查旧状态是否为`PLAYER_STATE_DRIVER`(驾驶员)或`PLAYER_STATE_PASSENGER`(乘客)
+  - 检查新状态是否为`PLAYER_STATE_ONFOOT`(步行状态)
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnPlayerEnterVehicle](OnPlayerEnterVehicle): This callback is called when a player starts to enter a vehicle.
-- [OnPlayerStateChange](OnPlayerStateChange): This callback is called when a player changes state.
+- [OnPlayerEnterVehicle](OnPlayerEnterVehicle): 当玩家开始进入车辆时触发
+- [OnPlayerStateChange](OnPlayerStateChange): 当玩家状态改变时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调函数相关：
 
-- [RemovePlayerFromVehicle](../functions/RemovePlayerFromVehicle): Throw a player out of their vehicle.
-- [GetPlayerVehicleSeat](../functions/GetPlayerVehicleSeat): Check what seat a player is in.
+- [RemovePlayerFromVehicle](../functions/RemovePlayerFromVehicle): 强制将玩家移出载具
+- [GetPlayerVehicleSeat](../functions/GetPlayerVehicleSeat): 获取玩家所在车辆座位

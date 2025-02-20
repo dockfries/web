@@ -1,330 +1,195 @@
 ---
 title: OnPlayerKeyStateChange
 sidebar_label: OnPlayerKeyStateChange
-description: This callback is called when the state of any supported key is changed (pressed/released).
+description: 当玩家支持的按键状态发生改变（按下/释放）时触发该回调函数。
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called when the state of any [supported](../resources/keys) key is changed (pressed/released).<br/>Directional keys do not trigger OnPlayerKeyStateChange (up/down/left/right).
+当玩家支持的[按键](../resources/keys)状态发生改变（按下/释放）时触发该回调函数。<br/>方向键（上/下/左/右）不会触发此回调。
 
-| Name     | Description                                                                                   |
+| 参数名     | 说明                                                                                   |
 | -------- | --------------------------------------------------------------------------------------------- |
-| playerid | The ID of the player that pressed or released a key.                                          |
-| newkeys  | A map (bitmask) of the keys currently held - [see here](../resources/keys)                    |
-| oldkeys  | A map (bitmask) of the keys held prior to the current change - [see here](../resources/keys). |
+| playerid | 触发按键状态变化的玩家ID                                          |
+| newkeys  | 当前按下的按键位掩码 - [参见此处](../resources/keys)                    |
+| oldkeys  | 变化前的按键位掩码 - [参见此处](../resources/keys) |
 
-## Returns
+## 返回值
 
-- This callback does not handle returns.
-- It is always called first in gamemode.
+- 本回调不处理返回值
+- 始终在游戏模式中优先触发
 
-## Notes
+## 注意事项
 
 :::info
 
-This callback can also be called by NPC.
+NPC也可触发此回调
 
 :::
 
 :::tip
 
-Directional keys do not trigger OnPlayerKeyStateChange (up/down/left/right).<br/>They can only be detected with [GetPlayerKeys](../functions/GetPlayerKeys) (in [OnPlayerUpdate](../callbacks/OnPlayerUpdate) or a timer).
+方向键（上/下/左/右）不会触发此回调<br/>需通过[GetPlayerKeys](../functions/GetPlayerKeys)在[OnPlayerUpdate](../callbacks/OnPlayerUpdate)或定时器中检测
 
 :::
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调相关：
 
-- [GetPlayerKeys](../functions/GetPlayerKeys): Check what keys a player is holding.
+- [GetPlayerKeys](../functions/GetPlayerKeys): 检测玩家当前按下的按键
 
-## Additional Information
+## 技术解析
 
-### Introduction
+### 概述
 
-This callback is called whenever a player presses or releases one of the supported keys (see [Keys](../resources/keys)).<br/>The keys which are supported are not actual keyboard keys, but San Andreas mapped function keys, this means that, for example, you can't detect when someone presses the <strong>spacebar</strong>, but can detect when they press their sprint key (which may, or may not, be assigned to the spacebar (it is by default)).
+本回调用于检测圣安地列斯映射的功能键状态变化（非实际物理按键）。例如无法检测空格键，但可检测冲刺键（默认映射为空格）。
 
-### Parameters
+### 参数机制
 
-The parameters to this function are a list of all keys currently being held down and all the keys held down a moment ago. The callback is called when a key state changes (that is, when a key is either pressed or released) and passes the states or all keys before and after this change. This information can be used to see exactly what happened but the variables can not be used directly in the same way as parameters to other functions. To reduce the number of variables only a single BIT is used to represent a key, this means that one variable may contain multiple keys at once and simply comparing values will not always work.
+通过位掩码表示按键状态。每个按键对应一个二进制位，需使用位运算进行检测。
 
-### How to NOT to check for a key
-
-Let's presume that you want to detect when a player presses their FIRE button, the obvious code would be:
+### 错误检测方式
 
 ```c
-if (newkeys == KEY_FIRE)
+if (newkeys == KEY_FIRE) // 错误：无法处理组合按键
 ```
 
-This code may even work in your testing, but it is wrong and your testing is insufficient. Try crouching and pressing fire - your code will instantly stop working. Why? Because "newkeys" is no longer the same as "KEY_FIRE", it is the same as "KEY_FIRE" COMBINED WITH "KEY_CROUCH".
-
-### How to check for a key
-
-So, if the variable can contain multiple keys at once, how do you check for just a single one? The answer is bit masking. Each key has its own bit in the variable (some keys have the same bit, but they are onfoot/incar keys, so can never be pressed at the same time anyway) and you need to check for just that single bit:
+### 正确检测方式
 
 ```c
-if (newkeys & KEY_FIRE)
+if (newkeys & KEY_FIRE) // 正确：检测是否包含该按键
 ```
 
-Note that the single <strong>&</strong> is correct - this is a bitwise AND, not a logical AND, which is what the two ampersands are called.
-
-Now if you test this code it will work whether you are crouching or standing when you press the fire key. However there is still one slight problem - it will fire as long as you are holding the key. OnPlayerKeyStateChange is called every time a key changes and that code is true whenever the the fire key is held down. If you press fire the code will fire, if that key is held and you press crouch - that code will fire again because a key (crouch) has changed and fire is still held down How do you detect when a key is first pressed, but not trigger again when it's still held and another key changes?
-
-### How to check for a key that has been pressed
-
-This is where "oldkeys" comes in. To check if a key has just been pressed you need to first check whether it is set in "newkeys" - meaning it's held down, and then check that it's NOT in "oldkeys" - meaning it's only just been held down. The following code does this:
+### 精确检测按键按下
 
 ```c
+// 检测按键刚被按下
 if ((newkeys & KEY_FIRE) && !(oldkeys & KEY_FIRE))
 ```
 
-That will ONLY be true when the FIRE key is first pressed, not when it's held and another key changes.
-
-### How to check for a key being released
-
-Exactly the same principle as above, but reversed:
+### 精确检测按键释放
 
 ```c
+// 检测按键刚被释放
 if ((oldkeys & KEY_FIRE) && !(newkeys & KEY_FIRE))
 ```
 
-### How to check for multiple keys
-
-If you want to check for players HOLDING crouch and fire then the following code will work fine:
+### 组合键检测
 
 ```c
-if ((newkeys & KEY_FIRE) && (newkeys & KEY_CROUCH))
-```
-
-However if you want to detect when they FIRST press fire and crouch the following code WILL NOT work. It will work if they manage to press the two keys at exactly the same time, but if they're fractionally out (far less than half a second) it won't:
-
-```c
-if ((newkeys & KEY_FIRE) && !(oldkeys & KEY_FIRE) && (newkeys & KEY_CROUCH) && !(oldkeys & KEY_CROUCH))
-```
-
-Why not? Because OnPlayerKeyStateChange is called every time a single key changes. So they press "KEY_FIRE" - OnPlayerKeyStateChange is called with "KEY_FIRE" in "newkeys" and not in "oldkeys", then they press "KEY_CROUCH" - OnPlayerKeyStateChange is called with "KEY_CROUCH" and "KEY_FIRE" in "newkeys", but "KEY_FIRE" is now also in "oldkeys" as it's already been pressed, so "!(oldkeys & KEY_FIRE)" will fail. Fortunately the solution is very simple (in fact simpler than the original code):
-
-```c
+// 检测同时按下两个按键
 if ((newkeys & (KEY_FIRE | KEY_CROUCH)) == (KEY_FIRE | KEY_CROUCH) && (oldkeys & (KEY_FIRE | KEY_CROUCH)) != (KEY_FIRE | KEY_CROUCH))
 ```
 
-This may look complicated, but it checks that both keys are set in "newkeys" and that both the keys were not set in "oldkeys", if one of them was set in "oldkeys" that doesn't matter as not both of them were. All these things can be simplified greatly with defines.
+## 宏定义方案
 
-## Simplification
-
-### Detecting holding a key
-
-The define:
+### 检测持续按住
 
 ```c
-// HOLDING(keys)
-#define HOLDING(%0) \
-	((newkeys & (%0)) == (%0))
-```
+#define HOLDING(%0) ((newkeys & (%0)) == (%0))
 
-Holding one key:
-
-```c
+// 示例：检测按住开火键
 if (HOLDING( KEY_FIRE ))
-```
 
-Holding multiple keys:
-
-```c
+// 示例：检测同时按住开火+蹲下
 if (HOLDING( KEY_FIRE | KEY_CROUCH ))
 ```
 
-### Detecting first pressing a key
-
-The define:
+### 检测首次按下
 
 ```c
-// PRESSED(keys)
-#define PRESSED(%0) \
-	(((newkeys & (%0)) == (%0)) && ((oldkeys & (%0)) != (%0)))
-```
+#define PRESSED(%0) (((newkeys & (%0)) == (%0)) && ((oldkeys & (%0)) != (%0)))
 
-Pressed one key:
-
-```c
+// 示例：检测刚按下开火键
 if (PRESSED( KEY_FIRE ))
-```
 
-Pressed multiple keys:
-
-```c
+// 示例：检测刚同时按下开火+蹲下
 if (PRESSED( KEY_FIRE | KEY_CROUCH ))
 ```
 
-### Detecting if a player is pressing a key currently
-
-The define:
+### 检测当前按下状态
 
 ```c
-// PRESSING(keyVariable, keys)
-#define PRESSING(%0,%1) \
-	(%0 & (%1))
-```
+#define PRESSING(%0,%1) (%0 & (%1))
 
-Pressing one key:
-
-```c
+// 示例：检测当前按着开火键
 if (PRESSING( newkeys, KEY_FIRE ))
-```
 
-Pressing multiple keys:
-
-```c
+// 示例：检测当前按着开火+蹲下
 if (PRESSING( newkeys, KEY_FIRE | KEY_CROUCH ))
 ```
 
-### Detecting releasing a key
-
-The define:
+### 检测按键释放
 
 ```c
-// RELEASED(keys)
-#define RELEASED(%0) \
-	(((newkeys & (%0)) != (%0)) && ((oldkeys & (%0)) == (%0)))
-```
+#define RELEASED(%0) (((newkeys & (%0)) != (%0)) && ((oldkeys & (%0)) == (%0)))
 
-Released one key:
-
-```c
+// 示例：检测刚释放开火键
 if (RELEASED( KEY_FIRE ))
-```
 
-Released multiple keys:
-
-```c
+// 示例：检测刚释放开火+蹲下
 if (RELEASED( KEY_FIRE | KEY_CROUCH ))
 ```
 
-## Examples
+## 应用示例
 
-### Attach NOS when the player presses fire
+### 按下开火键安装氮气
 
 ```c
 public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
-	if (PRESSED(KEY_FIRE))
+	if (PRESSED(KEY_FIRE) && IsPlayerInAnyVehicle(playerid))
 	{
-		if (IsPlayerInAnyVehicle(playerid))
-		{
-			AddVehicleComponent(GetPlayerVehicleID(playerid), 1010);
-		}
+		AddVehicleComponent(GetPlayerVehicleID(playerid), 1010); // 添加氮气组件
 	}
 	return 1;
 }
 ```
 
-### Super jump
+### 超级跳跃
 
 ```c
 public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if (PRESSED(KEY_JUMP))
 	{
-		new
-			Float:x,
-			Float:y,
-			Float:z;
-		GetPlayerPos(playerid, x, y, z);
-		SetPlayerPos(playerid, x, y, z + 10.0);
+		new Float:z;
+		GetPlayerPos(playerid, _, _, z);
+		SetPlayerPos(playerid, _, _, z + 10.0); // Z轴坐标提升10单位
 	}
 	return 1;
 }
 ```
 
-### God mode while holding use
+### 按住使用键无敌
 
 ```c
-new
-	Float:gPlayerHealth[MAX_PLAYERS];
-
-#if !defined INFINITY
-	#define INFINITY (Float:0x7F800000)
-#endif
+new Float:gPlayerHealth[MAX_PLAYERS];
+#define INFINITY (Float:0x7F800000)
 
 public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
-	if (PRESSED(KEY_ACTION))
+	if (PRESSED(KEY_ACTION)) 
 	{
-		// They just pressed the action key, save their
-		// old health for restoration.
-		GetPlayerHealth(playerid, gPlayerHealth[playerid]);
-		SetPlayerHealth(playerid, INFINITY);
+		GetPlayerHealth(playerid, gPlayerHealth[playerid]); // 保存当前生命值
+		SetPlayerHealth(playerid, INFINITY); // 设置为无敌
 	}
 	else if (RELEASED(KEY_ACTION))
 	{
-		// They just let go of action - restore
-		// their old health again.
-		SetPlayerHealth(playerid, gPlayerHealth[playerid]);
+		SetPlayerHealth(playerid, gPlayerHealth[playerid]); // 恢复原生命值
 	}
 	return 1;
 }
 ```
 
-### Explanation
+## 底层原理
 
-You don't need to worry about HOW it's done, just that it is. HOLDING detects if they're pressing a key (or keys), regardless of wether they were pressing it before, PRESSED detects if they only just pressed the key(s) and RELEASED detects if they just released a key(s). However if you want to know more - read on.
+通过位掩码运算精确检测按键状态：
 
-The reason why you need to do it this way, not just using & or ==, is to detect exactly the keys you want while ignoring others which may or may not be pressed. In binary KEY_SPRINT is:
+- **KEY_SPRINT** 二进制: `0b00001000`
+- **KEY_JUMP** 二进制: `0b00100000`
+- 组合检测时使用位与(&)和等于(==)运算确保精确匹配
 
-```
-0b00001000
-```
-
-and KEY_JUMP is:
-
-```
-0b00100000
-```
-
-thus ORing them into the wanted keys (we could also add them in this example but that's not always the case) gives:
-
-```
-0b00101000
-```
-
-If we were only using & and OnPlayerKeyStateChange was called for a player pressing jump we would get the following code:
-
-```
-newkeys = 0b00100000
-wanted  = 0b00101000
-ANDed   = 0b00100000
-```
-
-The AND of the two numbers is not 0, thus the result of the check is true, which isn't what we want.
-
-If we only used == the two numbers are clearly not the same thus the check would fail, which is what we want.
-
-If the player was pressing jump, sprint and crouch we would get the following code:
-
-```
-newkeys = 0b00101010
-wanted  = 0b00101000
-ANDed   = 0b00101000
-```
-
-The ANDed version is the same as the required keys and also not 0, thus will give the correct answer, however the two original numbers are not the same so == will fail. In both the examples one of the two has given the right answer and one has given the wrong answer. If we compare the first one using & and == we get:
-
-```
-newkeys = 0b00100000
-wanted  = 0b00101000
-ANDed   = 0b00100000
-```
-
-Obviously wanted and ANDed are not the same so the check fails, which is correct. For the second example:
-
-```
-newkeys = 0b00101010
-wanted  = 0b00101000
-ANDed   = 0b00101000
-```
-
-Wanted and ANDed are the same so comparing them as equal will result in a true result, which again is correct.
-
-So using this method we can accurately check if certain keys are pressed ignoring all other keys which may or may not be pressed. the oldkeys check just uses != instead of == to ensure that the required keys were not previously pressed, so we know one of them was just pressed.
+当玩家同时按下多个按键时，通过位运算可准确分离目标按键状态，避免其他按键干扰检测结果。

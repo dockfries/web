@@ -1,41 +1,41 @@
 ---
 title: OnVehicleStreamOut
 sidebar_label: OnVehicleStreamOut
-description: This callback is called when a vehicle is streamed out for a player's client (it's so far away that they can't see it).
+description: 当载具从玩家客户端流卸载时触发该回调函数（载具距离过远超出可视范围）。
 tags: ["vehicle"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a vehicle is streamed out for a player's client (it's so far away that they can't see it).
+当载具从玩家客户端流卸载时触发该回调函数（载具距离过远超出可视范围）。
 
-| Name        | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| vehicleid   | The ID of the vehicle that streamed out.                     |
-| forplayerid | The ID of the player who is no longer streaming the vehicle. |
+| 参数名        | 说明                                                  |
+| ----------- | ---------------------------------------------------- |
+| vehicleid   | 被流卸载的载具ID                                      |
+| forplayerid | 停止流加载该载具的玩家ID                              |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发。
 
-## Examples
+## 示例
 
 ```c
 public OnVehicleStreamOut(vehicleid, forplayerid)
 {
     new string[48];
-    format(string, sizeof(string), "Your client is no longer streaming vehicle %d", vehicleid);
+    format(string, sizeof(string), "您的客户端已停止流加载载具 %d", vehicleid);
     SendClientMessage(forplayerid, 0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 <TipNPCCallbacks />
 
-## Related Callbacks
+## 相关回调
 
-- [OnVehicleStreamIn](OnVehicleStreamIn): This callback is called when a vehicle streams in for a player.
-- [OnPlayerStreamIn](OnPlayerStreamIn): This callback is called when a player streams in for another player.
-- [OnPlayerStreamOut](OnPlayerStreamOut): This callback is called when a player streams out for another player.
+- [OnVehicleStreamIn](OnVehicleStreamIn): 当载具被玩家客户端流加载时触发
+- [OnPlayerStreamIn](OnPlayerStreamIn): 当玩家被其他客户端流加载时触发
+- [OnPlayerStreamOut](OnPlayerStreamOut): 当玩家被其他客户端流卸载时触发

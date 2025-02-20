@@ -1,43 +1,43 @@
 ---
 title: OnPlayerUpdate
 sidebar_label: OnPlayerUpdate
-description: This callback is called every time a client/player updates the server with their status.
+description: 当客户端/玩家向服务器发送状态更新时触发该回调函数。
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called every time a client/player updates the server with their status. It is often used to create custom callbacks for client updates that aren't actively tracked by the server, such as health or armor updates or players switching weapons.
+每当客户端/玩家向服务器发送状态更新时触发该回调函数。常用于创建服务器未主动追踪的客户端状态更新回调，例如生命值/护甲更新或武器切换。
 
-| Name     | Description                                |
-| -------- | ------------------------------------------ |
-| playerid | ID of the player sending an update packet. |
+| 参数名     | 说明                                |
+| -------- | ---------------------------------- |
+| playerid | 发送更新数据包的玩家ID              |
 
-## Returns
+## 返回值
 
-0 - Update from this player will not be replicated to other clients.
+0 - 阻止该玩家的更新同步到其他客户端
 
-1 - Indicates that this update can be processed normally and sent to other players.
+1 - 表示该更新可正常处理并发送给其他玩家
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发。
 
-## Examples
+## 示例
 
-**Example 1**
+**示例 1**
 
 ```c
 new WEAPON:gPlayerCurrentWeapon[MAX_PLAYERS];
 
 public OnPlayerUpdate(playerid)
 {
-    new WEAPON:weapon = GetPlayerWeapon(playerid); // Return the player's current weapon
-    if (weapon != gPlayerCurrentWeapon[playerid]) // If he changed weapons since the last update
+    new WEAPON:weapon = GetPlayerWeapon(playerid); // 获取玩家当前武器
+    if (weapon != gPlayerCurrentWeapon[playerid]) // 检测武器变更
     {
-        // Lets call a callback named OnPlayerWeaponChange
+        // 调用自定义回调 OnPlayerWeaponChange
         CallLocalFunction("OnPlayerWeaponChange", "iii", playerid, gPlayerCurrentWeapon[playerid], weapon);
-        gPlayerCurrentWeapon[playerid] = weapon; // Update the weapon variable
+        gPlayerCurrentWeapon[playerid] = weapon; // 更新武器记录
     }
-    return 1; // Send this update to other players.
+    return 1; // 允许更新同步给其他玩家
 }
 
 forward OnPlayerWeaponChange(playerid, WEAPON:oldWeapon, WEAPON:newWeapon);
@@ -51,13 +51,13 @@ public OnPlayerWeaponChange(playerid, WEAPON:oldWeapon, WEAPON:newWeapon)
     GetWeaponName(oldWeapon, oldWeaponName, sizeof(oldWeaponName));
     GetWeaponName(newWeapon, newWeaponName, sizeof(newWeaponName));
 
-    format(string, sizeof(string), "You changed weapon from %s to %s!", oldWeaponName, newWeaponName);
+    format(string, sizeof(string), "您已将武器从 %s 切换为 %s！", oldWeaponName, newWeaponName);
     SendClientMessage(playerid, 0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-**Example 2**
+**示例 2**
 
 ```c
 public OnPlayerUpdate(playerid)
@@ -67,17 +67,14 @@ public OnPlayerUpdate(playerid)
 
     if (fHealth != GetPVarFloat(playerid, "faPlayerHealth"))
     {
-        // Player health has changed since the last update -> server, so obviously thats the thing updated.
-        // Lets do further checks see if he's lost or gained health, anti-health cheat? ;)
-
+        // 检测生命值变化，可用于反作弊检测
         if (fHealth > GetPVarFloat(playerid, "faPlayerHealth"))
         {
-            /* He has gained health! Cheating? Write your own scripts here to figure how a player
-            gained health! */
+            /* 生命值异常增加，可能作弊 */
         }
         else
         {
-            /* He has lost health! */
+            /* 正常生命值减少 */
         }
 
         SetPVarFloat(playerid, "faPlayerHealth", fHealth);
@@ -85,12 +82,30 @@ public OnPlayerUpdate(playerid)
 }
 ```
 
-## Notes
+## 注意事项
 
 <TipNPCCallbacks />
 
 :::warning
 
-This callback is called, on average, 30 times per second, per player; only use it when you know what it's meant for (or more importantly what it's NOT meant for). The frequency with which this callback is called for each player varies, depending on what the player is doing. Driving or shooting will trigger a lot more updates than idling.
+本回调函数平均每秒触发30次/玩家，请谨慎使用。触发频率会根据玩家行为变化：驾驶或射击时更新频率远高于静止状态。
 
 :::
+
+## 相关回调
+
+以下回调可能与该回调存在关联：
+
+- [OnPlayerWeaponShot](OnPlayerWeaponShot): 当玩家发射武器时触发
+
+## 相关函数
+
+以下函数可能与该回调存在关联：
+
+- [GetPlayerWeapon](../functions/GetPlayerWeapon): 获取玩家当前武器
+- [GetPlayerHealth](../functions/GetPlayerHealth): 获取玩家生命值
+- [SetPlayerHealth](../functions/SetPlayerHealth): 设置玩家生命值
+
+## 相关资源
+
+- [武器ID列表](../resources/weaponids)

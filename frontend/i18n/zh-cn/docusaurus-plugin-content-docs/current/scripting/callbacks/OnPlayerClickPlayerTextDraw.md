@@ -1,32 +1,32 @@
 ---
 title: OnPlayerClickPlayerTextDraw
 sidebar_label: OnPlayerClickPlayerTextDraw
-description: This callback is called when a player clicks on a player-textdraw.
+description: 当玩家点击个人文本绘制时触发该回调
 tags: ["player", "textdraw", "playertextdraw"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player clicks on a player-textdraw. It is not called when player cancels the select mode (ESC) - however, OnPlayerClickTextDraw is.
+当玩家点击个人文本绘制（player-textdraw）时触发该回调。注意：玩家按ESC取消选择模式时会触发[OnPlayerClickTextDraw](OnPlayerClickTextDraw)而非本回调。
 
-| Name                    | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| playerid                | The ID of the player that selected a textdraw           |
-| PlayerText:playertextid | The ID of the player-textdraw that the player selected. |
+| 参数                    | 说明                                 |
+|-------------------------|--------------------------------------|
+| playerid                | 触发点击操作的玩家ID                 |
+| PlayerText:playertextid | 被点击的个人文本绘制ID               |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts so returning 1 there also blocks other scripts from processing it.
+该回调在滤镜脚本中总是优先触发，返回1将阻止其他脚本处理此事件。
 
-## Examples
+## 示例
 
 ```c
 new PlayerText:gPlayerTextDraw[MAX_PLAYERS];
 
 public OnPlayerConnect(playerid)
 {
-    // Create the textdraw
-    gPlayerTextDraw[playerid] = CreatePlayerTextDraw(playerid, 10.000000, 141.000000, "MyTextDraw");
+    // 创建个人文本绘制
+    gPlayerTextDraw[playerid] = CreatePlayerTextDraw(playerid, 10.000000, 141.000000, "我的文本");
     PlayerTextDrawTextSize(playerid, gPlayerTextDraw[playerid], 60.000000, 20.000000);
     PlayerTextDrawAlignment(playerid, gPlayerTextDraw[playerid], TEXT_DRAW_ALIGN_LEFT);
     PlayerTextDrawBackgroundColor(playerid, gPlayerTextDraw[playerid], 0x000000FF);
@@ -36,10 +36,10 @@ public OnPlayerConnect(playerid)
     PlayerTextDrawSetProportional(playerid, gPlayerTextDraw[playerid], true);
     PlayerTextDrawSetShadow(playerid, gPlayerTextDraw[playerid], 1);
 
-    // Make it selectable
+    // 设置为可点击
     PlayerTextDrawSetSelectable(playerid, gPlayerTextDraw[playerid], true);
 
-    // Show it to the player
+    // 向玩家显示
     PlayerTextDrawShow(playerid, gPlayerTextDraw[playerid]);
     return 1;
 }
@@ -57,7 +57,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 {
     if (playertextid == gPlayerTextDraw[playerid])
     {
-        SendClientMessage(playerid, 0xFFFFFFAA, "You clicked on a player-textdraw.");
+        SendClientMessage(playerid, 0xFFFFFFAA, "您点击了个人文本绘制");
         CancelSelectTextDraw(playerid);
         return 1;
     }
@@ -65,23 +65,26 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 }
 ```
 
-## Notes
+## 注意
 
 :::warning
 
-When a player presses ESC to cancel selecting a textdraw, [OnPlayerClickTextDraw](OnPlayerClickTextDraw) is called with a textdraw ID of 'INVALID_TEXT_DRAW'. [OnPlayerClickPlayerTextDraw](OnPlayerClickPlayerTextDraw) won't be called also.
+当玩家按ESC取消选择时：
+- 会触发[OnPlayerClickTextDraw](OnPlayerClickTextDraw)并返回`INVALID_TEXT_DRAW`
+- 本回调不会被触发
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与当前回调存在关联：
 
-- [OnPlayerClickTextDraw](OnPlayerClickTextDraw): This callback is called when a player clicks on a textdraw.
-- [OnPlayerClickPlayer](OnPlayerClickPlayer): This callback is called when a player click on another.
+- [OnPlayerClickTextDraw](OnPlayerClickTextDraw)：当玩家点击全局文本绘制时触发
+- [OnPlayerClickPlayer](OnPlayerClickPlayer)：当玩家点击其他玩家时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与当前回调相关：
 
-- [PlayerTextDrawSetSelectable](../functions/PlayerTextDrawSetSelectable): Sets whether a player-textdraw is selectable through [SelectTextDraw](../functions/SelectTextDraw)
+- [PlayerTextDrawSetSelectable](../functions/PlayerTextDrawSetSelectable)：设置个人文本绘制的可点击状态
+- [SelectTextDraw](../functions/SelectTextDraw)：启用玩家文本绘制选择模式

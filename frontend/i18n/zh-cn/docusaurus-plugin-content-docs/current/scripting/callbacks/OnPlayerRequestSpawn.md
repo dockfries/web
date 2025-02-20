@@ -1,49 +1,57 @@
 ---
 title: OnPlayerRequestSpawn
 sidebar_label: OnPlayerRequestSpawn
-description: This callback is called when a player attempts to spawn via class selection either by pressing SHIFT or clicking the 'Spawn' button.
+description: 当玩家通过职业选择界面尝试生成角色时触发该回调函数（按下SHIFT或点击生成按钮）。
 tags: ["player", "class"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player attempts to spawn via class selection either by pressing SHIFT or clicking the 'Spawn' button.
+当玩家通过职业选择界面尝试生成角色时触发该回调函数（按下SHIFT或点击生成按钮）。
 
-| Name     | Description                                   |
-| -------- | --------------------------------------------- |
-| playerid | The ID of the player that requested to spawn. |
+| 参数名     | 说明                          |
+| -------- | ----------------------------- |
+| playerid | 请求生成角色的玩家ID          |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts so returning 0 there also blocks other scripts from processing it.
+该回调始终在滤镜脚本中优先触发，返回0将阻止其他脚本处理
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerRequestSpawn(playerid)
 {
-    if (!IsPlayerAdmin(playerid))
+    if (!IsPlayerAdmin(playerid)) // 非管理员玩家
     {
-        SendClientMessage(playerid, -1, "You may not spawn.");
-        return 0;
+        SendClientMessage(playerid, -1, "您无权生成角色。");
+        return 0; // 阻止生成
     }
-    return 1;
+    return 1; // 允许生成
 }
 ```
 
-## Notes
+## 注意事项
 
 <TipNPCCallbacks />
 
 :::tip
 
-To prevent players from spawning with certain classes, the last viewed class must be saved in a variable in OnPlayerRequestClass.
+如需限制玩家使用特定职业生成，需在OnPlayerRequestClass回调中保存最后查看的职业类别
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnPlayerSpawn](OnPlayerSpawn): This callback is called when a player spawns.
-- [OnPlayerRequestClass](OnPlayerRequestClass): This callback is called when a player changes class at class selection.
+- [OnPlayerSpawn](OnPlayerSpawn): 当玩家成功生成时触发
+- [OnPlayerRequestClass](OnPlayerRequestClass): 当玩家切换职业类别时触发
+
+## 相关函数
+
+以下函数可能与本回调函数相关：
+
+- [SpawnPlayer](../functions/SpawnPlayer): 强制生成玩家角色
+- [SetSpawnInfo](../functions/SetSpawnInfo): 设置玩家生成信息
+- [AddPlayerClass](../functions/AddPlayerClass): 添加职业类别

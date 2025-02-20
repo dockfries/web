@@ -1,39 +1,38 @@
 ---
 title: OnVehicleDamageStatusUpdate
 sidebar_label: OnVehicleDamageStatusUpdate
-description: This callback is called when a vehicle element such as doors, tyres, panels, or lights change their damage status.
+description: 当载具部件（车门/轮胎/面板/车灯）的损坏状态发生变更时触发该回调函数。
 tags: ["vehicle"]
 ---
 
 :::tip
 
-For some useful functions for working with vehicle damage values, see [here](../resources/damagestatus).
+处理载具损坏状态的相关实用函数请参阅[此处](../resources/damagestatus)
 
 :::
 
-## Description
+## 描述
 
-This callback is called when a vehicle element such as doors, tyres, panels, or lights change their damage status.
+当载具部件（车门、轮胎、面板或车灯）的损坏状态发生变更时触发该回调函数。
 
-| Name      | Description                                                                                            |
-| --------- | ------------------------------------------------------------------------------------------------------ |
-| vehicleid | The ID of the vehicle that was changed its damage status.                                              |
-| playerid  | The ID of the player who synced the change in the damage status (who had the car damaged or repaired). |
+| 参数名      | 说明                                                                                            |
+| --------- | ---------------------------------------------------------------------------------------------- |
+| vehicleid | 损坏状态发生变化的载具ID                                                                        |
+| playerid  | 同步损坏状态变更的玩家ID（造成损坏或修复载具的玩家）                                            |
 
-## Returns
+## 返回值
 
-**1** - Will prevent other filterscripts from receiving this callback.
+**1** - 阻止其他滤镜脚本接收此回调  
+**0** - 允许此回调传递给其他滤镜脚本  
 
-**0** - Indicates that this callback will be passed to the next filterscript.
+该回调始终在滤镜脚本中优先触发。
 
-It is always called first in filterscripts.
-
-## Examples
+## 示例
 
 ```c
 public OnVehicleDamageStatusUpdate(vehicleid, playerid)
 {
-    // Get the damage status of all the components
+    // 获取所有部件的损坏状态
     new
         VEHICLE_PANEL_STATUS:panels,
         VEHICLE_DOOR_STATUS:doors,
@@ -42,26 +41,26 @@ public OnVehicleDamageStatusUpdate(vehicleid, playerid)
 
     GetVehicleDamageStatus(vehicleid, panels, doors, lights, tyres);
 
-    // Set the tyres to 0, which means none are popped
+    // 将轮胎状态重置为未爆胎
     tyres = VEHICLE_TYRE_STATUS_NONE;
 
-    // Update the vehicle's damage status with unpopped tyres
+    // 更新载具损坏状态（修复所有轮胎）
     UpdateVehicleDamageStatus(vehicleid, panels, doors, lights, tyres);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This does not include vehicle health changes.
+本回调不包含载具生命值（Health）变化的检测
 
 :::
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与该回调存在关联：
 
-- [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus): Get the vehicle damage state for each part individually.
-- [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus): Update the vehicle damage.
+- [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus): 获取载具各部件损坏状态
+- [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus): 更新载具损坏状态

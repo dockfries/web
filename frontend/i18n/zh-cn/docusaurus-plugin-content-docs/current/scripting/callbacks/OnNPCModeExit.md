@@ -1,26 +1,26 @@
 ---
 title: OnNPCModeExit
 sidebar_label: OnNPCModeExit
-description: This callback is called when a NPC script unloaded.
+description: 当NPC脚本卸载时触发该回调
 tags: ["npc"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a NPC script unloaded.
+当NPC脚本卸载时触发该回调。
 
-## Examples
+## 示例
 
 ```c
 public OnNPCModeExit()
 {
-    print("NPC script unloaded");
+    print("NPC脚本已卸载");
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与当前回调存在关联：
 
-- [OnNPCModeInit](OnNPCModeInit): This callback is called when a NPC script loaded.
+- [OnNPCModeInit](OnNPCModeInit)：当NPC脚本加载时触发

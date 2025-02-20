@@ -1,42 +1,42 @@
 ---
 title: OnPlayerClickGangZone
 sidebar_label: OnPlayerClickGangZone
-description: This callback is called when a player clicked a gangzone on the pause menu map (by right-clicking).
+description: 当玩家在暂停菜单地图上右键点击帮派区域时触发该回调
 tags: ["player", "gangzone"]
 ---
 
 <VersionWarn name='callback' version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-This callback is called when a player clicked a gangzone on the pause menu map (by right-clicking).
+当玩家在暂停菜单地图上右键点击帮派区域时触发该回调。
 
-| Name     | Description                                  |
-| -------- | -------------------------------------------- |
-| playerid | The ID of the player that clicked a gangzone |
-| zoneid   | The ID of the gangzone the player clicked    |
+| 参数        | 说明                     |
+|------------|--------------------------|
+| playerid   | 点击帮派区域的玩家ID       |
+| zoneid     | 被点击的帮派区域ID         |
 
-## Returns
+## 返回值
 
-This callback does not handle returns.
+本回调不处理返回值。
 
-It is always called first in gamemode.
+该回调在游戏模式中总是优先触发。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerClickGangZone(playerid, zoneid)
 {
     new string[128];
-    format(string, sizeof(string), "You are click gangzone %i", zoneid);
+    format(string, sizeof(string), "您点击了帮派区域 %i", zoneid);
     SendClientMessage(playerid, 0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与当前回调相关：
 
-- [GangZoneCreate](../functions/GangZoneCreate): Create a gangzone (colored radar area).
-- [GangZoneDestroy](../functions/GangZoneDestroy): Destroy a gangzone.
+- [GangZoneCreate](../functions/GangZoneCreate)：创建帮派区域（彩色雷达区域）
+- [GangZoneDestroy](../functions/GangZoneDestroy)：销毁帮派区域

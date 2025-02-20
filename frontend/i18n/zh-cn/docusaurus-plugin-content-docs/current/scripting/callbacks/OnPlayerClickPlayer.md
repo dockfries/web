@@ -1,56 +1,54 @@
 ---
 title: OnPlayerClickPlayer
 sidebar_label: OnPlayerClickPlayer
-description: This callback is called when a player double-clicks on a player on the scoreboard.
+description: 当玩家在记分牌上双击其他玩家时触发该回调
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player double-clicks on a player on the scoreboard.
+当玩家在记分牌上双击其他玩家时触发该回调。
 
-| Name            | Description                                                      |
-| --------------- | ---------------------------------------------------------------- |
-| playerid        | The ID of the player that clicked on a player on the scoreboard. |
-| clickedplayerid | The ID of the player that was clicked on.                        |
-| source          | The [source](../resources/clicksources) of the player's click.   |
+| 参数              | 说明                                                         |
+|------------------|-------------------------------------------------------------|
+| playerid         | 触发点击操作的玩家ID                                         |
+| clickedplayerid  | 被点击的玩家ID                                               |
+| source           | 点击来源（参见[点击来源](../resources/clicksources)文档）     |
 
-## Returns
+## 返回值
 
-1 - Will prevent other filterscripts from receiving this callback.
+1 - 阻止其他滤镜脚本接收此回调  
+0 - 允许传递给后续滤镜脚本  
 
-0 - Indicates that this callback will be passed to the next filterscript.
+该回调在滤镜脚本中总是优先触发。
 
-It is always called first in filterscripts.
-
-## Examples
+## 示例
 
 ```c
 public OnPlayerClickPlayer(playerid, clickedplayerid, CLICK_SOURCE:source)
 {
     new string[32];
-    format(string, sizeof(string), "You clicked on player %d", clickedplayerid);
+    format(string, sizeof(string), "您点击了玩家 %d", clickedplayerid);
     SendClientMessage(playerid, 0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-There is currently only one 'source' (0 - `CLICK_SOURCE_SCOREBOARD`).
-
-The existence of this argument suggests that more sources may be supported in the future.
+当前仅支持一个来源类型（0 - `CLICK_SOURCE_SCOREBOARD`表示记分牌点击）  
+参数设计为未来扩展更多点击来源类型预留了支持空间
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与当前回调存在关联：
 
-- [OnPlayerClickTextDraw](OnPlayerClickTextDraw): This callback is called when a player clicks on a textdraw.
+- [OnPlayerClickTextDraw](OnPlayerClickTextDraw)：当玩家点击文本绘制时触发
 
-## Related Resources
+## 相关资源
 
-- [Click Sources](../resources/clicksources)
+- [点击来源类型](../resources/clicksources)

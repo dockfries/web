@@ -1,56 +1,56 @@
 ---
 title: OnTrailerUpdate
 sidebar_label: OnTrailerUpdate
-description: This callback is called when a player sent a trailer update.
+description: 当玩家发送拖车状态更新时触发该回调函数。
 tags: ["vehicle"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player sent a trailer update.
+当玩家客户端发送拖车状态同步数据时触发该回调函数。
 
-| Name      | Description                                    |
-| --------- | ---------------------------------------------- |
-| playerid  | The ID of the player who sent a trailer update |
-| vehicleid | The Trailer being updated                      |
+| 参数名      | 说明                                    |
+| --------- | -------------------------------------- |
+| playerid  | 发送拖车状态更新的玩家ID                |
+| vehicleid | 被更新的拖车ID                          |
 
-## Returns
+## 返回值
 
-0 - Cancels any trailer updates from being sent to other players. Update is still sent to the updating player.
+0 - 阻止向其他玩家同步该拖车更新（仍会更新发送者客户端）
 
-1 - Processes the trailer update as normal and synchronizes it between all players.
+1 - 正常处理拖车更新并同步给所有玩家
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发。
 
-## Examples
+## 示例
 
 ```c
 public OnTrailerUpdate(playerid, vehicleid)
 {
-    DetachTrailerFromVehicle(GetPlayerVehicleID(playerid));
-    return 0;
+    DetachTrailerFromVehicle(GetPlayerVehicleID(playerid)); // 强制分离拖车
+    return 0; // 阻止更新同步
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This callback is called very frequently per second per trailer. You should refrain from implementing intensive calculations or intensive file writing/reading operations in this callback.
+本回调触发频率极高（每秒多次/每个拖车），请避免在此执行复杂计算或文件读写操作
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与该回调存在关联：
 
-- [OnUnoccupiedVehicleUpdate](OnUnoccupiedVehicleUpdate): This callback is called when a driver-less vehicle's position is synced by a client.
+- [OnUnoccupiedVehicleUpdate](OnUnoccupiedVehicleUpdate): 当无驾驶员载具位置同步时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与该回调存在关联：
 
-- [GetVehicleTrailer](../functions/GetVehicleTrailer): Check what trailer a vehicle is pulling.
-- [IsTrailerAttachedToVehicle](../functions/IsTrailerAttachedToVehicle): Check if a trailer is attached to a vehicle.
-- [AttachTrailerToVehicle](../functions/AttachTrailerToVehicle): Attach a trailer to a vehicle.
-- [DetachTrailerFromVehicle](../functions/DetachTrailerFromVehicle): Detach a trailer from a vehicle.
+- [GetVehicleTrailer](../functions/GetVehicleTrailer): 获取载具牵引的拖车ID
+- [IsTrailerAttachedToVehicle](../functions/IsTrailerAttachedToVehicle): 检测拖车是否连接
+- [AttachTrailerToVehicle](../functions/AttachTrailerToVehicle): 连接拖车到载具
+- [DetachTrailerFromVehicle](../functions/DetachTrailerFromVehicle): 分离拖车连接

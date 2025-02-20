@@ -1,47 +1,47 @@
 ---
 title: OnPlayerFinishedDownloading
 sidebar_label: OnPlayerFinishedDownloading
-description: This callback is called when a player finishes downloading custom models.
+description: 当玩家完成自定义模型下载时触发该回调函数。
 tags: ["player"]
 ---
 
 <VersionWarn name='callback' version='SA-MP 0.3.DL R1' />
 
-## Description
+## 描述
 
-This callback is called when a player finishes downloading custom models. For more information on how to add custom models to your server, see the [release thread](https://sampforum.blast.hk/showthread.php?tid=644105) and [this tutorial](https://sampforum.blast.hk/showthread.php?tid=644123).
+当玩家完成自定义模型下载时触发该回调函数。关于如何添加自定义模型的详细信息，请参考[发布帖](https://sampforum.blast.hk/showthread.php?tid=644105)和[教程](https://sampforum.blast.hk/showthread.php?tid=644123)。
 
-| Name         | Description                                                                    |
-| ------------ | ------------------------------------------------------------------------------ |
-| playerid     | The ID of the player that finished downloading custom models.                  |
-| virtualworld | The ID of the virtual world the player finished downloading custom models for. |
+| 参数名         | 说明                                      |
+| ------------ | ---------------------------------------- |
+| playerid     | 完成自定义模型下载的玩家ID               |
+| virtualworld | 玩家完成下载的所属虚拟世界ID             |
 
-## Returns
+## 返回值
 
-This callback does not handle returns.
+本回调函数不处理返回值
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerFinishedDownloading(playerid, virtualworld)
 {
-    SendClientMessage(playerid, 0xFFFFFFFF, "Downloads finished.");
+    SendClientMessage(playerid, 0xFFFFFFFF, "下载完成。");
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This callback is called every time a player changes virtual worlds, even if there are no custom models present in that world.
+每次玩家切换虚拟世界时都会触发该回调，即使该世界中没有自定义模型。
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnPlayerConnect](OnPlayerConnect): This callback is called when a player connects to the server.
-- [OnPlayerDisconnect](OnPlayerDisconnect): This callback is called when a player leaves the server.
-- [OnIncomingConnection](OnIncomingConnection): This callback is called when a player is attempting to connect to the server.
+- [OnPlayerConnect](OnPlayerConnect): 当玩家连接服务器时触发
+- [OnPlayerDisconnect](OnPlayerDisconnect): 当玩家断开连接时触发
+- [OnIncomingConnection](OnIncomingConnection): 当玩家尝试连接服务器时触发

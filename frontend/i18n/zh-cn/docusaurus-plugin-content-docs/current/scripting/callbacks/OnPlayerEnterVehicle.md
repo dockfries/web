@@ -1,55 +1,55 @@
 ---
 title: OnPlayerEnterVehicle
 sidebar_label: OnPlayerEnterVehicle
-description: This callback is called when a player starts to enter a vehicle, meaning the player is not in vehicle yet at the time this callback is called.
+description: 当玩家开始进入车辆时触发该回调函数（此时玩家尚未完全进入车辆）。
 tags: ["player", "vehicle"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player starts to enter a vehicle, meaning the player is not in vehicle yet at the time this callback is called.
+当玩家开始进入车辆时触发该回调函数（此时玩家尚未完全进入车辆）。
 
-| Name        | Description                                          |
-| ----------- | ---------------------------------------------------- |
-| playerid    | ID of the player who attempts to enter a vehicle.    |
-| vehicleid   | ID of the vehicle the player is attempting to enter. |
-| ispassenger | 0 if entering as driver. 1 if entering as passenger. |
+| 参数名        | 说明                                  |
+| ----------- | ------------------------------------ |
+| playerid    | 尝试进入车辆的玩家ID                 |
+| vehicleid   | 玩家尝试进入的车辆ID                 |
+| ispassenger | 0表示作为驾驶员进入，1表示作为乘客进入 |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 {
     new string[128];
-    format(string, sizeof(string), "You are entering vehicle %i", vehicleid);
+    format(string, sizeof(string), "你正在进入车辆 %i", vehicleid);
     SendClientMessage(playerid, 0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- This callback is called when a player BEGINS to enter a vehicle, not when they HAVE entered it. See [OnPlayerStateChange](OnPlayerStateChange).
-- This callback is still called if the player is denied entry to a vehicle (e.g. it is locked or full) but only as a passenger.
+- 该回调在玩家开始进入车辆时触发，而非完全进入后触发。详见 [OnPlayerStateChange](OnPlayerStateChange)
+- 即使玩家被拒绝进入车辆（例如车辆已上锁或满员），该回调仍会被触发（但仅限作为乘客的情况）
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they are related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnPlayerExitVehicle](OnPlayerExitVehicle): This callback is called when a player leaves a vehicle.
-- [OnPlayerStateChange](OnPlayerStateChange): This callback is called when a player changes state.
+- [OnPlayerExitVehicle](OnPlayerExitVehicle): 当玩家离开车辆时触发
+- [OnPlayerStateChange](OnPlayerStateChange): 当玩家状态改变时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调函数相关：
 
-- [PutPlayerInVehicle](../functions/PutPlayerInVehicle): Put a player in a vehicle.
-- [GetPlayerVehicleSeat](../functions/GetPlayerVehicleSeat): Check what seat a player is in.
+- [PutPlayerInVehicle](../functions/PutPlayerInVehicle): 将玩家放入车辆中
+- [GetPlayerVehicleSeat](../functions/GetPlayerVehicleSeat): 获取玩家所在车辆座位

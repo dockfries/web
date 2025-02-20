@@ -1,31 +1,31 @@
 ---
 title: OnPlayerGiveDamage
 sidebar_label: OnPlayerGiveDamage
-description: This callback is called when a player gives damage to another player.
+description: 当玩家对另一名玩家造成伤害时触发该回调函数。
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player gives damage to another player.
+当玩家对另一名玩家造成伤害时触发该回调函数。
 
-| Name            | Description                                                |
-| --------------- | ---------------------------------------------------------- |
-| playerid        | The ID of the player that gave damage.                     |
-| damagedid       | The ID of the player that received damage.                 |
-| Float:amount    | The amount of health/armour damagedid has lost (combined). |
-| WEAPON:weaponid | The reason that caused the damage.                         |
-| bodypart        | The [body part](../resources/bodyparts) that was hit.      |
+| 参数名            | 说明                                      |
+| --------------- | ---------------------------------------- |
+| playerid        | 造成伤害的玩家ID                         |
+| damagedid       | 受到伤害的玩家ID                         |
+| Float:amount    | 损失的生命值/护甲值总和（单位：浮点数）    |
+| WEAPON:weaponid | 造成伤害的武器类型                        |
+| bodypart        | 被击中的[身体部位](../resources/bodyparts) |
 
-## Returns
+## 返回值
 
-1 - Callback will not be called in other filterscripts.
+1 - 阻止其他滤镜脚本接收此回调
 
-0 - Allows this callback to be called in other filterscripts.
+0 - 允许将此回调传递给其他滤镜脚本
 
-It is always called first in filterscripts so returning 1 there blocks other filterscripts from processing it.
+该回调始终在滤镜脚本中优先触发，返回1将阻止其他滤镜脚本处理
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerGiveDamage(playerid, damagedid, Float:amount, WEAPON:weaponid, bodypart)
@@ -36,32 +36,35 @@ public OnPlayerGiveDamage(playerid, damagedid, Float:amount, WEAPON:weaponid, bo
     GetPlayerName(damagedid, victim, sizeof (victim));
 
     GetWeaponName(weaponid, weaponname, sizeof (weaponname));
-    format(string, sizeof(string), "%s has made %.0f damage to %s, weapon: %s, bodypart: %d", attacker, amount, victim, weaponname, bodypart);
+    format(string, sizeof(string), "%s 对 %s 造成了 %.0f 点伤害，武器：%s，部位：%d", attacker, amount, victim, weaponname, bodypart);
     SendClientMessageToAll(0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- Keep in mind this function can be inaccurate in some cases.
-- If you want to prevent certain players from damaging eachother, use [SetPlayerTeam](../functions/SetPlayerTeam).
-- The weaponid will return 37 (flame thrower) from any fire sources (e.g. molotov, 18)
-- The weaponid will return 51 from any weapon that creates an explosion (e.g. RPG, grenade)
-- **playerid** is the only one who can call the callback.
-- The amount is always the maximum damage the weaponid can do, even when the health left is less than that maximum damage. So when a player has 100.0 health and gets shot with a Desert Eagle which has a damage value of 46.2, it takes 3 shots to kill that player. All 3 shots will show an amount of 46.2, even though when the last shot hits, the player only has 7.6 health left.
+- 请注意本函数在某些情况下可能不够精确
+- 如需阻止特定玩家互相伤害，请使用[SetPlayerTeam](../functions/SetPlayerTeam)
+- 火焰类武器（如燃烧瓶/18号武器）会返回37号武器ID（火焰喷射器）
+- 爆炸类武器（如RPG、手雷）会返回51号武器ID
+- 只有**playerid**（攻击者）能触发此回调
+- 伤害值始终显示武器最大伤害值，即使剩余生命值不足。例如：
+  - 玩家当前生命值100.0
+  - 使用沙漠之鹰（单发伤害46.2）射击
+  - 前两发显示伤害46.2，第三发剩余7.6生命时仍显示46.2
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnPlayerTakeDamage](OnPlayerTakeDamage): This callback is called when a player takes damage.
-- [OnPlayerWeaponShot](OnPlayerWeaponShot): This callback is called when a player fires a weapon.
+- [OnPlayerTakeDamage](OnPlayerTakeDamage): 当玩家受到伤害时触发
+- [OnPlayerWeaponShot](OnPlayerWeaponShot): 当玩家开火时触发
 
-## Related Resources
+## 相关资源
 
-- [Body Parts](../resources/bodyparts)
+- [身体部位列表](../resources/bodyparts)

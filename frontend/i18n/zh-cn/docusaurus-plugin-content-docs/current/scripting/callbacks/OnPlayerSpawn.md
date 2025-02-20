@@ -1,27 +1,27 @@
 ---
 title: OnPlayerSpawn
 sidebar_label: OnPlayerSpawn
-description: This callback is called when a player spawns.
+description: 当玩家生成时触发该回调函数。
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player spawns. (i.e. after caling [SpawnPlayer](../functions/SpawnPlayer) function)
+当玩家生成时触发该回调函数（例如调用 [SpawnPlayer](../functions/SpawnPlayer) 函数之后）。
 
-| Name     | Description                        |
-| -------- | ---------------------------------- |
-| playerid | The ID of the player that spawned. |
+| 参数名     | 说明                |
+| -------- | ------------------ |
+| playerid | 已生成玩家的ID       |
 
-## Returns
+## 返回值
 
-0 - Will prevent other filterscripts from receiving this callback.
+0 - 阻止其他滤镜脚本接收此回调。
 
-1 - Indicates that this callback will be passed to the next filterscript.
+1 - 表示此回调将继续传递给下一个滤镜脚本。
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerSpawn(playerid)
@@ -30,18 +30,18 @@ public OnPlayerSpawn(playerid)
     GetPlayerName(playerid, PlayerName, sizeof(PlayerName));
 
     new string[64];
-    format(string, sizeof(string), "%s has spawned successfully.", PlayerName);
+    format(string, sizeof(string), "%s 已成功生成。", PlayerName);
 
     SendClientMessageToAll(0xFFFFFFFF, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-When a player dies in San Andreas they get $100 deducted from them to cover hospital bills automatically. This feature remains in SA:MP, but is removed from open.mp to allow scripts to manage all their own money. Several scripts attempt to fix this already by adding $100 to a player after death, or on spawn. If this is your script simply delete the additional fix, although the code in open.mp does attempt to account for scripts that do this. If your script relied on this feature, simply add the following code to [OnPlayerDeath](OnPlayerDeath):
+在圣安地列斯原版中，玩家死亡时会自动扣除$100作为医院费用。SA:MP 保留了这个机制，但 open.mp 移除了该功能以便脚本自主管理金钱。许多脚本通过在玩家死亡后或生成时添加$100来修复这个问题。如果这是您的脚本，建议删除额外的修复代码（尽管 open.mp 的代码已尝试兼容这类脚本）。如果您的脚本依赖此功能，请在 [OnPlayerDeath](OnPlayerDeath) 中添加以下代码：
 
 ```c
 GivePlayerMoney(playerid, -100);
@@ -49,17 +49,17 @@ GivePlayerMoney(playerid, -100);
 
 :::
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与该回调存在关联：
 
-- [OnPlayerDeath](OnPlayerDeath): This callback is called when a player dies.
-- [OnVehicleSpawn](OnVehicleSpawn): This callback is called when a vehicle respawns.
+- [OnPlayerDeath](OnPlayerDeath): 当玩家死亡时触发
+- [OnVehicleSpawn](OnVehicleSpawn): 当车辆重新生成时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与该回调存在关联：
 
-- [SpawnPlayer](../functions/SpawnPlayer): Force a player to spawn.
-- [AddPlayerClass](../functions/AddPlayerClass): Add a class.
-- [SetSpawnInfo](../functions/SetSpawnInfo): Set the spawn setting for a player.
+- [SpawnPlayer](../functions/SpawnPlayer): 强制玩家生成
+- [AddPlayerClass](../functions/AddPlayerClass): 添加玩家职业
+- [SetSpawnInfo](../functions/SetSpawnInfo): 设置玩家生成信息

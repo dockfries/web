@@ -1,31 +1,31 @@
 ---
 title: OnNPCConnect
 sidebar_label: OnNPCConnect
-description: This callback is called when a NPC successfully connects to the server.
+description: 当NPC成功连接服务器时触发该回调
 tags: ["npc"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a NPC successfully connects to the server.
+当NPC成功连接至服务器时触发该回调。
 
-| Name       | Description                         |
-| ---------- | ----------------------------------- |
-| myplayerid | The playerid the NPC has been given |
+| 参数          | 说明                     |
+|--------------|--------------------------|
+| myplayerid   | NPC被分配的玩家ID         |
 
-## Examples
+## 示例
 
 ```c
 public OnNPCConnect(myplayerid)
 {
-    printf("I successfully connected the server with ID %i!", myplayerid);
+    printf("已成功连接服务器，分配ID为 %i！", myplayerid);
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调可能与当前回调存在关联：
 
-- [OnNPCDisconnect](OnNPCDisconnect): This callback is called when the NPC gets disconnected from the server.
-- [OnPlayerConnect](OnPlayerConnect): This callback is called when a player connects to the server.
-- [OnPlayerDisconnect](OnPlayerDisconnect): This callback is called when a player leaves the server.
+- [OnNPCDisconnect](OnNPCDisconnect)：当NPC断开服务器连接时触发
+- [OnPlayerConnect](OnPlayerConnect)：当玩家连接服务器时触发
+- [OnPlayerDisconnect](OnPlayerDisconnect)：当玩家断开服务器连接时触发

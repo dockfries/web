@@ -1,49 +1,49 @@
 ---
 title: OnPlayerObjectMoved
 sidebar_label: OnPlayerObjectMoved
-description: This callback is called when a player object is moved after MovePlayerObject (when it stops moving).
+description: 当玩家物体通过MovePlayerObject移动完成后触发该回调函数。
 tags: ["player", "object", "playerobject"]
 ---
 
-## Description
+## 描述
 
-This callback is called when a player object is moved after [MovePlayerObject](../functions/MovePlayerObject) (when it stops moving).
+当玩家物体通过[MovePlayerObject](../functions/MovePlayerObject)移动并停止时触发该回调函数。
 
-| Name     | Description                                |
-| -------- | ------------------------------------------ |
-| playerid | The playerid the object is assigned to     |
-| objectid | The ID of the player object that was moved |
+| 参数名     | 说明                          |
+| -------- | ----------------------------- |
+| playerid | 该玩家物体所属的玩家ID        |
+| objectid | 被移动的玩家物体ID            |
 
-## Returns
+## 返回值
 
-It is always called first in filterscripts.
+该回调始终在滤镜脚本中优先触发
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerObjectMoved(playerid, objectid)
 {
-    printf("Player object moved: objectid: %d playerid: %d", objectid, playerid);
+    printf("玩家物体已移动：物体ID: %d 所属玩家: %d", objectid, playerid);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 <TipNPCCallbacks />
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+以下回调函数可能与本回调相关：
 
-- [OnObjectMoved](OnObjectMoved): This callback is called when an object stops moving.
+- [OnObjectMoved](OnObjectMoved): 当全局物体停止移动时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+以下函数可能与本回调函数相关：
 
-- [MovePlayerObject](../functions/MovePlayerObject): Move a player object.
-- [IsPlayerObjectMoving](../functions/IsPlayerObjectMoving): Check if the player object is moving.
-- [StopPlayerObject](../functions/StopPlayerObject): Stop a player object from moving.
-- [CreatePlayerObject](../functions/CreatePlayerObject): Create an object for only one player.
-- [DestroyPlayerObject](../functions/DestroyPlayerObject): Destroy a player object.
+- [MovePlayerObject](../functions/MovePlayerObject): 移动玩家物体
+- [IsPlayerObjectMoving](../functions/IsPlayerObjectMoving): 检测玩家物体是否在移动中
+- [StopPlayerObject](../functions/StopPlayerObject): 停止玩家物体的移动
+- [CreatePlayerObject](../functions/CreatePlayerObject): 创建玩家私有物体
+- [DestroyPlayerObject](../functions/DestroyPlayerObject): 销毁玩家物体
