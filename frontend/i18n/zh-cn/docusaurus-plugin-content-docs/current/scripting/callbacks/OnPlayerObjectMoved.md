@@ -9,10 +9,10 @@ tags: ["player", "object", "playerobject"]
 
 当玩家物体通过[MovePlayerObject](../functions/MovePlayerObject)移动并停止时触发该回调函数。
 
-| 参数名     | 说明                          |
-| -------- | ----------------------------- |
-| playerid | 该玩家物体所属的玩家ID        |
-| objectid | 被移动的玩家物体ID            |
+| 参数名   | 说明                   |
+| -------- | ---------------------- |
+| playerid | 该玩家物体所属的玩家ID |
+| objectid | 被移动的玩家物体ID     |
 
 ## 返回值
 

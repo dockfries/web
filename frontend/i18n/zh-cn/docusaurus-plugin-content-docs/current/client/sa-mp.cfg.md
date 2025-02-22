@@ -1,26 +1,26 @@
 ---
 title: sa-mp.cfg
 sidebar_label: sa-mp.cfg
-description: sa-mp client configuration file.
+description: SA-MP客户端配置文件
 ---
 
-## Description
+## 配置文件说明
 
-`sa-mp.cfg` is a client configuration file which allows you to change settings related to SA-MP. This file is found in your 'My Documents\\GTA San Andreas User Files\\SAMP' folder, under your Windows user account. This file can be edited with a text editor such as notepad.
+`sa-mp.cfg` 是用于配置 SA-MP 客户端设置的配置文件。该文件位于 Windows 用户账户下的`我的文档\GTA San Andreas User Files\SAMP`文件夹中，可使用记事本等文本编辑器进行编辑。
 
-## Options
+## 配置选项
 
-| Option              | Description                                                                                                                                                                                                                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **pagesize**        | This allows players to set the number of lines displayed in the chat window. It may be set between 10 and 20 lines. The default is 10 lines. This option can be set in-game using the client-side /pagesize command.                                                                                                                        |
-| **fpslimit**        | This allows players to set a specific [FPS](http://en.wikipedia.org/wiki/Frame_rate "http://en.wikipedia.org/wiki/Frame_rate") limit, when the frame limiter option is enabled in the GTA:SA menu. Values accepted are 20 to 90. The default set by SA-MP is 50. This option can be changed in-game with the client-side /fpslimit command. |
-| **disableheadmove** | This option controls whether player's heads move in the direction they are looking. 1 disables head movements, 0 enables it. This option can be toggled in-game with the client-side /headmove command.                                                                                                                                     |
-| **timestamp**       | This allows players to show a local timestamp at the side of chat messages. 1 enables timestamps, and 0 disables them. This can be toggled in-game using the client-side /timestamp command.                                                                                                                                                |
-| **ime**             | This controls whether the chat window input supports Input Method text editing and language switching. 1 enables IME, 0 disables it.                                                                                                                                                                                                        |
-| **multicore**       | Toggle whether the SA-MP client uses multiple CPU cores when running. Default is 1 (DOES use multiple CPU cores). Set to 0 if you experience mouse problems.                                                                                                                                                                                |
-| **directmode**      | This allows players with chat text drawing problems to use the slower direct-to-screen text rendering mode. 0 to disable, 1 to enable.                                                                                                                                                                                                      |
-| **audiomsgoff**     | If this option is set to 1, no 'Audio Stream: \[URL\]' messages will be displayed in the chat window when the server plays an audio stream. This option can be toggle in-game using the client-side /audiomsg command.                                                                                                                      |
-| **audioproxyoff**   | If this option is set to 1, and there is a proxy server set in your Windows Internet Options, the proxy will not be used when playing audio streams in SA-MP.                                                                                                                                                                               |
-| **nonametagstatus** | If this option is set to 0, players will see an hourglass icon next to other players' nametags when they are paused. This is enabled (0) by default. This option can be changed in-game using the client-side /nametagstatus command.                                                                                                       |
-| **fontface**        | Allows you to change the font of chat, dialogs and the scoreboard. _i.e. fontface="Comic Sans MS"_. Not officially supported, and may cause problems.                                                                                                                                                                                       |
-| **fontweight**      | This option toggles whether your chat font is bold or not. **0 = BOLD (default) and 1 = NORMAL.**                                                                                                                                                                                                                                           |
+| 选项                | 说明                                                                                                                                                                                               |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **pagesize**        | 设置聊天窗口显示的行数（10-20 行），默认显示 10 行。可通过游戏内命令 `/pagesize` 实时调整。                                                                                                        |
+| **fpslimit**        | 设置帧率上限（需在 GTA:SA 菜单中启用帧率限制器）。有效值 20-90，默认 50。对应游戏内命令 `/fpslimit`。[帧率说明](http://en.wikipedia.org/wiki/Frame_rate "http://en.wikipedia.org/wiki/Frame_rate") |
+| **disableheadmove** | 控制玩家头部是否随视角转动（1=禁用 0=启用）。可通过 `/headmove` 命令切换。                                                                                                                         |
+| **timestamp**       | 在聊天消息旁显示本地时间戳（1=启用 0=禁用）。使用 `/timestamp` 命令切换。                                                                                                                          |
+| **ime**             | 控制聊天窗口是否支持输入法文本编辑和语言切换（1=启用 0=禁用）。                                                                                                                                    |
+| **multicore**       | 多核 CPU 支持开关（默认 1=启用）。若出现鼠标问题可设为 0。                                                                                                                                         |
+| **directmode**      | 为存在聊天文本显示问题的玩家启用直接屏幕渲染模式（0=禁用 1=启用）。                                                                                                                                |
+| **audiomsgoff**     | 禁用音频流 URL 加载提示（1=不显示提示）。对应 `/audiomsg` 命令。                                                                                                                                   |
+| **audioproxyoff**   | 禁用 Windows 代理服务器进行音频流传输（1=绕过代理）。                                                                                                                                              |
+| **nonametagstatus** | 暂停玩家名称标签旁显示沙漏图标（默认 0=启用）。使用 `/nametagstatus` 命令调整。                                                                                                                    |
+| **fontface**        | 自定义 UI 字体（示例：`fontface="Comic Sans MS"`）。非官方支持功能，可能导致异常。                                                                                                                 |
+| **fontweight**      | 字体粗细设置（0=粗体[默认] 1=正常）。                                                                                                                                                              |

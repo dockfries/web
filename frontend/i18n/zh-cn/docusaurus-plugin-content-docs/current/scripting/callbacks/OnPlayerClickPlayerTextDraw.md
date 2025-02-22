@@ -9,10 +9,10 @@ tags: ["player", "textdraw", "playertextdraw"]
 
 当玩家点击个人文本绘图（player-textdraw）时触发该回调。注意：玩家按ESC取消选择模式时会触发[OnPlayerClickTextDraw](OnPlayerClickTextDraw)而非本回调。
 
-| 参数                    | 说明                                 |
-|-------------------------|--------------------------------------|
-| playerid                | 触发点击操作的玩家ID                 |
-| PlayerText:playertextid | 被点击的个人文本绘图ID               |
+| 参数                    | 说明                   |
+| ----------------------- | ---------------------- |
+| playerid                | 触发点击操作的玩家ID   |
+| PlayerText:playertextid | 被点击的个人文本绘图ID |
 
 ## 返回值
 
@@ -70,6 +70,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 :::warning
 
 当玩家按ESC取消选择时：
+
 - 会触发[OnPlayerClickTextDraw](OnPlayerClickTextDraw)并返回`INVALID_TEXT_DRAW`
 - 本回调不会被触发
 

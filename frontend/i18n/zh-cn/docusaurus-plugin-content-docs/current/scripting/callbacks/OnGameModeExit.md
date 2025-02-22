@@ -8,6 +8,7 @@ tags: []
 ## 描述
 
 当游戏模式结束时触发该回调。触发条件包括：
+
 - 执行'gmx'指令
 - 服务器关闭
 - 调用GameModeExit函数
@@ -33,6 +34,7 @@ public OnGameModeExit()
 :::warning
 
 使用OnGameModeExit时需注意：
+
 - 配合`rcon gmx`指令使用时可能导致客户端异常
 - 在[OnGameModeInit](OnGameModeInit)中过度调用[RemoveBuildingForPlayer](../functions/RemoveBuildingForPlayer)可能引发客户端崩溃
 - 服务器崩溃或进程被强制终止（如Linux kill命令/Windows控制台关闭按钮）不会触发本回调

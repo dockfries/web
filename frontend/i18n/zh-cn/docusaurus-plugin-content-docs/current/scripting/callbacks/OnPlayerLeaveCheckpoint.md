@@ -9,9 +9,9 @@ tags: ["player", "checkpoint"]
 
 当玩家离开通过[SetPlayerCheckpoint](../functions/SetPlayerCheckpoint)设置的检查点时触发该回调函数。同一时间只能设置一个检查点。
 
-| 参数名     | 说明                          |
-| -------- | ----------------------------- |
-| playerid | 离开检查点的玩家ID            |
+| 参数名   | 说明               |
+| -------- | ------------------ |
+| playerid | 离开检查点的玩家ID |
 
 ## 返回值
 

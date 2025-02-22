@@ -1,45 +1,45 @@
 ---
-title: "Client Commands"
-sidebar_label: "Client Commands"
-description: List of all client commands.
+title: "客户端命令列表"
+sidebar_label: "客户端命令列表"
+description: 所有客户端命令列表。
 ---
 
-## Commands
+## 命令
 
-| Command        | Description                                                                                                                                                                                                                                                                                                                            |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| /quit (/q)     | This command speaks for itself, it quits the game. You can also use /q, as it the exact same command, just shorter.                                                                                                                                                                                                                    |
-| /save          | /save is most likely the most commonly used default command, and probably the most useful. When you type /save, your current position is saved to savedpositions.txt in your user files directory, from where you can use it in scripts.                                                                                               |
-| /rs            | /rs (Raw Save) is like /save, but it only saves your current position and facing angle in rawpositions.txt in your user files directory. No extra information is saved such as class and weapons.                                                                                                                                      |
-| /interior      | Partly as important as /save, this command simply displays your current interior in chat.                                                                                                                                                                                                                                              |
-| /vw            | Partly as important as /save, this command simply displays your current virtual world in chat.                                                                                                                                                                                                                                         |
-| /fpslimit      | This command sets the limit of FPS (Frames Per Second) for your game. The higher the limit the smoother your game is. Has no effect if frame limiter is turned off in graphic options. The limit can be set between 20 and 90 and defaults to 50. This sets the sa-mp.cfg 'fpslimit' option.                                           |
-| /pagesize      | /pagesize is used to choose the amount of lines of chat to show. This can be anything from 10 to 20 lines. Pagesize is 10 by default. This sets the sa-mp.cfg 'pagesize' option.                                                                                                                                                       |
-| /headmove      | This command controls whether player's heads move in the direction they are looking, however it is handled locally so other players will still see your head move. This sets the sa-mp.cfg 'disableheadmove' option.                                                                                                                   |
-| /timestamp     | This command will show/hide a time next to all messages in the chatbox. The time that is displayed is your computer's time, not the server time. This sets the sa-mp.cfg 'timestamp' option.                                                                                                                                           |
-| /dl            | DL stands for debug labels. This command toggles debug labels on vehicles, which show the vehicle ID, model, health, whether the vehicle is pre-loaded, distance from the player, trailer, available seats, current position and spawn position.                                                                                       |
-| /nametagstatus | When enabled (which it is by default), players will see a small hourglass icon next to the nametag of paused players. This includes minimising (alt-tab), the pause menu (ESC), lost connection (crash/timeout) and when taking screenshots that freeze the game for over 3 seconds. This sets the sa-mp.cfg 'nonametagstatus' option. |
-| /mem           | Shows the current amount of memory usage. (Although, it usually only prints 128 MB.)                                                                                                                                                                                                                                                   |
-| /audiomsg      | Enables/disables the message that prints when a url is streamed to a client. This sets the sa-mp.cfg 'audiomsgoff' option.                                                                                                                                                                                                             |
-| /fontsize      | Changes the font size of the UI (chat, dialogs etc.). Valid fontsize is -3 to 5.                                                                                                                                                                                                                                                       |
-| /ctd           | This command was added in SA-MP 0.3.7 RC2. It enables client debugging of the player camera target.                                                                                                                                                                                                                                    |
-| /rcon          | More related to the server rather than the client. This command is used to execute RCON commands. RCON is the built-in admin system. RCON stands for [Remote Control](../server/ControllingServer#using-rcon).                                                                                                                         |
-| /hudscalefix   | This command was added in SA-MP 0.3.7 R3. Enables/disables the radar scale fix, so that the game's radar scales better in widescreen resolutions (i.e. no more 'egg of finding'). This sets the sa-mp.cfg 'nohudscale' option.                                                                                                         |
+| 命令           | 说明                                                                                                                                                                                           |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| /quit (/q)     | 该命令的功能不言自明，用于退出游戏。您也可以使用更简短的 /q 命令，其功能完全相同。                                                                                                             |
+| /save          | /save 可能是最常用的默认命令，也是最实用的命令。输入该命令后，您当前的位置会被保存到用户文件目录下的 savedpositions.txt 文件中，可在脚本中使用这些坐标。                                       |
+| /rs            | /rs（原始保存）与 /save 类似，但仅保存当前位置和朝向角度到用户文件目录下的 rawpositions.txt 文件中。不会保存职业和武器等额外信息。                                                             |
+| /interior      | 与 /save 同等重要的命令，直接在聊天框显示您当前所处的室内场景编号。                                                                                                                            |
+| /vw            | 与 /save 同等重要的命令，直接在聊天框显示您当前所在的虚拟世界编号。                                                                                                                            |
+| /fpslimit      | 设置游戏帧率上限（FPS）。数值越高游戏越流畅。若在图形选项中关闭帧率限制则此命令无效。可设置范围 20-90，默认 50。对应 sa-mp.cfg 文件的 'fpslimit' 选项。                                        |
+| /pagesize      | 设置聊天窗口显示的行数（10-20 行），默认显示 10 行。对应 sa-mp.cfg 文件的 'pagesize' 选项。                                                                                                    |
+| /headmove      | 控制玩家头部是否随视角转动（本地生效，其他玩家仍会看到头部转动）。对应 sa-mp.cfg 文件的 'disableheadmove' 选项。                                                                               |
+| /timestamp     | 切换聊天框消息时间戳显示（显示本地计算机时间而非服务器时间）。对应 sa-mp.cfg 文件的 'timestamp' 选项。                                                                                         |
+| /dl            | 调试标签（Debug Labels）功能开关。开启后会在载具上显示调试信息，包括：载具 ID、模型、耐久度、预加载状态、与玩家距离、拖挂信息、可用座位、当前位置和生成坐标。                                  |
+| /nametagstatus | 切换暂停玩家名称标签旁沙漏图标显示（默认开启）。包括最小化游戏（alt-tab）、暂停菜单（ESC）、断线（崩溃/超时）和截图导致游戏冻结超过 3 秒的情况。对应 sa-mp.cfg 文件的 'nonametagstatus' 选项。 |
+| /mem           | 显示当前内存使用量（通常仅显示 128 MB）。                                                                                                                                                      |
+| /audiomsg      | 切换音频流 URL 加载提示信息显示。对应 sa-mp.cfg 文件的 'audiomsgoff' 选项。                                                                                                                    |
+| /fontsize      | 调整 UI 字体大小（聊天框/对话框等），有效范围-3 至 5。                                                                                                                                         |
+| /ctd           | 该命令在 SA-MP 0.3.7 RC2 版本加入。启用玩家视角目标的客户端调试功能。                                                                                                                          |
+| /rcon          | 主要用于服务器管理。执行远程控制台命令（RCON 是内置管理员系统，全称[远程控制](../server/ControllingServer#using-rcon)）。                                                                      |
+| /hudscalefix   | 该命令在 SA-MP 0.3.7 R3 版本加入。启用/禁用雷达比例修正，使宽屏分辨率下雷达显示更协调（解决'彩蛋式显示'问题）。对应 sa-mp.cfg 文件的 'nohudscale' 选项。                                       |
 
-## File sa-mp.cfg
+## 配置文件 sa-mp.cfg
 
-| Option          | Description                                                                                                                                                   |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| pagesize        | See /pagesize.                                                                                                                                                |
-| fpslimit        | See /fpslimit.                                                                                                                                                |
-| disableheadmove | See /headmove.                                                                                                                                                |
-| timestamp       | See /timestamp.                                                                                                                                               |
-| ime             | This controls whether the chat window input supports Input Method text editing and language switching. 1 enables IME, 0 disables it.                          |
-| audiomsgoff     | See /audiomsg.                                                                                                                                                |
-| multicore       | Toggle whether the SA-MP client uses multiple CPU cores when running. Default is 1 (DOES use multiple CPU cores). Set to 0 if you experience mouse problems.  |
-| directmode      | This allows players with chat text drawing problems to use the slower direct-to-screen text rendering mode. 0 to disable, 1 to enable.                        |
-| audioproxyoff   | If this option is set to 1, and there is a proxy server set in your Windows Internet Options, the proxy will not be used when playing audio streams in SA-MP. |
-| nonametagstatus | See /nametagstatus.                                                                                                                                           |
-| fontface        | Allows you to change the font of chat, dialogs and the scoreboard. i.e. fontface="Comic Sans MS". Not officially supported, and may cause problems.           |
-| fontweight      | This option toggles whether your chat font is bold or not. 0 = BOLD (default) and 1 = NORMAL.                                                                 |
-| nohudscale      | This option was added in 0.3.7 R3. See /hudscalefix.                                                                                                          |
+| 选项            | 说明                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------ |
+| pagesize        | 参见 /pagesize                                                                             |
+| fpslimit        | 参见 /fpslimit                                                                             |
+| disableheadmove | 参见 /headmove                                                                             |
+| timestamp       | 参见 /timestamp                                                                            |
+| ime             | 控制聊天窗口是否支持输入法文本编辑和语言切换。1 启用 IME，0 禁用                           |
+| audiomsgoff     | 参见 /audiomsg                                                                             |
+| multicore       | 多核 CPU 支持开关。默认 1（启用多核支持）。若出现鼠标问题可设为 0                          |
+| directmode      | 为存在聊天文本显示问题的玩家启用直接屏幕渲染模式（0 禁用，1 启用）                         |
+| audioproxyoff   | 设为 1 时，即使 Windows 网络设置中配置了代理服务器，SA-MP 音频流也不会使用代理             |
+| nonametagstatus | 参见 /nametagstatus                                                                        |
+| fontface        | 自定义聊天/对话框/积分板字体（如：fontface="Comic Sans MS"）。非官方支持功能，可能导致问题 |
+| fontweight      | 字体粗细设置。0=粗体（默认），1=正常                                                       |
+| nohudscale      | 该选项在 0.3.7 R3 版本加入。参见 /hudscalefix                                              |

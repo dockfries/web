@@ -11,9 +11,9 @@ tags: ["player", "pickup", "playerpickup"]
 
 当玩家拾取通过[CreatePlayerPickup](../functions/CreatePlayerPickup)创建的玩家专属拾取物时触发该回调函数。
 
-| 参数名     | 说明                                      |
-| -------- | ---------------------------------------- |
-| playerid | 拾取玩家专属拾取物的玩家ID               |
+| 参数名   | 说明                                                                            |
+| -------- | ------------------------------------------------------------------------------- |
+| playerid | 拾取玩家专属拾取物的玩家ID                                                      |
 | pickupid | 玩家专属拾取物ID（由[CreatePlayerPickup](../functions/CreatePlayerPickup)返回） |
 
 ## 返回值

@@ -9,13 +9,13 @@ tags: ["player"]
 
 当玩家受到伤害时触发该回调函数。
 
-| 参数名            | 说明                                                                       |
-| --------------- | -------------------------------------------------------------------------- |
-| playerid        | 受到伤害的玩家ID                                                           |
-| issuerid        | 造成伤害的玩家ID（若为自伤则返回INVALID_PLAYER_ID）                        |
-| Float:amount    | 玩家承受的伤害值（生命值与护甲值合计）                                       |
-| WEAPON:weaponid | 造成伤害的武器ID/原因                                                      |
-| bodypart        | 受击的[身体部位](../resources/bodyparts)                                   |
+| 参数名          | 说明                                                |
+| --------------- | --------------------------------------------------- |
+| playerid        | 受到伤害的玩家ID                                    |
+| issuerid        | 造成伤害的玩家ID（若为自伤则返回INVALID_PLAYER_ID） |
+| Float:amount    | 玩家承受的伤害值（生命值与护甲值合计）              |
+| WEAPON:weaponid | 造成伤害的武器ID/原因                               |
+| bodypart        | 受击的[身体部位](../resources/bodyparts)            |
 
 ## 返回值
 

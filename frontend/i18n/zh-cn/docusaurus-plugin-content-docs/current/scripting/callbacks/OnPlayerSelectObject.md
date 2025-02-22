@@ -9,15 +9,15 @@ tags: ["player", "object"]
 
 当玩家使用 [BeginObjectSelecting](../functions/BeginObjectSelecting) 后选择物体时触发该回调函数。
 
-| 参数名               | 说明                                             |
-| ------------------ | ------------------------------------------------ |
-| playerid           | 选择物体的玩家ID                                 |
-| SELECT_OBJECT:type | 选择的[类型](../resources/selectobjecttypes)     |
-| objectid           | 被选物体的ID                                     |
-| modelid            | 被选物体的模型ID                                 |
-| Float:fX           | 被选物体的X坐标                                  |
-| Float:fY           | 被选物体的Y坐标                                  |
-| Float:fZ           | 被选物体的Z坐标                                  |
+| 参数名             | 说明                                         |
+| ------------------ | -------------------------------------------- |
+| playerid           | 选择物体的玩家ID                             |
+| SELECT_OBJECT:type | 选择的[类型](../resources/selectobjecttypes) |
+| objectid           | 被选物体的ID                                 |
+| modelid            | 被选物体的模型ID                             |
+| Float:fX           | 被选物体的X坐标                              |
+| Float:fY           | 被选物体的Y坐标                              |
+| Float:fZ           | 被选物体的Z坐标                              |
 
 ## 返回值
 

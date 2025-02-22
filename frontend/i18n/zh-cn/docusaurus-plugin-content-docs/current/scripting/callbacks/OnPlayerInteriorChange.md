@@ -9,11 +9,11 @@ tags: ["player"]
 
 当玩家切换室内区域时触发该回调函数。可能由[SetPlayerInterior](../functions/SetPlayerInterior)触发，或当玩家进入/离开建筑物时触发。
 
-| 参数名          | 说明                          |
-| ------------- | ----------------------------- |
-| playerid      | 切换室内区域的玩家ID          |
-| newinteriorid | 玩家当前所在室内区域ID        |
-| oldinteriorid | 玩家之前所在的室内区域ID      |
+| 参数名        | 说明                     |
+| ------------- | ------------------------ |
+| playerid      | 切换室内区域的玩家ID     |
+| newinteriorid | 玩家当前所在室内区域ID   |
+| oldinteriorid | 玩家之前所在的室内区域ID |
 
 ## 返回值
 

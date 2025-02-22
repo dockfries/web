@@ -9,11 +9,11 @@ tags: ["player"]
 
 当玩家支持的[按键](../resources/keys)状态发生改变（按下/释放）时触发该回调函数。<br/>方向键（上/下/左/右）不会触发此回调。
 
-| 参数名     | 说明                                                                                   |
-| -------- | --------------------------------------------------------------------------------------------- |
-| playerid | 触发按键状态变化的玩家ID                                          |
-| newkeys  | 当前按下的按键位掩码 - [参见此处](../resources/keys)                    |
-| oldkeys  | 变化前的按键位掩码 - [参见此处](../resources/keys) |
+| 参数名   | 说明                                                 |
+| -------- | ---------------------------------------------------- |
+| playerid | 触发按键状态变化的玩家ID                             |
+| newkeys  | 当前按下的按键位掩码 - [参见此处](../resources/keys) |
+| oldkeys  | 变化前的按键位掩码 - [参见此处](../resources/keys)   |
 
 ## 返回值
 
@@ -171,7 +171,7 @@ new Float:gPlayerHealth[MAX_PLAYERS];
 
 public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
-	if (PRESSED(KEY_ACTION)) 
+	if (PRESSED(KEY_ACTION))
 	{
 		GetPlayerHealth(playerid, gPlayerHealth[playerid]); // 保存当前生命值
 		SetPlayerHealth(playerid, INFINITY); // 设置为无敌

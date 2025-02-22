@@ -1,61 +1,82 @@
 ---
-title: Common Client Issues
-sidebar_label: Common Client Issues
+title: 常见客户端问题
+sidebar_label: 常见客户端问题
 ---
 
-### I get the error "San Andreas cannot be found"
+### 出现"San Andreas 无法找到"错误
 
-San Andreas Multiplayer is **not** a stand-alone program! It adds multiplayer functionality to San Andreas, and thus you need GTA San Andreas for the PC - it also needs to be **EU/US v1.0**, other versions such as v2.0 or Steam and Direct2Drive versions will not work. [Click here to download a patch to downgrade your GTA: SA version to 1.0](http://grandtheftauto.filefront.com/file/GTA_SA_Downgrader_Patch;74661)
+San Andreas Multiplayer **并非**独立程序！它需要基于《侠盗猎车手：圣安地列斯》PC 版（必须为**欧美 v1.0 版本**）运行。v2.0、Steam 版或 Direct2Drive 版本均不兼容。[点击此处下载降级补丁](http://grandtheftauto.filefront.com/file/GTA_SA_Downgrader_Patch;74661)
 
-### I cannot see any servers in SA:MP browser
+### 服务器列表无法显示
 
-SA:MP browser does not work. Download the new [open.mp launcher](https://github.com/openmultiplayer/launcher/releases/latest).
-If you still cannot see any servers, you must allow open.mp access through your firewall. Unfortunately, due to the large amount of available firewall software, we can not offer further support on this - we suggest looking at the manufacturer's website or trying a Google search. Also make sure you have the latest stable open.mp version!
+SA:MP 内置浏览器已失效。请下载新版[open.mp 启动器](https://github.com/openmultiplayer/launcher/releases/latest)。若仍无法显示服务器，请确保防火墙已放行 open.mp。由于防火墙软件种类繁多，建议查阅厂商文档或通过搜索引擎解决。同时请确认使用最新稳定版 open.mp！
 
-### Singleplayer loads instead of SA:MP
+### 载入单机模式而非 SA:MP
 
 :::warning
 
-You are not supposed to see the singleplayer options (new game, load game, etc) - SA:MP should load by itself and not present these options. If you see "new game", singleplayer has loaded, not San Andreas Multiplayer.
+正确加载 SA:MP 时不应出现"新游戏/载入游戏"等单机菜单选项。若看到"新游戏"，说明加载的是单机模式。
 
 :::
 
-Singleplayer can load for 2 reasons; you have installed SA:MP to the wrong folder or you have the wrong version of San Andreas. If you have the wrong version you can downgrade your game using the GTA San Andreas downgrader. Click [here](http://grandtheftauto.filefront.com/file/GTA_SA_Downgrader_Patch;74661) to download it.
+该问题通常由两种原因导致：SA:MP 安装路径错误或游戏版本不符。若版本问题，请使用降级补丁。[点击下载](http://grandtheftauto.filefront.com/file/GTA_SA_Downgrader_Patch;74661)
 
-Sometimes the single player menu will be shown, but SA:MP will in fact have loaded properly. To fix this you simply need to select an item on the menu, then hit the escape key to exit out of it. SA:MP will then proceed to load.
+有时单机菜单会短暂显示但 SA:MP 实际已加载。此时选择任意菜单项后按 ESC 退出即可继续加载。
 
-### I get "Unacceptable Nickname" when connecting to a server
+### 连接服务器时提示"昵称不可用"
 
-Ensure you are not using any disallowed characters in your name (use 0-9, a-z, \[\], (), \$, @, ., \_ and = only), and that your name is no longer than 20 characters. This also could be caused when a player is on a server with the same name as you (which can happen if you reconnect to a server quickly after timing out or crashing). A Windows server running SA:MP with an uptime greater than 50 days can sometimes cause this bug.
+请检查昵称是否符合规范：
 
-### Screen sticks at "Connecting to IP:Port..."
+- 仅允许使用 0-9、a-z、$$$$、()、\$、@、.、\_ 和 = 字符
+- 长度不超过 20 字符
+- 服务器存在同名在线玩家（快速重连时可能触发）
+- Windows 服务器运行超过 50 天可能引发此 BUG
 
-The server could be offline, or if you can't connect to any server, disable your firewall and see if it works. If it does, you will need to reconfigure your firewall. It could also be that you are running an outdated version of SA:MP - you can find new versions [here](https://sa-mp.mp/downloads/).
+### 卡在"正在连接 IP:端口..."界面
 
-### I have a modified GTA: San Andreas and SA:MP won't load
+可能原因：
 
-If it won't load then remove your mods.
+1. 服务器离线
+2. 防火墙拦截（尝试临时禁用防火墙测试）
+3. SA:MP 版本过旧[下载最新版](https://sa-mp.mp/downloads/)
 
-### When launching GTA with SA:MP it won't start
+### 改装版 GTA 导致 SA:MP 无法加载
 
-Delete the gta_sa.set file from your userfiles folder and make sure you don't have any cheats/mods.
+移除所有游戏模组（MOD）即可解决。
 
-### The game crashes when a vehicle explodes
+### 启动游戏后无响应
 
-If you have 2 monitors then there are 3 ways to solve this:
+解决方案：
 
-1. Disable your 2nd monitor when you play sa-mp. (Maybe not so smart if you like to have the monitor on.)
-2. Set your Visual FX quality to low. (Esc > Options > Display Setup > Advanced)
-3. Rename your GTA San Andreas folder (e.g. to "GTA San Andreas2") (This often works, however sometimes it may stop working again, so you need to rename it to something else.)
+1. 删除用户文件夹中的 gta_sa.set 文件
+2. 移除所有作弊工具/模组
 
-### My mouse doesn't work after exiting the pause menu
+### 载具爆炸时游戏崩溃（双显示器用户）
 
-If your mouse seems to be frozen ingame while it (partially) works in the pause menu, then you should disable the multicore option [sa-mp.cfg](ClientCommands#file-sa-mpcfg "Sa-mp.cfg") (set it to 0). Continuously tapping Escape until the mouse responds again may also work, but it is not as neat a solution.
+三种解决方案：
 
-### The file dinput8.dll is missing
+1. 游戏时禁用副屏
+2. 设置视觉特效质量为低（ESC > 选项 > 显示设置 > 高级）
+3. 重命名游戏文件夹（如"GTA San Andreas2"）
 
-This possibly arises when DirectX is not properly installed, try re-installing it - don't forget to restart your PC. If the problem still arises, just go at C:\\Windows\\System32 and copy paste the dinput.dll file into the root directory of your GTA San Andreas. That would solve it.
+### 暂停菜单返回后鼠标失灵
 
-### I cannot see other player's nametags!
+解决方案：
 
-Please be aware that some servers may have nametags globally disabled. Otherwise, this problem often occurs on computers with Intel HD integrated graphics processors (which aren't really meant for gaming, anyway). Unfortunately, the exact cause is unknown and there doesn't seem to be a universal fix available at present time either. A long term fix would be to install a dedicated graphics card in your computer, if this is possible and if your budget allows it.
+1. 在[sa-mp.cfg](ClientCommands#file-sa-mpcfg)中禁用多核支持（设置 multicore=0）
+2. 反复按 ESC 键直至鼠标恢复响应
+
+### 缺失 dinput8.dll 文件
+
+解决方案：
+
+1. 重新安装 DirectX 并重启系统
+2. 手动复制 C:\\Windows\\System32\\dinput.dll 到游戏根目录
+
+### 无法显示玩家名称标签
+
+可能原因：
+
+1. 服务器全局禁用名称标签
+2. 使用 Intel HD 集成显卡（建议安装独立显卡）
+3. 目前暂无通用解决方案，与硬件兼容性相关

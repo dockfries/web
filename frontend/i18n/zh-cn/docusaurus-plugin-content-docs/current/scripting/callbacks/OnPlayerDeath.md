@@ -8,19 +8,20 @@ tags: ["player"]
 ## 描述
 
 当玩家死亡时触发该回调，包括以下情况：
+
 - 自杀
 - 被其他玩家击杀
 
-| 参数            | 说明                                                                 |
-|-----------------|----------------------------------------------------------------------|
-| playerid        | 死亡的玩家ID                                                         |
-| killerid        | 凶手玩家ID（若无凶手则为INVALID_PLAYER_ID）                          |
-| WEAPON:reason   | 死亡原因（对应[武器ID](../resources/weaponids)）                      |
+| 参数          | 说明                                             |
+| ------------- | ------------------------------------------------ |
+| playerid      | 死亡的玩家ID                                     |
+| killerid      | 凶手玩家ID（若无凶手则为INVALID_PLAYER_ID）      |
+| WEAPON:reason | 死亡原因（对应[武器ID](../resources/weaponids)） |
 
 ## 返回值
 
 0 - 阻止其他滤镜脚本接收此回调  
-1 - 允许传递给后续滤镜脚本  
+1 - 允许传递给后续滤镜脚本
 
 该回调在滤镜脚本中总是优先触发。
 
@@ -51,16 +52,18 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 :::tip
 
 特殊原因ID说明：
+
 - 火焰伤害（如燃烧瓶/武器18）会返回37（火焰喷射器ID）
 - 爆炸伤害（如RPG/手雷）会返回51  
-[SendDeathMessage](../functions/SendDeathMessage)函数可直接使用INVALID_PLAYER_ID作为参数  
-只有实际死亡的玩家会触发此回调（可用于反伪造死亡检测）
+  [SendDeathMessage](../functions/SendDeathMessage)函数可直接使用INVALID_PLAYER_ID作为参数  
+  只有实际死亡的玩家会触发此回调（可用于反伪造死亡检测）
 
 :::
 
 :::warning
 
 必须在使用killerid前检查有效性：
+
 - INVALID_PLAYER_ID定义为65535
 - 若数组大小为MAX_PLAYERS（默认500），访问索引65535将导致数组越界错误
 - 可能引发OnPlayerDeath脚本崩溃（不会影响整个服务端）

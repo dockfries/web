@@ -9,18 +9,18 @@ tags: ["player", "object"]
 
 当玩家完成物体编辑（[BeginObjectEditing](../functions/BeginObjectEditing)/[BeginPlayerObjectEditing](../functions/BeginPlayerObjectEditing)）时触发该回调函数。
 
-| 参数名                 | 说明                                                         |
-| ---------------------- | ------------------------------------------------------------ |
-| playerid               | 进行物体编辑的玩家ID                                         |
-| playerobject           | 0表示全局物体，1表示玩家物体                                 |
-| objectid               | 被编辑物体的ID                                               |
-| EDIT_RESPONSE:response | [编辑响应类型](../resources/objecteditionresponsetypes)      |
-| Float:fX               | 物体编辑后的X轴偏移量                                        |
-| Float:fY               | 物体编辑后的Y轴偏移量                                        |
-| Float:fZ               | 物体编辑后的Z轴偏移量                                        |
-| Float:fRotX            | 物体编辑后的X轴旋转角度                                      |
-| Float:fRotY            | 物体编辑后的Y轴旋转角度                                      |
-| Float:fRotZ            | 物体编辑后的Z轴旋转角度                                      |
+| 参数名                 | 说明                                                    |
+| ---------------------- | ------------------------------------------------------- |
+| playerid               | 进行物体编辑的玩家ID                                    |
+| playerobject           | 0表示全局物体，1表示玩家物体                            |
+| objectid               | 被编辑物体的ID                                          |
+| EDIT_RESPONSE:response | [编辑响应类型](../resources/objecteditionresponsetypes) |
+| Float:fX               | 物体编辑后的X轴偏移量                                   |
+| Float:fY               | 物体编辑后的Y轴偏移量                                   |
+| Float:fZ               | 物体编辑后的Z轴偏移量                                   |
+| Float:fRotX            | 物体编辑后的X轴旋转角度                                 |
+| Float:fRotY            | 物体编辑后的Y轴旋转角度                                 |
+| Float:fRotZ            | 物体编辑后的Z轴旋转角度                                 |
 
 ## 返回值
 

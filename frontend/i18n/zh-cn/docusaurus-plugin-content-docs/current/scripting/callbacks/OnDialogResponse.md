@@ -8,17 +8,18 @@ tags: ["dialog"]
 ## 描述
 
 当玩家响应通过ShowPlayerDialog显示的对话框时触发该回调。响应方式包括：
+
 - 点击按钮
 - 按下ENTER/ESC键
 - 双击列表项（针对列表式对话框）
 
-| 参数          | 说明                                                                                     |
-|--------------|-----------------------------------------------------------------------------------------|
-| playerid     | 响应对话框的玩家ID                                                                       |
-| dialogid     | 对话框ID（与ShowPlayerDialog中设置的ID对应）                                             |
-| response     | 按钮响应值：1=左按钮，0=右按钮（若仅显示单个按钮则始终为1）                                |
-| listitem     | 玩家选择的列表项ID（从0开始计数），非列表式对话框该值为-1                                  |
-| inputtext[]  | 玩家在输入框中输入的文本内容 或 选中的列表项文本                                          |
+| 参数        | 说明                                                        |
+| ----------- | ----------------------------------------------------------- |
+| playerid    | 响应对话框的玩家ID                                          |
+| dialogid    | 对话框ID（与ShowPlayerDialog中设置的ID对应）                |
+| response    | 按钮响应值：1=左按钮，0=右按钮（若仅显示单个按钮则始终为1） |
+| listitem    | 玩家选择的列表项ID（从0开始计数），非列表式对话框该值为-1   |
+| inputtext[] | 玩家在输入框中输入的文本内容 或 选中的列表项文本            |
 
 ## 返回值
 
@@ -33,7 +34,7 @@ tags: ["dialog"]
 #define DIALOG_RULES 1
 
 // 在某个指令中
-ShowPlayerDialog(playerid, DIALOG_RULES, DIALOG_STYLE_MSGBOX, "服务器规则", 
+ShowPlayerDialog(playerid, DIALOG_RULES, DIALOG_STYLE_MSGBOX, "服务器规则",
 "- 禁止作弊\n- 禁止刷屏\n- 尊重管理员\n\n您是否同意遵守这些规则？", "同意", "拒绝");
 
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
@@ -61,7 +62,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 #define DIALOG_LOGIN 2
 
 // 在某个指令中
-ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, "登录", 
+ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, "登录",
 "请输入您的密码：", "登录", "取消");
 
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
@@ -72,7 +73,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
         {
             Kick(playerid);
         }
-        else 
+        else
         {
             if (CheckPassword(playerid, inputtext))
             {
@@ -83,14 +84,14 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                 SendClientMessage(playerid, COLOR_RED, "登录失败");
 
                 // 重新显示登录对话框
-                ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, 
+                ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT,
                 "登录", "请输入您的密码：", "登录", "取消");
             }
         }
-        return 1; 
+        return 1;
     }
 
-    return 0; 
+    return 0;
 }
 ```
 
@@ -100,7 +101,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 #define DIALOG_WEAPONS 3
 
 // 在某个指令中
-ShowPlayerDialog(playerid, DIALOG_WEAPONS, DIALOG_STYLE_LIST, "武器库", 
+ShowPlayerDialog(playerid, DIALOG_WEAPONS, DIALOG_STYLE_LIST, "武器库",
 "沙漠之鹰\nAK-47\n战斗霰弹枪", "选择", "关闭");
 
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
@@ -149,10 +150,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                 case 2: GivePlayerWeapon(playerid, WEAPON_AK47, 120);  // AK-47
             }
         }
-        return 1; 
+        return 1;
     }
 
-    return 0; 
+    return 0;
 }
 ```
 

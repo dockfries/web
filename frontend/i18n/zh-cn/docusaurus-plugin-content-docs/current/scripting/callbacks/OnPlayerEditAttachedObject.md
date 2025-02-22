@@ -9,27 +9,27 @@ tags: ["player", "object", "attachment"]
 
 当玩家结束附着物体编辑模式时触发该回调。
 
-| 参数                   | 说明                                                                 |
-|------------------------|----------------------------------------------------------------------|
-| playerid               | 结束编辑的玩家ID                                                     |
-| EDIT_RESPONSE:response | 操作结果：0=取消（ESC），1=保存（点击保存图标）                        |
-| index                  | 附着物体的索引号（0-9）                                               |
-| modelid                | 被编辑附着物体的模型ID                                                |
-| boneid                 | 被编辑附着物体的骨骼ID                                                |
-| Float:fOffsetX         | 被编辑附着物体的X轴偏移量                                             |
-| Float:fOffsetY         | 被编辑附着物体的Y轴偏移量                                             |
-| Float:fOffsetZ         | 被编辑附着物体的Z轴偏移量                                             |
-| Float:fRotX            | 被编辑附着物体的X轴旋转角度                                           |
-| Float:fRotY            | 被编辑附着物体的Y轴旋转角度                                           |
-| Float:fRotZ            | 被编辑附着物体的Z轴旋转角度                                           |
-| Float:fScaleX          | 被编辑附着物体的X轴缩放比例                                           |
-| Float:fScaleY          | 被编辑附着物体的Y轴缩放比例                                           |
-| Float:fScaleZ          | 被编辑附着物体的Z轴缩放比例                                           |
+| 参数                   | 说明                                            |
+| ---------------------- | ----------------------------------------------- |
+| playerid               | 结束编辑的玩家ID                                |
+| EDIT_RESPONSE:response | 操作结果：0=取消（ESC），1=保存（点击保存图标） |
+| index                  | 附着物体的索引号（0-9）                         |
+| modelid                | 被编辑附着物体的模型ID                          |
+| boneid                 | 被编辑附着物体的骨骼ID                          |
+| Float:fOffsetX         | 被编辑附着物体的X轴偏移量                       |
+| Float:fOffsetY         | 被编辑附着物体的Y轴偏移量                       |
+| Float:fOffsetZ         | 被编辑附着物体的Z轴偏移量                       |
+| Float:fRotX            | 被编辑附着物体的X轴旋转角度                     |
+| Float:fRotY            | 被编辑附着物体的Y轴旋转角度                     |
+| Float:fRotZ            | 被编辑附着物体的Z轴旋转角度                     |
+| Float:fScaleX          | 被编辑附着物体的X轴缩放比例                     |
+| Float:fScaleY          | 被编辑附着物体的Y轴缩放比例                     |
+| Float:fScaleZ          | 被编辑附着物体的Z轴缩放比例                     |
 
 ## 返回值
 
 1 - 阻止其他脚本接收此回调  
-0 - 允许传递给后续脚本  
+0 - 允许传递给后续脚本
 
 该回调在滤镜脚本中总是优先触发。
 
@@ -74,15 +74,15 @@ public OnPlayerEditAttachedObject(playerid, EDIT_RESPONSE:response, index, model
         SendClientMessage(playerid, COLOR_RED, "附着物体编辑未保存");
 
         new i = index;
-        SetPlayerAttachedObject(playerid, index, modelid, boneid, 
-            ao[playerid][i][ao_x], 
-            ao[playerid][i][ao_y], 
-            ao[playerid][i][ao_z], 
-            ao[playerid][i][ao_rx], 
-            ao[playerid][i][ao_ry], 
-            ao[playerid][i][ao_rz], 
-            ao[playerid][i][ao_sx], 
-            ao[playerid][i][ao_sy], 
+        SetPlayerAttachedObject(playerid, index, modelid, boneid,
+            ao[playerid][i][ao_x],
+            ao[playerid][i][ao_y],
+            ao[playerid][i][ao_z],
+            ao[playerid][i][ao_rx],
+            ao[playerid][i][ao_ry],
+            ao[playerid][i][ao_rz],
+            ao[playerid][i][ao_sx],
+            ao[playerid][i][ao_sy],
             ao[playerid][i][ao_sz]);
     }
     return 1;

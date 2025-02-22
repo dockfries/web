@@ -11,12 +11,12 @@ tags: ["player", "actor"]
 
 当玩家对角色造成伤害时触发该回调函数。
 
-| 参数名            | 说明                                      |
-| --------------- | ---------------------------------------- |
-| playerid        | 造成伤害的玩家ID                         |
-| damaged_actorid | 受到伤害的角色ID                         |
+| 参数名          | 说明                                       |
+| --------------- | ------------------------------------------ |
+| playerid        | 造成伤害的玩家ID                           |
+| damaged_actorid | 受到伤害的角色ID                           |
 | Float:amount    | 损失的生命值/护甲值（单位：浮点数）        |
-| WEAPON:weaponid | 造成伤害的武器类型                        |
+| WEAPON:weaponid | 造成伤害的武器类型                         |
 | bodypart        | 被击中的[身体部位](../resources/bodyparts) |
 
 ## 返回值

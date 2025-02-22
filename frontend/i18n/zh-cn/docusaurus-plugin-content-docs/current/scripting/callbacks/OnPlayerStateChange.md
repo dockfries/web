@@ -9,11 +9,11 @@ tags: ["player"]
 
 当玩家状态发生改变时触发该回调函数。例如：当玩家从车辆驾驶员状态切换为步行状态时。
 
-| 参数名                  | 说明                              |
-| --------------------- | -------------------------------- |
-| playerid              | 状态发生改变的玩家ID              |
-| PLAYER_STATE:newstate | 玩家当前的新状态                  |
-| PLAYER_STATE:oldstate | 玩家之前的旧状态                  |
+| 参数名                | 说明                 |
+| --------------------- | -------------------- |
+| playerid              | 状态发生改变的玩家ID |
+| PLAYER_STATE:newstate | 玩家当前的新状态     |
+| PLAYER_STATE:oldstate | 玩家之前的旧状态     |
 
 完整状态列表请参考[玩家状态](../resources/playerstates)。
 

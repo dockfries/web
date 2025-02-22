@@ -1,221 +1,120 @@
 ---
-title: Contributing
-sidebar_label: Contributing
-description: How to contribute to the SA-MP Wiki and open.mp documentation.
+title: 贡献指南
+sidebar_label: 贡献指南
+description: 参与SA-MP Wiki与open.mp文档贡献的完整指南
 ---
 
-This documentation source is open for anyone to contribute changes to! All you need is a [GitHub](https://github.com) account and some spare time. You don't even need to know Git, you can do it all from the web interface!
+本文档源码向所有人开放贡献！您只需拥有[GitHub](https://github.com)账号即可参与，无需掌握 Git 技术，所有操作均可通过网页界面完成！
 
-If you want to help maintain a specific language, open a PR against the [`CODEOWNERS`](https://github.com/openmultiplayer/web/blob/master/CODEOWNERS) file and add a line for your language directory with your username.
+如需维护特定语言版本，请向[`CODEOWNERS`](https://github.com/openmultiplayer/web/blob/master/CODEOWNERS)文件提交 PR，在对应语言目录添加您的 GitHub 用户名。
 
-## Editing Content
+## 内容编辑
 
-On each page, there's a button that takes you to the GitHub page for editing:
+每个页面顶部均设有编辑入口：
 
-![Edit this page link present on each wiki page](https://assets.open.mp/assets/images/contributing/edit-this-page.png)
+![每个Wiki页面上的"编辑此页面"链接](https://assets.open.mp/assets/images/contributing/edit-this-page.png)
 
-For example, clicking this on [SetVehicleAngularVelocity](../scripting/functions/SetVehicleAngularVelocity.md) takes you to [this page](https://github.com/openmultiplayer/web/blob/master/docs/scripting/functions/SetVehicleAngularVelocity.mdxx) which presents you with a text editor to make changes to the file (assuming you're logged in to GitHub).
+以[SetVehicleAngularVelocity](../scripting/functions/SetVehicleAngularVelocity.md)页面为例，点击编辑按钮将跳转至[GitHub 编辑界面](https://github.com/openmultiplayer/web/blob/master/docs/scripting/functions/SetVehicleAngularVelocity.mdxx)，登录后可直接在线修改内容。
 
-Make your edit and submit a "Pull Request" this means the Wiki maintainers and other community members can review your change, discuss whether it needs additional changes and then merge it.
+提交修改后创建"Pull Request"，Wiki 维护者与社区成员将审核您的变更，经讨论确认后合并至主分支。
 
-## Adding New Content
+## 新增内容
 
-Adding new content is a little more involved. You can do it two ways:
+### GitHub 网页端
 
-### GitHub Interface
+在 GitHub 目录页点击右上角"Add file"按钮：
 
-When browsing a directory on GitHub, there's an Add file button on the top right corner of the file list:
+![新增文件按钮](https://assets.open.mp/assets/images/contributing/add-new-file.png)
 
-![Add file button](https://assets.open.mp/assets/images/contributing/add-new-file.png)
+支持直接上传 Markdown 文件或在线编辑。文件扩展名必须为`.md`，格式规范参考[Markdown 指南](https://guides.github.com/features/mastering-markdown/)。
 
-You can either upload a Markdown file you've written already or write it directly into the GitHub text editor.
+### Git 本地操作
 
-The file _must_ have a `.md` extension and contain Markdown. For more information about Markdown, check out [this guide](https://guides.github.com/features/mastering-markdown/).
-
-Once that's done, hit "Propose new file" and a Pull Request will be opened for review.
-
-### Git
-
-If you want to use Git, all you need to do is clone the Wiki repository with:
+克隆仓库至本地：
 
 ```sh
 git clone https://github.com/openmultiplayer/wiki.git
 ```
 
-Open it in your favourite editor. I recommend Visual Studio Code as it has some great tooling for editing and formatting Markdown files. As you can see, I'm writing this using Visual Studio Code!
+推荐使用 Visual Studio Code 编辑，安装以下扩展提升效率：
 
-![Visual Studio Code markdown preview](https://assets.open.mp/assets/images/contributing/vscode.png)
+- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - 语法规范检查
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 自动格式化工具
 
-I recommend two extensions to make your experience better:
+启用"保存时格式化"功能确保风格统一。
 
-- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) by David Anson - this is an extension that makes sure your Markdown is formatted correctly. It prevents some syntactical and semantic mistakes. Not all the warnings are important, but some can help improve readability. Use best judgement and if in doubt, just ask a reviewer!
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) by the Prettier.js Team - this is a formatter that will automatically format your Markdown files so they all use a consistent style. The Wiki repository has some settings in its `package.json` that the extension should automatically use. Be sure to enable "Format On Save" in your editor settings so your Markdown files will be automatically formatted every time you save!
+## 格式规范
 
-## Notes, Tips and Conventions
+### 内部链接
 
-### Internal Links
+使用相对路径：
 
-Don't use absolute URLs for inter-site links. Use relative paths.
+```md
+✅ [OnPlayerClickPlayer](../callbacks/OnPlayerClickPlayer)
+❌ [OnPlayerClickPlayer](https://www.open.mp/docs/scripting/callbacks/OnPlayerClickPlayer)
+```
 
-- ❌
+### 图片资源
 
-  ```md
-  To be used with [OnPlayerClickPlayer](https://www.open.mp/docs/scripting/callbacks/OnPlayerClickPlayer)
-  ```
+存放路径：`/static/images/子目录`
 
-- ✔
+引用方式：`![描述](/images/文件名.png)`
 
-  ```md
-  To be used with [OnPlayerClickPlayer](../callbacks/OnPlayerClickPlayer)
-  ```
+### 元数据头
 
-`../` means "go up one directory" so if the file you're editing is inside the `functions` directory and you're linking to `callbacks` you use `../` to go up to `scripting/` then `callbacks/` to enter the callbacks directory, then the filename (without `.md`) of the callback you want to link.
-
-### Images
-
-Images go inside a subdirectory inside `/static/images`. Then when you link an image in a `![]()` you just use `/images/` as the base path (no need for `static` that's just for the repository).
-
-If in doubt, read another page that uses images and copy how its done there.
-
-### Metadata
-
-The first thing in _any_ document here should be metadata:
+每个文档开头必须包含：
 
 ```mdx
 ---
-title: My Documentation
-sidebar_label: My Documentation
-description: This is a page about stuff and things and burgers, yay!
+title: 文档标题
+sidebar_label: 侧边栏标签
+description: 页面描述
 ---
 ```
 
-Every page should include a title and a description.
+### 标题层级
 
-For a full list of what can go between the `---`, check out [the Docusaurus documentation](https://docusaurus.io/docs/markdown-features#markdown-headers).
+禁止使用一级标题（由系统自动生成），从二级标题开始：
 
-### Headings
+```md
+✅ ## 子章节
+❌ # 主标题
+```
 
-Don't create a level 1 heading (`<h1>`) with `#` as this is generated automatically. Your first heading should _always_ be `##`
+### 技术术语标注
 
-- ❌
+函数名、参数等技术要素使用反引号标注：
 
-  ```md
-  # My Title
+```md
+`fopen`函数返回带`File:`标签的值
+```
 
-  This is documentation for ...
+### 表格规范
 
-  # Sub-Section
-  ```
+必须包含表头：
 
-- ✔
+```md
+| 生命值 | 引擎状态 |
+| ------ | -------- |
+| 650    | 完好无损 |
+```
 
-  ```md
-  This is documentation for ...
+## SA-MP Wiki 迁移指南
 
-  ## Sub-Section
-  ```
+### HTML 内容提取
 
-### Use `Code` Snippets For Technical References
+1. 使用浏览器开发者工具定位`<div id=content>`元素
+2. 复制内部 HTML 代码
 
-When writing a paragraph that contains function names, numbers, expressions or anything that's not standard written language, surround them with \`backticks\` like that. This makes it easier to separate language for describing things from references to technical elements such as function names and pieces of code.
+### 格式转换工具
 
-- ❌
+- 基础 HTML 转 Markdown：[Turndown](https://mixmark-io.github.io/turndown/)
+- 表格转换：[Markdown Tables](https://jmalarcon.github.io/markdowntables/)
 
-  > The fopen function will return a value with a tag of type File:, there is no problem on that line as the return value is being stored to a variable also with a tag of File: (note the cases are the same too). However on the next line the value 4 is added to the file handle. 4 has no tag [...]
+### 内容清理
 
-- ✔
+转换后需人工校验格式，未完成稿件可提交 PR 由社区协作完善。
 
-  > The `fopen` function will return a value with a tag of type `File:`, there is no problem on that line as the return value is being stored to a variable also with a tag of `File:` (note the cases are the same too). However on the next line the value `4` is added to the file handle. `4` has no tag
+## 贡献者协议
 
-In the above example, `fopen` is a function name, not an English word, so surrounding it with `code` snippet markers helps distinguish it from other content.
-
-Also, if the paragraph is referring to a block of example code, this helps the reader associate the words with the example.
-
-### Tables
-
-If a table has headings, they go in the top part:
-
-- ❌
-
-  ```md
-  |         |                                      |
-  | ------- | ------------------------------------ |
-  | Health  | Engine Status                        |
-  | 650     | Undamaged                            |
-  | 650-550 | White Smoke                          |
-  | 550-390 | Grey Smoke                           |
-  | 390-250 | Black Smoke                          |
-  | < 250   | On fire (will explode seconds later) |
-  ```
-
-- ✔
-
-  ```md
-  | Health  | Engine Status                        |
-  | ------- | ------------------------------------ |
-  | 650     | Undamaged                            |
-  | 650-550 | White Smoke                          |
-  | 550-390 | Grey Smoke                           |
-  | 390-250 | Black Smoke                          |
-  | < 250   | On fire (will explode seconds later) |
-  ```
-
-## Migrating from SA-MP Wiki
-
-Most of the content has been moved, but if you find a page that's missing, here's a short guide for converting content to Markdown.
-
-### Getting the HTML
-
-1. Click this button
-
-   (Firefox)
-
-   ![image](https://assets.open.mp/assets/images/contributing/04f024579f8d.png)
-
-   (Chrome)
-
-   ![image](https://assets.open.mp/assets/images/contributing/f62bb8112543.png)
-
-2. Hover the top left of the main wiki page, in the left margin or the corner until you see `#content`
-
-   ![image](https://assets.open.mp/assets/images/contributing/65761ffbc429.png)
-
-   Or search for `<div id=content>`
-
-   ![image](https://assets.open.mp/assets/images/contributing/77befe2749fd.png)
-
-3. Copy the inner HTML of that element
-
-   ![image](https://assets.open.mp/assets/images/contributing/8c7c75cfabad.png)
-
-   Now you have _only_ the HTML code for the actual _content_ of the page, the stuff we care about, and you can convert it to Markdown.
-
-### Converting HTML to Markdown
-
-For converting basic HTML (no tables) to Markdown use:
-
-https://mixmark-io.github.io/turndown/
-
-![image](https://assets.open.mp/assets/images/contributing/77f4ea555bbb.png)
-
-^^ Notice now it screwed up the table completely...
-
-### HTML Tables to Markdown Tables
-
-Because the above tool does not support tables, use this tool:
-
-https://jmalarcon.github.io/markdowntables/
-
-And copy only the `<table>` element in:
-
-![image](https://assets.open.mp/assets/images/contributing/57f171ae0da7.png)
-
-### Cleaning Up
-
-The conversion likely won't be perfect. So you'll have to do a bit of manual cleanup. The formatting extensions listed above should help with that but you may still need to just spend some time doing manual work.
-
-If you don't have time, don't worry! Submit an unfinished draft and someone else can pick up where you left off!
-
-## License Agreement
-
-All open.mp projects have a [Contributor License Agreement](https://cla-assistant.io/openmultiplayer/homepage). This basically just means you agree to let us use your work, and put it under an open-source license. When you open a Pull Request for the first time, the CLA-Assistant bot will post a link where you can sign the agreement.
+所有贡献需签署[贡献者许可协议(CLA)](https://cla-assistant.io/openmultiplayer/homepage)，首次提交 PR 时系统将自动提示签署流程。

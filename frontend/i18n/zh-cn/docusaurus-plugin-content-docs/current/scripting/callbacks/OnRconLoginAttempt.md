@@ -9,11 +9,11 @@ tags: ["rcon", "administration"]
 
 当玩家在游戏内尝试登录RCON时触发该回调函数，无论登录是否成功。
 
-| 参数名       | 说明                                                   |
-| ---------- | ----------------------------------------------------- |
-| ip[]       | 尝试登录的玩家IP地址                                   |
-| password[] | 使用的登录密码                                         |
-| success    | 登录结果（0=失败，1=成功）                             |
+| 参数名     | 说明                       |
+| ---------- | -------------------------- |
+| ip[]       | 尝试登录的玩家IP地址       |
+| password[] | 使用的登录密码             |
+| success    | 登录结果（0=失败，1=成功） |
 
 ## 返回值
 
@@ -41,7 +41,7 @@ public OnRconLoginAttempt(ip[], password[], success)
 
             if (!strcmp(ip, ipAddress, true)) // 匹配IP地址
             {
-                SendClientMessage(i, 0xFFFFFFFF, "密码错误，即将踢出！"); 
+                SendClientMessage(i, 0xFFFFFFFF, "密码错误，即将踢出！");
                 Kick(i); // 踢出玩家
                 break;
             }
