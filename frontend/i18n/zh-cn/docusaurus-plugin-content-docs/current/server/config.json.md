@@ -1,13 +1,13 @@
 ---
 title: config.json
 sidebar_label: config.json
-description: open.mp server configuration file.
+description: open.mp服务器配置文件
 ---
 
-## Description
+## 功能描述
 
-- `config.json` is a server configuration file which allows you to change all kinds of settings of your open.mp server.
-- You can still use [server.cfg](server.cfg) file in your open.mp server, but it is recommended to use config.json because there are more settings!
+- `config.json`是用于配置 open.mp 服务器各项参数的配置文件
+- 仍支持使用[server.cfg](server.cfg)文件，但推荐使用 config.json 以获得更全面的配置选项
 
 <br />
 
@@ -17,9 +17,9 @@ description: open.mp server configuration file.
 
 :::tip
 
-You can simply convert your server.cfg to config.json.
+可通过以下命令将 server.cfg 转换为 config.json：
 
-Open a command prompt in your server directory and type the following command, then press Enter:
+在服务器目录打开命令行并执行：
 
 ```bash
 # Windows
@@ -29,7 +29,7 @@ omp-server --dump-config
 ./omp-server --dump-config
 ```
 
-**Note:** If you have a config.json file in the directory, you may need to delete it before executing the above command.
+**注意：** 若目录已存在 config.json 文件，需先删除再执行命令
 
 :::
 
@@ -37,7 +37,7 @@ omp-server --dump-config
 
 :::tip
 
-To generate a default config.json enter the following command:
+生成默认配置文件命令：
 
 ```bash
 # Windows
@@ -51,189 +51,189 @@ omp-server --default-config
 
 <hr />
 
-## Announce
+## 服务器公告
 
-| Key      | Type | Default value | Read-only | Rule | Effect                                                                                                                  |
-| -------- | ---- | ------------- | --------- | ---- | ----------------------------------------------------------------------------------------------------------------------- |
-| announce | bool | true          | ❌        | ❌   | Toggles if the server should be announced to open.mp masterlist. Set to '**true**' to enable or '**false**' to disable. |
+| 键名     | 类型   | 默认值 | 只读 | 规则 | 功能说明                                                         |
+| -------- | ------ | ------ | ---- | ---- | ---------------------------------------------------------------- |
+| announce | 布尔值 | true   | ❌   | ❌   | 控制是否向 open.mp 主列表公告服务器。设为`true`启用，`false`禁用 |
 
-## Custom Models (Artwork)
+## 自定义模型（资源）
 
-| Key                     | Type   | Default value | Read-only | Rule | Effect                                                                                                                   |
-| ----------------------- | ------ | ------------- | --------- | ---- | ------------------------------------------------------------------------------------------------------------------------ |
-| artwork.cdn             | string |               | ✅        | ❌   | An http address for a remote model server.                                                                               |
-| artwork.enable          | bool   | true          | ✅        | ✅   | Toggles if the server uses custom models from the /models folder. Set to '**true**' to enable or '**false**' to disable. |
-| artwork.models_path     | string | models        | ✅        | ❌   | The path where the custom models are located.                                                                            |
-| artwork.port            | int    | 7777          | ✅        | ❌   |                                                                                                                          |
-| artwork.web_server_bind | string |               | ✅        | ❌   |                                                                                                                          |
+| 键名                    | 类型   | 默认值 | 只读 | 规则 | 功能说明                              |
+| ----------------------- | ------ | ------ | ---- | ---- | ------------------------------------- |
+| artwork.cdn             | 字符串 |        | ✅   | ❌   | 远程模型服务器的 HTTP 地址            |
+| artwork.enable          | 布尔值 | true   | ✅   | ✅   | 启用/禁用从/models 目录加载自定义模型 |
+| artwork.models_path     | 字符串 | models | ✅   | ❌   | 自定义模型存储路径                    |
+| artwork.port            | 整型   | 7777   | ✅   | ❌   | 资源服务端口                          |
+| artwork.web_server_bind | 字符串 |        | ✅   | ❌   | 资源服务绑定地址                      |
 
-## Chat Filter
+## 聊天过滤器
 
-| Key               | Type | Default value | Read-only | Rule | Effect                                                                                                                                                                                     |
-| ----------------- | ---- | ------------- | --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| chat_input_filter | bool | true          | ❌        | ❌   | Toggles the chat input filter. Disable it to use of chars like % in the chat. You can also use the [ToggleChatTextReplacement](../scripting/functions/ToggleChatTextReplacement) function. |
+| 键名              | 类型   | 默认值 | 只读 | 规则 | 功能说明                                                                                                                                 |
+| ----------------- | ------ | ------ | ---- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| chat_input_filter | 布尔值 | true   | ❌   | ❌   | 控制聊天输入过滤。禁用后可输入%等特殊字符，也可使用[ToggleChatTextReplacement](../scripting/functions/ToggleChatTextReplacement)函数控制 |
 
-## Query Server Information
+## 服务器信息查询
 
-| Key          | Type | Default value | Read-only | Rule | Effect                                                                                                                                                                                                                                                   |
-| ------------ | ---- | ------------- | --------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| enable_query | bool | true          | ❌        | ❌   | Toggles if the server information should be displayed in the server browser. Set to '**true**' to enable or '**false**' to disable. Players can still join a server that has disabled querying, but the server browser will not display any information. |
+| 键名         | 类型   | 默认值 | 只读 | 规则 | 功能说明                                                                     |
+| ------------ | ------ | ------ | ---- | ---- | ---------------------------------------------------------------------------- |
+| enable_query | 布尔值 | true   | ❌   | ❌   | 控制是否在服务器浏览器显示信息。禁用后玩家仍可加入，但浏览器不显示服务器详情 |
 
-## Game
+## 游戏设置
 
-| Key                                | Type   | Default value | Read-only | Rule | Effect                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------------------- | ------ | ------------- | --------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| game.allow_interior_weapons        | bool   | true          | ❌        | ❌   | Toggles whether the usage of weapons in interiors is allowed or not. '**true**' to enable weapons in interiors, '**false**' to disable.                                                                                                                                                                                                                                      |
-| game.chat_radius                   | float  | 200.0         | ❌        | ❌   | Set a radius limitation for the chat. Only players at a certain distance from the player will see their message in the chat. Also changes the distance at which a player can see other players on the map at the same distance.                                                                                                                                              |
-| game.death_drop_amount             | int    | 0             | ❌        | ❌   |                                                                                                                                                                                                                                                                                                                                                                              |
-| game.gravity                       | float  | 0.008         | ❌        | ✅   | The global gravity that the server uses.                                                                                                                                                                                                                                                                                                                                     |
-| game.group_player_objects          | bool   | false         | ❌        | ❌   | Per-player and global objects share an ID pool in SA:MP. If an ID was "assigned" to players each player could have a unique object with that ID, but if you created the maximum global objects you couldn't then create any per-player objects.<br />If player objects grouping is enables the server will try to find an already used player object slot by another player. |
-| game.lag_compensation_mode         | int    | 1             | ✅        | ✅   | **0**: Fully disable lag compensation.<br /><br />**1**: Fully enable lag compensation.<br /><br />**2**: Enable position-only lag compensation. This means player rotation won't be lag compensated for.                                                                                                                                                                    |
-| game.map                           | string |               | ❌        | ✅   | The mapname that appears in the server browser. This can be anything, e.g. My Stunt Map.                                                                                                                                                                                                                                                                                     |
-| game.mode                          | string |               | ❌        | ❌   | The mode that will be shown in the server browser. Using [SetGameModeText](../scripting/functions/SetGameModeText) has the same effect and overrides the value used in config.json. If you have multiple gamemodes that require different gamemode texts, use that function.                                                                                                 |
-| game.nametag_draw_radius           | float  | 70.0          | ❌        | ❌   | Set the maximum distance to display the names of players.                                                                                                                                                                                                                                                                                                                    |
-| game.player_marker_draw_radius     | float  | 250.0         | ❌        | ❌   | Set the marker radius for all players.                                                                                                                                                                                                                                                                                                                                       |
-| game.player_marker_mode            | int    | 1             | ❌        | ❌   | **0**: Marker mode off<br /> <br />**1**: Marker mode global<br /> <br />**2**: Marker mode streamed<br /><br />[Marker Modes](../scripting/resources/markermodes)                                                                                                                                                                                                           |
-| game.time                          | int    | 12            | ❌        | ✅   | The global time that the server uses and will be shown in the server browser.                                                                                                                                                                                                                                                                                                |
-| game.use_all_animations            | bool   | false         | ✅        | ❌   | Allow use of the animations missing from some versions. '**true**' to enable all animations, '**false**' to disable.                                                                                                                                                                                                                                                         |
-| game.use_chat_radius               | bool   | false         | ❌        | ❌   | Enable/Disable chat radius.                                                                                                                                                                                                                                                                                                                                                  |
-| game.use_entry_exit_markers        | bool   | true          | ✅        | ❌   | Enable/Disable all the interior entrances and exits in the game (the yellow arrows at doors).                                                                                                                                                                                                                                                                                |
-| game.use_instagib                  | bool   | false         | ❌        | ❌   | instagib is an old configurable variable that is not available in sa-mp client anymore, the name is probably taken from Quake game, instagib is basically instakill or instant kill, enables one shot one kill feature in game (it's not available at the moment because sa-mp removed this on client side)                                                                  |
-| game.use_manual_engine_and_lights  | bool   | false         | ❌        | ❌   | Control vehicle engines and lights. **false**: prevents the game automatically turning the engine on/off when players enter/exit vehicles and headlights automatically coming on when it is dark.                                                                                                                                                                            |
-| game.use_nametag_los               | bool   | true          | ❌        | ❌   | Toggles the Line-Of-Sight of nametags, health bars and armor bars above players.                                                                                                                                                                                                                                                                                             |
-| game.use_nametags                  | bool   | true          | ❌        | ❌   | Toggles the drawing of nametags, health bars and armor bars above players.                                                                                                                                                                                                                                                                                                   |
-| game.use_player_marker_draw_radius | bool   | false         | ❌        | ❌   | Toggles player markers (blips on the radar).                                                                                                                                                                                                                                                                                                                                 |
-| game.use_player_ped_anims          | bool   | false         | ❌        | ❌   | Uses standard player walking animation (animation of the CJ skin) instead of custom animations for every skin (e.g. skating for skater skins).                                                                                                                                                                                                                               |
-| game.use_stunt_bonuses             | bool   | true          | ❌        | ❌   | Enables or disables stunt bonuses for all players. If enabled, players will receive monetary rewards when performing a stunt in a vehicle (e.g. a wheelie).                                                                                                                                                                                                                  |
-| game.use_vehicle_friendly_fire     | bool   | false         | ❌        | ❌   | Enable friendly fire for team vehicles. Players will be unable to damage teammates' vehicles.                                                                                                                                                                                                                                                                                |
-| game.use_zone_names                | bool   | false         | ❌        | ❌   | Allows to turn on zone / area names such as the "Vinewood" or "Doherty" text at the bottom-right of the screen as they enter the area.                                                                                                                                                                                                                                       |
-| game.validate_animations           | bool   | true          | ❌        | ❌   | Validate animations for the players.                                                                                                                                                                                                                                                                                                                                         |
-| game.vehicle_respawn_time          | int    | 10000         | ❌        | ❌   | Set vehicles respawn time in milliseconds. (Default 10 seconds)                                                                                                                                                                                                                                                                                                              |
-| game.weather                       | int    | 10            | ❌        | ✅   | The global weather that the server uses and will be shown in the server browser.                                                                                                                                                                                                                                                                                             |
+| 键名                               | 类型   | 默认值 | 只读 | 规则 | 功能说明                                                                                                                                                     |
+| ---------------------------------- | ------ | ------ | ---- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| game.allow_interior_weapons        | 布尔值 | true   | ❌   | ❌   | 允许在室内使用武器                                                                                                                                           |
+| game.chat_radius                   | 浮点数 | 200.0  | ❌   | ❌   | 聊天有效半径（单位：米），同时影响玩家在地图上的可见距离                                                                                                     |
+| game.death_drop_amount             | 整型   | 0      | ❌   | ❌   | 玩家死亡时掉落的现金金额                                                                                                                                     |
+| game.gravity                       | 浮点数 | 0.008  | ❌   | ✅   | 全局重力参数（SA-MP 默认值为 0.008）                                                                                                                         |
+| game.group_player_objects          | 布尔值 | false  | ❌   | ❌   | 优化玩家对象 ID 分配机制。SA-MP 中全局对象与玩家对象共享 ID 池，启用后服务器会尝试复用其他玩家已占用的玩家对象槽位，避免全局对象占满后无法创建玩家对象的问题 |
+| game.lag_compensation_mode         | 整型   | 1      | ✅   | ✅   | **0**：完全禁用延迟补偿，**1**：完全启用延迟补偿，**2**：仅启用位置补偿（不补偿玩家旋转）                                                                    |
+| game.map                           | 字符串 |        | ❌   | ✅   | 服务器浏览器显示的自定义地图名称（例如："我的特技地图"）                                                                                                     |
+| game.mode                          | 字符串 |        | ❌   | ❌   | 服务器浏览器显示的游戏模式名称，可通过[SetGameModeText](../scripting/functions/SetGameModeText)覆盖                                                          |
+| game.nametag_draw_radius           | 浮点数 | 70.0   | ❌   | ❌   | 玩家名牌最大显示距离（单位：米）                                                                                                                             |
+| game.player_marker_draw_radius     | 浮点数 | 250.0  | ❌   | ❌   | 玩家标记显示半径（单位：米）                                                                                                                                 |
+| game.player_marker_mode            | 整型   | 1      | ❌   | ❌   | **0**：禁用玩家标记，**1**：全局标记模式，**2**：流式标记模式。[标记模式文档](../scripting/resources/markermodes)                                            |
+| game.time                          | 整型   | 12     | ❌   | ✅   | 全局游戏时间（小时制，范围 0-23）                                                                                                                            |
+| game.use_all_animations            | 布尔值 | false  | ✅   | ❌   | 启用所有版本动画（包含某些版本缺失的动画）                                                                                                                   |
+| game.use_chat_radius               | 布尔值 | false  | ❌   | ❌   | 启用聊天距离限制                                                                                                                                             |
+| game.use_entry_exit_markers        | 布尔值 | true   | ✅   | ❌   | 启用室内出入口标记（黄色箭头标识）                                                                                                                           |
+| game.use_instagib                  | 布尔值 | false  | ❌   | ❌   | 启用一击必杀模式（该功能在 SA-MP 客户端已移除，名称源自《雷神之锤》的 instagib 模式）                                                                        |
+| game.use_manual_engine_and_lights  | 布尔值 | false  | ❌   | ❌   | 手动控制车辆引擎和灯光。设为`false`时，游戏会自动开关引擎，并在黑暗时自动开启车灯                                                                            |
+| game.use_nametag_los               | 布尔值 | true   | ❌   | ❌   | 启用名牌视线检测（Line-Of-Sight），防止透过墙壁看到玩家名牌                                                                                                  |
+| game.use_nametags                  | 布尔值 | true   | ❌   | ❌   | 显示玩家名牌、血条和护甲条                                                                                                                                   |
+| game.use_player_marker_draw_radius | 布尔值 | false  | ❌   | ❌   | 启用玩家标记（小地图上的雷达标记）显示                                                                                                                       |
+| game.use_player_ped_anims          | 布尔值 | false  | ❌   | ❌   | 使用标准 CJ 皮肤行走动画，而非各皮肤专属动画（如滑板皮肤的滑行动作）                                                                                         |
+| game.use_stunt_bonuses             | 布尔值 | true   | ❌   | ❌   | 启用载具特技奖励（如车辆翘轮行驶时给予金钱奖励）                                                                                                             |
+| game.use_vehicle_friendly_fire     | 布尔值 | false  | ❌   | ❌   | 启用载具友军伤害（允许攻击同队伍载具）                                                                                                                       |
+| game.use_zone_names                | 布尔值 | false  | ❌   | ❌   | 显示区域名称（如进入"Vinewood"区域时右下角显示文字提示）                                                                                                     |
+| game.validate_animations           | 布尔值 | true   | ❌   | ❌   | 验证玩家动画有效性                                                                                                                                           |
+| game.vehicle_respawn_time          | 整型   | 10000  | ❌   | ❌   | 载具重生时间（单位：毫秒，默认 10 秒）                                                                                                                       |
+| game.weather                       | 整型   | 10     | ❌   | ✅   | 全局天气 ID（SA-MP 默认天气为 10）                                                                                                                           |
 
-## Language
+## 语言设置
 
-| Key      | Type   | Default value | Read-only | Rule | Effect                                                                                                                     |
-| -------- | ------ | ------------- | --------- | ---- | -------------------------------------------------------------------------------------------------------------------------- |
-| language | string |               | ❌        | ❌   | The language that appears in the server browser. Players can use this to filter servers by language in the server browser. |
+| 键名     | 类型   | 默认值 | 只读 | 规则 | 功能说明                                    |
+| -------- | ------ | ------ | ---- | ---- | ------------------------------------------- |
+| language | 字符串 |        | ❌   | ❌   | 服务器浏览器显示的语言标识（例如："zh-CN"） |
 
-## Logging
+## 日志配置
 
-| Key                             | Type   | Default value         | Read-only | Rule | Effect                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------------- | ------ | --------------------- | --------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| logging.enable                  | bool   | true                  | ❌        | ❌   | Enable/Disable logging.                                                                                                                                                                                                                                                                                                                                                           |
-| logging.file                    | string | log.txt               | ✅        | ❌   | The path and file name to save the server log.                                                                                                                                                                                                                                                                                                                                    |
-| logging.log_chat                | bool   | true                  | ❌        | ❌   | Toggles if player chat should be shown in the server console. Useful to stop the log from becoming bloated, or if you have another scripted chat logging solution. Set to '**true**' to enable or '**false**' to disable.                                                                                                                                                         |
-| logging.log_connection_messages | bool   | true                  | ❌        | ❌   | Enable/Disable player and NPC join messages.                                                                                                                                                                                                                                                                                                                                      |
-| logging.log_cookies             | bool   | false                 | ❌        | ❌   | Toggles logging of connection cookies requested by newly connecting players. Set to '**true**' to enable or '**false**' to disable.                                                                                                                                                                                                                                               |
-| logging.log_deaths              | bool   | true                  | ❌        | ❌   | Toggles if player death should be shown in the server console. Set to '**true**' to enable or '**false**' to disable.                                                                                                                                                                                                                                                             |
-| logging.log_queries             | bool   | false                 | ❌        | ❌   | Toggles if all queries sent to the server by players should be logged. Set to '**true**' to enable or '**false**' to disable. It is considerably useful during a DDoS attack.                                                                                                                                                                                                     |
-| logging.log_sqlite              | bool   | false                 | ❌        | ❌   | Logs sqlite DB\_\* function errors in the server console.                                                                                                                                                                                                                                                                                                                         |
-| logging.log_sqlite_queries      | bool   | false                 | ❌        | ❌   | Logs all sqlite DB_Query calls, including the query string.                                                                                                                                                                                                                                                                                                                       |
-| logging.timestamp_format        | string | [%Y-%m-%dT%H:%M:%S%z] | ✅        | ❌   | The timestamp format that should be used. The format is based on the [strftime](http://cplusplus.com/reference/clibrary/ctime/strftime/) format from C/C++. Here are some examples:<br /><br />**[%H:%M:%S]** This displays only the time.<br /><br />**[%d/%m/%Y %H:%M:%S]** This would display the date in dd/mm/yyyy format followed by the time in hour:minute:second format. |
-| logging.use_prefix              | bool   | true                  | ❌        | ❌   | Toggles if prefixes such as `[Info]` should be printed with every console message. Set to '**true**' to enable or '**false**' to disable.                                                                                                                                                                                                                                         |
-| logging.use_timestamp           | bool   | true                  | ❌        | ❌   | Toggles if a timestamp should be printed with every console message. Set to '**true**' to enable or '**false**' to disable.                                                                                                                                                                                                                                                       |
+| 键名                            | 类型   | 默认值                | 只读 | 规则 | 功能说明                                                                                                                 |
+| ------------------------------- | ------ | --------------------- | ---- | ---- | ------------------------------------------------------------------------------------------------------------------------ |
+| logging.enable                  | 布尔值 | true                  | ❌   | ❌   | 启用日志系统                                                                                                             |
+| logging.file                    | 字符串 | log.txt               | ✅   | ❌   | 日志文件存储路径                                                                                                         |
+| logging.log_chat                | 布尔值 | true                  | ❌   | ❌   | 记录玩家聊天内容                                                                                                         |
+| logging.log_connection_messages | 布尔值 | true                  | ❌   | ❌   | 记录玩家连接/断开事件                                                                                                    |
+| logging.log_cookies             | 布尔值 | false                 | ❌   | ❌   | 记录连接 cookie 信息（用于追踪异常连接）                                                                                 |
+| logging.log_deaths              | 布尔值 | true                  | ❌   | ❌   | 记录玩家死亡事件                                                                                                         |
+| logging.log_queries             | 布尔值 | false                 | ❌   | ❌   | 记录所有玩家查询请求（用于防御 DDoS 攻击）                                                                               |
+| logging.log_sqlite              | 布尔值 | false                 | ❌   | ❌   | 记录 SQLite 数据库错误                                                                                                   |
+| logging.log_sqlite_queries      | 布尔值 | false                 | ❌   | ❌   | 记录所有 SQL 查询语句（调试用）                                                                                          |
+| logging.timestamp_format        | 字符串 | [%Y-%m-%dT%H:%M:%S%z] | ✅   | ❌   | 时间戳格式（基于 C/C++的 strftime 函数）。示例：**[%H:%M:%S]** 显示时分秒，**[%d/%m/%Y %H:%M:%S]** 显示日/月/年 时:分:秒 |
+| logging.use_prefix              | 布尔值 | true                  | ❌   | ❌   | 在日志条目前添加类型前缀（如[Info]）                                                                                     |
+| logging.use_timestamp           | 布尔值 | true                  | ❌   | ❌   | 在日志条目前添加时间戳                                                                                                   |
 
-## NPCs and Players
+## 玩家与 NPC
 
-| Key         | Type | Default value | Read-only | Rule | Effect                                                                                                                                                                     |
-| ----------- | ---- | ------------- | --------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| max_bots    | int  | 0             | ❌        | ❌   | The maximum amount of NPCs your server can hold. By changing this number you can alter how many of the player slots can be used by NPCs.                                   |
-| max_players | int  | 50            | ✅        | ❌   | The maximum amount of players your server can hold. By changing this number you can alter how many players can enter the server. The maximum is 1000 and the minimum is 1. |
+| 键名        | 类型 | 默认值 | 只读 | 规则 | 功能说明                     |
+| ----------- | ---- | ------ | ---- | ---- | ---------------------------- |
+| max_bots    | 整型 | 0      | ❌   | ❌   | NPC 最大数量（占用玩家槽位） |
+| max_players | 整型 | 50     | ✅   | ❌   | 玩家最大数量（范围 1-1000）  |
 
-## Hostname
+## 服务器名称
 
-| Key  | Type   | Default value  | Read-only | Rule | Effect                                                                                        |
-| ---- | ------ | -------------- | --------- | ---- | --------------------------------------------------------------------------------------------- |
-| name | string | open.mp server | ❌        | ❌   | The name that will be shown in the server browser and when the player connects to the server. |
+| 键名 | 类型   | 默认值         | 只读 | 规则 | 功能说明                                           |
+| ---- | ------ | -------------- | ---- | ---- | -------------------------------------------------- |
+| name | 字符串 | open.mp server | ❌   | ❌   | 服务器显示名称（显示在服务器浏览器和玩家连接界面） |
 
-## Network
+## 网络配置
 
-| Key                             | Type   | Default value | Read-only | Rule | Effect                                                                                                                                                                                                                                                                                             |
-| ------------------------------- | ------ | ------------- | --------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| network.acks_limit              | int    | 3000          | ❌        | ❌   |                                                                                                                                                                                                                                                                                                    |
-| network.aiming_sync_rate\*      | int    | 30            | ✅        | ❌   | The time in milliseconds a client should update the server with new data while firing a weapon.                                                                                                                                                                                                    |
-| network.allow_037_clients       | bool   | true          | ❌        | ❌   | Toggles if players with 0.3.7 client allowed to join the server.                                                                                                                                                                                                                                   |
-| network.bind                    | string |               | ✅        | ❌   | The IP address the server should use. The server will be forced to use this IP address instead of automatically choosing a free IP address. This IP address must match one assigned to a network card on the server. This is useful for running multiple servers on the same port on the same box. |
-| network.cookie_reseed_time      | int    | 300000        | ❌        | ❌   | The time in milliseconds the connection cookie seed value updates.                                                                                                                                                                                                                                 |
-| network.grace_period            | int    | 5000          | ❌        | ❌   | This is a grace period to allow unlimited connections from the same IP after starting the server, mainly used for NPCs.<br />By default: 5 Seconds                                                                                                                                                 |
-| network.http_threads            | int    | 50            | ❌        | ❌   |                                                                                                                                                                                                                                                                                                    |
-| network.in_vehicle_sync_rate\*  | int    | 30            | ✅        | ❌   | The time in milliseconds a client should update the server with new data while in a vehicle.                                                                                                                                                                                                       |
-| network.limits_ban_time         | int    | 60000         | ❌        | ❌   | Sets the raknet ban time for bad connect packets in milliseconds. (When acks/message limit is reached.)                                                                                                                                                                                            |
-| network.message_hole_limit      | int    | 3000          | ❌        | ❌   | A network level setting to deal with DoS attacks.                                                                                                                                                                                                                                                  |
-| network.messages_limit          | int    | 500           | ❌        | ❌   | The maximum number of messages a user can send per second.                                                                                                                                                                                                                                         |
-| network.minimum_connection_time | int    | 0             | ❌        | ❌   | The time in milliseconds the server will wait before accepting another incoming connection. It is not recommended that you use this variable unless your server is under a connection flood attack.                                                                                                |
-| network.mtu                     | int    | 576           | ✅        | ❌   | Keep it the default value, you don't really need or should change this if you have no idea what this is, because if you don't know, then you don't have anything on your server requiring higher MTU, but if you are still interested: https://en.wikipedia.org/wiki/Maximum_transmission_unit     |
-| network.multiplier              | int    | 10            | ❌        | ❌   |                                                                                                                                                                                                                                                                                                    |
-| network.on_foot_sync_rate\*     | int    | 30            | ✅        | ❌   | The time in milliseconds a client should update the server with new data while on foot.                                                                                                                                                                                                            |
-| network.player_marker_sync_rate | int    | 2500          | ✅        | ❌   | The time in milliseconds a client should update the server with new data while moving.                                                                                                                                                                                                             |
-| network.player_timeout          | int    | 10000         | ❌        | ❌   | The time in milliseconds after which a player will timeout when not sending any data to the server.                                                                                                                                                                                                |
-| network.port                    | int    | 7777          | ✅        | ❌   | The port the server should use. You will need to [Port Forward](http://www.portforward.com/) in order for players to join your server from outside your LAN.                                                                                                                                       |
-| network.public_addr             | string |               | ✅        | ❌   | Some machines you run your server on can have different IPs, this is used so if the address you set in `bind` config is different, you set a new one. this config variable is only used for DL servers, because in open.mp, it will host a webserver for downloading models                        |
-| network.stream_radius           | float  | 200.0         | ❌        | ❌   | The distance on the X,Y plane players will stream in server entities. The maximum is **400.0** and the minimum is **50.0**. Higher values makes players see server entities at a greater distance, but requires more client processing and potentially more bandwidth.                             |
-| network.stream_rate             | int    | 1000          | ❌        | ❌   | The time in milliseconds before the streaming in of server entities is retested for each player. The maximum is **5000** and the minimum is **500**. Lower values increases server processing as it has to recheck streaming conditions more frequently for each player.                           |
-| network.time_sync_rate          | int    | 30000         | ❌        | ❌   | The rate at which a player's game time is updated in milliseconds.                                                                                                                                                                                                                                 |
-| network.use_lan_mode            | bool   | false         | ❌        | ❌   | Deprecated variable, has no effect.                                                                                                                                                                                                                                                                |
+| 键名                            | 类型   | 默认值 | 只读 | 规则 | 功能说明                                                                                                       |
+| ------------------------------- | ------ | ------ | ---- | ---- | -------------------------------------------------------------------------------------------------------------- |
+| network.acks_limit              | 整型   | 3000   | ❌   | ❌   | ACK 确认包数量限制（防 DDoS 设置）                                                                             |
+| network.aiming_sync_rate\*      | 整型   | 30     | ✅   | ❌   | 瞄准状态同步间隔（单位：毫秒，值越低同步越精确但增加带宽消耗）                                                 |
+| network.allow_037_clients       | 布尔值 | true   | ❌   | ❌   | 允许 0.3.7 旧版客户端连接                                                                                      |
+| network.bind                    | 字符串 |        | ✅   | ❌   | 服务器绑定 IP 地址（用于多 IP 服务器）                                                                         |
+| network.cookie_reseed_time      | 整型   | 300000 | ❌   | ❌   | 连接 cookie 种子刷新间隔（单位：毫秒，默认 5 分钟）                                                            |
+| network.grace_period            | 整型   | 5000   | ❌   | ❌   | 同 IP 连接宽限期（单位：毫秒，服务器启动后 5 秒内允许同一 IP 无限连接，主要用于 NPC 批量连接）                 |
+| network.http_threads            | 整型   | 50     | ❌   | ❌   | HTTP 服务线程数                                                                                                |
+| network.in_vehicle_sync_rate\*  | 整型   | 30     | ✅   | ❌   | 载具内状态同步间隔（单位：毫秒）                                                                               |
+| network.limits_ban_time         | 整型   | 60000  | ❌   | ❌   | 违规连接封禁时间（单位：毫秒，当触发 acks/messages 限制时生效）                                                |
+| network.message_hole_limit      | 整型   | 3000   | ❌   | ❌   | 消息空洞数量限制（防 DDoS 设置）                                                                               |
+| network.messages_limit          | 整型   | 500    | ❌   | ❌   | 客户端每秒最大消息数限制                                                                                       |
+| network.minimum_connection_time | 整型   | 0      | ❌   | ❌   | 最小连接间隔（单位：毫秒，用于防御连接洪水攻击）                                                               |
+| network.mtu                     | 整型   | 576    | ✅   | ❌   | 最大传输单元（保持默认值，修改不当会导致连接问题。详见[维基百科](https://zh.wikipedia.org/wiki/最大传输单元)） |
+| network.multiplier              | 整型   | 10     | ❌   | ❌   | 网络流量乘数（调整带宽使用）                                                                                   |
+| network.on_foot_sync_rate\*     | 整型   | 30     | ✅   | ❌   | 步行状态同步间隔（单位：毫秒）                                                                                 |
+| network.player_marker_sync_rate | 整型   | 2500   | ✅   | ❌   | 玩家标记同步间隔（单位：毫秒）                                                                                 |
+| network.player_timeout          | 整型   | 10000  | ❌   | ❌   | 玩家连接超时时间（单位：毫秒，10 秒无响应后断开）                                                              |
+| network.port                    | 整型   | 7777   | ✅   | ❌   | 服务器端口（需进行[端口转发](http://www.portforward.com/)）                                                    |
+| network.public_addr             | 字符串 |        | ✅   | ❌   | 公网地址（用于资源下载服务）                                                                                   |
+| network.stream_radius           | 浮点数 | 200.0  | ❌   | ❌   | 实体流加载半径（单位：米，范围 50.0-400.0）                                                                    |
+| network.stream_rate             | 整型   | 1000   | ❌   | ❌   | 流加载检测间隔（单位：毫秒，范围 500-5000）                                                                    |
+| network.time_sync_rate          | 整型   | 30000  | ❌   | ❌   | 时间同步间隔（单位：毫秒）                                                                                     |
+| network.use_lan_mode            | 布尔值 | false  | ❌   | ❌   | 已弃用参数（原用于局域网模式）                                                                                 |
 
-> [*] Lower values of `aiming_sync_rate`, `in_vehicle_sync_rate` and `on_foot_sync_rate` increases sync performance, but uses more bandwidth.
+> [*] `aiming_sync_rate`、`in_vehicle_sync_rate`和`on_foot_sync_rate`数值越低同步越精确，但会增加带宽消耗
 
-## Server Lock
+## 服务器密码
 
-| Key      | Type   | Default value | Read-only | Rule | Effect                                                                                                                       |
-| -------- | ------ | ------------- | --------- | ---- | ---------------------------------------------------------------------------------------------------------------------------- |
-| password | string |               | ❌        | ❌   | The password used to lock the server. When using this, only players that know this password will be able to join the server. |
+| 键名     | 类型   | 默认值 | 只读 | 规则 | 功能说明                           |
+| -------- | ------ | ------ | ---- | ---- | ---------------------------------- |
+| password | 字符串 |        | ❌   | ❌   | 服务器访问密码（留空表示无需密码） |
 
-## Pawn
+## Pawn 脚本
 
-| Key                 | Type         | Default value | Read-only | Rule | Effect                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------- | ------------ | ------------- | --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| pawn.legacy_plugins | list, string | []            | ✅        | ❌   | The .dll or .so file in the /plugins folder, the server should use to run as a plugin. Plugins are scripts which are designed to enhance gamemodes and filterscripts.<br />Example: `["mysql", "streamer"]`                                                                                                                                                                     |
-| pawn.main_scripts   | list, string | ["test 1"]    | ✅        | ❌   | The .amx file in the /gamemodes folder, the server should use to run as a gamemode.                                                                                                                                                                                                                                                                                             |
-| pawn.side_scripts   | list, string | []            | ✅        | ❌   | The .amx file in the /filterscripts folder, the server should use to run as a filterscript. Filterscripts are scripts that run in the background of your gamemode. They are there to add extras to the server without editing the gamemode. It is very useful if you want to carry a specific property to more than one gamemode.<br />Example: `["filterscripts/Race_System"]` |
+| 键名                | 类型         | 默认值     | 只读 | 规则 | 功能说明                                              |
+| ------------------- | ------------ | ---------- | ---- | ---- | ----------------------------------------------------- |
+| pawn.legacy_plugins | 列表, 字符串 | []         | ✅   | ❌   | 加载传统插件列表（示例：`["mysql", "streamer"]`）     |
+| pawn.main_scripts   | 列表, 字符串 | ["test 1"] | ✅   | ❌   | 主游戏模式脚本（.amx 文件路径）                       |
+| pawn.side_scripts   | 列表, 字符串 | []         | ✅   | ❌   | 滤镜脚本列表（示例：`["filterscripts/Race_System"]`） |
 
-## RCON
+## 远程控制台
 
-| Key                 | Type   | Default value | Read-only | Rule | Effect                                                                                                                                                                                                                                                       |
-| ------------------- | ------ | ------------- | --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| rcon.allow_teleport | bool   | false         | ✅        | ❌   | Determine whether RCON admins will be teleported to their waypoint when they set one. Set to '**true**' to enable or '**false**' to disable.                                                                                                                 |
-| rcon.enable         | bool   | false         | ✅        | ❌   | Toggles if the [Remote Console](RemoteConsole) feature should be used. Set to '**true**' to enable or '**false**' to disable.                                                                                                                                |
-| rcon.password       | string | changeme      | ❌        | ❌   | The password used to administrate the server and use the remote console (rcon). You must make sure to change this to something hard to crack so that others cannot take control of your server. Your server will NOT start if changeme is the RCON password! |
+| 键名                | 类型   | 默认值   | 只读 | 规则 | 功能说明                                        |
+| ------------------- | ------ | -------- | ---- | ---- | ----------------------------------------------- |
+| rcon.allow_teleport | 布尔值 | false    | ✅   | ❌   | 允许 RCON 管理员通过地图标记传送                |
+| rcon.enable         | 布尔值 | false    | ✅   | ❌   | 启用远程控制台功能                              |
+| rcon.password       | 字符串 | changeme | ❌   | ❌   | RCON 密码（必须修改默认值，否则服务器无法启动） |
 
-## Sleep and Ticks
+## 性能优化
 
-| Key           | Type  | Default value | Read-only | Rule | Effect                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------- | ----- | ------------- | --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sleep         | float | 5.0           | ❌        | ❌   | The time in milliseconds the main open.mp and raknet networking thread will "sleep" idly during each sync cycle. Higher values decreases server processing, but reduces sync quality. Lower values increases server processing, but improves sync quality. It is not advisable to change this value unless your player count is very high and you have server fps stability issues.                                                                                                                                       |
-| use_dyn_ticks | bool  | true          | ✅        | ❌   | dynticks config is basically for keeping your server's tickrate at a constant count by using cpu more to cover the gap if there's any drop.<br />It is calculated using provided sleep value so if sleep is 5, constant tick count would be 1000 / 5 = 200 ticks per second.<br />open.mp modifies internal sleep value on the fly based on each tick's code execution time, just to keep it steady at 200 ticks, and lower sleep means more cpu usage (which is not a massive difference if server code is written well) |
+| 键名          | 类型   | 默认值 | 只读 | 规则 | 功能说明                                                                                             |
+| ------------- | ------ | ------ | ---- | ---- | ---------------------------------------------------------------------------------------------------- |
+| sleep         | 浮点数 | 5.0    | ❌   | ❌   | 主线程休眠时间（单位：毫秒，值越高 CPU 占用越低但同步质量下降）                                      |
+| use_dyn_ticks | 布尔值 | true   | ✅   | ❌   | 动态调整 tick 率（例如 sleep=5 时恒定 200 ticks/秒）。通过动态补偿代码执行时间差异来维持稳定 tick 率 |
 
-## Web URL
+## 主机名
 
-| Key     | Type   | Default value | Read-only | Rule | Effect                                                                  |
-| ------- | ------ | ------------- | --------- | ---- | ----------------------------------------------------------------------- |
-| website | string | open.mp       | ❌        | ✅   | The website people can visit to gain more information about the server. |
+| 键名    | 类型   | 默认值  | 只读 | 规则 | 功能说明           |
+| ------- | ------ | ------- | ---- | ---- | ------------------ |
+| website | 字符串 | open.mp | ❌   | ✅   | 服务器官方网站地址 |
 
-## Discord
+## Discord 设置
 
-| Key            | Type   | Default value           | Read-only | Rule | Effect                                                               |
-| -------------- | ------ | ----------------------- | --------- | ---- | -------------------------------------------------------------------- |
-| discord.invite | string | https://discord.gg/samp | ❌        | ❌   | The address of your server discord that appears in the omp launcher. |
+| 键名           | 类型   | 默认值                  | 只读 | 规则 | 功能说明                                          |
+| -------------- | ------ | ----------------------- | ---- | ---- | ------------------------------------------------- |
+| discord.invite | 字符串 | https://discord.gg/samp | ❌   | ❌   | Discord 服务器邀请链接（显示在 open.mp 启动器中） |
 
 ![](https://i.ibb.co/cTRq5pr/294345382-54d77460-da32-458e-bcfa-10ebec90fbfa.png)
 
-## Banners
+## 横幅设置
 
-| Key           | Type   | Default value | Read-only | Rule | Effect                                                                   |
-| ------------- | ------ | ------------- | --------- | ---- | ------------------------------------------------------------------------ |
-| banners.light | string |               | ❌        | ❌   | Your server's light banner url address that appears in the omp launcher. |
-| banners.dark  | string |               | ❌        | ❌   | Your server's dark banner url address that appears in the omp launcher.  |
+| 键名          | 类型   | 默认值 | 只读 | 规则 | 功能说明                                  |
+| ------------- | ------ | ------ | ---- | ---- | ----------------------------------------- |
+| banners.light | 字符串 |        | ❌   | ❌   | 浅色主题横幅 URL（分辨率建议：1200x240）  |
+| banners.dark  | 字符串 |        | ❌   | ❌   | 深色主题横幅 URL（支持透明背景 PNG 格式） |
 
 ![](https://i.ibb.co/86T8wYG/image.png)
 
-## Server Logo
+## 服务器 LOGO
 
-| Key  | Type   | Default value | Read-only | Rule | Effect                                                                              |
-| ---- | ------ | ------------- | --------- | ---- | ----------------------------------------------------------------------------------- |
-| logo | string |               | ❌        | ❌   | Your server's logo url address that appears in the omp launcher and discord status. |
+| 键名 | 类型   | 默认值 | 只读 | 规则 | 功能说明                                                          |
+| ---- | ------ | ------ | ---- | ---- | ----------------------------------------------------------------- |
+| logo | 字符串 |        | ❌   | ❌   | 服务器 LOGO URL（显示在启动器和 Discord 状态，建议尺寸：512x512） |
 
 ![](https://i.ibb.co/VQZch1Y/image-1.png)
 
@@ -241,8 +241,9 @@ omp-server --default-config
 
 :::note
 
-- Values marked as "Read-only" can not be changed during runtime. All other values can be (temporarily) changed by passing them to [SendRconCommand](../scripting/functions/SendRconCommand) or via server console.
-
-- Values marked as "Rule" are displayed in the server browser in the Rules section.
+- 标记"只读"的参数需重启服务器生效，其他参数可通过[SendRconCommand](../scripting/functions/SendRconCommand)实时修改
+- 标记"规则"的参数会显示在服务器浏览器的规则栏
+- 带(\*)的参数需平衡性能与带宽消耗
+- 网络参数修改前建议备份配置文件
 
 :::

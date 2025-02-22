@@ -1,83 +1,83 @@
 ---
-title: Common Server Issues
-sidebar_label: Common Server Issues
+title: 常见服务器问题
+sidebar_label: 常见服务器问题
 ---
 
-## Server instantly crashes when started
+## 服务器启动后立即崩溃
 
-Most commonly it's an error in your server.cfg file or your gamemode is missing. Check the server_log.txt file and the reason should be located at the bottom. If not, check crashinfo.txt file. The better solution to find out what is causing the crash is using the Crash detect plugin by Zeex/0x5A656578 ([click for link](https://github.com/Zeex/samp-plugin-crashdetect)) which will give more information like line numbers, function names, parameter values, etc. If the script is compiled in debug mode (-d3 flag) to make compiler put extra information about all that stuff into the output .amx.
+最常见的原因是 server.cfg 文件存在错误或游戏模式文件缺失。请检查 server_log.txt 文件，崩溃原因通常位于文件末尾。若未找到，请检查 crashinfo.txt 文件。更有效的排查方式是使用 Zeex/0x5A656578 开发的 Crash detect 插件（[点击获取链接](https://github.com/Zeex/samp-plugin-crashdetect)），该插件可提供行号、函数名、参数值等详细信息。建议在调试模式（-d3 参数）下编译脚本，使编译器在输出的.amx 文件中包含额外调试信息。
 
-## Server is not working - firewall is disabled
+## 服务器无法运行 - 防火墙已关闭
 
-You will need to forward your ports to allow players to join your server. You can forward your ports using the PF Port Checker. Download it from: www.portforward.com If the ports are not forwarded that means you have to open them in your router. You can check the router list at [http://portforward.com/english/routers/port_forwarding/routerindex.htm](http://portforward.com/english/routers/port_forwarding/routerindex.htm "http://portforward.com/english/routers/port_forwarding/routerindex.htm")
+您需要进行端口转发以允许玩家加入服务器。推荐使用 [PF Port Checker](http://www.portforward.com) 进行端口转发。若端口未转发，需在路由器中开启端口。可参考[路由器列表](http://portforward.com/english/routers/port_forwarding/routerindex.htm)。
 
-It has all the information on how to forward ports.
+该网站包含完整的端口转发教程。
 
-## 'Packet was modified'
+## '数据包被篡改'
 
-The error commonly shown as:
+典型错误提示：
 
 ```
 [hh:mm:ss] Packet was modified, sent by id: <id>, ip: <ip>:<port>
 ```
 
-happens when a player times out or is currently having connection issues.
+当玩家连接超时或存在网络问题时会出现此提示。
 
-## 'Warning: client exceeded messageslimit'
+## '警告：客户端超出消息限制'
 
-The error commonly shown as:
+典型错误提示：
 
 ```
 Warning: client exceeded 'messageslimit' (1) <ip>:<port> (<count>) Limit: x/sec
 ```
 
-happens when number of messages per second a client sends to the server exceeds.
+当客户端每秒发送给服务器的消息数量超过限制时触发。
 
-## 'Warning: client exceeded ackslimit'
+## '警告：客户端超出确认包限制'
 
-The error commonly shown as:
+典型错误提示：
 
 ```
 Warning: client exceeded 'ackslimit' <ip>:<port> (<count>) Limit: x/sec
 ```
 
-happens when acks limit exceeds.
+当确认包（ACK）数量超过限制时触发。
 
-## 'Warning: client exceeded messageholelimit'
+## '警告：客户端超出消息空洞限制'
 
-The error commonly shown as:
+典型错误提示：
 
 ```
 Warning: client exceeded 'messageholelimit' (<type>) <ip>:<port> (<count>) Limit: x
 ```
 
-happens when message hole limit exceeds.
+当消息空洞（message hole）数量超过限制时触发。
 
-## 'Warning: Too many out-of-order messages'
+## '警告：过多乱序消息'
 
-The error commonly shown as:
+典型错误提示：
 
 ```
 Warning: Too many out-of-order messages from player <ip>:<port> (<count>) Limit: x (messageholelimit)
 ```
 
-Happens when 'out of order messages' reuses messageholelimit setting.
+当乱序消息数量触发 messageholelimit 设置时出现。
 
-For more information about this, refer to [this](ControllingServer#RCON_Commands)
+更多信息请参阅[此文档](ControllingServer#RCON_Commands)
 
-## Players constantly getting "Unacceptable NickName" error but it is valid
+## 玩家持续收到"昵称不合法"错误但实际有效
 
-If you are sure you use an acceptable name and the server runs on Windows then try to change the compatibility option of the samp-server.exe to Windows 98 and it should be fixed after a server restart.
+若确认使用合法昵称且服务器运行于 Windows 系统，请尝试将 samp-server.exe 的兼容性模式设置为 Windows 98，重启服务器后生效。
 
-Windows servers with high up time may also cause this issue to occur. This has been noticed of around 50 days of server up time. To resolve it, a reboot is required.
+Windows 服务器长时间运行（约 50 天以上）也可能引发此问题，需重启服务器解决。
 
-## `MSVCR___.dll`/`MSVCP___.dll` not found
+## 缺少`MSVCR___.dll`/`MSVCP___.dll`文件
 
-This problem regularly occurs on Windows servers when trying to load a plugin that was developed using a higher version of the Visual C++ runtime than is currently installed on your computer. To fix this, download the appropriate Microsoft Visual C++ runtime libraries. Note that the SA-MP server is 32 bit, therefore you'll also need to download the 32 bit (x86) version of the runtime, regardless of architecture. The version of the runtime you specifically require is denoted by the numbers in the filename (see the table below), although it does not hurt to install all of them. These libraries do not stack, or in other words: you won't get the runtimes for the 2013 and earlier versions if you only install the 2015 version.
+此问题常见于 Windows 服务器加载使用高版本 Visual C++运行时开发的插件时。解决方案是安装对应版本的 Microsoft Visual C++运行时库。注意 SA-MP 服务器为 32 位程序，因此无论系统架构如何都必须安装 x86 版本。所需版本由文件名中的数字决定（见下表），建议安装所有版本。运行时库不向下兼容（例如安装 2015 版不会包含 2013 及更早版本）。
 
-| Version number | Runtime                                       |
-| -------------- | --------------------------------------------- |
-| 10.0           | Microsoft Visual C++ 2010 x86 Redistributable |
-| 11.0           | Microsoft Visual C++ 2012 x86 Redistributable |
-| 12.0           | Microsoft Visual C++ 2013 x86 Redistributable |
-| 14.0           | Microsoft Visual C++ 2015 x86 Redistributable |
+| 版本号 | 运行时库                                      |
+| ------ | --------------------------------------------- |
+| 10.0   | Microsoft Visual C++ 2010 x86 Redistributable |
+| 11.0   | Microsoft Visual C++ 2012 x86 Redistributable |
+| 12.0   | Microsoft Visual C++ 2013 x86 Redistributable |
+| 14.0   | Microsoft Visual C++ 2015 x86 Redistributable |
