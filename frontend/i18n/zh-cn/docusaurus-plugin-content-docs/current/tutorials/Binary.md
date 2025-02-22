@@ -1,18 +1,18 @@
 ---
-title: "Binary"
-sidebar_label: "Binary"
-description: An in depth look at binary and bitwise operators.
+title: "二进制"
+sidebar_label: "二进制"
+description: 深入探讨二进制与位运算符。
 ---
 
-## Credits
+## 致谢
 
-This is from a Tutorial topic in SA-MP Forums. The author is **Kyosaur**.
+本文源自 SA-MP 论坛的一篇教程，作者为 **Kyosaur**。
 
-## What is binary?
+## 什么是二进制？
 
-Binary is a numeral system that uses two unique symbols to represent numbers. While the more common decimal system uses ten numerals (**base 10**), binary uses only 0 and 1. This may sound useless in every day life, but binary is essential when it comes to computers. Computers at their lowest level perform all of their calculations by manipulating the flow of electricity to indicate on and off states. This is exactly what binary is, just a ton of switches flipped on and off. This is a sort of alien concept to most people, so lets take a look at the decimal and binary system next to each other.
+二进制是一种使用两个独特符号表示数字的计数系统。虽然更常见的十进制系统使用十个数字（**基数为 10**），但二进制仅使用 0 和 1。这听起来在日常生活中毫无用处，但二进制在计算机领域却至关重要。计算机在最底层通过控制电流的开关状态来进行所有计算，而这正是二进制的本质——无数的开关在开与关之间切换。对于大多数人来说，这是一个陌生的概念，因此让我们将十进制和二进制系统并列来看。
 
-Decimal (base 10)
+十进制（基数为 10）
 
 ```c
 0
@@ -31,7 +31,7 @@ Decimal (base 10)
 13
 ```
 
-Binary (Base 2)
+二进制（基数为 2）
 
 ```c
 0 //0
@@ -50,66 +50,66 @@ Binary (Base 2)
 1101 //13
 ```
 
-Looking at both systems beside one another, you'll notice they behave exactly the same. Once you reach the last available number you have to move on to another place. These places in binary are referred to as bits (**b**inary dig**its**) and are simply powers of two; just as places in the decimal system are powers of 10. To prove this, lets take a look at the number 13 in standard notation.
+将两种系统并列观察，你会发现它们的行为完全相同。当你达到最后一个可用数字时，必须移动到下一个位置。在二进制中，这些位置被称为位（**b**inary dig**its**），它们是 2 的幂；正如十进制系统中的位置是 10 的幂一样。为了证明这一点，让我们以标准形式来看数字 13。
 
-**NOTE:** '^' is power in these next few examples, not bitwise exclusive (which we'll cover later.)
+**注意：** 在接下来的几个示例中，'^' 表示幂，而不是位异或（稍后会介绍）。
 
-Decimal (base 10)
+十进制（基数为 10）
 
 ```c
 13
 
-//which equals
+//等于
 
 1 * (10^1) + 3 * (10^0)
 
-//which equals
+//等于
 
 10+3
 
-//which equals
+//等于
 
 13
 ```
 
-Binary (base 2)
+二进制（基数为 2）
 
 ```c
 1101
 
-//which equals
+//等于
 
 1 * (2^3) + 1 * (2^2) + 0 * (2^1) + 1 * (2^0)
 
-//which equals
+//等于
 
 8+4+0+1
 
-//which equals
+//等于
 
 13
 ```
 
-We can see from the preceding example that if a bit is set to 0, we can ignore it and move on; after all, anything multiplied by 0 is going to be 0. The previous example was a little over complicated and was just me trying to being absolutely clear. When you're converting from binary, all you really have to worry about is adding up the powers of all the bits that are turned on.
+从前面的例子可以看出，如果某一位为 0，我们可以忽略它并继续；毕竟，任何数乘以 0 都是 0。前面的例子有点过于复杂，只是为了确保绝对清晰。当你从二进制转换时，真正需要做的就是将所有开启的位的幂相加。
 
-Here are 12 powers of 2 just off the top of my head:
+以下是 12 个 2 的幂，随手列出：
 
 ```c
 4096,2048,1024,512,256,128,64,32,16,8,4,2,1
 ```
 
-If you know nothing about working with powers, this probably makes no sense to you at all. A power is a number multiplied by itself x amount of times. With this information in mind, the preceding list of powers probably makes more sense; well with the exception of 1. You may be curious why 2 raised to the power of 0 gives a result of 1, all i can say to this is that it just does.
+如果你对幂运算一无所知，这可能对你来说毫无意义。幂是一个数乘以自身 x 次。有了这个信息，前面的幂列表可能更有意义了；当然，除了 1。你可能会好奇为什么 2 的 0 次幂等于 1，我只能说事实就是如此。
 
 ```c
 2^1 = 2, 2^3 = 4, 2^4 = 8
 ```
 
-We can see that when we move to the right, our previous value is multiplied by 2; so its safe to assume that when we move to the left our new value is just the previous number divided by 2. With this in mind you can see how we can end up with 2 to the zeroth power equaling 1. If this isn't satisfying enough, im sure you can find more proof on **\*\***. All that being said, lets take a look at one final example, and lets make it somewhat complicated!
+我们可以看到，当我们向右移动时，前一个值乘以 2；因此可以假设，当我们向左移动时，新值就是前一个数除以 2。有了这个想法，你可以看到 2 的 0 次幂如何等于 1。如果这还不够令人信服，我相信你可以在 **\*\*** 上找到更多证据。说了这么多，让我们来看最后一个例子，并让它稍微复杂一点！
 
 ```c
 111011001011111000 //242424
 
-//Remember, ignore the bits that arent turned on.
+//记住，忽略未开启的位。
 
 1 * (2^17) = 131072
 
@@ -139,96 +139,96 @@ We can see that when we move to the right, our previous value is multiplied by 2
 242424
 ```
 
-Remember when converting: The first power is 0 so dont make the mistake as seeing the 18th place as 2^18. There are indeed 18 powers, but that is including the power of 0, so 17 is actually our highest power.
+记住转换时：第一个幂是 0，所以不要错误地将第 18 位视为 2^18。确实有 18 个幂，但这包括 0 次幂，因此 17 实际上是我们的最高幂。
 
-### A deeper look at bits
+### 深入探讨位
 
-Most programming languages allow different data types which range in the amount of bits that can be used to store information; however pawn is a typeless 32 bit language. This means that pawn will always have 32 bits available for storing information. So what happens when you have to much information? The answer to that question lies with signed and unsigned integers.
+大多数编程语言允许不同的数据类型，这些数据类型的位数范围不同，用于存储信息；然而，pawn 是一种无类型的 32 位语言。这意味着 pawn 始终有 32 位可用于存储信息。那么，当信息过多时会发生什么？答案在于有符号和无符号整数。
 
-#### Signed integers
+#### 有符号整数
 
-Have you ever noticed that when an integer in pawn gets to high it turns into a negative? This "wrapping" is due to you go OVER the maximum value in pawn which is:
+你是否注意到，当 pawn 中的整数过高时，它会变成负数？这种“环绕”现象是因为你超过了 pawn 中的最大值，即：
 
 ```c
-2^31 - 1 //Power, not bitwise exclusive. Also the -1 is because we count 0 (there ARE 2,147,483,648 values, but that is with 0, So technically 2,147,483,647 is the max).
+2^31 - 1 //幂，而不是位异或。此外，-1 是因为我们计算了 0（有 2,147,483,648 个值，但其中包括 0，因此技术上 2,147,483,647 是最大值）。
 
-//which equals
+//等于
 
 2,147,483,647
 
-//which in binary is
+//在二进制中为
 
-1111111111111111111111111111111 //31 bits- all on
+1111111111111111111111111111111 //31 位 - 全部开启
 ```
 
-You might be wondering why THAT is the max value, and not 2^32-1 (4,294,967,295). This is where signed and unsigned integers come into play. Signed integers have the ability to store negative values, where unsigned integers do not. This might sound like im straying away from the question, but i assure you i am not. The reason the maximum integer isnt 2^32-1 is because the 32nd bit is used as a sort of toggle for negative and positive values. This is called the MSB (Most significant bit) if the MSB is turned on, the number will be negative; if its turned off, the number is positive. Pretty simple, right?
+你可能会想知道为什么最大值是那个，而不是 2^32-1（4,294,967,295）。这就是有符号和无符号整数的用武之地。有符号整数能够存储负值，而无符号整数则不能。这听起来好像我偏离了问题，但我向你保证并非如此。最大整数不是 2^32-1 的原因是第 32 位被用作负值和正值的切换开关。这被称为 MSB（最高有效位），如果 MSB 开启，则该数为负；如果关闭，则该数为正。很简单，对吧？
 
-Before i show a few negative values, i need to explain how negative values are represented in pawn. Pawn uses a system called 2's complement to represent negative values, which basically means you flip every single bit in your number and add 1 to the new number in order to make it negative.
+在展示一些负值之前，我需要解释 pawn 中如何表示负值。pawn 使用一种称为 2 的补码系统来表示负值，这基本上意味着你将数字中的每一位都翻转，并将新数字加 1 以使其为负。
 
-Lets take a look at a few negative values while this idea is still in your head:
+让我们在脑海中还有这个想法时，看看几个负值：
 
 ```c
-11111111111111111111111111111111 //all 32 bits turned on
+11111111111111111111111111111111 //所有 32 位开启
 
-//equals
+//等于
 
 -1
 
-//and
+//和
 
 11111111111111111111111111111110
 
-//equals
+//等于
 
 -2
 
-//and finally
+//最后
 
 10000000000000000000000000000000
 
-//equals
+//等于
 
 -2147483648
 ```
 
-See, all negative numbers are simply the original positive number with all its bits flipped and increased by one. This is super clear with our last example, as the highest POSITIVE integer is 2147483647.
+看，所有负数都是原始正数所有位翻转并加一的结果。这在我们的最后一个例子中非常明显，因为最大的正数是 2147483647。
 
-From this we can see that the number range in pawn is actually:
+由此我们可以看出，pawn 中的数字范围实际上是：
 
 ```c
-&#8722;2^31 to +2^31 − 1
+&#8722;2^31 到 +2^31 − 1
 ```
 
-#### Unsigned integers
+#### 无符号整数
 
-There are no such thing as unsigned integers in pawn, but im adding this just so its balanced. The only difference between a signed integer and an unsigned integer is that unsigned integers can not store negative values; Integers still wrap around, but they wrap back to 0, instead of a negative value.
+pawn 中没有无符号整数，但我添加这一部分是为了保持平衡。有符号整数和无符号整数之间的唯一区别是无符号整数不能存储负值；整数仍然会环绕，但它们会回到 0，而不是负值。
 
-## Binary Operators
+## 二进制运算符
 
-Binary operators allow you to manipulate individual bits of a bit pattern. Lets take a look at a list of available bitwise operators.
+二进制运算符允许你操作位模式中的单个位。让我们看看可用的位运算符列表。
 
-- Bitwise arithmetic shift: >>, and \<\<
-- Bitwise logical shift: >>>
-- Bitwise NOT (aka complement): ~
-- Bitwise AND: &
-- Bitwise OR: |
-- Bitwise XOR (aka exclusive-or): ^
+- 位算术移位：>>, 和 \<\<
+- 位逻辑移位：>>>
+- 位非（即补码）：~
+- 位与：&
+- 位或：|
+- 位异或（即异或）：^
 
-### Bitwise AND
+### 位与
 
-**NOTE:** Not to be confused by the logical AND operator '&&'
+**注意：** 不要与逻辑与运算符 '&&' 混淆
 
-A binary AND simply takes the logical AND of the bits in each position of a number in binary form. This sounds a bit confusing, so lets take a look at it in action!
+二进制与只是对二进制形式中每个位置的位进行逻辑与运算。这听起来有点混乱，所以让我们看看它的实际效果！
 
 ```c
 1100 //12
 &
 0100 //4
 =
-0100 //4 as they both have "100" in them (which is 4)
+0100 //4，因为它们都有“100”（即 4）
 ```
 
-That was a little easy, lets take a look at a harder one:
+这有点简单，让我们看一个更难的例子：
 
 ```c
 10111000 //184
@@ -238,13 +238,13 @@ That was a little easy, lets take a look at a harder one:
 00001000 //8
 ```
 
-Looking at the examples should give you a pretty good idea what this operator does. It compares two bit sets together, if both of them share a bit of 1, the result will have the same bit turned on. If they share no bits at all, then the result is 0.
+通过示例应该能让你很好地理解这个运算符的作用。它比较两个位集，如果它们共享一个为 1 的位，结果将开启相同的位。如果它们没有共享任何位，则结果为 0。
 
-### Bitwise OR
+### 位或
 
-**NOTE:** Not to be confused by the logical OR operator '||'
+**注意：** 不要与逻辑或运算符 '||' 混淆
 
-Bitwise OR works almost exactly the same as bitwise AND. The only difference between the two is that bitwise OR only needs one of the two bit patterns to have a bit turned on in order for the result to have the same bit turned on. Lets take a look at a couple of examples!
+位或的工作原理几乎与位与完全相同。两者之间的唯一区别是，位或只需要两个位模式中的一个开启某一位，结果就会开启相同的位。让我们看几个例子！
 
 ```c
 1100 //12
@@ -254,7 +254,7 @@ Bitwise OR works almost exactly the same as bitwise AND. The only difference bet
 1100 //12.
 ```
 
-Lets take a look at one more example.
+让我们再看一个例子。
 
 ```c
 10111000 //184
@@ -264,11 +264,11 @@ Lets take a look at one more example.
 11111000 //248
 ```
 
-I think this is pretty self explanatory, if either of the numbers have a bit turned on the resulting number will also have that bit turned on.
+我认为这非常直观，如果任何一个数字开启了某一位，结果数字也会开启该位。
 
-### Bitwise XOR
+### 位异或
 
-This operator is a little similar to the bitwise OR operator, but there is a bit of a difference. Lets look at the same example used in the bitwise OR section, and see if you can spot the difference.
+这个运算符与位或运算符有点相似，但有一些区别。让我们看看在位或部分使用的相同示例，看看你是否能发现区别。
 
 ```c
 1100 //12
@@ -278,7 +278,7 @@ This operator is a little similar to the bitwise OR operator, but there is a bit
 1000 //8.
 ```
 
-and finally:
+最后：
 
 ```c
 10111000 //184
@@ -288,41 +288,41 @@ and finally:
 11110000 //240
 ```
 
-### Bitwise NOT
+### 位非
 
-This operator flips every bit in the bit pattern, turning all 1's to 0's and vise versa.
+这个运算符翻转位模式中的每一位，将所有 1 变为 0，反之亦然。
 
 ```c
 ~0
 =
 11111111111111111111111111111111 //-1
 
-//and
+//和
 
 ~100 //4
 =
 11111111111111111111111111111011 //-5
 
-//and
+//和
 
-~1111111111111111111111111111111 //2147483647 (not to be confused with -1, which has 32 bits, not 31)
+~1111111111111111111111111111111 //2147483647（不要与 -1 混淆，后者有 32 位，而不是 31）
 =
-10000000000000000000000000000000 //-2147483648 (32nd bit turned on)
+10000000000000000000000000000000 //-2147483648（第 32 位开启）
 ```
 
-If you dont understand why the negative values are sort of "backwards" please read the section about signed integers.
+如果你不理解为什么负值有点“反向”，请阅读有关有符号整数的部分。
 
-### Bit Shifting
+### 位移
 
-Bit shifting does exactly what you would imagine it does; it shifts the bits in a number towards a certain direction. If you remember earlier in the article i mentioned that PAWN has a specific memory range (32 bits that can be used for storage). What happens when you shift a number past that range? The answer to this question lies in what shifting operator you are using, and what direction you are shifting in.
+位移操作符完全按照你的想象行事；它将数字中的位向某个方向移动。如果你记得文章前面提到的，PAWN 有一个特定的内存范围（32 位可用于存储）。当你将一个数字移出这个范围时会发生什么？这个问题的答案在于你使用的位移操作符以及你移动的方向。
 
-**NOTE:** In the following examples, all binary numbers will be written out in full (all 32 bits) to avoid any confusions.
+**注意：** 在以下示例中，所有二进制数字都将完整写出（所有 32 位），以避免混淆。
 
-#### Arithmetic shifts
+#### 算术移位
 
-#### Right shift
+#### 右移
 
-All bits in a number are shifted x amount of times to the right when using this operator. Lets takes a quick look at a simple example.
+使用此运算符时，数字中的所有位都会向右移动 x 次。让我们看一个简单的例子。
 
 ```c
 00000000000000000000000000001000  //8
@@ -334,7 +334,7 @@ All bits in a number are shifted x amount of times to the right when using this 
 00000000000000000000000000000010 //2
 ```
 
-You can see from the preceding example that every bit has moved to the right by two places, and two zeros were added on the left side as padding. These two zeros are actually the value of the MSB (Most significant bit) and are very important when it comes to signed integer shifting. The reason the MSB is used as padding is so we keep the sign of the number that is being shifted. Lets take a look at the same example, except lets make it negative.
+你可以从前面的例子中看到，每一位都向右移动了两个位置，并在左侧添加了两个零作为填充。这两个零实际上是 MSB（最高有效位）的值，在有符号整数移位时非常重要。使用 MSB 作为填充的原因是为了保持被移位数字的符号。让我们看相同的例子，但这次让它为负数。
 
 ```c
 11111111111111111111111111111000 //-8
@@ -346,11 +346,11 @@ You can see from the preceding example that every bit has moved to the right by 
 11111111111111111111111111111110 //-2
 ```
 
-Clearly this behaves exactly the same as the previous example, except the left bits used for padding are ones; which proves that the padding of right arithmetic shift is the value of the MSB.
+显然，这与前面的例子行为完全相同，只是左侧用于填充的位是 1；这证明了右算术移位的填充是 MSB 的值。
 
-#### Left shift
+#### 左移
 
-This is the exact opposite of the right arithmetic shifting operator. It shifts all the bits in a number to the left x amount of times. Lets look at an example.
+这与右算术移位操作符完全相反。它将数字中的所有位向左移动 x 次。让我们看一个例子。
 
 ```c
 00000000000000000000000000001000  //8
@@ -362,7 +362,7 @@ This is the exact opposite of the right arithmetic shifting operator. It shifts 
 00000000000000000000000000100000 //32
 ```
 
-The only difference between the left and right arithmetic shift (besides the direction of the shift) would be the way it handles padding. With the right arithmetic shift, the padding is the value of the MSB (Most significant bit), but with the left arithmetic shift the value is just 0. This is because there is no relevant information like a number's sign to keep track of.
+左算术移位和右算术移位之间的唯一区别（除了移位方向）是它处理填充的方式。对于右算术移位，填充是 MSB（最高有效位）的值，但对于左算术移位，填充只是 0。这是因为没有像数字符号这样的相关信息需要跟踪。
 
 ```c
 11111111111111111111111111111000 //-8
@@ -374,13 +374,13 @@ The only difference between the left and right arithmetic shift (besides the dir
 11111111111111111111111111100000 //-32
 ```
 
-See? Even though the padding is always 0, the sign of the number is still kept. The only thing you really have to worry about is shifting to far. If you shift a positive number past the highest possible number, it will become negative and vise versa with negative values (you'll eventually hit 0).
+看到了吗？即使填充始终为 0，数字的符号仍然保留。你真正需要担心的是移位过远。如果你将一个正数移过最大可能数，它将变为负数，反之亦然（负数最终会变为 0）。
 
-#### Logical Shifts
+#### 逻辑移位
 
-##### Right Shift
+##### 右移
 
-This is the converse to the arithmetic left shift. The best way to describe it would be a hybrid between the two arithmetic shifts. Lets take a look at it in action!
+这是算术左移的反向。描述它的最佳方式是两种算术移位的混合体。让我们看看它的实际效果！
 
 ```c
 00000000000000000000000000001000  //8
@@ -392,7 +392,7 @@ This is the converse to the arithmetic left shift. The best way to describe it w
 00000000000000000000000000000010 //2
 ```
 
-The bits in the number 8 where shifted 2 times to the right. So how is this any different from the arithmetic right shift? The answer is the padding. With the arithmetic right shift, the padding is the value of the MSB, but with the logical right shift the padding is just 0 (just as it is with the arithmetic left shift). This means that it will not keep the number of the sign, and our result will always be positive. To prove this, lets shift a negative number!
+数字 8 中的位向右移动了 2 次。那么这与算术右移有什么不同呢？答案是填充。对于算术右移，填充是 MSB 的值，但对于逻辑右移，填充只是 0（就像算术左移一样）。这意味着它不会保留符号，我们的结果将始终为正。为了证明这一点，让我们移动一个负数！
 
 ```c
 11111111111111111111111111111000 //-8
@@ -404,8 +404,8 @@ The bits in the number 8 where shifted 2 times to the right. So how is this any 
 00111111111111111111111111111110 //1073741822
 ```
 
-That proves that we wont get any negative values while using the logical right shift!
+这证明了我们在使用逻辑右移时不会得到任何负值！
 
-##### Left shift
+##### 左移
 
-There is no logical left shift, as it would do exactly the same as the arithmetic left shift. I just added this to avoid confusion of any sort, and also to keep the section balanced.
+没有逻辑左移，因为它会与算术左移做完全相同的事情。我添加这一部分只是为了避免任何混淆，并保持部分的平衡。
