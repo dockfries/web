@@ -1,10 +1,10 @@
 ---
-title: "Color Fix"
-sidebar_label: "Color Fix"
-descripion: A basic script to add more player colours.
+title: "颜色修复"
+sidebar_label: "颜色修复"
+description: "基础脚本用于扩展玩家颜色库"
 ---
 
-This tutorial is to be used with [GetPlayerColor](../scripting/functions/GetPlayerColor), if you do not use [SetPlayerColor](../scripting/functions/SetPlayerColor) in your script when players connect.
+本教程需配合「[GetPlayerColor](../scripting/functions/GetPlayerColor)」使用，适用于未在玩家连接时调用「[SetPlayerColor](../scripting/functions/SetPlayerColor)」的脚本。
 
 ```pawn
 new PlayerColors[] = {
@@ -21,21 +21,21 @@ new PlayerColors[] = {
 };
 ```
 
-First place that at the top of your script.
+请将上述数组置于脚本顶部。
 
-Next place this under the OnPlayerConnect callback:
+在 OnPlayerConnect 回调函数中添加以下代码：
 
 ```pawn
 SetPlayerColor(playerid, PlayerColors[playerid % sizeof PlayerColors]);
 ```
 
-Now [GetPlayerColor](../scripting/functions/GetPlayerColor) will work!
+现在「[GetPlayerColor](../scripting/functions/GetPlayerColor)」即可正常工作！
 
-For new versions of SA-MP you can add this array:
+针对新版 SA-MP 可添加以下数组：
 
 ```pawn
 new PlayerRainbowColors[511] = {
-    /*OKStyle*/ 0x000022FF, 0x000044FF, 0x000066FF, 0x000088FF, 0x0000AAFF, 0x0000CCFF, 0x0000EEFF,
+    /*彩虹色系*/ 0x000022FF, 0x000044FF, 0x000066FF, 0x000088FF, 0x0000AAFF, 0x0000CCFF, 0x0000EEFF,
     0x002200FF, 0x002222FF, 0x002244FF, 0x002266FF, 0x002288FF, 0x0022AAFF, 0x0022CCFF, 0x0022EEFF,
     0x004400FF, 0x004422FF, 0x004444FF, 0x004466FF, 0x004488FF, 0x0044AAFF, 0x0044CCFF, 0x0044EEFF,
     0x006600FF, 0x006622FF, 0x006644FF, 0x006666FF, 0x006688FF, 0x0066AAFF, 0x0066CCFF, 0x0066EEFF,
@@ -109,4 +109,4 @@ new PlayerRainbowColors[511] = {
 };
 ```
 
-Now there are no duplicated colors, the colors are distributed to the maximum number of slots, the step of color - 34, and the TAB of full server looks like a rainbow!
+现在服务器将实现：无重复颜色，颜色均匀分布至最大槽位，色阶步长 34，满员时 TAB 列表呈现彩虹效果！

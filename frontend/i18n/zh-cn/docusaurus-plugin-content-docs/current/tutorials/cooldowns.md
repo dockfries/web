@@ -1,63 +1,63 @@
 ---
-title: Cooldowns
-sidebar_label: Cooldowns
-description: A tutorial for writing cooldowns for limiting user actions using tick counts and avoiding the use of timers.
+title: 冷却时间
+sidebar_label: 冷却时间
+description: 本教程讲解如何使用滴答计数编写冷却时间系统来限制玩家行为，避免使用计时器。
 ---
 
-This tutorial covers writing a commonly used gameplay mechanic in action games: cooldowns. A cooldown is a tool to limit the frequency at which a player can do something. This may be something like using an ability such as healing or writing chat messages. It allows you to slow the rate at which players do things either for gameplay balancing purposes or to prevent spam.
+本教程涵盖动作游戏中常用的冷却时间实现。冷却时间是一种限制玩家行为频率的工具，可用于治疗技能使用、聊天消息发送等场景，通过控制行为速率来实现游戏平衡或防止刷屏。
 
-First I'll example the _bad_ way of doing a cooldown by using `SetTimer` to update state.
+首先我将展示使用`SetTimer`更新状态的**错误示范**。
 
-## Using Timers
+## 使用计时器
 
-Say for example you have a specific action that can only be performed once every so many seconds, I see a lot of people (including Southclaws, many years ago) doing something like this:
+假设某个行为需要间隔若干秒才能执行，很多人（包括多年前的 Southclaws）会采用如下方式：
 
 ```pawn
 static bool:IsPlayerAllowedToDoThing[MAX_PLAYERS];
 
 OnPlayerInteractWithServer(playerid)
-/* This can be any sort of input event a player makes such as:
- *  Entering a command
- *  Picking up a pickup
- *  Entering a checkpoint
- *  Pressing a button
- *  Entering an area
- *  Using a dialog
+/* 这可以是任意玩家输入事件：
+ *  输入指令
+ *  拾取物品
+ *  进入检查点
+ *  按下按钮
+ *  进入区域
+ *  使用对话框
  */
 {
-    // This only works when the player is allowed to
+    // 仅在允许状态下执行
     if (IsPlayerAllowedToDoThing[playerid])
     {
-        // Do the thing the player requested
+        // 执行玩家请求的操作
         DoTheThingThePlayerRequested();
 
-        // Disallow the player
+        // 禁止再次操作
         IsPlayerAllowedToDoThing[playerid] = false;
 
-        // Allow the player to do the thing again in 10 seconds
+        // 10秒后重新允许操作
         SetTimerEx("AllowPlayer", 10000, false, "d", playerid);
 
         return 1;
     }
     else
     {
-        SendClientMessage(playerid, -1, "You are not allowed to do that yet!");
+        SendClientMessage(playerid, -1, "当前无法进行此操作！");
 
         return 0;
     }
 }
 
-// Called 10 seconds after the player does the thing
+// 在玩家执行操作10秒后调用
 public AllowPlayer(playerid)
 {
     IsPlayerAllowedToDoThing[playerid] = true;
-    SendClientMessage(playerid, -1, "You are allowed to do the thing again! :D");
+    SendClientMessage(playerid, -1, "现在可以再次操作啦！ :D");
 }
 ```
 
-Now this is all well and good, it works, the player won't be able to do that thing again for 10 seconds after he uses it.
+这种方式虽然可行，能确保玩家在 10 秒内无法重复操作。
 
-Take another example here, this is a stopwatch that measures how long it takes for a player to do a simple point to point race:
+再看一个秒表案例，用于测量玩家完成点对点竞速的时间：
 
 ```pawn
 static
@@ -66,13 +66,13 @@ static
 
 StartPlayerRace(playerid)
 {
-    // Calls a function every second
+    // 每秒调用函数
     StopWatchTimerID[playerid] = SetTimerEx("StopWatch", 1000, true, "d", playerid);
 }
 
 public StopWatch(playerid)
 {
-    // Increment the seconds counter
+    // 递增秒数计数器
     StopWatchTotalTime[playerid]++;
 }
 
@@ -80,22 +80,22 @@ OnPlayerFinishRace(playerid)
 {
     new str[128];
 
-    format(str, 128, "You took %d seconds to do that", StopWatchTotalTime[playerid]);
+    format(str, 128, "本次竞速耗时 %d 秒", StopWatchTotalTime[playerid]);
     SendClientMessage(playerid, -1, str);
 
     KillTimer(StopWatchTimerID[playerid]);
 }
 ```
 
-These two examples are common and they may work fine. However, there is a much better way of achieving both of these outcomes, which is more way accurate and can give stopwatch timings down to the millisecond!
+上述案例虽然常见且有效，但存在更优解决方案——既能精准控制冷却时间，又能实现毫秒级计时！
 
-## Using `GetTickCount()` and `gettime()`
+## 使用`GetTickCount()`与`gettime()`
 
-`GetTickCount()` is a function that gives you the time in milliseconds since the server process was opened. `gettime()` returns the number of seconds since January 1st 1970, also known as a Unix Timestamp.
+`GetTickCount()`返回服务器启动后的毫秒数，`gettime()`返回自 1970 年 1 月 1 日以来的秒数（即 Unix 时间戳）。
 
-If you call either of these functions at two different times, and subtract the first time from the second you suddenly have an interval between those two events in milliseconds or seconds respectively! Take a look at this example:
+通过两次调用上述函数并计算差值，即可获得精确的时间间隔。请看示例：
 
-### A Cooldown
+### 冷却时间实现
 
 ```pawn
 static PlayerAllowedTick[MAX_PLAYERS];
@@ -103,24 +103,24 @@ static PlayerAllowedTick[MAX_PLAYERS];
 OnPlayerInteractWithServer(playerid)
 {
    if (GetTickCount() - PlayerAllowedTick[playerid] > 10000)
-   // This only works when the current tick minus the last tick is above 10000.
-   // In other words, it only works when the interval between the actions is over 10 seconds.
+   // 当前滴答数减去上次记录值超过10000时允许操作
+   // 即两次操作间隔需超过10秒
    {
        DoTheThingThePlayerRequested();
-       PlayerAllowedTick[playerid] = GetTickCount(); // Update the tick count with the latest time.
+       PlayerAllowedTick[playerid] = GetTickCount(); // 更新最新操作时间
 
        return 1;
    }
    else
    {
-       SendClientMessage(playerid, -1, "You are not allowed to do that yet!");
+       SendClientMessage(playerid, -1, "当前无法进行此操作！");
 
        return 0;
    }
 }
 ```
 
-Or, alternatively the `gettime()` version:
+或使用`gettime()`版本：
 
 ```pawn
 static PlayerAllowedSeconds[MAX_PLAYERS];
@@ -128,41 +128,41 @@ static PlayerAllowedSeconds[MAX_PLAYERS];
 OnPlayerInteractWithServer(playerid)
 {
    if (gettime() - PlayerAllowedSeconds[playerid] > 10)
-   // This only works when the current seconds minus the last seconds is above 10.
-   // In other words, it only works when the interval between the actions is over 10 seconds.
+   // 当前秒数减去上次记录值超过10时允许操作
+   // 即两次操作间隔需超过10秒
    {
        DoTheThingThePlayerRequested();
-       PlayerAllowedSeconds[playerid] = gettime(); // Update the seconds count with the latest time.
+       PlayerAllowedSeconds[playerid] = gettime(); // 更新最新操作时间
 
        return 1;
    }
    else
    {
-       SendClientMessage(playerid, -1, "You are not allowed to do that yet!");
+       SendClientMessage(playerid, -1, "当前无法进行此操作！");
 
        return 0;
    }
 }
 ```
 
-There's a lot less code there, no need for a public function or a timer. If you really want to, you can put the remaining time in the error message:
+代码量大幅减少，无需公共函数或计时器。若需显示剩余时间，可使用格式化消息：
 
-(I'm using SendFormatMessage in this example)
+（示例使用 SendFormatMessage）
 
 ```pawn
 SendFormatMessage(
     playerid,
     -1,
-    "You are not allowed to do that yet! You can again in %d ms",
+    "当前无法操作！剩余等待时间：%d 毫秒",
     10000 - (GetTickCount() - PlayerAllowedTick[playerid])
 );
 ```
 
-That's a very basic example, it would be better to convert that MS value into a string of `minutes:seconds.milliseconds` but I'll post that code at the end.
+该示例仅展示基础用法，更优方案是将毫秒转换为`分钟:秒.毫秒`格式（文末提供相关代码）。
 
-### A Stopwatch
+### 秒表实现
 
-Hopefully you can see how powerful this is to get intervals between events, let's look at another example
+通过时间差计算实现精准计时：
 
 ```pawn
 static Stopwatch[MAX_PLAYERS];
@@ -180,22 +180,22 @@ OnPlayerFinishRace(playerid)
 
     interval = GetTickCount() - Stopwatch[playerid];
 
-    format(str, 128, "You took %d milliseconds to do that", interval);
+    format(str, 128, "本次竞速耗时 %d 毫秒", interval);
     SendClientMessage(playerid, -1, str);
 }
 ```
 
-In this example, the tick count is saved to the player variable when he starts the race. When he finishes it, the current tick (of when he finished) has that initial tick (The smaller value) subtracted from it and thus leaves us with the amount of milliseconds in between the start and the end of the race.
+当玩家开始竞速时记录初始时间戳，完成时计算当前时间差即可获得精确耗时。
 
-#### Breakdown
+#### 代码解析
 
-Now lets break the code down a bit.
+现在让我们将代码分解一下。
 
 ```pawn
 new Stopwatch[MAX_PLAYERS];
 ```
 
-This is a global variable, we need to use this so we can save the tick count and retrieve the value at another point in time (in other words, use it in another function, later on)
+全局变量用于存储时间戳，便于跨函数调用。
 
 ```pawn
 StartPlayerRace(playerid)
@@ -204,9 +204,9 @@ StartPlayerRace(playerid)
 }
 ```
 
-This is when the player starts the race, the tick count of now is recorded, if this happens is 1 minute after the server started, the value of that variable will be 60,000 because it is 60 seconds and each second has a thousand milliseconds.
+假设服务器启动 1 分钟后记录时间戳，变量值将为 60,000（60 秒 ×1000 毫秒）。
 
-Okay, we now have that player's variable set at 60,000, now he finishes the race 1 minute 40 seconds later:
+当玩家 1 分 40 秒后完成竞速：
 
 ```pawn
 OnPlayerFinishRace(playerid)
@@ -217,28 +217,28 @@ OnPlayerFinishRace(playerid)
 
     interval = GetTickCount() - Stopwatch[playerid];
 
-    format(str, 128, "You took %d milliseconds to do that", interval);
+    format(str, 128, "本次竞速耗时 %d 毫秒", interval);
     SendClientMessage(playerid, -1, str);
 }
 ```
 
-Here is where the calculation of the interval happens, well, I say calculation, it's just subtracting two values!
+这里就是计算时间间隔的核心所在——其实所谓的计算，本质上只是两次调用`GetTickCount()`的结果相减！
 
-GetTickCount() returns the current tick count, so it will be bigger than the initial tick count which means you subtract the initial tick count from the current tick count to get your interval between the two measures.
+`GetTickCount()`返回当前滴答计数，该值必然大于初始记录值。因此用当前值减去初始值即可得到精确的时间间隔。
 
-So, as we said the player finishes the race 1 minute and 40 seconds later (100 seconds, or 100,000 milliseconds), GetTickCount will return 160,000. Subtract the initial value (Which is 60,000) from the new value (Which is 160,000) and you get 100,000 milliseconds, which is 1 minute 40 seconds, which is the time it took the player to do the race!
+假设玩家在 1 分 40 秒后（即 100 秒或 100,000 毫秒）完成竞速，此时`GetTickCount()`将返回 160,000。用新值 160,000 减去初始值 60,000，得到 100,000 毫秒，即 1 分 40 秒的精确耗时！
 
-## Recap and Notes
+## 要点总结
 
-So! We learned that:
+通过本教程我们掌握：
 
-- GetTickCount returns the amount of time in milliseconds since the computer system that the server is running on started.
-- And we can use that by calling it at two intervals, saving the first to a variable and comparing the two values can give you an accurate interval in milliseconds between those two events.
+- `GetTickCount()`返回服务器运行后的毫秒级时间戳
+- 通过两次调用记录时间戳并相减，可精准计算事件间隔
 
-Last of all, you don't want to be telling your players time values in milliseconds! What if they take an hour to complete a race?
+最后提醒：切勿直接向玩家显示毫秒数值！若竞速耗时长达一小时该如何阅读？
 
-It's best to use a function that takes the milliseconds and converts it to a readable format, for instance, the earlier example the player took 100,000 milliseconds to do the race, if you told the player he took that long, it would take longer to read that 100,000 and figure out what it means in human-readable time.
+推荐使用毫秒转可读时间的函数。例如前文案例中的 100,000 毫秒，直接显示会让玩家难以快速理解实际耗时。
 
-[This package](https://github.com/ScavengeSurvive/timeutil) contains a function to format milliseconds into a string.
+[此工具包](https://github.com/ScavengeSurvive/timeutil)提供毫秒格式化功能，可将数值转换为易读字符串。
 
-I hope this helped! I wrote it because I've helped a few people out recently who didn't know how to use `GetTickCount()` or `gettime()` as an alternative for timers or for getting intervals etc.
+希望本文对您有所启发！撰写初衷是发现许多开发者尚未掌握`GetTickCount()`和`gettime()`作为计时器替代方案的妙用。

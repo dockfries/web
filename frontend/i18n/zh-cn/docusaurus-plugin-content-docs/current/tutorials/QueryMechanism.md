@@ -1,119 +1,125 @@
 ---
-title: "SA:MP Query Mechanism"
-sidebar_label: "SA:MP Query Mechanism"
+title: "SA:MP 查询机制"
+sidebar_label: "SA:MP 查询机制"
 ---
 
-## Introduction
+## 机制概述
 
-The SA:MP Query Mechanism is nothing more than the mechanism for transmitting server statistics and information, such as name, ping, language, online players, etc...
+SA:MP 查询机制是通过 UDP 数据包传输服务器统计信息的标准协议，可获取服务器名称、玩家延迟、语言设置、在线玩家列表等核心数据。
 
-In this article I will document how this mechanism works, as well as teach you how to use it without needing the original client.
+本文详解该协议工作原理，并指导如何在不依赖官方客户端的情况下实现查询功能。
 
-## Queries
+## 查询机制
 
-Queries are pure UDP packets sent to the server address containing serialized data.
+查询是通过 UDP 协议向服务器地址发送的序列化数据包。
 
-You may ask yourself: "But how does the server interpret query packets differently than those from the RakNet protocol?", and the answer is simple: in the low RakNet socket layer, packets that contain 53 41 4D 50 or translated into characters "SAMP" at the beginning, are treated in a different way. **[View Code](https://github.com/openmultiplayer/RakNet/blob/master/Source/SocketLayer.cpp#L371)**
+您可能会疑惑："服务器如何区分查询数据包与常规 RakNet 协议数据？" 其原理在于底层 RakNet 套接字层会识别数据包头部的"SAMP"标识（十六进制值：53 41 4D 50），并采用特殊处理流程。[查看源码](https://github.com/openmultiplayer/RakNet/blob/master/Source/SocketLayer.cpp#L371)
 
-## Serialized Data
+## 序列化数据包
 
-The data transmitted in the packet is: **"SAMP"** + **IP octets** + **first port byte\*** + **second port byte** + **OPCODE**
+传输数据包由以下部分组成：**"SAMP"** + **IP 四元组** + **端口低字节** + **端口高字节** + **操作码**
 
-If you have doubts about why to extract and what IP octets and port bytes are, see: [Link](http://penta2.ufrgs.br/trouble/ts_ip.htm).
+若对 IP 四元组和端口字节的解析方式存在疑问，可参考：[IP 地址与端口解析指南](http://penta2.ufrgs.br/trouble/ts_ip.htm)
 
-| Byte size |       Name       |
-| :-------: | :--------------: |
-|     4     |      "SAMP"      |
-|     4     |    IP Octets     |
-|     1     |   Port & 0xFF    |
-|     1     | Port >> 8 & 0xFF |
-|     1     |      OPCODE      |
+| 字节长度 |     字段      |
+| :------: | :-----------: |
+|    4     |    "SAMP"     |
+|    4     | IP 地址四元组 |
+|    1     |  端口低 8 位  |
+|    1     |  端口高 8 位  |
+|    1     |    操作码     |
 
-[Example in C](https://github.com/Louzindev/sampquery-c/blob/master/src/packet.c)
+[C 语言实现示例](https://github.com/Louzindev/sampquery-c/blob/master/src/packet.c)
 
-## OPCODE
+## 操作码说明
 
-OPCODE's are package identifiers, and each one represents a different request.
+各操作码对应不同查询类型：
 
-- **OPCODE "i" or 0x69:** This stands for information. This gets the amount of players in the server, the map name, and all the stuff like that. It's really useful for describing your server without changing anything.
+- **0x69 ('i')**：基础信息查询  
+  获取服务器密码状态、在线人数、主机名、游戏模式、语言等核心参数
 
-- **OPCODE "r" or 0x72:** This stands for rules. 'Rules' when it comes to SA:MP includes the instagib, the gravity, weather, the website URL, and so on
+- **0x72 ('r')**：规则查询  
+  返回重力值、天气代码、网站链接等自定义规则参数
 
-- **OPCODE "c" or 0x63:** It stands for client list, this sends back to the server the players' name, and then the players' score. Just imagine it as a basic overview of all the players.
+- **0x63 ('c')**：玩家简表  
+  获取玩家昵称与得分的快速列表
 
-- **OPCODE "d" or 0x64:** This stands for detailed player information. With this, you can get everything from the ping to the player, the player ID (useful for admin scripts), the score again, and also the username.
+- **0x64 ('d')**：玩家详情  
+  包含玩家 ID、昵称、得分、延迟等详细数据
 
-- **OPCODE "x" or 0x78:** This is an RCON command, and it's completely different from all of the other packets.
+- **0x78 ('x')**：RCON 命令  
+  远程控制指令通道（需认证）
 
-- **OPCODE "p" or 0x70:** Four psuedo-random characters are sent to the server, and the same characters are returned. You can use the time between sending and receiving to work out the servers' ping/latency.
+- **0x70 ('p')**：延迟测试  
+  通过四字节随机数计算服务器响应时间
 
-## Response
+## 响应数据包
 
-As stated above, each OPCODE returns information.
+如前述，每个操作码将返回特定格式的响应数据。
 
-the response consists of the same first 11 bytes sent, what we call the Header, then the definitive response.
+所有响应数据包前 11 字节为固定包头（与请求包头完全一致），后续字节为具体响应内容：
 
-### Response Tables for `i`, `r`, `c`, `d`, `p`
+### `i`, `r`, `c`, `d`, `p` 响应类型数据表
 
-#### Response Type `i`
+#### 类型 `i` 响应
 
-| Byte        | Key        | Byte Width | Description                                             |
-| ----------- | ---------- | ---------- | ------------------------------------------------------- |
-| 11          | Password   | 1          | Either 0 or 1, depending on whether the password is set |
-| 12-13       | Players    | 2          | Current number of players online                        |
-| 14-15       | MaxPlayers | 2          | Maximum number of players allowed on the server         |
-| 16-19       | (strlen)   | 4          | Length of the server’s hostname                         |
-| 20 + strlen | Hostname   | (strlen)   | Hostname of the server                                  |
-| 21-24       | (strlen)   | 4          | Length of the server’s gamemode                         |
-| 25 + strlen | Gamemode   | (strlen)   | Gamemode of the server                                  |
-| 26-29       | (strlen)   | 4          | Length of the server’s language                         |
-| 30 + strlen | Language   | (strlen)   | Language of the server                                  |
+| 字节        | 键值       | 字节宽度 | 描述                               |
+| ----------- | ---------- | -------- | ---------------------------------- |
+| 11          | Password   | 1        | 0 表示未设置密码，1 表示已设置密码 |
+| 12-13       | Players    | 2        | 当前在线玩家数量                   |
+| 14-15       | MaxPlayers | 2        | 服务器最大玩家容量                 |
+| 16-19       | (strlen)   | 4        | 服务器主机名字符串长度             |
+| 20 + strlen | Hostname   | (strlen) | 服务器主机名                       |
+| 21-24       | (strlen)   | 4        | 游戏模式字符串长度                 |
+| 25 + strlen | Gamemode   | (strlen) | 服务器游戏模式                     |
+| 26-29       | (strlen)   | 4        | 服务器语言字符串长度               |
+| 30 + strlen | Language   | (strlen) | 服务器使用语言                     |
 
-#### Response Type `r`
+#### 类型 `r` 响应
 
-| Byte        | Key       | Byte Width | Description                            |
-| ----------- | --------- | ---------- | -------------------------------------- |
-| 11-12       | RuleCount | 2          | Number of rules provided by the server |
-| 13          | (strlen)  | 1          | Length of the rule name                |
-| 14 + strlen | Rulename  | (strlen)   | Name of the rule                       |
-| 15          | (strlen)  | 1          | Length of the rule value               |
-| 16 + strlen | RuleValue | (strlen)   | Value of the rule                      |
+| 字节        | 键值      | 字节宽度 | 描述                 |
+| ----------- | --------- | -------- | -------------------- |
+| 11-12       | RuleCount | 2        | 服务器提供的规则数量 |
+| 13          | (strlen)  | 1        | 规则名称字符串长度   |
+| 14 + strlen | Rulename  | (strlen) | 规则名称             |
+| 15          | (strlen)  | 1        | 规则值字符串长度     |
+| 16 + strlen | RuleValue | (strlen) | 规则值               |
 
-_(Repeat from Byte 13 for each rule, as many times as `RuleCount`)_
+_(从第 13 字节开始循环，共循环 RuleCount 次)_
 
-#### Response Type `c`
+#### 类型 `c` 响应
 
-| Byte        | Key         | Byte Width | Description                              |
-| ----------- | ----------- | ---------- | ---------------------------------------- |
-| 11-12       | PlayerCount | 2          | Number of players provided by the server |
-| 13          | (strlen)    | 1          | Length of the player’s nickname          |
-| 14 + strlen | PlayerNick  | (strlen)   | Player’s nickname                        |
-| 15-18       | Score       | 4          | Player’s score                           |
+| 字节        | 键值        | 字节宽度 | 描述                 |
+| ----------- | ----------- | -------- | -------------------- |
+| 11-12       | PlayerCount | 2        | 服务器提供的玩家数量 |
+| 13          | (strlen)    | 1        | 玩家昵称字符串长度   |
+| 14 + strlen | PlayerNick  | (strlen) | 玩家昵称             |
+| 15-18       | Score       | 4        | 玩家分数             |
 
-_(Repeat from Byte 13 for each player, as many times as `PlayerCount`)_
+_(从第 13 字节开始循环，共循环 PlayerCount 次)_
 
-#### Response Type `d`
+#### 类型 `d` 响应
 
-| Byte        | Key         | Byte Width | Description                              |
-| ----------- | ----------- | ---------- | ---------------------------------------- |
-| 11-12       | PlayerCount | 2          | Number of players provided by the server |
-| 13          | PlayerID    | 1          | Player’s ID (values 0-255)               |
-| 14          | (strlen)    | 1          | Length of the player’s nickname          |
-| 15 + strlen | PlayerNick  | (strlen)   | Player’s nickname                        |
-| 16-19       | Score       | 4          | Player’s score                           |
-| 20-23       | Ping        | 4          | Player’s ping to the server              |
+| 字节        | 键值        | 字节宽度 | 描述                      |
+| ----------- | ----------- | -------- | ------------------------- |
+| 11-12       | PlayerCount | 2        | 服务器提供的玩家数量      |
+| 13          | PlayerID    | 1        | 玩家 ID（取值范围 0-255） |
+| 14          | (strlen)    | 1        | 玩家昵称字符串长度        |
+| 15 + strlen | PlayerNick  | (strlen) | 玩家昵称                  |
+| 16-19       | Score       | 4        | 玩家分数                  |
+| 20-23       | Ping        | 4        | 玩家到服务器的延迟        |
 
-_(Repeat from Byte 13 for each player, as many times as `PlayerCount`)_
+_(从第 13 字节开始循环，共循环 PlayerCount 次)_
 
-#### Response Type `p`
+#### 类型 `p` 响应
 
-| Byte | Key      | Byte Width | Description                                                   |
-| ---- | -------- | ---------- | ------------------------------------------------------------- |
-| 11   | number 1 | 1          | First number of the pseudo-random sequence sent by the client |
-| 12   | number 2 | 1          | Second number of the pseudo-random sequence                   |
-| 13   | number 3 | 1          | Third number of the pseudo-random sequence                    |
-| 14   | number 4 | 1          | Fourth number of the pseudo-random sequence                   |
+| 字节 | 键值     | 字节宽度 | 描述                             |
+| ---- | -------- | -------- | -------------------------------- |
+| 11   | number 1 | 1        | 客户端发送的伪随机序列第一个数字 |
+| 12   | number 2 | 1        | 伪随机序列第二个数字             |
+| 13   | number 3 | 1        | 伪随机序列第三个数字             |
+| 14   | number 4 | 1        | 伪随机序列第四个数字             |
 
-## Example Code in C
+## C 语言实现示例
 
-A while ago I made a small lib in C, which allows you to perform queries, you can use it as an example. **[See Repository](https://github.com/Louzindev/sampquery-c)**
+开源 C 语言库 sampquery-c 实现了完整的查询功能，可作为开发参考：[代码仓库](https://github.com/Louzindev/sampquery-c)

@@ -1,73 +1,73 @@
 ---
-title: Port Forwarding
-sidebar_label: Port Forwarding
-description: Server port forwarding tutorial.
+title: 端口转发
+sidebar_label: 端口转发
+description: 服务器端口转发配置教程。
 ---
 
-**Welcome to the Port Forward tutorial!**
+**欢迎来到端口转发教程！**
 
-So, you have arrived to the Port Forward tutorial, made by Leopard.
+您正在阅读的是由 Leopard 制作的端口转发教程。
 
-All you need is a samp-server or omp-server and a router. If you have not a router, then you don't need to port forward!
+您需要准备一个 samp-server 或 omp-server 以及路由器。若您没有路由器，则无需进行端口转发！
 
-## The Start
+## 准备工作
 
-Ok, so here's the start, start off by finding your **gateway**. Assume that you have vista. Click start, click on the search field, and write **cmd**. Then a black box appears. Enter the following; **ipconfig**. Wait for the text to load, then look though it. Keep searching until you find _**gateway**_, and don't close the black box!
+首先需要找到您的**网关地址**。假设您使用 Vista 系统：点击开始菜单，在搜索栏输入**cmd**，打开黑色命令提示符窗口。输入**ipconfig**命令，等待信息加载完成后，在输出内容中查找标有**_gateway_**的条目（请保持窗口开启）。
 
-When you have found it, open your favorite web browser. When it's loaded, head over to the adress bar and type in the _**gateway**_ value (example: 192.168.0.1/192.168.1.1). Press enter.
+找到网关地址后，打开浏览器。在地址栏输入查找到的**_gateway_**数值（例如：192.168.0.1/192.168.1.1），按回车键进入。
 
-## Router Configuration
+## 路由器配置
 
-Well done, you've made it to the router's configuration page. What we've got left to do is port forward now.
+恭喜进入路由器管理界面！接下来需要进行端口转发设置。
 
-So.. there are a category in that page that is named one of the followings;
+在管理界面中找到包含以下任一名称的功能模块：
 
-- Virtual Server
-- Port Forwarding
-- Port Control
-- Application Sharing
-- Anything with `port` in its name.
+- 虚拟服务器
+- 端口转发
+- 端口控制
+- 应用共享
+- 任何包含`端口`字样的选项
 
-If you have found it, click on it. Then, click the 'Add new', 'New Port' or some else button that will toggle opening a new port.
+找到对应模块后，点击"新增"、"新建端口"等类似按钮来创建新端口规则。
 
-Enter the following details:
+按以下参数进行配置：
 
 ```
-Port: YOUR_PORT (standard: 7777)
+Port: 您的端口号（默认：7777）
 Port Type: UDP
-Enabled: Yes
-**IP: Continue the 3rd Step**
+Enabled: 启用
+**IP: 请继续第三步操作**
 ```
 
-Now you need to know your computer IP address.
+现在需要获取本机 IP 地址。
 
-## Getting the IP, Continuing
+## 获取 IP 地址并继续配置
 
-Now, maximize the black box and look though the text again, until you see _IPv4_. It should be in a format like this: **192.168.0.100**. Copy it, and there you have it! Continue with the Information in the router's homepage. For example, my ip is 192.168.0.100
+返回命令提示符窗口，在输出信息中查找*IPv4*地址（格式如：**192.168.0.100**）。复制该地址并返回路由器设置界面。例如我的 IP 是 192.168.0.100
 
 ```
-Port: YOUR_PORT (standard: 7777)
+Port: 您的端口号（默认：7777）
 Port Type: UDP
-Enabled: Yes
+Enabled: 启用
 IP: 192.168.0.100
 ```
 
-And press **save**. Then your done. AND! Don't forget to **port forward in Windows Firewall**. This is a little tutorial;
+点击**保存**。注意！请同时配置**Windows 防火墙**：
 
-Go to the start menu, enter "firewall" in the search field and select the "Windows Firewall". Open it and click _Change preferences_. New window pop-up. Click the _Exceptions_ tab, click the _Add port.._ and then fill in this information;
+通过开始菜单搜索"防火墙"，打开"Windows 防火墙"设置。点击"更改设置"，在弹出的新窗口中选择"例外"标签页，点击"添加端口"，按以下参数配置：
 
 ```
-Name: SA-MP Server (name it whatever you want)
-Port Number: YOUR_PORT (standard: 7777)
-Protocol: UDP
+名称: SA-MP服务器（可自定义）
+端口号: 您的端口号（默认：7777）
+协议: UDP
 ```
 
-Then your done! Click ok and close it. Launch the server, and see if its working. If it is, go to your SA-MP Client and enter: localhost:YOUR_PORT(standard: 7777). If the ping changes, then your server is working fully. Now you just need to go to:
+确认保存后启动服务器。在 SA-MP 客户端输入：localhost:端口号（默认 7777）。若显示有效延迟，则说明服务器运行正常。最后访问：
 
-[WhatIsMyIP.COM](http://whatismyip.com).
+[我的 IP 地址查询网](http://whatismyip.com)。
 
-## The finish
+## 最终测试
 
-Once there, get the ip that is on your screen. Go again to your SA-MP Client, add that ip to your favorites and add YOUR_PORT (standard: 7777) at the end. If its working,
+在网站上获取公网 IP 地址，将其添加到 SA-MP 客户端的收藏列表并附加端口号（默认 7777）。若连接成功，
 
-**CONGRATULATIONS**! _You have port-forwarded_!
+**恭喜您！** _您已完成端口转发配置_！
