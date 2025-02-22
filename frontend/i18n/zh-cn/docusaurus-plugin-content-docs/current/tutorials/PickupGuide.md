@@ -1,80 +1,89 @@
 ---
-title: Pickup Guide
-sidebar_label: Pickup Guide
+title: 拾取物指南
+sidebar_label: 拾取物指南
 ---
 
-A short tutorial that describes how to use pickups.
+本简短教程将讲解如何在游戏中使用拾取物系统。
 
-## Define the pickupid
+## 定义拾取物 ID
 
-The first thing to be done when creating pickups is creating a place to store their ID. This will be done in a global variable so it can be set when you create the pickup and read when you pick up a pickup, calling a callback with the ID of the pickup you picked up. For this example we will use the name "gMyPickup".
+创建拾取物的第一步是声明存储其 ID 的变量。我们将使用全局变量`gMyPickup`，该变量将在创建拾取物时被赋值，并在玩家拾取时通过回调函数读取。
 
 ```pawn
 new gMyPickup;
 ```
 
-## Creating the pickup
+## 创建拾取物
 
-There are two ways to create pickups. [CreatePickup](../scripting/functions/CreatePickup) and [AddStaticPickup](../scripting/functions/AddStaticPickup). AddStaticPickup doesn't return an ID when it is created, can't be destroyed and can only be used under OnGameModeInit, so for this example we will use [CreatePickup](../scripting/functions/CreatePickup).
+有两种创建方式：[CreatePickup](../scripting/functions/CreatePickup) 和 [AddStaticPickup](../scripting/functions/AddStaticPickup)。由于后者无法返回 ID、不可销毁且只能在`OnGameModeInit`中使用，本教程选用前者。
 
-**The syntax for [CreatePickup](../scripting/functions/CreatePickup) is:**
+**[CreatePickup](../scripting/functions/CreatePickup) 参数说明：**
 
-**Parameters:**
+| 参数         | 说明                                 |
+| ------------ | ------------------------------------ |
+| model        | 拾取物显示模型 ID                    |
+| type         | 生成类型（详见下文）                 |
+| Float:X      | X 坐标                               |
+| Float:Y      | Y 坐标                               |
+| Float:Z      | Z 坐标                               |
+| Virtualworld | 虚拟世界 ID（-1 表示全虚拟世界可见） |
 
-| model        | The model you'd like to use for the pickup.                                                               |
-| ------------ | --------------------------------------------------------------------------------------------------------- |
-| type         | The pickup spawn type, see further down this page.                                                        |
-| Float:X      | The X-coordinate for the pickup to show.                                                                  |
-| Float:Y      | The Y-coordinate for the pickup to show.                                                                  |
-| Float:Z      | The Z-coordinate for the pickup to show.                                                                  |
-| Virtualworld | The virtual world ID of the pickup. A value of -1 will cause the pickup to display in all virtual worlds. |
+以在格罗夫街创建金钱拾取物为例：
 
-For this example we will create a cash pickup at Grove Street.
+首先需要选择显示模型，您可通过[此外部站点](https://dev.prineside.com/en/gtasa_samp_model_id)查看完整模型列表。本教程选用编号 1274 的美元符号模型。
 
-Now we need to decide on a model to appear in the world, there are lots of models to choose from, some are listed on the external site [here](https://dev.prineside.com/en/gtasa_samp_model_id), here choose model number 1274 which is dollar sign.
+接下来确定[拾取类型](../scripting/resources/pickuptypes)，该参数决定拾取物行为特性。为实现"拾取后暂时消失，数分钟后重生"的效果，我们选择类型 2。
 
-Finally we need a [Type](../scripting/resources/pickuptypes) for the pickup, on the same page with the pickup models is a list of pickup types describing what the various ones do. We want this pickup to disappear when you pick it up, so you can't pick it up repeatedly, but to reappear after a few minutes so you can pick it up again, type 2 does just this.
+拾取物通常创建于脚本初始化阶段：
 
-Pickups are most commonly created when the script starts, in [OnGameModeInit](../scripting/callbacks/OnGameModeInit) or [OnFilterScriptInit](../scripting/callbacks/OnFilterScriptInit) depending on the script type, however it can go in any function (for example you could create a weapon drop script which would use OnPlayerDeath to create weapon pickups).
+- 游戏模式脚本使用[OnGameModeInit](../scripting/callbacks/OnGameModeInit)
+- 滤镜脚本使用[OnFilterScriptInit](../scripting/callbacks/OnFilterScriptInit)
 
-So here is the code to create our pickup, and store the ID in 'gMyPickup':
+但实际可放置于任意函数中（例如在[OnPlayerDeath](../scripting/callbacks/OnPlayerDeath)回调中创建武器掉落）。
+
+最终创建代码（ID 存储至'gMyPickup'变量）：
 
 ```pawn
 gMyPickup = CreatePickup(1274, 2, 2491.7900, -1668.1653, 13.3438, -1);
 ```
 
-### Choosing what it does
+### 设置拾取行为
 
-When you pick up a pickup, [OnPlayerPickUpPickup](../scripting/callbacks/OnPlayerPickUpPickup) is called, passing playerid (the player that picked up a pickup) and pickupid (the ID of the pickup that was picked up).
+当玩家拾取物品时，系统将调用[OnPlayerPickUpPickup](../scripting/callbacks/OnPlayerPickUpPickup)回调函数，传递两个参数：
 
-Some pickup types are designed to work automatically, so there is no need to do anything under OnPlayerPickUpPickup. Check out the [Pickup Types](../scripting/resources/pickuptypes) page for more information.
+- `playerid`：执行拾取操作的玩家 ID
+- `pickupid`：被拾取物品的 ID
 
-When a player picks up our new pickup, we want to give them $100, to do this first we need to check that they have picked up our dollar pickup and not a different one. When we've done that, we can give them the $100:
+部分拾取类型（如武器类型）已内置自动处理逻辑，无需在此回调中编写额外代码。具体行为请参考[拾取物类型文档](../scripting/resources/pickuptypes)。
+
+实现金钱奖励功能的步骤：
+
+1. 验证拾取物 ID 是否为预设的`gMyPickup`
+2. 通过条件判断后执行奖励逻辑
 
 ```pawn
 public OnPlayerPickUpPickup(playerid, pickupid)
 {
-    // Check that the pickup ID of the pickup they picked up is gMyPickup
+    // 验证拾取物ID是否为预设的gMyPickup
     if(pickupid == gMyPickup)
     {
-        // Message the player
-        SendClientMessage(playerid, 0xFFFFFFFF, "You received $100!");
-        // Give the player the money
+        // 发送提示信息
+        SendClientMessage(playerid, 0xFFFFFFFF, "你获得了$100!");
+        // 发放金钱奖励
         GivePlayerMoney(playerid, 100);
     }
-    // if you need to add more pickups, simply do this:
-    else if (pickupid == (some other pickup))
+    // 如需添加更多拾取物，可扩展如下：
+    else if (pickupid == other_pickup_id)
     {
-        // Another pickup, do something else
+        // 处理其他拾取物逻辑
     }
     return 1;
 }
 ```
 
-Congratulations, you now know how to create and handle pickups!
+恭喜！您已掌握创建和处理拾取物的核心方法！
 
-## Further Reading
+## 进阶应用
 
-You can use the [Streamer](https://github.com/samp-incognito/samp-streamer-plugin) plugin to create unlimited pickups with [CreateDynamicPickup](<https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives-(Pickups)>)
-
-You can also create per-player pickup with [CreatePlayerPickup](../scripting/functions/CreatePlayerPickup).
+- 使用[流加载插件](https://github.com/samp-incognito/samp-streamer-plugin)的[CreateDynamicPickup](<https://github.com/samp-incognito/samp-streamer-plugin/wiki/Natives-(Pickups)>)创建无限拾取物
+- 通过[CreatePlayerPickup](../scripting/functions/CreatePlayerPickup)实现玩家专属拾取物

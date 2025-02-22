@@ -1,44 +1,44 @@
 ---
-title: Menu Guide
-sidebar_label: Menu Guide
+title: 菜单指南
+sidebar_label: 菜单指南
 ---
 
-A short tutorial that explains how to use the menu system of the game. This menu system is different to SA-MP dialogs and better reflects the traditional UI of the original game.
+本简短教程将解释如何使用游戏的菜单系统。该菜单系统与 SA-MP 对话框不同，更贴近原版游戏的传统 UI 设计。
 
-## Menus in SA-MP
+## SA-MP 中的菜单系统
 
-Menus look very complicated and difficult to script for the most players, although it isn't. Here I will show you how to create a simple menu. At the end we will have created a teleport menu.
+对于大多数玩家而言，菜单看似复杂且难以编写脚本，实则不然。这里我将展示如何创建一个简单菜单。最终我们将完成一个传送菜单的创建。
 
-## First menu steps
+## 初始步骤
 
-First we have to create a menu. The prefix before is `Menu:` this makes the variable the correct [tag](../scripting/language/Tags). There are different types for different uses such as `Float:` `bool:` `Text3D:` etc. Write the following code near the top of your script:
+首先需要创建菜单变量。变量前的`Menu:`前缀用于标识正确的[标签类型](../scripting/language/Tags)。不同用途有不同类型如`Float:`、`bool:`、`Text3D:`等。在脚本顶部附近添加以下代码：
 
 ```pawn
 new Menu:teleportmenu;
 ```
 
-Okay, we created the variable to store the menu. Now we have to create the menu and assign the variable we created to the menu. Type this into `OnGameModeInit`:
+完成变量声明后，需在`OnGameModeInit`中创建菜单并赋值：
 
 ```pawn
 teleportmenu = CreateMenu("Teleportmenu", 2, 200.0, 100.0, 150.0, 150.0);
 ```
 
-Now a bit of an explanation about the [CreateMenu](../scripting/functions/CreateMenu) arguments.
+以下是关于[CreateMenu](../scripting/functions/CreateMenu)参数的说明：
 
-**Parameters:**
+**参数说明：**
 
-| Parameter       | Specifies                                                        |
-| --------------- | ---------------------------------------------------------------- |
-| title           | The heading of the menu                                          |
-| columns         | The number here defines how much columns are used (2 is maximum) |
-| Float:x         | The heigth position of the menu on screen (left to right)        |
-| Float:y         | The width position of the menu on screen (up and down)           |
-| Float:col1width | The width of the first column                                    |
-| Float:col2width | The width of the second column                                   |
+| 参数            | 说明                     |
+| --------------- | ------------------------ |
+| title           | 菜单标题                 |
+| columns         | 定义列数（最大值为 2）   |
+| Float:x         | 菜单水平坐标（从左到右） |
+| Float:y         | 菜单垂直坐标（从上到下） |
+| Float:col1width | 第一列宽度               |
+| Float:col2width | 第二列宽度               |
 
-## Add some menu items
+## 添加菜单项
 
-Ok, now we've got the Menu, but we need some items, under which you can choose in the menu. You add them underneath the `CreateMenu` that we made earlier.
+现在需要为菜单添加可选项。在`CreateMenu`下方添加：
 
 ```pawn
 AddMenuItem(teleportmenu, 0, "LS");
@@ -56,24 +56,22 @@ AddMenuItem(teleportmenu, 1, "4 Dragons");
 AddMenuItem(teleportmenu, 1, "Come-a-Lot");
 ```
 
-The explanation for [AddMenuItem](../scripting/functions/AddMenuItem):
+[AddMenuItem](../scripting/functions/AddMenuItem)参数说明：
 
-| menuid | The menuid of the menu where the item shall be displayed |
-| ------ | -------------------------------------------------------- |
-| column | The column in which the item shall be shown              |
-| text   | The text of the item                                     |
+| menuid | 目标菜单的 ID |
+| ------ | ------------- |
+| column | 显示项的列号  |
+| text   | 项文本        |
 
-## Creating the effects for the items
+## 创建选项效果
 
-Okay, now that we have created a full menu with items what should happen when you choose an item? In our example we want to make a teleportmenu, so we should get teleported to the position we choose. When a player selects an item on a menu the script calls the callback [OnPlayerSelectedMenuRow](../scripting/callbacks/OnPlayerSelectedMenuRow). The best way to do it is to do it with a switch, this is like several if statements to check if a variable is worth certain values. But first we only want these effects for the menu we want so we need to create a variable that holds what menu the player is looking at, this is done with `GetPlayerMenu`:
+当玩家选择菜单项时，需在回调函数[OnPlayerSelectedMenuRow](../scripting/callbacks/OnPlayerSelectedMenuRow)中处理逻辑。虽然可以通过多个 if 语句检查`row`值，但使用 switch 语句是更简洁的写法。首先需要获取玩家当前查看的菜单：
 
 ```pawn
 new Menu:CurrentMenu = GetPlayerMenu(playerid);
 ```
 
-Now, when somebody selects something on the menu, their menuid will be saved in `CurrentMenu`.
-
-Now we have to check that the menu they selected on is the menu we want:
+然后验证目标菜单：
 
 ```pawn
 public OnPlayerSelectedMenuRow(playerid, row)
@@ -81,62 +79,62 @@ public OnPlayerSelectedMenuRow(playerid, row)
     new Menu:CurrentMenu = GetPlayerMenu(playerid);
     if (CurrentMenu == teleportmenu)
     {
-        //stuff
+        // 逻辑处理
     }
     return 1;
 }
 ```
 
-Now in between these brackets is where the `switch` is, this checks what item the player selected or `row` this can be done with `if` statements checking what `row` it is, but the `switch` is a much simpler way of writing it.
+具体传送逻辑实现：
 
 ```pawn
 if(CurrentMenu == teleportmenu)
 {
     switch(row)
     {
-        case 0: //Grove Street
+        case 0: // 格罗夫街
         {
             SetPlayerPos(playerid, 2493.9133, -1682.3986, 13.3382);
             SetPlayerInterior(playerid, 0);
-            SendClientMessage(playerid, 0xFFFFFFFF, "Welcome to Grove Street");
+            SendClientMessage(playerid, 0xFFFFFFFF, "欢迎来到格罗夫街");
         }
-        case 1: //Starfish Tower
+        case 1: // 海星大厦
         {
             SetPlayerPos(playerid, 1541.2833, -1362.4741, 329.6457);
             SetPlayerInterior(playerid, 0);
-            SendClientMessage(playerid, 0xFFFFFFFF, "Welcome to the top of Starfish Tower");
+            SendClientMessage(playerid, 0xFFFFFFFF, "欢迎来到海星大厦顶层");
         }
-        case 2: //Wheel Arch Angels
+        case 2: // 轮弧天使
         {
             SetPlayerPos(playerid, -2705.5503, 206.1621, 4.1797);
             SetPlayerInterior(playerid, 0);
-            SendClientMessage(playerid, 0xFFFFFFFF, "Welcome to the Wheel Arch Angels tuning-shop");
+            SendClientMessage(playerid, 0xFFFFFFFF, "欢迎来到轮弧天使改装店");
         }
-        case 3: //Jizzys
+        case 3: // 吉兹俱乐部
         {
             SetPlayerPos(playerid, -2617.5156, 1390.6353, 7.1105);
             SetPlayerInterior(playerid, 0);
-            SendClientMessage(playerid, 0xFFFFFFFF, "Welcome to Jizzy's Nightclub!");
+            SendClientMessage(playerid, 0xFFFFFFFF, "欢迎来到吉兹夜总会！");
         }
-        case 4: //4Dragons
+        case 4: // 四龙赌场
         {
             SetPlayerPos(playerid, 2028.5538, 1008.3543, 10.8203);
             SetPlayerInterior(playerid, 0);
-            SendClientMessage(playerid, 0xFFFFFFFF, "Welcome to the Four Dragons Casino");
+            SendClientMessage(playerid, 0xFFFFFFFF, "欢迎来到四龙赌场");
         }
-        case 5: //Come-a-Lot
+        case 5: // 康乐赌场
         {
             SetPlayerPos(playerid, 2169.1838, 1122.5426, 12.6107);
             SetPlayerInterior(playerid, 0);
-            SendClientMessage(playerid, 0xFFFFFFFF, "Welcome to the Come-a-Lot casino!");
+            SendClientMessage(playerid, 0xFFFFFFFF, "欢迎来到康乐赌场！");
         }
     }
 }
 ```
 
-## Last steps
+## 最终步骤
 
-Now we need a command to show the menu. This is the easiest step. Just a comparison with `strcmp` and a `ShowMenuForPlayer`. This is done in `OnPlayerCommandText`. Or, if you have a command processor already, use that instead to call `ShowMenuForPlayer`.
+现在需要创建显示菜单的命令。这是最简单的步骤：在`OnPlayerCommandText`中使用`strcmp`进行命令比对并调用`ShowMenuForPlayer`。如果您已有命令处理器，可直接通过处理器调用：
 
 ```pawn
 if(strcmp(cmdtext, "/teleport", true) == 0)
@@ -146,12 +144,16 @@ if(strcmp(cmdtext, "/teleport", true) == 0)
 }
 ```
 
-Really easy, wasn't it?
+## 补充建议与结语
 
-## Last words
+理解本教程后，请尝试创建自己的菜单。如您所见，菜单系统并不复杂，但能为服务器玩家带来深刻印象。您可以用它实现酷炫的效果，例如：
 
-Okay, after you read this AND understood it, try your own menu. As you could see, it isn't that difficult, but will impress the players on your server all the more. And you can script really cool effects with this. It's also very cool for general stores or supermarkets for the things you can buy. Then you can subtract some money as effect and the price is shown in another column in the menu. But now, work on your own.
+- 创建便利店/超市的购物系统
+- 在第二列显示商品价格
+- 选择商品时自动扣除金钱
 
-You can also add [TogglePlayerControllable](../scripting/functions/TogglePlayerControllable) with `false` after `ShowPlayerMenu` and [TogglePlayerControllable](../scripting/functions/TogglePlayerControllable) with `true` at end of `OnPlayerSelectedMenuRow` so that player may not move while they are browsing menus.
+现在就开始实践吧！
 
-I hope you learned something from this tutorial. If you have any questions, ask in the forums/discord.
+进阶技巧：在调用`ShowMenuForPlayer`后使用[TogglePlayerControllable](../scripting/functions/TogglePlayerControllable)传递`false`来禁用移动，确保玩家浏览菜单时无法移动，并在`OnPlayerSelectedMenuRow`回调结束时使用[TogglePlayerControllable](../scripting/functions/TogglePlayerControllable)传递`true`来恢复操作。
+
+希望本教程对您有所帮助。如有疑问，请访问论坛/Discord 咨询。
