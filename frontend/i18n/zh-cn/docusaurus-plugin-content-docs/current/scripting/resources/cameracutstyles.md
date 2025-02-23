@@ -1,17 +1,18 @@
 ---
-title: Camera Cut Styles
-sidebar_label: Camera Cut Styles
+title: 视角切换样式
+sidebar_label: 视角切换样式
 ---
 
 :::info
 
-Camera cut styles are used by natives such as [SetPlayerCameraLookAt](../functions/SetPlayerCameraLookAt), [InterpolateCameraPos](../functions/InterpolateCameraPos) and [InterpolateCameraLookAt](../functions/InterpolateCameraLookAt).
+以下函数使用视角切换样式：
+[SetPlayerCameraLookAt](../functions/SetPlayerCameraLookAt)、[InterpolateCameraPos](../functions/InterpolateCameraPos) 和 [InterpolateCameraLookAt](../functions/InterpolateCameraLookAt)
 
 :::
 
-## Cut Styles
+## 切换样式
 
-| ID  | Style       | Description                                                             |
-| --- | ----------- | ----------------------------------------------------------------------- |
-| 1   | CAMERA_MOVE | The camera position and/or target will move to its new value over time. |
-| 2   | CAMERA_CUT  | The camera position and/or target will move to its new value instantly. |
+| ID  | 样式        | 描述                                        |
+| --- | ----------- | ------------------------------------------- |
+| 1   | CAMERA_MOVE | 摄像机位置和/或目标会随时间推移移动到新位置 |
+| 2   | CAMERA_CUT  | 摄像机位置和/或目标会立即跳转到新位置       |

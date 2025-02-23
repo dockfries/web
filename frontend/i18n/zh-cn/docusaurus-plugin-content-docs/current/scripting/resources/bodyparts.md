@@ -1,31 +1,32 @@
 ---
-title: Body parts
-sidebar_label: Body parts
+title: 身体部位
+sidebar_label: 身体部位
 ---
 
 :::info
 
-The following entries are body part IDs which can be used by [OnPlayerGiveDamage](../callbacks/OnPlayerGiveDamage), [OnPlayerTakeDamage](../callbacks/OnPlayerTakeDamage) and [OnPlayerGiveDamageActor](../callbacks/OnPlayerGiveDamageActor).
+以下条目是可用于以下回调的身体部位 ID：
+[OnPlayerGiveDamage](../callbacks/OnPlayerGiveDamage)、[OnPlayerTakeDamage](../callbacks/OnPlayerTakeDamage) 和 [OnPlayerGiveDamageActor](../callbacks/OnPlayerGiveDamageActor)
 
 :::
 
 ---
 
-| ID  | Body Part |
-| --- | --------- |
-| 3   | Torso     |
-| 4   | Groin     |
-| 5   | Left arm  |
-| 6   | Right arm |
-| 7   | Left leg  |
-| 8   | Right leg |
-| 9   | Head      |
+| ID  | 身体部位 |
+| --- | -------- |
+| 3   | 躯干     |
+| 4   | 腹部     |
+| 5   | 左臂     |
+| 6   | 右臂     |
+| 7   | 左腿     |
+| 8   | 右腿     |
+| 9   | 头部     |
 
 ---
 
 :::note
 
-These IDs are not 100% confirmed, and are not defined in any SA-MP includes - they must be defined by the scripter. It is unknown if IDs 0, 1 and 2 have any use.
+这些 ID 尚未 100%确认，且未在任何 SA-MP 头文件中定义——必须由脚本编写者自行定义。目前未知 ID 0、1 和 2 是否有任何用途。
 
 :::
 

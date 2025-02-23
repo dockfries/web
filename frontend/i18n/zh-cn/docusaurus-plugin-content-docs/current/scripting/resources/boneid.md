@@ -1,31 +1,31 @@
 ---
-title: "Bone IDs"
-sidebar_label: "Bone IDs"
+title: 骨骼ID
+sidebar_label: 骨骼ID
 ---
 
 :::note
 
-This page contains all of the bone IDs used by [SetPlayerAttachedObject](../functions/SetPlayerAttachedObject).
+本页面包含所有由[SetPlayerAttachedObject](../functions/SetPlayerAttachedObject)使用的骨骼 ID。
 
 :::
 
-| ID  | Bone                      |
-| --- | ------------------------- |
-| 1   | Spine                     |
-| 2   | Head                      |
-| 3   | Left upper arm            |
-| 4   | Right upper arm           |
-| 5   | Left hand                 |
-| 6   | Right hand                |
-| 7   | Left thigh                |
-| 8   | Right thigh               |
-| 9   | Left foot                 |
-| 10  | Right foot                |
-| 11  | Right calf                |
-| 12  | Left calf                 |
-| 13  | Left forearm              |
-| 14  | Right forearm             |
-| 15  | Left clavicle (shoulder)  |
-| 16  | Right clavicle (shoulder) |
-| 17  | Neck                      |
-| 18  | Jaw                       |
+| ID  | 骨骼名称       |
+| --- | -------------- |
+| 1   | 脊柱           |
+| 2   | 头部           |
+| 3   | 左上臂         |
+| 4   | 右上臂         |
+| 5   | 左手           |
+| 6   | 右手           |
+| 7   | 左大腿         |
+| 8   | 右大腿         |
+| 9   | 左脚           |
+| 10  | 右脚           |
+| 11  | 右小腿         |
+| 12  | 左小腿         |
+| 13  | 左前臂         |
+| 14  | 右前臂         |
+| 15  | 左锁骨（肩部） |
+| 16  | 右锁骨（肩部） |
+| 17  | 颈部           |
+| 18  | 下颌           |

@@ -1,38 +1,38 @@
 ---
-title: Camera Modes
-sidebar_label: Camera Modes
+title: 视角模式
+sidebar_label: 视角模式
 ---
 
-## Description
+## 描述
 
-The following camera modes are used by [GetPlayerCameraMode](../functions/GetPlayerCameraMode).
+以下视角模式由[GetPlayerCameraMode](../functions/GetPlayerCameraMode)函数使用。
 
 :::note
 
-There might still be more usable IDs hidden away in the game and some IDs are used for more than one situation.
+游戏中可能仍存在更多隐藏可用的 ID，且部分 ID 会对应多种使用场景。
 
 :::
 
-## List of available camera modes
+## 可用视角模式列表
 
-| ID  | Definition                 | Name from game files   | Description                                                                                                                    |
-| --- | -------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| 3   | CAM_MODE_BEHINDCAR         | MODE_BEHINDCAR         | Train/tram camera                                                                                                              |
-| 4   | CAM_MODE_FOLLOWPED         | MODE_FOLLOWPED         | Follow ped (normal behind player camera), several variable distances                                                           |
-| 7   | CAM_MODE_SNIPER            | MODE_SNIPER            | Sniper aiming (sniper scope)                                                                                                   |
-| 8   | CAM_MODE_ROCKETLAUNCHER    | MODE_ROCKETLAUNCHER    | Rocket Launcher aiming (rocket launcher scope)                                                                                 |
-| 15  | CAM_MODE_FIXED             | MODE_FIXED             | Fixed camera (non-moving) - used for garages, chase camera, entering buildings, buying food etc                                |
-| 16  | CAM_MODE_1STPERSON         | MODE_1STPERSON         | Vehicle front camera, bike side camera                                                                                         |
-| 18  | CAM_MODE_CAM_ON_A_STRING   | MODE_CAM_ON_A_STRING   | Normal car (+ skimmer + helicopter + airplane), several variable distances                                                     |
-| 22  | CAM_MODE_BEHINDBOAT        | MODE_BEHINDBOAT        | Normal boat camera                                                                                                             |
-| 46  | CAM_MODE_CAMERA            | MODE_CAMERA            | Weapon aiming (weapon scope)                                                                                                   |
-| 51  | CAM_MODE_ROCKETLAUNCHER_HS | MODE_ROCKETLAUNCHER_HS | Heat-seeking Rocket Launcher aiming                                                                                            |
-| 53  | CAM_MODE_AIMWEAPON         | MODE_AIMWEAPON         | Aiming any other weapon                                                                                                        |
-| 55  | CAM_MODE_AIMWEAPON_FROMCAR | MODE_AIMWEAPON_FROMCAR | Vehicle passenger aiming camera (drive by as a player)                                                                         |
-| 56  | CAM_MODE_DW_HELI_CHASE     | MODE_DW_HELI_CHASE     | Chase camera: helicopter/bird view                                                                                             |
-| 57  | -                          | MODE_DW_CAM_MAN        | Chase camera: ground camera, zooms in quite quickly and pan to the vehicle                                                     |
-| 58  | -                          | MODE_DW_BIRDY          | Chase camera: horizontal flyby past vehicle                                                                                    |
-| 59  | -                          | MODE_DW_PLANE_SPOTTER  | Chase camera (for air vehicles only): ground camera, looking up to the air vehicle                                             |
-| 62  | -                          | MODE_DW_PLANECAM1      | Chase camera (for air vehicles only): vertical flyby past air vehicle                                                          |
-| 63  | -                          | MODE_DW_PLANECAM2      | Chase camera (for air vehicles only): horizontal flyby past air vehicle (similar to 58 and 62)                                 |
-| 64  | -                          | MODE_DW_PLANECAM3      | Chase camera (for air vehicles only): camera focused on pilot, similar to pressing LOOK_BEHIND key on foot, but in air vehicle |
+| ID  | 定义                       | 游戏文件中的名称       | 描述                                                                                           |
+| --- | -------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------- |
+| 3   | CAM_MODE_BEHINDCAR         | MODE_BEHINDCAR         | 火车/电车视角                                                                                  |
+| 4   | CAM_MODE_FOLLOWPED         | MODE_FOLLOWPED         | 跟随玩家角色（标准第三人称视角），支持多种可变距离                                             |
+| 7   | CAM_MODE_SNIPER            | MODE_SNIPER            | 狙击枪瞄准（狙击镜视角）                                                                       |
+| 8   | CAM_MODE_ROCKETLAUNCHER    | MODE_ROCKETLAUNCHER    | 火箭筒瞄准（火箭筒瞄准镜视角）                                                                 |
+| 15  | CAM_MODE_FIXED             | MODE_FIXED             | 固定视角（不可移动）——用于车库场景、追逐视角、进入建筑物、购买食物等场景                       |
+| 16  | CAM_MODE_1STPERSON         | MODE_1STPERSON         | 载具第一人称视角（汽车前视/摩托车侧视）                                                        |
+| 18  | CAM_MODE_CAM_ON_A_STRING   | MODE_CAM_ON_A_STRING   | 标准载具视角（支持快艇/直升机/飞机），支持多种可变距离                                         |
+| 22  | CAM_MODE_BEHINDBOAT        | MODE_BEHINDBOAT        | 标准船只视角                                                                                   |
+| 46  | CAM_MODE_CAMERA            | MODE_CAMERA            | 武器瞄准（武器准星视角）                                                                       |
+| 51  | CAM_MODE_ROCKETLAUNCHER_HS | MODE_ROCKETLAUNCHER_HS | 热追踪火箭筒瞄准                                                                               |
+| 53  | CAM_MODE_AIMWEAPON         | MODE_AIMWEAPON         | 常规武器瞄准                                                                                   |
+| 55  | CAM_MODE_AIMWEAPON_FROMCAR | MODE_AIMWEAPON_FROMCAR | 载具乘客射击视角（玩家进行乘车射击时）                                                         |
+| 56  | CAM_MODE_DW_HELI_CHASE     | MODE_DW_HELI_CHASE     | 追逐视角：直升机/鸟瞰视角                                                                      |
+| 57  | -                          | MODE_DW_CAM_MAN        | 追逐视角：地面视角，会快速拉近并对准载具                                                       |
+| 58  | -                          | MODE_DW_BIRDY          | 追逐视角：水平飞越载具的过场视角                                                               |
+| 59  | -                          | MODE_DW_PLANE_SPOTTER  | 追逐视角（仅限飞行载具）：地面视角，仰视空中载具                                               |
+| 62  | -                          | MODE_DW_PLANECAM1      | 追逐视角（仅限飞行载具）：垂直飞越空中载具的过场视角                                           |
+| 63  | -                          | MODE_DW_PLANECAM2      | 追逐视角（仅限飞行载具）：水平飞越空中载具的过场视角（类似 58 和 62）                          |
+| 64  | -                          | MODE_DW_PLANECAM3      | 追逐视角（仅限飞行载具）：聚焦飞行员的视角，类似于步行时按下"向后看"键的效果，但应用于飞行载具 |

@@ -1,28 +1,24 @@
 ---
-title: Bullet Hit Types
-sidebar_label: Bullet Hit Types
+title: 子弹命中类型
+sidebar_label: 子弹命中类型
 ---
 
 :::info
 
-This page contains all of the bullet hit types which are used by [OnPlayerWeaponShot](../callbacks/OnPlayerWeaponShot).
+本页面包含所有由[OnPlayerWeaponShot](../callbacks/OnPlayerWeaponShot)使用的子弹命中类型。
 
 :::
 
----
-
-| Value | Definition                    |
-| ----- | ----------------------------- |
-| 0     | BULLET_HIT_TYPE_NONE          |
-| 1     | BULLET_HIT_TYPE_PLAYER        |
-| 2     | BULLET_HIT_TYPE_VEHICLE       |
-| 3     | BULLET_HIT_TYPE_OBJECT        |
-| 4     | BULLET_HIT_TYPE_PLAYER_OBJECT |
-
----
+| 值  | 定义                                          |
+| --- | --------------------------------------------- |
+| 0   | 无命中（BULLET_HIT_TYPE_NONE）                |
+| 1   | 命中玩家（BULLET_HIT_TYPE_PLAYER）            |
+| 2   | 命中载具（BULLET_HIT_TYPE_VEHICLE）           |
+| 3   | 命中物体（BULLET_HIT_TYPE_OBJECT）            |
+| 4   | 命中玩家物体（BULLET_HIT_TYPE_PLAYER_OBJECT） |
 
 :::caution
 
-BULLET_HIT_TYPE_PLAYER is also called for NPCs. Actors are ignored by this callback and detects as BULLET_HIT_TYPE_NONE.
+BULLET_HIT_TYPE_PLAYER 同样适用于 NPC。该回调会忽略角色（Actor）并检测为 BULLET_HIT_TYPE_NONE。
 
 :::
