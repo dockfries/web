@@ -1,47 +1,53 @@
-**This guide contains a comprehensive guide on installing an open.mp server on Ubuntu or another Debian based Linux.
-Whether you're a beginner or just looking to refresh your knowledge, this guide may have something useful for you!**
+---
+title: "Linux系统安装服务器"
+sidebar_label: "Linux系统安装服务器"
+description: 本指南提供在 Linux 系统上安装 open.mp 服务器的完整教程。
+---
+
+**本指南提供在 Ubuntu 或其他基于 Debian 的 Linux 系统上安装 open.mp 服务器的完整教程。  
+无论您是新手还是需要温故知新，本指南都可能为您提供有价值的信息！**
 
 :::warning
 
-If you are using the SA:MP server and didn't convert to open.mp yet, **[please stop here and read this guide first.](https://www.open.mp/docs/server/Installation)**
+若您仍在使用 SA:MP 服务器且尚未迁移至 open.mp，**[请立即停止并优先阅读此迁移指南](https://www.open.mp/docs/server/Installation)**。
 
 :::
 
 :::note
 
-If you are using the FCNPC plugin, please stop for now because this plugin does not work for open.mp currently.
+若您正在使用 FCNPC 插件，请暂停操作，因该插件目前暂不支持 open.mp。
 
 :::
 
-## Prerequisites
+## 先决条件
 
-Before starting, you should have:
+开始前请确保具备：
 
-- A machine running Ubuntu (20.04 or later recommended) or another Debian based Linux;
-- WinSCP or Filezilla for file transfers;
-- PuTTY or your hosting SSH solution;
+- 运行 Ubuntu（推荐 20.04 或更新版本）或其他 Debian 系 Linux 的机器
+- 用于文件传输的 WinSCP 或 Filezilla
+- PuTTY 或您的主机商 SSH 解决方案
 
 :::note
 
-If you install WinSCP, the installer will prompt you to install PuTTY!
-It's up to you if you want to install it or not, but you can always download it later!
+安装 WinSCP 时，安装程序会提示安装 PuTTY！  
+您可选择立即安装或后续单独下载，此选项不影响后续操作。
 
 :::
 
-## Phase 1: Preparing the Environment
+## 第一阶段：环境准备
 
-1. Connecting via SSH:
-   - Use PuTTY or your hosting SSH solution to connect to your instance.
+1. 通过 SSH 连接：
+   - 使用 PuTTY 或主机商提供的 SSH 方案连接您的服务器实例
 
 :::note
 
-Seek online guides or your hosting provider's documentation if you're unsure how to connect to your Linux Instance.
+若不确定如何连接 Linux 实例，请参考在线教程或主机商文档。
 
 :::
 
-2. Updating your Linux Instance:
+2. 更新系统组件：
 
-   - Before proceeding, let's ensure your system is up to date by running:
+   - 执行以下命令确保系统处于最新状态：
 
    ```
    sudo apt update
@@ -51,39 +57,39 @@ Seek online guides or your hosting provider's documentation if you're unsure how
    sudo apt upgrade
    ```
 
-3. Creating a secure service account:
+3. 创建安全服务账户：
 
-   - For security reasons, we should create a dedicated service account without a home directory:
+   - 为安全起见，创建无主目录的专用服务账户：
 
    ```
    sudo useradd -M svc-omp-server
    ```
 
-4. Locking the service sccount:
+4. 锁定服务账户：
 
-   - Let's prevent the service account from being used for login:
+   - 禁止该服务账户用于登录：
 
    ```
    sudo usermod -L svc-omp-server
    ```
 
-5. Creating a directory for the server files:
+5. 创建服务器文件目录：
 
-   - We will use the /opt directory, this is the standard location for third-party applications:
+   - 使用标准第三方应用目录 /opt：
 
    ```
    sudo mkdir /opt/omp-server
    ```
 
-6. Setting permissions for the directory:
+6. 设置目录权限：
 
-   - Changing the group of the directory to match the service account:
+   - 变更目录所属组以匹配服务账户：
 
    ```
    sudo chgrp svc-omp-server /opt/omp-server
    ```
 
-   - Setting the g+s flag so new files inherit the correct group and remove access for others:
+   - 设置 g+s 标志使新文件继承正确组权限，并移除其他用户访问：
 
    ```
    sudo chmod g+s /opt/omp-server
@@ -95,19 +101,19 @@ Seek online guides or your hosting provider's documentation if you're unsure how
 
 <hr />
 
-## Phase 2: Installing open.mp Server Files
+## 第二阶段：安装 open.mp 服务器文件
 
-7. Let's navigate to the server directory:
+7. 进入服务器目录：
 
-   - We need to move to the /opt/omp-server directory where the server will be stored:
+   - 切换至服务器文件存储位置：
 
    ```
    cd /opt/omp-server
    ```
 
-8. Downloading the open.mp server files:
+8. 下载服务器文件：
 
-   - Download the latest release of the open.mp server:
+   - 获取 open.mp 服务器最新版本：
 
    ```
    sudo -u svc-omp-server wget https://github.com/openmultiplayer/open.mp/releases/download/vX.X.X.XXXX/open.mp-linux-x86.tar.gz
@@ -115,14 +121,14 @@ Seek online guides or your hosting provider's documentation if you're unsure how
 
 :::warning
 
-**You should ALWAYS check for the latest release at the open.mp GitHub Releases page!**
+**请务必通过 open.mp GitHub 发布页面确认最新版本！**  
 [https://github.com/openmultiplayer/open.mp/releases](https://github.com/openmultiplayer/open.mp/releases)
 
 :::
 
-9. Extracting the server files:
+9. 解压服务器文件：
 
-   - Once downloaded, extract the files:
+   - 下载完成后执行解压：
 
    ```
    sudo -u svc-omp-server tar -xzf open.mp-linux-x86.tar.gz
@@ -130,11 +136,11 @@ Seek online guides or your hosting provider's documentation if you're unsure how
 
 <hr />
 
-## Phase 3: Configuring and Starting the Server
+## 第三阶段：配置与启动服务器
 
-10. Installing the required x86 libraries:
+10. 安装 x86 依赖库：
 
-    - Since the server runs as a 32-bit application, you need to enable 32-bit architecture support:
+    - 因服务器为 32 位应用，需启用架构支持：
 
     ```
     sudo dpkg --add-architecture i386
@@ -148,9 +154,9 @@ Seek online guides or your hosting provider's documentation if you're unsure how
     sudo apt install libc6:i386
     ```
 
-11. Making the server executable:
+11. 设置可执行权限：
 
-    - Change the permissions so the server can be executed (only required once!):
+    - 仅需执行一次的权限变更：
 
     ```
     cd /opt/omp-server/Server/
@@ -160,48 +166,48 @@ Seek online guides or your hosting provider's documentation if you're unsure how
     sudo chmod +x omp-server
     ```
 
-12. Starting the server:
+12. 启动服务器：
 
-    - Use the following command to start the server in the background:
+    - 使用以下命令后台启动：
 
     ```
     nohup ./omp-server &
     ```
 
-    - The terminal will output a process ID (PID). Write this number down for future reference.
+    - 终端将显示进程 ID (PID)，请记录该数字以备后续使用
 
 <hr />
 
-## Phase 4: Managing the Server
+## 第四阶段：服务器管理
 
-13. Stopping the server:
+13. 停止服务器：
 
-    - To stop the server, use the PID from step 12 and run:
+    - 使用步骤 12 记录的 PID 终止进程：
 
     ```
     sudo kill <PID>
     ```
 
-14. Finding the Process ID (if forgotten):
+14. 查询进程 ID（若遗忘）：
 
-    - If you forget the process ID, run:
+    - 通过系统监控工具定位：
 
     ```
     top
     ```
 
-    - Look for the omp-server process in the list, note the PID, press 'Q' to quit, and then kill the process as shown in step 13.
+    - 查找 omp-server 进程并记录 PID，按 Q 退出后执行步骤 13 操作
 
 <hr />
 
-## Phase 5: Uploading Your Gamemode and Files
+## 第五阶段：上传游戏模式与文件
 
-15. Upload your custom gamemodes and scripts:
-    - Use WinSCP or Filezilla to transfer your gamemodes and scripts to the /opt/omp-server directory.
-      Important: Make sure to use .so files for Linux plugins, as .dll files are only supported on Windows.
+15. 上传自定义内容：
+    - 使用 WinSCP 或 Filezilla 将游戏模式与脚本传输至 /opt/omp-server 目录  
+      重要提示：Linux 插件请使用 .so 文件，.dll 文件仅限 Windows 系统
 
-## Help
+## 获取帮助
 
-If you're still experiencing issues setting up the server, join the official open.mp Discord server: [https://discord.gg/samp](https://discord.gg/samp)
+若仍遇到服务器配置问题，请加入 open.mp 官方 Discord 服务器：[https://discord.gg/samp](https://discord.gg/samp)
 
-Post your question in the [#openmp-support](https://discord.com/channels/231799104731217931/966398440051445790) channel and mention this guide so we can improve it.
+在 [#openmp-support](https://discord.com/channels/231799104731217931/966398440051445790) 频道提问时请提及本指南，以便我们持续改进。

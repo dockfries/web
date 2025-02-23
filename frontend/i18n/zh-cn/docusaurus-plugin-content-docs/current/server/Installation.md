@@ -1,120 +1,126 @@
-**This tutorial is for those who want to transfer their gamemode from SA:MP server to open.mp server.**
+---
+title: "从 SA:MP 服务器迁移游戏模式到 open.mp 的完整指南"
+sidebar_label: "服务器迁移指南"
+description: 本教程面向需要将游戏模式从 SA:MP 服务器迁移至 open.mp 服务器的开发者。
+---
+
+**本教程适用于需要将游戏模式从 SA:MP 服务器迁移至 open.mp 服务器的开发者**
 
 :::note
 
-If you are using the FCNPC plugin, please stop for now because this plugin does not work for open.mp currently.
+如果您正在使用 FCNPC 插件，请暂时停止使用，因为该插件目前不兼容 open.mp。
 
 :::
 
-## Step 1
+## 步骤 1
 
-Download the latest version of open.mp server files from [https://github.com/openmultiplayer/open.mp/releases](https://github.com/openmultiplayer/open.mp/releases/latest)
+从 [https://github.com/openmultiplayer/open.mp/releases](https://github.com/openmultiplayer/open.mp/releases/latest) 下载最新版 open.mp 服务器文件
 
 ![](<https://raw.githubusercontent.com/adib-yg/openmp-server-installation/refs/heads/main/screenshots/Screenshot%20(1).png>)
 
-- `open.mp-win-x86.zip` **Windows** Server
-- `open.mp-linux-x86.tar.gz` **Linux** Server
-- `open.mp-linux-x86-dynssl.tar.gz` **Linux** Server (Dynamic SSL)
+- `open.mp-win-x86.zip` **Windows** 服务器
+- `open.mp-linux-x86.tar.gz` **Linux** 服务器
+- `open.mp-linux-x86-dynssl.tar.gz` **Linux** 服务器 (动态 SSL)
 
-## Step 2
+## 步骤 2
 
-Extract the `.zip` or `.tar.gz` archive contents on your disk
+解压 `.zip` 或 `.tar.gz` 压缩包到本地磁盘
 
 ![](<https://raw.githubusercontent.com/adib-yg/openmp-server-installation/refs/heads/main/screenshots/Screenshot%20(3).png>)
 
 :::note
 
-- **components:** open.mp components
-- **filterscripts:** Your server filter script files (side scripts)
-- **gamemodes:** Your server game mode files (main scripts)
-- **models:** Your server custom models (textures .txd .dff)
-- **plugins:** Your server plugin files (legacy plugins)
-- **qawno:** Pawn editor program and your server includes
-- **scriptfiles:** INI files or other stuff.
-- **bans.json:** Ban list file
-- **config.json:** Server configuration file
-- **omp-server.exe:** open.mp server program
-- **omp-server.pdb:** open.mp server debugging file
+- **components:** open.mp 核心组件
+- **filterscripts:** 服务器滤镜脚本文件（辅助脚本）
+- **gamemodes:** 服务器游戏模式文件（主脚本）
+- **models:** 服务器自定义模型（纹理 .txd .dff）
+- **plugins:** 服务器插件文件（传统插件）
+- **qawno:** Pawn 编辑器程序及包含文件
+- **scriptfiles:** INI 配置文件及其他资源
+- **bans.json:** 封禁列表文件
+- **config.json:** 服务器配置文件
+- **omp-server.exe:** open.mp 服务器主程序
+- **omp-server.pdb:** open.mp 调试文件
 
 :::
 
-## Step 3
+## 步骤 3
 
-Put your gamemode `.pwn` file in the **gamemodes** folder
+将游戏模式 `.pwn` 文件放入 **gamemodes** 文件夹
 
-## Step 4
+## 步骤 4
 
-Put required includes (e.g. `sscanf2.inc`, `streamer.inc`) in the **qawno/include** folder
+将所需包含文件（如 `sscanf2.inc`, `streamer.inc`）放入 **qawno/include** 目录
 
 :::note
 
-If you are using the YSI-4 includes in your game mode, update to [YSI-5.x](https://github.com/pawn-lang/YSI-Includes/releases)
+如果使用 YSI-4 包含文件，请升级至 [YSI-5.x](https://github.com/pawn-lang/YSI-Includes/releases)
 
 :::
 
-## Step 5
+## 步骤 5
 
-Put required plugins (e.g. `sscanf.dll`, `streamer.dll`) in the **plugins** folder
+将所需插件（如 `sscanf.dll`, `streamer.dll`）放入 **plugins** 文件夹
 
 <hr />
 
 :::warning
 
-If you use the following plugins in table, you must put a version of the plugin that is compatible with omp!
+下表所列插件必须使用兼容 omp 的版本！
 
-Put the following plugins in the **../components** folder, not in the **../plugins** folder!
+请将以下插件放入 **../components** 目录而非 **../plugins**！
 
 :::
 
-| Plugin            | OMP                                                                          |
+| 插件              | OMP 兼容版本                                                                 |
 | ----------------- | ---------------------------------------------------------------------------- |
 | Pawn.CMD          | https://github.com/katursis/Pawn.CMD/releases/tag/3.4.0-omp                  |
 | Pawn.RakNet       | https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp               |
 | sampvoice         | https://github.com/AmyrAhmady/sampvoice/releases/tag/v3.1.5-omp              |
 | discord-connector | https://github.com/maddinat0r/samp-discord-connector/releases/tag/v0.3.6-pre |
-| SKY               | Use Pawn.RakNet instead                                                      |
-| YSF               | You don't need YSF because open.mp already declared most of the same natives |
-| FCNPC             | Currently not supported                                                      |
+| SKY               | 改用 Pawn.RakNet                                                             |
+| YSF               | 无需使用，open.mp 已原生支持大部分功能                                       |
+| FCNPC             | 当前暂不支持                                                                 |
 
-## Step 6
+## 步骤 6
 
-Open the qawno IDE program located at **Server/qawno/qawno.exe**
+运行位于 **Server/qawno/qawno.exe** 的集成开发环境
 
 ![](<https://raw.githubusercontent.com/adib-yg/openmp-server-installation/refs/heads/main/screenshots/Screenshot%20(5).png>)
 
-## Step 7
+## 步骤 7
 
-Press **CTRL + O** then go to the **../gamemodes** folder and open your gamemode `.pwn` file
+按 **CTRL + O** 打开 **../gamemodes** 目录下的游戏模式 `.pwn` 文件
 
-## Step 8
+## 步骤 8
 
-Find
+查找
 
 ```pawn
 #include <a_samp>
 ```
 
-replace with
+替换为
 
 ```pawn
 #include <open.mp>
 ```
 
-then press **F5** to compile.
+按 **F5** 编译
 
-## Step 9
+## 步骤 9
 
-Open **[config.json](https://www.open.mp/docs/server/config.json)** file with Notepad or other IDEs
+使用记事本或其他 IDE 打开 **[config.json](https://www.open.mp/docs/server/config.json)** 文件
 
 ![](<https://raw.githubusercontent.com/adib-yg/openmp-server-installation/refs/heads/main/screenshots/Screenshot%20(9).png>)
 
-## Step 10
+## 步骤 10
 
-Edit **config.json**
+编辑 **config.json**
 
 ![](<https://raw.githubusercontent.com/adib-yg/openmp-server-installation/refs/heads/main/screenshots/Screenshot%20(11).png>)
 
-Find
+查找
 
 ```json
 "main_scripts": [
@@ -122,23 +128,23 @@ Find
 ],
 ```
 
-replace with
+替换为
 
 ```json
 "main_scripts": [
-    "your_gamemode_amx_file_name 1"
+    "你的游戏模式_amx_文件名 1"
 ],
 ```
 
 <hr />
 
-Find
+查找
 
 ```json
 "legacy_plugins": [],
 ```
 
-Specify required plugins
+添加所需插件
 
 ```json
 "legacy_plugins": [
@@ -153,23 +159,23 @@ Specify required plugins
 
 <hr />
 
-Find
+查找
 
 ```json
 "side_scripts": []
 ```
 
-Specify your filterscripts
+添加滤镜脚本
 
 ```json
 "side_scripts": [
-    "filterscripts/file_name"
+    "filterscripts/文件名"
 ]
 ```
 
 <hr />
 
-Find
+查找
 
 ```json
 "rcon": {
@@ -179,7 +185,7 @@ Find
 },
 ```
 
-Enter strong password for rcon password:
+设置高强度 RCON 密码：
 
 ```json
 "rcon": {
@@ -189,21 +195,21 @@ Enter strong password for rcon password:
 },
 ```
 
-Press **CTRL + S** to save changes.
+按 **CTRL + S** 保存修改
 
 :::tip
 
-There is a guide on how to convert `server.cfg` to `config.json` at https://www.open.mp/docs/server/config.json
+查看如何将 `server.cfg` 转换为 `config.json` 的指南：https://www.open.mp/docs/server/config.json
 
 :::
 
-## Step 11
+## 步骤 11
 
-Run the server
+启动服务器
 
 - **Windows**
 
-Open the `omp-server.exe` program
+运行 `omp-server.exe`
 
 ![](<https://raw.githubusercontent.com/adib-yg/openmp-server-installation/refs/heads/main/screenshots/Screenshot%20(10).png>)
 
@@ -213,15 +219,15 @@ Open the `omp-server.exe` program
 ./omp-server
 ```
 
-## Compiler errors and warnings
+## 编译错误与警告处理
 
-- **warning 213: tag mismatch: expected tag "?", but found none ("\_")**:
+- **warning 213: 标签不匹配: 预期标签 "?"，但未找到 ("\_")**：
 
-For example:
+示例：
 
 ```pawn
 TogglePlayerControllable(playerid, 1);
-// ->
+// 改为 ->
 TogglePlayerControllable(playerid, true);
 ```
 
@@ -229,7 +235,7 @@ TogglePlayerControllable(playerid, true);
 
 ```pawn
 TextDrawFont(textid, 1);
-// ->
+// 改为 ->
 TextDrawFont(textid, TEXT_DRAW_FONT_1);
 ```
 
@@ -237,33 +243,33 @@ TextDrawFont(textid, TEXT_DRAW_FONT_1);
 
 ```pawn
 GivePlayerWeapon(playerid, 4, 1);
-// ->
+// 改为 ->
 GivePlayerWeapon(playerid, WEAPON_KNIFE, 1);
 ```
 
-But you can ignore it for now:
+可暂时忽略：
 
 ```pawn
 #define NO_TAGS
 #include <open.mp>
 
-// If the warning still occurs
-// Use #pragma warning disable 213
+// 若警告仍存在
+// 使用 #pragma warning disable 213
 ```
 
 <br />
 
 <hr />
 
-- **warning 234: function is deprecated (symbol "TextDrawColor") Use `TextDrawColour**
+- **warning 234: 函数已弃用 (符号 "TextDrawColor") 请使用 `TextDrawColour`**
 
-Press **CTRL + F** in qawno and replace all `TextDrawColor` to `TextDrawColour`
+在 qawno 中按 **CTRL + F** 全局替换 `TextDrawColor` 为 `TextDrawColour`
 
 ![](<https://raw.githubusercontent.com/adib-yg/openmp-server-installation/refs/heads/main/screenshots/Screenshot%20(7).png>)
 
 <br />
 
-Or if you prefer you can use the mixed spellings:
+或启用混合拼写模式：
 
 ```pawn
 #define MIXED_SPELLINGS
@@ -274,32 +280,34 @@ Or if you prefer you can use the mixed spellings:
 
 <hr />
 
-- **warning 234: function is deprecated (symbol "GetPlayerPoolSize") This function is fundamentally broken.**
-- **warning 234: function is deprecated (symbol "GetVehiclePoolSize") This function is fundamentally broken.**
-- **warning 234: function is deprecated (symbol "GetActorPoolSize") This function is fundamentally broken.**
+- **warning 234: 函数已弃用 (符号 "GetPlayerPoolSize") 此函数存在根本性缺陷**
+- **warning 234: 函数已弃用 (符号 "GetVehiclePoolSize") 此函数存在根本性缺陷**
+- **warning 234: 函数已弃用 (符号 "GetActorPoolSize") 此函数存在根本性缺陷**
 
-Replace `GetPlayerPoolSize()` with `MAX_PLAYERS`
+替换方案：
 
-Replace `GetVehiclePoolSize()` with `MAX_VEHICLES`
+`GetPlayerPoolSize()` → `MAX_PLAYERS`
 
-Replace `GetActorPoolSize()` with `MAX_ACTORS`
+`GetVehiclePoolSize()` → `MAX_VEHICLES`
 
-<hr />
-
-- **warning 234: function is deprecated (symbol "SHA256_PassHash") Use BCrypt for hashing passwords**
-
-Use the [samp-bcrypt](https://github.com/Sreyas-Sreelal/samp-bcrypt) plugin for hashing passwords. SHA-256 is not secure.
+`GetActorPoolSize()` → `MAX_ACTORS`
 
 <hr />
 
-- **warning 214: possibly a "const" array argument was intended: "?"**
-- **warning 239: literal array/string passed to a non-const parameter**
+- **warning 234: 函数已弃用 (符号 "SHA256_PassHash") 请使用 BCrypt 进行密码哈希**
 
-For example:
+推荐使用 [samp-bcrypt](https://github.com/Sreyas-Sreelal/samp-bcrypt) 插件，SHA-256 已不安全
+
+<hr />
+
+- **warning 214: 可能需要 "const" 数组参数: "?"**
+- **warning 239: 字面量数组/字符串传递给非 const 参数**
+
+示例修正：
 
 ```pawn
 public MyFunction(string[])
-// ->
+// 改为 ->
 public MyFunction(const string[])
 ```
 
@@ -307,13 +315,13 @@ public MyFunction(const string[])
 
 <hr />
 
-- **error 025: function heading differs from prototype**
+- **error 025: 函数头与原型声明不匹配**
 
-For example:
+示例修正：
 
 ```pawn
 public OnPlayerDeath(playerid, killerid, reason)
-// ->
+// 改为 ->
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 ```
 
@@ -321,7 +329,7 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 
 ```pawn
 public OnPlayerEditAttachedObject(playerid, response, index, modelid, boneid, Float:fOffsetX, Float:fOffsetY, Float:fOffsetZ, Float:fRotX, Float:fRotY, Float:fRotZ, Float:fScaleX, Float:fScaleY, Float:fScaleZ)
-// ->
+// 改为 ->
 public OnPlayerEditAttachedObject(playerid, EDIT_RESPONSE:response, index, modelid, boneid, Float:fOffsetX, Float:fOffsetY, Float:fOffsetZ, Float:fRotX, Float:fRotY, Float:fRotZ, Float:fScaleX, Float:fScaleY, Float:fScaleZ)
 ```
 
@@ -331,65 +339,65 @@ public OnPlayerEditAttachedObject(playerid, EDIT_RESPONSE:response, index, model
 
 :::note
 
-There is also an upgrade tool that attempts to find old untagged and const-incorrect code and upgrade it.
+open.mp 提供自动升级工具用于修复旧版代码问题：
 
 https://github.com/openmultiplayer/upgrade
 
-Already included in `/qawno/upgrader` folder.
+工具已包含在 `/qawno/upgrader` 目录
 
 :::
 
-## Runtime errors and warnings
+## 运行时错误与警告
 
 ```
-[Info] Couldn't announce legacy network to open.mp list.
-[Info] [Server Error] Status: 406
-[Info] [Server Error] Message: {"error":"failed to query server: socket read timed out"}
-[Info] This won't affect the server's behaviour.
+[信息] 无法向 open.mp 列表注册传统网络
+[信息] [服务器错误] 状态码: 406
+[信息] [服务器错误] 消息: {"error":"failed to query server: socket read timed out"}
+[信息] 此错误不会影响服务器运行
 ```
 
-- Your server is not accessible from the open.mp website.
-- You are probably running the server locally.
-- The firewall has blocked the connection.
+- 服务器无法被 open.mp 网站访问
+- 可能运行在本地环境
+- 防火墙可能阻止了连接
 
-**This warning will not affect the behavior of the server.**
+**此警告不会影响服务器正常运行**
 
 <br />
 
 <hr />
 
 ```
-[Warning] Insufficient specifiers given to `format`: "?" < 1
+[警告] format 格式说明符不足: "?" < 1
 ```
 
-The specifiers are less than the arguments you pass in the format. For example:
+格式字符串参数数量不匹配示例：
 
 ```pawn
 new string[32];
 new mp[32] = ".MP";
 
 format(string, sizeof(string), "OPEN", mp);
-// [Warning] Insufficient specifiers given to `format`: "OPEN" < 1
+// [警告] format 格式说明符不足: "OPEN" < 1
 
-// Should be:
+// 正确写法：
 format(string, sizeof(string), "OPEN%s", mp);
 //                                  ^^
 ```
 
-## Useful documents
+## 参考文档
 
-Check out the new scripting functions and callbacks: https://www.open.mp/docs/server/omp-functions
+查看新脚本函数与回调：https://www.open.mp/docs/server/omp-functions
 
-If you are completely new to Pawn programming: [readme-beginner](https://github.com/openmultiplayer/omp-stdlib/blob/master/documentation/readme-beginner.md)
+新手入门指南：[readme-beginner](https://github.com/openmultiplayer/omp-stdlib/blob/master/documentation/readme-beginner.md)
 
-If you are an intermediate at Pawn programming: [readme-intermediate](https://github.com/openmultiplayer/omp-stdlib/blob/master/documentation/readme-intermediate.md)
+中级开发者指南：[readme-intermediate](https://github.com/openmultiplayer/omp-stdlib/blob/master/documentation/readme-intermediate.md)
 
-If you are an expert at Pawn programming: [readme-expert](https://github.com/openmultiplayer/omp-stdlib/blob/master/documentation/readme-expert.md)
+高级开发者指南：[readme-expert](https://github.com/openmultiplayer/omp-stdlib/blob/master/documentation/readme-expert.md)
 
-Blog post: [Porting to open.mp](https://www.open.mp/blog/porting)
+技术博客：[迁移至 open.mp](https://www.open.mp/blog/porting)
 
-## Help
+## 获取帮助
 
-If you still have issues running the server, please join the official open.mp Discord server: https://discord.gg/samp
+如遇其他问题，请加入 open.mp 官方 Discord 服务器：https://discord.gg/samp
 
-Ask in [#openmp-support](https://discord.com/channels/231799104731217931/966398440051445790) channel.
+在 [#openmp-support](https://discord.com/channels/231799104731217931/966398440051445790) 频道咨询

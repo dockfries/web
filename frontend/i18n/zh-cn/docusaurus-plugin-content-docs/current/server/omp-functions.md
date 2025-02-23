@@ -1,14 +1,14 @@
 ---
-title: open.mp functions
-sidebar_label: open.mp functions
-description: New functions and callbacks.
+title: "open.mp 新增函数"
+sidebar_label: "open.mp 新增函数"
+description: open.mp 新增函数与回调说明。
 ---
 
-This page contains all the functions and callbacks that were added in open.mp
+本文档完整收录 open.mp 版本新增的所有函数与回调
 
-## Player
+## 玩家相关
 
-| Name                                                                                |
+| 名称                                                                                |
 | ----------------------------------------------------------------------------------- |
 | [TogglePlayerWidescreen](../scripting/functions/TogglePlayerWidescreen)             |
 | [IsPlayerWidescreenToggled](../scripting/functions/IsPlayerWidescreenToggled)       |
@@ -55,9 +55,9 @@ This page contains all the functions and callbacks that were added in open.mp
 | [OnScriptLoadPlayer](../scripting/callbacks/OnScriptLoadPlayer)                     |
 | [OnScriptUnloadPlayer](../scripting/callbacks/OnScriptUnloadPlayer)                 |
 
-## Object
+## 物体相关
 
-| Name                                                                                          |
+| 名称                                                                                          |
 | --------------------------------------------------------------------------------------------- |
 | [SetObjectNoCameraCollision](../scripting/functions/SetObjectNoCameraCollision)               |
 | [SetPlayerObjectNoCameraCollision](../scripting/functions/SetPlayerObjectNoCameraCollision)   |
@@ -98,9 +98,9 @@ This page contains all the functions and callbacks that were added in open.mp
 | [HideObjectForPlayer](../scripting/functions/HideObjectForPlayer)                             |
 | [ShowObjectForPlayer](../scripting/functions/ShowObjectForPlayer)                             |
 
-## Pickup
+## 拾取物相关
 
-| Name                                                                              |
+| 名称                                                                              |
 | --------------------------------------------------------------------------------- |
 | [CreatePlayerPickup](../scripting/functions/CreatePlayerPickup)                   |
 | [DestroyPlayerPickup](../scripting/functions/DestroyPlayerPickup)                 |
@@ -134,9 +134,9 @@ This page contains all the functions and callbacks that were added in open.mp
 | [OnPlayerPickupStreamIn](../scripting/callbacks/OnPlayerPickupStreamIn)           |
 | [OnPlayerPickupStreamOut](../scripting/callbacks/OnPlayerPickupStreamOut)         |
 
-## Vehicle
+## 载具相关
 
-| Name                                                                                |
+| 名称                                                                                |
 | ----------------------------------------------------------------------------------- |
 | [ChangeVehicleColours](../scripting/functions/ChangeVehicleColours)                 |
 | [GetPlayerLastSyncedVehicleID](../scripting/functions/GetPlayerLastSyncedVehicleID) |
@@ -180,9 +180,9 @@ This page contains all the functions and callbacks that were added in open.mp
 | [VehicleCanHaveComponent](../scripting/functions/VehicleCanHaveComponent)           |
 | [GetVehicles](../scripting/functions/GetVehicles)                                   |
 
-## TextDraw
+## 文本绘图
 
-| Name                                                                                                    |
+| 名称                                                                                                    |
 | ------------------------------------------------------------------------------------------------------- |
 | [TextDrawColour](../scripting/functions/TextDrawColour)                                                 |
 | [TextDrawBoxColour](../scripting/functions/TextDrawBoxColour)                                           |
@@ -235,219 +235,3 @@ This page contains all the functions and callbacks that were added in open.mp
 | [PlayerTextDrawIsBox](../scripting/functions/PlayerTextDrawIsBox)                                       |
 | [PlayerTextDrawIsProportional](../scripting/functions/PlayerTextDrawIsProportional)                     |
 | [PlayerTextDrawIsSelectable](../scripting/functions/PlayerTextDrawIsSelectable)                         |
-| [PlayerTextDrawSetPos](../scripting/functions/PlayerTextDrawSetPos)                                     |
-| [PlayerTextDrawSetPreviewVehicleColours](../scripting/functions/PlayerTextDrawSetPreviewVehicleColours) |
-| [IsValidPlayerTextDraw](../scripting/functions/IsValidPlayerTextDraw)                                   |
-| [IsPlayerTextDrawVisible](../scripting/functions/IsPlayerTextDrawVisible)                               |
-
-## GameText
-
-| Name                                                                  |
-| --------------------------------------------------------------------- |
-| [GetGameText](../scripting/functions/GetGameText)                     |
-| [HasGameText](../scripting/functions/HasGameText)                     |
-| [HideGameTextForAll](../scripting/functions/HideGameTextForAll)       |
-| [HideGameTextForPlayer](../scripting/functions/HideGameTextForPlayer) |
-
-## GangZone
-
-| Name                                                                                      |
-| ----------------------------------------------------------------------------------------- |
-| [IsValidGangZone](../scripting/functions/IsValidGangZone)                                 |
-| [IsPlayerInGangZone](../scripting/functions/IsPlayerInGangZone)                           |
-| [IsGangZoneVisibleForPlayer](../scripting/functions/IsGangZoneVisibleForPlayer)           |
-| [GangZoneGetColourForPlayer](../scripting/functions/GangZoneGetColourForPlayer)           |
-| [GangZoneGetFlashColourForPlayer](../scripting/functions/GangZoneGetFlashColourForPlayer) |
-| [IsGangZoneFlashingForPlayer](../scripting/functions/IsGangZoneFlashingForPlayer)         |
-| [GangZoneGetPos](../scripting/functions/GangZoneGetPos)                                   |
-| [UseGangZoneCheck](../scripting/functions/UseGangZoneCheck)                               |
-| [CreatePlayerGangZone](../scripting/functions/CreatePlayerGangZone)                       |
-| [PlayerGangZoneDestroy](../scripting/functions/PlayerGangZoneDestroy)                     |
-| [PlayerGangZoneShow](../scripting/functions/PlayerGangZoneShow)                           |
-| [PlayerGangZoneHide](../scripting/functions/PlayerGangZoneHide)                           |
-| [PlayerGangZoneFlash](../scripting/functions/PlayerGangZoneFlash)                         |
-| [PlayerGangZoneStopFlash](../scripting/functions/PlayerGangZoneStopFlash)                 |
-| [PlayerGangZoneGetColour](../scripting/functions/PlayerGangZoneGetColour)                 |
-| [PlayerGangZoneGetFlashColour](../scripting/functions/PlayerGangZoneGetFlashColour)       |
-| [PlayerGangZoneGetPos](../scripting/functions/PlayerGangZoneGetPos)                       |
-| [IsValidPlayerGangZone](../scripting/functions/IsValidPlayerGangZone)                     |
-| [IsPlayerInPlayerGangZone](../scripting/functions/IsPlayerInPlayerGangZone)               |
-| [IsPlayerGangZoneVisible](../scripting/functions/IsPlayerGangZoneVisible)                 |
-| [IsPlayerGangZoneFlashing](../scripting/functions/IsPlayerGangZoneFlashing)               |
-| [UsePlayerGangZoneCheck](../scripting/functions/UsePlayerGangZoneCheck)                   |
-| [OnPlayerEnterGangZone](../scripting/callbacks/OnPlayerEnterGangZone)                     |
-| [OnPlayerLeaveGangZone](../scripting/callbacks/OnPlayerLeaveGangZone)                     |
-| [OnPlayerEnterPlayerGangZone](../scripting/callbacks/OnPlayerEnterPlayerGangZone)         |
-| [OnPlayerLeavePlayerGangZone](../scripting/callbacks/OnPlayerLeavePlayerGangZone)         |
-| [OnPlayerClickGangZone](../scripting/callbacks/OnPlayerClickGangZone)                     |
-| [OnPlayerClickPlayerGangZone](../scripting/callbacks/OnPlayerClickPlayerGangZone)         |
-
-## Checkpoint
-
-| Name                                                                                |
-| ----------------------------------------------------------------------------------- |
-| [IsPlayerCheckpointActive](../scripting/functions/IsPlayerCheckpointActive)         |
-| [GetPlayerCheckpoint](../scripting/functions/GetPlayerCheckpoint)                   |
-| [IsPlayerRaceCheckpointActive](../scripting/functions/IsPlayerRaceCheckpointActive) |
-| [GetPlayerRaceCheckpoint](../scripting/functions/GetPlayerRaceCheckpoint)           |
-
-## Actor
-
-| Name                                                          |
-| ------------------------------------------------------------- |
-| [SetActorSkin](../scripting/functions/SetActorSkin)           |
-| [GetActorSkin](../scripting/functions/GetActorSkin)           |
-| [GetActorAnimation](../scripting/functions/GetActorAnimation) |
-| [GetActorSpawnInfo](../scripting/functions/GetActorSpawnInfo) |
-| [GetActors](../scripting/functions/GetActors)                 |
-
-## 3D TextLabel
-
-| Name                                                                                        |
-| ------------------------------------------------------------------------------------------- |
-| [Is3DTextLabelStreamedIn](../scripting/functions/Is3DTextLabelStreamedIn)                   |
-| [Get3DTextLabelText](../scripting/functions/Get3DTextLabelText)                             |
-| [Get3DTextLabelColor](../scripting/functions/Get3DTextLabelColor)                           |
-| [Get3DTextLabelColour](../scripting/functions/Get3DTextLabelColour)                         |
-| [Get3DTextLabelPos](../scripting/functions/Get3DTextLabelPos)                               |
-| [Set3DTextLabelDrawDistance](../scripting/functions/Set3DTextLabelDrawDistance)             |
-| [Get3DTextLabelDrawDistance](../scripting/functions/Get3DTextLabelDrawDistance)             |
-| [Get3DTextLabelLOS](../scripting/functions/Get3DTextLabelLOS)                               |
-| [Set3DTextLabelLOS](../scripting/functions/Set3DTextLabelLOS)                               |
-| [Get3DTextLabelVirtualWorld](../scripting/functions/Get3DTextLabelVirtualWorld)             |
-| [Set3DTextLabelVirtualWorld](../scripting/functions/Set3DTextLabelVirtualWorld)             |
-| [Get3DTextLabelAttachedData](../scripting/functions/Get3DTextLabelAttachedData)             |
-| [IsValid3DTextLabel](../scripting/functions/IsValid3DTextLabel)                             |
-| [IsValidPlayer3DTextLabel](../scripting/functions/IsValidPlayer3DTextLabel)                 |
-| [GetPlayer3DTextLabelText](../scripting/functions/GetPlayer3DTextLabelText)                 |
-| [GetPlayer3DTextLabelColor](../scripting/functions/GetPlayer3DTextLabelColor)               |
-| [GetPlayer3DTextLabelColour](../scripting/functions/GetPlayer3DTextLabelColour)             |
-| [GetPlayer3DTextLabelPos](../scripting/functions/GetPlayer3DTextLabelPos)                   |
-| [SetPlayer3DTextLabelDrawDistance](../scripting/functions/SetPlayer3DTextLabelDrawDistance) |
-| [GetPlayer3DTextLabelDrawDistance](../scripting/functions/GetPlayer3DTextLabelDrawDistance) |
-| [GetPlayer3DTextLabelLOS](../scripting/functions/GetPlayer3DTextLabelLOS)                   |
-| [GetPlayer3DTextLabelVirtualWorld](../scripting/functions/GetPlayer3DTextLabelVirtualWorld) |
-| [SetPlayer3DTextLabelVirtualWorld](../scripting/functions/SetPlayer3DTextLabelVirtualWorld) |
-| [GetPlayer3DTextLabelAttached](../scripting/functions/GetPlayer3DTextLabelAttached)         |
-| [GetPlayer3DTextLabelAttachedData](../scripting/functions/GetPlayer3DTextLabelAttachedData) |
-
-## Class
-
-| Name                                                              |
-| ----------------------------------------------------------------- |
-| [GetAvailableClasses](../scripting/functions/GetAvailableClasses) |
-| [EditPlayerClass](../scripting/functions/EditPlayerClass)         |
-| [GetPlayerClass](../scripting/functions/GetPlayerClass)           |
-
-## Menu
-
-| Name                                                              |
-| ----------------------------------------------------------------- |
-| [GetMenuItem](../scripting/functions/GetMenuItem)                 |
-| [GetMenuItems](../scripting/functions/GetMenuItems)               |
-| [GetMenuColumns](../scripting/functions/GetMenuColumns)           |
-| [GetMenuColumnHeader](../scripting/functions/GetMenuColumnHeader) |
-| [GetMenuPos](../scripting/functions/GetMenuPos)                   |
-| [GetMenuColumnWidth](../scripting/functions/GetMenuColumnWidth)   |
-| [IsMenuDisabled](../scripting/functions/IsMenuDisabled)           |
-| [IsMenuRowDisabled](../scripting/functions/IsMenuRowDisabled)     |
-
-## Database
-
-| Name                                                                                  |
-| ------------------------------------------------------------------------------------- |
-| [DB_ExecuteQuery](../scripting/functions/DB_ExecuteQuery)                             |
-| [DB_FreeResultSet](../scripting/functions/DB_FreeResultSet)                           |
-| [DB_GetDatabaseConnectionCount](../scripting/functions/DB_GetDatabaseConnectionCount) |
-| [DB_GetDatabaseResultSetCount](../scripting/functions/DB_GetDatabaseResultSetCount)   |
-| [DB_GetFieldCount](../scripting/functions/DB_GetFieldCount)                           |
-| [DB_GetFieldFloat](../scripting/functions/DB_GetFieldFloat)                           |
-| [DB_GetFieldFloatByName](../scripting/functions/DB_GetFieldFloatByName)               |
-| [DB_GetFieldInt](../scripting/functions/DB_GetFieldInt)                               |
-| [DB_GetFieldIntByName](../scripting/functions/DB_GetFieldIntByName)                   |
-| [DB_GetFieldName](../scripting/functions/DB_GetFieldName)                             |
-| [DB_GetFieldString](../scripting/functions/DB_GetFieldString)                         |
-| [DB_GetFieldStringByName](../scripting/functions/DB_GetFieldStringByName)             |
-| [DB_GetLegacyDBResult](../scripting/functions/DB_GetLegacyDBResult)                   |
-| [DB_GetMemHandle](../scripting/functions/DB_GetMemHandle)                             |
-| [DB_GetRowCount](../scripting/functions/DB_GetRowCount)                               |
-| [DB_SelectNextRow](../scripting/functions/DB_SelectNextRow)                           |
-
-## Core
-
-| Name                                                                            |
-| ------------------------------------------------------------------------------- |
-| [SetModeRestartTime](../scripting/functions/SetModeRestartTime)                 |
-| [GetModeRestartTime](../scripting/functions/GetModeRestartTime)                 |
-| [IsAdminTeleportAllowed](../scripting/functions/IsAdminTeleportAllowed)         |
-| [AreAllAnimationsEnabled](../scripting/functions/AreAllAnimationsEnabled)       |
-| [EnableAllAnimations](../scripting/functions/EnableAllAnimations)               |
-| [IsValidAnimationLibrary](../scripting/functions/IsValidAnimationLibrary)       |
-| [ArePlayerWeaponsAllowed](../scripting/functions/ArePlayerWeaponsAllowed)       |
-| [AreInteriorWeaponsAllowed](../scripting/functions/AreInteriorWeaponsAllowed)   |
-| [GetWeaponSlot](../scripting/functions/GetWeaponSlot)                           |
-| [GetWeather](../scripting/functions/GetWeather)                                 |
-| [GetWorldTime](../scripting/functions/GetWorldTime)                             |
-| [ToggleChatTextReplacement](../scripting/functions/ToggleChatTextReplacement)   |
-| [ChatTextReplacementToggled](../scripting/functions/ChatTextReplacementToggled) |
-| [AllowNickNameCharacter](../scripting/functions/AllowNickNameCharacter)         |
-| [IsNickNameCharacterAllowed](../scripting/functions/IsNickNameCharacterAllowed) |
-| [IsValidNickName](../scripting/functions/IsValidNickName)                       |
-| [ClearBanList](../scripting/functions/ClearBanList)                             |
-| [IsBanned](../scripting/functions/IsBanned)                                     |
-
-## Server Rule
-
-| Name                                                            |
-| --------------------------------------------------------------- |
-| [AddServerRule](../scripting/functions/AddServerRule)           |
-| [RemoveServerRule](../scripting/functions/RemoveServerRule)     |
-| [IsValidServerRule](../scripting/functions/IsValidServerRule)   |
-| [SetServerRule](../scripting/functions/SetServerRule)           |
-| [SetServerRuleFlags](../scripting/functions/SetServerRuleFlags) |
-| [GetServerRuleFlags](../scripting/functions/GetServerRuleFlags) |
-
-## Timer
-
-| Name                                                            |
-| --------------------------------------------------------------- |
-| [IsValidTimer](../scripting/functions/IsValidTimer)             |
-| [IsRepeatingTimer](../scripting/functions/IsRepeatingTimer)     |
-| [GetTimerInterval](../scripting/functions/GetTimerInterval)     |
-| [GetTimerRemaining](../scripting/functions/GetTimerRemaining)   |
-| [CountRunningTimers](../scripting/functions/CountRunningTimers) |
-| [GetRunningTimers](../scripting/functions/GetRunningTimers)     |
-
-## Custom Model
-
-| Name                                                            |
-| --------------------------------------------------------------- |
-| [IsValidCustomModel](../scripting/functions/IsValidCustomModel) |
-| [GetCustomModelPath](../scripting/functions/GetCustomModelPath) |
-
-## String
-
-| Name                                        |
-| ------------------------------------------- |
-| [strcopy](../scripting/functions/strcopy)   |
-| [strequal](../scripting/functions/strequal) |
-
-## Float
-
-| Name                                        |
-| ------------------------------------------- |
-| [strfloat](../scripting/functions/strfloat) |
-
-## File
-
-| Name                                            |
-| ----------------------------------------------- |
-| [ftell](../scripting/functions/ftell)           |
-| [fstat](../scripting/functions/fstat)           |
-| [frename](../scripting/functions/frename)       |
-| [filecrc](../scripting/functions/filecrc)       |
-| [fflush](../scripting/functions/fflush)         |
-| [fcreatedir](../scripting/functions/fcreatedir) |
-| [fcopy](../scripting/functions/fcopy)           |
-| [fattrib](../scripting/functions/fattrib)       |
-| [diskfree](../scripting/functions/diskfree)     |

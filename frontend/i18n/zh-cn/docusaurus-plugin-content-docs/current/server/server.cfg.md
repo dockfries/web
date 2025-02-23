@@ -1,126 +1,126 @@
 ---
 title: "server.cfg"
 sidebar_label: "server.cfg"
-description: Server configuration file.
+description: 服务器配置文件
 ---
 
-## Description
+## 说明
 
-- `server.cfg` is a server configuration file which allows you to change all kinds of settings of your sa-mp server.
-- This file is necessary for every server and has to be located in the server directory next to the server application (samp-server.exe).
+- `server.cfg` 是用于配置 SA-MP 服务器各项参数的配置文件
+- 该文件是服务器的必要组成部分，必须与服务器应用程序 (samp-server.exe) 位于同一目录
 
-## Console
+## 控制台配置
 
-| Setting       | Type   | Default value              | Read-only | Rule | Effect                                                                                                                                                                                                                                                       |
-| ------------- | ------ | -------------------------- | --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| echo          | string | Executing Server Config... | Yes       | No   | What samp-server.exe prints in the server console when executing server.cfg. There is no need to change this at all as you'll be the only one who sees the console.                                                                                          |
-| rcon_password | string | changeme                   | No        | No   | The password used to administrate the server and use the remote console (rcon). You must make sure to change this to something hard to crack so that others cannot take control of your server. Your server will NOT start if changeme is the RCON password! |
-| rcon          | bool   | 1                          | No        | No   | Toggles if the [Remote Console](RemoteConsole) feature should be used. Set to 1 to enable or 0 to disable.                                                                                                                                                   |
+| 设置项        | 类型   | 默认值                     | 只读属性 | 规则 | 作用说明                                                                                                                                                    |
+| ------------- | ------ | -------------------------- | -------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| echo          | string | Executing Server Config... | 是       | 否   | 当执行 server.cfg 时 samp-server.exe 在服务器控制台输出的内容。完全无需修改此值，因为只有您自己能看到控制台                                                 |
+| rcon_password | string | changeme                   | 否       | 否   | 用于管理服务器和使用远程控制台（RCON）的密码。必须确保将其更改为难以破解的密码，以防止他人控制您的服务器。如果 RCON 密码保持为 changeme，服务器将无法启动！ |
+| rcon          | bool   | 1                          | 否       | 否   | 切换是否使用[远程控制台](RemoteConsole)功能。设置为 1 启用或 0 禁用                                                                                         |
 
-## Scripts
+## 脚本配置
 
-| Setting             | Type   | Default value         | Read-only | Rule | Effect                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------- | ------ | --------------------- | --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| gamemode(n) (N) (t) | string | gamemode0 grandlarc 1 | No        | No   | The .amx file in the gamemodes folder, the server should use to run as a gamemode. (n) is the gamemode number, (N) is the gamemode name without the .amx extension, and (t) is the amount of times the gamemode should be played before switching to the next gamemode.                                                                                                                                                                                                                                                        |
-| filterscripts (N)   | string |                       | Yes       | No   | The .amx file in the filterscripts folder, the server should use to run as a filterscript. (N) is the filterscript name without the .amx extension. Filterscripts are scripts that run in the background of your gamemode. They are there to add extras to the server without editing the gamemode. It is very useful if you want to carry a specific property to more than one gamemode. If you have multiple filterscripts you want to load, put them all in a row separated by "space", e.g. filterscripts script1 script2. |
-| plugins (N)         | string |                       | Yes       | No   | The .dll or .so file in the plugins folder, the server should use to run as a plugin. On Windows (N) is the plugin name without the .dll extension. However, on Linux the .so extension is needed! Plugins are scripts which are designed to enhance gamemodes and filterscripts. If you have multiple plugins you want to load, put them all in a row separated by "space", e.g. plugins plugin1 plugin2.                                                                                                                     |
+| 设置项              | 类型   | 默认值                | 只读属性 | 规则 | 作用说明                                                                                                                                                                                                                      |
+| ------------------- | ------ | --------------------- | -------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| gamemode(n) (N) (t) | string | gamemode0 grandlarc 1 | 否       | 否   | 指定服务器应使用的游戏模式文件：(n) 表示游戏模式编号，(N) 表示不带 .amx 扩展名的游戏模式名称，(t) 表示在切换到下一个游戏模式之前应运行该游戏模式的次数                                                                        |
+| filterscripts (N)   | string |                       | 是       | 否   | 指定服务器应使用的滤镜脚本文件。多个滤镜脚本需用空格分隔（例如：filterscripts script1 script2）。滤镜脚本是在游戏模式后台运行的脚本，用于在不修改游戏模式的情况下为服务器添加额外功能，特别适用于需要在多个游戏模式间共享特性 |
+| plugins (N)         | string |                       | 是       | 否   | 指定服务器应使用的插件文件。Windows 系统使用不带 .dll 扩展名的插件名称，Linux 系统需要 .so 扩展名。多个插件需用空格分隔（例如：plugins plugin1 plugin2）。插件用于增强游戏模式和滤镜脚本的功能                                |
 
-## Server browser
+## 服务器浏览器配置
 
-| Setting      | Type     | Default value | Read-only | Rule | Effect                                                                                                                                                                                                                                                                      |
-| ------------ | -------- | ------------- | --------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| announce     | bool     | 1             | No        | No   | Toggles if the server should be announced to SA-MP masterlist. Set to 1 to enable or 0 to disable.                                                                                                                                                                          |
-| query        | bool     | 1             | No        | No   | Toggles if the server information should be displayed in the server browser. Set to 1 to enable or 0 to disable. Players can still join a server that has disabled querying, but the server browser will not display any information.                                       |
-| hostname     | string   | SA-MP Server  | No        | No   | The name that will be shown in the server browser and when the player connects to the server.                                                                                                                                                                               |
-| language     | string   |               | No        | No   | The language that appears in the server browser. Players can use this to filter servers by language in the server browser.<br /> <br />**NOTE:** This server var was added in 0.3.7 and will have no effect in previous versions.                                           |
-| mapname      | string   | San Andreas   | No        | Yes  | The mapname that appears in the server browser. This can be anything, e.g. My Stunt Map.                                                                                                                                                                                    |
-| gamemodetext | string   | Unknown       | No        | No   | The mode that will be shown in the server browser. Using [SetGameModeText](../scripting/functions/SetGameModeText) has the same effect and overrides the value used in server.cfg. If you have multiple gamemodes that require different gamemode texts, use that function. |
-| weather      | string\* | 10            | No        | Yes  | The global weather that the server uses and will be shown in the server browser. Using this setting in the server.cfg file will crash the server application on startup. Use [SetWeather](../scripting/functions/SetWeather) instead to change this setting.                |
-| worldtime    | string\* | 12:00         | No        | Yes  | The global time that the server uses and will be shown in the server browser. Using this setting in the server.cfg file has no effect. Use [SetWorldTime](../scripting/functions/SetWorldTime) instead to change this setting.                                              |
-| gravity      | string\* | 0.008         | No        | No   | The global gravity that the server uses. Using this setting in the server.cfg file will crash the server application on startup. Use [SetGravity](../scripting/functions/SetGravity) instead to change this setting.                                                        |
-| weburl       | string   | www.open.mp   | No        | Yes  | The website people can visit to gain more information about the server.                                                                                                                                                                                                     |
-| version      | string   |               | Yes       | Yes  | The SA-MP version that the server uses and will be shown in the server browser. Using this setting in the server.cfg file has no effect.                                                                                                                                    |
-| maxplayers   | int      | 50            | Yes       | No   | The maximum amount of players your server can hold. By changing this number you can alter how many players can enter the server. The maximum is 1000 and the minimum is 1.                                                                                                  |
-| password     | string   |               | No        | No   | The password used to lock the server. When using this, only players that know this password will be able to join the server.                                                                                                                                                |
+| 设置项       | 类型     | 默认值       | 只读属性 | 规则 | 作用说明                                                                                                                                                                      |
+| ------------ | -------- | ------------ | -------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| announce     | bool     | 1            | 否       | 否   | 控制是否向 SA-MP 主列表公告服务器。设置为 1 启用或 0 禁用                                                                                                                     |
+| query        | bool     | 1            | 否       | 否   | 控制是否在服务器浏览器中显示服务器信息。设置为 0 时玩家仍可加入服务器，但服务器浏览器将不显示任何信息                                                                         |
+| hostname     | string   | SA-MP Server | 否       | 否   | 在服务器浏览器和玩家连接服务器时显示的服务器名称                                                                                                                              |
+| language     | string   |              | 否       | 否   | 在服务器浏览器中显示的语言标识。玩家可通过此选项在服务器浏览器中按语言筛选服务器。<br /><br />**注意：** 此服务器变量在 0.3.7 版本添加，旧版本无效                            |
+| mapname      | string   | San Andreas  | 否       | 是   | 在服务器浏览器中显示的地图名称，可自定义（例如：My Stunt Map）                                                                                                                |
+| gamemodetext | string   | Unknown      | 否       | 否   | 在服务器浏览器中显示的游戏模式名称。使用 [SetGameModeText](../scripting/functions/SetGameModeText) 具有相同效果并会覆盖此处的设置。若需多个游戏模式显示不同名称，请使用该函数 |
+| weather      | string\* | 10           | 否       | 是   | 服务器使用的全局天气设置，同时显示在服务器浏览器中。在 server.cfg 中使用此设置将导致服务器启动时崩溃，请改用 [SetWeather](../scripting/functions/SetWeather)                  |
+| worldtime    | string\* | 12:00        | 否       | 是   | 服务器使用的全局时间设置，同时显示在服务器浏览器中。在 server.cfg 中设置此值无效，请改用 [SetWorldTime](../scripting/functions/SetWorldTime)                                  |
+| gravity      | string\* | 0.008        | 否       | 否   | 服务器使用的全局重力设置。在 server.cfg 中使用此设置将导致服务器启动时崩溃，请改用 [SetGravity](../scripting/functions/SetGravity)                                            |
+| weburl       | string   | www.open.mp  | 否       | 是   | 玩家可访问的服务器信息网站                                                                                                                                                    |
+| version      | string   |              | 是       | 是   | 服务器使用的 SA-MP 版本，显示在服务器浏览器中。在 server.cfg 中设置此值无效                                                                                                   |
+| maxplayers   | int      | 50           | 是       | 否   | 服务器最大玩家容量（范围 1-1000）                                                                                                                                             |
+| password     | string   |              | 否       | 否   | 服务器锁定密码。设置后只有知道密码的玩家可以加入                                                                                                                              |
 
-> [*] Some settings are a different type than you might think.
+> [*] 部分设置项的实际类型可能与标注类型不符
 
-## Networking
+## 网络配置
 
-| Setting           | Type   | Default value                     | Read-only | Rule | Effect                                                                                                                                                                                                                                                                                                                                                                            |
-| ----------------- | ------ | --------------------------------- | --------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sleep             | int    | 5                                 | No        | No   | The time in milliseconds the main sa-mp and raknet networking thread will "sleep" idly during each sync cycle. Higher values decreases server processing, but reduces sync quality. Lower values increases server processing, but improves sync quality. It is not advisable to change this value unless your player count is very high and you have server fps stability issues. |
-| lanmode           | bool   | 0                                 | No        | No   | Deprecated variable, has no effect.                                                                                                                                                                                                                                                                                                                                               |
-| bind              | string |                                   | Yes       | No   | The IP address the server should use. The server will be forced to use this IP address instead of automatically choosing a free IP address. This IP address must match one assigned to a network card on the server. This is useful for running multiple servers on the same port on the same box.                                                                                |
-| port              | int    | 8192 (7777 is also commonly used) | Yes       | No   | The port the server should use. You will need to [Port Forward](http://www.portforward.com/) in order for players to join your server from outside your LAN.                                                                                                                                                                                                                      |
-| conncookies       | int\*  | 1                                 | No        | No   | Toggles the 0.3.7 connection cookie system. Set to 1 to enable or 0 to disable.<br /><br />**NOTE:** This server var was added in 0.3.7 R2 and will have no effect in previous versions.                                                                                                                                                                                          |
-| cookielogging     | int\*  | 0                                 | No        | No   | Toggles logging of connection cookies requested by newly connecting players. Set to 1 to enable or 0 to disable.<br /><br />**NOTE:** This server var was added in 0.3.7 R2 and will have no effect in previous versions.                                                                                                                                                         |
-| connseedtime      | int    | 300000                            | No        | No   | The time in milliseconds the connection cookie seed value updates.<br /><br />**NOTE:** This server var was added in 0.3.7 and will have no effect in previous versions.                                                                                                                                                                                                          |
-| minconnectiontime | int    | 0                                 | No        | No   | The time in milliseconds the server will wait before accepting another incoming connection. It is not recommended that you use this variable unless your server is under a connection flood attack.                                                                                                                                                                               |
-| messageslimit     | int    | 500                               | No        | No   | The maximum number of messages a user can send per second.                                                                                                                                                                                                                                                                                                                        |
-| messageholelimit  | int    | 3000                              | No        | No   | A network level setting to deal with DoS attacks.                                                                                                                                                                                                                                                                                                                                 |
-| ackslimit         | int    | 3000                              | No        | No   |                                                                                                                                                                                                                                                                                                                                                                                   |
-| playertimeout     | int    | 10000                             | No        | No   | The time in miliseconds after which a player will timeout when not sending any data to the server.                                                                                                                                                                                                                                                                                |
-| mtu               | int    | 576                               | Yes       | No   | [See here](https://en.wikipedia.org/wiki/Maximum_transmission_unit).<br /><br />**NOTE:** This server var was added in 0.3.8 and will have no effect in previous versions.                                                                                                                                                                                                        |
+| 设置项            | 类型   | 默认值 | 只读属性 | 规则 | 作用说明                                                                                                                                                                                                   |
+| ----------------- | ------ | ------ | -------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sleep             | int    | 5      | 否       | 否   | 主 SA-MP 和 RakNet 网络线程在每个同步周期内的空闲休眠时间（毫秒）。较高值降低服务器处理负载但降低同步质量，较低值增加服务器负载但提升同步质量。除非玩家数量极高且遇到服务器 FPS 稳定性问题，否则不建议修改 |
+| lanmode           | bool   | 0      | 否       | 否   | 已弃用参数，无实际效果                                                                                                                                                                                     |
+| bind              | string |        | 是       | 否   | 服务器强制使用的 IP 地址。必须与服务器网卡分配的 IP 地址匹配，适用于在同一端口运行多个服务器                                                                                                               |
+| port              | int    | 8192   | 是       | 否   | 服务器使用的端口号。需进行[端口转发](http://www.portforward.com/)才能让外部玩家加入                                                                                                                        |
+| conncookies       | int\*  | 1      | 否       | 否   | 切换 0.3.7 连接验证系统。设置为 1 启用或 0 禁用<br /><br />**注意：** 此服务器变量在 0.3.7 R2 版本添加，旧版本无效                                                                                         |
+| cookielogging     | int\*  | 0      | 否       | 否   | 切换是否记录新连接玩家请求的连接验证信息。设置为 1 启用或 0 禁用<br /><br />**注意：** 此服务器变量在 0.3.7 R2 版本添加，旧版本无效                                                                        |
+| connseedtime      | int    | 300000 | 否       | 否   | 连接验证种子值的更新间隔（毫秒）<br /><br />**注意：** 此服务器变量在 0.3.7 版本添加，旧版本无效                                                                                                           |
+| minconnectiontime | int    | 0      | 否       | 否   | 服务器在接受新连接前的最小等待时间（毫秒）。除非服务器遭受连接洪水攻击，否则不建议修改                                                                                                                     |
+| messageslimit     | int    | 500    | 否       | 否   | 用户每秒可发送的最大消息数量                                                                                                                                                                               |
+| messageholelimit  | int    | 3000   | 否       | 否   | 防御拒绝服务攻击（DoS）的网络层设置                                                                                                                                                                        |
+| ackslimit         | int    | 3000   | 否       | 否   | （功能说明待补充）                                                                                                                                                                                         |
+| playertimeout     | int    | 10000  | 否       | 否   | 玩家无数据发送时的超时时间（毫秒）                                                                                                                                                                         |
+| mtu               | int    | 576    | 是       | 否   | [最大传输单元](https://en.wikipedia.org/wiki/Maximum_transmission_unit)设置<br /><br />**注意：** 此服务器变量在 0.3.8 版本添加，旧版本无效                                                                |
 
-> [*] Some settings are a different type than you might think.
+> [*] 部分设置项的实际类型可能与标注类型不符
 
-## Logging
+## 日志配置
 
-| Setting        | Type   | Default value | Read-only | Rule | Effect                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------- | ------ | ------------- | --------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| output         | bool   | 0             | No        | No   | Toggles if log messages (e.g. print/printf from scripts or logprintf from plugins) should be duplicated in the server console. Set to 1 to enable or 0 to disable. This option has effect only on Linux servers.                                                                                                                                                                                                                                    |
-| timestamp      | bool   | 1             | No        | No   | Toggles if a timestamp should be printed with every console message. Set to 1 to enable or 0 to disable.                                                                                                                                                                                                                                                                                                                                            |
-| logtimeformat  | string | [%H:%M:%S]    | Yes       | No   | The timestamp format that should be used. The format is based on the [strftime](http://cplusplus.com/reference/clibrary/ctime/strftime/) format from C/C++. Here are some examples:<br /><br />**[%H:%M:%S]** This displays only the time, and is the default format for all previous SA-MP server versions.<br /><br />**[%d/%m/%Y %H:%M:%S]** This would display the date in dd/mm/yyyy format followed by the time in hour:minute:second format. |
-| logqueries     | bool   | 0             | No        | No   | Toggles if all queries sent to the server by players should be logged. Set to 1 to enable or 0 to disable. It is considerably useful during a DDoS attack.                                                                                                                                                                                                                                                                                          |
-| chatlogging    | int\*  | 1             | No        | No   | Toggles if player chat should be shown in the server console. Useful to stop the log from becoming bloated, or if you have another scripted chat logging solution. Set to 1 to enable or 0 to disable.                                                                                                                                                                                                                                              |
-| db_logging     | int\*  | 0             | No        | No   | Logs sqlite db\_\* function errors in the server console.<br /><br />**NOTE:** This server var was added in 0.3.7 R2 and will have no effect in previous versions.                                                                                                                                                                                                                                                                                  |
-| db_log_queries | int\*  | 0             | No        | No   | Logs all sqlite db_query calls, including the query string.<br /><br />**NOTE:** This server var was added in 0.3.7 R2 and will have no effect in previous versions.                                                                                                                                                                                                                                                                                |
+| 设置项         | 类型   | 默认值     | 只读属性 | 规则 | 作用说明                                                                                                                                                                                                            |
+| -------------- | ------ | ---------- | -------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| output         | bool   | 0          | 否       | 否   | 切换是否在服务器控制台复制日志消息（包括脚本的 print/printf 输出和插件的 logprintf 输出）。此选项仅在 Linux 服务器生效                                                                                              |
+| timestamp      | bool   | 1          | 否       | 否   | 切换是否在每条控制台消息前添加时间戳                                                                                                                                                                                |
+| logtimeformat  | string | [%H:%M:%S] | 是       | 否   | 时间戳格式字符串，基于 C/C++ 的 [strftime](http://cplusplus.com/reference/clibrary/ctime/strftime/) 格式：<br /><br />**[%H:%M:%S]** 仅显示时间（默认格式）<br />**[%d/%m/%Y %H:%M:%S]** 显示日期（日/月/年）和时间 |
+| logqueries     | bool   | 0          | 否       | 否   | 切换是否记录玩家发送给服务器的所有查询请求。在防御 DDoS 攻击时非常有用                                                                                                                                              |
+| chatlogging    | int\*  | 1          | 否       | 否   | 切换是否在服务器控制台显示玩家聊天内容。若已有其他聊天记录方案，可禁用此功能以减少日志膨胀                                                                                                                          |
+| db_logging     | int\*  | 0          | 否       | 否   | 记录 sqlite db\_\* 函数错误到服务器控制台<br /><br />**注意：** 此服务器变量在 0.3.7 R2 版本添加，旧版本无效                                                                                                        |
+| db_log_queries | int\*  | 0          | 否       | 否   | 记录所有 sqlite db_query 调用（包含查询语句）<br /><br />**注意：** 此服务器变量在 0.3.7 R2 版本添加，旧版本无效                                                                                                    |
 
-> [*] Some settings are a different type than you might think.
+> [*] 部分设置项的实际类型可能与标注类型不符
 
-## Client
+## 客户端配置
 
-| Setting           | Type  | Default value | Read-only | Rule | Effect                                                                                                                                                                                                                                                                   |
-| ----------------- | ----- | ------------- | --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| onfoot_rate\*     | int   | 30            | Yes       | No   | The time in milliseconds a client should update the server with new data while on foot.                                                                                                                                                                                  |
-| incar_rate        | int   | 30            | Yes       | No   | The time in milliseconds a client should update the server with new data while in a vehicle.                                                                                                                                                                             |
-| weapon_rate       | int   | 30            | Yes       | No   | The time in milliseconds a client should update the server with new data while firing a weapon.                                                                                                                                                                          |
-| stream_distance\* | float | 200.0         | No        | No   | The distance on the X,Y plane players will stream in server entities. The maximum is **400.0** and the minimum is **50.0**. Higher values makes players see server entities at a greater distance, but requires more client processing and potentially more bandwidth.   |
-| stream_rate\*     | int   | 1000          | No        | No   | The time in milliseconds before the streaming in of server entities is retested for each player. The maximum is **5000** and the minimum is **500**. Lower values increases server processing as it has to recheck streaming conditions more frequently for each player. |
+| 设置项            | 类型  | 默认值 | 只读属性 | 规则 | 作用说明                                                                                                                         |
+| ----------------- | ----- | ------ | -------- | ---- | -------------------------------------------------------------------------------------------------------------------------------- |
+| onfoot_rate\*     | int   | 30     | 是       | 否   | 玩家步行状态时向服务器发送新数据的更新间隔（毫秒）                                                                               |
+| incar_rate        | int   | 30     | 是       | 否   | 玩家在载具内时向服务器发送新数据的更新间隔（毫秒）                                                                               |
+| weapon_rate       | int   | 30     | 是       | 否   | 玩家使用武器时向服务器发送新数据的更新间隔（毫秒）                                                                               |
+| stream_distance\* | float | 200.0  | 否       | 否   | 玩家在 X,Y 平面上流式加载服务器实体的距离（范围 50.0-400.0）。较高值使玩家能在更远距离看到实体，但会增加客户端处理负担和带宽消耗 |
+| stream_rate\*     | int   | 1000   | 否       | 否   | 重新检测实体流式加载条件的时间间隔（500-5000 毫秒）。较低值会增加服务器处理负载，因为需要更频繁地为每个玩家重新检查流式加载条件  |
 
-> [*] Lower values of onfoot_rate, incar_rate and weapon_rate increases sync performance, but uses more bandwidth.
+> [*] 降低 onfoot_rate、incar_rate 和 weapon_rate 的值可提升同步性能，但会增加带宽消耗
 
-## NPCs
+## NPC 配置
 
-| Setting | Type | Default value | Read-only | Rule | Effect                                                                                                                                   |
-| ------- | ---- | ------------- | --------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| maxnpc  | int  | 0             | No        | No   | The maximum amount of NPCs your server can hold. By changing this number you can alter how many of the player slots can be used by NPCs. |
+| 设置项 | 类型 | 默认值 | 只读属性 | 规则 | 作用说明                                    |
+| ------ | ---- | ------ | -------- | ---- | ------------------------------------------- |
+| maxnpc | int  | 0      | 否       | 否   | 服务器可容纳的 NPC 最大数量（占用玩家槽位） |
 
-## Lag compensation
+## 延迟补偿
 
-| Setting     | Type   | Default value | Read-only | Rule | Effect                                                                                                                                                                                        |
-| ----------- | ------ | ------------- | --------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| lagcompmode | int    | 1             | Yes       | No   | 0: Fully disable lag compensation.<br /><br />1: Fully enable lag compensation.<br /><br />2: Enable position-only lag compensation. This means player rotation won't be lag compensated for. |
-| lagcomp     | string | On            | Yes       | Yes  | Probably set automatically to **On** or **Off** depending on the **lagcompmode** setting.                                                                                                     |
+| 设置项      | 类型   | 默认值 | 只读属性 | 规则 | 作用说明                                                                              |
+| ----------- | ------ | ------ | -------- | ---- | ------------------------------------------------------------------------------------- |
+| lagcompmode | int    | 1      | 是       | 否   | 0: 完全禁用延迟补偿<br />1: 完全启用延迟补偿<br />2: 仅启用位置补偿（不补偿玩家旋转） |
+| lagcomp     | string | On     | 是       | 是   | 根据 lagcompmode 设置自动显示为 **On** 或 **Off**                                     |
 
-## Custom models
+## 自定义模型
 
-| Setting    | Type   | Default value | Read-only | Rule | Effect                                                                                                                                                                                                     |
-| ---------- | ------ | ------------- | --------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| useartwork | bool   | 0             | Yes       | No   | Toggles if the server uses custom models from the models folder. Set to 1 to enable or 0 to disable.<br /><br />**NOTE:** This server var was added in 0.3.8 and will have no effect in previous versions. |
-| artwork    | string | No            | Yes       | Yes  | Probably set automatically to **No** or **Yes** depending on the **useartwork** setting.<br /><br />**NOTE:** This server var was added in 0.3.8 and will have no effect in previous versions.             |
-| artpath    | string | models        | Yes       | No   | The path where the custom models are located.<br /><br />**NOTE:** This server var was added in 0.3.8 and will have no effect in previous versions.                                                        |
+| 设置项     | 类型   | 默认值 | 只读属性 | 规则 | 作用说明                                                                                                 |
+| ---------- | ------ | ------ | -------- | ---- | -------------------------------------------------------------------------------------------------------- |
+| useartwork | bool   | 0      | 是       | 否   | 切换是否使用 models 文件夹中的自定义模型<br /><br />**注意：** 此服务器变量在 0.3.8 版本添加，旧版本无效 |
+| artwork    | string | No     | 是       | 是   | 根据 useartwork 设置自动显示为 **No** 或 **Yes**                                                         |
+| artpath    | string | models | 是       | 否   | 自定义模型存储路径<br /><br />**注意：** 此服务器变量在 0.3.8 版本添加，旧版本无效                       |
 
-## Others
+## 其他配置
 
-| Setting | Type   | Default value | Read-only | Rule | Effect                                                                                                                                             |
-| ------- | ------ | ------------- | --------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| myriad  | bool   | 0             | No        | No   | Unused. It probably enabled some compatibility with an old GTA San Andreas mod called "Myriad Islands" years ago, probably earlier than year 2008. |
-| nosign  | string |               | Yes       | No   | Unused.                                                                                                                                            |
+| 设置项 | 类型   | 默认值 | 只读属性 | 规则 | 作用说明                                                  |
+| ------ | ------ | ------ | -------- | ---- | --------------------------------------------------------- |
+| myriad | bool   | 0      | 否       | 否   | 历史遗留参数（原用于兼容 2008 年前的 Myriad Islands MOD） |
+| nosign | string |        | 是       | 否   | 历史遗留参数（无实际作用）                                |
 
-## Notes
+## 注意事项
 
-- Values marked as "Read-only" (as shown by `/rcon varlist`) can not be changed during runtime. All other values can be (temporarily) changed by passing them to SendRconCommand.
-- Values marked as "Rule" (as shown by `/rcon varlist`) are displayed in the server browser in the Rules section.
-- Scripts do not have to be in the gamemodes or filterscripts folders. The information in server.cfg is a path, and can therefore use "..".
+- **只读属性**：通过 `/rcon varlist` 标记为 Read-only 的参数不可在运行时修改，其他参数可通过 SendRconCommand 临时修改
+- **规则属性**：标记为 Rule 的参数会显示在服务器浏览器的规则栏
+- 脚本路径支持相对路径写法（例如："../gamemodes/mymode"）
