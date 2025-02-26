@@ -116,7 +116,7 @@ playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = -1, inputtext =
 :::
 
 ```c
-ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_LIST, "Caption", "项 0\n{FFFF00}项 1\nItem 2", "Button 1", "Button 2");
+ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_LIST, "Caption", "项 0\n{FFFF00}项 1\n项 2", "按钮 1", "按钮 2");
 ```
 
 ### 响应输出
@@ -252,7 +252,7 @@ ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_TABLIST_HEADERS, "标题"
 "表头 1\t表头 2\t表头 3\n\
 项 1 列 1\t项 1 列 2\t项 1 列 3\n\
 {FF0000}项 2 列 1\t{33AA33}项 2 列 2\t项 2 列 3",
-"Button 1", "Button 2");
+"按钮 1", "按钮 2");
 ```
 
 :::note
