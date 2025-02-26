@@ -1,19 +1,19 @@
 ---
-title: Fighting Styles
-sidebar_label: Fighting Styles
+title: 战斗风格
+sidebar_label: 战斗风格
 ---
 
 :::info
 
-All fighting styles used by [SetPlayerFightingStyle](../functions/SetPlayerFightingStyle) and [GetPlayerFightingStyle](../functions/GetPlayerFightingStyle) are listed below.
+以下列出了[SetPlayerFightingStyle](../functions/SetPlayerFightingStyle)和[GetPlayerFightingStyle](../functions/GetPlayerFightingStyle)函数使用的所有战斗风格。
 
 :::
 
-| Value | Definition           |
-| ----- | -------------------- |
-| 4     | FIGHT_STYLE_NORMAL   |
-| 5     | FIGHT_STYLE_BOXING   |
-| 6     | FIGHT_STYLE_KUNGFU   |
-| 7     | FIGHT_STYLE_KNEEHEAD |
-| 15    | FIGHT_STYLE_GRABKICK |
-| 16    | FIGHT_STYLE_ELBOW    |
+| 数值 | 定义         |
+| ---- | ------------ |
+| 4    | 普通格斗风格 |
+| 5    | 拳击风格     |
+| 6    | 功夫风格     |
+| 7    | 膝击风格     |
+| 15   | 抓踢风格     |
+| 16   | 肘击风格     |

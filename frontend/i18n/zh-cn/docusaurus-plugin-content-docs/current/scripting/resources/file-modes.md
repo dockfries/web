@@ -1,18 +1,18 @@
 ---
-title: File Modes
-sidebar_label: File Modes
-description: The modes to open the file with.
+title: 文件模式
+sidebar_label: 文件模式
+description: 文件打开模式说明
 ---
 
 :::note
 
-These file modes are used by [fopen](../functions/fopen).
+这些文件模式适用于[fopen](../functions/fopen)函数。
 
 :::
 
-| Mode         | Description                                                                               |
-| ------------ | ----------------------------------------------------------------------------------------- |
-| io_read      | Reads from the file.                                                                      |
-| io_write     | Write in the file, or create the file if it does not exist. Erases all existing contents. |
-| io_readwrite | Reads the file or creates it if it doesn't already exist.                                 |
-| io_append    | Appends (adds) to file, write-only. If the file does not exist, it is created.            |
+| 模式         | 描述                                             |
+| ------------ | ------------------------------------------------ |
+| io_read      | 读取文件内容                                     |
+| io_write     | 写入文件（不存在则创建），会清空所有现有内容     |
+| io_readwrite | 读写文件（不存在则创建）                         |
+| io_append    | 追加写入文件（仅写入模式），文件不存在时自动创建 |

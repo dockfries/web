@@ -1,97 +1,85 @@
 ---
-title: GameText Styles
-sidebar_label: GameText Styles
-description: GameText Styles used in textdraws and gametext.
+title: 游戏文本样式
+sidebar_label: 游戏文本样式
+description: 文本绘图与游戏文本的样式说明
 ---
 
-This page covers everything you need to know about gametext styles, and how they can be used in textdraws and in text rendered for a (single) player.
-Mainly used by [GameText](../functions/GameTextForPlayer) and [GameTextForAll](../functions/GameTextForAll).
-
----
-
-## Text Colors
-
-It is possible to draw certain parts of your text in different colors. To do this, you simply need to use the colour slugs listed below, and encapsulate the part of your text which you want to draw in a specific color (e.g. \~y\~I'm drawn in yellow!\~y\~).
-
-| Code                 | Colour                                                              | Description                                      |
-| -------------------- | ------------------------------------------------------------------- | ------------------------------------------------ |
-| N/A                  | ![](https://assets.open.mp/assets/images/gameTextStyles/-.png)      | Default colour, has no code.                     |
-| `~h~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/h.png)      | Lighter version of the default colour.           |
-| `~h~~h~`             | ![](https://assets.open.mp/assets/images/gameTextStyles/hh.png)     | Lighter version of the default colour.           |
-| `~r~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/r.png)      | Has five levels of lightening.                   |
-| `~r~~h~`             | ![](https://assets.open.mp/assets/images/gameTextStyles/rh.png)     |                                                  |
-| `~r~~h~~h~`          | ![](https://assets.open.mp/assets/images/gameTextStyles/rhh.png)    |                                                  |
-| `~r~~h~~h~~h~`       | ![](https://assets.open.mp/assets/images/gameTextStyles/rhhh.png)   |                                                  |
-| `~r~~h~~h~~h~~h~`    | ![](https://assets.open.mp/assets/images/gameTextStyles/rhhhh.png)  |                                                  |
-| `~r~~h~~h~~h~~h~~h~` | ![](https://assets.open.mp/assets/images/gameTextStyles/rhhhhh.png) |                                                  |
-| `~g~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/g.png)      | Has four levels of lightening.                   |
-| `~g~~h~`             | ![](https://assets.open.mp/assets/images/gameTextStyles/gh.png)     |                                                  |
-| `~g~~h~~h~`          | ![](https://assets.open.mp/assets/images/gameTextStyles/ghh.png)    |                                                  |
-| `~g~~h~~h~~h~`       | ![](https://assets.open.mp/assets/images/gameTextStyles/ghhh.png)   |                                                  |
-| `~g~~h~~h~~h~~h~`    | ![](https://assets.open.mp/assets/images/gameTextStyles/ghhhh.png)  | Same as `~y~~h~~h~`.                             |
-| `~b~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/b.png)      | Has three levels of lightening.                  |
-| `~b~~h~`             | ![](https://assets.open.mp/assets/images/gameTextStyles/bh.png)     |                                                  |
-| `~b~~h~~h~`          | ![](https://assets.open.mp/assets/images/gameTextStyles/bhh.png)    |                                                  |
-| `~b~~h~~h~~h~`       | ![](https://assets.open.mp/assets/images/gameTextStyles/bhhh.png)   |                                                  |
-| `~p~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/p.png)      | Has two levels of lightening.                    |
-| `~p~~h~`             | ![](https://assets.open.mp/assets/images/gameTextStyles/ph.png)     |                                                  |
-| `~p~~h~~h~`          | ![](https://assets.open.mp/assets/images/gameTextStyles/phh.png)    |                                                  |
-| `~y~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/y.png)      | Has two levels of lightening.                    |
-| `~y~~h~`             | ![](https://assets.open.mp/assets/images/gameTextStyles/yh.png)     |                                                  |
-| `~y~~h~~h~`          | ![](https://assets.open.mp/assets/images/gameTextStyles/yhh.png)    | Same as `~g~~h~~h~~h~~h~`.                       |
-| `~l~`                | ![](https://assets.open.mp/assets/images/gameTextStyles/l.png)      | Lower case "L". Can't be lightened.              |
-| `~w~ (or ~s~)`       | ![](https://assets.open.mp/assets/images/gameTextStyles/w.png)      | Has one level of lightening.                     |
-| `~w~~h~ (or ~s~~h~)` | ![](https://assets.open.mp/assets/images/gameTextStyles/wh.png)     | All colours become this when lightened too much. |
+本文详细说明在文本绘图（TextDraw）和玩家游戏文本（GameText）中使用的样式规则，主要应用于[GameTextForPlayer](../functions/GameTextForPlayer)和[GameTextForAll](../functions/GameTextForAll)函数。
 
 ---
 
-## Special Text Letters
+## 文本颜色
 
-Unlike text colors, these slugs do not require encapsulation. They can be used as-is.
+通过颜色代码可以实现文本分段着色。使用格式为：\~颜色代码\~文本内容\~颜色代码\~（例如：\~y\~黄色文本\~y\~）
 
-| Code  | Description                                                                                                                                                                        |
-| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `~n~` | New line                                                                                                                                                                           |
-| `~h~` | Turn selected colours lighter. Text can appear between the main colour and the lightening, for example `~r~Hello ~h~world` will make "Hello" red and "world" slightly lighter red. |
-| `~u~` | Up arrow (gray)                                                                                                                                                                    |
-| `~d~` | Down arrow (gray)                                                                                                                                                                  |
-| `~<~` | Left arrow (gray)                                                                                                                                                                  |
-| `~>~` | Right arrow (gray)                                                                                                                                                                 |
-| `~]~` | Displays a `*` symbol (Only in text styles 3, 4 and 5)                                                                                                                             |
-| `~k~` | Keyboard key mapping (e.g. `~k~~VEHICLE_TURRETLEFT~` and `~k~~PED_FIREWEAPON~`). Look [here](../resources/keys) for a list of keys.                                                |
+| 代码                             | 颜色示例                                                        | 描述                         |
+| -------------------------------- | --------------------------------------------------------------- | ---------------------------- |
+| 无                               | ![](https://assets.open.mp/assets/images/gameTextStyles/-.png)  | 默认颜色，无需代码           |
+| `~h~`                            | ![](https://assets.open.mp/assets/images/gameTextStyles/h.png)  | 默认色的浅色版本             |
+| `~h~~h~`                         | ![](https://assets.open.mp/assets/images/gameTextStyles/hh.png) | 默认色的更浅版本             |
+| `~r~`                            | ![](https://assets.open.mp/assets/images/gameTextStyles/r.png)  | 红色（支持 5 级亮度调节）    |
+| `~r~~h~` 至 `~r~~h~~h~~h~~h~~h~` | 多级示例图                                                      | 逐步增亮的红色变体           |
+| `~g~`                            | ![](https://assets.open.mp/assets/images/gameTextStyles/g.png)  | 绿色（支持 4 级亮度调节）    |
+| `~g~~h~` 至 `~g~~h~~h~~h~~h~`    | 多级示例图                                                      | 逐步增亮的绿色变体           |
+| `~b~`                            | ![](https://assets.open.mp/assets/images/gameTextStyles/b.png)  | 蓝色（支持 3 级亮度调节）    |
+| `~b~~h~` 至 `~b~~h~~h~~h~`       | 多级示例图                                                      | 逐步增亮的蓝色变体           |
+| `~p~`                            | ![](https://assets.open.mp/assets/images/gameTextStyles/p.png)  | 紫色（支持 2 级亮度调节）    |
+| `~p~~h~` 至 `~p~~h~~h~`          | 多级示例图                                                      | 逐步增亮的紫色变体           |
+| `~y~`                            | ![](https://assets.open.mp/assets/images/gameTextStyles/y.png)  | 黄色（支持 2 级亮度调节）    |
+| `~y~~h~` 至 `~y~~h~~h~`          | 多级示例图                                                      | 逐步增亮的黄色变体           |
+| `~l~`                            | ![](https://assets.open.mp/assets/images/gameTextStyles/l.png)  | 灰色（不可调节亮度）         |
+| `~w~` 或 `~s~`                   | ![](https://assets.open.mp/assets/images/gameTextStyles/w.png)  | 白色（支持 1 级亮度调节）    |
+| `~w~~h~` 或 `~s~~h~`             | ![](https://assets.open.mp/assets/images/gameTextStyles/wh.png) | 所有颜色过度提亮后的最终状态 |
 
-:::caution
+---
 
-Be careful, using too many text colors or special characters in one gametext may crash every player the gametext is shown to. Additionally, avoid using an uneven usage of the `~` character. Example: `~~r~Hello, ~g~how are ~y~you?`
+## 特殊字符
+
+以下符号无需闭合标签，直接插入文本即可生效：
+
+| 代码  | 功能说明                                                                                                 |
+| ----- | -------------------------------------------------------------------------------------------------------- |
+| `~n~` | 换行符                                                                                                   |
+| `~h~` | 颜色提亮标记（可在颜色代码中间使用，例如`~r~红色~h~提亮部分`）                                           |
+| `~u~` | 灰色上箭头符号 ↑                                                                                         |
+| `~d~` | 灰色下箭头符号 ↓                                                                                         |
+| `~<~` | 灰色左箭头符号 ←                                                                                         |
+| `~>~` | 灰色右箭头符号 →                                                                                         |
+| `~]~` | 星号符号 \*（仅限样式 3/4/5 使用）                                                                       |
+| `~k~` | 键盘按键映射（例如`~k~~VEHICLE_TURRETLEFT~`显示左炮塔键位），完整列表请查看[按键代码](../resources/keys) |
+
+:::danger
+
+警告：单个游戏文本中使用过多颜色代码或特殊字符可能导致玩家客户端崩溃。同时避免波浪号`~`的不对称使用，错误示例：`~~r~错误~g~示例`
 
 :::
 
-## Text Styles
+## 基础文本样式
 
-You can use the following text styles in game texts.
-
-| Style   | Preview                                                             | Description                                                                                                                                                                            |
-| ------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Style 0 | ![](https://assets.open.mp/assets/images/gameTextStyles/style0.png) | Appears for 9 seconds regardless of time setting. Hides textdraws and any other gametext on screen (fixed in fixes.inc)                                                                |
-| Style 1 | ![](https://assets.open.mp/assets/images/gameTextStyles/style1.png) | Fades out after 8 seconds, regardless of time set. If you have a time setting longer than that, it will re-appear after fading out and repeat until the time ends (fixed in fixes.inc) |
-| Style 2 | ![](https://assets.open.mp/assets/images/gameTextStyles/style2.png) | N/A                                                                                                                                                                                    |
-| Style 3 | ![](https://assets.open.mp/assets/images/gameTextStyles/style3.png) | N/A                                                                                                                                                                                    |
-| Style 4 | ![](https://assets.open.mp/assets/images/gameTextStyles/style4.png) | N/A                                                                                                                                                                                    |
-| Style 5 | ![](https://assets.open.mp/assets/images/gameTextStyles/style5.png) | Displays for 3 seconds, regardless of what time you set. Will refuse to be shown if it is 'spammed' (fixed in fixes.inc)                                                               |
-| Style 6 | ![](https://assets.open.mp/assets/images/gameTextStyles/style6.png) | N/A                                                                                                                                                                                    |
+| 样式   | 预览图                                                              | 特性说明                                                               |
+| ------ | ------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| 样式 0 | ![](https://assets.open.mp/assets/images/gameTextStyles/style0.png) | 固定显示 9 秒（无视时间设置），会覆盖其他文本（通过 fixes.inc 修复）   |
+| 样式 1 | ![](https://assets.open.mp/assets/images/gameTextStyles/style1.png) | 8 秒后淡出，若设置时间更长将循环显示（通过 fixes.inc 修复）            |
+| 样式 2 | ![](https://assets.open.mp/assets/images/gameTextStyles/style2.png) | 无特殊说明                                                             |
+| 样式 3 | ![](https://assets.open.mp/assets/images/gameTextStyles/style3.png) | 无特殊说明                                                             |
+| 样式 4 | ![](https://assets.open.mp/assets/images/gameTextStyles/style4.png) | 无特殊说明                                                             |
+| 样式 5 | ![](https://assets.open.mp/assets/images/gameTextStyles/style5.png) | 固定显示 3 秒（无视时间设置），频繁调用会被屏蔽（通过 fixes.inc 修复） |
+| 样式 6 | ![](https://assets.open.mp/assets/images/gameTextStyles/style6.png) | 无特殊说明                                                             |
 
 ---
 
-## Text Styles added by [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes)
+## fixes.inc 扩展样式
 
-| Style    | Preview                                                              | Description                                        |
-| -------- | -------------------------------------------------------------------- | -------------------------------------------------- |
-| Style 7  | ![](https://assets.open.mp/assets/images/gameTextStyles/style7.png)  | Based on SA vehicle names.                         |
-| Style 8  | ![](https://assets.open.mp/assets/images/gameTextStyles/style8.png)  | Based on SA location names.                        |
-| Style 9  | ![](https://assets.open.mp/assets/images/gameTextStyles/style9.png)  | Based on SA radio station names (once selected).   |
-| Style 10 | ![](https://assets.open.mp/assets/images/gameTextStyles/style10.png) | Based on SA radio station names (while switching). |
-| Style 11 | ![](https://assets.open.mp/assets/images/gameTextStyles/style11.png) | Based on SA positive money.                        |
-| Style 12 | ![](https://assets.open.mp/assets/images/gameTextStyles/style12.png) | Based on SA negative money.                        |
-| Style 13 | ![](https://assets.open.mp/assets/images/gameTextStyles/style13.png) | Based on SA stunt bonuses.                         |
-| Style 14 | ![](https://assets.open.mp/assets/images/gameTextStyles/style14.png) | Based on SA in-game clock.                         |
-| Style 15 | ![](https://assets.open.mp/assets/images/gameTextStyles/style15.png) | Based on SA notification popup.                    |
+通过[fixes.inc](https://github.com/pawn-lang/sa-mp-fixes)扩展的样式：
+
+| 样式    | 预览图                                                               | 原型参照                       |
+| ------- | -------------------------------------------------------------------- | ------------------------------ |
+| 样式 7  | ![](https://assets.open.mp/assets/images/gameTextStyles/style7.png)  | 《圣安地列斯》载具名称风格     |
+| 样式 8  | ![](https://assets.open.mp/assets/images/gameTextStyles/style8.png)  | 《圣安地列斯》地点名称风格     |
+| 样式 9  | ![](https://assets.open.mp/assets/images/gameTextStyles/style9.png)  | 《圣安地列斯》电台选择完成样式 |
+| 样式 10 | ![](https://assets.open.mp/assets/images/gameTextStyles/style10.png) | 《圣安地列斯》电台切换中样式   |
+| 样式 11 | ![](https://assets.open.mp/assets/images/gameTextStyles/style11.png) | 《圣安地列斯》资金增加提示     |
+| 样式 12 | ![](https://assets.open.mp/assets/images/gameTextStyles/style12.png) | 《圣安地列斯》资金减少提示     |
+| 样式 13 | ![](https://assets.open.mp/assets/images/gameTextStyles/style13.png) | 《圣安地列斯》特技奖励样式     |
+| 样式 14 | ![](https://assets.open.mp/assets/images/gameTextStyles/style14.png) | 《圣安地列斯》游戏内时钟样式   |
+| 样式 15 | ![](https://assets.open.mp/assets/images/gameTextStyles/style15.png) | 《圣安地列斯》系统通知弹窗样式 |

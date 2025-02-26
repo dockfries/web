@@ -1,68 +1,68 @@
 ---
-title: HTTP Error Response Codes
-sidebar_label: HTTP Error Response Codes
-description: HTTP error response codes.
+title: HTTP 错误响应代码
+sidebar_label: HTTP 错误响应代码
+description: HTTP 错误响应代码说明
 ---
 
 :::note
 
-These codes compliment ordinary [HTTP](../functions/HTTP) response codes returned in 'response_code'
+这些代码是对[HTTP](../functions/HTTP)函数返回的常规响应状态码的补充，可在'response_code'参数中获取
 
 :::
 
-| Code | Error                         | Description                                                                                                                                                                                                                  |
-| ---- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | HTTP_ERROR_BAD_HOST           | Indicates that the URL used in an HTTP request is invalid or cannot be resolved by the DNS server.                                                                                                                           |
-| 2    | HTTP_ERROR_NO_SOCKET          | Indicates that there was a failure in establishing a network socket connection when making an HTTP request.                                                                                                                  |
-| 3    | HTTP_ERROR_CANT_CONNECT       | Indicates that the client is unable to establish a connection to the server when making an HTTP request. This error can occur due to various reasons, including network connectivity issues or unavailability of the server. |
-| 4    | HTTP_ERROR_CANT_WRITE         | Indicates that there was a failure in writing data during an HTTP request. This error can occur for various reasons related to the client, server, or network.                                                               |
-| 5    | HTTP_ERROR_CONTENT_TOO_BIG    | Indicates that the size of the content being sent in the HTTP request exceeds the maximum limit allowed by the server or the server's configuration.                                                                         |
-| 6    | HTTP_ERROR_MALFORMED_RESPONSE | Indicates that the HTTP response received from the server is in an unexpected or invalid format. This error suggests that the response does not comply with the HTTP protocol standards.                                     |
+| 代码 | 错误类型                      | 描述                                                                 |
+| ---- | ----------------------------- | -------------------------------------------------------------------- |
+| 1    | HTTP_ERROR_BAD_HOST           | 表示 HTTP 请求中使用的 URL 无效或无法通过 DNS 服务器解析             |
+| 2    | HTTP_ERROR_NO_SOCKET          | 表示建立 HTTP 请求时网络套接字连接失败                               |
+| 3    | HTTP_ERROR_CANT_CONNECT       | 表示客户端无法连接到服务器（可能由网络问题或服务器不可用导致）       |
+| 4    | HTTP_ERROR_CANT_WRITE         | 表示 HTTP 请求期间数据写入失败（可能由客户端、服务器或网络问题引起） |
+| 5    | HTTP_ERROR_CONTENT_TOO_BIG    | 表示请求内容大小超过服务器允许的最大限制                             |
+| 6    | HTTP_ERROR_MALFORMED_RESPONSE | 表示服务器返回的 HTTP 响应格式异常（不符合 HTTP 协议标准）           |
 
-## Some Common HTTP Error Response Codes
+## 常见 HTTP 状态码分类
 
-### 1xx Informational
+### 1xx 信息响应
 
-| Code |                     |
-| ---- | ------------------- |
-| 100  | Continue            |
-| 101  | Switching Protocols |
-| 102  | Processing          |
+| 代码 | 状态     |
+| ---- | -------- |
+| 100  | 继续     |
+| 101  | 切换协议 |
+| 102  | 处理中   |
 
-### 2xx Success
+### 2xx 成功响应
 
-| Code |                 |
-| ---- | --------------- |
-| 200  | OK              |
-| 201  | Created         |
-| 204  | No Content      |
-| 206  | Partial Content |
+| 代码 | 状态     |
+| ---- | -------- |
+| 200  | 成功     |
+| 201  | 已创建   |
+| 204  | 无内容   |
+| 206  | 部分内容 |
 
-### 3xx Redirection
+### 3xx 重定向
 
-| Code |                    |
-| ---- | ------------------ |
-| 301  | Moved Permanently  |
-| 302  | Found              |
-| 304  | Not Modified       |
-| 307  | Temporary Redirect |
+| 代码 | 状态                   |
+| ---- | ---------------------- |
+| 301  | 永久重定向             |
+| 302  | 临时重定向             |
+| 304  | 未修改                 |
+| 307  | 临时重定向（保持方法） |
 
-### 4xx Client Errors
+### 4xx 客户端错误
 
-| Code |                    |
-| ---- | ------------------ |
-| 400  | Bad Request        |
-| 401  | Unauthorized       |
-| 403  | Forbidden          |
-| 404  | Not Found          |
-| 405  | Method Not Allowed |
-| 429  | Too Many Requests  |
+| 代码 | 状态         |
+| ---- | ------------ |
+| 400  | 错误请求     |
+| 401  | 未授权       |
+| 403  | 禁止访问     |
+| 404  | 未找到       |
+| 405  | 方法不被允许 |
+| 429  | 请求过多     |
 
-### 5xx Server Errors
+### 5xx 服务端错误
 
-| Code |                       |
-| ---- | --------------------- |
-| 500  | Internal Server Error |
-| 502  | Bad Gateway           |
-| 503  | Service Unavailable   |
-| 504  | Gateway Timeout       |
+| 代码 | 状态           |
+| ---- | -------------- |
+| 500  | 服务器内部错误 |
+| 502  | 错误网关       |
+| 503  | 服务不可用     |
+| 504  | 网关超时       |

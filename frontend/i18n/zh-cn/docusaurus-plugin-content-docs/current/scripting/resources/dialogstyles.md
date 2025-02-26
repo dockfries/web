@@ -1,269 +1,271 @@
 ---
-title: Dialog Styles
-sidebar_label: Dialog Styles
+title: 对话框样式
+sidebar_label: 对话框样式
 ---
 
 :::note
 
-- In [OnDialogResponse](../callbacks/OnDialogResponse), pressing **button1** sets **response** to **1**, while pressing **button2** sets **response** to **0**.
-- Every dialog can have an optional button 2. To make it disappear leave it empty, like in the first example. Players won't be able to click it, but they will be able to press ESC and trigger [OnDialogResponse](../callbacks/OnDialogResponse) with **response** = **0**.
-- [ShowPlayerDialog](../functions/ShowPlayerDialog): Color embedding can be used for every string: **caption**, **info**, **button1** and **button2**.
+- 在[OnDialogResponse](../callbacks/OnDialogResponse)回调中：
+  - 按下**button1**会将**response**设为**1**
+  - 按下**button2**会将**response**设为**0**
+- 所有对话框都可选配按钮 2，留空则不显示（如首个示例）。玩家无法点击隐藏按钮，但按 ESC 键仍会触发[OnDialogResponse](../callbacks/OnDialogResponse)且**response**=**0**
+- [ShowPlayerDialog](../functions/ShowPlayerDialog)支持在以下字符串中使用颜色嵌入：​**caption**​（标题）、**info**​（内容）、**button1**和**button2**
 
 :::
 
-- This page describes the behavior of [ShowPlayerDialog](../functions/ShowPlayerDialog) and [OnDialogResponse](../callbacks/OnDialogResponse).
-- For various limitations, visit the [Limits](../resources/limits) page.
-- For the response examples, this code will be used:
+- 本文说明[ShowPlayerDialog](../functions/ShowPlayerDialog)和[OnDialogResponse](../callbacks/OnDialogResponse)的行为规范
+- 各类限制详见[限制说明](../resources/limits)
+- 响应示例均使用以下测试代码：
 
 ```c
 public OnDialogResponse( playerid, dialogid, response, listitem, inputtext[ ] )
 {
-    printf("playerid = %d, dialogid = YOUR_DIALOGID, response = %d, listitem = %d, inputtext = '%s' (size: %d)", playerid, response, listitem, inputtext, strlen(inputtext));
+    printf("玩家id = %d, 对话框id = YOUR_DIALOGID, 响应 = %d, 列项 = %d, 输入文本 = '%s' (长度: %d)", playerid, response, listitem, inputtext, strlen(inputtext));
     return 1;
 }
 ```
 
 ---
 
-## Style 0: `DIALOG_STYLE_MSGBOX`
+## 样式 0: `DIALOG_STYLE_MSGBOX`
 
 ![](https://assets.open.mp/assets/images/dialogStyles/Dialog_style_msgbox.png)
 
-Showing:
+显示效果：
 
 :::note
 
-- **\t** adds a TAB (more space).
-- **\n** creates a new line.
-- [Color embedding](colorslist#color-embedding) won't reset after **\n** or **\t**.
+- ​**\t**​ 添加制表符（增加间距）
+- ​**\n**​ 创建新行
+- [颜色嵌入](colorslist#color-embedding)效果在换行后依然持续
 
 :::
 
 ```c
-ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_MSGBOX, "Caption", "Info\n\tInfo", "Button 1", "");
+ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_MSGBOX, "标题", "信息\n\t信息", "按钮 1", "");
 ```
 
-### Response Output
+### 响应输出
 
 :::note
 
-- **listitem** is always **-1**.
-- **inputtext** is always empty.
+- ​**listitem**​ 固定为 ​**-1**
+- ​**inputtext**​ 始终为空
 
 :::
 
 ```c
-// pressed the button
+// 点击按钮
 playerid = 0, dialogid = YOUR_DIALOGID, response = 1, listitem = -1, inputtext = '' (size: 0)
 
-// pressed ESC (as the second button isn't visible)
+// 按ESC键（当按钮2隐藏时）
 playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = -1, inputtext = '' (size: 0)
 ```
 
 ---
 
-## Style 1: `DIALOG_STYLE_INPUT`
+## 样式 1: `DIALOG_STYLE_INPUT`
 
 ![](https://assets.open.mp/assets/images/dialogStyles/Dialog_style_input.png)
 
-Showing:
+显示效果：
 
 :::note
 
-- **\t** adds a TAB (more space).
-- **\n** creates a new line.
-- [Color embedding](colorslist#color-embedding) won't reset after **\n** or **\t**.
+- ​**\t**​ 添加制表符（增加间距）
+- ​**\n**​ 创建新行
+- [颜色嵌入](colorslist#color-embedding)效果在换行后依然持续
 
 :::
 
 ```c
-ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_INPUT, "Caption", "Enter information below:", "Button 1", "Button 2");
+ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_INPUT, "标题", "在下面输入信息:", "按钮 1", "按钮 2");
 ```
 
-### Response Output
+### 响应输出
 
 :::note
 
-- **listitem** is always **-1**.
-- **inputtext** is the text written by the user, including colors.
+- ​**listitem**​ 固定为 ​**-1**
+- ​**inputtext**​ 包含用户输入的文本（含颜色代码）
 
 :::
 
 ```c
-// wrote "input" and pressed the left button
-playerid = 0, dialogid = YOUR_DIALOGID, response = 1, listitem = -1, inputtext = 'input' (size: 5)
+// 输入"input"后点击左按钮
+playerid = 0, dialogid = YOUR_DIALOGID, response = 1, listitem = -1, inputtext = '输入' (size: 5)
 
-// wrote "input" and pressed the right button
-playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = -1, inputtext = 'input' (size: 5)
+// 输入"input"后点击右按钮
+playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = -1, inputtext = '输入' (size: 5)
 ```
 
 ---
 
-## Style 2: `DIALOG_STYLE_LIST`
+## 样式 2: `DIALOG_STYLE_LIST`
 
 ![](https://assets.open.mp/assets/images/dialogStyles/Dialog_style_list.png)
 
-Showing:
+显示效果：
 
 :::note
 
-- **\t** adds a TAB (more space).
-- **\n** creates a new line.
-- [Color embedding](colorslist#color-embedding) won't reset after **\t**.
+- ​**\t**​ 添加制表符（增加间距）
+- ​**\n**​ 创建新行
+- [颜色嵌入](colorslist#color-embedding)效果在制表符后依然持续
 
 :::
 
 ```c
-ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_LIST, "Caption", "Item 0\n{FFFF00}Item 1\nItem 2", "Button 1", "Button 2");
+ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_LIST, "Caption", "项 0\n{FFFF00}项 1\nItem 2", "Button 1", "Button 2");
 ```
 
-### Response output:
+### 响应输出
 
 :::note
 
-- **listitem** is the number of the selected item, starting from **0**.
-- **inputtext** is the text contained by the selected listitem, without the colors.
+- ​**listitem**​ 表示选中项的索引（从 0 开始）
+- ​**inputtext**​ 返回选中项的文本内容（不含颜色代码）
 
 :::
 
 ```c
-// selected the first list item and pressed the left button
-playerid = 0, dialogid = YOUR_DIALOGID, response = 1, listitem = 0, inputtext = 'Item 0' (size: 6)
+// 选择第一项后点击左按钮
+playerid = 0, dialogid = YOUR_DIALOGID, response = 1, listitem = 0, inputtext = '项 0' (size: 6)
 
-// selected the second list item and pressed the right button
-playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = 1, inputtext = 'Item 1' (size: 6)
+// 选择第二项后点击右按钮
+playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = 1, inputtext = '项 1' (size: 6)
 ```
 
 ---
 
-## Style 3: `DIALOG_STYLE_PASSWORD`
+## 样式 3: `DIALOG_STYLE_PASSWORD`
 
 :::note
 
-- Similar to **DIALOG_STYLE_INPUT**.
+- 功能类似 ​**DIALOG_STYLE_INPUT**
 
 :::
 
 ![](https://assets.open.mp/assets/images/dialogStyles/Dialog_style_password.png)
 
-Showing:
+显示效果：
 
 :::note
 
-- **\t** adds a TAB (more space).
-- **\n** creates a new line.
+- ​**\t**​ 添加制表符（增加间距）
+- ​**\n**​ 创建新行
 
 :::
 
 ```c
-ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_PASSWORD, "Caption", "Enter private information below:", "Button 1", "Button 2");
+ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_PASSWORD, "标题", "在下面输入私密信息:", "按钮 1", "按钮 2");
 ```
 
-### Response Output
+### 响应输出
 
 :::note
 
-- **listitem** is always **-1**.
-- **inputtext** is the text contained by the selected listitem, without the colors.
+- ​**listitem**​ 固定为 ​**-1**
+- ​**inputtext**​ 返回用户输入的明文
 
 :::
 
 ```c
-// wrote "input" and pressed the left button
-playerid = 0, dialogid = YOUR_DIALOGID, response = 1, listitem = -1, inputtext = 'input' (size: 5)
+// 输入"input"后点击左按钮
+playerid = 0, dialogid = YOUR_DIALOGID, response = 1, listitem = -1, inputtext = '输入' (size: 5)
 
-// wrote "input" and pressed the right button
-playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = -1, inputtext = 'input' (size: 5)
+// 输入"input"后点击右按钮
+playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = -1, inputtext = '输入' (size: 5)
 ```
 
 ---
 
-## Style 4: `DIALOG_STYLE_TABLIST`
+## 样式 4: `DIALOG_STYLE_TABLIST`
 
 :::note
 
-- Similar to **DIALOG_STYLE_LIST**.
+- 功能类似 ​**DIALOG_STYLE_LIST**
 
 :::
 
 ![](https://assets.open.mp/assets/images/dialogStyles/Dialog_style_tablist.png)
 
-Showing:
+显示效果：
 
 :::note
 
-- **\t** creates a new column.
-- **\n** creates a new list item.
-- [Color embedding](colorslist#color-embedding) resets after **\n** and **\t**.
-- The first **info** row contains the header.
+- ​**\t**​ 创建新列
+- ​**\n**​ 创建新行
+- [颜色嵌入](colorslist#color-embedding)效果在换行/制表后重置
+- 首行内容作为表头显示
 
 :::
 
 ```c
-ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_TABLIST, "Caption",
+ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_TABLIST, "标题",
 "Deagle\t$5000\t100\n\
 {FF0000}Sawnoff\t{33AA33}$5000\t100\n\
 Pistol\t$1000\t50",
-"Button 1", "Button 2");
+"按钮 1", "按钮 2");
 ```
 
 :::note
 
-- **listitem** is the number of the selected item, starting from **0**.
-- **inputtext** is the text contained by the _first column_ of the selected **listitem**, without the colors.
+- ​**listitem**​ 表示选中项的索引（从 0 开始）
+- ​**inputtext**​ 返回选中项首列文本（不含颜色代码）
 
 :::
 
 ```c
-// selected the first list item and pressed the left button
+// 选择第一项后点击左按钮
 playerid = 0, dialogid = YOUR_DIALOGID, response = 1, listitem = 0, inputtext = 'Deagle' (size: 6)
 
-// selected the second list item and pressed the right button
+// 选择第二项后点击右按钮
 playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = 1, inputtext = 'Sawnoff' (size: 7)
 ```
 
 ---
 
-## Style 5: `DIALOG_STYLE_TABLIST_HEADERS`
+## 样式 5: `DIALOG_STYLE_TABLIST_HEADERS`
 
 :::note
 
-- Similar to **DIALOG_STYLE_LIST**.
+- 功能类似 ​**DIALOG_STYLE_LIST**
 
 :::
 
 ![](https://assets.open.mp/assets/images/dialogStyles/Dialog_style_tablist_headers.png)
 
-Showing:
+显示效果：
 
 :::note
 
-- **\t** creates a new column.
-- **\n** creates a new list item.
-- [Color embedding](colorslist#color-embedding) resets after **\n** and **\t**.
-- The first **info** row contains the header.
+- ​**\t**​ 创建新列
+- ​**\n**​ 创建新行
+- [颜色嵌入](colorslist#color-embedding)效果在换行/制表后重置
+- 首行内容作为固定表头显示
 
 :::
 
 ```c
-ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_TABLIST_HEADERS, "Caption",
-"Header 1\tHeader 2\tHeader 3\n\
-Item 1 Column 1\tItem 1 Column 2\tItem 1 Column 3\n\
-{FF0000}Item 2 Column 1\t{33AA33}Item 2 Column 2\tItem 2 Column 3",
+ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_TABLIST_HEADERS, "标题",
+"表头 1\t表头 2\t表头 3\n\
+项 1 列 1\t项 1 列 2\t项 1 列 3\n\
+{FF0000}项 2 列 1\t{33AA33}项 2 列 2\t项 2 列 3",
 "Button 1", "Button 2");
 ```
 
 :::note
 
-- **listitem** is the number of the selected item, starting from **0**.
-- **inputtext** is the text contained by the _first column_ of the selected **listitem**, without the colors.
+- ​**listitem**​ 表示选中项的索引（从 0 开始）
+- ​**inputtext**​ 返回选中项首列文本（不含颜色代码）
 
 :::
 
 ```c
-// selected the first list item and pressed the left button
-playerid = 0, dialogid = YOUR_DIALOGID, response = 1, listitem = 0, inputtext = 'Item 1 Column 1' (size: 15)
+// 选择第一项后点击左按钮
+playerid = 0, dialogid = YOUR_DIALOGID, response = 1, listitem = 0, inputtext = '项 1 列 1' (size: 15)
 
-// selected the first list item and pressed the right button
-playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = 1, inputtext = 'Item 2 Column 1' (size: 15)
+// 选择第二项后点击右按钮
+playerid = 0, dialogid = YOUR_DIALOGID, response = 0, listitem = 1, inputtext = '项 2 列 1' (size: 15)
 ```

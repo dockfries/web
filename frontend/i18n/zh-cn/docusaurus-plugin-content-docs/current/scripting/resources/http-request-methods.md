@@ -1,17 +1,17 @@
 ---
-title: HTTP Request Methods
-sidebar_label: HTTP Request Methods
-description: Types of HTTP request.
+title: HTTP请求方法
+sidebar_label: HTTP请求方法
+description: HTTP请求类型说明
 ---
 
 :::note
 
-These request methods are used by [HTTP](../functions/HTTP) function.
+这些请求方法适用于[HTTP](../functions/HTTP)函数
 
 :::
 
-| ID  | Method    | Description                                                                                                                                                                                                                            |
-| --- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | HTTP_GET  | Sends a regular HTTP request.<br />GET request is used to read/retrieve data from a web server. GET returns an HTTP status code of **200 (OK)** if the data is successfully retrieved from the server.                                 |
-| 2   | HTTP_POST | Sends a HTTP request with POST data.<br />POST request is used to send data to the server. On successful creation, it returns an HTTP status code of **201**.                                                                          |
-| 3   | HTTP_HEAD | Sends a regular HTTP request, but ignores any response data - returning only the response code.<br />HEAD method is used to request the response headers for a specific resource without receiving the actual content of the resource. |
+| ID  | 方法      | 描述                                                                                                      |
+| --- | --------- | --------------------------------------------------------------------------------------------------------- |
+| 1   | HTTP_GET  | 发送常规 HTTP 请求<br />GET 方法用于从 Web 服务器读取/检索数据。成功时返回 HTTP 状态码**200（OK）​**​     |
+| 2   | HTTP_POST | 发送带有 POST 数据的 HTTP 请求<br />POST 方法用于向服务器提交数据。成功创建资源时返回 HTTP 状态码**201**​ |
+| 3   | HTTP_HEAD | 发送 HTTP 请求但忽略响应体数据（仅返回响应头）<br />HEAD 方法用于获取指定资源的响应头信息，不接收实际内容 |

@@ -1,31 +1,31 @@
 ---
-title: Escape Codes
-sidebar_label: Escape Codes
+title: 转义字符
+sidebar_label: 转义字符
 ---
 
-When create a string you may find that some character may be impossible or extremely difficult to express in the source code of your script, this is where escape codes come in handy - these allow you to use the symbols and expressions that come under this category. Below is a list of escape codes for the PAWN language.
+在创建字符串时，您可能会发现某些字符在脚本源代码中无法直接表达或极难表示，这时就需要使用转义字符——这些特殊符号可以帮助您表示此类字符。以下是 PAWN 语言支持的转义字符列表。
 
-| Escape Codes                                | Code         |
-| ------------------------------------------- | ------------ |
-| Audible beep (on server machine)            | \a (also \7) |
-| Backspace                                   | \b           |
-| Escape                                      | \e           |
-| Form feed                                   | \f           |
-| New line                                    | \n           |
-| Carriage return                             | \r           |
-| Horizontal tab                              | \t           |
-| Vertical tab                                | \v           |
-| Backslash (\)                               | \\           |
-| Single quote (')                            | \'           |
-| Double quote (")                            | \"           |
-| Percent sign                                | \%           |
-| Character code with decimal code "ddd".     | \ddd;        |
-| Character code with hexidecimal code "hhh". | \xhhh;       |
+| 转义字符描述                            | 代码          |
+| --------------------------------------- | ------------- |
+| 响铃（蜂鸣声，在服务器端触发）          | \a (也可用\7) |
+| 退格符                                  | \b            |
+| 转义符                                  | \e            |
+| 换页符                                  | \f            |
+| 换行符                                  | \n            |
+| 回车符                                  | \r            |
+| 水平制表符（Tab 键）                    | \t            |
+| 垂直制表符                              | \v            |
+| 反斜杠符号（\）                         | \\            |
+| 单引号（'）                             | \'            |
+| 双引号（"）                             | \"            |
+| 百分号                                  | \%            |
+| 十进制编码字符（"ddd"表示十进制数）     | \ddd;         |
+| 十六进制编码字符（"hhh"表示十六进制数） | \xhhh;        |
 
 :::note
 
-The semicolon after the nddd; and nxhhh; codes is optional. Its purpose is to give the escape sequence sequence an explicit termination symbol when it is used in a string constant.
+在\ddd;和\xhhh;转义序列中，结尾的分号是可选的。它的作用是在字符串常量中为转义序列提供明确的终止符号。
 
 :::
 
-Source: [pawn-lang.pdf (pg 99)](https://github.com/pawn-lang/compiler/raw/master/doc/pawn-lang.pdf)
+来源：[pawn-lang.pdf (第 99 页)](https://github.com/pawn-lang/compiler/raw/master/doc/pawn-lang.pdf)

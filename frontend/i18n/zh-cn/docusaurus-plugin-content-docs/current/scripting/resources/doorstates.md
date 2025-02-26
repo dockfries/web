@@ -1,74 +1,74 @@
 ---
-title: Door States
-sidebar_label: Door States
-description: Information about byte size and its corresponding door state bits.
+title: 车门状态
+sidebar_label: 车门状态
+description: 字节大小与对应车门状态位的关联信息
 ---
 
 :::note
 
-Door states are used by natives such as [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus) and [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus).
+车门状态信息适用于[GetVehicleDamageStatus](../functions/GetVehicleDamageStatus)和[UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus)等原生函数。
 
 :::
 
 :::note
 
-The states of the 2 back doors can not be handled by [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus) and [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus).
+两个后门的状态无法通过[GetVehicleDamageStatus](../functions/GetVehicleDamageStatus)和[UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus)进行处理。
 
 :::
 
-## Which bit stores what?
+## 位存储规则
 
-The damage of each door (note that the hood and the trunk are also doors) will be saved in 1 byte (which is 8 bits). You can only change the state of one bit for every door at each time, so you have to call the function twice if you want to the door to be damaged and opened at the same time.
+每个车门（注：引擎盖和后备箱也视为车门）的损坏状态由 1 字节（8 位）存储。每次只能修改单个车门的某一位状态，若需同时设置车门损坏和开启状态需调用两次函数。
 
-- The **first bit** stores whether the door is **opened (value 1)** or **not (value 0)**. The door will still lock (and change the first bit to 0) if open, it's just open.
-- The **second bit** stores whether the door is **damaged (value 1)** or **not (value 0)**. If you want a damaged door to turn normal you have to remove and re-attach it undamaged.
-- The **third bit** stores whether the door is **removed (value 1)** or **not (value 0)**.
-- The rest of the bits are empty.
+- ​**第 1 位**​ 表示车门是否**开启（值 1）​**或**关闭（值 0）​**。开启的车门仍可上锁（此时第一位会变为 0）
+- ​**第 2 位**​ 表示车门是否**损坏（值 1）​**或**完好（值 0）​**。若需修复损坏车门，需先移除后重新附加
+- ​**第 3 位**​ 表示车门是否**移除（值 1）​**或**存在（值 0）​**
+- 其余位暂未使用
 
-It seems like there is no bit which stores if the door will lock or not.
+似乎没有专门表示车门是否上锁的状态位。
 
-Notice that the bits are counted from behind, so the first bit is the rightmost bit.
-
----
-
-## Which byte stores what?
-
-- The **first byte** stores the state of the **hood**.
-- The **second byte** stores the state of the **trunk**.
-- The **third byte** stores the state of the **drivers' door**.
-- The **fourth byte** stores the state of the **co-drivers' door**.
-
-Notice that the bytes are counted from behind, so the first byte is the rightmost byte.
+注意：位计算从右向左，第一位为最右侧位。
 
 ---
 
-## Example
+## 字节存储规则
 
-The following code tells that the hood is removed, the front left door is damaged, the front right door is opened and the trunk is damaged and opened:
+- ​**第 1 字节**​ 存储**引擎盖**状态
+- ​**第 2 字节**​ 存储**后备箱**状态
+- ​**第 3 字节**​ 存储**驾驶座车门**状态
+- ​**第 4 字节**​ 存储**副驾驶车门**状态
+
+注意：字节计算从右向左，第一位为最右侧字节。
+
+---
+
+## 状态示例
+
+以下二进制表示引擎盖被移除、前左车门损坏、前右车门开启、后备箱损坏且开启的状态：
 
 `00000001 00000010 00000011 00000100`
 
-However, SA-MP returns a decimal number so you have to convert it to a binary number first to get a result like above. What SA-MP would return given the example above is this:
+SA-MP 实际返回十进制数值，需转换为二进制查看。上述示例将返回：
 
 `16909060`
 
 ---
 
-## Info table
+## 状态对照表
 
-**Legend:**
+**图例说明：​**
 
 ```
-Static        Doors                    Hood / Trunk
+静态部件     车门                      引擎盖/后备箱
 
-° - Light      | - healthy, closed     -- - healthy, closed
-              -- - healthy, opened     [] - healthy, opened
-               § - damaged, closed     ~~ - damaged, closed
-              ww - damaged, opened     {} - damaged, opened
-                 - missing                - missing
+° - 车灯     | - 完好关闭              -- - 完好关闭
+             -- - 完好开启             [] - 完好开启
+              § - 损坏关闭             ~~ - 损坏关闭
+             ww - 损坏开启             {} - 损坏开启
+                - 缺失                     - 缺失
 ```
 
-**First byte (hood):**
+**第一字节（引擎盖）：​**
 
 ```
 0 (000)   1 (001)   2 (010)   3 (011)   4 (100)   5 (101)   6 (110)   7 (111)
@@ -77,7 +77,7 @@ Static        Doors                    Hood / Trunk
   °--°      °--°      °--°      °--°      °--°      °--°      °--°      °--°
 ```
 
-**Second byte (trunk):**
+**第二字节（后备箱）：​**
 
 ```
 0 (000)   1 (001)   2 (010)   3 (011)   4 (100)   5 (101)   6 (110)   7 (111)
@@ -86,7 +86,7 @@ Static        Doors                    Hood / Trunk
   °--°      °[]°      °--°      °{}°      °  °      °  °      °  °      °  °
 ```
 
-**Third byte (drivers' door):**
+**第三字节（驾驶座车门）：​**
 
 ```
 0 (000)   1 (001)   2 (010)   3 (011)   4 (100)   5 (101)   6 (110)   7 (111)
@@ -95,7 +95,7 @@ Static        Doors                    Hood / Trunk
   °--°      °--°      °--°      °--°      °--°      °--°      °--°      °--°
 ```
 
-**Fourth byte (co-drivers' door):**
+**第四字节（副驾驶车门）：​**
 
 ```
 0 (000)   1 (001)   2 (010)   3 (011)   4 (100)   5 (101)   6 (110)   7 (111)
@@ -106,9 +106,9 @@ Static        Doors                    Hood / Trunk
 
 ---
 
-## Wrapper
+## 封装函数
 
-Useful little snippet to avoid working with the bits and bytes too much.
+简化位操作的工具代码：
 
 ```c
 enum Door
@@ -134,7 +134,7 @@ stock GetDoorState(doorStates, Door:door, DoorState:doorState)
 
 ---
 
-## Example usage
+## 使用示例
 
 ```c
 new
@@ -145,19 +145,19 @@ new
 
 GetVehicleDamageStatus(vehicleid, panels, doors, lights, tires);
 
-// Single state
+// 单一状态检测
 if (GetDoorState(_:doors, DOOR_DRIVER, IS_DAMAGED))
 {
-    SendClientMessage(playerid, -1, "The drivers' door of your vehicle is damaged!");
+    SendClientMessage(playerid, -1, "您的车辆驾驶座车门已损坏！");
 }
 
-// Combined state
+// 组合状态检测
 if (GetDoorState(_:doors, DOOR_HOOD, IS_OPENED | IS_DAMAGED))
 {
-    SendClientMessage(playerid, -1, "The hood of your vehicle is both opened and damaged!");
+    SendClientMessage(playerid, -1, "您的车辆引擎盖处于开启且损坏状态！");
 }
 ```
 
-## See also
+## 相关阅读
 
-- [Vehicle Door Status](../resources/vehicle-door-status)
+- [车辆门状态](../resources/vehicle-door-status)

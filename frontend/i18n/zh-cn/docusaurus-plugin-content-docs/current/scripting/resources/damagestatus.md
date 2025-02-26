@@ -1,32 +1,32 @@
 ---
-title: Damage Status
-sidebar_label: Damage Status
-description: Information about vehicle damage status and sample code.
+title: 损坏状态
+sidebar_label: 损坏状态
+description: 车辆损坏状态信息及代码示例
 ---
 
 :::note
 
-Information about vehicle damage status used by [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus) and [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus).
+有关[GetVehicleDamageStatus](../functions/GetVehicleDamageStatus)和[UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus)函数使用的车辆损坏状态信息。
 
 :::
 
-Vehicle damage is stored in 4 values: **Panels**, **Doors**, **Lights** and **Tires**. Each value holds a bit mask of the state of all the panels, doors, lights or tires. This means you need to use bitwise operators to work with them (most of the time).
+车辆损坏状态通过 4 个数值存储：**车身面板**、**车门**、**车灯**和**轮胎**。每个数值都使用位掩码来记录所有对应部件的状态，这意味着大多数情况下需要使用位运算进行处理。
 
-For example, the tires status stores 4 bits for the 4 tires. The value is 1 if the tire is popped, and 0 if it is not popped. So, for example, a value of `1010` means both the front tires are popped, and the rear ones are not.
+例如，轮胎状态使用 4 个比特位表示 4 个轮胎。当轮胎爆胎时对应位为 1，正常则为 0。因此数值`1010`表示前轮爆胎而后轮正常。
 
 :::note
 
-For more info on panel states, see [Panel States](../resources/panelstates).  
-For more info on door states, see [Door States](../resources/doorstates).  
-For more info on light states, see [Light States](../resources/lightstates).  
-For more info on tire states, see [Tire States](../resources/tirestates).
+有关面板状态的更多信息，请参阅[面板状态](../resources/panelstates)  
+有关车门状态的更多信息，请参阅[车门状态](../resources/doorstates)  
+有关车灯状态的更多信息，请参阅[车灯状态](../resources/lightstates)  
+有关轮胎状态的更多信息，请参阅[轮胎状态](../resources/tirestates)
 
 :::
 
-To make working with these easier, there are some encoding and decoding functions below.
+为了方便处理这些状态，以下提供了一些编码和解码函数：
 
 ```c
-//Panels
+// 车身面板
 decode_panels(panels, &front_left_panel, &front_right_panel, &rear_left_panel, &rear_right_panel, &windshield, &front_bumper, &rear_bumper)
 {
     front_left_panel = panels & 15;
@@ -43,7 +43,7 @@ encode_panels(front_left_panel, front_right_panel, rear_left_panel, rear_right_p
     return front_left_panel | (front_right_panel << 4) | (rear_left_panel << 8) | (rear_right_panel << 12) | (windshield << 16) | (front_bumper << 20) | (rear_bumper << 24);
 }
 
-//Doors
+// 车门
 decode_doors(doors, &bonnet, &boot, &driver_door, &passenger_door)
 {
     bonnet = doors & 7;
@@ -57,7 +57,7 @@ encode_doors(bonnet, boot, driver_door, passenger_door)
     return bonnet | (boot << 8) | (driver_door << 16) | (passenger_door << 24);
 }
 
-//Lights
+// 车灯
 decode_lights(lights, &front_left_light, &front_right_light, &back_lights)
 {
     front_left_light = lights & 1;
@@ -70,7 +70,7 @@ encode_lights(front_left_light, front_right_light, back_lights)
     return front_left_light | (front_right_light << 2) | (back_lights << 6);
 }
 
-//Tires
+// 轮胎
 decode_tires(tires, &rear_right_tire, &front_right_tire, &rear_left_tire, &front_left_tire)
 {
     rear_right_tire = tires & 1;

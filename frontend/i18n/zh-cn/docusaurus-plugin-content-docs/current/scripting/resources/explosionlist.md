@@ -1,33 +1,33 @@
 ---
-title: Explosion Lists
-sidebar_label: Explosion Lists
+title: 爆炸类型列表
+sidebar_label: 爆炸类型列表
 ---
 
 :::info
 
-A list of explosion types can be found in the table below. They can be used by [CreateExplosion](../functions/CreateExplosion) and with [CreateExplosionForPlayer](../functions/CreateExplosionForPlayer).
+下表列出了可通过[CreateExplosion](../functions/CreateExplosion)和[CreateExplosionForPlayer](../functions/CreateExplosionForPlayer)函数使用的爆炸类型。
 
 :::
 
 ---
 
-| Type | Visible | Splits | Creates Fire | Physical Blast | Audible Sound | Special                                                                                                  | Range      |
-| ---- | ------- | ------ | ------------ | -------------- | ------------- | -------------------------------------------------------------------------------------------------------- | ---------- |
-| 0    | Yes     | --     | --           | Yes            | Yes           | Normal                                                                                                   | Large      |
-| 1    | Yes     | --     | Yes          | --             | Yes           | Normal                                                                                                   | Normal     |
-| 2    | Yes     | --     | Yes          | Yes            | Yes           | Normal                                                                                                   | Large      |
-| 3    | Yes     | --     | Sometimes?   | Yes            | Yes           | Normal                                                                                                   | Large      |
-| 4    | Yes     | Yes    | --           | Yes            | --            | Unusual explosion, produces just special blast burn FX effects and blasts things away, NO SOUND EFFECTS. | Normal     |
-| 5    | Yes     | Yes    | --           | Yes            | --            | Unusual explosion, produces just special blast burn FX effects and blasts things away, NO SOUND EFFECTS. | Normal     |
-| 6    | Yes     | --     | --           | Yes            | Yes           | Additional reddish explosion after-glow                                                                  | Very Large |
-| 7    | Yes     | --     | --           | Yes            | Yes           | Additional reddish explosion after-glow                                                                  | Huge       |
-| 8    | --      | --     | --           | Yes            | Yes           | Invisible                                                                                                | Normal     |
-| 9    | --      | --     | Yes          | Yes            | Yes           | Creates fires at ground level, otherwise explosion is heard but invisible.                               | Normal     |
-| 10   | Yes     | --     | --           | Yes            | Yes           | Normal                                                                                                   | Large      |
-| 11   | Yes     | --     | --           | Yes            | Yes           | Normal                                                                                                   | Small      |
-| 12   | Yes     | --     | --           | Yes            | Yes           | Really Small                                                                                             | Very Small |
-| 13   | --      | --     | --           | --             | --            | Produces no special effects other than black burn effects on the ground, does no damage either.          | Large      |
+| 类型 | 可见性 | 分裂效果 | 生成火焰 | 物理冲击 | 音效 | 特殊说明                                         | 影响范围 |
+| ---- | ------ | -------- | -------- | -------- | ---- | ------------------------------------------------ | -------- |
+| 0    | 是     | --       | --       | 是       | 是   | 普通爆炸                                         | 大范围   |
+| 1    | 是     | --       | 是       | --       | 是   | 常规爆炸                                         | 普通范围 |
+| 2    | 是     | --       | 是       | 是       | 是   | 常规爆炸                                         | 大范围   |
+| 3    | 是     | --       | 有时？   | 是       | 是   | 常规爆炸                                         | 大范围   |
+| 4    | 是     | 是       | --       | 是       | --   | 非常规爆炸，仅产生特殊燃烧特效并击飞物体，无音效 | 普通范围 |
+| 5    | 是     | 是       | --       | 是       | --   | 非常规爆炸，仅产生特殊燃烧特效并击飞物体，无音效 | 普通范围 |
+| 6    | 是     | --       | --       | 是       | 是   | 附带红色余辉特效                                 | 超大范围 |
+| 7    | 是     | --       | --       | 是       | 是   | 附带红色余辉特效                                 | 极大范围 |
+| 8    | --     | --       | --       | 是       | 是   | 隐形爆炸                                         | 普通范围 |
+| 9    | --     | --       | 是       | 是       | 是   | 仅在地面生成火焰，爆炸效果不可见但可听见         | 普通范围 |
+| 10   | 是     | --       | --       | 是       | 是   | 常规爆炸                                         | 大范围   |
+| 11   | 是     | --       | --       | 是       | 是   | 常规爆炸                                         | 小范围   |
+| 12   | 是     | --       | --       | 是       | 是   | 微型爆炸                                         | 极小范围 |
+| 13   | --     | --       | --       | --       | --   | 仅在地面生成黑色燃烧痕迹，无任何伤害效果         | 大范围   |
 
 ---
 
-[Here's a visual showcase of all these types](http://weedarr.wikidot.com/explosion)
+[点击此处查看所有爆炸类型的视觉演示](http://weedarr.wikidot.com/explosion)

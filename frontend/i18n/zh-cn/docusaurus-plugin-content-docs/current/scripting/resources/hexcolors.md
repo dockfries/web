@@ -1,19 +1,20 @@
 ---
-title: Hex Colors
-sidebar_label: Hex Colors
-description: This deals with the color representation in hexadecimal in SAMP.
+title: 十六进制颜色
+sidebar_label: 十六进制颜色
+description: SA-MP中的十六进制颜色表示方法
 ---
 
-## What is hex?
+## 什么是十六进制？
 
-The hexadecimal numeral system, or commonly known just as Hex, is a numeral system made up of 16 unique symbols (this is also known as base 16). You're probably wondering how this numeral system can have 16 symbols when our beloved decimal system (base 10) only has 10 symbols (0-9). Well the answer is quiet simple, let's take a look at both systems:
+十六进制（简称 Hex）是一种采用 16 个不同符号的计数系统（即基数为 16）。相较于我们熟悉的十进制（基数为 10，使用 0-9 共 10 个符号），十六进制的符号组成如下：
 
 ---
 
-### Decimal (base 10)
+### 十进制（基数为 10）
 
 ```c
-01
+0
+1
 2
 3
 4
@@ -26,10 +27,11 @@ The hexadecimal numeral system, or commonly known just as Hex, is a numeral syst
 
 ---
 
-### Hexadecimal (base 16)
+### 十六进制（基数为 16）
 
 ```c
-01
+0
+1
 2
 3
 4
@@ -46,123 +48,118 @@ E //14
 F //15
 ```
 
-Since there are no more available numbers, hex uses letters from the alphabet. Don't be scared by this, you can simply view them as place holders who's value is +1 of the previous number. This sounds very confusing and may even look pretty scary, but you will get used to it in no time at all.
+当数字符号用尽后，十六进制使用字母作为补充。字母 A-F 分别代表 10-15 的数值。
 
-Now let's take a look a few bigger numbers.
+现在让我们看看一些更大的数字。
 
 ---
 
-### Decimal (base 10)
+### 数值对比示例
+
+#### 十进制（基数为 10）
 
 ```c
 255
 ```
 
----
-
-### Hexadecimal (base 16)
+#### 十六进制（基数为 16）
 
 ```c
 FF
 ```
 
-The number 255 is pretty understandable, but what is 'FF'? Let's take a look at both in their exponential notation.
+数字 255 很容易理解，但什么是“FF”？让我们看看两者的指数符号。
 
 ---
 
+### 数值分解说明
+
 :::caution
 
-**Note** | '^' is to the power of in this case, not the bitwise exclusive operator.
+**注意**​ | 下文中的"^"符号表示幂运算，非按位异或运算符。
 
 :::
 
-### Decimal (base 10)
+#### 十进制解析
 
 ```c
 2 * (10^2) + 5 * (10^1) + 5 * (10^0)
-
-//which equals
-
-200+50+5
-
-//which equals
-
-255
+= 200 + 50 + 5
+= 255
 ```
 
-Hex is exactly the same! The only difference is that it works with powers of 16 (Hence the base 10/16).
-
----
-
-### Hexadecimal (base 16)
+#### 十六进制解析
 
 ```c
 F * (16^1) + F * (16^0)
-
-//which equals
-
-15 * (16^1) + 15 * (16^0)
-
-//which equals
-
-240+15
+= 15 * 16 + 15 * 1
+= 240 + 15
+= 255
 ```
 
 ---
 
-## When and how to use hex.
+---
 
-There isn't really a sole use for hex, you can use it when ever you want; though it's mostly used for color defines (We'll take a look at this later). Some people use hex as a visual aid to make things look more clearly (Y_Less) for example:
+title: 十六进制的使用场景与方法  
+sidebar_label: 十六进制应用  
+description: 十六进制在 PAWN 脚本中的具体应用解析
 
-:::caution
+## 何时及如何使用十六进制
 
-**Note** | This is a complicated example, don't worry if you don't understand it.
+十六进制并没有唯一的应用场景，您可以在任何需要时使用它，但最常见的用途是颜色定义（我们将在后文详述）。部分开发者会将十六进制作为可视化辅助工具来提高代码可读性（例如 Y_Less 的代码风格）：
 
+:::caution  
+**注意**​ | 以下为进阶示例，如暂时无法理解无需担忧  
 :::
 
 ```c
 var = b & 0x04
 ```
 
-That makes it very clear that I want the 4 high bits of the low byte of b, on the other hand:
+此写法清晰表明了需要获取变量 b 低字节中的第 3 个高位比特（二进制 00000100）。相较而言：
 
 ```c
 var = b & 4
 ```
 
-Isn't very friendly to the eyes at all.
+这种十进制写法在视觉上不够直观。
 
-Notice how '04' has '0x' in front of it. This is a constant symbol in pawn that allows the use of hexadecimal (like 0b is for binary).
+请注意"04"前的"0x"前缀。这是 PAWN 语言中专用于表示十六进制常量的标识符（如同"0b"用于表示二进制常量）。
 
 ---
 
-## Hex colors
+## 颜色格式规范
 
-Hex colors follow this format:
-
-```c
-RR - Two values for the red (Where FF is max, and 00 is the lowest).
-GG - Two values for the green (Where FF is max, and 00 is the lowest).
-BB - Two values for the blue (Where FF is max, and 00 is the lowest).
-AA - Two values for the transparency (Where FF is max, and 00 is the lowest).
-```
-
-Let's take a look at a few colors, starting with the basics and moving into the combinations.
+SA-MP 采用 8 位十六进制颜色编码：
 
 ```c
-//basics
-
-0x00000000 - Black
-0xFF0000FF - Bright red.
-0x00FF00FF - Bright green.
-0x0000FFFF - Bright blue.
-0xFFFFFFFF - White
-
-//combinations
-
-0xFFFF00FF - Bright yellow
-0xFF00FFFF - Bright purple
-0x00FFFFFF - Bright cyan
+RR - 红色分量（FF为最大值，00为最小值）
+GG - 绿色分量（FF为最大值，00为最小值）
+BB - 蓝色分量（FF为最大值，00为最小值）
+AA - 透明度（FF为完全透明，00为完全不透明）
 ```
 
-These are just the basic colors/combination, if you're looking for other colors / are too lazy to convert, you are better using a converter like this one:
+---
+
+## 颜色示例
+
+### 基础色
+
+```c
+0x00000000 - 纯黑
+0xFF0000FF - 亮红
+0x00FF00FF - 亮绿
+0x0000FFFF - 亮蓝
+0xFFFFFFFF - 纯白
+```
+
+### 混合色
+
+```c
+0xFFFF00FF - 亮黄
+0xFF00FFFF - 亮紫
+0x00FFFFFF - 亮青
+```
+
+如需更多颜色代码，推荐使用在线转换工具：[颜色代码转换器](https://www.colorhexa.com/)

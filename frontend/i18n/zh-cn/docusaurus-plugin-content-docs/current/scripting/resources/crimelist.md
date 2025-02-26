@@ -1,33 +1,33 @@
 ---
-title: Crime List
-sidebar_label: Crime List
-description: Crime List used by PlayCrimeReportForPlayer function.
+title: 犯罪类型清单
+sidebar_label: 犯罪类型清单
+description: 用于PlayCrimeReportForPlayer函数的犯罪类型清单
 ---
 
 :::info
 
-Here you can find all of the crime IDs used by [PlayCrimeReportForPlayer](../functions/PlayCrimeReportForPlayer) function.
+这里列出了[PlayCrimeReportForPlayer](../functions/PlayCrimeReportForPlayer)函数使用的所有犯罪 ID。
 
 :::
 
-| Crime ID | Ten-code | Description                                              |
-| -------- | -------- | -------------------------------------------------------- |
-| 3        | 10-71    | Advise nature of fire (size, type, contents of building) |
-| 4        | 10-37    | Emergency road repairs needed                            |
-| 5        | 10-81    | Breatherlizer Report                                     |
-| 6        | 10-24    | Assignment Completed                                     |
-| 7        | 10-21    | Call () by phone                                         |
-| 8        | 10-21    | Call () by phone                                         |
-| 9        | 10-21    | Call () by phone                                         |
-| 10       | 10-17    | Meet Complainant                                         |
-| 11       | 10-81    | Breatherlizer Report                                     |
-| 12       | 10-91    | Pick up prisoner/subject                                 |
-| 13       | 10-28    | Vehicle registration information                         |
-| 14       | 10-81    | Breathalyzer                                             |
-| 15       | 10-28    | Vehicle registration information                         |
-| 16       | 10-91    | Pick up prisoner/subject                                 |
-| 17       | 10-34    | Riot                                                     |
-| 18       | 10-37    | (Investigate) suspicious vehicle                         |
-| 19       | 10-81    | Breathalyzer                                             |
-| 21       | 10-7     | Out of service                                           |
-| 22       | 10-7     | Out of service                                           |
+| 犯罪 ID | 十码代码 | 描述                                           |
+| ------- | -------- | ---------------------------------------------- |
+| 3       | 10-71    | 报告火情性质（建筑规模、类型、建筑物内的物品） |
+| 4       | 10-37    | 需要紧急道路维修                               |
+| 5       | 10-81    | 酒精测试报告                                   |
+| 6       | 10-24    | 任务完成                                       |
+| 7       | 10-21    | 通过电话呼叫（）                               |
+| 8       | 10-21    | 通过电话呼叫（）                               |
+| 9       | 10-21    | 通过电话呼叫（）                               |
+| 10      | 10-17    | 与报案人见面                                   |
+| 11      | 10-81    | 酒精测试报告                                   |
+| 12      | 10-91    | 押送囚犯/嫌疑人                                |
+| 13      | 10-28    | 车辆注册信息查询                               |
+| 14      | 10-81    | 酒精测试                                       |
+| 15      | 10-28    | 车辆注册信息                                   |
+| 16      | 10-91    | 押送囚犯/嫌疑人                                |
+| 17      | 10-34    | 暴动事件                                       |
+| 18      | 10-37    | 调查可疑车辆                                   |
+| 19      | 10-81    | 酒精测试                                       |
+| 21      | 10-7     | 暂停服务                                       |
+| 22      | 10-7     | 暂停服务                                       |

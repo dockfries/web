@@ -1,17 +1,17 @@
 ---
-title: File Seek Whence
-sidebar_label: File Seek Whence
-description: File seek whence definitions. (fseek)
+title: 文件定位基准
+sidebar_label: 文件定位基准
+description: 文件定位基准定义（用于fseek函数）
 ---
 
 :::note
 
-These definitions are used by [fseek](../functions/fseek).
+这些定义适用于[fseek](../functions/fseek)函数。
 
 :::
 
-| Definition   | Description                                                                                                           |
-| ------------ | --------------------------------------------------------------------------------------------------------------------- |
-| seek_start   | Set the file position relative to the start of the file (the position parameter must be positive).                    |
-| seek_current | Set the file position relative to the current file position: the position parameter is added to the current position. |
-| seek_end     | Set the file position relative to the end of the file (parameter position must be zero or negative).                  |
+| 定义         | 描述                                                       |
+| ------------ | ---------------------------------------------------------- |
+| seek_start   | 设置相对于文件起始位置的文件指针（定位参数必须为正值）     |
+| seek_current | 设置相对于当前文件位置的偏移量（定位参数将叠加到当前位置） |
+| seek_end     | 设置相对于文件末尾的位置（定位参数必须为零或负值）         |
