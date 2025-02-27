@@ -1,18 +1,18 @@
 ---
-title: Spectate Types
-sidebar_label: Spectate Types
-description: Spectate Types used by GetPlayerSpectateType.
+title: 旁观类型
+sidebar_label: 旁观类型
+description: GetPlayerSpectateType使用的旁观类型
 tags: []
 ---
 
 :::info
 
-Spectate Types used by [GetPlayerSpectateType](../functions/GetPlayerSpectateType).
+[GetPlayerSpectateType](../functions/GetPlayerSpectateType) 函数使用的旁观类型
 
 :::
 
-| Type    | Value |
-| ------- | ----- |
-| None    | 0     |
-| Vehicle | 1     |
-| Player  | 2     |
+| 类型 | 值  |
+| ---- | --- |
+| 无   | 0   |
+| 载具 | 1   |
+| 玩家 | 2   |

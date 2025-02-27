@@ -1,24 +1,24 @@
 ---
-title: Starting IDs
-sidebar_label: Starting IDs
-description: Everything like objects, players or vehicles use IDs. Some IDs start with 0, others start with 1.
+title: 起始ID
+sidebar_label: 起始ID
+description: 各类实体（如物体、玩家或车辆）的ID起始编号规则
 ---
 
-This page contains all of the starting IDs for numerous entities.  
-Everything like objects, players or vehicles use IDs. Some IDs start with 0, others start with 1.
+本文档列出了多种实体类型的起始 ID 编号规则。  
+诸如物体、玩家或车辆等所有实体都使用 ID 进行标识，部分类型从 0 开始计数，另一些则从 1 开始。
 
-| Type                      | Starting ID |
-| ------------------------- | ----------- |
-| 3D Text Label             | 0           |
-| Actor                     | 0           |
-| File                      | 0           |
-| GangZone                  | 0           |
-| Object                    | 1           |
-| Pickup                    | 0           |
-| Player                    | 0           |
-| Player Class              | 0           |
-| TextDraw / PlayerTextDraw | 0           |
-| Timer                     | 1           |
-| Vehicle                   | 1           |
+| 实体类型              | 起始 ID |
+| --------------------- | ------- |
+| 3D 文本标签           | 0       |
+| 角色                  | 0       |
+| 文件句柄              | 0       |
+| 帮派区域              | 0       |
+| 物体                  | 1       |
+| 拾取物                | 0       |
+| 玩家                  | 0       |
+| 玩家职业              | 0       |
+| 文本绘图/玩家文本绘图 | 0       |
+| 计时器                | 1       |
+| 车辆                  | 1       |
 
-You see, vehicles and objects start using 1, not 0! So if you plan to use an array to hold all IDs you have to use the ID from CreateObject/CreateVehicle/... and subtract 1 to get the array element ID.
+请注意：​**车辆和物体的 ID 从 1 开始计数**！如果计划使用数组存储所有 ID，需要将 CreateObject/CreateVehicle 等函数返回的 ID 值减 1，才能正确对应数组索引位置。

@@ -1,19 +1,19 @@
 ---
-title: "Svar Types"
-sidebar_label: "Svar Types"
+title: 服务器变量类型
+sidebar_label: 服务器变量类型
 ---
 
 :::info
 
-Types of server variables (also called svar types) used by [GetSVarType](../functions/GetSVarType) function.
+[GetSVarType](../functions/GetSVarType) 函数使用的服务器变量类型（简称 svar 类型）。
 
-See also: [Server variable system](../../tutorials/servervariablesystem)
+另请参阅：[服务器变量系统](../../tutorials/servervariablesystem)
 
 :::
 
-| ID  | Definition            |
-| --- | --------------------- |
-| 0   | SERVER_VARTYPE_NONE   |
-| 1   | SERVER_VARTYPE_INT    |
-| 2   | SERVER_VARTYPE_STRING |
-| 3   | SERVER_VARTYPE_FLOAT  |
+| ID  | 定义                            |
+| --- | ------------------------------- |
+| 0   | SERVER_VARTYPE_NONE（无）       |
+| 1   | SERVER_VARTYPE_INT（整型）      |
+| 2   | SERVER_VARTYPE_STRING（字符串） |
+| 3   | SERVER_VARTYPE_FLOAT（浮点型）  |
