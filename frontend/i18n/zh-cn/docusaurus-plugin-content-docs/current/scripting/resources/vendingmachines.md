@@ -1,34 +1,34 @@
 ---
-title: Vending Machines
-sidebar_label: Vending Machines
-description: List of all vending machine locations, player using them should be within 2 units distance.
+title: 自动售货机
+sidebar_label: 自动售货机
+description: 所有自动售货机位置列表，玩家使用时需保持2单位距离内。
 ---
 
 :::info
 
-In GTA: SA (and SA-MP too), it is possible to use vending machines which can be found around the map. The models in the table below are usable vending machines.
+在 GTA: SA（以及 SA-MP）中，地图上分布着可供使用的自动售货机。下表列出了所有可交互的售货机模型。
 
 :::
 
-| Model ID | Model name     | Description                         |
-| -------- | -------------- | ----------------------------------- |
-| 1209     | VENDMACH       | The red soda vending machine        |
-| 1302     | VENDMACHFD     | Same model as 1209                  |
-| 1977     | VENDIN3        | Probably not used anywhere          |
-| 1775     | CJ_SPRUNK1     | A Sprunk vending machine            |
-| 1776     | CJ_CANDYVENDOR | A vending machine which sells candy |
-| 956      | CJ_EXT_CANDY   | Same model as 1776                  |
-| 955      | CJ_EXT_SPRUNK  | Same model as 1775                  |
+| 模型 ID | 模型名称       | 描述                  |
+| ------- | -------------- | --------------------- |
+| 1209    | VENDMACH       | 红色苏打水自动售货机  |
+| 1302    | VENDMACHFD     | 与 1209 号模型相同    |
+| 1977    | VENDIN3        | 未在实际场景中使用    |
+| 1775    | CJ_SPRUNK1     | Sprunk 品牌饮料售货机 |
+| 1776    | CJ_CANDYVENDOR | 糖果售货机            |
+| 956     | CJ_EXT_CANDY   | 与 1776 号模型相同    |
+| 955     | CJ_EXT_SPRUNK  | 与 1775 号模型相同    |
 
 ---
 
 :::info
 
-List of all vending machine locations, player using them should be within 2 units distance.
+完整自动售货机坐标列表，玩家使用时需保持 2 单位距离内。
 
 :::
 
-Exterior:
+室外坐标：
 
 ```
   -14.70,  1175.36,   18.95
@@ -80,7 +80,7 @@ Exterior:
 
 ---
 
-Interior:
+室内坐标：
 
 ```
  2155.84,  1607.88, 1000.06

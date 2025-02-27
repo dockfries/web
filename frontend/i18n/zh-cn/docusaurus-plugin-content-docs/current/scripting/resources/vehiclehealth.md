@@ -1,19 +1,19 @@
 ---
-title: Vehicle Health
-sidebar_label: Vehicle Health
-description: Vehicle Health Values.
+title: 载具健康值
+sidebar_label: 载具健康值
+description: 载具健康值参数说明。
 ---
 
 :::info
 
-The vehicle health value used by [SetVehicleHealth](../functions/SetVehicleHealth) and [GetVehicleHealth](../functions/GetVehicleHealth) is always between 0 and 1000. A value of 0 means the vehicle will explode, and a value of 1000 means the vehicle doesn't even have a scratch. The effect of the vehicle health value on the engine is illustrated in the table below.
+[设置载具健康值](../functions/SetVehicleHealth)和[获取载具健康值](../functions/GetVehicleHealth)函数使用的健康值范围始终在 0 到 1000 之间。0 表示载具将爆炸，1000 表示载具完好无损。下表展示了不同健康值对引擎状态的影响。
 
 :::
 
-| Vehicle health | Effect on the engine                                                                                  |
-| -------------- | ----------------------------------------------------------------------------------------------------- |
-| > 650          | None. The engine is still pretty much fine                                                            |
-| 550-650        | The engine is overheating, and will emit white smoke                                                  |
-| 390-550        | The engine is overheating pretty badly, and will emit grey smoke                                      |
-| 250-390        | The engine is getting really hot, and will emit black smoke                                           |
-| < 250          | The engine will catch fire, and the vehicle will explode a few seconds later, unless it gets repaired |
+| 健康值范围 | 引擎状态影响                                 |
+| ---------- | -------------------------------------------- |
+| > 650      | 无异常。引擎运转正常                         |
+| 550-650    | 引擎过热，开始冒白烟                         |
+| 390-550    | 引擎严重过热，产生灰烟                       |
+| 250-390    | 引擎高温异常，排放黑烟                       |
+| < 250      | 引擎起火，载具将在数秒后爆炸（除非及时修复） |

@@ -1,62 +1,62 @@
 ---
-title: Tire States
-sidebar_label: Tire States
-description: Information about byte size and its corresponding tire state bits.
+title: 轮胎状态
+sidebar_label: 轮胎状态
+description: 关于字节大小及其对应轮胎状态位的说明。
 ---
 
 :::note
 
-Tire states are used by natives such as [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus) and [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus).
+轮胎状态被原生函数使用，例如[获取载具损伤状态](../functions/GetVehicleDamageStatus)和[更新载具损伤状态](../functions/UpdateVehicleDamageStatus)。
 
 :::
 
 :::note
 
-Even vehicles with more than 4 wheels (e.g. trucks) only have 4 tire states.
+即使超过 4 个轮胎的载具（如卡车）也仅有 4 个轮胎状态位。
 
 :::
 
-## Which bit stores what?
+## 位存储规则
 
-The damage of all tires will be saved together in 1 nibble (which is 4 bits) for 4-wheeled vehicles and in 1 pair (which is 2 bits) for 2-wheeled vehicles. Each bit stores whether the corresponding tire is **popped (value 1)** or **not (value 0)**.
+四轮载具的轮胎损伤状态使用 1 个半字节（4 位）存储，两轮载具使用 1 个字节对（2 位）。每个位存储对应轮胎是否**爆胎（值 1）​**或**完好（值 0）​**。
 
-- The **first bit** stores the state of the **back-right** tire for a 4-wheeled vehicle or the **back** tire for a 2-wheeled vehicle.
-- The **second bit** stores the state of the **front-right** tire for a 4-wheeled vehicle or the **front** tire for a 2-wheeled vehicle.
-- The **third bit** stores the state of the **back-left** tire for a 4-wheeled vehicle.
-- The **fourth bit** stores the state of the **front-left** tire for a 4-wheeled vehicle.
+- ​**第一位**存储四轮载具的**右后轮**或两轮载具的**后轮**状态
+- ​**第二位**存储四轮载具的**右前轮**或两轮载具的**前轮**状态
+- ​**第三位**存储四轮载具的**左后轮**状态
+- ​**第四位**存储四轮载具的**左前轮**状态
 
-Notice that the bits are counted from behind, so the first bit is the rightmost bit.
+注意位序从右向左计算，因此第一位是最右侧的位。
 
 ---
 
-## Example
+## 示例
 
-The following code tells that for a 4-wheeled vehicle two tires are popped and two are not:
+以下代码表示四轮载具有两个轮胎爆胎：
 
 `0101`
 
-However, SA-MP returns a decimal number so you have to convert it to a binary number first to get a result like above. What SA-MP would return given the example above is this:
+由于 SA-MP 返回十进制数值，需先转换为二进制才能得到上述结果。对应示例的 SA-MP 返回值为：
 
 `5`
 
 ---
 
-## Info table
+## 状态对照表
 
-Here is a visual representation of the tire states. Vehicle viewed from a top-down perspective, with the upper values being the front of the vehicle and the lower values the back of the vehicle.
+以下为轮胎状态的视觉化表示（俯视视角，上方为载具前部）
 
-**Legend:**
+**图例：​**
 
 ```
-o - inflated tire
-x - popped tire
+o - 完好轮胎
+x - 爆胎
 ```
 
 ---
 
-### 4-wheeled vehicles
+### 四轮载具
 
-4 bits for 4-wheeled vehicles: (FL)(BL)(FR)(BR) (Front-Left, Back-Left, Front-Right and Back-Right).
+4 位表示四轮状态：(前左)(后左)(前右)(后右)
 
 0: (0000)
 
@@ -186,13 +186,13 @@ x - popped tire
     x-x
 ```
 
-After 15 the values are repeated, so 16 is 0, 17 is 1 and so on.
+15 之后数值循环，16 对应 0，17 对应 1，以此类推。
 
 ---
 
-### 2-wheeled vehicles (bikes)
+### 双轮载具（摩托车）
 
-2 bits for 2-wheeled vehicles: (F)(B) (Front and Back).
+2 位表示双轮状态：(前)(后)
 
 0: (00)
 
@@ -226,13 +226,13 @@ After 15 the values are repeated, so 16 is 0, 17 is 1 and so on.
     x
 ```
 
-After 3 the values are repeated, so 4 is 0, 5 is 1 and so on.
+3 之后数值循环，4 对应 0，5 对应 1，以此类推。
 
 ---
 
-## Example usage
+## 使用示例
 
-To pop the back two tires of a 4-wheeled vehicle while keeping the front unchanged:
+设置四轮载具后两轮爆胎，保持前轮状态：
 
 ```c
 new
@@ -242,9 +242,9 @@ new
 	VEHICLE_TIRE_STATUS:tires;
 
 GetVehicleDamageStatus(vehicleid, panels, doors, lights, tires);
-UpdateVehicleDamageStatus(vehicleid, panels, doors, lights, (tires | VEHICLE_TIRE_STATUS:0b0101)); // The '0b' part means that the following number is in binary. Just the same way that '0x' indicates a hexadecimal number.
+UpdateVehicleDamageStatus(vehicleid, panels, doors, lights, (tires | VEHICLE_TIRE_STATUS:0b0101)); // '0b'前缀表示二进制数，类似'0x'表示十六进制
 ```
 
-## See also
+## 相关链接
 
-- [Vehicle Tire Status](../resources/vehicle-tire-status)
+- [载具轮胎状态](../resources/vehicle-tire-status)

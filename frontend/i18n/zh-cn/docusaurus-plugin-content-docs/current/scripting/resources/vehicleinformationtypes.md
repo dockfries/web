@@ -1,25 +1,25 @@
 ---
-title: Vehicle Information Types
-sidebar_label: Vehicle Information Types
-description: Vehicle Information Type Constants.
+title: 载具信息类型
+sidebar_label: 载具信息类型
+description: 载具模型信息类型常量表。
 ---
 
 :::info
 
-A list of vehicle info types used by [GetVehicleModelInfo](../functions/GetVehicleModelInfo) can be found here.
+本文档列出了[获取载具模型信息](../functions/GetVehicleModelInfo)函数支持的所有载具信息类型。
 
 :::
 
-| Vehicle Information Type            | Description                                                                                                                |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `VEHICLE_MODEL_INFO_SIZE`           | The vehicle size                                                                                                           |
-| `VEHICLE_MODEL_INFO_FRONTSEAT`      | Position of the front seat \*                                                                                              |
-| `VEHICLE_MODEL_INFO_REARSEAT`       | Position of the rear seat \*                                                                                               |
-| `VEHICLE_MODEL_INFO_PETROLCAP`      | Position of the fuel cap \*                                                                                                |
-| `VEHICLE_MODEL_INFO_WHEELSFRONT`    | Position of the front wheels \*                                                                                            |
-| `VEHICLE_MODEL_INFO_WHEELSREAR`     | Position of the rear wheels \*                                                                                             |
-| `VEHICLE_MODEL_INFO_WHEELSMID`      | Position of the middle wheels (applies to vehicles which have more than 4 wheels) \*                                       |
-| `VEHICLE_MODEL_INFO_FRONT_BUMPER_Z` | Height of the front bumper. [GetVehicleModelInfo](../functions/GetVehicleModelInfo) will only return the Z value when used |
-| `VEHICLE_MODEL_INFO_REAR_BUMPER_Z`  | Height of the rear bumper. [GetVehicleModelInfo](../functions/GetVehicleModelInfo) will only return the Z value when used  |
+| 信息类型常量                        | 描述                                                                                    |
+| ----------------------------------- | --------------------------------------------------------------------------------------- |
+| `VEHICLE_MODEL_INFO_SIZE`           | 载具整体尺寸                                                                            |
+| `VEHICLE_MODEL_INFO_FRONTSEAT`      | 前座坐标位置 \*                                                                         |
+| `VEHICLE_MODEL_INFO_REARSEAT`       | 后座坐标位置 \*                                                                         |
+| `VEHICLE_MODEL_INFO_PETROLCAP`      | 油箱盖坐标位置 \*                                                                       |
+| `VEHICLE_MODEL_INFO_WHEELSFRONT`    | 前轮坐标位置 \*                                                                         |
+| `VEHICLE_MODEL_INFO_WHEELSREAR`     | 后轮坐标位置 \*                                                                         |
+| `VEHICLE_MODEL_INFO_WHEELSMID`      | 中轮坐标位置（适用于轮数超过 4 个的载具） \*                                            |
+| `VEHICLE_MODEL_INFO_FRONT_BUMPER_Z` | 前保险杠高度。使用[获取载具模型信息](../functions/GetVehicleModelInfo)时仅返回 Z 轴数值 |
+| `VEHICLE_MODEL_INFO_REAR_BUMPER_Z`  | 后保险杠高度。使用[获取载具模型信息](../functions/GetVehicleModelInfo)时仅返回 Z 轴数值 |
 
-\* These values are calculated from the pivot (usually the center) of the vehicle.
+\* 这些数值均从载具的轴心点（通常为中心点）计算得出

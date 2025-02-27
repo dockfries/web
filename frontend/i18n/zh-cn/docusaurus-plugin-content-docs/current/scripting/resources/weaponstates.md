@@ -1,15 +1,15 @@
 ---
-title: Weapon States
-sidebar_label: Weapon States
-description: Weapon State Constants.
+title: 武器状态
+sidebar_label: 武器状态
+description: 武器状态常量。
 ---
 
-The following weapon states are available, used by [GetPlayerWeaponState](../functions/GetPlayerWeaponState) function:
+以下为 [GetPlayerWeaponState](../functions/GetPlayerWeaponState) 函数使用的武器状态定义：
 
-| ID  | Definition               | Description                                                                                                                    |
-| --- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| -1  | WEAPONSTATE_UNKNOWN      | Unknown (set when in a vehicle, in spectating or when the [player state](../functions/GetPlayerState) is PLAYER_STATE_SPAWNED) |
-| 0   | WEAPONSTATE_NO_BULLETS   | The player's current weapon has no ammo remaining                                                                              |
-| 1   | WEAPONSTATE_LAST_BULLET  | The player's current weapon has a single bullet left                                                                           |
-| 2   | WEAPONSTATE_MORE_BULLETS | The player's current weapon has more than one bullet left                                                                      |
-| 3   | WEAPONSTATE_RELOADING    | The player is reloading his/her current weapon                                                                                 |
+| ID  | 定义                     | 描述                                                                                                          |
+| --- | ------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| -1  | WEAPONSTATE_UNKNOWN      | 未知状态（当玩家处于载具中、观战状态或[玩家状态](../functions/GetPlayerState)为 PLAYER_STATE_SPAWNED 时触发） |
+| 0   | WEAPONSTATE_NO_BULLETS   | 玩家当前武器弹药已耗尽                                                                                        |
+| 1   | WEAPONSTATE_LAST_BULLET  | 玩家当前武器仅剩最后一发弹药                                                                                  |
+| 2   | WEAPONSTATE_MORE_BULLETS | 玩家当前武器存有多发弹药                                                                                      |
+| 3   | WEAPONSTATE_RELOADING    | 玩家正在为当前武器装填弹药                                                                                    |
