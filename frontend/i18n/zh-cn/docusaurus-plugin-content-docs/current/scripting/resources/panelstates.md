@@ -1,50 +1,50 @@
 ---
-title: Panel States
-sidebar_label: Panel States
-description: Information about byte size and its corresponding panel state bits.
+title: 面板状态
+sidebar_label: 面板状态
+description: 关于字节存储结构及其对应面板状态位的技术说明
 ---
 
 :::note
 
-Panel states are used by natives such as [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus) and [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus).
+面板状态信息通过[GetVehicleDamageStatus](../functions/GetVehicleDamageStatus)和[UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus)等原生函数进行操作。
 
 :::
 
-## Which nibble stores what?
+## 半字节位域解析
 
-- The **first nibble** stores the state of the **front-left** panel for a car or the **(left-)engine** for a plane.
-- The **second nibble** stores the state of the **front-right** panel for a car or the **(right-)engine** for a plane.
-- The **third nibble** stores the state of the **back-left** panel for a car or the **rudder (on the vertical stabilizer)** for a plane.
-- The **fourth nibble** stores the state of the **back-right** panel for a car or the **elevators (on the tail)** for a plane.
-- The **fifth nibble** stores the state of the **windshield** for a car or the **ailerons (on the wings)** for a plane.
-- The **sixth nibble** stores the state of the **front bumper** for a car.
-- The **seventh nibble** stores the state of the **back bumper** for a car.
+- ​**第一个半字节**：存储汽车的**左前面板**状态，或飞机的**(左)引擎**状态
+- ​**第二个半字节**：存储汽车的**右前面板**状态，或飞机的**(右)引擎**状态
+- ​**第三个半字节**：存储汽车的**左后面板**状态，或飞机的**方向舵（位于垂直尾翼上）​**状态
+- ​**第四个半字节**：存储汽车的**右后面板**状态，或飞机的**升降舵（位于尾部）​**状态
+- ​**第五个半字节**：存储汽车的**挡风玻璃**状态，或飞机的**副翼（位于机翼）​**状态
+- ​**第六个半字节**：存储汽车的**前保险杠**状态
+- ​**第七个半字节**：存储汽车的**后保险杠**状态
 
-Not every vehicle supports all of the mentioned panels. The degree of damage affects the handling of a plane quite a lot and the plane will produce black smoke from whatever part is damaged.
+注意并非所有载具都支持上述所有面板部件。飞机部件的损坏程度会显著影响飞行操控性，受损部件会冒出黑烟。
 
-For most panels there are 4 states: **undamaged (value 0)**, **crushed (value 1)**, **hanging loose (value 2)** and **removed (value 3)**. The crushed and hanging loose states are quite buggy (when you go from a hanging loose state to a crushed state, the panel is hanging loose AND crushed instead of just crushed, but it is only crushed again when the vehicle is restreamed, ...). To fix this weird behaviour, just reset the damage for that panel first and then apply the needed state. In this way it is also possible to have a panel that is hanging loose when driving but is not physically crushed (to better see what this means, go directly from 0 to 2, instead of going from 0 to 1 to 2).
+多数面板支持 4 种状态：​**完好（值 0）​**、**压损（值 1）​**、**松动（值 2）​**、**脱落（值 3）​**。压损和松动状态存在显示异常（当从松动状态转为压损时，面板会同时显示松动和压损效果，需重新载入载具流才能正常显示）。建议修复方法：先重置该面板的损坏状态，再应用新状态。此方法也可实现行驶中显示松动但无物理压痕的效果（直接从 0 设为 2，而非 0→1→2）。
 
-It seems that you can only read the value of the windshield. Setting it does update the value on the server, but it does not result in any physical change on the vehicle.
+当前仅挡风玻璃状态可被正确读取。设置该状态会更新服务器数据，但不会产生物理变化。
 
-Notice that the nibbles are counted from behind, so the first nibble is the rightmost nibble.
+注意半字节从右向左计数，第一个半字节是最右侧的位域。
 
 ---
 
-## Example
+## 示例说明
 
-The following code tells that for a car the front and back bumpers are removed:
+以下二进制代码表示汽车前后保险杠已脱落：
 
 `00000011 00110000 00000000 00000000`
 
-However, SA-MP returns a decimal number so you have to convert it to a binary number first to get a result like above. What SA-MP would return given the example above is this:
+由于 SA-MP 返回十进制数值，需先转换为二进制进行分析。上述示例对应的十进制返回值为：
 
 `53477376`
 
 ---
 
-## Example usage
+## 应用实例
 
-To remove the front bumper of a car while keeping the other panels unchanged:
+移除汽车前保险杠并保持其他部件状态不变：
 
 ```c
 new
@@ -54,9 +54,9 @@ new
 	VEHICLE_TIRE_STATUS:tires;
 
 GetVehicleDamageStatus(vehicleid, panels, doors, lights, tires);
-UpdateVehicleDamageStatus(vehicleid, (panels | VEHICLE_PANEL_STATUS:0b00000000001100000000000000000000), doors, lights, tires); // The '0b' part means that the following number is in binary. Just the same way that '0x' indicates a hexadecimal number.
+UpdateVehicleDamageStatus(vehicleid, (panels | VEHICLE_PANEL_STATUS:0b00000000001100000000000000000000), doors, lights, tires); // '0b'前缀表示二进制数值，用法类似'0x'表示十六进制
 ```
 
-## See also
+## 相关阅读
 
-- [Vehicle Panel Status](../resources/vehicle-panel-status)
+- [车辆面板状态](../resources/vehicle-panel-status)

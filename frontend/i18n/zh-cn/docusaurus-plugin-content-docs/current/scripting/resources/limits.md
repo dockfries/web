@@ -1,75 +1,75 @@
 ---
-title: Limits
-sidebar_label: Limits
-description: A list of all limitations imposed by the game/server.
+title: 限制
+sidebar_label: 限制
+description: 游戏/服务器施加的所有限制列表。
 tags: []
 ---
 
-## In-game Entities
+## 游戏内实体
 
-| Type                                                                                                                                             | Limit (0.3.7)   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| Players                                                                                                                                          | 1000            |
-| [Vehicles](../functions/CreateVehicle)<sup>(4)(6)</sup>                                                                                          | 2000            |
-| [Vehicle Models](../functions/CreateVehicle)<sup>(1)</sup>                                                                                       | Unlimited       |
-| [Objects](../functions/CreateObject)<sup>(4)(6)</sup>                                                                                            | 1000            |
-| [Virtual Worlds](../functions/SetPlayerVirtualWorld)                                                                                             | 2,147,483,647   |
-| [Interiors](../functions/SetPlayerInterior)                                                                                                      | 256             |
-| [Classes](../functions/AddPlayerClass)                                                                                                           | 320             |
-| [Map Icons](../functions/SetPlayerMapIcon)<sup>(4)</sup>                                                                                         | 100             |
-| [Race Checkpoints](../functions/SetPlayerRaceCheckpoint)<sup>(4)</sup>                                                                           | 1               |
-| [Checkpoints](../functions/SetPlayerCheckpoint)<sup>(4)</sup>                                                                                    | 1               |
-| [Pickups](../functions/CreatePickup)<sup>(4)</sup>                                                                                               | 4096            |
-| [Global 3D Labels](../functions/Create3DTextLabel)<sup>(4)</sup>                                                                                 | 1024            |
-| [Per-player 3D Text Labels](../functions/CreatePlayer3DTextLabel)<sup>(4)</sup>                                                                  | 1024            |
-| [Chat Bubble String](../functions/SetPlayerChatBubble)                                                                                           | 144 characters  |
-| [SetObjectMaterialText](../functions/SetObjectMaterialText), [SetPlayerObjectMaterialText](../functions/SetPlayerObjectMaterialText) Text length | 2048 characters |
-| [Gangzones](../functions/GangZoneCreate)                                                                                                         | 1024            |
-| [Per-player Gangzones](../functions/CreatePlayerGangZone)                                                                                        | 1024            |
-| [Menus](../functions/CreateMenu)                                                                                                                 | 128             |
-| [Attached player objects](../functions/SetPlayerAttachedObject)                                                                                  | 10              |
-| [Player Variables](../functions/SetPVarInt)                                                                                                      | 800             |
-| [Server Variables (0.3.7 R2/omp)](../functions/SetSVarInt)                                                                                       | Unlimited       |
-| [Actors](../functions/CreateActor) (since 0.3.7)<sup>(4)(5)</sup>                                                                                | 1000            |
-| [Explosions](../functions/CreateExplosion)                                                                                                       | 10              |
+| 类型                                                                                                                                          | 限制 (0.3.7)  |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| 玩家                                                                                                                                          | 1000          |
+| [载具](../functions/CreateVehicle)<sup>(4)(6)</sup>                                                                                           | 2000          |
+| [载具模型](../functions/CreateVehicle)<sup>(1)</sup>                                                                                          | 无限制        |
+| [物体](../functions/CreateObject)<sup>(4)(6)</sup>                                                                                            | 1000          |
+| [虚拟世界](../functions/SetPlayerVirtualWorld)                                                                                                | 2,147,483,647 |
+| [室内场景](../functions/SetPlayerInterior)                                                                                                    | 256           |
+| [角色职业](../functions/AddPlayerClass)                                                                                                       | 320           |
+| [地图图标](../functions/SetPlayerMapIcon)<sup>(4)</sup>                                                                                       | 100           |
+| [竞速检查点](../functions/SetPlayerRaceCheckpoint)<sup>(4)</sup>                                                                              | 1             |
+| [检查点](../functions/SetPlayerCheckpoint)<sup>(4)</sup>                                                                                      | 1             |
+| [拾取物](../functions/CreatePickup)<sup>(4)</sup>                                                                                             | 4096          |
+| [全局 3D 标签](../functions/Create3DTextLabel)<sup>(4)</sup>                                                                                  | 1024          |
+| [玩家专属 3D 文本标签](../functions/CreatePlayer3DTextLabel)<sup>(4)</sup>                                                                    | 1024          |
+| [聊天泡泡字符串](../functions/SetPlayerChatBubble)                                                                                            | 144 字符      |
+| [SetObjectMaterialText](../functions/SetObjectMaterialText), [SetPlayerObjectMaterialText](../functions/SetPlayerObjectMaterialText) 文本长度 | 2048 字符     |
+| [帮派区域](../functions/GangZoneCreate)                                                                                                       | 1024          |
+| [玩家专属帮派区域](../functions/CreatePlayerGangZone)                                                                                         | 1024          |
+| [菜单](../functions/CreateMenu)                                                                                                               | 128           |
+| [玩家附加物体](../functions/SetPlayerAttachedObject)                                                                                          | 10            |
+| [玩家变量](../functions/SetPVarInt)                                                                                                           | 800           |
+| [服务器变量 (0.3.7 R2/omp)](../functions/SetSVarInt)                                                                                          | 无限制        |
+| [角色](../functions/CreateActor) (0.3.7 起)<sup>(4)(5)</sup>                                                                                  | 1000          |
+| [爆炸效果](../functions/CreateExplosion)                                                                                                      | 10            |
 
-## Server Properties - SA-MP / omp
+## 服务器属性 - SA-MP / omp
 
-| Type                                                      | SA-MP Limit (0.3.7)   | omp                   |
-| --------------------------------------------------------- | --------------------- | --------------------- |
-| Gamemodes                                                 | 16                    | Unlimited             |
-| Filterscripts                                             | 16                    | Unlimited             |
-| Text Input (Chat/Commands)                                | 128 cells (512 bytes) | 128 cells (512 bytes) |
-| Text Output                                               | 144 cells (576 bytes) | 128 cells (512 bytes) |
-| Name Length ([SetPlayerName](../functions/SetPlayerName)) | 24 characters         | 24 characters         |
+| 类型                                                   | SA-MP 限制 (0.3.7)  | omp                 |
+| ------------------------------------------------------ | ------------------- | ------------------- |
+| 游戏模式                                               | 16                  | 无限制              |
+| 滤镜脚本                                               | 16                  | 无限制              |
+| 文本输入（聊天/指令）                                  | 128 单元 (512 字节) | 128 单元 (512 字节) |
+| 文本输出                                               | 144 单元 (576 字节) | 128 单元 (512 字节) |
+| 名称长度 ([SetPlayerName](../functions/SetPlayerName)) | 24 字符             | 24 字符             |
 
-## Textdraws
+## 文本绘图
 
-| Type                                            | Limit (0.3.7)   |
-| ----------------------------------------------- | --------------- |
-| String Length<sup>(2)</sup>                     | 1024 characters |
-| Shown In A Single Client's Screen<sup>(3)</sup> | 2048 + 256      |
-| Shown In A Single Client's Screen (sprites)     | 100             |
-| Created Serverwise (Global)                     | 2048            |
-| Created Serverwise (Per-Player)                 | 256             |
+| 类型                                 | 限制 (0.3.7) |
+| ------------------------------------ | ------------ |
+| 字符串长度<sup>(2)</sup>             | 1024 字符    |
+| 单个客户端屏幕显示数量<sup>(3)</sup> | 2048 + 256   |
+| 单个客户端屏幕精灵图显示数量         | 100          |
+| 服务器全局创建数量                   | 2048         |
+| 玩家专属创建数量                     | 256          |
 
-## Dialogs
+## 对话框
 
-| Type                                                         | Limit (0.3.7) |
-| ------------------------------------------------------------ | ------------- |
-| Dialog IDs                                                   | 32768         |
-| Info (Main text)                                             | 4096          |
-| Caption                                                      | 64            |
-| Input Text Box (DIALOG_STYLE_INPUT/PASSWORD)                 | 128           |
-| Tab List Columns (DIALOG_STYLE_TABLIST(\_HEADERS))           | 4             |
-| Tab List Column Characters (DIALOG_STYLE_TABLIST(\_HEADERS)) | 128           |
-| Tab List Row Characters (DIALOG_STYLE_TABLIST(\_HEADERS))    | 256           |
+| 类型                                                 | 限制 (0.3.7) |
+| ---------------------------------------------------- | ------------ |
+| 对话框 ID                                            | 32768        |
+| 信息（主文本）                                       | 4096         |
+| 标题                                                 | 64           |
+| 输入文本框 (DIALOG_STYLE_INPUT/PASSWORD)             | 128          |
+| 选项卡列表列数 (DIALOG_STYLE_TABLIST(\_HEADERS))     | 4            |
+| 选项卡列表列字符数 (DIALOG_STYLE_TABLIST(\_HEADERS)) | 128          |
+| 选项卡列表行字符数 (DIALOG_STYLE_TABLIST(\_HEADERS)) | 256          |
 
-**Notes:**
+**注意事项:**
 
-1. Although the vehicle model limit in 0.3 is unlimited, if you use a large amount of vehicle models then it will affect client performance.
-2. Although the textdraw string limit is 1024 characters, if colour codes (e.g. ~r~) are used beyond the 255th character it may crash the client.
-3. It is possible to show all Textdraws at the same time for one player, however this is not recommended.
-4. To circumvent these limits, it is possible to use a [streamer](https://github.com/samp-incognito/samp-streamer-plugin). Streamers work by only creating the entities etc. that are close to players.
-5. Due to client limitations only up to 51 actors may actually be shown at a time.
-6. Vehicle IDs start at ID 1 and thus range from 1 to 1999, even if MAX_VEHICLES is 2000. Objects and player objects also start at ID 1.
+1. 虽然 0.3 版本中载具模型数量无限制，但使用大量载具模型会影响客户端性能
+2. 尽管文本绘图字符串限制为 1024 字符，若在 255 字符后使用颜色代码（如~r~）可能导致客户端崩溃
+3. 理论上可为单个玩家同时显示所有文本绘图，但不建议这样做
+4. 可通过[流加载插件](https://github.com/samp-incognito/samp-streamer-plugin)突破这些限制，该插件通过仅在玩家附近创建实体等方式工作
+5. 受客户端限制，实际最多仅能显示 51 个角色
+6. 载具 ID 从 1 开始编号，因此实际范围为 1-1999（即使 MAX_VEHICLES 设为 2000），物体和玩家专属物体 ID 编号规则相同

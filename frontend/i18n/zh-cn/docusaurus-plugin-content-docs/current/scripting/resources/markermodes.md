@@ -1,16 +1,16 @@
 ---
-title: Marker Modes
-sidebar_label: Marker Modes
+title: 标记模式
+sidebar_label: 标记模式
 ---
 
 :::info
 
-Here you can find all of the marker modes used by [ShowPlayerMarkers](../functions/ShowPlayerMarkers).
+此处可找到所有由[ShowPlayerMarkers](../functions/ShowPlayerMarkers)使用的玩家标记模式。
 
 :::
 
-| ID  | Definition                   |
-| --- | ---------------------------- |
-| 0   | PLAYER_MARKERS_MODE_OFF      |
-| 1   | PLAYER_MARKERS_MODE_GLOBAL   |
-| 2   | PLAYER_MARKERS_MODE_STREAMED |
+| ID  | 定义                               |
+| --- | ---------------------------------- |
+| 0   | PLAYER_MARKERS_MODE_OFF(关闭)      |
+| 1   | PLAYER_MARKERS_MODE_GLOBAL(全局)   |
+| 2   | PLAYER_MARKERS_MODE_STREAMED(流式) |

@@ -1,32 +1,32 @@
 ---
-title: Network Stats
-sidebar_label: Network Stats
-description: Information seen when holding down F5 when connected to a server.
+title: 网络状态
+sidebar_label: 网络状态
+description: 连接服务器时按住F5键显示的网络状态信息。
 tags: []
 ---
 
-| Data                                                     | **Description**                                                                                                 |
-| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Download Rate                                            | The rate at which data is being downloaded from the server.                                                     |
-| Upload Rate                                              | The rate at which data is being uploaded to the server.                                                         |
-| Vehicles                                                 | The number of vehicles that are streamed in for the client.                                                     |
-| Vehicle Models                                           | The number of different vehicle models that are streamed in for the client.                                     |
-| Vehicle Models Loaded                                    | The number of (pre-)loaded vehicle models.                                                                      |
-| RWObjects                                                | Number of rendered objects.                                                                                     |
-| PedSlotsUsed                                             | Number of ped slots used (NPCs/players use a 'ped' slot).                                                       |
-| ObjectSlotsUsed                                          | Object slots used.                                                                                              |
-| OnFoot Send Rate                                         | The rate (in MS) at which on-foot data is being synced. Can be set in server.cfg.                               |
-| Streaming Mem (Memory) Used (Also shows total allowance) | The amount of streaming memory being used, and total available.                                                 |
-| Messages in Send buffer                                  | The number of network messages waiting to be sent.                                                              |
-| Messages sent                                            | The number of network messages sent.                                                                            |
-| Btyes sent                                               | The amount of data (in bytes) sent.                                                                             |
-| Acks sent                                                | The number of acks sent (acknowledge receipt of a packet).                                                      |
-| Acks in send buffer                                      | Number of acks waiting to be sent (acknowledge receipt of a packet).                                            |
-| Messages waiting for ack                                 | Number of messages that are waiting to be acknowledged as received.                                             |
-| Messages resent                                          | Number of messages resent after a lack of acknowledge. Client is trying to reconnect after 109 messages resent. |
-| Bytes resent                                             | The amount of data resent (in bytes).                                                                           |
-| Packetloss                                               | The percentage of packets that were sent but never received by the other end (lost).                            |
-| Messages received                                        | The number of network messages received from the server.                                                        |
-| Bytes received                                           | The amount of data received (in bytes).                                                                         |
-| Acks received                                            | Number of acks received (acknowledge receipt of a packet).                                                      |
-| Duplicate acks received                                  | Number of duplicate (already received) acks received.                                                           |
+| 数据                               | ​**说明**​                                                                  |
+| ---------------------------------- | --------------------------------------------------------------------------- |
+| 下载速率                           | 从服务器下载数据的速率                                                      |
+| 上传速率                           | 向服务器上传数据的速率                                                      |
+| 车辆                               | 已为客户端流加载的车辆数量                                                  |
+| 车辆模型                           | 已为客户端流加载的不同车辆模型种类数量                                      |
+| 已加载车辆模型                     | （预）加载的车辆模型总数                                                    |
+| 渲染物体数                         | 当前渲染的物体数量                                                          |
+| 已用角色槽                         | 已占用的角色槽数量（NPC/玩家都会占用'角色'槽）                              |
+| 已用物体槽                         | 已占用的物体槽数量                                                          |
+| 步行状态同步速率                   | 步行状态数据同步频率（单位：毫秒）。可在 server.cfg 中设置                  |
+| 流内存使用量（同时显示总可用内存） | 当前使用的流内存容量及总可用容量                                            |
+| 发送缓存中的消息数                 | 等待发送的网络消息数量                                                      |
+| 已发送消息数                       | 已发送的网络消息总数                                                        |
+| 已发送字节量                       | 已发送的数据总量（单位：字节）                                              |
+| 已发送确认包                       | 已发送的确认包数量（用于确认数据包接收）                                    |
+| 发送缓存中的确认包数               | 等待发送的确认包数量                                                        |
+| 等待确认的消息数                   | 等待接收确认的消息数量                                                      |
+| 重发消息数                         | 因未收到确认而重新发送的消息数量。客户端在重新发送 109 次消息后尝试重新连接 |
+| 重发字节量                         | 重新发送的数据总量（单位：字节）                                            |
+| 丢包率                             | 已发送但未被接收端收到的数据包百分比                                        |
+| 已接收消息数                       | 从服务器接收的网络消息总数                                                  |
+| 已接收字节量                       | 已接收的数据总量（单位：字节）                                              |
+| 已接收确认包                       | 已接收的确认包数量                                                          |
+| 重复确认包接收数                   | 已接收的重复确认包数量（已确认过的确认包）                                  |

@@ -1,24 +1,24 @@
 ---
-title: Types Of Race Checkpoints
-sidebar_label: Types Of Race Checkpoints
-description: Race checkpoints definitions.
+title: 竞速检查点类型
+sidebar_label: 竞速检查点类型
+description: 竞速检查点类型定义。
 ---
 
 :::note
 
-These definitions are used by [SetPlayerRaceCheckpoint](../functions/SetPlayerRaceCheckpoint).
+以下定义用于[SetPlayerRaceCheckpoint](../functions/SetPlayerRaceCheckpoint)函数。
 
 :::
 
-| Definition            | Value | Description                                          |
-| --------------------- | ----- | ---------------------------------------------------- |
-| UNKNOWN_CP_TYPE       | -1    |                                                      |
-| CP_TYPE_GROUND_NORMAL | 0     | Normal                                               |
-| CP_TYPE_GROUND_FINISH | 1     | Finish                                               |
-| CP_TYPE_GROUND_EMPTY  | 2     | Nothing (Only the checkpoint without anything on it) |
-| CP_TYPE_AIR_NORMAL    | 3     | Air normal                                           |
-| CP_TYPE_AIR_FINISH    | 4     | Air finish                                           |
-| CP_TYPE_AIR_ROTATING  | 5     | Air (rotates and stops)                              |
-| CP_TYPE_AIR_STROBING  | 6     | Air (increases, decreases and disappears)            |
-| CP_TYPE_AIR_SWINGING  | 7     | Air (swings down and up)                             |
-| CP_TYPE_AIR_BOBBING   | 8     | Air (swings up and down)                             |
+| 定义                  | 值  | 描述                                     |
+| --------------------- | --- | ---------------------------------------- |
+| UNKNOWN_CP_TYPE       | -1  | 未知类型                                 |
+| CP_TYPE_GROUND_NORMAL | 0   | 常规地面检查点                           |
+| CP_TYPE_GROUND_FINISH | 1   | 终点地面检查点                           |
+| CP_TYPE_GROUND_EMPTY  | 2   | 空地面检查点（仅显示检查点，无其他元素） |
+| CP_TYPE_AIR_NORMAL    | 3   | 常规空中检查点                           |
+| CP_TYPE_AIR_FINISH    | 4   | 终点空中检查点                           |
+| CP_TYPE_AIR_ROTATING  | 5   | 旋转空中检查点（旋转后停止）             |
+| CP_TYPE_AIR_STROBING  | 6   | 频闪空中检查点（渐强渐弱后消失）         |
+| CP_TYPE_AIR_SWINGING  | 7   | 摆动空中检查点（向下摆动后上升）         |
+| CP_TYPE_AIR_BOBBING   | 8   | 浮动空中检查点（上下摆动）               |

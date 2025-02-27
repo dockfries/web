@@ -1,39 +1,39 @@
 ---
-title: "Pickup Types"
-sidebar_label: "Pickup Types"
+title: 拾取物类型
+sidebar_label: 拾取物类型
 ---
 
-### Available Pickup Types
+### 可用拾取类型
 
 :::note
 
-These pickup types are used by [CreatePickup](../functions/CreatePickup) and [CreatePlayerPickup](../functions/CreatePlayerPickup).
+以下类型参数适用于[CreatePickup](../functions/CreatePickup)和[CreatePlayerPickup](../functions/CreatePlayerPickup)函数。
 
 :::
 
 :::note
 
-Most other IDs are either undocumented or are similar to type 1 (but do not use them just because they seem similar to ID 1, they might have side-effects like ID 18 and 20).
+其他未列出的 ID 可能未被官方文档记录，或表现类似类型 1（但请勿仅因表面相似性使用，部分类型可能产生副作用，如类型 18 和 20）。
 
 :::
 
-| ID  | Description                                                                                                                                                                                                                                                                                             |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0   | It has no special attributes and cannot be picked up. It also does not trigger [OnPlayerPickUpPickup](../callbacks/OnPlayerPickUpPickup) or [OnPlayerPickUpPlayerPickup](../callbacks/OnPlayerPickUpPlayerPickup), and is not removed when closing the server                                           |
-| 1   | Exists always. Disables pickup scripts such as horseshoes and oysters to allow for scripted actions ONLY. Will trigger [OnPlayerPickUpPickup](../callbacks/OnPlayerPickUpPickup) or [OnPlayerPickUpPlayerPickup](../callbacks/OnPlayerPickUpPlayerPickup) every few seconds. This is likely a SA-MP bug |
-| 2   | Disappears after pickup, respawns after 30 seconds if the player is at a distance of at least 15 meters (used for money pickups)                                                                                                                                                                        |
-| 3   | Disappears after pickup, respawns after death                                                                                                                                                                                                                                                           |
-| 4   | Disappears after 20 seconds. Respawns after death                                                                                                                                                                                                                                                       |
-| 5   | Disappears after 120 seconds. Respawns after death                                                                                                                                                                                                                                                      |
-| 8   | Disappears after pickup, but has no effect (used for money pickups)                                                                                                                                                                                                                                     |
-| 9   | Explodes on contact with any ground vehicle in 10 seconds after creation (used for land mines)                                                                                                                                                                                                          |
-| 10  | Explodes on contact with any ground vehicle (used for land mines)                                                                                                                                                                                                                                       |
-| 11  | Explodes on contact with any vessel in 10 seconds after creation (used for nautical/sea mines)                                                                                                                                                                                                          |
-| 12  | Explodes on contact with any vessel (used for nautical/sea mines)                                                                                                                                                                                                                                       |
-| 13  | Invisible. Triggers checkpoint sound when picked up with a vehicle, but doesn't trigger OnPlayerPickUpPickup (floating pickup)                                                                                                                                                                          |
-| 14  | Disappears after pickup, can only be picked up with a vehicle. Triggers checkpoint sound (floating pickup)                                                                                                                                                                                              |
-| 15  | Same as type 2, however the pickup will respawn after 12 minutes. If the model ID is a bribe, it will respawn after just 5 minutes.                                                                                                                                                                     |
-| 18  | Similar to type 1. Pressing Tab (KEY_ACTION) makes it disappear but the key press doesn't trigger OnPlayerPickUpPickup (used for properties)                                                                                                                                                            |
-| 19  | Disappears after pickup, but doesn't respawn. Makes "cash pickup" sound if picked up                                                                                                                                                                                                                    |
-| 20  | Similar to type 1. Disappears when you take a picture of it with the Camera weapon, which triggers "Snapshot # out of 0" message. Taking a picture doesn't trigger OnPlayerPickUpPickup (used for snapshot locations)                                                                                   |
-| 22  | Same as type 3 (used for missions)                                                                                                                                                                                                                                                                      |
+| ID  | 特性描述                                                                                                                                                                                     |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0   | 无特殊属性，不可被拾取。不会触发[OnPlayerPickUpPickup](../callbacks/OnPlayerPickUpPickup)或[OnPlayerPickUpPlayerPickup](../callbacks/OnPlayerPickUpPlayerPickup)回调，服务器关闭时也不会消失 |
+| 1   | 永久存在。禁用马掌/生蚝等原生拾取脚本，仅允许脚本控制。可能因 SA-MP 漏洞导致每隔数秒重复触发拾取回调                                                                                         |
+| 2   | 拾取后消失，玩家距离 15 米外 30 秒后重生（适用于货币类拾取物）                                                                                                                               |
+| 3   | 拾取后消失，玩家死亡后重生                                                                                                                                                                   |
+| 4   | 20 秒后自动消失，玩家死亡后重生                                                                                                                                                              |
+| 5   | 120 秒后自动消失，玩家死亡后重生                                                                                                                                                             |
+| 8   | 拾取后消失但无实际效果（用于货币类拾取物）                                                                                                                                                   |
+| 9   | 创建后 10 秒内与地面载具接触即爆炸（适用于反载具地雷）                                                                                                                                       |
+| 10  | 立即与地面载具接触即爆炸（适用于反载具地雷）                                                                                                                                                 |
+| 11  | 创建后 10 秒内与船只接触即爆炸（适用于反舰水雷）                                                                                                                                             |
+| 12  | 立即与船只接触即爆炸（适用于反舰水雷）                                                                                                                                                       |
+| 13  | 隐形状态。载具接触时触发检查点音效，但不会触发拾取回调（悬浮拾取物）                                                                                                                         |
+| 14  | 仅限载具拾取，触发检查点音效后消失（悬浮拾取物）                                                                                                                                             |
+| 15  | 表现类似类型 2，但 12 分钟后重生。若模型 ID 为贿赂物品则 5 分钟重生                                                                                                                          |
+| 18  | 类似类型 1。按下 Tab 键（动作键）可使其消失但不会触发拾取回调（用于房产标记）                                                                                                                |
+| 19  | 拾取后永久消失，触发货币拾取音效                                                                                                                                                             |
+| 20  | 类似类型 1。使用照相机武器拍摄后消失，显示"快照# 0/0"提示，拍照操作不触发拾取回调（用于拍照点标记）                                                                                          |
+| 22  | 表现同类型 3（用于任务物品）                                                                                                                                                                 |

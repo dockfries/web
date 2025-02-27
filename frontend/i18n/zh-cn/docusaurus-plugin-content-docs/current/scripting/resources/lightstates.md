@@ -1,61 +1,63 @@
 ---
-title: Light States
-sidebar_label: Light States
-description: Information about byte size and its corresponding light state bits.
+title: 灯光状态
+sidebar_label: 灯光状态
+description: 关于字节大小及其对应灯光状态位的信息。
 ---
 
 :::note
 
-Light states are used by natives such as [GetVehicleDamageStatus](../functions/GetVehicleDamageStatus) and [UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus).
+灯光状态被诸如[GetVehicleDamageStatus](../functions/GetVehicleDamageStatus)和[UpdateVehicleDamageStatus](../functions/UpdateVehicleDamageStatus)等原生函数使用。
 
 :::
 
 :::note
 
-The lights on vehicles with 2 wheels (and thus 2 lights) can not be changed.
+双轮载具（因此有 2 个车灯）的灯光状态不可更改。
 
 :::
 
 :::note
 
-The two back lights of a vehicle can not be changed separately.
+载具的两个后车灯无法单独更改。
 
 :::
 
-## Which bit stores what?
+## 比特位存储规则
 
-The damage of all lights will be saved together in 1 byte (which is 8 bits). Each bit stores whether the corresponding light is **broken (value 1)** or **not (value 0)**.
+所有车灯的损坏状态将被存储在一个字节中（共 8 比特）。每个比特位存储对应车灯的**损坏状态（值为 1）​**或**正常状态（值为 0）​**。
 
-- The **first bit** stores the state of the **front-left** light.
-- The **third bit** stores the state of the **front-right** light.
-- The **zeventh bit** stores the state of the **back** lights.
-- The rest of the bits are empty.
+- ​**第一位**存储**左前**车灯状态
+- ​**第三位**存储**右前**车灯状态
+- ​**第七位**存储**后部**车灯状态
+- 其余比特位未使用
 
-Notice that the bits are counted from behind, so the first bit is the rightmost bit.
+注意比特位从右向左计数，因此第一位是最右侧的比特位。
 
 ---
 
-## Example
+## 示例
 
-The following code tells that both front lights are broken and the back lights are not:
+以下代码表示前部两个车灯损坏，后部车灯正常：
 
 `0000 0101`
 
-However, SA-MP returns a decimal number so you have to convert it to a binary number first to get a result like above. What SA-MP would return given the example above is this:
+然而 SA-MP 会返回十进制数字，因此您需要先将其转换为二进制才能得到上述结果。对于这个示例，SA-MP 将返回：
 
 `5`
 
 ---
 
-## Info table
+## 状态对照表
 
-Here is a visual representation of the light states. Vehicle viewed from a top-down perspective, with the upper values being the front of the vehicle and the lower values the back of the vehicle.
+以下是灯光状态的视觉化表示。图示为载具俯视图，上方数值表示载具前部，下方数值表示载具后部。
 
-**Legend:**
+**图例:**
 
 ```
-o - enabled light
-x - disabled light
+
+o - 启用灯光
+x - 禁用灯光
+
 ```
 
 0: (0000 0000)
@@ -122,13 +124,13 @@ x - disabled light
     x-x
 ```
 
-Other values not listed here can change the lights, but they are just repeats of other values (e.g. 15 has the same outcome as 5). After 255 the values will wrap around, 256 will be set as 0, 257 as 1 and so on.
+未列出的其他值也可以改变车灯状态，但会产生重复效果（例如 15 与 5 的效果相同）。超过 255 的值会循环重置，256 将被设为 0，257 设为 1，依此类推。
 
 ---
 
-## Example usage
+## 使用示例
 
-To disable the back two lights of a vehicle while keeping the front unchanged:
+禁用载具后部车灯同时保持前部状态不变：
 
 ```c
 new
@@ -138,9 +140,9 @@ new
 	VEHICLE_TIRE_STATUS:tires;
 
 GetVehicleDamageStatus(vehicleid, panels, doors, lights, tires);
-UpdateVehicleDamageStatus(vehicleid, panels, doors, (lights | VEHICLE_LIGHT_STATUS:0b01000000), tires); // The '0b' part means that the following number is in binary. Just the same way that '0x' indicates a hexadecimal number.
+UpdateVehicleDamageStatus(vehicleid, panels, doors, (lights | VEHICLE_LIGHT_STATUS:0b01000000), tires); // '0b'前缀表示后续数字为二进制格式，与'0x'表示十六进制同理
 ```
 
-## See also
+## 相关阅读
 
-- [Vehicle Light Status](../resources/vehicle-light-status)
+- [车辆灯光状态](../resources/vehicle-light-status)

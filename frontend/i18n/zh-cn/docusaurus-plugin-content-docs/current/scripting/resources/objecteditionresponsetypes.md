@@ -1,16 +1,16 @@
 ---
-title: Object Edition Response Types
-sidebar_label: Object Edition Response Types
+title: 物体编辑响应类型
+sidebar_label: 物体编辑响应类型
 ---
 
 :::info
 
-Here you can find all of the object edition response types used by [OnPlayerEditObject](../callbacks/OnPlayerEditObject).
+此处列出所有由[OnPlayerEditObject](../callbacks/OnPlayerEditObject)回调使用的物体编辑响应类型。
 
 :::
 
-| Value | Definition           | Description                                                      |
-| ----- | -------------------- | ---------------------------------------------------------------- |
-| 1     | EDIT_RESPONSE_CANCEL | The player cancelled any modifications by pressing ESC           |
-| 2     | EDIT_RESPONSE_FINAL  | The player considers the changes as final and pressed on Save    |
-| 3     | EDIT_RESPONSE_UPDATE | The player simply moved the object (edition did not stop at all) |
+| 数值 | 定义                 | 说明                                 |
+| ---- | -------------------- | ------------------------------------ |
+| 1    | EDIT_RESPONSE_CANCEL | 玩家按下 ESC 取消所有修改            |
+| 2    | EDIT_RESPONSE_FINAL  | 玩家确认最终修改并点击保存按钮       |
+| 3    | EDIT_RESPONSE_UPDATE | 玩家仅移动了物体（编辑操作尚未结束） |
