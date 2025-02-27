@@ -1,21 +1,21 @@
 ---
-title: Shop Names
-sidebar_label: Shop Names
+title: 商店名称
+sidebar_label: 商店名称
 ---
 
 :::note
 
-In GTA: SA (and SA-MP as well), certain scripts are preprogrammed to run whenever a player enters a certain interior. A lot of interiors (mostly just shops) have their own external script. The problem though is that there are use cases where the ability to load and run these external scripts on-demand might be necessary. This is where [SetPlayerShopName](../functions/SetPlayerShopName) comes in. It requires a valid shop name (or an empty string to unload the current script), which are listed in the table below. For additional information about the interiors themselves, please refer to the [interior documentation](../resources/interiorids).
+在 GTA: SA（及 SA-MP）中，当玩家进入特定室内场景时会触发预设脚本。多数商店场景使用外部脚本加载机制。[SetPlayerShopName](../functions/SetPlayerShopName)函数支持按需加载这些脚本，需使用有效的商店名称（或空字符串卸载当前脚本）。完整室内场景信息请参阅[室内场景文档](../resources/interiorids)。
 
 :::
 
-| Shop name | GXT name      | What is it?                      | Coordinates                    |
-| --------- | ------------- | -------------------------------- | ------------------------------ |
-| FDPIZA    | Pizza Stack   | The stock Pizza Stack interior   | 374.0000, -119.6410, 1001.4922 |
-| FDCHICK   | Cluckin' Bell | The stock Cluckin' Bell interior | 368.7890, -6.8570, 1001.8516   |
-| FDBURG    | Burger Shot   | The stock Burger Shot interior   | 375.5660, -68.2220, 1001.5151  |
-| AMMUN1    | Ammunation    | The first Ammu-Nation interior   | 296.5395, -38.2739, 1001.515   |
-| AMMUN2    | Ammunation    | The second Ammu-Nation interior  | 295.7359, -80.6865, 1001.5156  |
-| AMMUN3    | Ammunation    | The third Ammu-Nation interior   | 290.2011, -109.5698, 1001.5156 |
-| AMMUN4    | Ammunation    | The fourth Ammu-Nation interior  | 308.1619, -141.2549, 999.6016  |
-| AMMUN5    | Ammunation    | The fifth Ammu-Nation interior   | 312.7883, -166.0069, 999.6010  |
+| 商店名称 | GXT 名称      | 描述                  | 坐标                           |
+| -------- | ------------- | --------------------- | ------------------------------ |
+| FDPIZA   | Pizza Stack   | 标准披萨栈室内场景    | 374.0000, -119.6410, 1001.4922 |
+| FDCHICK  | Cluckin' Bell | 标准炸鸡钟室内场景    | 368.7890, -6.8570, 1001.8516   |
+| FDBURG   | Burger Shot   | 标准汉堡店室内场景    | 375.5660, -68.2220, 1001.5151  |
+| AMMUN1   | Ammunation    | 武装国度 1 号分店场景 | 296.5395, -38.2739, 1001.515   |
+| AMMUN2   | Ammunation    | 武装国度 2 号分店场景 | 295.7359, -80.6865, 1001.5156  |
+| AMMUN3   | Ammunation    | 武装国度 3 号分店场景 | 290.2011, -109.5698, 1001.5156 |
+| AMMUN4   | Ammunation    | 武装国度 4 号分店场景 | 308.1619, -141.2549, 999.6016  |
+| AMMUN5   | Ammunation    | 武装国度 5 号分店场景 | 312.7883, -166.0069, 999.6010  |

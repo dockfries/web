@@ -72,7 +72,7 @@ description: 可用的地图图标列表。
 | 57  | ![](https://assets.open.mp/assets/images/mapIcons/icon57.gif) | 最近机场              |                                                                                |
 | 58  | ![](https://assets.open.mp/assets/images/mapIcons/icon58.gif) | 阿兹特克帮            |                                                                                |
 | 59  | ![](https://assets.open.mp/assets/images/mapIcons/icon59.gif) | 巴拉斯                |                                                                                |
-| 60  | ![](https://assets.open.mp/assets/images/mapIcons/icon60.gif) | 洛斯桑托斯流浪者      |                                                                                |
+| 60  | ![](https://assets.open.mp/assets/images/mapIcons/icon60.gif) | 洛圣都流浪者          |                                                                                |
 | 61  | ![](https://assets.open.mp/assets/images/mapIcons/icon61.gif) | 圣菲耶罗里法          |                                                                                |
 | 62  | ![](https://assets.open.mp/assets/images/mapIcons/icon62.gif) | 葛洛夫街家族          |                                                                                |
 | 63  | ![](https://assets.open.mp/assets/images/mapIcons/icon63.gif) | 喷漆店                |                                                                                |
