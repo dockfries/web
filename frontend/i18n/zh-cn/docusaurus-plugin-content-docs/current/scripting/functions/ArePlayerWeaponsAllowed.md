@@ -1,40 +1,40 @@
 ---
 title: ArePlayerWeaponsAllowed
 sidebar_label: ArePlayerWeaponsAllowed
-description: Can the player use weapons?
-tags: ["player"]
+description: 检测玩家是否具有武器使用权限
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 说明
 
-Can the player use weapons?
+检测指定玩家是否被允许使用武器。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| playerid | 需要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - Player is allowed.
+**true** - 允许使用武器
 
-**false** - Player is not allowed.
+**false** - 禁止使用武器
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerSpawn(playerid)
 {
     if (ArePlayerWeaponsAllowed(playerid))
     {
-        // do something
+        // 执行武器相关操作
     }
 
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [AllowPlayerWeapons](AllowPlayerWeapons): Enable/Disable weapons for a player.
+- [AllowPlayerWeapons](AllowPlayerWeapons): 控制玩家武器权限开关

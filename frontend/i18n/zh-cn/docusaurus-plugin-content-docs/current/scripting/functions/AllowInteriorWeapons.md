@@ -1,44 +1,44 @@
 ---
 title: AllowInteriorWeapons
 sidebar_label: AllowInteriorWeapons
-description: Toggle whether the usage of weapons in interiors is allowed or not.
+description: 控制是否允许在室内场景使用武器
 tags: []
 ---
 
-## Description
+## 说明
 
-Toggle whether the usage of weapons in interiors is allowed or not.
+切换是否允许玩家在室内场景使用武器。
 
-| Name       | Description                                                                                          |
-| ---------- | ---------------------------------------------------------------------------------------------------- |
-| bool:allow | 'true' to enable weapons in interiors (enabled by default), 'false' to disable weapons in interiors. |
+| 参数名     | 说明                                                        |
+| ---------- | ----------------------------------------------------------- |
+| bool:allow | 'true'允许室内使用武器（默认启用），'false'禁止室内使用武器 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数无特定返回值。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    // This will allow weapons inside interiors.
+    // 启用室内武器使用功能
     AllowInteriorWeapons(true);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function does not work in the current SA:MP version!
+本功能在当前 SA-MP 版本中无效！
 
 :::
 
 :::tip
 
-You can also toggle interior weapons via [config.json](../../server/config.json)
+可通过[config.json](../../server/config.json)配置文件实现相同功能：
 
 ```json
 "allow_interior_weapons": true,
@@ -46,12 +46,12 @@ You can also toggle interior weapons via [config.json](../../server/config.json)
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [AreInteriorWeaponsAllowed](AreInteriorWeaponsAllowed): Can weapons be used in interiors?
-- [SetPlayerInterior](SetPlayerInterior): Set a player's interior.
-- [GetPlayerInterior](GetPlayerInterior): Get the current interior of a player.
+- [AreInteriorWeaponsAllowed](AreInteriorWeaponsAllowed): 检测是否允许在室内使用武器
+- [SetPlayerInterior](SetPlayerInterior): 设置玩家所在室内场景
+- [GetPlayerInterior](GetPlayerInterior): 获取玩家当前室内场景
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerInteriorChange](../callbacks/OnPlayerInteriorChange): Called when a player changes interior.
+- [OnPlayerInteriorChange](../callbacks/OnPlayerInteriorChange): 当玩家切换室内场景时触发

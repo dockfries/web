@@ -1,31 +1,31 @@
 ---
 title: AreInteriorWeaponsAllowed
 sidebar_label: AreInteriorWeaponsAllowed
-description: Can weapons be used in interiors?
+description: 检测是否允许在室内场景使用武器
 tags: []
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 说明
 
-Can weapons be used in interiors?
+检测当前服务器是否允许在室内场景使用武器。
 
-## Returns
+## 返回值
 
-true: Allowed.
+true：允许使用武器
 
-false: Not allowed.
+false：禁止使用武器
 
-## Examples
+## 示例
 
 ```c
 if (AreInteriorWeaponsAllowed())
 {
-    // Do something
+    // 执行与室内武器相关的操作
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [AllowInteriorWeapons](AllowInteriorWeapons): Toggle whether the usage of weapons in interiors is allowed or not.
+- [AllowInteriorWeapons](AllowInteriorWeapons): 控制室内武器使用权限开关

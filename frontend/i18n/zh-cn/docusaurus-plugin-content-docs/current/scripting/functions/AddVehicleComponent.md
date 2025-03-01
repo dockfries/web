@@ -1,33 +1,33 @@
 ---
 title: AddVehicleComponent
 sidebar_label: AddVehicleComponent
-description: Adds a 'component' (often referred to as a 'mod' (modification)) to a vehicle.
-tags: ["vehicle"]
+description: 为载具添加一个「组件」（通常称为「改装件」）
+tags: ["载具"]
 ---
 
-## Description
+## 说明
 
-Adds a 'component' (often referred to as a 'mod' (modification)) to a vehicle. Valid components can be found here.
+为载具添加一个「组件」（通常称为「改装件」）。有效改装件 ID 可参考此列表。
 
-| Name                                     | Description                                                                     |
-| ---------------------------------------- | ------------------------------------------------------------------------------- |
-| vehicleid                                | The ID of the vehicle to add the component to. Not to be confused with modelid. |
-| [component](../resources/carcomponentid) | The ID of the component to add to the vehicle.                                  |
+| 参数名                                   | 说明                                        |
+| ---------------------------------------- | ------------------------------------------- |
+| vehicleid                                | 需要添加组件的载具 ID（注意与模型 ID 区分） |
+| [component](../resources/carcomponentid) | 要添加的组件 ID                             |
 
-## Returns
+## 返回值
 
-**true** - The component was successfully added to the vehicle.
+**true** - 组件添加成功
 
-**false** - The component was not added because the vehicle does not exist.
+**false** - 载具不存在导致添加失败
 
-## Examples
+## 示例
 
 ```c
 new gTaxi;
 
 public OnGameModeInit()
 {
-    gTaxi = AddStaticVehicle(420, -2482.4937, 2242.3936, 4.6225, 179.3656, 6, 1); // Taxi
+    gTaxi = AddStaticVehicle(420, -2482.4937, 2242.3936, 4.6225, 179.3656, 6, 1); // 出租车
     return 1;
 }
 
@@ -37,34 +37,34 @@ public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstat
     {
         if (GetPlayerVehicleID(playerid) == gTaxi)
         {
-            AddVehicleComponent(gTaxi, 1010); // Nitro
-            SendClientMessage(playerid, 0xFFFFFFAA, "Nitro added to the Taxi.");
+            AddVehicleComponent(gTaxi, 1010); // 氮气加速
+            SendClientMessage(playerid, 0xFFFFFFAA, "已为出租车安装氮气加速装置");
         }
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Using an invalid component ID crashes the player's game. (Fixed in open.mp)
+使用无效的组件 ID 会导致玩家游戏崩溃（该问题已在 open.mp 中修复）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [RemoveVehicleComponent](RemoveVehicleComponent): Remove a component from a vehicle.
-- [GetVehicleComponentInSlot](GetVehicleComponentInSlot): Check what components a vehicle has.
-- [GetVehicleComponentType](GetVehicleComponentType): Check the type of component via the ID.
-- [VehicleCanHaveComponent](VehicleCanHaveComponent): Is the component legal on the vehicle?
+- [RemoveVehicleComponent](RemoveVehicleComponent): 移除载具组件
+- [GetVehicleComponentInSlot](GetVehicleComponentInSlot): 获取载具指定插槽的组件
+- [GetVehicleComponentType](GetVehicleComponentType): 通过 ID 检测组件类型
+- [VehicleCanHaveComponent](VehicleCanHaveComponent): 验证组件是否适用于载具
 
-## Related Callbacks
+## 相关回调
 
-- [OnVehicleMod](../callbacks/OnVehicleMod): Called when a vehicle is modded.
-- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): Called when a vehicle enters or exits a mod shop.
+- [OnVehicleMod](../callbacks/OnVehicleMod): 当载具被改装时触发
+- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当载具进出改装厂时触发
 
-## Related Resources
+## 相关资源
 
-- [Car Component IDs](../resources/carcomponentid)
+- [载具改装件 ID 列表](../resources/carcomponentid)

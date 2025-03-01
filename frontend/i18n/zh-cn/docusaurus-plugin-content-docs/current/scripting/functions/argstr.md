@@ -1,28 +1,30 @@
 ---
 title: argstr
 sidebar_label: argstr
-description: Get the string value of an argument by name.
-tags: ["arguments", "args"]
+description: 通过参数名称获取字符串值
+tags: ["参数", "命令行参数"]
 ---
 
-## Description
+## 说明
 
-Get the string value of an argument by name.
+根据参数名称获取对应的字符串值。
 
-| Name                  | Description                                                       |
-| --------------------- | ----------------------------------------------------------------- |
-| skip = 0              | The number of arguments (with potentially the same name) to skip. |
-| const argument[] = "" | The name of the argument, including `-`s and `/`s.                |
-| value[] = ""          | The output string destination.                                    |
-| size = sizeof (value) | The size of the destination.                                      |
-| bool:pack = false     | Should the return value be packed?                                |
+| 参数名                | 说明                             |
+| --------------------- | -------------------------------- |
+| skip = 0              | 需要跳过的同名参数数量（默认 0） |
+| const argument[] = "" | 参数名称（包含`-`或`/`前缀）     |
+| value[] = ""          | 存储参数值的字符串缓冲区         |
+| size = sizeof (value) | 目标缓冲区容量                   |
+| bool:pack = false     | 是否对返回值进行打包             |
 
-## Returns
+## 返回值
 
-**true** - the argument was found, **false** - it wasn't.
+**true** - 参数存在
 
-## Related Functions
+**false** - 参数不存在
 
-- [argcount](argcount): Get the number of arguments passed to the script (those after --).
-- [argindex](argindex): Get the name of the argument at the given index after --.
-- [argvalue](argvalue): Get the number of arguments passed to the script (those after --).
+## 相关函数
+
+- [argcount](参数数量): 获取命令行参数总数
+- [argindex](参数索引): 通过索引获取参数名称
+- [argvalue](参数数值): 获取参数的数值类型值

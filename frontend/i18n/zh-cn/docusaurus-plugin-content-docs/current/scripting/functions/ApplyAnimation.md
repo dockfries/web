@@ -1,73 +1,73 @@
 ---
 title: ApplyAnimation
 sidebar_label: ApplyAnimation
-description: Apply an animation to a player.
-tags: ["player", "animation"]
+description: 为玩家应用指定的动画效果
+tags: ["玩家", "动画"]
 ---
 
-## Description
+## 说明
 
-Apply an animation to a player.
+为指定玩家应用动画效果。
 
-| Name                     | Description                                                                                                                                                                                                                                                                                                   |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| playerid                 | The ID of the player to apply the animation to.                                                                                                                                                                                                                                                               |
-| const animationLibrary[] | The [animation library](../resources/animations) from which to apply an animation.                                                                                                                                                                                                                            |
-| const animationName[]    | The name of the animation to apply, within the specified library.                                                                                                                                                                                                                                             |
-| Float:delta              | The speed to play the animation (use 4.1).                                                                                                                                                                                                                                                                    |
-| bool:loop                | If set to 'true', the animation will loop. If set to 'false', the animation will play once.                                                                                                                                                                                                                   |
-| bool:lockX               | If set to 'false', the player is returned to their old X coordinate once the animation is complete (for animations that move the player such as walking). 'true' will not return them to their old position.                                                                                                  |
-| bool:lockY               | Same as above but for the Y axis. Should be kept the same as the previous parameter.                                                                                                                                                                                                                          |
-| bool:freeze              | Setting this to 'true' will freeze the player at the end of the animation. 'false' will not.                                                                                                                                                                                                                  |
-| time                     | Timer in milliseconds. For a never-ending loop it should be 0.                                                                                                                                                                                                                                                |
-| FORCE_SYNC:forceSync     | Set to 1 to make server sync the animation with all other players in streaming radius (optional). 2 works same as 1, but will ONLY apply the animation to streamed-in players, but NOT the actual player being animated (useful for npc animations and persistent animations when players are being streamed) |
+| 参数名                   | 说明                                                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| playerid                 | 需要应用动画的玩家 ID                                                                                               |
+| const animationLibrary[] | [动画资源库](../resources/animations)名称                                                                           |
+| const animationName[]    | 动画名称（需在指定资源库中存在）                                                                                    |
+| Float:delta              | 动画播放速度（建议使用 4.1）                                                                                        |
+| bool:loop                | 是否循环播放：'true'循环播放，'false'单次播放                                                                       |
+| bool:lockX               | X 轴位置锁定：'false'在动画结束后恢复原始 X 坐标（适用于移动类动画），'true'保持动画结束时的位置                    |
+| bool:lockY               | Y 轴位置锁定（参数设置应与 lockX 保持一致）                                                                         |
+| bool:freeze              | 动画结束后冻结玩家：'true'冻结玩家，'false'不冻结                                                                   |
+| time                     | 动画持续时间（毫秒），0 表示无限循环                                                                                |
+| FORCE_SYNC:forceSync     | 同步模式：1-向流式范围内的所有玩家同步动画（可选）；2-仅同步给其他可见玩家（适用于 NPC 动画或需要持久化动画的场景） |
 
-## Returns
+## 返回值
 
-This function always returns true, even if the player specified does not exist, or any of the parameters are invalid (e.g. invalid library).
+本函数始终返回 true（即使玩家不存在或参数无效）。
 
-## Examples
+## 示例
 
 ```c
 ApplyAnimation(playerid, "PED", "WALK_DRUNK", 4.1, true, true, true, true, 1, 1);
 ```
 
-An example for open.mp:
+open.mp 扩展示例：
 
 ```c
 ApplyAnimation(playerid, "PED", "WALK_DRUNK", 4.1, true, true, true, true, 1, SYNC_NONE);
-// SYNC_NONE: Don't force sync to anyone else.
+// SYNC_NONE: 不向其他玩家同步
 
 ApplyAnimation(playerid, "PED", "WALK_DRUNK", 4.1, true, true, true, true, 1, SYNC_ALL);
-// SYNC_ALL: Sync to all streamed-in players.
+// SYNC_ALL: 同步给所有可见玩家
 
 ApplyAnimation(playerid, "PED", "WALK_DRUNK", 4.1, true, true, true, true, 1, SYNC_OTHER);
-// SYNC_OTHER: Sync to all streamed-in players, except the player with the animation.
+// SYNC_OTHER: 仅同步给其他玩家（自身不同步）
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- The 'forceSync' optional parameter, which defaults to 0 (SYNC_NONE), in most cases is not needed since players sync animations themselves.
-- The 'forcesync' parameter can force all players who can see 'playerid' to play the animation regardless of whether the player is performing that animation. This is useful in circumstances where the player can't sync the animation themselves. For example, they may be paused.
+- forceSync 参数默认值为 0（SYNC_NONE），通常无需设置，玩家会自动同步动画
+- 强制同步模式适用于玩家无法自主同步的特殊场景（如暂停状态）
 
 :::
 
 :::warning
 
-An invalid animation library will crash the player's game. (Fixed in open.mp)
+使用无效的动画资源库会导致玩家游戏崩溃（该问题已在 open.mp 中修复）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [ClearAnimations](ClearAnimations): Clear any animations a player is performing.
-- [SetPlayerSpecialAction](SetPlayerSpecialAction): Set a player's special action.
-- [GetPlayerAnimFlags](GetPlayerAnimFlags): Get the player animation flags.
-- [IsValidAnimationLibrary](IsValidAnimationLibrary): Checks if the given animation library is valid.
-- [EnableAllAnimations](EnableAllAnimations): Allow use of the animations missing from some versions.
+- [ClearAnimations](ClearAnimations): 清除玩家当前动画
+- [SetPlayerSpecialAction](SetPlayerSpecialAction): 设置玩家特殊动作
+- [GetPlayerAnimFlags](GetPlayerAnimFlags): 获取动画标志位
+- [IsValidAnimationLibrary](IsValidAnimationLibrary): 验证动画资源库有效性
+- [EnableAllAnimations](EnableAllAnimations): 启用缺失版本动画支持
 
-## Related Resources
+## 相关资源
 
-- [Animations](../resources/animations)
+- [动画资源列表](../resources/animations)

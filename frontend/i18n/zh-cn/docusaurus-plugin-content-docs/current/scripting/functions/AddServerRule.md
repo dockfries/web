@@ -1,27 +1,27 @@
 ---
 title: AddServerRule
 sidebar_label: AddServerRule
-description: Add a server rule.
-tags: ["rule"]
+description: 添加服务器规则
+tags: ["规则"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 说明
 
-Add a server rule.
+添加服务器规则。
 
-| Name             | Description                                |
-| ---------------- | ------------------------------------------ |
-| const rule[]     | The server rule name to add.               |
-| const format[]   | The server rule value.                     |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag. |
+| 参数名           | 说明                   |
+| ---------------- | ---------------------- |
+| const rule[]     | 要添加的服务器规则名称 |
+| const format[]   | 服务器规则对应值       |
+| OPEN_MP_TAGS:... | 不定数量的任意标签参数 |
 
-## Returns
+## 返回值
 
-Returns true if the function executed successfully, otherwise false.
+成功执行返回 true，否则返回 false。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -31,7 +31,7 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [RemoveServerRule](RemoveServerRule): Remove the server rule.
-- [IsValidServerRule](IsValidServerRule): Checks if the given server rule is valid.
+- [RemoveServerRule](RemoveServerRule): 移除服务器规则
+- [IsValidServerRule](IsValidServerRule): 验证服务器规则有效性

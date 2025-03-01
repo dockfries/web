@@ -1,33 +1,33 @@
 ---
 title: argindex
 sidebar_label: argindex
-description: Get the name of the argument at the given index after --.
-tags: ["arguments", "args"]
+description: 获取在--之后指定索引位置的参数名称
+tags: ["参数", "命令行参数"]
 ---
 
-## Description
+## 说明
 
-Get the name of the argument at the given index after **--**.
+获取通过双破折号(--)传递的指定索引位置的参数名称。
 
-| Name                  | Description                                     |
-| --------------------- | ----------------------------------------------- |
-| index                 | The naught-based offset to the script argument. |
-| value[]               | The output string destination.                  |
-| size = sizeof (value) | The size of the destination.                    |
-| bool:pack = false     | Should the return value be packed?              |
+| 参数名                | 说明                              |
+| --------------------- | --------------------------------- |
+| index                 | 基于零的偏移索引（从 0 开始计数） |
+| value[]               | 用于存储参数名称的字符串缓冲区    |
+| size = sizeof (value) | 目标缓冲区的大小                  |
+| bool:pack = false     | 是否对返回值进行打包              |
 
-## Returns
+## 返回值
 
-**true** - the argument was found, **false** - it wasn't.
+**true** - 参数存在，**false** - 参数不存在。
 
-## Notes
+## 注意事项
 
-Separate parameters also count for the index here.
+独立参数同样计入索引计数。例如：
 
-For example with `--load test --run` the argument `--run` is index `2`.
+在 `--load test --run` 中，参数 `--run` 的索引值为 `2`。
 
-## Related Functions
+## 相关函数
 
-- [argcount](argcount): Get the number of arguments passed to the script (those after --).
-- [argstr](argstr): Get the string value of an argument by name.
-- [argvalue](argvalue): Get the number of arguments passed to the script (those after --).
+- [argcount](argcount): 获取命令行参数数量
+- [argstr](argstr): 通过参数名获取字符串值
+- [argvalue](argvalue): 获取命令行参数的数值形式

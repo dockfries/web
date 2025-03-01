@@ -1,30 +1,30 @@
 ---
 title: AttachObjectToVehicle
 sidebar_label: AttachObjectToVehicle
-description: Attach an object to a vehicle.
-tags: ["object", "vehicle"]
+description: 将物体附加到载具上。
+tags: ["物体", "载具"]
 ---
 
-## Description
+## 说明
 
-Attach an object to a vehicle.
+将物体附加到载具上。
 
-| Name            | Description                                                                                                                                   |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| objectid        | The ID of the object to attach to the vehicle. Note that this is an object ID, not a model ID. The object must be CreateObject created first. |
-| parentid        | The ID of the vehicle to attach the object to.                                                                                                |
-| Float:offsetX   | The X axis offset from the vehicle to attach the object to.                                                                                   |
-| Float:offsetY   | The Y axis offset from the vehicle to attach the object to.                                                                                   |
-| Float:offsetZ   | The Z axis offset from the vehicle to attach the object to.                                                                                   |
-| Float:rotationX | The X rotation offset for the object.                                                                                                         |
-| Float:rotationY | The Y rotation offset for the object.                                                                                                         |
-| Float:rotationZ | The Z rotation offset for the object.                                                                                                         |
+| 名称            | 说明                                                |
+| --------------- | --------------------------------------------------- |
+| objectid        | 要附加的物体 ID（必须是已创建的物体 ID，非模型 ID） |
+| parentid        | 目标载具 ID                                         |
+| Float:offsetX   | 载具坐标系的 X 轴偏移量                             |
+| Float:offsetY   | 载具坐标系的 Y 轴偏移量                             |
+| Float:offsetZ   | 载具坐标系的 Z 轴偏移量                             |
+| Float:rotationX | 物体 X 轴旋转偏移量                                 |
+| Float:rotationY | 物体 Y 轴旋转偏移量                                 |
+| Float:rotationZ | 物体 Z 轴旋转偏移量                                 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值。
 
-## Examples
+## 示例
 
 ```c
 new objectid = CreateObject(...);
@@ -32,40 +32,40 @@ new vehicleid = GetPlayerVehicleID(playerid);
 AttachObjectToVehicle(objectid, vehicleid, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-The object must be created first.
+必须预先创建物体
 
 :::
 
 :::warning
 
-When the vehicle is destroyed or respawned, the attached objects won't be destroyed with it; they will remain stationary at the position the vehicle disappeared and be reattached to the next vehicle to claim the vehicle ID that the objects were attached to.
+当载具被销毁或重置时，附加物体不会随之销毁，它们会保持在载具消失的位置静止，并在新载具占用该 ID 时重新附加
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
-- [AttachObjectToObject](AttachObjectToObject): Attach an object to an object.
-- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): Attach a player object to a player.
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [MoveObject](MoveObject): Move an object.
-- [StopObject](StopObject): Stop an object from moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [MovePlayerObject](MovePlayerObject): Move a player object.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [SetPlayerObjectRot](SetPlayerObjectRot): Set the rotation of a player object.
-- [GetPlayerObjectPos](GetPlayerObjectPos): Locate a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
+- [AttachObjectToPlayer](AttachObjectToPlayer): 将物体附加到玩家
+- [AttachObjectToObject](AttachObjectToObject): 将物体附加到物体
+- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 将玩家物体附加到玩家
+- [CreateObject](CreateObject): 创建物体
+- [DestroyObject](DestroyObject): 销毁物体
+- [IsValidObject](IsValidObject): 验证物体有效性
+- [MoveObject](MoveObject): 移动物体
+- [StopObject](StopObject): 停止物体移动
+- [SetObjectPos](SetObjectPos): 设置物体坐标
+- [SetObjectRot](SetObjectRot): 设置物体旋转
+- [GetObjectPos](GetObjectPos): 获取物体坐标
+- [GetObjectRot](GetObjectRot): 获取物体旋转
+- [CreatePlayerObject](CreatePlayerObject): 为单个玩家创建物体
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家物体
+- [IsValidPlayerObject](IsValidPlayerObject): 验证玩家物体有效性
+- [MovePlayerObject](MovePlayerObject): 移动玩家物体
+- [StopPlayerObject](StopPlayerObject): 停止玩家物体移动
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置玩家物体坐标
+- [SetPlayerObjectRot](SetPlayerObjectRot): 设置玩家物体旋转
+- [GetPlayerObjectPos](GetPlayerObjectPos): 获取玩家物体坐标
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取玩家物体旋转

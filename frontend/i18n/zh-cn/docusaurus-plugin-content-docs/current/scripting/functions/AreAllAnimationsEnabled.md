@@ -1,37 +1,37 @@
 ---
 title: AreAllAnimationsEnabled
 sidebar_label: AreAllAnimationsEnabled
-description: Are the animations missing from some versions enabled?
-tags: ["animation"]
+description: 检测是否已启用某些版本缺失的动画支持
+tags: ["动画"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 说明
 
-Are the animations missing from some versions enabled?
+检测是否已启用某些版本缺失的动画支持功能。
 
-## Returns
+## 返回值
 
-true: Enable.
+true：已启用缺失动画支持
 
-false: False.
+false：未启用缺失动画支持
 
-## Examples
+## 示例
 
 ```c
 if (AreAllAnimationsEnabled())
 {
-    // Do something
+    // 执行相关动画操作
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [EnableAllAnimations](EnableAllAnimations): Allow use of the animations missing from some versions.
-- [ApplyAnimation](ApplyAnimation): Apply an animation to a player.
-- [ClearAnimations](ClearAnimations): Clear any animations a player is performing.
+- [EnableAllAnimations](EnableAllAnimations): 启用缺失版本动画支持
+- [ApplyAnimation](ApplyAnimation): 为玩家应用动画效果
+- [ClearAnimations](ClearAnimations): 清除玩家当前动画
 
-## Related Resources
+## 相关资源
 
-- [Animations](../resources/animations)
+- [动画资源列表](../resources/animations)

@@ -1,24 +1,24 @@
 ---
 title: AttachTrailerToVehicle
 sidebar_label: AttachTrailerToVehicle
-description: Attach a vehicle to another vehicle as a trailer.
-tags: ["vehicle"]
+description: 将一个载具作为拖车附加到另一个载具上。
+tags: ["载具"]
 ---
 
-## Description
+## 说明
 
-Attach a vehicle to another vehicle as a trailer.
+将一个载具作为拖车附加到另一个载具上。
 
-| Name      | Description                                       |
-| --------- | ------------------------------------------------- |
-| trailerid | The ID of the vehicle that will be pulled.        |
-| vehicleid | The ID of the vehicle that will pull the trailer. |
+| 名称      | 说明              |
+| --------- | ----------------- |
+| trailerid | 被牵引的载具 ID   |
+| vehicleid | 牵引拖车的载具 ID |
 
-## Returns
+## 返回值
 
-This function always returns **true**, even if neither of the vehicle IDs passed are valid.
+本函数始终返回 **true**，即使传入的载具 ID 无效。
 
-## Examples
+## 示例
 
 ```c
 new vehicleId = CreateVehicle(403, 657.8788, 1721.9125, 7.7199, 41.0000, -1, -1, 100);
@@ -27,16 +27,16 @@ new trailerId = CreateVehicle(435, 651.8154, 1716.3301, 7.7700, 41.0000, -1, -1,
 AttachTrailerToVehicle(trailerId, vehicleId);
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This will only work if both vehicles are streamed in for a player (check [IsVehicleStreamedIn](IsVehicleStreamedIn)).
+该功能仅在两个载具均被玩家流加载时生效（参见[IsVehicleStreamedIn](IsVehicleStreamedIn)）。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [DetachTrailerFromVehicle](DetachTrailerFromVehicle): Detach a trailer from a vehicle.
-- [IsTrailerAttachedToVehicle](IsTrailerAttachedToVehicle): Check if a trailer is attached to a vehicle.
-- [GetVehicleTrailer](GetVehicleTrailer): Check what trailer a vehicle is pulling.
+- [DetachTrailerFromVehicle](DetachTrailerFromVehicle): 将拖车从载具分离
+- [IsTrailerAttachedToVehicle](IsTrailerAttachedToVehicle): 检测拖车是否已连接
+- [GetVehicleTrailer](GetVehicleTrailer): 获取载具牵引的拖车 ID

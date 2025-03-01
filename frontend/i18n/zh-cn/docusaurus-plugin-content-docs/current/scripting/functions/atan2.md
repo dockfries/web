@@ -1,35 +1,35 @@
 ---
-title: atan
-sidebar_label: atan
-description: Get the multi-valued inversed value of a tangent in degrees.
-tags: ["math"]
+title: atan2
+sidebar_label: atan2
+description: 计算多值反正切角度（以度为单位）
+tags: ["数学"]
 ---
 
 <LowercaseNote />
 
 :::warning
 
-Notice that the y-value is the first parameter and the x-value is the second parameter. This is because the mathematical notation is y/x (i.e. y divided by x) and the convention is to write the operands in the order of the operation that is performed on them.
+注意参数顺序为 y 值在前，x 值在后。这是为了符合数学中 y/x 的运算顺序惯例。
 
 :::
 
-## Description
+## 说明
 
-Get the multi-valued inversed value of a tangent in degrees. In trigonometrics, arc tangent is the inverse operation of tangent. To compute the value, the function takes into account the sign of both arguments in order to determine the quadrant.
+计算基于两个坐标值的多值反正切角度（以度为单位）。本函数通过考虑 x 和 y 的符号来精确判断角度所在的象限。
 
-| Name    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Float:y | value representing the proportion of the y-coordinate. |
-| Float:x | value representing the proportion of the x-coordinate. |
+| 参数名  | 说明                  |
+| ------- | --------------------- |
+| Float:y | 表示 y 坐标比例的数值 |
+| Float:x | 表示 x 坐标比例的数值 |
 
-## Returns
+## 返回值
 
-The angle in degrees, in the interval [-180.0,+180.0].
+以度为单位的反正切角度，取值范围[-180.0, +180.0]。
 
-## Examples
+## 示例
 
 ```c
-//The arc tangent for (x=-10.000000, y=10.000000) is 135.000000 degrees.
+// 坐标(x=-10.000000, y=10.000000)的反正切值为135.000000度
 
 public OnGameModeInit()
 {
@@ -37,16 +37,16 @@ public OnGameModeInit()
     x = -10.0;
     y = 10.0;
     result = atan2(y, x);
-    printf("The arc tangent for (x=%f, y=%f) is %f degrees.", x, y, result);
+    printf("坐标(x=%f, y=%f)的反正切值为%f度", x, y, result);
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [floatsin](floatsin): Get the sine from a specific angle.
-- [floatcos](floatcos): Get the cosine from a specific angle.
-- [floattan](floattan): Get the tangent from a specific angle.
-- [asin](asin): Get the inversed value of a sine in degrees.
-- [acos](acos): Get the inversed value of a cosine in degrees.
-- [atan](atan): Get the inversed value of a tangent in degrees.
+- [floatsin](正弦): 获取指定角度的正弦值
+- [floatcos](余弦): 获取指定角度的余弦值
+- [floattan](正切): 获取指定角度的正切值
+- [asin](反正弦): 计算反正弦角度值
+- [acos](反余弦): 计算反余弦角度值
+- [atan](反正切): 计算单值反正切角度值

@@ -1,27 +1,27 @@
 ---
 title: Attach3DTextLabelToVehicle
 sidebar_label: Attach3DTextLabelToVehicle
-description: Attaches a 3D Text Label to a specific vehicle.
-tags: ["vehicle", "3dtextlabel"]
+description: 将3D文本标签附加到指定载具上。
+tags: ["载具", "3dtextlabel"]
 ---
 
-## Description
+## 说明
 
-Attaches a 3D Text Label to a specific vehicle.
+将 3D 文本标签附加到指定载具上。
 
-| Name          | Description                                                                     |
-| ------------- | ------------------------------------------------------------------------------- |
-| Text3D:textid | The 3D Text Label you want to attach.                                           |
-| parentid      | The vehicle you want to attach the 3D Text Label to.                            |
-| Float:offsetX | The Offset-X coordinate of the player vehicle (the vehicle is `0.0, 0.0, 0.0`). |
-| Float:offsetY | The Offset-Y coordinate of the player vehicle (the vehicle is `0.0, 0.0, 0.0`). |
-| Float:offsetZ | The Offset-Z coordinate of the player vehicle (the vehicle is `0.0, 0.0, 0.0`). |
+| 名称          | 说明                                                    |
+| ------------- | ------------------------------------------------------- |
+| Text3D:textid | 要附加的 3D 文本标签 ID                                 |
+| parentid      | 要附加的载具 ID                                         |
+| Float:offsetX | 载具坐标的 X 轴偏移量（原点为载具坐标 `0.0, 0.0, 0.0`） |
+| Float:offsetY | 载具坐标的 Y 轴偏移量（原点为载具坐标 `0.0, 0.0, 0.0`） |
+| Float:offsetZ | 载具坐标的 Z 轴偏移量（原点为载具坐标 `0.0, 0.0, 0.0`） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值。
 
-## Examples
+## 示例
 
 ```c
 new
@@ -43,13 +43,13 @@ public OnGameModeExit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [Create3DTextLabel](Create3DTextLabel): Create a 3D text label.
-- [Delete3DTextLabel](Delete3DTextLabel): Delete a 3D text label.
-- [Get3DTextLabelAttachedData](Get3DTextLabelAttachedData): Gets the 3D text label attached data.
-- [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer): Attach a 3D text label to a player.
-- [Update3DTextLabelText](Update3DTextLabelText): Change the text of a 3D text label.
-- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): Create A 3D text label for one player.
-- [DeletePlayer3DTextLabel](DeletePlayer3DTextLabel): Delete a player's 3D text label.
-- [UpdatePlayer3DTextLabelText](UpdatePlayer3DTextLabelText): Change the text of a player's 3D text label.
+- [Create3DTextLabel](Create3DTextLabel): 创建一个 3D 文本标签
+- [Delete3DTextLabel](Delete3DTextLabel): 删除 3D 文本标签
+- [Get3DTextLabelAttachedData](Get3DTextLabelAttachedData): 获取已附加的 3D 文本标签数据
+- [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer): 将 3D 文本标签附加到玩家
+- [Update3DTextLabelText](Update3DTextLabelText): 更新 3D 文本标签的文本内容
+- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): 为单个玩家创建 3D 文本标签
+- [DeletePlayer3DTextLabel](DeletePlayer3DTextLabel): 删除玩家的 3D 文本标签
+- [UpdatePlayer3DTextLabelText](UpdatePlayer3DTextLabelText): 更新玩家的 3D 文本标签文本

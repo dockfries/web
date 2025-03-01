@@ -1,31 +1,31 @@
 ---
 title: AttachPlayerObjectToPlayer
 sidebar_label: AttachPlayerObjectToPlayer
-description: The same as AttachObjectToPlayer but for objects which were created for player.
-tags: ["player", "object", "playerobject"]
+description: 功能与AttachObjectToPlayer相同，但针对玩家创建的物体。
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
-## Description
+## 说明
 
-The same as [AttachObjectToPlayer](AttachObjectToPlayer) but for objects which were created for player.
+功能与[AttachObjectToPlayer](AttachObjectToPlayer)相同，但针对玩家创建的物体。
 
-| Name            | Description                                                        |
-| --------------- | ------------------------------------------------------------------ |
-| playerid        | The id of the player which is linked with the object.              |
-| objectid        | The objectid you want to attach to the player.                     |
-| parentid        | The id of the player you want to attach to the object.             |
-| Float:offsetX   | The distance between the player and the object in the X direction. |
-| Float:offsetY   | The distance between the player and the object in the Y direction. |
-| Float:offsetZ   | The distance between the player and the object in the Z direction. |
-| Float:rotationX | The X rotation.                                                    |
-| Float:rotationY | The Y rotation.                                                    |
-| Float:rotationZ | The Z rotation.                                                    |
+| 名称            | 说明                        |
+| --------------- | --------------------------- |
+| playerid        | 与物体关联的玩家 ID         |
+| objectid        | 要附加的玩家物体 ID         |
+| parentid        | 目标玩家 ID                 |
+| Float:offsetX   | 玩家与物体在 X 轴方向的距离 |
+| Float:offsetY   | 玩家与物体在 Y 轴方向的距离 |
+| Float:offsetZ   | 玩家与物体在 Z 轴方向的距离 |
+| Float:rotationX | X 轴旋转角度                |
+| Float:rotationY | Y 轴旋转角度                |
+| Float:rotationZ | Z 轴旋转角度                |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值。
 
-## Examples
+## 示例
 
 ```c
 new gPlayerObject[MAX_PLAYERS];
@@ -39,35 +39,35 @@ public OnPlayerSpawn(playerid)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function was removed in SA-MP 0.3.
+此函数已在 SA-MP 0.3 版本中移除
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [MovePlayerObject](MovePlayerObject): Move a player object.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [SetPlayerObjectRot](SetPlayerObjectRot): Set the rotation of a player object.
-- [GetPlayerObjectPos](GetPlayerObjectPos): Locate a player object.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
-- [SetPlayerAttachedObject](SetPlayerAttachedObject): Attach an object to a player
-- [RemovePlayerAttachedObject](RemovePlayerAttachedObject): Remove an attached object from a player
-- [IsPlayerAttachedObjectSlotUsed](IsPlayerAttachedObjectSlotUsed): Check whether an object is attached to a player in a specified index
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [MoveObject](MoveObject): Move a object.
-- [StopObject](StopObject): Stop an object from moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
+- [CreatePlayerObject](CreatePlayerObject): 为单个玩家创建物体
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家物体
+- [IsValidPlayerObject](IsValidPlayerObject): 验证玩家物体有效性
+- [MovePlayerObject](MovePlayerObject): 移动玩家物体
+- [StopPlayerObject](StopPlayerObject): 停止玩家物体移动
+- [SetPlayerObjectRot](SetPlayerObjectRot): 设置玩家物体旋转
+- [GetPlayerObjectPos](GetPlayerObjectPos): 获取玩家物体坐标
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置玩家物体坐标
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取玩家物体旋转
+- [SetPlayerAttachedObject](SetPlayerAttachedObject): 为玩家附加物体
+- [RemovePlayerAttachedObject](RemovePlayerAttachedObject): 移除玩家附加的物体
+- [IsPlayerAttachedObjectSlotUsed](IsPlayerAttachedObjectSlotUsed): 检测玩家附加物体槽位占用
+- [CreateObject](CreateObject): 创建物体
+- [DestroyObject](DestroyObject): 销毁物体
+- [IsValidObject](IsValidObject): 验证物体有效性
+- [MoveObject](MoveObject): 移动物体
+- [StopObject](StopObject): 停止物体移动
+- [SetObjectPos](SetObjectPos): 设置物体坐标
+- [SetObjectRot](SetObjectRot): 设置物体旋转
+- [GetObjectPos](GetObjectPos): 获取物体坐标
+- [GetObjectRot](GetObjectRot): 获取物体旋转
+- [AttachObjectToPlayer](AttachObjectToPlayer): 将物体附加到玩家

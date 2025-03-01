@@ -1,20 +1,20 @@
 ---
 title: argcount
 sidebar_label: argcount
-description: Get the number of arguments passed to the script (those after --).
-tags: ["arguments", "args"]
+description: 获取传递给脚本的参数数量（在--之后传递的参数）
+tags: ["参数", "命令行参数"]
 ---
 
-## Description
+## 说明
 
-Get the number of arguments passed to the script (those after **--**).
+获取通过命令行双破折号(--)传递给脚本的参数数量。
 
-## Returns
+## 返回值
 
-The number of arguments passed directly to the script.
+直接传递给脚本的参数数量（整数）。
 
-## Related Functions
+## 相关函数
 
-- [argindex](argindex): Get the name of the argument at the given index after --.
-- [argstr](argstr): Get the string value of an argument by name.
-- [argvalue](argvalue): Get the number of arguments passed to the script (those after --).
+- [argindex](argindex): 获取指定索引位置的参数名称
+- [argstr](argstr): 通过参数名获取字符串值
+- [argvalue](argvalue): 获取命令行参数的数值形式

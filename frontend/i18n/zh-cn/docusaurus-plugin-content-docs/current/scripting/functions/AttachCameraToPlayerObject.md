@@ -1,24 +1,24 @@
 ---
 title: AttachCameraToPlayerObject
 sidebar_label: AttachCameraToPlayerObject
-description: Attaches a player's camera to a player-object.
-tags: ["player", "camera"]
+description: 将玩家的视角附加到玩家创建的物体上。
+tags: ["玩家", "视角"]
 ---
 
-## Description
+## 说明
 
-Attaches a player's camera to a player-object. The player is able to move their camera while it is attached to an object. Can be used with MovePlayerObject and AttachPlayerObjectToVehicle.
+将玩家的视角附加到玩家创建的物体上。玩家在视角附加期间仍可自由操控视角，可与 MovePlayerObject 及 AttachPlayerObjectToVehicle 配合使用。
 
-| Name           | Description                                                                    |
-| -------------- | ------------------------------------------------------------------------------ |
-| playerid       | The ID of the player which will have their camera attached to a player-object. |
-| playerobjectid | The ID of the player-object to which the player's camera will be attached.     |
+| 名称           | 说明                          |
+| -------------- | ----------------------------- |
+| playerid       | 需要附加视角的玩家 ID         |
+| playerobjectid | 要附加视角的玩家创建的物体 ID |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -34,16 +34,16 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-The player-object must be created before attempting to attach the player's camera to it.
+在附加玩家视角之前，必须先创建对应的玩家创建的物体。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [AttachCameraToObject](AttachCameraToObject): Attachs the player's camera on an global object.
-- [SetPlayerCameraPos](SetPlayerCameraPos): Set a player's camera position.
-- [SetPlayerCameraLookAt](SetPlayerCameraLookAt): Set where a player's camera should face.
+- [AttachCameraToObject](AttachCameraToObject): 将玩家视角附加到全局物体上
+- [SetPlayerCameraPos](SetPlayerCameraPos): 设置玩家视角位置
+- [SetPlayerCameraLookAt](SetPlayerCameraLookAt): 设置玩家视角的观察点

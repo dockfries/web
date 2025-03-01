@@ -1,32 +1,36 @@
 ---
 title: argvalue
 sidebar_label: argvalue
-description: Get the number of arguments passed to the script (those after --).
-tags: ["arguments", "args"]
+description: 获取命令行参数的数值类型值
+tags: ["参数", "命令行参数"]
 ---
 
-## Description
+## 说明
 
-Get the number of arguments passed to the script (those after **--**).
+获取通过双破折号(--)传递的数值类型参数值。
 
-| Name                  | Description                                                       |
-| --------------------- | ----------------------------------------------------------------- |
-| skip = 0              | The number of arguments (with potentially the same name) to skip. |
-| const argument[] = "" | The name of the argument, including `-`s and `/`s.                |
-| &value = cellmin      | The output destination.                                           |
+| 参数名                | 说明                                              |
+| --------------------- | ------------------------------------------------- |
+| skip = 0              | 需要跳过的同名参数数量（默认 0）                  |
+| const argument[] = "" | 参数名称（包含`-`或`/`前缀）                      |
+| &value = cellmin      | 存储参数值的整型变量（默认 cellmin 表示未初始化） |
 
-## Returns
+## 返回值
 
-**true** - the argument was found with value, **false** - it wasn't.
+**true** - 成功找到带数值的参数
 
-## Notes
+**false** - 参数不存在或未包含数值
 
-Separate parameters also count for the index here.
+## 注意事项
 
-For example with `--load test --run` the argument `--run` is index `2`.
+:::tip
 
-## Related Functions
+参数索引计算包含所有独立参数。例如：
 
-- [argcount](argcount): Get the number of arguments passed to the script (those after --).
-- [argindex](argindex): Get the name of the argument at the given index after --.
-- [argstr](argstr): Get the string value of an argument by name.
+在 `--load test --run` 中，参数 `--run` 的索引值为 `2`。
+
+## 相关函数
+
+- [argcount](参数数量): 获取命令行参数总数
+- [argindex](参数索引): 通过索引获取参数名称
+- [argstr](参数字符串): 获取参数的字符串类型值

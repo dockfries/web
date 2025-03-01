@@ -1,67 +1,67 @@
 ---
 title: AddPlayerClassEx
 sidebar_label: AddPlayerClassEx
-description: This function is exactly the same as the AddPlayerClass function, with the addition of a team parameter.
-tags: ["player", "class"]
+description: 本函数与AddPlayerClass功能相同，新增团队参数
+tags: ["玩家", "职业"]
 ---
 
-## Description
+## 说明
 
-This function is exactly the same as the AddPlayerClass function, with the addition of a team parameter.
+本函数功能与 AddPlayerClass 完全一致，额外增加团队参数支持。
 
-| Name           | Description                                                      |
-| -------------- | ---------------------------------------------------------------- |
-| team           | The team you want the player to spawn in.                        |
-| skin           | The [skin](../resources/skins) which the player will spawn with. |
-| Float:spawnX   | The X coordinate of the spawnpoint of this class.                |
-| Float:spawnY   | The Y coordinate of the spawnpoint of this class.                |
-| Float:spawnZ   | The Z coordinate of the spawnpoint of this class.                |
-| Float:angle    | The direction in which the player should face after spawning.    |
-| WEAPON:weapon1 | The first spawn-weapon for the player.                           |
-| ammo1          | The amount of ammunition for the primary spawn weapon.           |
-| WEAPON:weapon2 | The second spawn-weapon for the player.                          |
-| ammo2          | The amount of ammunition for the second spawn weapon.            |
-| WEAPON:weapon3 | The third spawn-weapon for the player.                           |
-| ammo3          | The amount of ammunition for the third spawn weapon.             |
+| 参数名         | 说明                                          |
+| -------------- | --------------------------------------------- |
+| team           | 玩家所属的初始团队                            |
+| skin           | 玩家重生时使用的[皮肤 ID](../resources/skins) |
+| Float:spawnX   | 该职业重生点的 X 坐标                         |
+| Float:spawnY   | 该职业重生点的 Y 坐标                         |
+| Float:spawnZ   | 该职业重生点的 Z 坐标                         |
+| Float:angle    | 玩家重生后的初始朝向角度                      |
+| WEAPON:weapon1 | 玩家初始携带的第一把武器                      |
+| ammo1          | 主武器的弹药数量                              |
+| WEAPON:weapon2 | 玩家初始携带的第二把武器                      |
+| ammo2          | 副武器的弹药数量                              |
+| WEAPON:weapon3 | 玩家初始携带的第三把武器                      |
+| ammo3          | 特殊武器的弹药数量                            |
 
-## Returns
+## 返回值
 
-The ID of the class which was just added.
+新添加职业的 ID 编号。
 
-319 if the class limit (320) was reached. The highest possible class ID is 319.
+若达到职业上限（320 个）则返回 319。最大有效职业 ID 为 319。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    // Players can spawn as either:
-    // CJ Skin (ID 0) in team 1.
-    // The Truth skin (ID 1) in team 2.
+    // 玩家可选择：
+    // 团队1中的CJ皮肤（ID 0）
+    // 团队2中的The Truth皮肤（ID 1）
     AddPlayerClassEx(1, 0, 1958.33, 1343.12, 15.36, 269.15, WEAPON_SAWEDOFF, 36, WEAPON_UZI, 150, WEAPON_FIST, 0); // CJ
     AddPlayerClassEx(2, 1, 1958.33, 1343.12, 15.36, 269.15, WEAPON_SAWEDOFF, 36, WEAPON_UZI, 150, WEAPON_FIST, 0); // The Truth
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-The maximum class ID is 319 (starting from 0, so a total of 320 classes). When this limit is reached, any more classes that are added will replace ID 319.
+最大职业 ID 为 319（从 0 开始共计 320 个职业）。达到上限后新增职业将覆盖 ID 319 的配置。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [AddPlayerClass](AddPlayerClass): Add a class.
-- [GetAvailableClasses](GetAvailableClasses): Get the number of classes defined.
-- [EditPlayerClass](EditPlayerClass): Edit a class data.
-- [SetSpawnInfo](SetSpawnInfo): Set the spawn setting for a player.
-- [SetPlayerTeam](SetPlayerTeam): Set a player's team.
-- [SetPlayerSkin](SetPlayerSkin): Set a player's skin.
+- [AddPlayerClass](AddPlayerClass): 添加基础职业
+- [GetAvailableClasses](GetAvailableClasses): 获取已定义的职业数量
+- [EditPlayerClass](EditPlayerClass): 修改职业配置数据
+- [SetSpawnInfo](SetSpawnInfo): 设置玩家重生参数
+- [SetPlayerTeam](SetPlayerTeam): 设置玩家团队
+- [SetPlayerSkin](SetPlayerSkin): 设置玩家皮肤
 
-## Related Resources
+## 相关资源
 
-- [Skin IDs](../resources/skins)
-- [Weapon IDs](../resources/weaponids)
+- [皮肤 ID 列表](../resources/skins)
+- [武器 ID 列表](../resources/weaponids)

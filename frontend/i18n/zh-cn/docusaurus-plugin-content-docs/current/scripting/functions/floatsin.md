@@ -1,57 +1,57 @@
 ---
 title: floatsin
 sidebar_label: floatsin
-description: Get the sine from a given angle.
+description: 获取指定角度的正弦值
 tags: ["math", "floating-point"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 说明
 
-Get the sine from a given angle. The input angle may be in radians, degrees or grades.
+获取指定角度的正弦值。输入角度可使用弧度、角度或梯度单位。
 
-| Name           | Description                                                                                         |
-| -------------- | --------------------------------------------------------------------------------------------------- |
-| Float:value    | The angle from which to get the sine.                                                               |
-| anglemode:mode | The [angle mode](../resources/anglemodes) to use, depending on the value entered. (default: radian) |
+| 参数名         | 说明                                                                          |
+| -------------- | ----------------------------------------------------------------------------- |
+| Float:value    | 需要计算正弦值的角度                                                          |
+| anglemode:mode | 使用的[角度模式](../resources/anglemodes)，根据输入值的单位而定（默认：弧度） |
 
-## Returns
+## 返回值
 
-The sine of the value entered.
+输入值的正弦值。
 
-## Examples
+## 示例
 
 ```c
 GetPosInFrontOfPlayer(playerid, Float:distance, &Float:x, &Float:y, &Float:z)
 {
-    if (GetPlayerPos(playerid, x, y, z)) // this functions returns 0 if the player is not connected
+    if (GetPlayerPos(playerid, x, y, z)) // 如果玩家未连接，此函数返回0
     {
         new Float:z_angle;
         GetPlayerFacingAngle(playerid, z_angle);
 
-        x += distance * floatsin(-z_angle, degrees); // angles in GTA go counter-clockwise, so we need to reverse the retrieved angle
+        x += distance * floatsin(-z_angle, degrees); // GTA中的角度采用逆时针方向，因此需要反转获取的角度值
         y += distance * floatcos(-z_angle, degrees);
 
-        return 1; // return 1 on success, the actual coordinates are returned by reference
+        return 1; // 成功时返回1，实际坐标通过引用返回
     }
-    return 0; // return 0 if the player isn't connected
+    return 0; // 玩家未连接时返回0
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-GTA/SA-MP use degrees for angles in most circumstances, for example [GetPlayerFacingAngle](GetPlayerFacingAngle). Therefore, it is most likely you'll want to use the 'degrees' angle mode, not radians. Also note that angles in GTA are counterclockwise; 270° is East and 90° is West. South is still 180° and North still 0°/360°.
+在大多数情况下，GTA/SA-MP 使用角度制表示方向，例如[GetPlayerFacingAngle](GetPlayerFacingAngle)。因此建议优先使用'degrees'角度模式而非弧度制。同时注意 GTA 的角度系统采用逆时针方向：270° 为东方，90° 为西方，南方仍为 180°，北方仍为 0°/360°。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [floattan](floattan): Get the tangent from a specific angle.
-- [floatcos](floatcos): Get the cosine from a specific angle.
+- [floattan](floattan): 获取指定角度的正切值
+- [floatcos](floatcos): 获取指定角度的余弦值
 
-## Related Resources
+## 相关资源
 
-- [Angle Modes](../resources/anglemodes): SI unit constants for measuring angles.
+- [角度模式](../resources/anglemodes): 测量角度的国际单位常量
