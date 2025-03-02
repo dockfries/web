@@ -1,29 +1,29 @@
 ---
 title: GangZoneGetPos
 sidebar_label: GangZoneGetPos
-description: Get the position of a gangzone, represented by minX, minY, maxX, maxY coordinates
-tags: ["player", "gangzone"]
+description: 获取帮派区域的坐标位置
+tags: ["玩家", "帮派区域"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 功能说明
 
-Get the position of a gangzone, represented by minX, minY, maxX, maxY coordinates.
+获取帮派区域的坐标位置，包括最小 X、最小 Y、最大 X、最大 Y 坐标。
 
-| Name        | Description                                                 |
-| ----------- | ----------------------------------------------------------- |
-| zoneid      | The ID of the zone to the coordinates of which want to get. |
-| &Float:minX | The X coordinate for the west side of the player gangzone.  |
-| &Float:minY | The Y coordinate for the south side of the player gangzone. |
-| &Float:maxX | The X coordinate for the east side of the player gangzone.  |
-| &Float:maxY | The Y coordinate for the north side of the player gangzone. |
+| 参数名      | 说明                                                    |
+| ----------- | ------------------------------------------------------- |
+| zoneid      | 需要获取坐标的帮派区域 ID                               |
+| &Float:minX | 用于存储帮派区域西侧边界 X 坐标的浮点变量（按引用传递） |
+| &Float:minY | 用于存储帮派区域南侧边界 Y 坐标的浮点变量（按引用传递） |
+| &Float:maxX | 用于存储帮派区域东侧边界 X 坐标的浮点变量（按引用传递） |
+| &Float:maxY | 用于存储帮派区域北侧边界 Y 坐标的浮点变量（按引用传递） |
 
-## Returns
+## 返回值
 
-This function always returns **true**.
+该函数总是返回 **true**。
 
-## Examples
+## 示例
 
 ```c
 new gangZone;
@@ -43,19 +43,19 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GangZoneDestroy](GangZoneDestroy): Destroy a gangzone.
-- [GangZoneShowForPlayer](GangZoneShowForPlayer): Show a gangzone for a player.
-- [GangZoneShowForAll](GangZoneShowForAll): Show a gangzone for all players.
-- [GangZoneHideForPlayer](GangZoneHideForPlayer): Hide a gangzone for a player.
-- [GangZoneHideForAll](GangZoneHideForAll): Hide a gangzone for all players.
-- [GangZoneFlashForPlayer](GangZoneFlashForPlayer): Make a gangzone flash for a player.
-- [GangZoneFlashForAll](GangZoneFlashForAll): Make a gangzone flash for all players.
-- [GangZoneStopFlashForPlayer](GangZoneStopFlashForPlayer): Stop a gangzone flashing for a player.
-- [GangZoneStopFlashForAll](GangZoneStopFlashForAll): Stop a gangzone flashing for all players.
-- [IsValidGangZone](IsValidGangZone): Check if the gangzone valid.
-- [IsPlayerInGangZone](IsPlayerInGangZone): Check if the player in gangzone.
-- [IsGangZoneVisibleForPlayer](IsGangZoneVisibleForPlayer): Check if the gangzone is visible for player.
-- [GangZoneGetFlashColourForPlayer](GangZoneGetFlashColourForPlayer): Get the flashing colour of a gangzone for player.
-- [IsGangZoneFlashingForPlayer](IsGangZoneFlashingForPlayer): Check if the gangzone is flashing for player.
+- [GangZoneDestroy](GangZoneDestroy): 销毁帮派区域
+- [GangZoneShowForPlayer](GangZoneShowForPlayer): 为玩家显示帮派区域
+- [GangZoneShowForAll](GangZoneShowForAll): 为所有玩家显示帮派区域
+- [GangZoneHideForPlayer](GangZoneHideForPlayer): 为玩家隐藏帮派区域
+- [GangZoneHideForAll](GangZoneHideForAll): 为所有玩家隐藏帮派区域
+- [GangZoneFlashForPlayer](GangZoneFlashForPlayer): 使帮派区域对玩家闪烁
+- [GangZoneFlashForAll](GangZoneFlashForAll): 使帮派区域对所有玩家闪烁
+- [GangZoneStopFlashForPlayer](GangZoneStopFlashForPlayer): 停止帮派区域对玩家闪烁
+- [GangZoneStopFlashForAll](GangZoneStopFlashForAll): 停止帮派区域对所有玩家闪烁
+- [IsValidGangZone](IsValidGangZone): 检查帮派区域是否有效
+- [IsPlayerInGangZone](IsPlayerInGangZone): 检查玩家是否在帮派区域内
+- [IsGangZoneVisibleForPlayer](IsGangZoneVisibleForPlayer): 检查帮派区域对玩家是否可见
+- [GangZoneGetFlashColourForPlayer](GangZoneGetFlashColourForPlayer): 获取玩家帮派区域的闪烁颜色
+- [IsGangZoneFlashingForPlayer](IsGangZoneFlashingForPlayer): 检查帮派区域是否对玩家闪烁

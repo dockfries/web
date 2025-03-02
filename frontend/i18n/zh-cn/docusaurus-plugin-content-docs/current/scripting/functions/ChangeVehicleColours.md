@@ -7,7 +7,7 @@ tags: ["车辆"]
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## 功能说明
+## 描述
 
 修改指定车辆的主色和副色
 

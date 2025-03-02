@@ -7,7 +7,7 @@ tags: []
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## 功能说明
+## 描述
 
 清除服务器当前所有 IP 封禁记录
 

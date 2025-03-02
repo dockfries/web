@@ -1,29 +1,29 @@
 ---
 title: GameTextForPlayer
 sidebar_label: GameTextForPlayer
-description: Shows 'game text' (on-screen text) for a certain length of time for a specific player.
-tags: ["player", "gametext"]
+description: 为指定玩家显示持续特定时间的'游戏文本'（屏幕文本）。
+tags: ["玩家", "游戏文本"]
 ---
 
-## Description
+## 描述
 
-Shows 'game text' (on-screen text) for a certain length of time for a specific player.
+为指定玩家显示持续特定时间的'游戏文本'（屏幕文本）。
 
-| Name             | Description                                                       |
-| ---------------- | ----------------------------------------------------------------- |
-| playerid         | The ID of the player to show the gametext for.                    |
-| const format[]   | The text to be displayed.                                         |
-| time             | The duration of the text being shown in milliseconds.             |
-| style            | The [style](../resources/gametextstyles) of text to be displayed. |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag.                        |
+| 参数名           | 说明                                          |
+| ---------------- | --------------------------------------------- |
+| playerid         | 目标玩家的 ID                                 |
+| const format[]   | 要显示的文本内容                              |
+| time             | 文本显示持续时间（以毫秒为单位）              |
+| style            | 文本显示的[样式](../resources/gametextstyles) |
+| OPEN_MP_TAGS:... | 任意数量的不限类型的参数                      |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully. Success is reported when the style and/or time is invalid. Nothing will happen though (no text displayed). May also cause game crashes.
+**true** - 函数执行成功（即使样式/时间参数无效也会返回成功，但不会显示文本，可能引发崩溃）
 
-**false** - The function failed to execute. This means either the string is null or the player is not connected.
+**false** - 函数执行失败（字符串为空或玩家未连接）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
@@ -41,25 +41,25 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Do note that the players may crash because of odd number of tilde (~) symbols used in the game text. Using color codes (e.g. ~r~) beyond the 255th character may crash the client.
+注意：游戏文本中波浪号(~)的数量为奇数可能导致客户端崩溃。颜色代码（如~r~）在超过 255 字符后使用会引发崩溃。
 
-Also, a blank space at end of the string may result in faliure. For example: `"Headshot "` results in failure. Instead it should be `"Headshot"` or `"Headshot_"`.
+字符串末尾的空格会导致失效。例如：`"爆头 "` 会失败，应改为 `"爆头"` 或 `"爆头_"`（使用下划线替代空格）。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [HideGameTextForPlayer](HideGameTextForPlayer): Stop showing a gametext style to a player.
-- [GameTextForAll](GameTextForAll): Display gametext to all players.
-- [HideGameTextForAll](HideGameTextForAll): Stop showing a gametext style for all players.
-- [GetGameText](GetGameText): Gets all the information on the given game text style.
-- [HasGameText](HasGameText): Does the player currently have text in the given gametext style displayed?
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
+- [HideGameTextForPlayer](HideGameTextForPlayer): 停止为玩家显示游戏文本样式
+- [GameTextForAll](GameTextForAll): 为所有玩家显示游戏文本
+- [HideGameTextForAll](HideGameTextForAll): 停止为所有玩家显示游戏文本样式
+- [GetGameText](GetGameText): 获取指定游戏文本样式的信息
+- [HasGameText](HasGameText): 检查玩家当前是否显示指定样式的游戏文本
+- [TextDrawShowForAll](TextDrawShowForAll): 为所有玩家显示文本绘图
 
-## Related Resources
+## 相关资源
 
-- [GameText Styles](../resources/gametextstyles)
+- [游戏文本样式](../resources/gametextstyles)

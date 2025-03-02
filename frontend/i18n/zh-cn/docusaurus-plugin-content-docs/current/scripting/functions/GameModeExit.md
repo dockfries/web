@@ -1,15 +1,15 @@
 ---
 title: GameModeExit
 sidebar_label: GameModeExit
-description: Ends the current gamemode.
+description: 结束当前游戏模式。
 tags: []
 ---
 
-## Description
+## 描述
 
-Ends the current gamemode.
+结束当前游戏模式。
 
-## Examples
+## 示例
 
 ```c
 if (OneTeamHasWon)
@@ -18,6 +18,6 @@ if (OneTeamHasWon)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetModeRestartTime](SetModeRestartTime): Sets the delay between loading main scripts, in seconds.
+- [SetModeRestartTime](SetModeRestartTime): 设置加载主脚本之间的延迟时间（以秒为单位）。

@@ -5,7 +5,7 @@ description: 连接一个NPC到服务器
 tags: ["NPC"]
 ---
 
-## 功能说明
+## 描述
 
 在服务器中创建一个 NPC 角色
 

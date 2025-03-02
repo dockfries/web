@@ -7,7 +7,7 @@ tags: ["物体"]
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## 功能说明
+## 描述
 
 显示光标并允许玩家选择物体。当玩家选择物体时会触发 OnPlayerSelectObject 回调函数。
 

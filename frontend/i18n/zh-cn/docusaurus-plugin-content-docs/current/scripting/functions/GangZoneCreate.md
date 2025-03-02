@@ -1,26 +1,26 @@
 ---
 title: GangZoneCreate
 sidebar_label: GangZoneCreate
-description: Create a gangzone (colored radar area).
-tags: ["gangzone"]
+description: 创建帮派区域（彩色雷达区域）。
+tags: ["帮派区域"]
 ---
 
-## Description
+## 描述
 
-Create a gangzone (colored radar area).
+创建帮派区域（彩色雷达区域）。
 
-| Name       | Description                                          |
-| ---------- | ---------------------------------------------------- |
-| Float:minX | The X coordinate for the west side of the gangzone.  |
-| Float:minY | The Y coordinate for the south side of the gangzone. |
-| Float:maxX | The X coordinate for the east side of the gangzone.  |
-| Float:maxY | The Y coordinate for the north side of the gangzone. |
+| 参数名     | 说明                      |
+| ---------- | ------------------------- |
+| Float:minX | 帮派区域西侧边界的 X 坐标 |
+| Float:minY | 帮派区域南侧边界的 Y 坐标 |
+| Float:maxX | 帮派区域东侧边界的 X 坐标 |
+| Float:maxY | 帮派区域北侧边界的 Y 坐标 |
 
-## Returns
+## 返回值
 
-The ID of the created zone, returns **-1** if not created
+返回创建区域的 ID，创建失败返回 **-1**
 
-## Examples
+## 示例
 
 ```c
 new gangZone;
@@ -33,45 +33,45 @@ public OnGameModeInit()
 ```
 
 ```
-                          MaxY
+                          最大Y坐标
                           v
-             -------------* < MaxX
+             -------------* < 最大X坐标
              |            |
-             |  gangzone  |
-             |   center   |
+             |  帮派区域   |
+             |   中心点    |
              |            |
-      MinX > *-------------
+      最小X坐标 > *-------------
              ^
-             MinY
+             最小Y坐标
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-- There is a limit of 1024 gangzones.
-- Putting the parameters in the wrong order results in glitchy behavior.
+- 最多支持创建 1024 个帮派区域
+- 参数顺序错误会导致区域显示异常
 
 :::
 
 :::tip
 
-This function merely CREATES the gangzone, you must use [GangZoneShowForPlayer](GangZoneShowForPlayer) or [GangZoneShowForAll](GangZoneShowForAll) to show it.
+本函数仅创建帮派区域，需使用[GangZoneShowForPlayer](GangZoneShowForPlayer)或[GangZoneShowForAll](GangZoneShowForAll)进行显示
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GangZoneDestroy](GangZoneDestroy): Destroy a gangzone.
-- [GangZoneShowForPlayer](GangZoneShowForPlayer): Show a gangzone for a player.
-- [GangZoneShowForAll](GangZoneShowForAll): Show a gangzone for all players.
-- [GangZoneHideForPlayer](GangZoneHideForPlayer): Hide a gangzone for a player.
-- [GangZoneHideForAll](GangZoneHideForAll): Hide a gangzone for all players.
-- [GangZoneFlashForPlayer](GangZoneFlashForPlayer): Make a gangzone flash for a player.
-- [GangZoneFlashForAll](GangZoneFlashForAll): Make a gangzone flash for all players.
-- [GangZoneStopFlashForPlayer](GangZoneStopFlashForPlayer): Stop a gangzone flashing for a player.
-- [GangZoneStopFlashForAll](GangZoneStopFlashForAll): Stop a gangzone flashing for all players.
+- [GangZoneDestroy](GangZoneDestroy): 销毁帮派区域
+- [GangZoneShowForPlayer](GangZoneShowForPlayer): 为玩家显示帮派区域
+- [GangZoneShowForAll](GangZoneShowForAll): 为所有玩家显示帮派区域
+- [GangZoneHideForPlayer](GangZoneHideForPlayer): 为玩家隐藏帮派区域
+- [GangZoneHideForAll](GangZoneHideForAll): 为所有玩家隐藏帮派区域
+- [GangZoneFlashForPlayer](GangZoneFlashForPlayer): 使帮派区域对玩家闪烁
+- [GangZoneFlashForAll](GangZoneFlashForAll): 使帮派区域对所有玩家闪烁
+- [GangZoneStopFlashForPlayer](GangZoneStopFlashForPlayer): 停止帮派区域对玩家闪烁
+- [GangZoneStopFlashForAll](GangZoneStopFlashForAll): 停止帮派区域对所有玩家闪烁
 
-## GangZone Editors
+## 帮派区域编辑器
 
-- [Prineside DevTools GangZone Editor](https://dev.prineside.com/en/gtasa_gangzone_editor/)
+- [Prineside 开发工具-帮派区域编辑器](https://dev.prineside.com/en/gtasa_gangzone_editor/)

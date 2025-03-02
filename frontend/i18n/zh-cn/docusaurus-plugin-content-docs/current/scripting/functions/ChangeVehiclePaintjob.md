@@ -5,7 +5,7 @@ description: 修改车辆的喷漆样式
 tags: ["车辆"]
 ---
 
-## 功能说明
+## 描述
 
 修改车辆的喷漆样式（纯色修改请参考[ChangeVehicleColor](ChangeVehicleColor)）
 

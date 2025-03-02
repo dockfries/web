@@ -1,25 +1,25 @@
 ---
 title: GangZoneStopFlashForAll
 sidebar_label: GangZoneStopFlashForAll
-description: Stops a gangzone flashing for all players.
-tags: ["gangzone"]
+description: 停止所有玩家的帮派区域闪烁。
+tags: ["帮派区域"]
 ---
 
-## Description
+## 描述
 
-Stops a gangzone flashing for all players.
+停止指定帮派区域对所有玩家的闪烁效果。
 
-| Name   | Description                                                      |
-| ------ | ---------------------------------------------------------------- |
-| zoneid | The ID of the zone to stop flashing. Returned by GangZoneCreate. |
+| 参数名 | 说明                                              |
+| ------ | ------------------------------------------------- |
+| zoneid | 要停止闪烁的区域 ID（由 GangZoneCreate 创建返回） |
 
-## Returns
+## 返回值
 
-1: The function executed successfully. Success is reported even if the gang zone wasn't flashing to begin with.
+**1**: 函数执行成功（即使该区域原本未处于闪烁状态也会返回成功）
 
-0: The function failed to execute. The gangzone specified does not exist.
+**0**: 函数执行失败（指定的帮派区域不存在）
 
-## Examples
+## 示例
 
 ```c
 new gGangZoneId;
@@ -43,14 +43,14 @@ public OnPlayerSpawn(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GangZoneCreate](GangZoneCreate): Create a gangzone.
-- [GangZoneDestroy](GangZoneDestroy): Destroy a gangzone.
-- [GangZoneShowForPlayer](GangZoneShowForPlayer): Show a gangzone for a player.
-- [GangZoneShowForAll](GangZoneShowForAll): Show a gangzone for all players.
-- [GangZoneHideForPlayer](GangZoneHideForPlayer): Hide a gangzone for a player.
-- [GangZoneHideForAll](GangZoneHideForAll): Hide a gangzone for all players.
-- [GangZoneFlashForPlayer](GangZoneFlashForPlayer): Make a gangzone flash for a player.
-- [GangZoneFlashForAll](GangZoneFlashForAll): Make a gangzone flash for all players.
-- [GangZoneStopFlashForPlayer](GangZoneStopFlashForPlayer): Stop a gangzone flashing for a player.
+- [GangZoneCreate](GangZoneCreate): 创建帮派区域
+- [GangZoneDestroy](GangZoneDestroy): 销毁帮派区域
+- [GangZoneShowForPlayer](GangZoneShowForPlayer): 为玩家显示帮派区域
+- [GangZoneShowForAll](GangZoneShowForAll): 为所有玩家显示帮派区域
+- [GangZoneHideForPlayer](GangZoneHideForPlayer): 为玩家隐藏帮派区域
+- [GangZoneHideForAll](GangZoneHideForAll): 为所有玩家隐藏帮派区域
+- [GangZoneFlashForPlayer](GangZoneFlashForPlayer): 使帮派区域对玩家闪烁
+- [GangZoneFlashForAll](GangZoneFlashForAll): 使帮派区域对所有玩家闪烁
+- [GangZoneStopFlashForPlayer](GangZoneStopFlashForPlayer): 停止帮派区域对玩家闪烁
