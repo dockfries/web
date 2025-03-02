@@ -1,29 +1,30 @@
 ---
 title: db_field_name
 sidebar_label: db_field_name
-description: Returns the name of the field at the specified index.
+description: 返回指定索引处的字段名称。
 keywords:
   - sqlite
 ---
 
 <LowercaseNote />
 
-## Description
+## 说明
 
-Returns the name of a field at a particular index.
+通过字段索引获取查询结果中的字段名称。
 
-| Name              | Description                                                        |
-| ----------------- | ------------------------------------------------------------------ |
-| DBResult:dbresult | The result to get the data from; returned by [db_query](db_query). |
-| field             | The index of the field to get the name of.                         |
-| result[]          | The result.                                                        |
-| maxlength         | The max length of the field.                                       |
+| 参数名            | 说明                                       |
+| ----------------- | ------------------------------------------ |
+| DBResult:dbresult | 查询结果句柄（由[db_query](db_query)返回） |
+| field             | 要获取的字段索引（从 0 开始）              |
+| result[]          | 存储字段名称的字符数组                     |
+| maxlength         | 字段名称的最大存储长度                     |
 
-## Returns
+## 返回值
 
-Returns 1 if result set handle is valid, otherwise 0.
+- **1** - 结果集句柄有效且操作成功
+- **0** - 结果集句柄无效或操作失败
 
-## Examples
+## 示例
 
 ```c
 static DB:gDBConnectionHandle;
@@ -32,84 +33,77 @@ public OnGameModeInit()
 {
     // ...
 
-    // Create a connection to a database
+    // 建立数据库连接
     gDBConnectionHandle = db_open("example.db");
 
-    // If connection to the database exists
     if (gDBConnectionHandle)
     {
-        // Select first entry in table "join_log"
-        new DBResult:db_result_set = db_query(g_DBConnection, "SELECT * FROM `join_log` LIMIT 1");
+        // 从'join_log'表中选择第一条记录
+        new DBResult:db_result_set = db_query(gDBConnectionHandle, "SELECT * FROM `join_log` LIMIT 1");
 
-        // If result set handle is valid
         if (db_result_set)
         {
-            // Get the number of fields from result set
+            // 获取结果集字段总数
             new columns = db_num_fields(db_result_set);
 
-            // Allocate some memory for storing field names
+            // 预分配字段名称存储空间
             new field_name[32];
 
-            // Iterate through all column indices
-            for (new column_index; index < column_index; index++)
+            // 遍历所有字段索引
+            for (new index; index < columns; index++)
             {
-                // Store the name of the i indexed column name into "field_name"
-                db_field_name(db_result_set, index, field_name, sizeof field_name);
+                // 将第index个字段名称存入field_name
+                db_field_name(db_result_set, index, field_name, sizeof(field_name));
 
-                // Print "field_name"
-                printf("Field name at index %d: \"%s\"", index, field_name);
+                // 输出字段信息
+                printf("字段索引 %d 名称: \"%s\"", index, field_name);
             }
 
-            // Frees the result set
+            // 释放结果集
             db_free_result(db_result_set);
         }
     }
     else
     {
-        // Failed to create a connection to the database
-        print("Failed to open a connection to database \"example.db\".");
+        print("无法连接数据库 \"example.db\"");
     }
 }
 
 public OnGameModeExit()
 {
-    // Close the connection to the database if connection is open
+    // 关闭数据库连接
     if (db_close(gDBConnectionHandle))
     {
-        // Extra cleanup
-        gDBConnectionHandle = DB:0;
+        gDBConnectionHandle = DB:0; // 重置句柄
     }
-
-    // ...
-
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Using an invalid handle other than zero will crash your server! Get a valid database connection handle by using [db_query](db_query).
+使用非法的结果集句柄将导致服务器崩溃！请始终通过[db_query](db_query)获取有效的查询结果
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [db_open](db_open): Open a connection to an SQLite database
-- [db_close](db_close): Close the connection to an SQLite database
-- [db_query](db_query): Query an SQLite database
-- [db_free_result](db_free_result): Free result memory from a db_query
-- [db_num_rows](db_num_rows): Get the number of rows in a result
-- [db_next_row](db_next_row): Move to the next row
-- [db_num_fields](db_num_fields): Get the number of fields in a result
-- [db_get_field](db_get_field): Get content of field with specified ID from current result row
-- [db_get_field_assoc](db_get_field_assoc): Get content of field with specified name from current result row
-- [db_get_field_int](db_get_field_int): Get content of field as an integer with specified ID from current result row
-- [db_get_field_assoc_int](db_get_field_assoc_int): Get content of field as an integer with specified name from current result row
-- [db_get_field_float](db_get_field_float): Get content of field as a float with specified ID from current result row
-- [db_get_field_assoc_float](db_get_field_assoc_float): Get content of field as a float with specified name from current result row
-- [db_get_mem_handle](db_get_mem_handle): Get memory handle for an SQLite database that was opened with db_open.
-- [db_get_result_mem_handle](db_get_result_mem_handle): Get memory handle for an SQLite query that was executed with db_query.
-- [db_debug_openfiles](db_debug_openfiles): The function gets the number of open database connections for debugging purposes.
-- [db_debug_openresults](db_debug_openresults): The function gets the number of open database results.
+- [db_open](db_open): 建立数据库连接
+- [db_close](db_close): 关闭数据库连接
+- [db_query](db_query): 执行 SQL 查询
+- [db_free_result](db_free_result): 释放查询结果内存
+- [db_num_rows](db_num_rows): 获取结果集行数
+- [db_next_row](db_next_row): 跳转至下一行
+- [db_num_fields](db_num_fields): 获取字段总数
+- [db_get_field](db_get_field): 通过索引获取字段值
+- [db_get_field_assoc](db_get_field_assoc): 通过名称获取字段值
+- [db_get_field_int](db_get_field_int): 获取整数字段值（索引）
+- [db_get_field_assoc_int](db_get_field_assoc_int): 获取整数字段值（名称）
+- [db_get_field_float](db_get_field_float): 获取浮点字段值（索引）
+- [db_get_field_assoc_float](db_get_field_assoc_float): 获取浮点字段值（名称）
+- [db_get_mem_handle](db_get_mem_handle): 获取数据库内存句柄
+- [db_get_result_mem_handle](db_get_result_mem_handle): 获取查询结果内存句柄
+- [db_debug_openfiles](db_debug_openfiles): 调试数据库连接数
+- [db_debug_openresults](db_debug_openresults): 调试查询结果数

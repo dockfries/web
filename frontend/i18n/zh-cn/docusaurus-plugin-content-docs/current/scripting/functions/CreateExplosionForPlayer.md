@@ -1,28 +1,28 @@
 ---
 title: CreateExplosionForPlayer
 sidebar_label: CreateExplosionForPlayer
-description: Creates an explosion that is only visible to a single player.
-tags: ["player"]
+description: 为指定玩家创建仅其可见的爆炸效果。
+tags: ["玩家"]
 ---
 
-## Description
+## 说明
 
-Creates an explosion that is only visible to a single player. This can be used to isolate explosions from other players or to make them only appear in specific virtual worlds.
+创建仅对特定玩家可见的爆炸特效。适用于隔离爆炸效果或指定虚拟世界显示。
 
-| Name         | Description                                              |
-| ------------ | -------------------------------------------------------- |
-| playerid     | The ID of the player to create the explosion for.        |
-| Float:x      | The X coordinate of the explosion.                       |
-| Float:y      | The Y coordinate of the explosion.                       |
-| Float:z      | The Z coordinate of the explosion.                       |
-| type         | The [type](../resources/explosionlist) of the explosion. |
-| Float:radius | The radius of the explosion.                             |
+| 参数名       | 说明                                       |
+| ------------ | ------------------------------------------ |
+| playerid     | 目标玩家 ID                                |
+| Float:x      | 爆炸 X 轴坐标                              |
+| Float:y      | 爆炸 Y 轴坐标                              |
+| Float:z      | 爆炸 Z 轴坐标                              |
+| type         | 爆炸[类型编号](../resources/explosionlist) |
+| Float:radius | 爆炸影响半径（单位：游戏单位）             |
 
-## Returns
+## 返回值
 
-This function always returns **true**, even if the function failed to excute (player doesn't exist, invalid radius, or invalid explosion type).
+始终返回 1（即使玩家不存在/参数无效时仍返回成功状态）。
 
-## Examples
+## 应用示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -38,18 +38,18 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-There is a limit as to how many explosions can be seen at once by a player. This is roughly 10.
+单个玩家同时可见的爆炸效果存在数量限制（约 10 个）
 
 :::
 
-## Related Functions
+## 关联函数
 
-- [CreateExplosion](CreateExplosion): Create an explosion which is visible for all players.
+- [CreateExplosion](CreateExplosion): 创建全局可见的爆炸效果
 
-## See Also
+## 扩展阅读
 
-- [Explosion Types](../resources/explosionlist): A list of all the explosion types.
+- [爆炸类型列表](../resources/explosionlist): 所有可用爆炸效果类型对照表

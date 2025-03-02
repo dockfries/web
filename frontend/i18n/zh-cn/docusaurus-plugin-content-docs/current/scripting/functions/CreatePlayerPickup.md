@@ -1,87 +1,87 @@
 ---
 title: CreatePlayerPickup
 sidebar_label: CreatePlayerPickup
-description: Creates a pickup which will be visible to only one player.
-tags: ["player", "pickup", "playerpickup"]
+description: 创建一个仅对单个玩家可见的拾取物。
+tags: ["玩家", "拾取物", "玩家拾取物"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 说明
 
-Creates a pickup which will be visible to only one player.
+创建一个仅对单个玩家可见的拾取物。
 
-| Name                             | Description                                                                       |
-| -------------------------------- | --------------------------------------------------------------------------------- |
-| playerid                         | The ID of the player to create the pickup for.                                    |
-| [model](../resources/pickupids)  | The model of the pickup.                                                          |
-| [type](../resources/pickuptypes) | The pickup type. Determines how the pickup responds when picked up.               |
-| Float:x                          | The X coordinate to create the pickup at.                                         |
-| Float:y                          | The Y coordinate to create the pickup at.                                         |
-| Float:z                          | The Z coordinate to create the pickup at.                                         |
-| virtualWorld                     | The virtual world ID of the pickup. Use -1 to make the pickup show in all worlds. |
+| 参数名                           | 说明                                                   |
+| -------------------------------- | ------------------------------------------------------ |
+| playerid                         | 要为其创建拾取物的玩家 ID                              |
+| [model](../resources/pickupids)  | 拾取物的模型 ID                                        |
+| [type](../resources/pickuptypes) | 拾取物类型。决定拾取物被拾取时的响应方式               |
+| Float:x                          | 拾取物创建的 X 坐标                                    |
+| Float:y                          | 拾取物创建的 Y 坐标                                    |
+| Float:z                          | 拾取物创建的 Z 坐标                                    |
+| virtualWorld                     | 拾取物所在的虚拟世界 ID。使用-1 表示在所有虚拟世界可见 |
 
-## Returns
+## 返回值
 
-The ID of the created player-pickup, **-1** on failure (pickup max limit).
+返回创建的玩家拾取物 ID，失败时返回 **-1**（达到拾取物数量上限）。
 
-## Examples
+## 示例
 
 ```c
-new PlayerPickupArmour[MAX_PLAYERS]; // Create a variable to store the player-pickup ID in
+new PlayerPickupArmour[MAX_PLAYERS]; // 创建用于存储玩家拾取物ID的变量
 
 public OnPlayerConnect(playerid)
 {
     PlayerPickupArmour[playerid] = CreatePlayerPickup(playerid, 1242, 2, 2010.0979, 1222.0642, 10.8206, -1);
-    // Create an armour pickup and store the ID in 'PlayerPickupArmour[playerid]'
+    // 创建护甲拾取物并将ID存储在'PlayerPickupArmour[playerid]'中
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- The only type of pickup that can be picked up from inside a vehicle is 14 (except for special pickups such as bribes).
-- Pickups are shown to, and can be picked up by all players.
-- It is possible that if DestroyPlayerPickup() is used when a pickup is picked up, more than one player can pick up the pickup, due to lag. This can be circumvented through the use of variables.
-- Certain pickup types come with 'automatic responses', for example using an M4 model in the pickup will automatically give the player the weapon and some ammo.
-- For fully scripted pickups, type 1 should be used.
+- 唯一可以在载具内拾取的类型是 14（特殊拾取物如贿赂物品除外）
+- 拾取物对所有玩家可见，并且所有玩家都可以拾取
+- 如果在拾取时使用 DestroyPlayerPickup()，由于网络延迟可能导致多个玩家同时拾取。可通过变量机制规避此问题
+- 某些拾取类型自带「自动响应」机制，例如使用 M4 模型会自动给予玩家该武器和弹药
+- 需要完全脚本控制的拾取物应使用类型 1
 
 :::
 
 :::warning
 
-Known Bug(s):
+已知缺陷：
 
-- Pickups that have a X or Y lower than -4096.0 or bigger than 4096.0 won't show up and won't trigger OnPlayerPickUpPlayerPickup either.
+- 当 X 或 Y 坐标小于-4096.0 或大于 4096.0 时，拾取物将不可见且不会触发 OnPlayerPickUpPlayerPickup 回调
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerPickup](CreatePlayerPickup): Creates a pickup which will be visible to only one player.
-- [DestroyPlayerPickup](DestroyPlayerPickup): Destroy a player-pickup.
-- [IsValidPlayerPickup](IsValidPlayerPickup): Checks if a player-pickup is valid.
-- [IsPlayerPickupStreamedIn](IsPlayerPickupStreamedIn): Checks if a player-pickup is streamed in for the player.
-- [SetPlayerPickupPos](SetPlayerPickupPos): Sets the position of a player-pickup.
-- [GetPlayerPickupPos](GetPlayerPickupPos): Gets the coordinates of a player-pickup.
-- [SetPlayerPickupModel](SetPlayerPickupModel): Sets the model of a player-pickup.
-- [GetPlayerPickupModel](GetPlayerPickupModel): Gets the model ID of a player-pickup.
-- [SetPlayerPickupType](SetPlayerPickupType): Sets the type of a player-pickup.
-- [GetPlayerPickupType](GetPlayerPickupType): Gets the type of a player-pickup.
-- [SetPlayerPickupVirtualWorld](SetPlayerPickupVirtualWorld): Sets the virtual world ID of a player-pickup.
-- [GetPlayerPickupVirtualWorld](GetPlayerPickupVirtualWorld): Gets the virtual world ID of a player-pickup.
+- [CreatePlayerPickup](CreatePlayerPickup): 创建仅对单个玩家可见的拾取物
+- [DestroyPlayerPickup](DestroyPlayerPickup): 销毁玩家拾取物
+- [IsValidPlayerPickup](IsValidPlayerPickup): 验证玩家拾取物是否有效
+- [IsPlayerPickupStreamedIn](IsPlayerPickupStreamedIn): 检查玩家拾取物是否已流加载给玩家
+- [SetPlayerPickupPos](SetPlayerPickupPos): 设置玩家拾取物坐标
+- [GetPlayerPickupPos](GetPlayerPickupPos): 获取玩家拾取物坐标
+- [SetPlayerPickupModel](SetPlayerPickupModel): 设置玩家拾取物模型
+- [GetPlayerPickupModel](GetPlayerPickupModel): 获取玩家拾取物模型 ID
+- [SetPlayerPickupType](SetPlayerPickupType): 设置玩家拾取物类型
+- [GetPlayerPickupType](GetPlayerPickupType): 获取玩家拾取物类型
+- [SetPlayerPickupVirtualWorld](SetPlayerPickupVirtualWorld): 设置玩家拾取物虚拟世界
+- [GetPlayerPickupVirtualWorld](GetPlayerPickupVirtualWorld): 获取玩家拾取物虚拟世界 ID
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this function.
+以下回调函数可能与此函数相关：
 
-- [OnPlayerPickUpPlayerPickup](../callbacks/OnPlayerPickUpPlayerPickup): Called when a player picks up a player-pickup.
-- [OnPlayerPickupStreamIn](../callbacks/OnPlayerPickupStreamIn): Called when a player-pickup enters the visual range of the player.
-- [OnPlayerPickupStreamOut](../callbacks/OnPlayerPickupStreamOut): Called when a player-pickup leaves the visual range of the player.
+- [OnPlayerPickUpPlayerPickup](../callbacks/OnPlayerPickUpPlayerPickup): 当玩家拾取玩家拾取物时触发
+- [OnPlayerPickupStreamIn](../callbacks/OnPlayerPickupStreamIn): 当玩家拾取物进入玩家可视范围时触发
+- [OnPlayerPickupStreamOut](../callbacks/OnPlayerPickupStreamOut): 当玩家拾取物离开玩家可视范围时触发
 
-## Related Resources
+## 相关资源
 
-- [Pickup IDs](../resources/pickupids)
-- [Pickup Types](../resources/pickuptypes)
+- [拾取物 ID 列表](../resources/pickupids)
+- [拾取物类型列表](../resources/pickuptypes)

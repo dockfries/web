@@ -1,41 +1,46 @@
 ---
 title: DB_GetDatabaseConnectionCount
 sidebar_label: DB_GetDatabaseConnectionCount
-description: Gets the number of open database connections for debugging purposes.
+description: 用于调试目的获取已打开的数据库连接数量。
 keywords:
   - sqlite
 tags: ["sqlite"]
 ---
 
-## Description
+## 说明
 
-The function gets the number of open database connections for debugging purposes.
+该函数用于调试目的获取已打开的数据库连接数量。
 
-The function has no parameters.
+| 参数 | 说明             |
+| ---- | ---------------- |
+| 无   | 此函数不需要参数 |
 
-## Examples
+## 返回值
+
+返回当前已打开的 SQLite 数据库连接数量（整数类型）。
+
+## 示例
 
 ```c
-printf("Database connection count: %d", DB_GetDatabaseConnectionCount());
+printf("当前数据库连接数: %d", DB_GetDatabaseConnectionCount());
 ```
 
-## Related Functions
+## 相关函数
 
-- [DB_Open](DB_Open): Open a connection to an SQLite database
-- [DB_Close](DB_Close): Close the connection to an SQLite database
-- [DB_ExecuteQuery](DB_ExecuteQuery): Query an SQLite database
-- [DB_FreeResultSet](DB_FreeResultSet): Free result memory from a DB_ExecuteQuery
-- [DB_GetRowCount](DB_GetRowCount): Get the number of rows in a result
-- [DB_SelectNextRow](DB_SelectNextRow): Move to the next row
-- [DB_GetFieldCount](DB_GetFieldCount): Get the number of fields in a result
-- [DB_GetFieldName](DB_GetFieldName): Returns the name of a field at a particular index
-- [DB_GetFieldString](DB_GetFieldString): Get content of field with specified ID from current result row
-- [DB_GetFieldStringByName](DB_GetFieldStringByName): Get content of field with specified name from current result row
-- [DB_GetFieldInt](DB_GetFieldInt): Get content of field as an integer with specified ID from current result row
-- [DB_GetFieldIntByName](DB_GetFieldIntByName): Get content of field as an integer with specified name from current result row
-- [DB_GetFieldFloat](DB_GetFieldFloat): Get content of field as a float with specified ID from current result row
-- [DB_GetFieldFloatByName](DB_GetFieldFloatByName): Get content of field as a float with specified name from current result row
-- [DB_GetMemHandle](DB_GetMemHandle): Get memory handle for an SQLite database that was opened with db_open.
-- [DB_GetLegacyDBResult](DB_GetLegacyDBResult): Get memory handle for an SQLite query that was executed with DB_ExecuteQuery.
-- [DB_GetDatabaseConnectionCount](DB_GetDatabaseConnectionCount): The function gets the number of open database connections for debugging purposes.
-- [DB_GetDatabaseResultSetCount](DB_GetDatabaseResultSetCount): The function gets the number of open database results.
+- [DB_Open](DB_Open): 建立 SQLite 数据库连接
+- [DB_Close](DB_Close): 关闭 SQLite 数据库连接
+- [DB_ExecuteQuery](DB_ExecuteQuery): 执行 SQL 查询语句
+- [DB_FreeResultSet](DB_FreeResultSet): 释放查询结果集内存
+- [DB_GetRowCount](DB_GetRowCount): 获取结果集行数
+- [DB_SelectNextRow](DB_SelectNextRow): 跳转至下一行数据
+- [DB_GetFieldCount](DB_GetFieldCount): 获取结果集字段数量
+- [DB_GetFieldName](DB_GetFieldName): 通过索引获取字段名称
+- [DB_GetFieldString](DB_GetFieldString): 通过字段索引获取字符串数据
+- [DB_GetFieldStringByName](DB_GetFieldStringByName): 通过字段名称获取字符串数据
+- [DB_GetFieldInt](DB_GetFieldInt): 通过字段索引获取整型数据
+- [DB_GetFieldIntByName](DB_GetFieldIntByName): 通过字段名称获取整型数据
+- [DB_GetFieldFloat](DB_GetFieldFloat): 通过字段索引获取浮点数据
+- [DB_GetFieldFloatByName](DB_GetFieldFloatByName): 通过字段名称获取浮点数据
+- [DB_GetMemHandle](DB_GetMemHandle): 获取数据库连接内存句柄
+- [DB_GetLegacyDBResult](DB_GetLegacyDBResult): 获取传统查询结果内存句柄
+- [DB_GetDatabaseResultSetCount](DB_GetDatabaseResultSetCount): 调试用-获取已打开的查询结果数量

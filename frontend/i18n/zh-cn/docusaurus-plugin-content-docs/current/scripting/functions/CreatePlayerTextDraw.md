@@ -1,100 +1,101 @@
 ---
 title: CreatePlayerTextDraw
 sidebar_label: CreatePlayerTextDraw
-description: Creates a textdraw for a single player.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 为单个玩家创建文本绘图，用于规避全局文本绘图数量限制。
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
-## Description
+## 说明
 
-Creates a textdraw for a single player. This can be used as a way around the global text-draw limit.
+为单个玩家创建文本绘图，用于规避全局文本绘图数量限制。
 
-| Name             | Description                                     |
-| ---------------- | ----------------------------------------------- |
-| playerid         | The ID of the player to create the textdraw for |
-| Float:x          | X-Coordinate                                    |
-| Float:y          | Y-Coordinate                                    |
-| const format[]   | The text in the textdraw.                       |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag.      |
+| 参数名           | 说明                        |
+| ---------------- | --------------------------- |
+| playerid         | 要为其创建文本绘图的玩家 ID |
+| Float:x          | X 轴坐标                    |
+| Float:y          | Y 轴坐标                    |
+| const format[]   | 文本绘图中的格式化文本内容  |
+| OPEN_MP_TAGS:... | 不定数量的任意类型参数      |
 
-## Returns
+## 返回值
 
-The ID of the created textdraw
+返回创建的文本绘图的 ID
 
-## Examples
+## 示例
 
 ```c
-// This variable is used to store the id of the textdraw
-// so that we can use it throught the script
+// 此变量用于存储文本绘图的ID以便脚本全局调用
 new PlayerText:welcomeText[MAX_PLAYERS];
 
 public OnPlayerConnect(playerid)
 {
-    // First, create the textdraw
-    welcomeText[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, "Welcome to my OPEN.MP server");
+    // 首先创建文本绘图
+    welcomeText[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, "欢迎来到我的OPEN.MP服务器");
 
-    // Now show it
+    // 立即显示文本绘图
     PlayerTextDrawShow(playerid, welcomeText[playerid]);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Player-textdraws are automatically destroyed when a player disconnects.
+- 玩家文本绘图会在玩家断开连接时自动销毁
 
 :::
 
 :::warning
 
-Keyboard key mapping codes (such as ~k~~VEHICLE_ENTER_EXIT~) Doesn't work beyond 255th character.
+已知限制：
+
+- 键盘按键映射代码（如 ~k~~VEHICLE_ENTER_EXIT~）在超过 255 个字符后将失效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): Destroy a player-textdraw.
-- [PlayerTextDrawColor](PlayerTextDrawColor): Set the color of the text in a player-textdraw.
-- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): Set the color of a player-textdraw's box.
-- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): Set the background color of a player-textdraw.
-- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): Set the alignment of a player-textdraw.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
-- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): Set the letter size of the text in a player-textdraw.
-- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): Set the size of a player-textdraw box (or clickable area for PlayerTextDrawSetSelectable).
-- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): Toggle the outline on a player-textdraw.
-- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): Set the shadow on a player-textdraw.
-- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): Scale the text spacing in a player-textdraw to a proportional ratio.
-- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): Toggle the box on a player-textdraw.
-- [PlayerTextDrawSetString](PlayerTextDrawSetString): Set the text of a player-textdraw.
-- [PlayerTextDrawShow](PlayerTextDrawShow): Show a player-textdraw.
-- [PlayerTextDrawHide](PlayerTextDrawHide): Hide a player-textdraw.
-- [IsPlayerTextDrawVisible](IsPlayerTextDrawVisible): Checks if a player-textdraw is shown for the player.
-- [IsValidPlayerTextDraw](IsValidPlayerTextDraw): Checks if a player-textdraw is valid.
-- [PlayerTextDrawBackgroundColour](PlayerTextDrawBackgroundColour): Adjust the background colour of a player-textdraw.
-- [PlayerTextDrawBoxColour](PlayerTextDrawBoxColour): Sets the colour of a textdraw's box (PlayerTextDrawUseBox ).
-- [PlayerTextDrawColour](PlayerTextDrawColour): Sets the text colour of a player-textdraw.
-- [PlayerTextDrawGetAlignment](PlayerTextDrawGetAlignment): Gets the text alignment of a player-textdraw.
-- [PlayerTextDrawGetBackgroundColour](PlayerTextDrawGetBackgroundColour): Gets the background colour of a player-textdraw.
-- [PlayerTextDrawGetBoxColour](PlayerTextDrawGetBoxColour): Gets the box colour of a player-textdraw.
-- [PlayerTextDrawGetColour](PlayerTextDrawGetColour): Gets the text colour of a player-textdraw.
-- [PlayerTextDrawGetFont](PlayerTextDrawGetFont): Gets the text font of a player-textdraw.
-- [PlayerTextDrawGetLetterSize](PlayerTextDrawGetLetterSize): Gets the width and height of the letters.
-- [PlayerTextDrawGetOutline](PlayerTextDrawGetOutline): Get the outline size on a player-textdraw.
-- [PlayerTextDrawGetPos](PlayerTextDrawGetPos): Gets the position of a player-textdraw.
-- [PlayerTextDrawGetPreviewModel](PlayerTextDrawGetPreviewModel): Gets the preview model of a 3D preview player-textdraw.
-- [PlayerTextDrawGetPreviewRot](PlayerTextDrawGetPreviewRot): Gets the rotation and zoom of a 3D model preview player-textdraw.
-- [PlayerTextDrawGetPreviewVehicleColours](PlayerTextDrawGetPreviewVehicleColours): Gets the preview vehicle colors of a 3D preview player-textdraw.
-- [PlayerTextDrawGetShadow](PlayerTextDrawGetShadow): Get the shadow size on a player-textdraw.
-- [PlayerTextDrawGetString](PlayerTextDrawGetString): Gets the text of a player-textdraw.
-- [PlayerTextDrawGetTextSize](PlayerTextDrawGetTextSize): Gets the X axis and Y axis of the player-textdraw text size.
-- [PlayerTextDrawIsBox](PlayerTextDrawIsBox): Checks if a player-textdraw is box.
-- [PlayerTextDrawIsProportional](PlayerTextDrawIsProportional): Checks if a player-textdraw is proportional.
-- [PlayerTextDrawIsSelectable](PlayerTextDrawIsSelectable): Checks if a player-textdraw is selectable.
-- [PlayerTextDrawSetPos](PlayerTextDrawSetPos): Sets the position of a player-textdraw.
-- [PlayerTextDrawSetPreviewVehicleColours](PlayerTextDrawSetPreviewVehicleColours): Set the color of a vehicle in a player-textdraw model preview (if a vehicle is shown).
+- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘图
+- [PlayerTextDrawColor](PlayerTextDrawColor): 设置玩家文本绘图的文本颜色
+- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): 设置玩家文本绘图的方框颜色
+- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): 设置玩家文本绘图的背景颜色
+- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): 设置玩家文本绘图的对齐方式
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置玩家文本绘图的字体样式
+- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): 设置玩家文本绘图的字符尺寸
+- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): 设置玩家文本绘图的方框尺寸（或可点击区域）
+- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): 切换玩家文本绘图的轮廓显示
+- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): 设置玩家文本绘图的阴影效果
+- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): 启用玩家文本绘图的比例间距
+- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): 切换玩家文本绘图的方框显示
+- [PlayerTextDrawSetString](PlayerTextDrawSetString): 更新玩家文本绘图的文本内容
+- [PlayerTextDrawShow](PlayerTextDrawShow): 显示玩家文本绘图
+- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏玩家文本绘图
+- [IsPlayerTextDrawVisible](IsPlayerTextDrawVisible): 检测玩家文本绘图是否可见
+- [IsValidPlayerTextDraw](IsValidPlayerTextDraw): 验证玩家文本绘图是否有效
+- [PlayerTextDrawBackgroundColour](PlayerTextDrawBackgroundColour): 调整玩家文本绘图的背景色彩
+- [PlayerTextDrawBoxColour](PlayerTextDrawBoxColour): 设置玩家文本绘图的方框色彩
+- [PlayerTextDrawColour](PlayerTextDrawColour): 设置玩家文本绘图的文本色彩
+- [PlayerTextDrawGetAlignment](PlayerTextDrawGetAlignment): 获取玩家文本绘图的对齐方式
+- [PlayerTextDrawGetBackgroundColour](PlayerTextDrawGetBackgroundColour): 获取玩家文本绘图的背景色彩
+- [PlayerTextDrawGetBoxColour](PlayerTextDrawGetBoxColour): 获取玩家文本绘图的方框色彩
+- [PlayerTextDrawGetColour](PlayerTextDrawGetColour): 获取玩家文本绘图的文本色彩
+- [PlayerTextDrawGetFont](PlayerTextDrawGetFont): 获取玩家文本绘图的字体样式
+- [PlayerTextDrawGetLetterSize](PlayerTextDrawGetLetterSize): 获取玩家文本绘图的字符尺寸
+- [PlayerTextDrawGetOutline](PlayerTextDrawGetOutline): 获取玩家文本绘图的轮廓尺寸
+- [PlayerTextDrawGetPos](PlayerTextDrawGetPos): 获取玩家文本绘图的坐标位置
+- [PlayerTextDrawGetPreviewModel](PlayerTextDrawGetPreviewModel): 获取 3D 预览玩家文本绘图的模型 ID
+- [PlayerTextDrawGetPreviewRot](PlayerTextDrawGetPreviewRot): 获取 3D 模型预览玩家文本绘图的旋转角度
+- [PlayerTextDrawGetPreviewVehicleColours](PlayerTextDrawGetPreviewVehicleColours): 获取 3D 预览玩家文本绘图的载具颜色
+- [PlayerTextDrawGetShadow](PlayerTextDrawGetShadow): 获取玩家文本绘图的阴影尺寸
+- [PlayerTextDrawGetString](PlayerTextDrawGetString): 获取玩家文本绘图的文本内容
+- [PlayerTextDrawGetTextSize](PlayerTextDrawGetTextSize): 获取玩家文本绘图的文本尺寸
+- [PlayerTextDrawIsBox](PlayerTextDrawIsBox): 检测玩家文本绘图是否包含方框
+- [PlayerTextDrawIsProportional](PlayerTextDrawIsProportional): 检测玩家文本绘图是否启用比例间距
+- [PlayerTextDrawIsSelectable](PlayerTextDrawIsSelectable): 检测玩家文本绘图是否可交互
+- [PlayerTextDrawSetPos](PlayerTextDrawSetPos): 设置玩家文本绘图的位置坐标
+- [PlayerTextDrawSetPreviewVehicleColours](PlayerTextDrawSetPreviewVehicleColours): 设置玩家文本绘图载具模型预览的颜色
 
-## Related Resources
+## 相关资源
 
-- [TextDraw Sprites](../resources/textdrawsprites)
+- [文本绘图精灵列表](../resources/textdrawsprites)

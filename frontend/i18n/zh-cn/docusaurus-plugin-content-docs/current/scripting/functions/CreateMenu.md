@@ -1,65 +1,67 @@
 ---
 title: CreateMenu
 sidebar_label: CreateMenu
-description: Creates a menu.
-tags: ["menu"]
+description: 创建可交互的菜单界面。
+tags: ["菜单"]
 ---
 
-## Description
+## 说明
 
-Creates a menu.
+创建基础菜单容器，用于构建玩家交互界面。
 
-| Name               | Description                                                                         |
-| ------------------ | ----------------------------------------------------------------------------------- |
-| const title[]      | The title for the new menu.                                                         |
-| columns            | How many colums shall the new menu have.                                            |
-| Float:x            | The X position of the menu (640x460 canvas - 0 would put the menu at the far left). |
-| Float:y            | The Y position of the menu (640x460 canvas - 0 would put the menu at the far top).  |
-| Float:column1width | The width for the first column.                                                     |
-| Float:column2width | The width for the second column.                                                    |
-| OPEN_MP_TAGS:...   | Indefinite number of arguments of any tag.                                          |
+| 参数名             | 说明                                          |
+| ------------------ | --------------------------------------------- |
+| const title[]      | 菜单标题（最大 31 字符，超长自动截断）        |
+| columns            | 列数（仅支持 0 和 1 两列）                    |
+| Float:x            | X 轴位置（基于 640x460 画布坐标系，0=最左侧） |
+| Float:y            | Y 轴位置（基于 640x460 画布坐标系，0=最顶部） |
+| Float:column1width | 首列宽度                                      |
+| Float:column2width | 次列宽度                                      |
+| OPEN_MP_TAGS:...   | 扩展参数（支持任意类型参数）                  |
 
-## Returns
+## 返回值
 
-The ID of the new menu or **-1** on failure.
+成功返回菜单 ID，创建失败返回-1。
 
-## Examples
+## 应用示例
 
 ```c
 new Menu:exampleMenu;
 
 public OnGameModeInit()
 {
-    exampleMenu = CreateMenu("Example Menu", 2, 200.0, 100.0, 150.0, 150.0);
+    // 创建双列菜单（位置200,100 列宽150）
+    exampleMenu = CreateMenu("示例菜单", 2, 200.0, 100.0, 150.0, 150.0);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- This function merely CREATES the menu - [ShowMenuForPlayer](ShowMenuForPlayer) must be used to show it.
-- You can only create and access 2 columns (0 & 1).
-- If the title's length is equal to or greater than 32 chars the title is truncated to 30 characters.
+- 本函数仅创建菜单容器，需调用[ShowMenuForPlayer](ShowMenuForPlayer)显示
+- 实际仅支持 0 和 1 两列配置
+- 标题超过 32 字符将自动截断为 30 字符
 
 :::
 
 :::warning
 
-There is a limit of 12 items per menu, and a limit of 128 menus in total.
+- 单个菜单最多容纳 12 个选项项
+- 服务器最多同时存在 128 个菜单
 
 :::
 
-## Related Functions
+## 关联函数
 
-- [AddMenuItem](AddMenuItem): Adds an item to a specified menu.
-- [SetMenuColumnHeader](SetMenuColumnHeader): Set the header for one of the columns in a menu.
-- [DestroyMenu](DestroyMenu): Destroy a menu.
-- [ShowMenuForPlayer](ShowMenuForPlayer): Show a menu for a player.
-- [HideMenuForPlayer](HideMenuForPlayer): Hide a menu for a player.
+- [AddMenuItem](AddMenuItem): 添加菜单选项项
+- [SetMenuColumnHeader](SetMenuColumnHeader): 设置列标题
+- [DestroyMenu](DestroyMenu): 销毁菜单实例
+- [ShowMenuForPlayer](ShowMenuForPlayer): 向玩家展示菜单
+- [HideMenuForPlayer](HideMenuForPlayer): 隐藏玩家可见菜单
 
-## Related Callbacks
+## 关联回调
 
-- [OnPlayerSelectedMenuRow](../callbacks/OnPlayerSelectedMenuRow): Called when a player selected a row in a menu.
-- [OnPlayerExitedMenu](../callbacks/OnPlayerExitedMenu): Called when a player exits a menu.
+- [OnPlayerSelectedMenuRow](../callbacks/OnPlayerSelectedMenuRow): 玩家选择菜单项时触发
+- [OnPlayerExitedMenu](../callbacks/OnPlayerExitedMenu): 玩家退出菜单时触发

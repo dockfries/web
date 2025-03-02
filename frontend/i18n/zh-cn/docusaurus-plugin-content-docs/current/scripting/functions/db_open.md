@@ -1,7 +1,7 @@
 ---
 title: db_open
 sidebar_label: db_open
-description: The function is used to open a connection to a SQLite database file, which is inside the `/scriptfiles` folder.
+description: 该函数用于建立与`/scriptfiles`目录下的SQLite数据库文件的连接。
 keywords:
   - sqlite
 tags: ["sqlite"]
@@ -9,20 +9,20 @@ tags: ["sqlite"]
 
 <LowercaseNote />
 
-## Description
+## 说明
 
-The function is used to open a connection to a SQLite database, which is inside the "/scriptfiles" folder.
+该函数用于建立与`/scriptfiles`目录下的 SQLite 数据库文件的连接。
 
-| Name                                                                | Description                                           |
-| ------------------------------------------------------------------- | ----------------------------------------------------- |
-| const name[]                                                        | File name of the database                             |
-| SQLITE_OPEN:flags = SQLITE_OPEN_READWRITE &#124; SQLITE_OPEN_CREATE | [Permissions / Flags](../resources/sqlite-open-flags) |
+| 参数名                                                              | 描述                                       |
+| ------------------------------------------------------------------- | ------------------------------------------ |
+| const name[]                                                        | 数据库文件名（不含路径）                   |
+| SQLITE_OPEN:flags = SQLITE_OPEN_READWRITE &#124; SQLITE_OPEN_CREATE | [权限标志](../resources/sqlite-open-flags) |
 
-## Returns
+## 返回值
 
-Returns index (starting at 1) of the database connection.
+返回数据库连接句柄索引（从 1 开始）。
 
-## Examples
+## 示例
 
 ```c
 static DB:gDBConnectionHandle;
@@ -33,91 +33,82 @@ public OnGameModeInit()
 {
     // ...
 
-    // Create a connection to a database
+    // 建立数据库连接
     gDBConnectionHandle = db_open("example.db");
 
-    // If connection to the database exists
+    // 验证连接状态
     if (gDBConnectionHandle)
     {
-        // Successfully created a connection to the database
-        print("Successfully created a connection to database \"example.db\".");
+        print("成功连接数据库 \"example.db\"");
     }
     else
     {
-        // Failed to create a connection to the database
-        print("Failed to open a connection to database \"example.db\".");
+        print("无法连接数据库 \"example.db\"");
     }
-
-    // ...
 
     return 1;
 }
 
 public OnGameModeExit()
 {
-    // Close the connection to the database if connection is open
+    // 关闭数据库连接
     if (db_close(gDBConnectionHandle))
     {
-        // Extra cleanup
-        gDBConnectionHandle = DB:0;
+        gDBConnectionHandle = DB:0;  // 重置句柄
     }
-
-    // ...
-
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-It will create a new SQLite database file, if there is no SQLite database file with the same file name available. Close your SQLite database connection with [db_close](db_close)!
+当指定数据库文件不存在时，将自动创建新数据库文件！请务必使用[db_close](db_close)关闭数据库连接！
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [db_open](db_open): Open a connection to an SQLite database
-- [db_close](db_close): Close the connection to an SQLite database
-- [db_query](db_query): Query an SQLite database
-- [db_free_result](db_free_result): Free result memory from a db_query
-- [db_num_rows](db_num_rows): Get the number of rows in a result
-- [db_next_row](db_next_row): Move to the next row
-- [db_num_fields](db_num_fields): Get the number of fields in a result
-- [db_field_name](db_field_name): Returns the name of a field at a particular index
-- [db_get_field](db_get_field): Get content of field with specified ID from current result row
-- [db_get_field_assoc](db_get_field_assoc): Get content of field with specified name from current result row
-- [db_get_field_int](db_get_field_int): Get content of field as an integer with specified ID from current result row
-- [db_get_field_assoc_int](db_get_field_assoc_int): Get content of field as an integer with specified name from current result row
-- [db_get_field_float](db_get_field_float): Get content of field as a float with specified ID from current result row
-- [db_get_field_assoc_float](db_get_field_assoc_float): Get content of field as a float with specified name from current result row
-- [db_get_mem_handle](db_get_mem_handle): Get memory handle for an SQLite database that was opened with db_open.
-- [db_get_result_mem_handle](db_get_result_mem_handle): Get memory handle for an SQLite query that was executed with db_query.
-- [db_debug_openfiles](db_debug_openfiles): The function gets the number of open database connections for debugging purposes.
-- [db_debug_openresults](db_debug_openresults): The function gets the number of open database results.
+- [db_close](db_close): 关闭 SQLite 数据库连接
+- [db_query](db_query): 执行 SQL 查询语句
+- [db_free_result](db_free_result): 释放查询结果内存
+- [db_num_rows](db_num_rows): 获取结果集行数
+- [db_next_row](db_next_row): 跳转至下一行数据
+- [db_num_fields](db_num_fields): 获取结果集字段数量
+- [db_field_name](db_field_name): 通过索引获取字段名称
+- [db_get_field](db_get_field): 通过字段索引获取当前行数据
+- [db_get_field_assoc](db_get_field_assoc): 通过字段名称获取当前行数据
+- [db_get_field_int](db_get_field_int): 通过字段索引获取整型数据
+- [db_get_field_assoc_int](db_get_field_assoc_int): 通过字段名称获取整型数据
+- [db_get_field_float](db_get_field_float): 通过字段索引获取浮点数据
+- [db_get_field_assoc_float](db_get_field_assoc_float): 通过字段名称获取浮点数据
+- [db_get_mem_handle](db_get_mem_handle): 获取数据库内存句柄
+- [db_get_result_mem_handle](db_get_result_mem_handle): 获取查询结果内存句柄
+- [db_debug_openfiles](db_debug_openfiles): 调试用-获取已打开的数据库连接数
+- [db_debug_openresults](db_debug_openresults): 调试用-获取已打开的查询结果数
 
-## Modern SQLite Functions
+## 现代 SQLite 函数
 
-- [DB_Open](DB_Open): Open a connection to an SQLite database
-- [DB_Close](DB_Close): Close the connection to an SQLite database
-- [DB_ExecuteQuery](DB_ExecuteQuery): Query an SQLite database
-- [DB_FreeResultSet](DB_FreeResultSet): Free result memory from a DB_ExecuteQuery
-- [DB_GetRowCount](DB_GetRowCount): Get the number of rows in a result
-- [DB_SelectNextRow](DB_SelectNextRow): Move to the next row
-- [DB_GetFieldCount](DB_GetFieldCount): Get the number of fields in a result
-- [DB_GetFieldName](DB_GetFieldName): Returns the name of a field at a particular index
-- [DB_GetFieldString](DB_GetFieldString): Get content of field with specified ID from current result row
-- [DB_GetFieldStringByName](DB_GetFieldStringByName): Get content of field with specified name from current result row
-- [DB_GetFieldInt](DB_GetFieldInt): Get content of field as an integer with specified ID from current result row
-- [DB_GetFieldIntByName](DB_GetFieldIntByName): Get content of field as an integer with specified name from current result row
-- [DB_GetFieldFloat](DB_GetFieldFloat): Get content of field as a float with specified ID from current result row
-- [DB_GetFieldFloatByName](DB_GetFieldFloatByName): Get content of field as a float with specified name from current result row
-- [DB_GetMemHandle](DB_GetMemHandle): Get memory handle for an SQLite database that was opened with db_open.
-- [DB_GetLegacyDBResult](DB_GetLegacyDBResult): Get memory handle for an SQLite query that was executed with DB_ExecuteQuery.
-- [DB_GetDatabaseConnectionCount](DB_GetDatabaseConnectionCount): The function gets the number of open database connections for debugging purposes.
-- [DB_GetDatabaseResultSetCount](DB_GetDatabaseResultSetCount): The function gets the number of open database results.
+- [DB_Open](DB_Open): 新版数据库连接函数
+- [DB_Close](DB_Close): 新版数据库关闭函数
+- [DB_ExecuteQuery](DB_ExecuteQuery): 新版 SQL 查询执行
+- [DB_FreeResultSet](DB_FreeResultSet): 新版结果集内存释放
+- [DB_GetRowCount](DB_GetRowCount): 获取结果集行数
+- [DB_SelectNextRow](DB_SelectNextRow): 跳转至下一行
+- [DB_GetFieldCount](DB_GetFieldCount): 获取字段总数
+- [DB_GetFieldName](DB_GetFieldName): 通过索引获取字段名称
+- [DB_GetFieldString](DB_GetFieldString): 通过索引获取字符串数据
+- [DB_GetFieldStringByName](DB_GetFieldStringByName): 通过名称获取字符串数据
+- [DB_GetFieldInt](DB_GetFieldInt): 通过索引获取整型数据
+- [DB_GetFieldIntByName](DB_GetFieldIntByName): 通过名称获取整型数据
+- [DB_GetFieldFloat](DB_GetFieldFloat): 通过索引获取浮点数据
+- [DB_GetFieldFloatByName](DB_GetFieldFloatByName): 通过名称获取浮点数据
+- [DB_GetMemHandle](DB_GetMemHandle): 获取数据库内存句柄
+- [DB_GetLegacyDBResult](DB_GetLegacyDBResult): 获取传统查询结果句柄
+- [DB_GetDatabaseConnectionCount](DB_GetDatabaseConnectionCount): 调试用-数据库连接数统计
+- [DB_GetDatabaseResultSetCount](DB_GetDatabaseResultSetCount): 调试用-结果集数量统计
 
-## Related Resources
+## 相关资源
 
-- [SQLite Open Flags](../resources/sqlite-open-flags)
+- [SQLite 权限标志说明](../resources/sqlite-open-flags)

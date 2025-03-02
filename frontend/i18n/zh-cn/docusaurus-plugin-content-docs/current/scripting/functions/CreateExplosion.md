@@ -1,54 +1,54 @@
 ---
 title: CreateExplosion
 sidebar_label: CreateExplosion
-description: Create an explosion at the specified coordinates.
+description: 在指定坐标位置创建爆炸效果。
 tags: []
 ---
 
-## Description
+## 说明
 
-Create an explosion at the specified coordinates.
+在三维空间指定坐标生成爆炸特效。
 
-| Name         | Description                                              |
-| ------------ | -------------------------------------------------------- |
-| Float:x      | The X coordinate of the explosion.                       |
-| Float:y      | The Y coordinate of the explosion.                       |
-| Float:z      | The Z coordinate of the explosion.                       |
-| type         | The [type](../resources/explosionlist) of the explosion. |
-| Float:radius | The radius of the explosion.                             |
+| 参数名       | 说明                                       |
+| ------------ | ------------------------------------------ |
+| Float:x      | 爆炸效果的 X 轴坐标                        |
+| Float:y      | 爆炸效果的 Y 轴坐标                        |
+| Float:z      | 爆炸效果的 Z 轴坐标                        |
+| type         | 爆炸[类型编号](../resources/explosionlist) |
+| Float:radius | 爆炸影响半径（单位：游戏单位）             |
 
-## Returns
+## 返回值
 
-This function always returns 1, even when the explosion type and/or radius values are invalid.
+本函数始终返回 1，即使爆炸类型或半径参数值无效。
 
-## Examples
+## 应用示例
 
 ```c
 public OnPlayerEnterCheckpoint(playerid)
 {
-    // Get the player's position
+    // 获取玩家当前位置坐标
     new Float:x, Float:y, Float:z;
     GetPlayerPos(playerid, x, y, z);
 
-    // Create an explosion at the player's position
+    // 在玩家位置创建中型爆炸
     CreateExplosion(x, y, z, 12, 10.0);
 
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-There is a limit as to how many explosions can be seen at once by a player. This is roughly 10.
+单个玩家同时可见的爆炸效果存在数量限制（约 10 个）
 
 :::
 
-## Related Functions
+## 关联函数
 
-- [CreateExplosionForPlayer](CreateExplosionForPlayer): Create an explosion which is visible for only a single player.
+- [CreateExplosionForPlayer](CreateExplosionForPlayer): 为指定玩家单独创建爆炸效果
 
-## See Also
+## 扩展阅读
 
-- [Explosion Types](../resources/explosionlist): A list of all the explosion types.
+- [爆炸类型列表](../resources/explosionlist): 所有可用爆炸效果类型对照表

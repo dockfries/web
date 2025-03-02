@@ -1,31 +1,31 @@
 ---
 title: CreatePlayerObject
 sidebar_label: CreatePlayerObject
-description: Creates an object which will be visible to only one player.
-tags: ["player", "object", "playerobject"]
+description: 创建一个仅对单个玩家可见的物体。
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
-## Description
+## 说明
 
-Creates an object which will be visible to only one player.
+创建一个仅对单个玩家可见的物体。
 
-| Name               | Description                                                                                                                                                                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| playerid           | The ID of the player to create the object for.                                                                                                                                                              |
-| modelid            | The model to create.                                                                                                                                                                                        |
-| Float:x            | The X coordinate to create the object at.                                                                                                                                                                   |
-| Float:y            | The Y coordinate to create the object at.                                                                                                                                                                   |
-| Float:z            | The Z coordinate to create the object at.                                                                                                                                                                   |
-| Float:rotationX    | The X rotation of the object.                                                                                                                                                                               |
-| Float:rotationY    | The Y rotation of the object.                                                                                                                                                                               |
-| Float:rotationZ    | The Z rotation of the object.                                                                                                                                                                               |
-| Float:drawDistance | The distance from which objects will appear to players. 0.0 will cause an object to render at its default distance. Leaving this parameter out will cause objects to be rendered at their default distance. |
+| 参数名             | 说明                                                                                   |
+| ------------------ | -------------------------------------------------------------------------------------- |
+| playerid           | 要为其创建物体的玩家 ID                                                                |
+| modelid            | 要创建的模型 ID                                                                        |
+| Float:x            | 物体创建的 X 坐标                                                                      |
+| Float:y            | 物体创建的 Y 坐标                                                                      |
+| Float:z            | 物体创建的 Z 坐标                                                                      |
+| Float:rotationX    | 物体的 X 轴旋转角度                                                                    |
+| Float:rotationY    | 物体的 Y 轴旋转角度                                                                    |
+| Float:rotationZ    | 物体的 Z 轴旋转角度                                                                    |
+| Float:drawDistance | 物体对玩家可见的渲染距离。0.0 将使物体在其默认距离渲染。省略此参数将使用默认渲染距离。 |
 
-## Returns
+## 返回值
 
-The ID of the object that was created, or INVALID_OBJECT_ID if the object limit (MAX_OBJECTS) was reached.
+返回创建物体的 ID，若达到物体数量上限（MAX_OBJECTS）则返回 INVALID_OBJECT_ID。
 
-## Examples
+## 示例
 
 ```c
 new gPlayerObject[MAX_PLAYERS];
@@ -34,7 +34,7 @@ public OnPlayerConnect(playerid)
 {
     gPlayerObject[playerid] = CreatePlayerObject(playerid, 2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0);
 
-    // Or alternatively, using the DrawDistance parameter to show it from as far away as possible:
+    // 或者使用DrawDistance参数使其在尽可能远的距离可见：
     gPlayerObject[playerid] = CreatePlayerObject(playerid, 2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0, 300.0);
     return 1;
 }
@@ -46,24 +46,24 @@ public OnPlayerDisconnect(playerid, reason)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [MovePlayerObject](MovePlayerObject): Move a player object.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [SetPlayerObjectRot](SetPlayerObjectRot): Set the rotation of a player object.
-- [GetPlayerObjectPos](GetPlayerObjectPos): Locate a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
-- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): Attach a player object to a player.
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [MoveObject](MoveObject): Move an object.
-- [StopObject](StopObject): Stop an object from moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家物体
+- [IsValidPlayerObject](IsValidPlayerObject): 验证玩家物体是否有效
+- [MovePlayerObject](MovePlayerObject): 移动玩家物体
+- [StopPlayerObject](StopPlayerObject): 停止玩家物体移动
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置玩家物体位置
+- [SetPlayerObjectRot](SetPlayerObjectRot): 设置玩家物体旋转角度
+- [GetPlayerObjectPos](GetPlayerObjectPos): 获取玩家物体位置
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取玩家物体旋转角度
+- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 将玩家物体附加到玩家身上
+- [CreateObject](CreateObject): 创建物体
+- [DestroyObject](DestroyObject): 销毁物体
+- [IsValidObject](IsValidObject): 验证物体是否有效
+- [MoveObject](MoveObject): 移动物体
+- [StopObject](StopObject): 停止物体移动
+- [SetObjectPos](SetObjectPos): 设置物体位置
+- [SetObjectRot](SetObjectRot): 设置物体旋转角度
+- [GetObjectPos](GetObjectPos): 获取物体位置
+- [GetObjectRot](GetObjectRot): 获取物体旋转角度
+- [AttachObjectToPlayer](AttachObjectToPlayer): 将物体附加到玩家身上

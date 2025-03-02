@@ -1,36 +1,37 @@
 ---
 title: Create3DTextLabel
 sidebar_label: Create3DTextLabel
-description: Creates a 3D Text Label at a specific location in the world.
-tags: ["3dtextlabel"]
+description: 在游戏世界中指定坐标位置创建3D文本标签。
+tags: ["3D文本标签"]
 ---
 
-## Description
+## 说明
 
-Creates a 3D Text Label at a specific location in the world
+在三维空间中创建带有文字内容的可视化标签。
 
-| Name               | Description                                                                    |
-| ------------------ | ------------------------------------------------------------------------------ |
-| const text[]       | The initial text string.                                                       |
-| colour             | The text Color, as an integer or hex in RGBA color format                      |
-| Float:x            | X-Coordinate                                                                   |
-| Float:y            | Y-Coordinate                                                                   |
-| Float:z            | Z-Coordinate                                                                   |
-| Float:drawDistance | The distance from where you are able to see the 3D Text Label                  |
-| virtualWorld       | The virtual world in which you are able to see the 3D Text                     |
-| bool:testLOS       | Test the line-of-sight so this text can't be seen through objects (true/false) |
-| OPEN_MP_TAGS:...   | Indefinite number of arguments of any tag.                                     |
+| 参数名             | 说明                                                      |
+| ------------------ | --------------------------------------------------------- |
+| const text[]       | 初始显示的文本字符串                                      |
+| colour             | 颜色值（使用整数或 RGBA 十六进制格式）                    |
+| Float:x            | X 轴坐标                                                  |
+| Float:y            | Y 轴坐标                                                  |
+| Float:z            | Z 轴坐标                                                  |
+| Float:drawDistance | 可视距离（单位：游戏单位）                                |
+| virtualWorld       | 所属虚拟世界 ID                                           |
+| bool:testLOS       | 是否启用视线检测（true=穿透物体不可见，false=可穿透显示） |
+| OPEN_MP_TAGS:...   | 扩展参数（支持任意类型参数）                              |
 
-## Returns
+## 返回值
 
-The ID of the newly created 3D Text Label, or `INVALID_3DTEXT_ID` if the 3D Text Label limit (`MAX_3DTEXT_GLOBAL`) was reached.
+成功返回新建 3D 文本标签的 ID，当达到全局 3D 文本标签数量上限（MAX_3DTEXT_GLOBAL）时返回 INVALID_3DTEXT_ID。
 
-## Examples
+## 应用示例
 
 ```c
 public OnGameModeInit()
 {
-    Create3DTextLabel("I'm at the coordinates:\n30.0, 40.0, 50.0", 0x008080FF, 30.0, 40.0, 50.0, 40.0, 0, false);
+    // 在坐标(30.0,40.0,50.0)处创建蓝绿色提示标签
+    Create3DTextLabel("当前位置坐标:\n30.0, 40.0, 50.0", 0x008080FF, 30.0, 40.0, 50.0, 40.0, 0, false);
     return 1;
 }
 
@@ -46,51 +47,47 @@ public OnPlayerCommandText(playerid, cmdtext[])
         GetPlayerPos(playerid, x, y, z);
         worldid = GetPlayerVirtualWorld(playerid);
 
-        Create3DTextLabel("%s marked this place", 0xFF0000FF, x, y, z, 15.0, worldid, false, name);
+        // 在玩家当前位置创建红色标记标签
+        Create3DTextLabel("%s 标记了这个位置", 0xFF0000FF, x, y, z, 15.0, worldid, false, name);
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-drawDistance seems to be a lot smaller when spectating.
-
-:::
-
-:::tip
-
-Use colour embedding for multiple colours in the text.
+- 在观察模式下有效显示距离会明显缩小
+- 使用~r~~g~等颜色代码实现多色文本效果
 
 :::
 
 :::warning
 
-- If text[] is empty, the server/clients next to the text might crash! (Fixed in open.mp)
-- If the virtualworld is set as -1 the text will not appear.
+- 空文本内容可能导致客户端崩溃（open.mp 版本已修复此问题）
+- virtualworld 参数设置为-1 时标签不可见
 
 :::
 
-## Related Functions
+## 关联函数
 
-- [Delete3DTextLabel](Delete3DTextLabel): Delete a 3D text label.
-- [IsValid3DTextLabel](IsValid3DTextLabel): Checks if a 3D text label is valid.
-- [Is3DTextLabelStreamedIn](Is3DTextLabelStreamedIn): Checks if a 3D text label is streamed in for a player.
-- [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer): Attach a 3D text label to a player.
-- [Attach3DTextLabelToVehicle](Attach3DTextLabelToVehicle): Attach a 3D text label to a vehicle.
-- [Update3DTextLabelText](Update3DTextLabelText): Change the text of a 3D text label.
-- [Get3DTextLabelText](Get3DTextLabelText): Gets the 3D text label text.
-- [Get3DTextLabelColour](Get3DTextLabelColour): Gets the 3D text label colour.
-- [Get3DTextLabelPos](Get3DTextLabelPos): Gets the 3D text label position.
-- [Get3DTextLabelDrawDistance](Get3DTextLabelDrawDistance): Gets the 3D text label draw distance.
-- [Set3DTextLabelDrawDistance](Set3DTextLabelDrawDistance): Sets the 3D text label draw distance.
-- [Get3DTextLabelVirtualWorld](Get3DTextLabelVirtualWorld): Gets the 3D text label virtual world id.
-- [Set3DTextLabelVirtualWorld](Set3DTextLabelVirtualWorld): Sets the 3D text label virtual world id.
-- [Get3DTextLabelLOS](Get3DTextLabelLOS): Gets the 3D text label line-of-sight.
-- [Set3DTextLabelLOS](Set3DTextLabelLOS): Sets the 3D text label line-of-sight.
-- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): Create A 3D text label for one player.
-- [DeletePlayer3DTextLabel](DeletePlayer3DTextLabel): Delete a player's 3D text label.
-- [UpdatePlayer3DTextLabelText](UpdatePlayer3DTextLabelText): Change the text of a player's 3D text label.
+- [Delete3DTextLabel](Delete3DTextLabel): 删除 3D 文本标签
+- [IsValid3DTextLabel](IsValid3DTextLabel): 验证标签有效性
+- [Is3DTextLabelStreamedIn](Is3DTextLabelStreamedIn): 检测标签是否流加载
+- [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer): 绑定标签到玩家实体
+- [Attach3DTextLabelToVehicle](Attach3DTextLabelToVehicle): 绑定标签到载具实体
+- [Update3DTextLabelText](Update3DTextLabelText): 更新标签文本内容
+- [Get3DTextLabelText](Get3DTextLabelText): 获取标签文本内容
+- [Get3DTextLabelColour](Get3DTextLabelColour): 获取标签颜色值
+- [Get3DTextLabelPos](Get3DTextLabelPos): 获取标签空间坐标
+- [Get3DTextLabelDrawDistance](Get3DTextLabelDrawDistance): 获取可视距离参数
+- [Set3DTextLabelDrawDistance](Set3DTextLabelDrawDistance): 设置可视距离参数
+- [Get3DTextLabelVirtualWorld](Get3DTextLabelVirtualWorld): 获取所属虚拟世界
+- [Set3DTextLabelVirtualWorld](Set3DTextLabelVirtualWorld): 设置所属虚拟世界
+- [Get3DTextLabelLOS](Get3DTextLabelLOS): 获取视线检测状态
+- [Set3DTextLabelLOS](Set3DTextLabelLOS): 设置视线检测状态
+- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): 创建玩家私有标签
+- [DeletePlayer3DTextLabel](DeletePlayer3DTextLabel): 删除玩家私有标签
+- [UpdatePlayer3DTextLabelText](UpdatePlayer3DTextLabelText): 更新私有标签文本

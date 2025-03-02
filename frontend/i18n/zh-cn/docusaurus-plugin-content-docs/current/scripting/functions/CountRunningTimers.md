@@ -1,28 +1,28 @@
 ---
 title: CountRunningTimers
 sidebar_label: CountRunningTimers
-description: Get the running timers.
-tags: ["timer"]
+description: 获取当前运行的计时器数量。
+tags: ["计时器"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 说明
 
-Get the running timers. ([SetTimer](SetTimer) & [SetTimerEx](SetTimerEx))
+获取通过[SetTimer](SetTimer)和[SetTimerEx](SetTimerEx)创建的正在运行的计时器数量。
 
-## Returns
+## 返回值
 
-Returns the amount of running timers.
+返回当前运行的计时器数量。
 
-## Examples
+## 应用示例
 
 ```c
-printf("Running timers: %d", CountRunningTimers());
+printf("运行中的计时器数量: %d", CountRunningTimers());
 ```
 
-## Related Functions
+## 关联函数
 
-- [SetTimer](SetTimer): Set a timer.
-- [SetTimerEx](SetTimerEx): Set a timer with parameters.
-- [KillTimer](KillTimer): Kills (stops) a running timer.
+- [SetTimer](SetTimer): 创建基础计时器
+- [SetTimerEx](SetTimerEx): 创建带参数的计时器
+- [KillTimer](KillTimer): 终止正在运行的计时器

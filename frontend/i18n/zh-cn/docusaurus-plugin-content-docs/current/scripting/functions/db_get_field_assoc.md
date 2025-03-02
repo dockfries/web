@@ -1,64 +1,62 @@
 ---
 title: db_get_field_assoc
 sidebar_label: db_get_field_assoc
-description: Gets the contents of the field as a string with the specified field name.
+description: 通过字段名称获取当前结果行的字符串内容。
 keywords:
   - sqlite
 ---
 
 <LowercaseNote />
 
-## Description
+## 说明
 
-Get the contents of field with specified name.
+通过字段名称获取当前结果行的字符串内容。
 
-| Name              | Description                        |
-| ----------------- | ---------------------------------- |
-| DBResult:dbresult | The result to get the data from    |
-| field[]           | The fieldname to get the data from |
-| result[]          | The result                         |
-| maxlength         | The max length of the field        |
+| 参数名            | 说明                                       |
+| ----------------- | ------------------------------------------ |
+| DBResult:dbresult | 查询结果句柄（由[db_query](db_query)返回） |
+| field[]           | 目标字段名称                               |
+| result[]          | 存储结果的字符数组                         |
+| maxlength         | 结果的最大存储长度                         |
 
-## Returns
+## 返回值
 
-Returns 1 if result set handle is valid and the column is available, otherwise 0.
+- **1** - 结果集句柄有效且字段存在
+- **0** - 结果集句柄无效或字段不存在
 
-## Examples
+## 示例
 
 ```c
-// examples.inc
+// 示例模块
 
 // ...
 
 Examples_ListNames(DB:dbConnectionHandle)
 {
-    // Database result set
-    new DBResult:db_result_set = db_query("SELECT `name` FROM `examples`");
+    // 执行数据库查询
+    new DBResult:db_result_set = db_query(dbConnectionHandle, "SELECT `name` FROM `examples`");
 
-    // If database result set is valid
     if (db_result_set)
     {
-        // Allocate some memory to store results
+        // 预分配结果存储空间
         new result[256];
 
-        // Do operations
+        // 遍历结果集
         do
         {
-            // Add value from "example" field to the return value variable
-            db_get_field_assoc(db_result_set, "name", result, sizeof result);
+            // 获取'name'字段内容
+            db_get_field_assoc(db_result_set, "name", result, sizeof(result));
         }
+        while (db_next_row(db_result_set));  // 跳转至下一行
 
-        // While next row could be fetched
-        while (db_next_row(db_result_set));
-
-        // Free result set
+        // 释放结果集
         db_free_result(db_result_set);
     }
 }
 ```
 
 ```c
-// mode.pwn
+// 主游戏模式文件
 
 // ...
 
@@ -72,66 +70,57 @@ public OnGameModeInit()
 {
     // ...
 
-    // Create a connection to a database
+    // 建立数据库连接
     gDBConnectionHandle = db_open("example.db");
 
-    // If connection to the database exists
     if (gDBConnectionHandle)
     {
-        // Successfully created a connection to the database
-        print("Successfully created a connection to database \"example.db\".");
+        print("成功连接数据库 \"example.db\"");
         Examples_ListNames(gDBConnectionHandle);
     }
     else
     {
-        // Failed to create a connection to the database
-        print("Failed to open a connection to database \"example.db\".");
+        print("无法连接数据库 \"example.db\"");
     }
-
-    // ...
 
     return 1;
 }
 
 public OnGameModeExit()
 {
-    // Close the connection to the database if connection is open
+    // 关闭数据库连接
     if (db_close(gDBConnectionHandle))
     {
-        // Extra cleanup
-        gDBConnectionHandle = DB:0;
+        gDBConnectionHandle = DB:0;  // 重置句柄
     }
-
-    // ...
-
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Using an invalid handle other than zero will crash your server! Get a valid database connection handle by using [db_query](db_query).
+使用非法的结果集句柄将导致服务器崩溃！请始终通过[db_query](db_query)获取有效的查询结果
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [db_open](db_open): Open a connection to an SQLite database
-- [db_close](db_close): Close the connection to an SQLite database
-- [db_query](db_query): Query an SQLite database
-- [db_free_result](db_free_result): Free result memory from a db_query
-- [db_num_rows](db_num_rows): Get the number of rows in a result
-- [db_next_row](db_next_row): Move to the next row
-- [db_num_fields](db_num_fields): Get the number of fields in a result
-- [db_field_name](db_field_name): Returns the name of a field at a particular index
-- [db_get_field](db_get_field): Get content of field with specified ID from current result row
-- [db_get_field_int](db_get_field_int): Get content of field as an integer with specified ID from current result row
-- [db_get_field_assoc_int](db_get_field_assoc_int): Get content of field as an integer with specified name from current result row
-- [db_get_field_float](db_get_field_float): Get content of field as a float with specified ID from current result row
-- [db_get_field_assoc_float](db_get_field_assoc_float): Get content of field as a float with specified name from current result row
-- [db_get_mem_handle](db_get_mem_handle): Get memory handle for an SQLite database that was opened with db_open.
-- [db_get_result_mem_handle](db_get_result_mem_handle): Get memory handle for an SQLite query that was executed with db_query.
-- [db_debug_openfiles](db_debug_openfiles): The function gets the number of open database connections for debugging purposes.
-- [db_debug_openresults](db_debug_openresults): The function gets the number of open database results.
+- [db_open](db_open): 建立 SQLite 数据库连接
+- [db_close](db_close): 关闭 SQLite 数据库连接
+- [db_query](db_query): 执行 SQL 查询语句
+- [db_free_result](db_free_result): 释放查询结果内存
+- [db_num_rows](db_num_rows): 获取结果集行数
+- [db_next_row](db_next_row): 跳转至下一行数据
+- [db_num_fields](db_num_fields): 获取结果集字段数量
+- [db_field_name](db_field_name): 通过索引获取字段名称
+- [db_get_field](db_get_field): 通过字段索引获取当前行数据
+- [db_get_field_int](db_get_field_int): 通过字段索引获取整型数据
+- [db_get_field_assoc_int](db_get_field_assoc_int): 通过字段名称获取整型数据
+- [db_get_field_float](db_get_field_float): 通过字段索引获取浮点数据
+- [db_get_field_assoc_float](db_get_field_assoc_float): 通过字段名称获取浮点数据
+- [db_get_mem_handle](db_get_mem_handle): 获取数据库内存句柄
+- [db_get_result_mem_handle](db_get_result_mem_handle): 获取查询结果内存句柄
+- [db_debug_openfiles](db_debug_openfiles): 调试数据库连接数
+- [db_debug_openresults](db_debug_openresults): 调试查询结果数

@@ -1,66 +1,68 @@
 ---
 title: CreateObject
 sidebar_label: CreateObject
-description: Creates an object at specified coordinates in the game world.
-tags: ["object"]
+description: 在游戏世界指定坐标处创建物体对象。
+tags: ["物体"]
 ---
 
-## Description
+## 说明
 
-Creates an object at specified coordinates in the game world.
+在三维空间指定位置生成静态/动态物体模型。
 
-| Name               | Description                                                                                                               |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------- |
-| modelid            | The model to create.                                                                                                      |
-| Float:x            | The X coordinate to create the object at.                                                                                 |
-| Float:y            | The Y coordinate to create the object at.                                                                                 |
-| Float:z            | The Z coordinate to create the object at.                                                                                 |
-| Float:rotationX    | The X rotation of the object.                                                                                             |
-| Float:rotationY    | The Y rotation of the object.                                                                                             |
-| Float:rotationZ    | The Z rotation of the object.                                                                                             |
-| Float:drawDistance | (optional) The distance that San Andreas renders objects at. 0.0 will cause objects to render at their default distances. |
+| 参数名             | 说明                                         |
+| ------------------ | -------------------------------------------- |
+| modelid            | 模型 ID                                      |
+| Float:x            | X 轴坐标                                     |
+| Float:y            | Y 轴坐标                                     |
+| Float:z            | Z 轴坐标                                     |
+| Float:rotationX    | X 轴旋转角度                                 |
+| Float:rotationY    | Y 轴旋转角度                                 |
+| Float:rotationZ    | Z 轴旋转角度                                 |
+| Float:drawDistance | （可选参数）自定义渲染距离（0.0=使用默认值） |
 
-## Examples
+## 应用示例
 
 ```c
 public OnGameModeInit()
 {
-    CreateObject(2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0); // Object will render at its default distance.
-    CreateObject(2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0, 300.0); // Object will render at 300.0 units.
+    // 默认渲染距离的物体
+    CreateObject(2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0);
+    // 自定义300单位渲染距离的物体
+    CreateObject(2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0, 300.0);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-There is a limit of 1000 objects (MAX_OBJECTS). To circumvent this limit, you can use the [streamer](https://github.com/samp-incognito/samp-streamer-plugin) plugin.
+全局物体数量上限为 1000（MAX_OBJECTS），建议使用[流加载插件](https://github.com/samp-incognito/samp-streamer-plugin)突破限制
 
 :::
 
-## Related Functions
+## 关联函数
 
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [MoveObject](MoveObject): Move an object.
-- [StopObject](StopObject): Stop an object from moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
-- [SetObjectMaterialText](SetObjectMaterialText): Replace the texture of an object with text.
-- [SetObjectMaterial](SetObjectMaterial): Replace the texture of an object with the texture from another model in the game.
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [MovePlayerObject](MovePlayerObject): Move a player object.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [SetPlayerObjectRot](SetPlayerObjectRot): Set the rotation of a player object.
-- [GetPlayerObjectPos](GetPlayerObjectPos): Locate a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
-- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): Attach a player object to a player.
-- [SetPlayerObjectMaterialText](SetPlayerObjectMaterialText): Replace the texture of a player object with text.
-- [SetPlayerObjectMaterial](SetPlayerObjectMaterial): Replace the texture of a player object with the texture from another model in the game.
+- [DestroyObject](DestroyObject): 销毁物体
+- [IsValidObject](IsValidObject): 验证物体有效性
+- [MoveObject](MoveObject): 移动物体
+- [StopObject](StopObject): 停止物体移动
+- [SetObjectPos](SetObjectPos): 设置物体坐标
+- [SetObjectRot](SetObjectRot): 设置物体旋转
+- [GetObjectPos](GetObjectPos): 获取物体坐标
+- [GetObjectRot](GetObjectRot): 获取物体旋转角度
+- [AttachObjectToPlayer](AttachObjectToPlayer): 绑定物体到玩家
+- [SetObjectMaterialText](SetObjectMaterialText): 设置物体材质文字
+- [SetObjectMaterial](SetObjectMaterial): 替换物体材质
+- [CreatePlayerObject](CreatePlayerObject): 创建玩家私有物体
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁私有物体
+- [IsValidPlayerObject](IsValidPlayerObject): 验证私有物体有效性
+- [MovePlayerObject](MovePlayerObject): 移动私有物体
+- [StopPlayerObject](StopPlayerObject): 停止私有物体移动
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置私有物体坐标
+- [SetPlayerObjectRot](SetPlayerObjectRot): 设置私有物体旋转
+- [GetPlayerObjectPos](GetPlayerObjectPos): 获取私有物体坐标
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取私有物体旋转
+- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 绑定私有物体到玩家
+- [SetPlayerObjectMaterialText](SetPlayerObjectMaterialText): 设置私有物体材质文字
+- [SetPlayerObjectMaterial](SetPlayerObjectMaterial): 替换私有物体材质

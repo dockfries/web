@@ -1,47 +1,48 @@
 ---
 title: DB_FreeResultSet
 sidebar_label: DB_FreeResultSet
-description: Frees result memory allocated from DB_ExecuteQuery.
+description: 释放由DB_ExecuteQuery分配的查询结果内存。
 keywords:
   - sqlite
 tags: ["sqlite"]
 ---
 
-## Description
+## 说明
 
-Frees result memory allocated from DB_ExecuteQuery.
+释放由[DB_ExecuteQuery](DB_ExecuteQuery)分配的查询结果内存。
 
-| Name              | Description                                                            |
-| ----------------- | ---------------------------------------------------------------------- |
-| DBResult:dbresult | The result set to free allocated by [DB_ExecuteQuery](DB_ExecuteQuery) |
+| 参数名            | 说明                                                             |
+| ----------------- | ---------------------------------------------------------------- |
+| DBResult:dbresult | 要释放的查询结果句柄（由[DB_ExecuteQuery](DB_ExecuteQuery)分配） |
 
-## Returns
+## 返回值
 
-Returns **true** if result set handle is valid, otherwise **false**.
+- 若结果集句柄有效返回**true**
+- 若结果集句柄无效返回**false**
 
-## Examples
+## 示例
 
 ```c
-// entity_storage.inc
+// 实体存储模块
 
 EntityStorage_SpawnAll(DB:connectionHandle)
 {
-    // Select all entries in table "entities"
+    // 从"entities"表中选择所有条目
     new DBResult:db_result_set = DB_ExecuteQuery(connectionHandle, "SELECT * FROM `entities`");
 
-    // If database result set handle is valid
+    // 验证结果集有效性
     if (db_result_set)
     {
-        // Do something...
+        // 执行相关操作...
 
-        // Free the result set
+        // 释放结果集内存
         DB_FreeResultSet(db_result_set);
     }
 }
 ```
 
 ```c
-// mode.pwn
+// 游戏模式主文件
 
 #include <entity_storage>
 
@@ -53,59 +54,57 @@ public OnGameModeInit()
 {
     // ...
 
-    // Create a connection to a database
+    // 建立数据库连接
     gDBConnectionHandle = DB_Open("example.db");
 
-    // If connection to the database exists
     if (gDBConnectionHandle)
     {
-        // Successfully created a connection to the database
-        print("Successfully created a connection to database \"example.db\".");
+        print("成功连接数据库 \"example.db\"");
         EntityStorage_SpawnAll(gDBConnectionHandle);
     }
     else
     {
-        // Failed to create a connection to the database
-        print("Failed to open a connection to database \"example.db\".");
+        print("无法连接数据库 \"example.db\"");
     }
-
-    // ...
 
     return 1;
 }
 
 public OnGameModeExit()
 {
-    // Close the connection to the database if connection is open
+    // 关闭数据库连接
     if (DB_Close(gDBConnectionHandle))
     {
-        // Extra cleanup
-        gDBConnectionHandle = DB:0;
+        gDBConnectionHandle = DB:0; // 重置句柄
     }
-
-    // ...
-
     return 1;
 }
 ```
 
-## Related Functions
+## 注意事项
 
-- [DB_Open](DB_Open): Open a connection to an SQLite database
-- [DB_Close](DB_Close): Close the connection to an SQLite database
-- [DB_ExecuteQuery](DB_ExecuteQuery): Query an SQLite database
-- [DB_FreeResultSet](DB_FreeResultSet): Free result memory from a DB_ExecuteQuery
-- [DB_GetRowCount](DB_GetRowCount): Get the number of rows in a result
-- [DB_SelectNextRow](DB_SelectNextRow): Move to the next row
-- [DB_GetFieldCount](DB_GetFieldCount): Get the number of fields in a result
-- [DB_GetFieldName](DB_GetFieldName): Returns the name of a field at a particular index
-- [DB_GetFieldString](DB_GetFieldString): Get content of field with specified ID from current result row
-- [DB_GetFieldStringByName](DB_GetFieldStringByName): Get content of field with specified name from current result row
-- [DB_GetFieldInt](DB_GetFieldInt): Get content of field as an integer with specified ID from current result row
-- [DB_GetFieldIntByName](DB_GetFieldIntByName): Get content of field as an integer with specified name from current result row
-- [DB_GetFieldFloat](DB_GetFieldFloat): Get content of field as a float with specified ID from current result row
-- [DB_GetFieldFloatByName](DB_GetFieldFloatByName): Get content of field as a float with specified name from current result row
-- [DB_GetMemHandle](DB_GetMemHandle): Get memory handle for an SQLite database that was opened with db_open.
-- [DB_GetLegacyDBResult](DB_GetLegacyDBResult): Get memory handle for an SQLite query that was executed with DB_ExecuteQuery.
-- [DB_GetDatabaseConnectionCount](DB_GetDatabaseConnectionCount): The function gets the number of open database connections for debugging purposes.
-- [DB_GetDatabaseResultSetCount](DB_GetDatabaseResultSetCount): The function gets the number of open database results.
+:::warning
+
+务必使用[DB_FreeResultSet](DB_FreeResultSet)释放查询结果！
+
+:::
+
+## 相关函数
+
+- [DB_Open](DB_Open): 建立 SQLite 数据库连接
+- [DB_Close](DB_Close): 关闭 SQLite 数据库连接
+- [DB_ExecuteQuery](DB_ExecuteQuery): 执行 SQL 查询语句
+- [DB_GetRowCount](DB_GetRowCount): 获取结果集行数
+- [DB_SelectNextRow](DB_SelectNextRow): 跳转至下一行数据
+- [DB_GetFieldCount](DB_GetFieldCount): 获取结果集字段数量
+- [DB_GetFieldName](DB_GetFieldName): 通过索引获取字段名称
+- [DB_GetFieldString](DB_GetFieldString): 通过字段索引获取字符串数据
+- [DB_GetFieldStringByName](DB_GetFieldStringByName): 通过字段名称获取字符串数据
+- [DB_GetFieldInt](DB_GetFieldInt): 通过字段索引获取整型数据
+- [DB_GetFieldIntByName](DB_GetFieldIntByName): 通过字段名称获取整型数据
+- [DB_GetFieldFloat](DB_GetFieldFloat): 通过字段索引获取浮点数据
+- [DB_GetFieldFloatByName](DB_GetFieldFloatByName): 通过字段名称获取浮点数据
+- [DB_GetMemHandle](DB_GetMemHandle): 获取数据库内存句柄
+- [DB_GetLegacyDBResult](DB_GetLegacyDBResult): 获取传统查询结果内存句柄
+- [DB_GetDatabaseConnectionCount](DB_GetDatabaseConnectionCount): 调试用-获取数据库连接数
+- [DB_GetDatabaseResultSetCount](DB_GetDatabaseResultSetCount): 调试用-获取结果集数量
