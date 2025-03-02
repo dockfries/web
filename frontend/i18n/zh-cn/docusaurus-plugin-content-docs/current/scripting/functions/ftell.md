@@ -1,69 +1,69 @@
 ---
 title: ftell
 sidebar_label: ftell
-description: Get the current position in the file.
-tags: ["file management"]
+description: 获取当前文件指针位置。
+tags: ["文件管理"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Get the current position in the file.
+获取文件指针的当前位置。
 
-| Name        | Description                                  |
-| ----------- | -------------------------------------------- |
-| File:handle | The handle of the file. (returned by fopen). |
+| 名称        | 说明                                |
+| ----------- | ----------------------------------- |
+| File:handle | 要操作的文件句柄（由 fopen 返回）。 |
 
-## Returns
+## 返回值
 
-The current position, relative to the start of the file.
+返回相对于文件起始位置的当前偏移量（整数值）。
 
-## Examples
+## 示例
 
 ```c
-// Open "file.txt" in "read only" mode
+// 以"只读"模式打开"file.txt"
 new File:handle = fopen("file.txt", io_read);
 
-// Check, if the file is opened
+// 检查文件是否成功打开
 if (handle)
 {
-    // Success
+    // 操作成功
 
-    printf("Current position: %d", ftell(handle));
+    printf("当前指针位置: %d", ftell(handle));
 
-    // Close the file
+    // 关闭文件
     fclose(handle);
 }
 else
 {
-    // Error
-    print("The file \"file.txt\" does not exists, or can't be opened.");
+    // 操作失败
+    print("文件\"file.txt\"不存在或无法访问。");
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件
+- [fputchar](fputchar): 写入单个字符
+- [fgetchar](fgetchar): 读取单个字符
+- [fblockwrite](fblockwrite): 写入数据块
+- [fblockread](fblockread): 读取数据块
+- [fseek](fseek): 定位文件指针
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 匹配文件名模式
+- [fflush](fflush): 刷新文件缓冲区
+- [fstat](fstat): 获取文件状态信息
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 计算 CRC32 校验值
+- [diskfree](diskfree): 获取磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录

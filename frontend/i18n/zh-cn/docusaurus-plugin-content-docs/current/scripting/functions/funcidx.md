@@ -1,37 +1,36 @@
 ---
 title: funcidx
 sidebar_label: funcidx
-description: This function returns the ID of a public function by its name.
+description: 通过函数名获取公共函数的ID。
 tags: ["core"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-This function returns the ID of a public function by its name.
+通过函数名获取公共函数的唯一标识符(ID)。
 
-| Name         | Description                                       |
-| ------------ | ------------------------------------------------- |
-| const name[] | The name of the public function to get the ID of. |
+| 名称         | 说明                   |
+| ------------ | ---------------------- |
+| const name[] | 要查询的公共函数名称。 |
 
-## Returns
+## 返回值
 
-The ID of the function (IDs start at **0**).
+- 成功时返回函数 ID（ID 从**0**开始）
+- 函数不存在时返回 **-1**
 
-**-1** if the function doesn't exist.
-
-## Examples
+## 示例
 
 ```c
 public OnFilterScriptInit()
 {
-    printf("ID of OnFilterScriptInit: %d", funcidx("OnFilterScriptInit"));
+    printf("OnFilterScriptInit的ID: %d", funcidx("OnFilterScriptInit"));
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CallLocalFunction](CallLocalFunction): Call a function in the script.
-- [CallRemoteFunction](CallRemoteFunction): Call a function in any loaded script.
+- [CallLocalFunction](CallLocalFunction): 调用脚本内的函数
+- [CallRemoteFunction](CallRemoteFunction): 跨脚本调用函数

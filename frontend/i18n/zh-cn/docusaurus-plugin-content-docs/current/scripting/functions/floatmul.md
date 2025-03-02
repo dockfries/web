@@ -1,47 +1,47 @@
 ---
 title: floatmul
 sidebar_label: floatmul
-description: Multiplies two floats with each other.
-tags: ["math", "floating-point"]
+description: 将两个浮点数相乘。
+tags: ["数学", "浮点数"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Multiplies two floats with each other.
+将两个浮点数相乘。
 
-| Name        | Description                                       |
-| ----------- | ------------------------------------------------- |
-| Float:oper1 | First Float.                                      |
-| Float:oper2 | Second Float, the first one gets multiplied with. |
+| 名称        | 描述                   |
+| ----------- | ---------------------- |
+| Float:oper1 | 第一个浮点数（被乘数） |
+| Float:oper2 | 第二个浮点数（乘数）   |
 
-## Returns
+## 返回值
 
-The product of the two given floats
+两个浮点数的乘积
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    new Float:Number1 = 2.3, Float:Number2 = 3.5; // Declares two floats, Number1 (2.3) and Number2 (3.5)
+    new Float:Number1 = 2.3, Float:Number2 = 3.5; // 声明两个浮点数 Number1(2.3) 和 Number2(3.5)
     new Float:Product;
-    Product = floatmul(Number1, Number2); // Saves the product(=2.3*3.5 = 8.05) of Number1 and Number2 in the float "Product"
+    Product = floatmul(Number1, Number2); // 将乘积结果(=2.3*3.5=8.05)存入浮点变量"Product"
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function is rather redundant, for it is no different than the conventional multiplication operator (\*).
+此函数功能与乘法运算符(\*)重复，建议直接使用运算符。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [Floatadd](Floatadd): Adds two floats.
-- [Floatsub](Floatsub): Subtracts two floats.
-- [Floatdiv](Floatdiv): Divides a float by another.
+- [floatadd](floatadd): 将两个浮点数相加
+- [floatsub](floatsub): 浮点数减法运算
+- [floatdiv](floatdiv): 浮点数除法运算

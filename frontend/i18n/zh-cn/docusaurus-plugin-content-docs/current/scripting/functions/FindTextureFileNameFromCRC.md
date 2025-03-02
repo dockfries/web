@@ -1,28 +1,28 @@
 ---
 title: FindTextureFileNameFromCRC
 sidebar_label: FindTextureFileNameFromCRC
-description: Find an existing custom skin or simple object texture file.
-tags: ["custom model", "custom skin", "simple model"]
+description: 查找现有的自定义皮肤或简单物体纹理文件。
+tags: ["自定义模型", "自定义皮肤", "简单模型"]
 ---
 
 <VersionWarn version='SA-MP 0.3.DL R1' />
 
-## Description
+## 描述
 
-Find an existing custom skin or simple object texture file. The model files are located in models server folder by default (artpath setting).
+根据 CRC 校验和查找已存在的自定义皮肤或简单物体纹理文件。模型文件默认存储在服务器的 models 目录下（通过 artpath 配置指定）。
 
-| Name                   | Description                                                           |
-| ---------------------- | --------------------------------------------------------------------- |
-| crc                    | The CRC checksum of custom model file.                                |
-| output[]               | An array into which to store the .txd file name, passed by reference. |
-| size = sizeof (output) | The length of the string that should be stored.                       |
+| 名称                   | 描述                                        |
+| ---------------------- | ------------------------------------------- |
+| crc                    | 自定义模型文件的 CRC 校验和                 |
+| output[]               | 用于存储.txd 文件名的数组（通过引用传递）   |
+| size = sizeof (output) | 需存储的字符串长度，默认值为 sizeof(output) |
 
-## Returns
+## 返回值
 
-**1:** The function executed successfully.
+**1:** 函数执行成功。
 
-**0:** The function failed to execute.
+**0:** 函数执行失败。
 
-## Related Functions
+## 相关函数
 
-- [OnPlayerFinishedDownloading](../callbacks/OnPlayerFinishedDownloading): Called when a player finishes downloading custom models.
+- [OnPlayerFinishedDownloading](../callbacks/OnPlayerFinishedDownloading): 当玩家完成自定义模型下载时触发该回调

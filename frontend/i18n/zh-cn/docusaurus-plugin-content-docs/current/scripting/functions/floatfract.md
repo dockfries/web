@@ -1,30 +1,32 @@
 ---
 title: floatfract
 sidebar_label: floatfract
-description: Get the fractional part of a float.
-tags: ["math", "floating-point"]
+description: 获取浮点数的小数部分。
+tags: ["数学", "浮点数"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Get the fractional part of a float. This means the value of the numbers after the decimal point.
+获取浮点数的小数部分，即小数点后的数值部分。
 
-| Name        | Description                              |
-| ----------- | ---------------------------------------- |
-| Float:value | The float to get the fractional part of. |
+| 名称        | 描述                       |
+| ----------- | -------------------------- |
+| Float:value | 需要获取小数部分的浮点数值 |
 
-## Returns
+## 返回值
 
-The fractional part of the float, as a float value.
+浮点数的小数部分（以浮点数形式返回）
 
-## Examples
+## 示例
 
 ```c
-new Float:fFract = floatfract(3.14159); // returns 0.14159
+new Float:fFract = floatfract(3.14159); // 返回0.14159
 ```
 
-## Related Functions
+## 相关函数
 
-- [floatround](floatround): Convert a float to an integer (rounding).
+- [floatround](floatround): 将浮点数转换为整数（四舍五入）
+- [floatfloor](floatfloor): 获取浮点数的整数部分（向下取整）
+- [floatceil](floatceil): 获取浮点数的整数部分（向上取整）

@@ -1,39 +1,40 @@
 ---
 title: floatsqroot
 sidebar_label: floatsqroot
-description: Calculates the square root of given value.
-tags: ["math", "floating-point"]
+description: 计算指定浮点数的平方根。
+tags: ["数学", "浮点数"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Calculates the square root of given value.
+计算指定浮点数的平方根。
 
-| Name        | Description                                |
-| ----------- | ------------------------------------------ |
-| Float:value | The value to calculate the square root of. |
+| 名称       | 描述                     |
+| ---------- | ------------------------ |
+| Float:数值 | 需要计算平方根的浮点数值 |
 
-## Returns
+## 返回值
 
-The square root of the input value, as a float.
+输入值的平方根（以浮点数形式返回）
 
-## Examples
+## 示例
 
 ```c
-new Float:sqroot = floatsqroot(25.0); // Returns 5.0, because 5x5 = 25
+new Float:sqroot = floatsqroot(25.0); // 返回5.0，因为5x5=25
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function raises a “domain” error if the input value is negative. You may use [floatabs](floatabs) to get the absolute (positive) value.
+当输入值为负数时，该函数会引发"定义域(domain)"错误。建议使用 [floatabs](floatabs) 获取绝对值（正数值）。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [floatpower](floatpower): Raises given value to a power of exponent.
-- [floatlog](floatlog): Get the logarithm of the float value.
+- [floatpower](floatpower): 对指定数值进行幂运算
+- [floatlog](floatlog): 计算浮点数的对数
+- [floatabs](floatabs): 获取浮点数的绝对值

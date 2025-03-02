@@ -1,139 +1,131 @@
 ---
 title: ftemp
 sidebar_label: ftemp
-description: Creates a file in the "tmp", "temp" or root directory with random name for reading and writing.
-tags: ["file management"]
+description: 在"tmp"、"temp"目录或根目录创建随机命名的临时文件用于读写。
+tags: ["文件管理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Creates a file in the "tmp", "temp" or root directory with random name for reading and writing. The file is deleted after fclose() is used on the file.
+在"tmp"、"temp"目录或根目录创建随机命名的临时文件用于读写。该文件在使用 fclose()关闭后会自动删除。
 
-## Examples
+## 示例
 
 ```c
-// Create a temporary file stream
+// 创建临时文件流
 new File:t_handle = ftemp();
 
-// Declare "handle"
+// 声明句柄变量
 new File:handle;
 
-// Declare "g_char"
+// 声明字符变量
 new g_char;
 
-// Check, if temporary file stream is open
+// 检查临时文件是否成功创建
 if (t_handle)
 {
-    // Success
+    // 操作成功
 
-    // Open "file.txt" in "read only" mode and check, if the file is open
+    // 以"只读"模式打开"file.txt"并检查
     if (handle = fopen("file.txt", io_read))
     {
-        // Get all the characters from "file.txt"
+        // 读取源文件所有字符
         while((g_char = fgetchar(handle, 0, false)) != EOF)
         {
-            // Write character in lowercase into the temporary file stream
+            // 将小写字符写入临时文件
             fputchar(t_handle, tolower(g_char), false);
         }
 
-        // Close "file.txt"
+        // 关闭源文件
         fclose(handle);
 
-        // Set the file pointer of the temporary file stream to the first byte
+        // 重置临时文件指针到起始位置
         fseek(t_handle, _, seek_begin);
 
-        // Open "file1.txt" in "write only" mode, and check, if the file is open
+        // 以"只写"模式打开"file1.txt"并检查
         if (handle = fopen("file1.txt", io_write))
         {
-            // Success
-
-            // Get all the characters from the temporary file stream
+            // 读取临时文件所有字符
             while((g_char = fgetchar(t_handle, 0, false)) != EOF)
             {
-                // Write character into "file1.txt"
+                // 写入目标文件1
                 fputchar(handle, g_char, false);
             }
 
-            // Close "file1.txt"
+            // 关闭目标文件1
             fclose(handle);
 
-            // Set the file pointer of the temporary file stream to the first byte
+            // 再次重置临时文件指针
             fseek(t_handle, _, seek_begin);
         }
         else
         {
-            // Error
-            print("Failed to open file \"file1.txt\".");
+            print("无法打开\"file1.txt\"文件。");
         }
 
-        // Open "file2.txt" in "write only" mode, and check, if the file is open
+        // 以"只写"模式打开"file2.txt"并检查
         if (handle = fopen("file2.txt", io_write))
         {
-            // Success
-
-            // Get all the characters from the temporary file stream
+            // 读取临时文件所有字符
             while((g_char = fgetchar(t_handle, 0, false)) != EOF)
             {
-                // Write character into "file2.txt"
+                // 写入目标文件2
                 fputchar(handle, g_char, false);
             }
 
-            // Close "file2.txt"
+            // 关闭目标文件2
             fclose(handle);
         }
         else
         {
-            // Error
-            print("Failed to open file \"file2.txt\".");
+            print("无法打开\"file2.txt\"文件。");
         }
     }
     else
     {
-        // Error
-        print("Failed to open file \"file.txt\".");
+        print("无法打开\"file.txt\"文件。");
     }
 
-    // Close the temporary file stream
+    // 关闭临时文件流（自动删除）
     fclose(t_handle);
 }
 else
 {
-    // Error
-    print("Failed to create a temporary file stream.");
+    print("创建临时文件流失败。");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function can crash the server when the right directory isn't created.
+若目标目录未正确创建，此函数可能导致服务器崩溃。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fread](fread): Read a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件
+- [fread](fread): 读取文件
+- [fputchar](fputchar): 写入单个字符
+- [fgetchar](fgetchar): 读取单个字符
+- [fblockwrite](fblockwrite): 写入数据块
+- [fblockread](fblockread): 读取数据块
+- [fseek](fseek): 定位文件指针
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 匹配文件名模式
+- [ftell](ftell): 获取当前指针位置
+- [fflush](fflush): 刷新文件缓冲区
+- [fstat](fstat): 获取文件状态信息
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 计算 CRC32 校验值
+- [diskfree](diskfree): 获取磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录

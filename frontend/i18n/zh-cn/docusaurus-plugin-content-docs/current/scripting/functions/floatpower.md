@@ -1,33 +1,34 @@
 ---
 title: floatpower
 sidebar_label: floatpower
-description: Raises the given value to the power of the exponent.
-tags: ["math", "floating-point"]
+description: 对给定数值进行幂运算。
+tags: ["数学", "浮点数"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Raises the given value to the power of the exponent.
+对指定浮点数值进行幂运算，将其提升至给定指数次方。
 
-| Name           | Description                                                               |
-| -------------- | ------------------------------------------------------------------------- |
-| Float:value    | The value to raise to a power, as a floating-point number.                |
-| Float:exponent | The exponent is also a floating-point number. It may be zero or negative. |
+| 名称           | 描述                               |
+| -------------- | ---------------------------------- |
+| Float:value    | 需要进行幂运算的浮点基数值         |
+| Float:exponent | 指数值（浮点数类型，允许零或负值） |
 
-## Returns
+## 返回值
 
-The result of 'value' to the power of 'exponent'.
+返回基数的指数次方运算结果
 
-## Examples
+## 示例
 
 ```c
-printf("2 to the power of 8 is %.1f", floatpower(2.0, 8.0));
-// Result: 256.0
+printf("2的8次方结果是 %.1f", floatpower(2.0, 8.0));
+// 输出结果: 256.0
 ```
 
-## Related Functions
+## 相关函数
 
-- [floatsqroot](floatsqroot): Calculate the square root of a floating point value.
-- [floatlog](floatlog): Get the logarithm of the float value.
+- [floatsqroot](floatsqroot): 计算浮点数的平方根
+- [floatlog](floatlog): 计算浮点数的对数
+- [floatmul](floatmul): 执行浮点数乘法运算

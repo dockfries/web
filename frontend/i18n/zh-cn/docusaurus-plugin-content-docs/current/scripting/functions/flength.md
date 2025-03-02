@@ -1,77 +1,77 @@
 ---
 title: flength
 sidebar_label: flength
-description: Returns the length of a file.
-tags: ["file management"]
+description: 返回文件的长度。
+tags: ["文件管理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Returns the length of a file.
+返回文件的长度（以字节为单位）。
 
-| Name        | Description                                |
-| ----------- | ------------------------------------------ |
-| File:handle | The file handle returned by fopen or ftemp |
+| 名称        | 描述                                               |
+| ----------- | -------------------------------------------------- |
+| File:handle | 由 [fopen](fopen) 或 [ftemp](ftemp) 返回的文件句柄 |
 
-## Returns
+## 返回值
 
-The length of a file, in bytes.
+文件长度（单位：字节）
 
-## Examples
+## 示例
 
 ```c
-// Open "file.txt" in "read only" mode
+// 以"只读"模式打开"file.txt"
 new File:handle = fopen("file.txt", io_read);
 
-// If "file.txt" is open
+// 检查文件是否成功打开
 if (handle)
 {
-    // Success
+    // 成功
 
-    // Print the size oin bytes of "file.txt"
-    printf("File size: %d", flength(handle));
+    // 输出"file.txt"的字节大小
+    printf("文件大小: %d 字节", flength(handle));
 
-    // Close "file.txt"
+    // 关闭"file.txt"
     fclose(handle);
 }
 else
 {
-    // Error
-    print("Failed to open \"file.txt\".");
+    // 错误
+    print("无法打开文件 \"file.txt\"。");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Using an invalid handle will crash your server! Get a valid handle by using [fopen](fopen) or [ftemp](ftemp).
+使用无效句柄将导致服务器崩溃！请通过 [fopen](fopen) 或 [ftemp](ftemp) 获取有效句柄。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fread](fread): Read a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件
+- [fread](fread): 读取文件
+- [fputchar](fputchar): 向文件写入字符
+- [fgetchar](fgetchar): 从文件读取字符
+- [fblockwrite](fblockwrite): 向文件写入数据块
+- [fblockread](fblockread): 从文件读取数据块
+- [fseek](fseek): 跳转至文件指定位置
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 检查文件名模式匹配
+- [ftell](ftell): 获取当前文件位置
+- [fflush](fflush): 将文件刷入磁盘（确保所有写入完成）
+- [fstat](fstat): 返回文件大小和时间戳
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 返回文件的 32 位 CRC 值
+- [diskfree](diskfree): 返回磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录

@@ -1,84 +1,84 @@
 ---
 title: fgetchar
 sidebar_label: fgetchar
-description: Reads a single character from a file.
-tags: ["file management"]
+description: 从文件中读取单个字符。
+tags: ["文件管理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Reads a single character from a file.
+从文件中读取单个字符。
 
-| Name        | Description                                                                          |
-| ----------- | ------------------------------------------------------------------------------------ |
-| File:handle | The file handle to use; returned by fopen.                                           |
-| value       | This parameter has no use, just keep it "0".                                         |
-| bool:utf8   | If `true`, read a character as UTF-8, otherwise as extended ASCII. (default: `true`) |
+| 名称        | 描述                                                                         |
+| ----------- | ---------------------------------------------------------------------------- |
+| File:handle | 文件句柄（由 [fopen](fopen) 返回）                                           |
+| value       | 此参数无实际作用，保持为 "0" 即可                                            |
+| bool:utf8   | 若为 `true` 以 UTF-8 编码读取字符，否则以扩展 ASCII 编码读取（默认：`true`） |
 
-## Returns
+## 返回值
 
-If succeed, it returns the extended ASCII or UTF-8 value of the character at the current position in the file, otherwise EOF (end of file).
+成功时返回字符的扩展 ASCII 或 UTF-8 值，否则返回 EOF（文件末尾标识）。
 
-## Examples
+## 示例
 
 ```c
-// Open "file.txt" in "read only" mode
+// 以"只读"模式打开"file.txt"
 new File:handle = fopen("file.txt", io_read);
 
-// Declare "g_char"
+// 声明变量"g_char"
 new g_char;
 
-// Check, if "file.txt" is open
+// 检查"file.txt"是否成功打开
 if (handle)
 {
-    // Read all characters, while ignoring UTF-8.
+    // 读取所有字符（忽略UTF-8编码）
     while((g_char = fgetchar(handle, 0, false)) != EOF)
     {
-        // Print the character
+        // 输出字符
         printf("[ \"file.txt\" ] 0x%x", g_char);
     }
 
-    // Close "file.txt"
+    // 关闭"file.txt"
     fclose(handle);
 }
 else
 {
-    // Error
-    print("Failed to open \"file.txt\".");
+    // 错误
+    print("无法打开文件 \"file.txt\"。");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Using an invalid handle will crash your server! Get a valid handle by using [fopen](fopen) or [ftemp](ftemp).
+使用无效句柄将导致服务器崩溃！请通过 [fopen](fopen) 或 [ftemp](ftemp) 获取有效句柄。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fread](fread): Read a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件
+- [fread](fread): 读取文件
+- [fputchar](fputchar): 向文件写入字符
+- [fblockwrite](fblockwrite): 向文件写入数据块
+- [fblockread](fblockread): 从文件读取数据块
+- [fseek](fseek): 跳转至文件指定位置
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 检查文件名模式匹配
+- [ftell](ftell): 获取当前文件位置
+- [fflush](fflush): 将文件刷入磁盘（确保所有写入完成）
+- [fstat](fstat): 返回文件大小和时间戳
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 返回文件的 32 位 CRC 值
+- [diskfree](diskfree): 返回磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录

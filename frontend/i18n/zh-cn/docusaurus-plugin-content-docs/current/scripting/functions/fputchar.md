@@ -1,78 +1,78 @@
 ---
 title: fputchar
 sidebar_label: fputchar
-description: Write one character to a file.
-tags: ["file management"]
+description: 向文件写入单个字符。
+tags: ["文件管理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Write one character to a file.
+向文件写入单个字符。
 
-| Name        | Description                                                                   |
-| ----------- | ----------------------------------------------------------------------------- |
-| File:handle | The File handle to use, earlier opened by fopen().                            |
-| value       | The character to write into the file.                                         |
-| bool:utf8   | If `true`, write in UTF8 mode, otherwise in extended ASCII. (default: `true`) |
+| 名称        | 说明                                                                      |
+| ----------- | ------------------------------------------------------------------------- |
+| File:handle | 要操作的文件句柄，需预先通过 fopen() 打开。                               |
+| value       | 需要写入的字符。                                                          |
+| bool:utf8   | 设为 `true` 使用 UTF8 编码模式，否则使用扩展 ASCII 编码。（默认：`true`） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
-// Open "file.txt" in "write only" mode
+// 以"只写"模式打开"file.txt"
 new File:handle = fopen("file.txt", io_write);
 
 if (handle)
 {
-    // Success
+    // 操作成功
 
-    // Write character "e" into "file.txt"
+    // 向"file.txt"写入字符'e'（使用扩展ASCII编码）
     fputchar(handle, 'e', false);
 
-    // Close "file.txt"
+    // 关闭文件
     fclose(handle);
 }
 else
 {
-    // Error
-    print("Failed to open \"file.txt\".");
+    // 操作失败
+    print("无法打开\"file.txt\"。");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Using an invalid handle will crash your server! Get a valid handle by using [fopen](fopen) or [ftemp](ftemp).
+使用无效句柄会导致服务器崩溃！请通过 [fopen](fopen) 或 [ftemp](ftemp) 获取有效文件句柄。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fread](fread): Read a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件
+- [fread](fread): 读取文件
+- [fgetchar](fgetchar): 从文件读取字符
+- [fblockwrite](fblockwrite): 写入数据块
+- [fblockread](fblockread): 读取数据块
+- [fseek](fseek): 定位文件指针
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 匹配文件名模式
+- [ftell](ftell): 获取当前文件指针位置
+- [fflush](fflush): 刷新文件缓冲区
+- [fstat](fstat): 获取文件状态信息
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 计算文件 CRC32 校验值
+- [diskfree](diskfree): 获取磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录

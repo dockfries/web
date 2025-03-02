@@ -1,30 +1,30 @@
 ---
 title: fblockread
 sidebar_label: fblockread
-description: This function allows you to read data from a file, without encoding and line terminators.
-tags: ["file management"]
+description: 从文件读取原始数据块（不处理编码和行终止符）。
+tags: ["文件管理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-This function allows you to read data from a file, without encoding and line terminators
+该函数允许从文件中读取原始数据块（不处理编码和行终止符）。
 
-| Name                   | Description                           |
-| ---------------------- | ------------------------------------- |
-| File:handle            | File handle to use, opened by fopen() |
-| buffer                 | The buffer to save the read data in.  |
-| size = sizeof (buffer) | The number of cells to read.          |
+| 名称                   | 描述                                   |
+| ---------------------- | -------------------------------------- |
+| File:handle            | 通过 fopen()打开的文件句柄             |
+| buffer                 | 存储读取数据的缓冲区                   |
+| size = sizeof (buffer) | 要读取的数据单元数量（默认缓冲区大小） |
 
-## Returns
+## 返回值
 
-The number of cells read. Zero, if the file end has been reached.
+读取的数据单元数量，文件末尾时返回 0
 
-## Examples
+## 示例
 
 ```c
-// Define "some_enum"
+// 定义枚举结构
 enum _:some_enum
 {
     some_data1,
@@ -32,78 +32,72 @@ enum _:some_enum
     Float:some_data3
 }
 
-// Declare "some_data"
+// 声明数据容器
 new some_data[some_enum];
 
 // ...
 
-// Open "file.bin" in "read only" mode
+// 以只读模式打开二进制文件
 new File:handle = fopen("file.bin", io_read);
 
-// Declare "file_len"
+// 声明文件长度变量
 new file_len;
 
-// Check, if "file.bin" is open
+// 验证文件是否成功打开
 if (handle)
 {
-    // Success
-
-    // Get the file length of "file.bin"
+    // 获取文件总长度
     file_len = flength(handle);
 
-    // If file is equally larger than the array
+    // 校验文件尺寸与数据结构匹配
     if (file_len == (some_enum*4))
     {
-        // Success
-
-        // Read from "file.bin" into "some_data"
+        // 执行块读取操作
         fblockread(handle, some_data);
     }
     else
     {
-        // Error
-        print("\"file.bin\" is not compatible with the array.");
+        print("文件\"file.bin\"与数据结构不兼容");
     }
 
-    // Close "file.bin"
+    // 关闭文件句柄
     fclose(handle);
 }
 else
 {
-    // Error
-    print("Failed to open \"file.bin\".");
+    print("无法打开文件\"file.bin\"");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Using an invalid handle will crash your server! Get a valid handle by using [fopen](fopen) or [ftemp](ftemp).
+使用无效句柄将导致服务器崩溃！请通过[fopen](fopen)或[ftemp](ftemp)获取有效句柄
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fread](fread): Read a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件
+- [fread](fread): 读取文件
+- [fputchar](fputchar): 写入单个字符到文件
+- [fgetchar](fgetchar): 从文件读取单个字符
+- [fblockwrite](fblockwrite): 写入数据块到文件
+- [fseek](fseek): 定位文件指针位置
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 检查文件名模式匹配
+- [ftell](ftell): 获取当前文件指针位置
+- [fflush](fflush): 刷新文件缓冲区到磁盘
+- [fstat](fstat): 获取文件大小和时间戳
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 计算文件 32 位 CRC 校验值
+- [diskfree](diskfree): 获取磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录

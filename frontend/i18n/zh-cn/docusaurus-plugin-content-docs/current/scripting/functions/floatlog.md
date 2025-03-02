@@ -1,36 +1,37 @@
 ---
 title: floatlog
 sidebar_label: floatlog
-description: This function allows you to get the logarithm of a float value.
-tags: ["math", "floating-point"]
+description: 计算浮点数的对数。
+tags: ["数学", "浮点数"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-This function allows you to get the logarithm of a float value.
+该函数用于计算以指定底数的浮点数对数。
 
-| Name        | Description                              |
-| ----------- | ---------------------------------------- |
-| Float:value | The value of which to get the logarithm. |
-| Float:base  | The logarithm base.                      |
+| 名称        | 描述                   |
+| ----------- | ---------------------- |
+| Float:value | 需要计算对数的浮点数值 |
+| Float:base  | 对数的底数             |
 
-## Returns
+## 返回值
 
-The logarithm as a float value.
+计算结果（以浮点数形式返回）
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    printf("The logarithm of 15.0 with the base 10.0 is %.1f", floatlog(15.0, 10.0));
+    printf("数值15.0以10.0为底的对数结果为 %.1f", floatlog(15.0, 10.0));
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [floatsqroot](floatsqroot): Calculate the square root of a floating point value.
-- [floatpower](floatpower): Raises given value to a power of exponent.
+- [floatsqroot](floatsqroot): 计算浮点数的平方根
+- [floatpower](floatpower): 计算浮点数的幂运算
+- [floatabs](floatabs): 获取浮点数的绝对值

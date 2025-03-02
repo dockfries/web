@@ -1,71 +1,71 @@
 ---
 title: fmatch
 sidebar_label: fmatch
-description: Find a filename matching a pattern.
-tags: ["file management"]
+description: 根据匹配模式查找文件名。
+tags: ["文件管理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Find a filename matching a pattern.
+根据通配符模式查找匹配的文件名。
 
-| Name                     | Description                                                              |
-| ------------------------ | ------------------------------------------------------------------------ |
-| const filename[]         | The string to hold the result in, returned as a packed string.           |
-| const pattern[]          | The pattern that should be matched. May contain wildcards.               |
-| index                    | The number of the file, in case there are multiple matches. (default: 0) |
-| size = sizeof (filename) | The maximum size of parameter name                                       |
+| 名称                     | 描述                                       |
+| ------------------------ | ------------------------------------------ |
+| const filename[]         | 存储匹配结果的字符串（返回压缩字符串格式） |
+| const pattern[]          | 匹配模式（支持通配符）                     |
+| index                    | 当存在多个匹配项时的文件索引号（默认：0）  |
+| size = sizeof (filename) | 目标字符串的最大容量                       |
 
-## Returns
+## 返回值
 
-**true** - Success (the file matches the pattern)
+**true** - 成功（找到匹配文件）
 
-**false** - Failure (the file does not exist or the pattern does not match)
+**false** - 失败（文件不存在或模式不匹配）
 
-## Examples
+## 示例
 
 ```c
 if (fmatch("file.txt", "*.txt"))
 {
-    print("The file matches the pattern.");
+    print("文件匹配模式成功。");
 }
 else
 {
-    print("The file \"file.txt\" does not exists, or pattern does not match.");
+    print("文件 \"file.txt\" 不存在，或模式不匹配。");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function works on open.mp server but not on SA:MP server.
+本函数在 open.mp 服务器可用，SA:MP 服务器不支持。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fread](fread): Read a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件
+- [fread](fread): 读取文件
+- [fputchar](fputchar): 写入单个字符
+- [fgetchar](fgetchar): 读取单个字符
+- [fblockwrite](fblockwrite): 写入数据块
+- [fblockread](fblockread): 读取数据块
+- [fseek](fseek): 跳转文件指针
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [ftell](ftell): 获取当前文件位置
+- [fflush](fflush): 刷新文件到磁盘
+- [fstat](fstat): 获取文件状态信息
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 计算文件 CRC 校验值
+- [diskfree](diskfree): 获取磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录

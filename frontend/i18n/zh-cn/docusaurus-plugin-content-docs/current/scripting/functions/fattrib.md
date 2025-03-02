@@ -1,74 +1,76 @@
 ---
 title: fattrib
 sidebar_label: fattrib
-description: Set the file attributes.
-tags: ["file management"]
+description: 设置文件属性。
+tags: ["文件管理"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Set the file attributes.
+设置文件属性参数。
 
-| Name             | Description                                                                                                               |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| const filename[] | The name of the file.                                                                                                     |
-| timestamp = 0    | Time of the last modification of the file. When this parameter is set to zero, the time stamp of the file is not changed. |
-| attrib = 0x0F    | A bit mask with the new attributes of the file. When set to 0x0F, the attributes of the file are not changed.             |
+| 名称             | 描述                                                   |
+| ---------------- | ------------------------------------------------------ |
+| const filename[] | 目标文件名                                             |
+| timestamp = 0    | 文件最后修改时间（UNIX 时间戳），设为 0 时保留原时间戳 |
+| attrib = 0x0F    | 文件属性位掩码，设为 0x0F 时保留原属性                 |
 
-## Returns
+## 返回值
 
-**true** on success, **false** on failure.
+**true** - 操作成功
 
-## Examples
+**false** - 操作失败
+
+## 示例
 
 ```c
-// Change file modification time to 'Thu Mar 07 2024 06:28:15'
+// 将文件修改时间设置为 '2024-03-07 06:28:15'
 if (fattrib("file.txt", 1709792895))
 {
-    // Success
-    print("File attributes was set.");
+    // 成功提示
+    print("文件属性设置成功");
 }
 else
 {
-    // Error
-    print("The file \"file.txt\" does not exists, or can't set the attributes.");
+    // 错误处理
+    print("文件\"file.txt\"不存在或无法设置属性");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- The time is in number of seconds since midnight at 1 January 1970: the start of the UNIX system epoch.
-- The file attributes are a bit mask.
-- The meaning of each bit depends on the underlying file system (e.g. FAT, NTFS, etx2 and others).
+- 时间戳使用 UNIX 纪元时间（1970 年 1 月 1 日至今的秒数）
+- 文件属性使用位掩码机制
+- 具体位掩码含义取决于底层文件系统（FAT/NTFS/ext 等）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件
+- [fputchar](fputchar): 写入单个字符到文件
+- [fgetchar](fgetchar): 从文件读取单个字符
+- [fblockwrite](fblockwrite): 写入数据块到文件
+- [fblockread](fblockread): 从文件读取数据块
+- [fseek](fseek): 定位文件指针位置
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 检查文件名模式匹配
+- [ftell](ftell): 获取当前文件指针位置
+- [fflush](fflush): 刷新文件缓冲区到磁盘
+- [fstat](fstat): 获取文件大小和时间戳
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 计算文件 32 位 CRC 校验值
+- [diskfree](diskfree): 获取磁盘剩余空间
+- [fcreatedir](fcreatedir): 创建目录

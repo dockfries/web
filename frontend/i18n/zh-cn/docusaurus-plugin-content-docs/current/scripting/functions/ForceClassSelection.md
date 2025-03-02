@@ -1,30 +1,30 @@
 ---
 title: ForceClassSelection
-sidebar_label: ForceClassSelection
-description: Forces a player to go back to class selection.
-tags: ["class"]
+sidebar_label: 强制返回职业选择
+description: 强制玩家返回职业选择界面。
+tags: ["职业系统"]
 ---
 
-## Description
+## 描述
 
-Forces a player to go back to class selection.
+该函数强制指定玩家返回职业选择界面。
 
-| Name     | Description                                 |
-| -------- | ------------------------------------------- |
-| playerid | The player to send back to class selection. |
+| 参数名   | 描述              |
+| -------- | ----------------- |
+| playerid | 需要操作的玩家 ID |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+此函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/class", true))
     {
-        ForceClassSelection(playerid);
+        ForceClassSelection(playerid);  // 强制玩家返回职业选择界面
         TogglePlayerSpectating(playerid, true);
         TogglePlayerSpectating(playerid, false);
         return 1;
@@ -33,20 +33,20 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function does not perform a state change to `PLAYER_STATE_WASTED` when combined with TogglePlayerSpectating (see example above), as is listed here.
+当结合使用 TogglePlayerSpectating 函数时（如上例所示），本函数不会将玩家状态切换为 PLAYER_STATE_WASTED（濒死状态）。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [AddPlayerClass](AddPlayerClass): Add a class.
-- [SetPlayerSkin](SetPlayerSkin): Set a player's skin.
-- [GetPlayerSkin](GetPlayerSkin): Get a player's current skin.
+- [AddPlayerClass](AddPlayerClass): 添加新职业配置
+- [SetPlayerSkin](SetPlayerSkin): 设置玩家皮肤外观
+- [GetPlayerSkin](GetPlayerSkin): 获取玩家当前皮肤 ID
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerRequestClass](../callbacks/OnPlayerRequestClass): Called when a player changes class at class selection.
+- [OnPlayerRequestClass](../callbacks/OnPlayerRequestClass): 当玩家在职业选择界面切换职业时触发

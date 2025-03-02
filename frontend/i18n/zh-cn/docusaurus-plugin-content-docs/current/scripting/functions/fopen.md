@@ -1,184 +1,166 @@
 ---
 title: fopen
 sidebar_label: fopen
-description: Open a file (to read from or write to).
-tags: ["file management"]
+description: 打开文件（用于读取或写入）。
+tags: ["文件管理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Open a file (to read from or write to).
+打开文件以便进行读写操作。
 
-| Name                                     | Description                                                                                                                                |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| const filename[]                         | The path to the file to open (if just a filename is specified, it will open the file with the name specified in the 'scriptfiles' folder). |
-| [filemode:mode](../resources/file-modes) | The mode to open the file with (default: io_readwrite).                                                                                    |
+| 名称                                     | 描述                                                          |
+| ---------------------------------------- | ------------------------------------------------------------- |
+| const filename[]                         | 文件路径（若仅指定文件名，则默认在'scriptfiles'文件夹中查找） |
+| [filemode:mode](../resources/file-modes) | 文件打开模式（默认值：io_readwrite）                          |
 
-## Returns
+## 返回值
 
-Returns the file handle. This handle is used for reading and writing.
+- 成功时返回有效的文件句柄（File:handle 类型）
+- 失败时返回 0
 
-0 if failed to open file.
+## 示例
 
-## Examples
-
-**io_read mode:**
+**io_read 模式（只读）：**
 
 ```c
-// Open "file.txt" in "read only" mode
+// 以"只读"模式打开"file.txt"
 new File:handle = fopen("file.txt", io_read);
 
-// Initialize "buf"
+// 声明缓冲区
 new buf[128];
 
-// Check, if the file is opened
+// 检查文件是否成功打开
 if (handle)
 {
-    // Success
+    // 成功
 
-    // Read the whole file
+    // 逐行读取文件内容
     while(fread(handle, buf))
     {
-        print(buf);
+        print(buf); // 输出每行内容
     }
 
-    // Close the file
+    // 关闭文件
     fclose(handle);
 }
 else
 {
-    // Error
-    print("The file \"file.txt\" does not exists, or can't be opened.");
+    // 错误提示
+    print("文件 \"file.txt\" 不存在或无法打开。");
 }
 ```
 
 <br />
 
-**io_write mode:**
+**io_write 模式（只写）：**
 
 ```c
-// Open "file.txt" in "write only" mode
+// 以"只写"模式打开"file.txt"
 new File:handle = fopen("file.txt", io_write);
 
-// Check, if file is open
 if (handle)
 {
-    // Success
+    // 写入内容
+    fwrite(handle, "这是新写入的内容！");
 
-    // Write "I just wrote here!" into this file
-    fwrite(handle, "I just wrote here!");
-
-    // Close the file
-    fclose(handle);
+    fclose(handle); // 关闭文件
 }
 else
 {
-    // Error
-    print("Failed to open file \"file.txt\".");
+    print("无法打开文件 \"file.txt\"");
 }
-
 ```
 
 <br />
 
-**io_readwrite mode:**
+**io_readwrite 模式（读写）：**
 
 ```c
-// Open "file.txt" in "read and write" mode
-
+// 以"读写"模式打开"file.txt"
 new File:handle = fopen("file.txt", io_readwrite);
-
-// Initialize "buf"
 new buf[128];
 
-// Check, if file is open
 if (handle)
 {
-    // Success
-
-    // Read the whole file
+    // 读取现有内容
     while(fread(handle, buf))
     {
         print(buf);
     }
 
-    // Set the file pointer to the first byte
+    // 重置文件指针到起始位置
     fseek(handle, _, seek_begin);
 
-    // Write "I just wrote here!" into this file
-    fwrite(handle, "I just wrote here!");
+    // 覆盖写入新内容
+    fwrite(handle, "覆盖原始内容");
 
-    // Close the file
     fclose(handle);
 }
 else
 {
-    // Error
-    print("The file \"file.txt\" does not exists, or can't be opened.");
+    print("文件操作失败");
 }
 ```
 
 <br />
 
-**io_append mode:**
+**io_append 模式（追加）：**
 
 ```c
-// Open "file.txt" in "append only" mode
-new File:handle = fopen("file.txt", io_append);
+// 以"追加"模式打开日志文件
+new File:handle = fopen("server.log", io_append);
 
-// Check, if file is open
 if (handle)
 {
-    // Success
+    // 追加日志条目
+    fwrite(handle, "[LOG] 服务器启动成功\r\n");
 
-    // Append "This is a text.\r\n"
-    fwrite(handle, "This is a text.\r\n");
-
-    // Close the file
     fclose(handle);
 }
 else
 {
-    // Error
-    print("Failed to open file \"file.txt\".");
+    print("日志文件写入失败");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-If you use `io_read` and the file doesn't exist, it will return a NULL reference. Using invalid references on file functions will crash your server!
+- 在 `io_read` 模式下打开不存在的文件将返回空句柄
+- 使用无效句柄执行文件操作会导致服务器崩溃
+- 文件操作完成后务必使用 [fclose](fclose) 关闭文件
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fread](fread): Read a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件内容
+- [fread](fread): 读取文件内容
+- [fputchar](fputchar): 写入单个字符
+- [fgetchar](fgetchar): 读取单个字符
+- [fblockwrite](fblockwrite): 批量写入数据块
+- [fblockread](fblockread): 批量读取数据块
+- [fseek](fseek): 调整文件指针位置
+- [flength](flength): 获取文件大小
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 文件名模式匹配
+- [ftell](ftell): 获取当前文件指针位置
+- [fflush](fflush): 强制写入磁盘缓存
+- [fstat](fstat): 获取文件元数据
+- [frename](frename): 文件重命名
+- [fcopy](fcopy): 文件复制
+- [filecrc](filecrc): 计算文件 CRC 校验码
+- [diskfree](diskfree): 查询磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录
 
-## Related Resources
+## 相关资源
 
-- [File Modes](../resources/file-modes)
+- [文件模式详解](../resources/file-modes)

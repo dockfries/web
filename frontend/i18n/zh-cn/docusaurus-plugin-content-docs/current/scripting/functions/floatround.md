@@ -1,51 +1,51 @@
 ---
 title: floatround
 sidebar_label: floatround
-description: Round a floating point number to an integer value.
-tags: ["math", "floating-point"]
+description: 将浮点数四舍五入为整数值。
+tags: ["数学", "浮点数"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Round a floating point number to an integer value.
+将浮点数按照指定模式舍入为整数值。
 
-| Name                     | Description                                                                                     |
-| ------------------------ | ----------------------------------------------------------------------------------------------- |
-| Float:value              | The value to round.                                                                             |
-| floatround_method:method | The [floatround mode](../resources/floatroundmodes) to use.<br />By default: `floatround_round` |
+| 名称                   | 描述                                                                                       |
+| ---------------------- | ------------------------------------------------------------------------------------------ |
+| Float:数值             | 需要进行舍入的浮点数值                                                                     |
+| floatround_method:模式 | 使用的[舍入模式](../resources/floatroundmodes)<br />默认值：`floatround_round`（四舍五入） |
 
-## Returns
+## 返回值
 
-The rounded value as an integer.
+四舍五入后的整数值
 
-## Examples
+## 示例
 
 ```c
-new value = floatround(3.3, floatround_ceil);
-printf("3.3 rounded to %d", value); // 3.3 rounded to 4
+new value = floatround(3.3, floatround_ceil);  // 使用向上取整模式
+printf("3.3四舍五入为 %d", value); // 输出：3.3四舍五入为 4
 ```
 
 <br />
 
 ```c
-new value = floatround(50.996229);
-printf("50.996229 rounded to %d", value); // 50.996229 rounded to 51
+new value = floatround(50.996229);  // 使用默认四舍五入模式
+printf("50.996229四舍五入为 %d", value); // 输出：50.996229四舍五入为 51
 ```
 
 <br />
 
 ```c
-new value = floatround(270.0034);
-printf("270.0034 rounded to %d", value); // 270.0034 rounded to 270
+new value = floatround(270.0034);  // 使用默认四舍五入模式
+printf("270.0034四舍五入为 %d", value); // 输出：270.0034四舍五入为 270
 ```
 
-## Related Functions
+## 相关函数
 
-- [float](float): Convert an integer to a float.
-- [floatstr](floatstr): Convert an string to a float.
+- [float](float): 将整数转换为浮点数
+- [floatstr](floatstr): 将字符串转换为浮点数
 
-## Related Resources
+## 相关资源
 
-- [Floatround Modes](../resources/floatroundmodes)
+- [浮点数舍入模式](../resources/floatroundmodes)

@@ -1,35 +1,44 @@
 ---
 title: floatstr
 sidebar_label: floatstr
-description: Converts a string to a float.
-tags: ["string", "floating-point"]
+description: 将字符串转换为浮点数。
+tags: ["字符串", "浮点数"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Converts a string to a float.
+将字符串转换为浮点数。
 
-| Name           | Description                         |
-| -------------- | ----------------------------------- |
-| const string[] | The string to convert into a float. |
+| 名称           | 描述             |
+| -------------- | ---------------- |
+| const string[] | 需要转换的字符串 |
 
-## Returns
+## 返回值
 
-The requested float value.
+转换后的浮点数值
 
-## Examples
+## 示例
 
 ```c
-new string[4] = "6.9"; // A STRING holding a FLOAT.
+new string[4] = "6.9"; // 存储浮点数的字符串
 
 new Float:value = floatstr(string);
 
-SetPlayerPos(playerid, 0.0, 0.0, value);
+SetPlayerPos(playerid, 0.0, 0.0, value); // 使用转换后的浮点数值设置玩家Z坐标
 ```
 
-## Related Functions
+## 注意事项
 
-- [floatround](floatround): Convert a float to an integer (rounding).
-- [float](float): Convert an integer to a float.
+:::warning
+
+如果字符串包含非数字字符（除数字、小数点和正负号外），转换结果可能不可预测
+
+:::
+
+## 相关函数
+
+- [floatround](floatround): 将浮点数转换为整数（四舍五入）
+- [float](float): 将整数转换为浮点数
+- [strval](strval): 将字符串转换为整数值

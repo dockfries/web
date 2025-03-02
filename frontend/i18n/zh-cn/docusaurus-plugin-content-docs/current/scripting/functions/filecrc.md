@@ -1,72 +1,72 @@
 ---
 title: filecrc
 sidebar_label: filecrc
-description: Return the 32-bit CRC value of a file.
-tags: ["file management"]
+description: 返回文件的32位CRC值。
+tags: ["文件管理"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Return the 32-bit CRC value of a file.
+返回文件的 32 位 CRC 值。
 
-| Name             | Description           |
-| ---------------- | --------------------- |
-| const filename[] | The name of the file. |
+| 名称             | 描述   |
+| ---------------- | ------ |
+| const filename[] | 文件名 |
 
-## Returns
+## 返回值
 
-The 32-bit CRC value of the file, or **0** if the file cannot be opened.
+返回文件的 32 位 CRC 值，若文件无法打开则返回 **0**。
 
-## Examples
+## 示例
 
 ```c
 new crc = filecrc("file.txt");
 
 if (crc)
 {
-    // Success
-    printf("CRC value = %d", crc);
+    // 成功
+    printf("CRC 值 = %d", crc);
 }
 else
 {
-    // Error
-    print("The file \"file.txt\" does not exists, or can't be opened.");
+    // 错误
+    print("文件 \"file.txt\" 不存在或无法打开。");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- The CRC value is a useful measure to check whether the contents of a file has changed during transmission or whether it has been edited (provided that the CRC value of the original file was saved).
-- The CRC value returned by this function is the same as the one used in ZIP archives (PKZip, WinZip) and the "SFV" utilities and file formats.
+- CRC 值是校验文件在传输过程中是否被修改的有效指标（需事先保存原始文件的 CRC 值）
+- 本函数返回的 CRC 值与 ZIP 归档工具（PKZip/WinZip）及 SFV 校验工具使用的标准完全一致
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件
+- [fputchar](fputchar): 向文件写入字符
+- [fgetchar](fgetchar): 从文件读取字符
+- [fblockwrite](fblockwrite): 向文件写入数据块
+- [fblockread](fblockread): 从文件读取数据块
+- [fseek](fseek): 跳转至文件指定位置
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 检查文件名模式匹配
+- [ftell](ftell): 获取当前文件位置
+- [fflush](fflush): 将文件刷入磁盘（确保所有写入完成）
+- [fstat](fstat): 返回文件大小和时间戳
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [diskfree](diskfree): 返回磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录

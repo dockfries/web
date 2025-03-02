@@ -1,69 +1,69 @@
 ---
 title: fcreatedir
 sidebar_label: fcreatedir
-description: Create a directory.
-tags: ["file management"]
+description: 创建目录。
+tags: ["文件管理"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Create a directory.
+创建目录。
 
-| Name            | Description                                                            |
-| --------------- | ---------------------------------------------------------------------- |
-| const dirname[] | The name of the directory to create, optionally including a full path. |
+| 名称            | 描述                               |
+| --------------- | ---------------------------------- |
+| const dirname[] | 要创建的目录名称，可包含完整路径。 |
 
-## Returns
+## 返回值
 
-**true** on success, **false** on failure.
+**true** 表示成功，**false** 表示失败。
 
-## Examples
+## 示例
 
 ```c
 if (fcreatedir("logs"))
 {
-    // Success
-    printf("The directory \"logs\" created successfully.");
+    // 成功
+    printf("目录 \"logs\" 创建成功。");
 }
 else
 {
-    // Error
-    print("Failed to create the directory \"logs\"");
+    // 错误
+    print("无法创建目录 \"logs\"");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-To delete the directory again, use [fremove](fremove). The directory must be empty before it can be removed.
+如需删除目录，请使用 [fremove](fremove)。删除前目录必须为空。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 写入文件
+- [fputchar](fputchar): 向文件写入字符
+- [fgetchar](fgetchar): 从文件读取字符
+- [fblockwrite](fblockwrite): 向文件写入数据块
+- [fblockread](fblockread): 从文件读取数据块
+- [fseek](fseek): 跳转至文件指定位置
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 检查文件名模式匹配
+- [ftell](ftell): 获取当前文件位置
+- [fflush](fflush): 将文件刷入磁盘（确保所有写入完成）
+- [fstat](fstat): 返回文件大小和时间戳
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 返回文件的 32 位 CRC 值
+- [diskfree](diskfree): 返回磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性

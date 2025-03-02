@@ -1,89 +1,89 @@
 ---
 title: fremove
 sidebar_label: fremove
-description: Delete a file.
-tags: ["file management"]
+description: 删除文件。
+tags: ["文件管理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Delete a file.
+删除指定文件。
 
-| Name             | Description                     |
-| ---------------- | ------------------------------- |
-| const filename[] | The path of the file to delete. |
+| 名称             | 说明               |
+| ---------------- | ------------------ |
+| const filename[] | 要删除的文件路径。 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. The file doesn't exist, or you don't have permission to delete it.
+**false** - 函数执行失败（文件不存在或权限不足）。
 
-## Examples
+## 示例
 
-**Delete a file:**
+**删除文件示例：**
 
 ```c
 if (fremove("example.txt"))
 {
-    print("The file \"example.txt\" removed.");
+    print("文件\"example.txt\"已删除。");
 }
 else
 {
-    print("The file \"example.txt\" does not exists.");
+    print("文件\"example.txt\"不存在。");
 }
 ```
 
-**Delete a directory:**
+**删除目录示例：**
 
 ```c
 if (fremove("logs"))
 {
-    print("The directory \"logs\" removed.");
+    print("目录\"logs\"已删除。");
 }
 else
 {
-    print("The directory \"logs\" does not exists, or it is not empty.");
+    print("目录\"logs\"不存在或非空目录。");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Files that are currently open (fopen) must be closed first (fclose) to be deleted.
+正在使用的文件（已通过 fopen 打开）需先关闭（fclose）才能删除。
 
 :::
 
 :::warning
 
-The file path must be valid.
+文件路径必须有效。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fwrite](fwrite): Write to a file.
-- [fread](fread): Read a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockwrite](fblockwrite): Write blocks of data into a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fwrite](fwrite): 写入文件
+- [fread](fread): 读取文件
+- [fputchar](fputchar): 写入单个字符
+- [fgetchar](fgetchar): 读取单个字符
+- [fblockwrite](fblockwrite): 写入数据块
+- [fblockread](fblockread): 读取数据块
+- [fseek](fseek): 定位文件指针
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 匹配文件名模式
+- [ftell](ftell): 获取当前指针位置
+- [fflush](fflush): 刷新文件缓冲区
+- [fstat](fstat): 获取文件状态信息
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 计算 CRC32 校验值
+- [diskfree](diskfree): 获取磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录

@@ -1,33 +1,33 @@
 ---
 title: float
 sidebar_label: float
-description: Converts an integer into a float.
-tags: ["floating-point"]
+description: 将整数转换为浮点数。
+tags: ["浮点数"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Converts an integer into a float.
+将整数转换为浮点数。
 
-| Name  | Description                         |
-| ----- | ----------------------------------- |
-| value | Integer value to convert to a float |
+| 名称  | 描述               |
+| ----- | ------------------ |
+| value | 需要转换的整数数值 |
 
-## Returns
+## 返回值
 
-The given integer as a float
+转换后的浮点数值
 
-## Examples
+## 示例
 
 ```c
 new Float:FloatValue;
 new Value = 52;
-FloatValue = float(Value);   // Converts Value(52) into a float and stores it in 'FloatValue' (52.0)
+FloatValue = float(Value);   // 将Value(52)转换为浮点数并存入'FloatValue'（结果为52.0）
 ```
 
-## Related Functions
+## 相关函数
 
-- [floatround](floatround): Convert a float to an integer (rounding).
-- [floatstr](floatstr): Convert an string to a float.
+- [floatround](floatround): 将浮点数转换为整数（四舍五入）
+- [floatstr](floatstr): 将字符串转换为浮点数

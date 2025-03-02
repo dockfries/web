@@ -1,30 +1,30 @@
 ---
 title: fblockwrite
 sidebar_label: fblockwrite
-description: Write data to a file in binary format, while ignoring line brakes and encoding.
-tags: ["file management"]
+description: 以二进制格式将数据写入文件，忽略换行符和编码。
+tags: ["文件管理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Write data to a file in binary format, while ignoring line brakes and encoding.
+将数据以二进制格式写入文件，不处理换行符和字符编码。
 
-| Name                   | Description                                |
-| ---------------------- | ------------------------------------------ |
-| File:handle            | The File handle to use, opened by fopen(). |
-| const buffer[]         | The data to write to the file.             |
-| size = sizeof (buffer) | The number of cells to write.              |
+| 名称                   | 描述                                   |
+| ---------------------- | -------------------------------------- |
+| File:handle            | 通过 fopen()打开的文件句柄             |
+| const buffer[]         | 要写入文件的数据缓冲区                 |
+| size = sizeof (buffer) | 要写入的数据单元数量（默认缓冲区大小） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
-// Define "some_enum"
+// 定义数据结构枚举
 enum _:some_enum
 {
     some_data1,
@@ -32,61 +32,58 @@ enum _:some_enum
     Float:some_data3
 }
 
-// Declare "some_data"
+// 声明数据容器
 new some_data[some_enum];
 
 // ...
 
-// Open "file.bin" in "write only" mode
+// 以只写模式打开二进制文件
 new File:handle = fopen("file.bin", io_write);
 
-// Check, if "file.bin" is open
+// 验证文件句柄有效性
 if (handle)
 {
-    // Success
-
-    // Write "some_data" into "file.bin"
+    // 执行块写入操作
     fblockwrite(handle, some_data);
 
-    // Close "file.bin"
+    // 关闭文件句柄
     fclose(handle);
 }
 else
 {
-    // Error
-    print("Failed to open \"file.bin\".");
+    print("无法打开文件\"file.bin\"");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Using an invalid handle will crash your server! Get a valid handle by using [fopen](fopen) or [ftemp](ftemp).
+使用无效句柄将导致服务器崩溃！请通过[fopen](fopen)或[ftemp](ftemp)获取有效句柄
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [fopen](fopen): Open a file.
-- [fclose](fclose): Close a file.
-- [ftemp](ftemp): Create a temporary file stream.
-- [fremove](fremove): Remove a file.
-- [fwrite](fwrite): Write to a file.
-- [fread](fread): Read a file.
-- [fputchar](fputchar): Put a character in a file.
-- [fgetchar](fgetchar): Get a character from a file.
-- [fblockread](fblockread): Read blocks of data from a file.
-- [fseek](fseek): Jump to a specific character in a file.
-- [flength](flength): Get the file length.
-- [fexist](fexist): Check, if a file exists.
-- [fmatch](fmatch): Check, if patterns with a file name matches.
-- [ftell](ftell): Get the current position in the file.
-- [fflush](fflush): Flush a file to disk (ensure all writes are complete).
-- [fstat](fstat): Return the size and the timestamp of a file.
-- [frename](frename): Rename a file.
-- [fcopy](fcopy): Copy a file.
-- [filecrc](filecrc): Return the 32-bit CRC value of a file.
-- [diskfree](diskfree): Returns the free disk space.
-- [fattrib](fattrib): Set the file attributes.
-- [fcreatedir](fcreatedir): Create a directory.
+- [fopen](fopen): 打开文件
+- [fclose](fclose): 关闭文件
+- [ftemp](ftemp): 创建临时文件流
+- [fremove](fremove): 删除文件
+- [fwrite](fwrite): 文本模式写入文件
+- [fread](fread): 文本模式读取文件
+- [fputchar](fputchar): 写入单个字符到文件
+- [fgetchar](fgetchar): 从文件读取单个字符
+- [fblockread](fblockread): 从文件读取原始数据块
+- [fseek](fseek): 定位文件指针位置
+- [flength](flength): 获取文件长度
+- [fexist](fexist): 检查文件是否存在
+- [fmatch](fmatch): 检查文件名模式匹配
+- [ftell](ftell): 获取当前文件指针位置
+- [fflush](fflush): 刷新文件缓冲区到磁盘
+- [fstat](fstat): 获取文件大小和时间戳
+- [frename](frename): 重命名文件
+- [fcopy](fcopy): 复制文件
+- [filecrc](filecrc): 计算文件 32 位 CRC 校验值
+- [diskfree](diskfree): 获取磁盘剩余空间
+- [fattrib](fattrib): 设置文件属性
+- [fcreatedir](fcreatedir): 创建目录

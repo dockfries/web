@@ -1,39 +1,39 @@
 ---
 title: floatdiv
 sidebar_label: floatdiv
-description: Divide one float by another one.
-tags: ["math", "floating-point"]
+description: 将一个浮点数除以另一个浮点数。
+tags: ["数学", "浮点数"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Divide one float by another one. Redundant as the division operator (/) does the same thing.
+将一个浮点数除以另一个浮点数。此函数功能与除法运算符(/)重复。
 
-| Name           | Description                               |
-| -------------- | ----------------------------------------- |
-| Float:dividend | First float.                              |
-| Float:divisor  | Second float (dividates the first float.) |
+| 名称           | 描述             |
+| -------------- | ---------------- |
+| Float:dividend | 被除数的浮点数值 |
+| Float:divisor  | 除数的浮点数值   |
 
-## Returns
+## 返回值
 
-The quotient of the two given floats.
+两个浮点数相除的商。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    new Float:Number1 = 8.05, Float:Number2 = 3.5; // Declares two floats, Number1 (8.05) and Number2 (3.5)
+    new Float:Number1 = 8.05, Float:Number2 = 3.5; // 声明两个浮点数 Number1(8.05) 和 Number2(3.5)
     new Float:Quotient;
-    Quotient = floatdiv(Number1, Number2); // Saves the quotient(=8.05/3.5 = 2.3) of Number1 and Number2 in the float "Quotient"
+    Quotient = floatdiv(Number1, Number2); // 将两数的商(=8.05/3.5=2.3)存入浮点变量"Quotient"
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [floatadd](floatadd): Adds two floats together.
-- [floatsub](floatsub): Subtract a float from another float.
-- [floatmul](floatmul): Multiply two floats.
+- [floatadd](floatadd): 将两个浮点数相加
+- [floatsub](floatsub): 浮点数减法运算
+- [floatmul](floatmul): 浮点数乘法运算
