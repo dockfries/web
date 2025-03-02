@@ -1,28 +1,28 @@
 ---
 title: BeginPlayerObjectEditing
 sidebar_label: BeginPlayerObjectEditing
-description: Allows players to edit a player-object (position and rotation) with a GUI and their mouse.
-tags: ["player", "object", "playerobject"]
+description: 允许玩家通过图形用户界面（GUI）使用鼠标编辑玩家物体（位置和旋转）。
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 功能说明
 
-Allows players to edit a player-object (position and rotation) with a GUI and their mouse.
+允许玩家通过图形用户界面（GUI）使用鼠标编辑玩家物体（位置和旋转）。
 
-| Name     | Description                                      |
-| -------- | ------------------------------------------------ |
-| playerid | The ID of the player that should edit the object |
-| objectid | The object to be edited by the player            |
+| 参数名   | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要进行物体编辑的玩家 ID |
+| objectid | 玩家将要编辑的玩家物体 ID |
 
-## Returns
+## 返回值
 
-`true` - The function executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. Player or object not valid.
+`false` - 函数执行失败（玩家或物体无效）
 
-## Examples
+## 示例代码
 
 ```c
 new gPlayerObject[MAX_PLAYERS];
@@ -37,26 +37,26 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (!strcmp(cmdtext, "/edit", true))
     {
         BeginPlayerObjectEditing(playerid, gPlayerObject[playerid]);
-        SendClientMessage(playerid, 0xFFFFFFFF, "SERVER: You now edit your object!");
+        SendClientMessage(playerid, 0xFFFFFFFF, "SERVER: 您现在可以编辑您的玩家物体！");
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-You can move the camera while editing by pressing and holding the spacebar (or W in vehicle) and moving your mouse.
+编辑过程中按住空格键（载具中按 W 键）并移动鼠标可以控制视角移动
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [MoveObject](MoveObject): Move an object.
-- [EditAttachedObject](EditAttachedObject): Edit an attached object.
-- [BeginObjectSelecting](BeginObjectSelecting): Select an object.
-- [EndObjectEditing](EndObjectEditing): Cancel the edition of an object.
+- [CreateObject](CreateObject): 创建物体
+- [DestroyObject](DestroyObject): 销毁物体
+- [MoveObject](MoveObject): 移动物体
+- [EditAttachedObject](EditAttachedObject): 编辑附加物体
+- [BeginObjectSelecting](BeginObjectSelecting): 选择物体
+- [EndObjectEditing](EndObjectEditing): 取消物体编辑

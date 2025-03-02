@@ -1,42 +1,44 @@
 ---
 title: ClearActorAnimations
 sidebar_label: ClearActorAnimations
-description: Clear any animations applied to an actor.
-tags: ["actor"]
+description: 清除角色当前应用的所有动画效果
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 功能说明
 
-Clear any animations applied to an actor.
+终止指定角色当前正在播放的动画序列
 
-| Name    | Description                                                                               |
-| ------- | ----------------------------------------------------------------------------------------- |
-| actorid | The ID of the actor (returned by [CreateActor](CreateActor)) to clear the animations for. |
+| 参数名  | 说明                                                  |
+| ------- | ----------------------------------------------------- |
+| actorid | 目标角色 ID（通过[CreateActor](CreateActor)函数创建） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**1** - 函数执行成功，动画已清除
 
-**false** - The function failed to execute. The actor specified does not exist.
+**0** - 函数执行失败（指定角色不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new gMyActor;
 
 public OnGameModeInit()
 {
-    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // Actor as salesperson in Ammunation
-    ApplyActorAnimation(gMyActor, "DEALER", "shop_pay", 4.1, false, false, false, false, 0); // Pay anim
+    // 在武器店创建售货员角色
+    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0);
+    // 应用付款动画
+    ApplyActorAnimation(gMyActor, "DEALER", "shop_pay", 4.1, false, false, false, false, 0);
     return 1;
 }
 
-// Somewhere else
+// 在其他代码段中终止动画
 ClearActorAnimations(gMyActor);
 ```
 
-## Related Functions
+## 相关函数
 
-- [ApplyActorAnimation](ApplyActorAnimation): Apply an animation to an actor.
+- [ApplyActorAnimation](ApplyActorAnimation): 为角色应用动画

@@ -1,27 +1,27 @@
 ---
 title: ClearPlayerWorldBounds
 sidebar_label: ClearPlayerWorldBounds
-description: Reset the player's world boundaries to default world boundaries.
-tags: ["player"]
+description: 重置玩家的世界边界至默认状态
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 功能说明
 
-Reset the player's world boundaries to default world boundaries.
+将指定玩家的自定义世界边界恢复为系统默认设置
 
-| Name     | Description                                               |
-| -------- | --------------------------------------------------------- |
-| playerid | The ID of the player to reset/clear the world boundaries. |
+| 参数名   | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要重置世界边界的玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - Function executed successfully.
+**true** - 函数执行成功
 
-**false** - Function failed to execute.
+**false** - 函数执行失败
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerSpawn(playerid)
@@ -37,15 +37,15 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-A player's world boundaries can also be reset by setting them to 20000.0000, -20000.0000, 20000.0000, -20000.0000. These are the default values. However, we suggest using ClearPlayerWorldBounds to reset the player's world boundaries for clarity.
+系统默认边界值为 20000.0000, -20000.0000, 20000.0000, -20000.0000。建议使用本函数进行重置以确保代码可读性
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerWorldBounds](SetPlayerWorldBounds): Set the world boundaries for a player. Players can not go out of the boundaries (they will be pushed back in).
-- [GetPlayerWorldBounds](GetPlayerWorldBounds): Get a player's world boundaries.
+- [SetPlayerWorldBounds](SetPlayerWorldBounds): 设置玩家活动范围边界（越界会被自动推回）
+- [GetPlayerWorldBounds](GetPlayerWorldBounds): 获取玩家当前世界边界配置

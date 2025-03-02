@@ -1,45 +1,45 @@
 ---
 title: ChangeVehicleColours
 sidebar_label: ChangeVehicleColours
-description: Change a vehicle's primary and secondary colours.
-tags: ["vehicle"]
+description: 修改车辆的主色和副色
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 功能说明
 
-Change a vehicle's primary and secondary colours.
+修改指定车辆的主色和副色
 
-| Name      | Description                                     |
-| --------- | ----------------------------------------------- |
-| vehicleid | The ID of the vehicle to change the colours of. |
-| colour1   | The new vehicle's primary Colour ID.            |
-| colour2   | The new vehicle's secondary Colour ID.          |
+| 参数名    | 说明          |
+| --------- | ------------- |
+| vehicleid | 目标车辆 ID   |
+| colour1   | 新的主颜色 ID |
+| colour2   | 新的副颜色 ID |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully. The vehicle's colour was successfully changed.
+**true** - 函数执行成功，颜色已修改
 
-**false** - The function failed to execute. The vehicle does not exist.
+**false** - 函数执行失败（车辆不存在）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 {
-    // Change the primary colour to black and the secondary colour to white
+    // 将主色改为黑色(0)，副色改为白色(1)
     ChangeVehicleColours(vehicleid, 0, 1);
     return 1;
 }
 ```
 
-## Snippets
+## 颜色表片段
 
 ```c
 new VehicleColoursTableRGBA[256] =
 {
-    // The existing colours from San Andreas
+    // 原始圣安地列斯颜色
     0x000000FF, 0xF5F5F5FF, 0x2A77A1FF, 0x840410FF, 0x263739FF, 0x86446EFF, 0xD78E10FF, 0x4C75B7FF, 0xBDBEC6FF, 0x5E7072FF,
     0x46597AFF, 0x656A79FF, 0x5D7E8DFF, 0x58595AFF, 0xD6DAD6FF, 0x9CA1A3FF, 0x335F3FFF, 0x730E1AFF, 0x7B0A2AFF, 0x9F9D94FF,
     0x3B4E78FF, 0x732E3EFF, 0x691E3BFF, 0x96918CFF, 0x515459FF, 0x3F3E45FF, 0xA5A9A7FF, 0x635C5AFF, 0x3D4A68FF, 0x979592FF,
@@ -53,7 +53,7 @@ new VehicleColoursTableRGBA[256] =
     0x406C8FFF, 0x1F253BFF, 0xAB9276FF, 0x134573FF, 0x96816CFF, 0x64686AFF, 0x105082FF, 0xA19983FF, 0x385694FF, 0x525661FF,
     0x7F6956FF, 0x8C929AFF, 0x596E87FF, 0x473532FF, 0x44624FFF, 0x730A27FF, 0x223457FF, 0x640D1BFF, 0xA3ADC6FF, 0x695853FF,
     0x9B8B80FF, 0x620B1CFF, 0x5B5D5EFF, 0x624428FF, 0x731827FF, 0x1B376DFF, 0xEC6AAEFF, 0x000000FF,
-    // SA-MP extended colours (0.3x)
+    // SA-MP扩展颜色（0.3x）
     0x177517FF, 0x210606FF, 0x125478FF, 0x452A0DFF, 0x571E1EFF, 0x010701FF, 0x25225AFF, 0x2C89AAFF, 0x8A4DBDFF, 0x35963AFF,
     0xB7B7B7FF, 0x464C8DFF, 0x84888CFF, 0x817867FF, 0x817A26FF, 0x6A506FFF, 0x583E6FFF, 0x8CB972FF, 0x824F78FF, 0x6D276AFF,
     0x1E1D13FF, 0x1E1306FF, 0x1F2518FF, 0x2C4531FF, 0x1E4C99FF, 0x2E5F43FF, 0x1E9948FF, 0x1E9999FF, 0x999976FF, 0x7C8499FF,
@@ -70,24 +70,24 @@ new VehicleColoursTableRGBA[256] =
 };
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Some vehicles have only a primary colour and some can not have the colour changed at all. A few (cement, squallo) have 4 colours, of which 2 can not be changed in SA:MP
+部分车辆仅支持修改主色，少数特殊车辆（如水泥车、快艇）支持四色但 SA-MP 只能修改其中两种
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleColours](GetVehicleColours): Gets the vehicle colours.
-- [ChangeVehiclePaintjob](ChangeVehiclePaintjob): Change the paintjob on a vehicle.
+- [GetVehicleColours](GetVehicleColours): 获取车辆颜色配置
+- [ChangeVehiclePaintjob](ChangeVehiclePaintjob): 修改车辆喷漆样式
 
-## Related Callbacks
+## 相关回调
 
-- [OnVehicleRespray](../callbacks/OnVehicleRespray): Called when a vehicle is resprayed.
+- [OnVehicleRespray](../callbacks/OnVehicleRespray): 当车辆重新喷漆时触发
 
-## Related Resources
+## 扩展资源
 
-- [Vehicle Colour IDs](../resources/vehiclecolorid)
-- [Original Car Colours](../resources/original-car-colors)
+- [车辆颜色 ID 对照表](../resources/vehiclecolorid)
+- [原版车辆颜色配置](../resources/original-car-colors)

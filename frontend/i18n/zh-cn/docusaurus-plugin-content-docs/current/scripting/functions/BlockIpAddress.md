@@ -1,50 +1,50 @@
 ---
 title: BlockIpAddress
 sidebar_label: BlockIpAddress
-description: Blocks an IP address from further communication with the server for a set amount of time (with wildcards allowed).
-tags: ["ip address"]
+description: 阻止指定IP地址与服务器通信（允许使用通配符），持续指定时长。
+tags: ["ip地址"]
 ---
 
-## Description
+## 功能说明
 
-Blocks an IP address from further communication with the server for a set amount of time (with wildcards allowed). Players trying to connect to the server with a blocked IP address will receive the generic "You are banned from this server." message. Players that are online on the specified IP before the block will timeout after a few seconds and, upon reconnect, will receive the same message.
+阻止指定 IP 地址与服务器通信（允许使用通配符），持续指定时长。被封锁 IP 的玩家尝试连接时会收到通用提示信息"您已被封禁"。已在线的该 IP 玩家将在数秒后超时断开连接，重新连接时也会收到相同提示。
 
-| Name              | Description                                                                                                |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- |
-| const ipAddress[] | The IP to block.                                                                                           |
-| timeMS            | The time (in milliseconds) that the connection will be blocked for. 0 can be used for an indefinite block. |
+| 参数名            | 说明                                  |
+| ----------------- | ------------------------------------- |
+| const ipAddress[] | 要封锁的 IP 地址                      |
+| timeMS            | 封锁时长（毫秒）。使用 0 表示永久封锁 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值
 
-## Examples
+## 示例代码
 
 ```c
 public OnRconLoginAttempt(ip[], password[], success)
 {
-    if (!success) // if they supplied a bad password
+    if (!success) // 如果输入了错误密码
     {
-        BlockIpAddress(ip, 60 * 1000); // block the connections from this ip for one minute
+        BlockIpAddress(ip, 60 * 1000); // 封锁该IP地址1分钟
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Wildcards can be used with this function, for example blocking the IP '6.9._._' will block all IPs where the first two octets are 6 and 9 respectively. Any number can be in place of an asterisk.
+本函数支持通配符使用，例如封锁'6.9._._'将匹配前两组为 6 和 9 的所有 IP 地址。下划线可替代任意数字组合
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [UnBlockIpAddress](UnBlockIpAddress): Unblock an IP that was previously blocked.
-- [IsBanned](IsBanned): Checks if the given IP address is banned.
+- [UnBlockIpAddress](UnBlockIpAddress): 解除 IP 地址封锁
+- [IsBanned](IsBanned): 检测指定 IP 是否被封禁
 
-## Related Callbacks
+## 相关回调
 
-- [OnRconLoginAttempt](../callbacks/OnRconLoginAttempt): Called when someone attempts to log in to RCON in-game.
-- [OnIncomingConnection](../callbacks/OnIncomingConnection): Called when a player is attempting to connect to the server.
+- [OnRconLoginAttempt](../callbacks/OnRconLoginAttempt): 当有人尝试登录 RCON 时触发
+- [OnIncomingConnection](../callbacks/OnIncomingConnection): 当玩家尝试连接服务器时触发

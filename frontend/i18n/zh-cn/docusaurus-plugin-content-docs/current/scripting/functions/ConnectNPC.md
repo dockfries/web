@@ -1,45 +1,45 @@
 ---
 title: ConnectNPC
 sidebar_label: ConnectNPC
-description: Connect an NPC to the server.
-tags: ["npc"]
+description: 连接一个NPC到服务器
+tags: ["NPC"]
 ---
 
-## Description
+## 功能说明
 
-Connect an NPC to the server.
+在服务器中创建一个 NPC 角色
 
-| Name           | Description                                                                              |
-| -------------- | ---------------------------------------------------------------------------------------- |
-| const name[]   | The name the NPC should connect as. Must follow the same rules as normal player names.   |
-| const script[] | The NPC script name that is located in the npcmodes folder (without the .amx extension). |
+| 参数名         | 说明                                                         |
+| -------------- | ------------------------------------------------------------ |
+| const name[]   | NPC 连接时使用的名称，必须符合普通玩家命名规则               |
+| const script[] | 位于 npcmodes 文件夹中的 NPC 脚本名称（无需添加.amx 扩展名） |
 
-## Returns
+## 返回值
 
-This function always return 1.
+本函数始终返回 1
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
 {
-    ConnectNPC("[BOT]Pilot", "pilot");
+    ConnectNPC("[BOT]Pilot", "pilot"); // 连接名为[BOT]Pilot的NPC，使用pilot脚本
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-NPCs do not have nametags. These can be scripted with [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer).
+NPC 默认没有名称标签，可通过[Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer)函数添加自定义 3D 文本标签
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerNPC](IsPlayerNPC): Check if a player is an NPC or an actual player.
+- [IsPlayerNPC](IsPlayerNPC): 检测玩家是否为 NPC 角色
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerConnect](../callbacks/OnPlayerConnect): Called when a player connects to the server.
+- [OnPlayerConnect](../callbacks/OnPlayerConnect): 当玩家连接服务器时触发

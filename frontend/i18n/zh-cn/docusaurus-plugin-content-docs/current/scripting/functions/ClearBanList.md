@@ -1,55 +1,55 @@
 ---
 title: ClearBanList
 sidebar_label: ClearBanList
-description: Clears the ban list.
+description: 清空服务器封禁列表
 tags: []
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 功能说明
 
-Clears the ban list.
+清除服务器当前所有 IP 封禁记录
 
-## Returns
+## 返回值
 
-**true** - Success.
+**true** - 操作执行成功
 
-**false** - Failed to execute the function.
+**false** - 操作执行失败
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/clearbanlist", true))
     {
-        if (!IsPlayerAdmin(playerid))
+        if (!IsPlayerAdmin(playerid)) // 检查管理员权限
         {
             return 1;
         }
 
         ClearBanList();
-        SendClientMessage(playerid, -1, "[SERVER]: Ban list cleared.");
+        SendClientMessage(playerid, -1, "[服务器]: 封禁列表已清空");
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-You can see the ban list in the **bans.json** file.
+封禁记录可通过查看 **bans.json** 配置文件获取
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [BlockIpAddress](BlockIpAddress): Block an IP address from connecting to the server for a set amount of time.
-- [UnBlockIpAddress](UnBlockIpAddress): Unblock an IP that was previously blocked.
-- [Ban](Ban): Ban a player from playing on the server.
-- [BanEx](BanEx): Ban a player with a custom reason.
-- [Kick](Kick): Kick a player from the server.
-- [IsBanned](IsBanned): Checks if the given IP address is banned.
+- [BlockIpAddress](BlockIpAddress): 临时封锁 IP 地址
+- [UnBlockIpAddress](UnBlockIpAddress): 解除 IP 封锁
+- [Ban](Ban): 封禁指定玩家
+- [BanEx](BanEx): 自定义理由封禁玩家
+- [Kick](Kick): 踢出玩家
+- [IsBanned](IsBanned): 检测 IP 是否被封禁

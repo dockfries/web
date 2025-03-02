@@ -1,25 +1,25 @@
 ---
 title: BeginObjectSelecting
 sidebar_label: BeginObjectSelecting
-description: Display the cursor and allow the player to select an object.
-tags: ["object"]
+description: 显示光标并允许玩家选择物体。
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 功能说明
 
-Display the cursor and allow the player to select an object. OnPlayerSelectObject is called when the player selects an object.
+显示光标并允许玩家选择物体。当玩家选择物体时会触发 OnPlayerSelectObject 回调函数。
 
-| Name     | Description                                                   |
-| -------- | ------------------------------------------------------------- |
-| playerid | The ID of the player that should be able to select the object |
+| 参数名   | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要进行物体选择的玩家 ID |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -27,23 +27,23 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (!strcmp(cmdtext, "/select", true))
     {
         BeginObjectSelecting(playerid);
-        SendClientMessage(playerid, 0xFFFFFFFF, "SERVER: Please select the object you'd like to edit!");
+        SendClientMessage(playerid, 0xFFFFFFFF, "SERVER: 请选择您要编辑的物体！");
         return 1;
     }
     return 0;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [MoveObject](MoveObject): Move an object.
-- [BeginObjectEditing](BeginObjectEditing): Edit an object.
-- [BeginPlayerObjectEditing](BeginPlayerObjectEditing): Edit an object.
-- [EditAttachedObject](EditAttachedObject): Edit an attached object.
-- [EndObjectEditing](EndObjectEditing): Cancel the edition of an object.
+- [CreateObject](CreateObject): 创建物体
+- [DestroyObject](DestroyObject): 销毁物体
+- [MoveObject](MoveObject): 移动物体
+- [BeginObjectEditing](BeginObjectEditing): 编辑物体
+- [BeginPlayerObjectEditing](BeginPlayerObjectEditing): 编辑玩家物体
+- [EditAttachedObject](EditAttachedObject): 编辑附加物体
+- [EndObjectEditing](EndObjectEditing): 取消物体编辑
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerSelectObject](../callbacks/OnPlayerSelectObject): Called when a player selected an object.
+- [OnPlayerSelectObject](../callbacks/OnPlayerSelectObject): 当玩家选择物体时触发

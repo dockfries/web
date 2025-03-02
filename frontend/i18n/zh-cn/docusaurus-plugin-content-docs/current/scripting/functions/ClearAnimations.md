@@ -1,29 +1,29 @@
 ---
 title: ClearAnimations
 sidebar_label: ClearAnimations
-description: Clears all animations for the given player (it also cancels all current tasks such as jetpacking, parachuting, entering vehicles, driving (removes player out of vehicle), swimming, etc).
-tags: ["player", "animation"]
+description: 清除指定玩家的所有动画效果（同时取消当前所有任务，如使用喷气背包、跳伞、进入载具、驾驶（将玩家移出载具）、游泳等）
+tags: ["玩家", "动画"]
 ---
 
-## Description
+## 功能说明
 
-Clears all animations for the given player (it also cancels all current tasks such as jetpacking, parachuting, entering vehicles, driving (removes player out of vehicle), swimming, etc).
+终止指定玩家当前所有动画效果，并取消其正在进行的行为任务（包括但不限于喷气背包飞行、跳伞、进入载具过程、驾驶状态（强制移出载具）、游泳等）
 
-| Name                 | Description                                                                                                          |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| playerid             | The ID of the player to clear the animations of.                                                                     |
-| FORCE_SYNC:forceSync | Set to `SYNC_ALL` to force playerid to sync the animation with other players in streaming radius (default=SYNC_NONE) |
+| 参数名               | 说明                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------ |
+| playerid             | 目标玩家 ID                                                                          |
+| FORCE_SYNC:forceSync | 设置为`SYNC_ALL`将强制玩家在流式传输范围内同步动画状态（默认=SYNC_NONE，不强制同步） |
 
-## Returns
+## 返回值
 
-This function always returns **true**, even when the player specified is not connected.
+本函数始终返回 **true**，即使指定玩家未连接
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
-    if (!strcmp(cmdtext, "/animclear", true))
+    if (!strcmp(cmdtext, "/清除动画", true))
     {
         ClearAnimations(playerid);
         return 1;
@@ -32,20 +32,20 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-ClearAnimations doesn't do anything when the animation ends if we pass 'true' for the freeze parameter in ApplyAnimation.
+当在 ApplyAnimation 函数中使用'freeze'参数冻结动画时，ClearAnimations 在动画结束后不会生效
 
 :::
 
 :::tip
 
-Unlike some other ways to remove player from a vehicle, this will also reset the vehicle's velocity to zero, instantly stopping the car. Player will appear on top of the vehicle with the same location as he was in his car seat.
+与其他移出载具方式不同，本函数会将载具速度立即归零。玩家将出现在载具顶部，位置与其在座位上的坐标一致
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [ApplyAnimation](ApplyAnimation): Apply an animation to a player.
+- [ApplyAnimation](ApplyAnimation): 为玩家应用动画效果

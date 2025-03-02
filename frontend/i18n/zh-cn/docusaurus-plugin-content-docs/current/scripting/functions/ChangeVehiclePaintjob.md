@@ -1,38 +1,38 @@
 ---
 title: ChangeVehiclePaintjob
 sidebar_label: ChangeVehiclePaintjob
-description: Change a vehicle's paintjob.
-tags: ["vehicle"]
+description: 修改车辆的喷漆样式
+tags: ["车辆"]
 ---
 
-## Description
+## 功能说明
 
-Change a vehicle's paintjob (for plain colors see [ChangeVehicleColor](ChangeVehicleColor)).
+修改车辆的喷漆样式（纯色修改请参考[ChangeVehicleColor](ChangeVehicleColor)）
 
-| Name      | Description                                                                            |
-| --------- | -------------------------------------------------------------------------------------- |
-| vehicleid | The ID of the vehicle to change the paintjob of.                                       |
-| paintjob  | The ID of the [Paintjob](../resources/paintjobs) to apply. Use 3 to remove a paintjob. |
+| 参数名    | 说明                                                                     |
+| --------- | ------------------------------------------------------------------------ |
+| vehicleid | 目标车辆 ID                                                              |
+| paintjob  | 要应用的[喷漆样式 ID](../resources/paintjobs)。使用 3 可移除当前喷漆样式 |
 
-## Returns
+## 返回值
 
-This function always returns **true** (success), even if the vehicle passed is not created.
+本函数始终返回 **true**（执行成功），即使指定车辆不存在
 
-## Examples
+## 示例代码
 
 ```c
-new rand = random(3); // Will either be 0 1 or 2 (all valid)
+new rand = random(3); // 随机生成0、1或2（均为有效值）
 new vehicleid = GetPlayerVehicleID(playerid);
 
-ChangeVehicleColor(vehicleid, 1, 1); // making sure it is white for better result
-ChangeVehiclePaintjob(vehicleid, rand); // changes the paintjob of the player's current vehicle to a random one
+ChangeVehicleColor(vehicleid, 1, 1); // 确保车辆为白色以获得更好效果
+ChangeVehiclePaintjob(vehicleid, rand); // 将玩家当前车辆的喷漆样式改为随机样式
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-If vehicle's color is black, paintjob may not be visible. Better to make vehicle white before applying painjob by using
+若车辆颜色为黑色，喷漆样式可能无法显示。建议应用喷漆前先将车辆改为白色：
 
 ```c
 ChangeVehicleColor(vehicleid, 1, 1);
@@ -40,15 +40,15 @@ ChangeVehicleColor(vehicleid, 1, 1);
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetVehiclePaintjob](GetVehiclePaintjob): Gets the vehicle's paintjob id.
-- [ChangeVehicleColor](ChangeVehicleColor): Set the color of a vehicle.
+- [GetVehiclePaintjob](GetVehiclePaintjob): 获取车辆当前喷漆样式 ID
+- [ChangeVehicleColor](ChangeVehicleColor): 设置车辆颜色
 
-## Related Callbacks
+## 相关回调
 
-- [OnVehiclePaintjob](../callbacks/OnVehiclePaintjob): Called when a vehicle's paintjob is changed.
+- [OnVehiclePaintjob](../callbacks/OnVehiclePaintjob): 当车辆喷漆样式改变时触发
 
-## Related Resources
+## 扩展资源
 
-- [Vehicle Paintjob IDs](../resources/paintjobs)
+- [车辆喷漆样式 ID 对照表](../resources/paintjobs)

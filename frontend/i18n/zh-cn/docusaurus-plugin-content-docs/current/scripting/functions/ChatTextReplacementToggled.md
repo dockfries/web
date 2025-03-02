@@ -1,28 +1,28 @@
 ---
 title: ChatTextReplacementToggled
 sidebar_label: ChatTextReplacementToggled
-description: Checks if the chat input filtering is enabled or disabled.
+description: 检查聊天输入过滤功能是否启用
 tags: []
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 功能说明
 
-Checks if the chat input filtering is enabled or disabled.
+检测当前聊天文本过滤功能是否处于激活状态
 
-## Returns
+## 返回值
 
-true: Enable.
+true: 过滤功能已启用
 
-false: Disable.
+false: 过滤功能已禁用
 
-## Examples
+## 示例代码
 
 ```c
-printf("Chat input filter is %s", ChatTextReplacementToggled() ? "Enable" : "Disable");
+printf("聊天输入过滤器状态：%s", ChatTextReplacementToggled() ? "启用" : "禁用");
 ```
 
-## Related Functions
+## 相关函数
 
-- [ToggleChatTextReplacement](ToggleChatTextReplacement): Toggles the chat input filter.
+- [ToggleChatTextReplacement](ToggleChatTextReplacement): 切换聊天文本过滤功能开关

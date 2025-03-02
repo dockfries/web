@@ -1,57 +1,57 @@
 ---
 title: CallRemoteFunction
 sidebar_label: CallRemoteFunction
-description: Calls a public function in any script that is loaded.
-tags: ["core"]
+description: 调用任意已加载脚本中的公共函数。
+tags: ["核心"]
 ---
 
-## Description
+## 功能说明
 
-Calls a public function in any script that is loaded.
+调用任意已加载脚本中的公共函数。
 
-| Name                 | Description                                 |
-| -------------------- | ------------------------------------------- |
-| const functionName[] | Public function's name.                     |
-| const specifiers[]   | Tag/format of each variable                 |
-| OPEN_MP_TAGS:...     | 'Indefinite' number of arguments of any tag |
+| 参数名               | 说明                                     |
+| -------------------- | ---------------------------------------- |
+| const functionName[] | 目标公共函数名称                         |
+| const specifiers[]   | 参数格式说明符（指定每个参数的数据类型） |
+| OPEN_MP_TAGS:...     | 不定数量且任意标签类型的参数             |
 
-## Returns
+## 返回值
 
-The value that the last public function returned.
+返回最后一个被调用函数的执行结果
 
-## Format Specifiers
+## 格式说明符
 
-| **Placeholder** | **Meaning**                                                                                                                                                                                                                                                                                   |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `a`             | Passes an array (the next placeholder should be d or i for the array size, so the function will be aware of it).<br/><br/>**NOTE**: It accepts only one dimension, so a trick like sizeof (array) + sizeof (array) \* sizeof (array[]) for the array size would be needed to pass a 2D array. |
-| `c`             | Passes a single character.                                                                                                                                                                                                                                                                    |
-| `d`,`i`         | Passes an integer (whole) number.                                                                                                                                                                                                                                                             |
-| `x`             | Passes a number in hexadecimal notation.                                                                                                                                                                                                                                                      |
-| `f`             | Passes a floating point number.                                                                                                                                                                                                                                                               |
-| `s`             | Passes a string.                                                                                                                                                                                                                                                                              |
+| **占位符** | **含义说明**                                                                                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `a`        | 传递数组（需紧跟 d/i 说明符指定数组长度）<br/><br/>**注意**：仅支持一维数组，传递二维数组时需通过计算数组长度（如 sizeof(array) + sizeof(array)\*sizeof(array[])） |
+| `c`        | 传递单个字符                                                                                                                                                       |
+| `d`,`i`    | 传递整型数值                                                                                                                                                       |
+| `x`        | 传递十六进制数值                                                                                                                                                   |
+| `f`        | 传递浮点数值                                                                                                                                                       |
+| `s`        | 传递字符串                                                                                                                                                         |
 
-## Examples
+## 示例代码
 
 ```c
 forward CallMe(number, const string[]);
 public CallMe(number, const string[])
 {
-    printf("CallMe called. Int: %i  String: %s.", number, string);
+    printf("CallMe被调用。整型参数: %i  字符串参数: %s", number, string);
     return 1;
 }
 
-// Somewhere... in another file perhaps?
-CallRemoteFunction("CallMe", "is", 69, "this is a string");
+// 在另一个脚本文件中...
+CallRemoteFunction("CallMe", "is", 69, "这是一个字符串");
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-CallRemoteFunction crashes the server if it's passing an empty string. (Fixed in open.mp)
+在传递空字符串时原版 SA-MP 会导致服务器崩溃（open.mp 版本已修复此问题）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CallLocalFunction](CallLocalFunction): Call a function in the script.
+- [CallLocalFunction](CallLocalFunction): 调用当前脚本中的函数

@@ -1,27 +1,29 @@
 ---
 title: clamp
 sidebar_label: clamp
-description: Force a value to be inside a range.
-tags: ["core"]
+description: 将数值强制限制在指定范围内
+tags: ["核心功能"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 功能说明
 
-Force a value to be inside a range.
+将输入的数值强制限制在指定的区间范围内
 
-| Name  | Description                                       |
-| ----- | ------------------------------------------------- |
-| value | The value to force in a range.                    |
-| min   | The low bound of the range. _(optional=cellmin)_  |
-| max   | The high bound of the range. _(optional=cellmax)_ |
+| 参数名 | 说明                                    |
+| ------ | --------------------------------------- |
+| value  | 需要限制范围的数值                      |
+| min    | 区间下限值（可选参数，默认值：cellmin） |
+| max    | 区间上限值（可选参数，默认值：cellmax） |
 
-## Returns
+## 返回值
 
-value, if it is in the range min–max, min, if value is lower than min or max, if value is higher than max.
+- 当数值在 min~max 区间时，返回原值
+- 当数值小于 min 时，返回 min
+- 当数值大于 max 时，返回 max
 
-## Examples
+## 示例代码
 
 ```c
 new
@@ -29,7 +31,7 @@ new
     valueB = 7,
     valueC = 100
 ;
-printf("The value is: %d", clamp(valueA, 5, 10)); // output: "The value is: 5" because 3 is less than 5.
-printf("The value is: %d", clamp(valueB, 5, 10)); // output: "The value is: 7" because 7 is between 5 and 10.
-printf("The value is: %d", clamp(valueC, 5, 10)); // output: "The value is: 10" because 100 is more than 10.
+printf("计算结果：%d", clamp(valueA, 5, 10)); // 输出："计算结果：5"（3小于下限5）
+printf("计算结果：%d", clamp(valueB, 5, 10)); // 输出："计算结果：7"（7在5~10区间）
+printf("计算结果：%d", clamp(valueC, 5, 10)); // 输出："计算结果：10"（100超过上限10）
 ```
