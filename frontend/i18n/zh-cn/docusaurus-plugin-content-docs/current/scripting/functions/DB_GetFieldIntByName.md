@@ -7,7 +7,7 @@ keywords:
 tags: ["sqlite"]
 ---
 
-## 说明
+## 描述
 
 该函数通过字段名称从[DB_ExecuteQuery](DB_ExecuteQuery)分配的查询结果中获取整数值。
 

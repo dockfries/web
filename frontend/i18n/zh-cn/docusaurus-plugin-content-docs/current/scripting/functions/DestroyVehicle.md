@@ -1,25 +1,25 @@
 ---
 title: DestroyVehicle
 sidebar_label: DestroyVehicle
-description: Destroy a vehicle.
-tags: ["vehicle"]
+description: 销毁一辆车辆。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Destroy a vehicle. It will disappear instantly.
+销毁一辆车辆。该车辆将立即消失。
 
-| Name      | Description                       |
-| --------- | --------------------------------- |
-| vehicleid | The ID of the vehicle to destroy. |
+| 名称      | 描述            |
+| --------- | --------------- |
+| vehicleid | 要销毁的车辆 ID |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The vehicle does not exist.
+**false** - 函数执行失败（车辆不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -37,8 +37,8 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateVehicle](CreateVehicle): Create a vehicle.
-- [RemovePlayerFromVehicle](RemovePlayerFromVehicle): Throw a player out of their vehicle.
-- [SetVehicleToRespawn](SetVehicleToRespawn): Respawn a vehicle.
+- [CreateVehicle](CreateVehicle): 创建一辆车辆
+- [RemovePlayerFromVehicle](RemovePlayerFromVehicle): 将玩家从其车辆中移出
+- [SetVehicleToRespawn](SetVehicleToRespawn): 重置一辆车辆

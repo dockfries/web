@@ -1,28 +1,28 @@
 ---
 title: DisableRemoteVehicleCollisions
 sidebar_label: DisableRemoteVehicleCollisions
-description: Disables collisions between occupied vehicles for a player.
-tags: ["vehicle"]
+description: 禁用玩家已占用车辆之间的碰撞。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Disables collisions between occupied vehicles for a player.
+禁用玩家已占用载具之间的碰撞检测。
 
-| Name         | Description                                                   |
-| ------------ | ------------------------------------------------------------- |
-| playerid     | The ID of the player for whom you want to disable collisions. |
-| bool:disable | 'true' to disable collisions, 'false' to enable collisions.   |
+| 名称         | 描述                           |
+| ------------ | ------------------------------ |
+| playerid     | 要设置碰撞状态的玩家 ID        |
+| bool:disable | true 禁用碰撞 / false 启用碰撞 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player specified does not exist.
+**false** - 函数执行失败（指定玩家不存在）
 
-## Examples
+## 示例
 
 ```c
 new bool:gPlayerVehicleCollision[MAX_PLAYERS];
@@ -33,7 +33,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
     {
         new string[64];
 
-        format(string, sizeof(string), "Vehicle collision for you is now '%s'", (gPlayerVehicleCollision[playerid] == false) ? ("Disabled") : ("Enabled"));
+        format(string, sizeof(string), "您的车辆碰撞状态已设置为「%s」", (gPlayerVehicleCollision[playerid] == false) ? ("禁用") : ("启用"));
         SendClientMessage(playerid, 0xFFFFFFFF, string);
 
         gPlayerVehicleCollision[playerid] = !gPlayerVehicleCollision[playerid];

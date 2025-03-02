@@ -1,25 +1,25 @@
 ---
 title: EndObjectEditing
 sidebar_label: EndObjectEditing
-description: Cancel object edition mode for a player.
-tags: ["object"]
+description: 取消玩家的物体编辑模式。
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Cancel object edition mode for a player
+强制终止指定玩家的物体编辑状态。
 
-| Name     | Description                                |
-| -------- | ------------------------------------------ |
-| playerid | The ID of the player to cancel edition for |
+| 名称     | 描述                |
+| -------- | ------------------- |
+| playerid | 要终止编辑的玩家 ID |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -27,19 +27,19 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (!strcmp(cmdtext, "/stopedit", true))
     {
         EndObjectEditing(playerid);
-        SendClientMessage(playerid, 0xFFFFFFFF, "SERVER: You stopped editing the object!");
+        SendClientMessage(playerid, 0xFFFFFFFF, "服务器：物体编辑已终止！");
         return 1;
     }
     return 0;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [BeginObjectSelecting](BeginObjectSelecting): Select an object.
-- [BeginObjectEditing](BeginObjectEditing): Edit an object.
-- [BeginPlayerObjectEditing](BeginPlayerObjectEditing): Edit an player-object.
-- [EditAttachedObject](EditAttachedObject): Edit an attached object.
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [MoveObject](MoveObject): Move an object.
+- [BeginObjectSelecting](BeginObjectSelecting): 进入物体选择模式
+- [BeginObjectEditing](BeginObjectEditing): 开始编辑全局物体
+- [BeginPlayerObjectEditing](BeginPlayerObjectEditing): 开始编辑玩家专属物体
+- [EditAttachedObject](EditAttachedObject): 编辑附加物体
+- [CreateObject](CreateObject): 创建全局物体
+- [DestroyObject](DestroyObject): 销毁全局物体
+- [MoveObject](MoveObject): 移动全局物体

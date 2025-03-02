@@ -7,7 +7,7 @@ keywords:
 tags: ["sqlite"]
 ---
 
-## 说明
+## 描述
 
 该函数用于获取通过[DB_Open](DB_Open)建立的 SQLite 数据库连接的内存句柄。
 

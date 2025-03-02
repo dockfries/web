@@ -5,7 +5,7 @@ description: 将3D文本标签附加到玩家身上。
 tags: ["player", "3dtextlabel"]
 ---
 
-## 说明
+## 描述
 
 将 3D 文本标签附加到玩家身上。
 

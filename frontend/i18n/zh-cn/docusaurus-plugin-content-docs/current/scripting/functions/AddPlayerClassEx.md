@@ -5,7 +5,7 @@ description: 本函数与AddPlayerClass功能相同，新增团队参数
 tags: ["玩家", "职业"]
 ---
 
-## 说明
+## 描述
 
 本函数功能与 AddPlayerClass 完全一致，额外增加团队参数支持。
 

@@ -1,43 +1,43 @@
 ---
 title: EnableTirePopping
 sidebar_label: EnableTirePopping
-description: With this function you can enable or disable tire popping.
+description: 通过此函数可以启用或禁用轮胎爆胎效果。
 tags: []
 ---
 
-## Description
+## 描述
 
-With this function you can enable or disable tire popping.
+通过此函数可以启用或禁用载具轮胎爆胎机制。
 
-| Name        | Description                                        |
-| ----------- | -------------------------------------------------- |
-| bool:enable | 'true' to enable, 'false' to disable tire popping. |
+| 名称        | 描述                                   |
+| ----------- | -------------------------------------- |
+| bool:enable | true 启用轮胎爆胎 / false 禁用轮胎爆胎 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    // This will disable tire popping on your gamemode.
+    // 这将禁用游戏模式中的轮胎爆胎机制
     EnableTirePopping(false);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-- This function was removed in SA-MP 0.3.
-- Tire popping is enabled by default.
-- If you want to disable tire popping, you'll have to manually script it using [OnVehicleDamageStatusUpdate](OnVehicleDamageStatusUpdate).
+- 该函数已在 SA-MP 0.3 版本移除
+- 轮胎爆胎机制默认启用
+- 若需禁用该功能，需通过 [OnVehicleDamageStatusUpdate](../callbacks/OnVehicleDamageStatusUpdate) 回调手动实现
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerTeam](SetPlayerTeam): Set a player's team.
+- [SetPlayerTeam](SetPlayerTeam): 设置玩家队伍

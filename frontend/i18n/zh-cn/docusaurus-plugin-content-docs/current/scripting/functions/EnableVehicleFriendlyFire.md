@@ -1,24 +1,28 @@
 ---
 title: EnableVehicleFriendlyFire
 sidebar_label: EnableVehicleFriendlyFire
-description: Enable friendly fire for team vehicles.
-tags: ["vehicle"]
+description: 启用队伍车辆的友军伤害机制。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Enable friendly fire for team vehicles. Players will be unable to damage teammates' vehicles (SetPlayerTeam must be used!).
+启用队伍车辆的友军伤害机制。玩家将能够攻击同队成员的载具（必须使用 [SetPlayerTeam](SetPlayerTeam) 设置队伍）。
 
-## Examples
+## 返回值
+
+该函数不返回特定值。
+
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    EnableVehicleFriendlyFire();
+    EnableVehicleFriendlyFire(); // 启用友军伤害
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerTeam](SetPlayerTeam): Set a player's team.
+- [SetPlayerTeam](SetPlayerTeam): 设置玩家队伍

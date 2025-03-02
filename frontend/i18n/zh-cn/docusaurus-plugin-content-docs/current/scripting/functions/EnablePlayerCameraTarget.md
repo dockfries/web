@@ -1,40 +1,40 @@
 ---
 title: EnablePlayerCameraTarget
 sidebar_label: EnablePlayerCameraTarget
-description: Toggle camera targeting functions for a player.
-tags: ["player"]
+description: 切换玩家的摄像机目标功能（默认禁用以节省带宽）。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Toggle camera targeting functions for a player. Disabled by default to save bandwidth.
+切换玩家的摄像机目标检测功能。该功能默认禁用以节省网络带宽。
 
-| Name        | Description                                                              |
-| ----------- | ------------------------------------------------------------------------ |
-| playerid    | The ID of the player to toggle camera targeting functions for.           |
-| bool:enable | 'true' to enable camera targeting functions and 'false' to disable them. |
+| 名称        | 描述                          |
+| ----------- | ----------------------------- |
+| playerid    | 要设置摄像机目标功能的玩家 ID |
+| bool:enable | true 启用 / false 禁用        |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player is not connected.
+**false** - 函数执行失败（玩家未连接）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerConnect(playerid)
 {
-     EnablePlayerCameraTarget(playerid, true);
+     EnablePlayerCameraTarget(playerid, true); // 玩家连接时启用摄像机目标功能
      return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerCameraTargetEnabled](IsPlayerCameraTargetEnabled): Check if the player camera target is enabled.
-- [GetPlayerCameraTargetVehicle](GetPlayerCameraTargetVehicle): Get the ID of the vehicle a player is looking at.
-- [GetPlayerCameraTargetPlayer](GetPlayerCameraTargetPlayer): Get the ID of the player a player is looking at.
-- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): Get the player's camera front vector
+- [IsPlayerCameraTargetEnabled](IsPlayerCameraTargetEnabled): 检查玩家摄像机目标是否启用
+- [GetPlayerCameraTargetVehicle](GetPlayerCameraTargetVehicle): 获取玩家正在观察的车辆 ID
+- [GetPlayerCameraTargetPlayer](GetPlayerCameraTargetPlayer): 获取玩家正在观察的其他玩家 ID
+- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): 获取玩家摄像机前向向量

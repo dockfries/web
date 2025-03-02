@@ -7,7 +7,7 @@ keywords:
 tags: ["sqlite"]
 ---
 
-## 说明
+## 描述
 
 释放由[DB_ExecuteQuery](DB_ExecuteQuery)分配的查询结果内存。
 

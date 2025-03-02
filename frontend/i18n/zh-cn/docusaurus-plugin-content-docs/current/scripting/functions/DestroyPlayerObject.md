@@ -1,24 +1,24 @@
 ---
 title: DestroyPlayerObject
 sidebar_label: DestroyPlayerObject
-description: Destroy a player-object created using CreatePlayerObject.
-tags: ["player", "object", "playerobject"]
+description: 销毁通过 CreatePlayerObject 创建的玩家专属物体。
+tags: ["玩家", "物体", "玩家专属物体"]
 ---
 
-## Description
+## 描述
 
-Destroy a player-object created using [CreatePlayerObject](CreatePlayerObject).
+销毁通过 [CreatePlayerObject](CreatePlayerObject) 创建的玩家专属物体。
 
-| Name     | Description                                                             |
-| -------- | ----------------------------------------------------------------------- |
-| playerid | The ID of the player whose player-object to destroy.                    |
-| objectid | The ID of the player-object to destroy. Returned by CreatePlayerObject. |
+| 名称     | 描述                                                  |
+| -------- | ----------------------------------------------------- |
+| playerid | 要销毁其玩家专属物体的玩家 ID                         |
+| objectid | 要销毁的玩家专属物体 ID（由 CreatePlayerObject 返回） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerObjectMoved(playerid, objectid)
@@ -28,24 +28,24 @@ public OnPlayerObjectMoved(playerid, objectid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [MovePlayerObject](MovePlayerObject): Move a player object.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [SetPlayerObjectRot](SetPlayerObjectRot): Set the rotation of a player object.
-- [GetPlayerObjectPos](GetPlayerObjectPos): Locate a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
-- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): Attach a player object to a player.
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [MoveObject](MoveObject): Move an object.
-- [StopObject](StopObject): Stop an object from moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
+- [CreatePlayerObject](CreatePlayerObject): 创建玩家专属物体
+- [IsValidPlayerObject](IsValidPlayerObject): 检查指定玩家专属物体是否有效
+- [MovePlayerObject](MovePlayerObject): 移动玩家专属物体
+- [StopPlayerObject](StopPlayerObject): 停止玩家专属物体移动
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置玩家专属物体位置
+- [SetPlayerObjectRot](SetPlayerObjectRot): 设置玩家专属物体旋转角度
+- [GetPlayerObjectPos](GetPlayerObjectPos): 获取玩家专属物体位置
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取玩家专属物体旋转角度
+- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 将玩家专属物体附加到指定玩家
+- [CreateObject](CreateObject): 创建全局物体
+- [DestroyObject](DestroyObject): 销毁全局物体
+- [IsValidObject](IsValidObject): 检查指定全局物体是否有效
+- [MoveObject](MoveObject): 移动全局物体
+- [StopObject](StopObject): 停止全局物体移动
+- [SetObjectPos](SetObjectPos): 设置全局物体位置
+- [SetObjectRot](SetObjectRot): 设置全局物体旋转角度
+- [GetObjectPos](GetObjectPos): 获取全局物体位置
+- [GetObjectRot](GetObjectRot): 获取全局物体旋转角度
+- [AttachObjectToPlayer](AttachObjectToPlayer): 将全局物体附加到玩家

@@ -7,7 +7,7 @@ keywords:
 tags: ["sqlite"]
 ---
 
-## 说明
+## 描述
 
 该函数用于在已打开的 SQLite 数据库上执行 SQL 查询语句。
 

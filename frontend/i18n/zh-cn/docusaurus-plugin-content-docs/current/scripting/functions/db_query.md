@@ -8,7 +8,7 @@ keywords:
 
 <LowercaseNote />
 
-## 说明
+## 描述
 
 该函数用于在已建立的 SQLite 数据库连接上执行 SQL 查询。
 

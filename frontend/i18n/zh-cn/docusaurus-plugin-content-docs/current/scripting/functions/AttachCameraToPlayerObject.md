@@ -5,7 +5,7 @@ description: 将玩家的视角附加到玩家创建的物体上。
 tags: ["玩家", "视角"]
 ---
 
-## 说明
+## 描述
 
 将玩家的视角附加到玩家创建的物体上。玩家在视角附加期间仍可自由操控视角，可与 MovePlayerObject 及 AttachPlayerObjectToVehicle 配合使用。
 

@@ -10,7 +10,7 @@ keywords:
 
 <VersionWarn version='SA-MP 0.3.7 R1' />
 
-## 说明
+## 描述
 
 获取通过[db_open](db_open)建立的 SQLite 数据库连接的内存句柄。
 

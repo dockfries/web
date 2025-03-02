@@ -9,7 +9,7 @@ tags: ["sqlite"]
 
 <LowercaseNote />
 
-## 说明
+## 描述
 
 该函数用于建立与`/scriptfiles`目录下的 SQLite 数据库文件的连接。
 

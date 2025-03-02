@@ -8,7 +8,7 @@ keywords:
 
 <LowercaseNote />
 
-## 说明
+## 描述
 
 该函数用于跳转到通过[db_query](db_query)分配的查询结果集的下一行。
 

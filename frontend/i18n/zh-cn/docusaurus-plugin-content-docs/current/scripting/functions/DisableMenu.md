@@ -1,23 +1,23 @@
 ---
 title: DisableMenu
 sidebar_label: DisableMenu
-description: Disable a menu.
-tags: ["menu"]
+description: 禁用一个菜单。
+tags: ["菜单"]
 ---
 
-## Description
+## 描述
 
-Disable a menu.
+禁用一个菜单。
 
-| Name        | Description                    |
-| ----------- | ------------------------------ |
-| Menu:menuid | The ID of the menu to disable. |
+| 名称        | 描述            |
+| ----------- | --------------- |
+| Menu:menuid | 要禁用的菜单 ID |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 new WeaponMenu;
@@ -36,24 +36,24 @@ public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/disableguns", true))
     {
-        DisableMenu(WeaponMenu); //Disable the weapon menu
+        DisableMenu(WeaponMenu); // 禁用武器菜单
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Crashes when passed an invalid menu ID.
+传入无效菜单 ID 会导致崩溃。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreateMenu](CreateMenu): Create a menu.
-- [DestroyMenu](DestroyMenu): Destroy a menu.
-- [AddMenuItem](AddMenuItem): Add an item to a menu.
-- [IsMenuDisabled](IsMenuDisabled): Check if a menu is disabled.
+- [CreateMenu](CreateMenu): 创建一个菜单
+- [DestroyMenu](DestroyMenu): 销毁一个菜单
+- [AddMenuItem](AddMenuItem): 为菜单添加项目
+- [IsMenuDisabled](IsMenuDisabled): 检查菜单是否被禁用

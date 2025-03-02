@@ -1,45 +1,47 @@
 ---
 title: Delete3DTextLabel
 sidebar_label: Delete3DTextLabel
-description: Delete a 3D text label (created with Create3DTextLabel).
+description: 删除通过Create3DTextLabel创建的3D文本标签。
 tags: ["3dtextlabel"]
 ---
 
-## Description
+## 描述
 
-Delete a 3D text label (created with Create3DTextLabel).
+该函数用于删除通过[Create3DTextLabel](Create3DTextLabel)创建的 3D 文本标签。
 
-| Name          | Description                            |
-| ------------- | -------------------------------------- |
-| Text3D:textid | The ID of the 3D text label to delete. |
+| 参数名        | 描述                    |
+| ------------- | ----------------------- |
+| Text3D:textid | 要删除的 3D 文本标签 ID |
 
-## Returns
+## 返回值
 
-**true** if the 3D text label was deleted, otherwise **false**.
+- ​**true**​ - 3D 文本标签删除成功
+- ​**false**​ - 3D 文本标签删除失败
 
-## Examples
+## 示例
 
 ```c
 new Text3D:gMyLabel;
 
 public OnGameModeInit()
 {
-    gMyLabel = Create3DTextLabel("I'm at the coordinates:\n30.0, 40.0, 50.0", 0x008080FF, 30.0, 40.0, 50.0, 40.0, 0, false);
+    // 创建3D文本标签
+    gMyLabel = Create3DTextLabel("当前坐标:\n30.0, 40.0, 50.0", 0x008080FF, 30.0, 40.0, 50.0, 40.0, 0, false);
     return 1;
 }
 
-// Later
+// 稍后使用时删除标签
 Delete3DTextLabel(gMyLabel);
 ```
 
-## Related Functions
+## 相关函数
 
-- [Create3DTextLabel](Create3DTextLabel): Create a 3D text label.
-- [IsValid3DTextLabel](IsValid3DTextLabel): Checks if a 3D text label is valid.
-- [Is3DTextLabelStreamedIn](Is3DTextLabelStreamedIn): Checks if a 3D text label is streamed in for a player.
-- [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer): Attach a 3D text label to a player.
-- [Attach3DTextLabelToVehicle](Attach3DTextLabelToVehicle): Attach a 3D text label to a vehicle.
-- [Update3DTextLabelText](Update3DTextLabelText): Change the text of a 3D text label.
-- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): Create A 3D text label for one player.
-- [DeletePlayer3DTextLabel](DeletePlayer3DTextLabel): Delete a player's 3D text label.
-- [UpdatePlayer3DTextLabelText](UpdatePlayer3DTextLabelText): Change the text of a player's 3D text label.
+- [Create3DTextLabel](Create3DTextLabel): 创建 3D 文本标签
+- [IsValid3DTextLabel](IsValid3DTextLabel): 验证 3D 文本标签是否有效
+- [Is3DTextLabelStreamedIn](Is3DTextLabelStreamedIn): 检查 3D 文本标签是否对玩家可见
+- [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer): 将标签附加到玩家身上
+- [Attach3DTextLabelToVehicle](Attach3DTextLabelToVehicle): 将标签附加到载具上
+- [Update3DTextLabelText](Update3DTextLabelText): 更新标签文本内容
+- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): 为单个玩家创建标签
+- [DeletePlayer3DTextLabel](DeletePlayer3DTextLabel): 删除玩家的私有标签
+- [UpdatePlayer3DTextLabelText](UpdatePlayer3DTextLabelText): 更新玩家私有标签文本

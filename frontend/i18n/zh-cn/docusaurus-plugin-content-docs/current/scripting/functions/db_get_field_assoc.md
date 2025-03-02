@@ -8,7 +8,7 @@ keywords:
 
 <LowercaseNote />
 
-## 说明
+## 描述
 
 通过字段名称获取当前结果行的字符串内容。
 

@@ -1,15 +1,15 @@
 ---
 title: DisableNameTagLOS
 sidebar_label: DisableNameTagLOS
-description: Disables the nametag Line-Of-Sight checking so that players can see nametags through objects.
+description: 禁用名牌的视线检测，使玩家可以透过物体查看名牌。
 tags: []
 ---
 
-## Description
+## 描述
 
-Disables the nametag Line-Of-Sight checking so that players can see nametags through objects.
+禁用名牌的视线检测机制，玩家名牌将无视物体遮挡显示。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -19,17 +19,17 @@ public OnGameModeInit()
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This can not be reversed until the server restarts.
+该功能在服务器重启前不可逆。
 
 :::
 
 :::tip
 
-You can also disable nametags Line-Of-Sight via [config.json](../../server/config.json)
+可通过 [config.json](../../server/config.json) 配置文件禁用名牌视线检测：
 
 ```json
 "use_nametag_los": false,
@@ -37,7 +37,7 @@ You can also disable nametags Line-Of-Sight via [config.json](../../server/confi
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [ShowNameTags](ShowNameTags): Set nametags on or off.
-- [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer): Show or hide a nametag for a certain player.
+- [ShowNameTags](ShowNameTags): 全局控制名牌显示状态
+- [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer): 按玩家控制名牌可见性

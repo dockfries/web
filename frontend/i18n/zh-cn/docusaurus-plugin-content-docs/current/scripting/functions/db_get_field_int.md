@@ -8,7 +8,7 @@ keywords:
 
 <LowercaseNote />
 
-## 说明
+## 描述
 
 通过字段索引从[db_query](db_query)结果中获取整数值。
 

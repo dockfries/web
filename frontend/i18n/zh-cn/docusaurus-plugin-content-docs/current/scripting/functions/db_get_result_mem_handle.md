@@ -10,7 +10,7 @@ keywords:
 
 <VersionWarn version='SA-MP 0.3.7 R1' />
 
-## 说明
+## 描述
 
 该函数用于获取通过[db_query](db_query)分配的 SQLite 数据库结果集内存句柄。
 

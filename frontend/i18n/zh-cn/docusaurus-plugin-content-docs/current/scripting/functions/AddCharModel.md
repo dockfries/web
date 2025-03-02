@@ -7,7 +7,7 @@ tags: ["自定义皮肤", "角色模型"]
 
 <VersionWarn version='SA-MP 0.3.DL R1' />
 
-## 说明
+## 描述
 
 添加可供下载的新自定义角色模型。模型文件将存储在玩家的「文档\GTA San Andreas User Files\SAMP\cache」目录下，按服务器 IP 和端口分类的文件夹中，并以 CRC 格式文件名保存。
 

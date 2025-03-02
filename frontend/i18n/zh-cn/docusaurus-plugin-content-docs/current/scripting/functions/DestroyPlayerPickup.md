@@ -1,46 +1,46 @@
 ---
 title: DestroyPlayerPickup
 sidebar_label: DestroyPlayerPickup
-description: Destroys a player-pickup created with CreatePlayerPickup.
-tags: ["player", "pickup", "playerpickup"]
+description: 销毁通过 CreatePlayerPickup 创建的玩家专属拾取物。
+tags: ["玩家", "拾取物", "玩家专属拾取物"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Destroys a player-pickup created with [CreatePlayerPickup](CreatePlayerPickup).
+销毁通过 [CreatePlayerPickup](CreatePlayerPickup) 创建的玩家专属拾取物。
 
-| Name     | Description                                                              |
-| -------- | ------------------------------------------------------------------------ |
-| playerid | The ID of the player.                                                    |
-| pickupid | The ID of the player-pickup to destroy (returned by CreatePlayerPickup). |
+| 名称     | 描述                                                    |
+| -------- | ------------------------------------------------------- |
+| playerid | 目标玩家 ID                                             |
+| pickupid | 要销毁的玩家专属拾取物 ID（由 CreatePlayerPickup 返回） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
-new PlayerPickupArmour[MAX_PLAYERS]; // Create a variable to store the player-pickup ID in
+new PlayerPickupArmour[MAX_PLAYERS]; // 创建存储玩家专属拾取物ID的数组
 
 public OnPlayerConnect(playerid)
 {
     PlayerPickupArmour[playerid] = CreatePlayerPickup(playerid, 1242, 2, 2010.0979, 1222.0642, 10.8206, -1);
-    // Create an armour pickup and store the ID in 'PlayerPickupArmour[playerid]'
+    // 创建护甲拾取物并将ID存储到 PlayerPickupArmour[playerid]
     return 1;
 }
 
-// Some time later...
+// 一段时间后...
 DestroyPlayerPickup(playerid, PlayerPickupArmour[playerid]);
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerPickup](CreatePlayerPickup): Creates a pickup which will be visible to only one player.
-- [IsValidPlayerPickup](IsValidPlayerPickup): Checks if a player-pickup is valid.
+- [CreatePlayerPickup](CreatePlayerPickup): 创建仅对单个玩家可见的拾取物
+- [IsValidPlayerPickup](IsValidPlayerPickup): 检查玩家专属拾取物是否有效
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerPickUpPlayerPickup](../callbacks/OnPlayerPickUpPlayerPickup): Called when a player picks up a player-pickup.
+- [OnPlayerPickUpPlayerPickup](../callbacks/OnPlayerPickUpPlayerPickup): 当玩家拾取专属拾取物时触发

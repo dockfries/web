@@ -4,7 +4,7 @@ sidebar_label: "server.cfg"
 description: 服务器配置文件
 ---
 
-## 说明
+## 描述
 
 - `server.cfg` 是用于配置 SA-MP 服务器各项参数的配置文件
 - 该文件是服务器的必要组成部分，必须与服务器应用程序 (samp-server.exe) 位于同一目录

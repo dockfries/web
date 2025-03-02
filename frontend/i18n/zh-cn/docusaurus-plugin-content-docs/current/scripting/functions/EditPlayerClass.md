@@ -1,46 +1,46 @@
 ---
 title: EditPlayerClass
 sidebar_label: EditPlayerClass
-description: Edit a class data.
-tags: ["class"]
+description: 编辑一个职业数据。
+tags: ["职业"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Edit a class data.
+编辑已定义的玩家职业数据。
 
-| Name           | Description                                                      |
-| -------------- | ---------------------------------------------------------------- |
-| classid        | The class id to edit.                                            |
-| team           | The team you want the player to spawn in.                        |
-| skin           | The [skin](../resources/skins) which the player will spawn with. |
-| Float:spawnX   | The X coordinate of the spawnpoint of this class.                |
-| Float:spawnY   | The Y coordinate of the spawnpoint of this class.                |
-| Float:spawnZ   | The Z coordinate of the spawnpoint of this class.                |
-| Float:angle    | The direction in which the player will face after spawning.      |
-| WEAPON:weapon1 | The first spawn-weapon for the player.                           |
-| ammo1          | The amount of ammunition for the first spawn weapon.             |
-| WEAPON:weapon2 | The second spawn-weapon for the player.                          |
-| ammo2          | The amount of ammunition for the second spawn weapon.            |
-| WEAPON:weapon3 | The third spawn-weapon for the player.                           |
-| ammo3          | The amount of ammunition for the third spawn weapon.             |
+| 名称           | 描述                                   |
+| -------------- | -------------------------------------- |
+| classid        | 要编辑的职业 ID                        |
+| team           | 玩家生成时所属队伍                     |
+| skin           | 生成时使用的[皮肤](../resources/skins) |
+| Float:spawnX   | 生成点 X 坐标                          |
+| Float:spawnY   | 生成点 Y 坐标                          |
+| Float:spawnZ   | 生成点 Z 坐标                          |
+| Float:angle    | 生成时面朝方向（角度）                 |
+| WEAPON:weapon1 | 首把生成武器                           |
+| ammo1          | 首把武器弹药量                         |
+| WEAPON:weapon2 | 第二把生成武器                         |
+| ammo2          | 第二把武器弹药量                       |
+| WEAPON:weapon3 | 第三把生成武器                         |
+| ammo3          | 第三把武器弹药量                       |
 
-## Examples
+## 示例
 
 ```c
-// Edit class id 10
+// 编辑职业ID 10
 EditPlayerClass(10, TEAM_NONE, 299, -253.8291, 2602.9312, 62.8527, -90.0000, WEAPON_KNIFE, 1, WEAPON_MP5, 100, WEAPON_COLT45, 20);
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddPlayerClass](AddPlayerClass): Adds a class.
-- [AddPlayerClassEx](AddPlayerClassEx): Add a class with a default team.
-- [GetAvailableClasses](GetAvailableClasses): Get the number of classes defined.
+- [AddPlayerClass](AddPlayerClass): 添加职业
+- [AddPlayerClassEx](AddPlayerClassEx): 添加带默认队伍的职业
+- [GetAvailableClasses](GetAvailableClasses): 获取已定义职业数量
 
-## Related Resources
+## 相关资源
 
-- [Skin IDs](../resources/skins)
-- [Weapon IDs](../resources/weaponids)
+- [皮肤 ID](../resources/skins)
+- [武器 ID](../resources/weaponids)

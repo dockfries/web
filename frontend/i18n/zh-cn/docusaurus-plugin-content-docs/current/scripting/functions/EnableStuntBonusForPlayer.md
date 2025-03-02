@@ -1,35 +1,35 @@
 ---
 title: EnableStuntBonusForPlayer
 sidebar_label: EnableStuntBonusForPlayer
-description: Toggle stunt bonuses for a player.
-tags: ["player"]
+description: 切换玩家的特技奖励功能。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Toggle stunt bonuses for a player. Enabled by default.
+切换指定玩家的载具特技奖励（默认启用）。
 
-| Name        | Description                                                 |
-| ----------- | ----------------------------------------------------------- |
-| playerid    | The ID of the player to toggle stunt bonuses for.           |
-| bool:enable | 'true' to enable stunt bonuses and 'false' to disable them. |
+| 名称        | 描述                    |
+| ----------- | ----------------------- |
+| playerid    | 要设置特技奖励的玩家 ID |
+| bool:enable | true 启用 / false 禁用  |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player is not connected.
+**false** - 函数执行失败（玩家未连接）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    EnableStuntBonusForPlayer(playerid, false); // Disable stunt bonuses when the player connects to the server.
+    EnableStuntBonusForPlayer(playerid, false); // 玩家连接时禁用其特技奖励
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [EnableStuntBonusForAll](EnableStuntBonusForAll): Toggle stunt bonuses for all players.
+- [EnableStuntBonusForAll](EnableStuntBonusForAll): 为所有玩家切换特技奖励功能

@@ -1,43 +1,43 @@
 ---
 title: EnableZoneNames
 sidebar_label: EnableZoneNames
-description: This function allows to turn on zone / area names such as the "Vinewood" or "Doherty" text at the bottom-right of the screen as they enter the area.
-tags: []
+description: 启用或禁用进入区域时屏幕右下角显示的区域名称（例如"Vinewood"或"Doherty"）。
+tags: ["游戏界面"]
 ---
 
-## Description
+## 描述
 
-This function allows to turn on zone / area names such as the "Vinewood" or "Doherty" text at the bottom-right of the screen as they enter the area. This is a gamemode option and should be set in the callback OnGameModeInit.
+此函数用于控制玩家进入新区域时是否在屏幕右下角显示区域名称（例如"Vinewood"或"Doherty"）。此设置属于游戏模式选项，应在 [OnGameModeInit](../callbacks/OnGameModeInit) 回调中设置。
 
-| Name        | Description                                                                                          |
-| ----------- | ---------------------------------------------------------------------------------------------------- |
-| bool:enable | A toggle option for whether or not you'd like zone names on or off. 'false' is off and 'true' is on. |
+| 名称        | 描述                                   |
+| ----------- | -------------------------------------- |
+| bool:enable | true 启用区域名称显示 / false 禁用显示 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    EnableZoneNames(true);
+    EnableZoneNames(true); // 启用区域名称显示
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function was removed in SA-MP 0.3. This was due to crashes it caused.
+该函数已在 SA-MP 0.3 版本移除（因其导致的崩溃问题）
 
 :::
 
 :::tip
 
-You can also enable or disable zone names via [config.json](../../server/config.json)
+可通过 [config.json](../../server/config.json) 配置文件全局控制区域名称显示：
 
 ```json
 "use_zone_names": true,

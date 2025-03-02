@@ -7,7 +7,7 @@ keywords:
 tags: ["sqlite"]
 ---
 
-## 说明
+## 描述
 
 该函数用于获取通过[DB_ExecuteQuery](DB_ExecuteQuery)执行的 SQLite 数据库查询结果的内存句柄。
 

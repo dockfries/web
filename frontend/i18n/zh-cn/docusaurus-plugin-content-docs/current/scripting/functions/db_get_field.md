@@ -8,7 +8,7 @@ keywords:
 
 <LowercaseNote />
 
-## 说明
+## 描述
 
 从[db_query](db_query)结果集中获取指定字段的内容。
 

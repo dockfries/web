@@ -8,7 +8,7 @@ keywords:
 
 <LowercaseNote />
 
-## 说明
+## 描述
 
 释放由[db_query](db_query)分配的查询结果内存。
 

@@ -1,37 +1,37 @@
 ---
 title: EnableStuntBonusForAll
 sidebar_label: EnableStuntBonusForAll
-description: Enables or disables stunt bonuses for all players.
+description: 为所有玩家启用或禁用特技奖励。
 tags: []
 ---
 
-## Description
+## 描述
 
-Enables or disables stunt bonuses for all players. If enabled, players will receive monetary rewards when performing a stunt in a vehicle (e.g. a wheelie).
+为所有玩家启用或禁用载具特技奖励。启用时，玩家执行载具特技（例如翘轮动作）将获得金钱奖励。
 
-| Name        | Description                                                |
-| ----------- | ---------------------------------------------------------- |
-| bool:enable | 'true' to enable stunt bonuses or 'false' to disable them. |
+| 名称        | 描述                                   |
+| ----------- | -------------------------------------- |
+| bool:enable | true 启用特技奖励 / false 禁用特技奖励 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    EnableStuntBonusForAll(false);
+    EnableStuntBonusForAll(false); // 禁用全局特技奖励
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-You can also toggle stunt bonuses via [config.json](../../server/config.json)
+可通过 [config.json](../../server/config.json) 配置文件全局控制特技奖励：
 
 ```json
 "use_stunt_bonuses": false,
@@ -39,6 +39,6 @@ You can also toggle stunt bonuses via [config.json](../../server/config.json)
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [EnableStuntBonusForPlayer](EnableStuntBonusForPlayer): Toggle stunt bonuses for a player.
+- [EnableStuntBonusForPlayer](EnableStuntBonusForPlayer): 为单个玩家切换特技奖励功能

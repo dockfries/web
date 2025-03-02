@@ -1,39 +1,39 @@
 ---
 title: DestroyMenu
 sidebar_label: DestroyMenu
-description: Destroys the specified menu.
-tags: ["menu"]
+description: 销毁指定的菜单。
+tags: ["菜单"]
 ---
 
-## Description
+## 描述
 
-Destroys the specified menu.
+销毁指定的菜单。
 
-| Name        | Description            |
-| ----------- | ---------------------- |
-| Menu:menuid | The menu ID to destroy |
+| 参数名      | 说明            |
+| ----------- | --------------- |
+| Menu:menuid | 要销毁的菜单 ID |
 
-## Returns
+## 返回值
 
-**true** if the destroying was successful, otherwise **false**
+**true** 销毁成功返回 true，否则返回 false
 
-## Examples
+## 示例
 
 ```c
 new Menu:exampleMenu;
 exampleMenu = CreateMenu("Your Menu", 2, 200.0, 100.0, 150.0, 150.0);
 
-// Later ...
+// 后续操作...
 DestroyMenu(exampleMenu);
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateMenu](CreateMenu): Create a menu.
-- [SetMenuColumnHeader](SetMenuColumnHeader): Set the header for one of the columns in a menu.
-- [AddMenuItem](AddMenuItem): Add an item to a menu.
+- [CreateMenu](CreateMenu): 创建菜单
+- [SetMenuColumnHeader](SetMenuColumnHeader): 设置菜单列的标题
+- [AddMenuItem](AddMenuItem): 向菜单添加项目
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerSelectedMenuRow](../callbacks/OnPlayerSelectedMenuRow): Called when a player selected a row in a menu.
-- [OnPlayerExitedMenu](../callbacks/OnPlayerExitedMenu): Called when a player exits a menu.
+- [OnPlayerSelectedMenuRow](../callbacks/OnPlayerSelectedMenuRow): 当玩家选择菜单中的某一行时触发
+- [OnPlayerExitedMenu](../callbacks/OnPlayerExitedMenu): 当玩家退出菜单时触发

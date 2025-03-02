@@ -1,27 +1,27 @@
 ---
 title: DestroyActor
 sidebar_label: DestroyActor
-description: Destroy an actor which was created with CreateActor.
-tags: ["actor"]
+description: 销毁通过CreateActor创建的角色。
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Destroy an actor which was created with CreateActor.
+销毁通过 CreateActor 创建的角色。
 
-| Name    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| actorid | The ID of the actor to destroy. Returned by CreateActor. |
+| 参数名  | 说明                                         |
+| ------- | -------------------------------------------- |
+| actorid | 要销毁的角色 ID。该 ID 由 CreateActor 返回。 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The actor with the ID specified does not exist.
+**false** - 函数执行失败。指定的角色 ID 不存在。
 
-## Examples
+## 示例
 
 ```c
 new MyActor;
@@ -39,6 +39,6 @@ public OnFilterScriptExit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateActor](CreateActor): Create an actor (static NPC).
+- [CreateActor](CreateActor): 创建角色（静态 NPC）

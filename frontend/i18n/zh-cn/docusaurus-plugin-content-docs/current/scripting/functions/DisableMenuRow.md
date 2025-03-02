@@ -1,28 +1,28 @@
 ---
 title: DisableMenuRow
 sidebar_label: DisableMenuRow
-description: Disable a specific row in a menu for all players.
-tags: ["menu"]
+description: 为所有玩家禁用菜单中的特定行。
+tags: ["菜单"]
 ---
 
-## Description
+## 描述
 
-Disable a specific row in a menu for all players. It will be greyed-out and can't be selected by players.
+为所有玩家禁用菜单中的特定行。该行将显示为灰色且不可选择。
 
-| Name        | Description                                                                                                       |
-| ----------- | ----------------------------------------------------------------------------------------------------------------- |
-| Menu:menuid | The ID of the menu to disable a row of. Ensure this is valid, as an invalid menu ID will crash the entire server. |
-| row         | The ID of the row to disable (rows start at 0).                                                                   |
+| 名称        | 描述                                          |
+| ----------- | --------------------------------------------- |
+| Menu:menuid | 目标菜单 ID（无效的菜单 ID 会导致服务器崩溃） |
+| row         | 要禁用的行序号（从 0 开始计数）               |
 
-## Returns
+## 返回值
 
-This function always returns **1**, even if the function fails.
+该函数始终返回 **1**（即使操作失败）。
 
-If an invalid row is specified, nothing will happen.
+如果指定无效行序号，不会有任何效果。
 
-If an invalid menu ID is specified, the server will crash.
+如果指定无效菜单 ID，服务器将崩溃。
 
-## Examples
+## 示例
 
 ```c
 new Menu:WeaponMenu;
@@ -41,27 +41,27 @@ public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/disablemenu", true))
     {
-        DisableMenuRow(WeaponMenu, 2); //Disable the "Minigun" row
+        DisableMenuRow(WeaponMenu, 2); // 禁用「Minigun」行
         return 1;
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- Crashes when passed an invalid menu ID.
-- This function disabled the specified menu row for all players.
-- There is no function to disable a menu row for a specific player.
-- You'd have to create two menus - one with a row disabled, and one without. Or one per player.
+- 传入无效菜单 ID 会导致服务器崩溃
+- 本函数会对所有玩家生效
+- 没有针对单个玩家的行禁用功能
+- 可通过创建多个菜单实现差异化效果（如：包含禁用行的菜单和普通菜单）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreateMenu](CreateMenu): Create a menu.
-- [DestroyMenu](DestroyMenu): Destroy a menu.
-- [AddMenuItem](AddMenuItem): Add an item to a menu.
-- [IsMenuRowDisabled](IsMenuRowDisabled): Check if a menu row is disabled.
+- [CreateMenu](CreateMenu): 创建一个菜单
+- [DestroyMenu](DestroyMenu): 销毁一个菜单
+- [AddMenuItem](AddMenuItem): 为菜单添加项目
+- [IsMenuRowDisabled](IsMenuRowDisabled): 检查指定菜单行是否被禁用

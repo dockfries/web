@@ -1,24 +1,26 @@
 ---
 title: EditAttachedObject
 sidebar_label: EditAttachedObject
-description: Enter edition mode for an attached object.
-tags: ["player", "object", "attachment"]
+description: 进入附加物体的编辑模式。
+tags: ["玩家", "物体", "附加"]
 ---
 
-## Description
+## 描述
 
-Enter edition mode for an attached object.
+进入附加物体的编辑模式。
 
-| Name     | Description                                      |
-| -------- | ------------------------------------------------ |
-| playerid | The ID of the player to enter in to edition mode |
-| index    | The index (slot) of the attached object to edit  |
+| 名称     | 描述                         |
+| -------- | ---------------------------- |
+| playerid | 要进入编辑模式的玩家 ID      |
+| index    | 要编辑的附加物体索引（槽位） |
 
-## Returns
+## 返回值
 
-**1** on success and **0** on failure.
+**1** - 操作成功
 
-## Examples
+**0** - 操作失败
+
+## 示例
 
 ```c
 public OnPlayerSpawn(playerid)
@@ -31,37 +33,37 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (!strcmp(cmdtext, "/edit", true))
     {
         EditAttachedObject(playerid, 0);
-        SendClientMessage(playerid, 0xFFFFFFFF, "SERVER: You now edit your attached object on index slot 0!");
+        SendClientMessage(playerid, 0xFFFFFFFF, "服务器：您正在编辑槽位0的附加物体！");
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-You can move the camera while editing by pressing and holding the spacebar (or W in vehicle) and moving your mouse.
+编辑过程中按住空格键（车内按 W 键）并移动鼠标可调整摄像机视角
 
 :::
 
 :::warning
 
-Players will be able to scale objects up to a very large or negative value size. Limits should be put in place using OnPlayerEditAttachedObject to abort the edit or clip the scale values.
+玩家可缩放物体至极大或负值尺寸，应通过 [OnPlayerEditAttachedObject](../callbacks/OnPlayerEditAttachedObject) 回调设置缩放值限制或中止非法操作
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerAttachedObject](SetPlayerAttachedObject): Attach an object to a player
-- [RemovePlayerAttachedObject](RemovePlayerAttachedObject): Remove an attached object from a player
-- [IsPlayerAttachedObjectSlotUsed](IsPlayerAttachedObjectSlotUsed): Check whether an object is attached to a player in a specified index
-- [EditObject](EditObject): Edit an object.
-- [EditPlayerObject](EditPlayerObject): Edit an object.
-- [SelectObject](SelectObject): Select an object.
-- [CancelEdit](CancelEdit): Cancel the edition of an object.
+- [SetPlayerAttachedObject](SetPlayerAttachedObject): 为玩家附加物体
+- [RemovePlayerAttachedObject](RemovePlayerAttachedObject): 移除玩家附加物体
+- [IsPlayerAttachedObjectSlotUsed](IsPlayerAttachedObjectSlotUsed): 检查指定槽位是否已被占用
+- [EditObject](EditObject): 编辑全局物体
+- [EditPlayerObject](EditPlayerObject): 编辑玩家专属物体
+- [SelectObject](SelectObject): 选择物体
+- [CancelEdit](CancelEdit): 取消编辑操作
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerEditAttachedObject](../callbacks/OnPlayerEditAttachedObject): Called when a player finishes editing an attached object.
+- [OnPlayerEditAttachedObject](../callbacks/OnPlayerEditAttachedObject): 当玩家完成附加物体编辑时触发

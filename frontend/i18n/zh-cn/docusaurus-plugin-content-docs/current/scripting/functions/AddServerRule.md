@@ -7,7 +7,7 @@ tags: ["规则"]
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## 说明
+## 描述
 
 添加服务器规则。
 

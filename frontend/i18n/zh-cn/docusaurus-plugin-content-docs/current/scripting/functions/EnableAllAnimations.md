@@ -1,39 +1,39 @@
 ---
 title: EnableAllAnimations
 sidebar_label: EnableAllAnimations
-description: Allow use of the animations missing from some versions.
-tags: ["animation"]
+description: 允许使用某些版本中缺失的动画。
+tags: ["动画"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Allow use of the animations missing from some versions.
+启用部分版本中缺失的动画资源。
 
-| Name        | Description                                                     |
-| ----------- | --------------------------------------------------------------- |
-| bool:enable | 'true' to enable missing animations or 'false' to disable them. |
+| 名称        | 描述                                   |
+| ----------- | -------------------------------------- |
+| bool:enable | true 启用缺失动画 / false 禁用缺失动画 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    EnableAllAnimations(true);
+    EnableAllAnimations(true); // 启用缺失动画资源
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-You can also enable or disable missing animations from the [config.json](../../server/config.json) file.
+可通过 [config.json](../../server/config.json) 配置文件全局控制动画资源加载：
 
 ```json
 "use_all_animations": false,
@@ -41,12 +41,12 @@ You can also enable or disable missing animations from the [config.json](../../s
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [AreAllAnimationsEnabled](AreAllAnimationsEnabled): Are the animations missing from some versions enabled?
-- [ApplyAnimation](ApplyAnimation): Apply an animation to a player.
-- [ClearAnimations](ClearAnimations): Clear any animations a player is performing.
+- [AreAllAnimationsEnabled](AreAllAnimationsEnabled): 检测是否启用了所有动画资源
+- [ApplyAnimation](ApplyAnimation): 对玩家应用动画
+- [ClearAnimations](ClearAnimations): 清除玩家当前动画
 
-## Related Resources
+## 相关资源
 
-- [Animations](../resources/animations)
+- [动画列表](../resources/animations)

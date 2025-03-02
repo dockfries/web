@@ -7,7 +7,7 @@ tags: ["math", "floating-point"]
 
 <LowercaseNote />
 
-## 说明
+## 描述
 
 获取指定角度的正切值。输入角度可使用弧度、角度或梯度单位。
 

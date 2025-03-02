@@ -1,26 +1,28 @@
 ---
 title: existpubvar
 sidebar_label: existpubvar
-description: Checks if a specific public variable exists in the current script.
-tags: ["core", "pubvar", "public variable"]
+description: 检查当前脚本中是否存在特定公共变量。
+tags: ["核心", "公共变量"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Checks if a specific public variable exists in the current script.
+检查当前脚本中是否存在特定公共变量。
 
-| Name         | Description                 |
-| ------------ | --------------------------- |
-| const name[] | The public variable's name. |
+| 名称         | 描述                 |
+| ------------ | -------------------- |
+| const name[] | 要检查的公共变量名称 |
 
-## Returns
+## 返回值
 
-Does the variable exist? (true/false)
+**true** - 变量存在
 
-## Related Functions
+**false** - 变量不存在
 
-- [getpubvar](getpubvar): Gets a specific public variable from the current script.
-- [setpubvar](setpubvar): Sets a specific public variable in the current script.
-- [numpubvars](numpubvars): Counts how many public variables there are in the script.
+## 相关函数
+
+- [getpubvar](getpubvar): 获取公共变量值
+- [setpubvar](setpubvar): 设置公共变量值
+- [numpubvars](numpubvars): 统计脚本中公共变量数量

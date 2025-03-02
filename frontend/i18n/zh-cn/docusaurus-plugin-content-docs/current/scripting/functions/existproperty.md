@@ -1,45 +1,45 @@
 ---
 title: existproperty
 sidebar_label: existproperty
-description: Check if a property exist.
-tags: ["core", "property"]
+description: 检查属性是否存在。
+tags: ["核心", "属性"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Check if a property exist.
+检查指定属性是否存在。
 
-| Name   | Description                                                                                         |
-| ------ | --------------------------------------------------------------------------------------------------- |
-| id     | The virtual machine to use, you should keep this zero. _(optional=0)_                               |
-| name[] | The property's name, you should keep this "".                                                       |
-| value  | The property's unique ID. Use the hash-function to calculate it from a string. _(optional=cellmin)_ |
+| 名称   | 描述                                                   |
+| ------ | ------------------------------------------------------ |
+| id     | 使用的虚拟机 ID，应保持为 0 _(可选=0)_                 |
+| name[] | 属性名称，应保持为空字符串 ""                          |
+| value  | 属性唯一 ID。使用哈希函数从字符串生成 _(可选=cellmin)_ |
 
-## Returns
+## 返回值
 
-True if the property exists and false otherwise.
+如果属性存在返回 true，否则返回 false。
 
-## Examples
+## 示例
 
 ```c
 if (existproperty(0, "", 123984334))
 {
-    //the property exists, do something
+    // 属性存在，执行相应操作
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-It is recommended to use the PVars/SVars or GVar plugin instead of these natives for being very slow.
+由于性能较低，建议使用 PVars/SVars 或 GVar 插件替代此原生函数
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [setproperty](setproperty): Set a property.
-- [getproperty](getproperty): Get the value of a property.
-- [deleteproperty](deleteproperty): Delete a property.
+- [setproperty](setproperty): 设置属性值
+- [getproperty](getproperty): 获取属性值
+- [deleteproperty](deleteproperty): 删除属性

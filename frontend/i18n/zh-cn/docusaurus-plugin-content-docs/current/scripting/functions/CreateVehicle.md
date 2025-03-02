@@ -5,7 +5,7 @@ description: 在游戏世界中创建载具。
 tags: ["载具"]
 ---
 
-## 说明
+## 描述
 
 在游戏世界中动态创建载具，可在脚本任意时刻替代 AddStaticVehicleEx 使用。
 

@@ -7,7 +7,7 @@ tags: ["计时器"]
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## 说明
+## 描述
 
 获取通过[SetTimer](SetTimer)和[SetTimerEx](SetTimerEx)创建的正在运行的计时器数量。
 

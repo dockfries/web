@@ -7,7 +7,7 @@ tags: ["玩家"]
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## 说明
+## 描述
 
 控制玩家是否可以使用武器。
 

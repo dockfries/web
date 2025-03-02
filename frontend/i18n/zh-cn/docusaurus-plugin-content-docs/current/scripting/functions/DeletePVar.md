@@ -1,48 +1,48 @@
 ---
 title: DeletePVar
 sidebar_label: DeletePVar
-description: Deletes a previously set player variable.
-tags: ["player variable", "pvar"]
+description: 删除先前设置的玩家变量。
+tags: ["玩家变量", "pvar"]
 ---
 
-## Description
+## 描述
 
-Deletes a previously set player variable.
+删除先前设置的玩家变量。
 
-| Name         | Description                                           |
-| ------------ | ----------------------------------------------------- |
-| playerid     | The ID of the player whose player variable to delete. |
-| const pvar[] | The name of the player variable to delete.            |
+| 参数名       | 说明                   |
+| ------------ | ---------------------- |
+| playerid     | 要删除变量的玩家 ID。  |
+| const pvar[] | 要删除的玩家变量名称。 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. Either the player specified isn't connected or there is no variable set with the given name.
+**false** - 函数执行失败。可能原因：玩家未连接或不存在指定名称的变量。
 
-## Examples
+## 示例
 
 ```c
 SetPVarInt(playerid, "SomeVarName", 69);
 
-// Later on, when the variable is no longer needed...
+// 后续操作，当不再需要该变量时...
 
 DeletePVar(playerid, "SomeVarName");
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Once a variable is deleted, attempts to retrieve the value will return 0 for integers and 0.0 for floats and NULL for strings.
+变量被删除后，尝试获取其值将返回：整型返回 0，浮点数返回 0.0，字符串返回空值。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPVarInt](SetPVarInt): Set an integer for a player variable.
-- [GetPVarInt](GetPVarInt): Get the previously set integer from a player variable.
-- [SetPVarString](SetPVarString): Set a string for a player variable.
-- [GetPVarString](GetPVarString): Get the previously set string from a player variable.
-- [SetPVarFloat](SetPVarFloat): Set a float for a player variable.
-- [GetPVarFloat](GetPVarFloat): Get the previously set float from a player variable.
+- [SetPVarInt](SetPVarInt): 为玩家变量设置整型值
+- [GetPVarInt](GetPVarInt): 从玩家变量获取整型值
+- [SetPVarString](SetPVarString): 为玩家变量设置字符串值
+- [GetPVarString](GetPVarString): 从玩家变量获取字符串值
+- [SetPVarFloat](SetPVarFloat): 为玩家变量设置浮点数值
+- [GetPVarFloat](GetPVarFloat): 从玩家变量获取浮点数值

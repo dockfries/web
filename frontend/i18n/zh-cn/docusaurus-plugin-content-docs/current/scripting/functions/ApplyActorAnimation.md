@@ -7,7 +7,7 @@ tags: ["角色", "动画"]
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## 说明
+## 描述
 
 为游戏中的 NPC 角色应用指定的动画效果。
 

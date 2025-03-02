@@ -1,41 +1,41 @@
 ---
 title: DestroyPickup
 sidebar_label: DestroyPickup
-description: Destroys a pickup created with CreatePickup.
-tags: ["pickup"]
+description: 销毁通过 CreatePickup 创建的拾取物。
+tags: ["拾取物"]
 ---
 
-## Description
+## 描述
 
-Destroys a pickup created with CreatePickup.
+销毁通过 CreatePickup 创建的拾取物。
 
-| Name   | Description                                                 |
-| ------ | ----------------------------------------------------------- |
-| pickup | The ID of the pickup to destroy (returned by CreatePickup). |
+| 名称   | 描述                                      |
+| ------ | ----------------------------------------- |
+| pickup | 要销毁的拾取物 ID（由 CreatePickup 返回） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The pickup specified doesn't exist.
+**false** - 函数执行失败（指定拾取物不存在）
 
-## Examples
+## 示例
 
 ```c
 new g_PickupArmour;
 
-// Create a pickup for armor.
+// 创建护甲拾取物
 g_PickupArmour = CreatePickup(1242, 2, 1503.3359, 1432.3585, 10.1191);
 
-// Some time later...
+// 一段时间后...
 DestroyPickup(g_PickupArmour);
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePickup](CreatePickup): Create a pickup.
-- [IsValidPickup](IsValidPickup): Checks if a pickup is valid.
+- [CreatePickup](CreatePickup): 创建拾取物
+- [IsValidPickup](IsValidPickup): 检查拾取物是否有效
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerPickUpPickup](../callbacks/OnPlayerPickUpPickup): Called when a player picks up a pickup.
+- [OnPlayerPickUpPickup](../callbacks/OnPlayerPickUpPickup): 当玩家拾取拾取物时调用
