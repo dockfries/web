@@ -1,25 +1,25 @@
 ---
 title: Get3DTextLabelLOS
 sidebar_label: Get3DTextLabelLOS
-description: Gets the 3D text label line-of-sight.
-tags: ["3dtextlabel"]
+description: 获取3D文本标签的视线检测设置
+tags: ["3D文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the 3D text label line-of-sight.
+获取 3D 文本标签的视线检测设置（是否在物体遮挡时隐藏）。
 
-| Name          | Description                                              |
-| ------------- | -------------------------------------------------------- |
-| Text3D:textid | The ID of the 3D text label to get the line-of-sight of. |
+| 参数名        | 说明                                |
+| ------------- | ----------------------------------- |
+| Text3D:textid | 要获取视线检测设置的 3D 文本标签 ID |
 
-## Returns
+## 返回值
 
-Returns the line-of-sight of the 3D text label as boolean (`false`/`true`).
+返回布尔值表示视线检测状态（`false`=禁用/`true`=启用）
 
-## Examples
+## 示例
 
 ```c
 new Text3D:gMyLabel;
@@ -31,7 +31,7 @@ testLOS = Get3DTextLabelLOS(gMyLabel);
 // testLOS = true
 ```
 
-## Related Functions
+## 相关函数
 
-- [Set3DTextLabelLOS](Set3DTextLabelLOS): Sets the 3D text label line-of-sight.
-- [GetPlayer3DTextLabelLOS](GetPlayer3DTextLabelLOS): Gets the player 3D text label line-of-sight.
+- [Set3DTextLabelLOS](Set3DTextLabelLOS): 设置 3D 文本标签的视线检测
+- [GetPlayer3DTextLabelLOS](GetPlayer3DTextLabelLOS): 获取玩家专属 3D 文本标签的视线检测设置

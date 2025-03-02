@@ -1,24 +1,24 @@
 ---
 title: Get3DTextLabelPos
 sidebar_label: Get3DTextLabelPos
-description: Gets the 3D text label position.
-tags: ["3dtextlabel"]
+description: 获取3D文本标签的位置坐标
+tags: ["3D文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the 3D text label position.
+获取 3D 文本标签的当前位置坐标。
 
-| Name          | Description                                                                  |
-| ------------- | ---------------------------------------------------------------------------- |
-| Text3D:textid | The ID of the 3D text label to get the position of.                          |
-| &Float:x      | An float variable into which to store the X coordinate, passed by reference. |
-| &Float:y      | An float variable into which to store the Y coordinate, passed by reference. |
-| &Float:z      | An float variable into which to store the Z coordinate, passed by reference. |
+| 参数名        | 说明                                    |
+| ------------- | --------------------------------------- |
+| Text3D:textid | 要获取位置的 3D 文本标签 ID             |
+| &Float:x      | 用于存储 X 坐标的浮点变量（按引用传递） |
+| &Float:y      | 用于存储 Y 坐标的浮点变量（按引用传递） |
+| &Float:z      | 用于存储 Z 坐标的浮点变量（按引用传递） |
 
-## Examples
+## 示例
 
 ```c
 new Text3D:gMyLabel;
@@ -36,6 +36,6 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayer3DTextLabelPos](GetPlayer3DTextLabelPos): Gets the player 3D text label position.
+- [GetPlayer3DTextLabelPos](GetPlayer3DTextLabelPos): 获取玩家专属 3D 文本标签的位置坐标
