@@ -1,25 +1,25 @@
 ---
 title: GetObjectSyncRotation
 sidebar_label: GetObjectSyncRotation
-description: Get the sync rotation of an object.
-tags: ["object"]
+description: 获取物体的同步旋转状态
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the sync rotation of an object.
+获取物体的同步旋转状态。
 
-| Name     | Description           |
-| -------- | --------------------- |
-| objectid | The ID of the object. |
+| 名称     | 描述          |
+| -------- | ------------- |
+| objectid | 目标物体的 ID |
 
-## Returns
+## 返回值
 
-Returns the sync rotation of the object as boolean (`true`/`false`).
+返回表示是否启用同步旋转的布尔值（`true`/`false`）。
 
-## Examples
+## 示例代码
 
 ```c
 new objectid = CreateObject(...);
@@ -30,7 +30,7 @@ new bool:syncRotation = GetObjectSyncRotation(objectid);
 // syncRotation = false
 ```
 
-## Related Functions
+## 相关函数
 
-- [AttachObjectToObject](AttachObjectToObject): Attach object to other object.
-- [GetPlayerObjectSyncRotation](GetPlayerObjectSyncRotation): Get the sync rotation of a player-object.
+- [AttachObjectToObject](AttachObjectToObject): 将物体附加到其他物体
+- [GetPlayerObjectSyncRotation](GetPlayerObjectSyncRotation): 获取玩家物体的同步旋转状态

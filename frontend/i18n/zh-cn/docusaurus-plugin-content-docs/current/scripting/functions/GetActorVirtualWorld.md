@@ -1,46 +1,46 @@
 ---
 title: GetActorVirtualWorld
 sidebar_label: GetActorVirtualWorld
-description: Get the virtual world of an actor.
-tags: ["actor"]
+description: 获取角色所在的虚拟世界。
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Get the virtual world of an actor.
+获取角色所在的虚拟世界。
 
-| Name    | Description                                      |
-| ------- | ------------------------------------------------ |
-| actorid | The ID of the actor to get the virtual world of. |
+| 参数名  | 说明                    |
+| ------- | ----------------------- |
+| actorid | 要获取虚拟世界的角色 ID |
 
-## Returns
+## 返回值
 
-The virtual world of the actor. By default this is 0.
+返回角色所在的虚拟世界 ID（默认值为 0）。
 
-Also returns 0 if actor specified does not exist.
+若指定角色不存在也会返回 0。
 
-## Examples
+## 示例代码
 
 ```c
 new MyActor;
 
 public OnGameModeInit()
 {
-    MyActor = CreateActor(69, 0.0, 0.0, 3.0, 0.0);
+    MyActor = CreateActor(69, 0.0, 0.0, 3.0, 0.0);  // 创建角色（皮肤ID 69）
 
-    SetActorVirtualWorld(MyActor, 20);
+    SetActorVirtualWorld(MyActor, 20);  // 设置角色虚拟世界为20
     return 1;
 }
 
-// Somewhere else
+// 在其他地方检测虚拟世界
 if (GetActorVirtualWorld(MyActor) == 20)
 {
-    // Do something
+    // 执行相关操作（当角色在虚拟世界20时触发）
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetActorVirtualWorld](SetActorVirtualWorld): Set the virtual world of an actor.
+- [SetActorVirtualWorld](SetActorVirtualWorld.md): 设置角色所在的虚拟世界

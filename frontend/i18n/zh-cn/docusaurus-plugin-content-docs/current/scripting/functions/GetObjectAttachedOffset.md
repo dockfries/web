@@ -1,33 +1,33 @@
 ---
 title: GetObjectAttachedOffset
 sidebar_label: GetObjectAttachedOffset
-description: Get the attachment offset and rotation of an object.
-tags: ["object"]
+description: 获取物体的附加偏移和旋转参数
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the attachment offset and rotation of an object.
+获取物体的附加偏移和旋转参数。
 
-| Name             | Description                                                                       |
-| ---------------- | --------------------------------------------------------------------------------- |
-| objectid         | The ID of the object to get the offset and rotation of.                           |
-| &Float:offsetX   | A float variable in which to store the offsetX coordinate, passed by reference.   |
-| &Float:offsetY   | A float variable in which to store the offsetY coordinate, passed by reference.   |
-| &Float:offsetZ   | A float variable in which to store the offsetZ coordinate, passed by reference.   |
-| &Float:rotationX | A float variable in which to store the rotationX coordinate, passed by reference. |
-| &Float:rotationY | A float variable in which to store the rotationY coordinate, passed by reference. |
-| &Float:rotationZ | A float variable in which to store the rotationZ coordinate, passed by reference. |
+| 名称             | 描述                                            |
+| ---------------- | ----------------------------------------------- |
+| objectid         | 需要获取偏移和旋转参数的物体 ID                 |
+| &Float:offsetX   | 用于存储 X 轴偏移坐标的浮点变量，通过引用传递。 |
+| &Float:offsetY   | 用于存储 Y 轴偏移坐标的浮点变量，通过引用传递。 |
+| &Float:offsetZ   | 用于存储 Z 轴偏移坐标的浮点变量，通过引用传递。 |
+| &Float:rotationX | 用于存储 X 轴旋转参数的浮点变量，通过引用传递。 |
+| &Float:rotationY | 用于存储 Y 轴旋转参数的浮点变量，通过引用传递。 |
+| &Float:rotationZ | 用于存储 Z 轴旋转参数的浮点变量，通过引用传递。 |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist.
+`false` - 函数执行失败（指定物体不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new
@@ -41,7 +41,7 @@ new
 GetObjectAttachedOffset(objectid, offsetX, offsetY, offsetZ, rotationX, rotationY, rotationZ);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetObjectAttachedData](GetObjectAttachedData): Get the attachment data of an object.
-- [GetPlayerObjectAttachedOffset](GetPlayerObjectAttachedOffset): Get the attachment offset and rotation of a player-object.
+- [GetObjectAttachedData](GetObjectAttachedData): 获取物体的附加数据
+- [GetPlayerObjectAttachedOffset](GetPlayerObjectAttachedOffset): 获取玩家物体的附加偏移和旋转参数

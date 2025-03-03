@@ -1,37 +1,37 @@
 ---
 title: GetActorFacingAngle
 sidebar_label: GetActorFacingAngle
-description: Get the facing angle of an actor.
-tags: ["actor"]
+description: 获取角色的朝向角度。
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Get the facing angle of an actor.
+获取角色的朝向角度。
 
-| Name         | Description                                                                                 |
-| ------------ | ------------------------------------------------------------------------------------------- |
-| actorid      | The ID of the actor to get the facing angle of. Returned by [CreateActor](CreateActor).     |
-| &Float:angle | A float variable, passed by reference, in to which the actor's facing angle will be stored. |
+| 参数名       | 说明                                                            |
+| ------------ | --------------------------------------------------------------- |
+| actorid      | 要获取朝向角度的角色 ID（由[CreateActor](CreateActor)创建返回） |
+| &Float:angle | 浮点变量（引用传递），用于存储角色的朝向角度                    |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The actor specified does not exist.
+**false** - 函数执行失败（指定角色不存在）
 
-The actor's facing angle is stored in the specified variable.
+角色的朝向角度将被存储到指定变量中。
 
-## Examples
+## 示例代码
 
 ```c
 new Float:facingAngle;
 GetActorFacingAngle(actorid, facingAngle);
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetActorFacingAngle](SetActorFacingAngle): Set the facing angle of an actor.
-- [GetActorPos](GetActorPos): Get the position of an actor.
+- [SetActorFacingAngle](SetActorFacingAngle): 设置角色的朝向角度
+- [GetActorPos](GetActorPos): 获取角色的坐标位置

@@ -1,27 +1,27 @@
 ---
 title: GetAnimationName
 sidebar_label: GetAnimationName
-description: Get the animation library/name for the index.
+description: 根据动画索引获取对应的动画库名称和动画名称。
 tags: []
 ---
 
-## Description
+## 描述
 
-Get the animation library/name for the index.
+根据动画索引获取对应的动画库名称和动画名称。
 
-| Name                             | Description                                               |
-| -------------------------------- | --------------------------------------------------------- |
-| index                            | The animation index, returned by GetPlayerAnimationIndex. |
-| animationLibrary[]               | String variable that stores the animation library.        |
-| len1 = sizeof (animationLibrary) | Size of the string that stores the animation library.     |
-| animationName[]                  | String variable that stores the animation name.           |
-| len2 = sizeof (animationName)    | Size of the string that stores the animation name.        |
+| 参数名             | 说明                                        |
+| ------------------ | ------------------------------------------- |
+| index              | 动画索引（由 GetPlayerAnimationIndex 返回） |
+| animationLibrary[] | 字符串变量，用于存储动画库名称              |
+| len1（数组长度）   | 存储动画库名称的字符串数组长度              |
+| animationName[]    | 字符串变量，用于存储动画名称                |
+| len2（数组长度）   | 存储动画名称的字符串数组长度                |
 
-## Returns
+## 返回值
 
-1 on success, 0 on failure.
+成功返回 1，失败返回 0。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerUpdate(playerid)
@@ -34,13 +34,13 @@ public OnPlayerUpdate(playerid)
             msgText[128];
 
         GetAnimationName(GetPlayerAnimationIndex(playerid), animLib, sizeof animLib, animName, sizeof animName);
-        format(msgText, sizeof msgText, "Running anim: %s %s", animLib, animName);
+        format(msgText, sizeof msgText, "正在播放动画：%s %s", animLib, animName);
         SendClientMessage(playerid, 0xFFFFFFFF, msgText);
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerAnimationIndex](GetPlayerAnimationIndex): Returns the index of any running applied animations
+- [GetPlayerAnimationIndex](GetPlayerAnimationIndex.md): 获取玩家当前动画的索引

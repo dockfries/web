@@ -1,34 +1,34 @@
 ---
 title: GetObjectMaterial
 sidebar_label: GetObjectMaterial
-description: Get the material data from an index of the object.
-tags: ["object"]
+description: 从物体的材质索引获取材质数据
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the material data from an index of the object.
+从物体的材质索引获取材质数据。
 
-| Name               | Description                                                           |
-| ------------------ | --------------------------------------------------------------------- |
-| objectid           | The ID of the object.                                                 |
-| materialIndex      | The material index on the object. (0 to 15)                           |
-| &modelid           | A variable in which to store the model ID, passed by reference.       |
-| textureLibrary[]   | An array into which to store the textureLibrary, passed by reference. |
-| textureLibrarySize | The size of the textureLibrary.                                       |
-| textureName[]      | An array into which to store the textureName, passed by reference.    |
-| textureNameSize    | The size of the textureName.                                          |
-| &materialColour    | A variable in which to store the materialColour, passed by reference. |
+| 名称               | 描述                               |
+| ------------------ | ---------------------------------- |
+| objectid           | 物体 ID                            |
+| materialIndex      | 物体的材质索引 (0 至 15)           |
+| &modelid           | 存储模型 ID 的变量，通过引用传递   |
+| textureLibrary[]   | 存储纹理库名称的数组，通过引用传递 |
+| textureLibrarySize | 纹理库数组的尺寸                   |
+| textureName[]      | 存储纹理名称的数组，通过引用传递   |
+| textureNameSize    | 纹理名称数组的尺寸                 |
+| &materialColour    | 存储材质颜色的变量，通过引用传递   |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist or an invalid material index is specified.
+`false` - 函数执行失败（指定物体不存在或使用无效的材质索引）
 
-## Examples
+## 示例代码
 
 ```c
 new objectid = CreateObject(19371, 978.71143, -925.25708, 42.63720,   0.00000, 0.00000, 2.00000);
@@ -47,10 +47,10 @@ GetObjectMaterial(objectid, 0, modelid, textureLibrary, sizeof(textureLibrary), 
 // materialColour = 0xFFFFFFFF
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetObjectMaterial](SetObjectMaterial): Replace the texture of an object with the texture from another model in the game.
-- [SetObjectMaterialText](SetObjectMaterialText): Replace the texture of an object with text.
-- [IsObjectMaterialSlotUsed](IsObjectMaterialSlotUsed): Checks if a slot of object material is used.
-- [GetObjectMaterialText](GetObjectMaterialText): Get the material text data from an index of the object.
-- [GetPlayerObjectMaterial](GetPlayerObjectMaterial): Get the material data from an index of the player-object.
+- [SetObjectMaterial](SetObjectMaterial): 用游戏中其他模型的纹理替换物体的材质
+- [SetObjectMaterialText](SetObjectMaterialText): 使用文本替换物体的材质纹理
+- [IsObjectMaterialSlotUsed](IsObjectMaterialSlotUsed): 检查物体材质槽位是否被使用
+- [GetObjectMaterialText](GetObjectMaterialText): 从物体的材质索引获取文本材质数据
+- [GetPlayerObjectMaterial](GetPlayerObjectMaterial): 从玩家物体的材质索引获取材质数据

@@ -1,24 +1,24 @@
 ---
 title: GetAvailableClasses
 sidebar_label: GetAvailableClasses
-description: Get the number of classes defined.
-tags: ["class"]
+description: 获取已定义的职业数量。
+tags: ["职业"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the number of classes defined.
+获取服务器中已定义的玩家职业数量。
 
-## Examples
+## 示例代码
 
 ```c
-printf("Available classes: %d", GetAvailableClasses());
+printf("可用职业数量: %d", GetAvailableClasses());  // 输出已定义职业总数
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddPlayerClass](AddPlayerClass): Adds a class.
-- [AddPlayerClassEx](AddPlayerClassEx): Add a class with a default team.
-- [EditPlayerClass](EditPlayerClass): Edit a class data.
+- [AddPlayerClass](AddPlayerClass.md): 添加基础玩家职业
+- [AddPlayerClassEx](AddPlayerClassEx.md): 添加带默认队伍的玩家职业
+- [EditPlayerClass](EditPlayerClass.md): 编辑职业配置数据

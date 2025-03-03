@@ -1,37 +1,37 @@
 ---
 title: GetActorSpawnInfo
 sidebar_label: GetActorSpawnInfo
-description: Get the initial spawn point of the actor.
-tags: ["actor"]
+description: 获取角色的初始生成点信息。
+tags: ["角色"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the initial spawn point of the actor.
+获取角色的初始生成点信息。
 
-| Name              | Description                                                                  |
-| ----------------- | ---------------------------------------------------------------------------- |
-| actorid           | The ID of the actor to get the spawn point of                                |
-| &skin             | A variable into which to store the skin in, passed by reference.             |
-| &Float:spawnX     | A float variable into which to store the spawnX in, passed by reference.     |
-| &Float:spawnY     | A float variable into which to store the spawnY in, passed by reference.     |
-| &Float:spawnZ     | A float variable into which to store the spawnZ in, passed by reference.     |
-| &Float:spawnAngle | A float variable into which to store the spawnAngle in, passed by reference. |
+| 参数名            | 说明                                         |
+| ----------------- | -------------------------------------------- |
+| actorid           | 要获取生成信息的角色 ID                      |
+| &skin             | 整型变量（引用传递），用于存储角色皮肤 ID    |
+| &Float:spawnX     | 浮点变量（引用传递），用于存储生成点 X 坐标  |
+| &Float:spawnY     | 浮点变量（引用传递），用于存储生成点 Y 坐标  |
+| &Float:spawnZ     | 浮点变量（引用传递），用于存储生成点 Z 坐标  |
+| &Float:spawnAngle | 浮点变量（引用传递），用于存储生成点朝向角度 |
 
-## Return Values
+## 返回值
 
-Returns **true** if the actor is valid, otherwise returns **false**.
+若角色存在且有效返回 true，否则返回 false。
 
-## Examples
+## 示例代码
 
 ```c
 new gMyActor;
 
 public OnGameModeInit()
 {
-    gMyActor = CreateActor(179, 1153.9640, -1772.3915, 16.5920, 0.0000);
+    gMyActor = CreateActor(179, 1153.9640, -1772.3915, 16.5920, 0.0000);  // 创建皮肤ID为179的角色
 
     new skin,
         Float:spawnX,
@@ -44,10 +44,10 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateActor](CreateActor): Create an actor (static NPC).
-- [GetActorPos](GetActorPos): Get the position of an actor.
-- [SetActorPos](SetActorPos): Set the position of an actor.
-- [GetActorSkin](GetActorSkin): Get the skin of the actor.
-- [SetActorSkin](SetActorSkin): Set the skin of the actor.
+- [CreateActor](CreateActor.md): 创建角色（静态 NPC）
+- [GetActorPos](GetActorPos.md): 获取角色的坐标位置
+- [SetActorPos](SetActorPos.md): 设置角色的坐标位置
+- [GetActorSkin](GetActorSkin.md): 获取角色皮肤 ID
+- [SetActorSkin](SetActorSkin.md): 设置角色皮肤 ID

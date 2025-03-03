@@ -1,30 +1,30 @@
 ---
 title: GetObjectType
 sidebar_label: GetObjectType
-description: Get the type of an object. (global or player)
-tags: ["object"]
+description: 获取物体的类型（全局物体或玩家物体）
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the type of an object. (global or player)
+获取物体的类型（全局物体或玩家物体）。
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| playerid | The ID of the player.                    |
-| objectid | The ID of the object to get the type of. |
+| 名称     | 描述                  |
+| -------- | --------------------- |
+| playerid | 玩家 ID               |
+| objectid | 需要获取类型的物体 ID |
 
-## Returns
+## 返回值
 
-`0` - Function failed to execute. The objectid or playerid specified does not exist.
+`0` - 函数执行失败（指定物体或玩家不存在）
 
-`1` - Global object.
+`1` - 全局物体
 
-`2` - Player object.
+`2` - 玩家物体
 
-## Examples
+## 示例代码
 
 ```c
 new objectid = CreateObject(985, 1003.39154, -643.33423, 122.35060,   0.00000, 1.00000, 24.00000);
@@ -33,7 +33,7 @@ new objectType = GetObjectType(playerid, objectid);
 // objectType = 1
 ```
 
-Another example:
+另一个示例：
 
 ```c
 new playerobjectid = CreatePlayerObject(playerid, 19174, 978.88757, -986.34918, 40.95220,   0.00000, 0.00000, 228.00000);
@@ -42,7 +42,7 @@ new objectType = GetObjectType(playerid, playerobjectid);
 // objectType = 2
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateObject](CreateObject): Create an object.
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
+- [CreateObject](CreateObject): 创建全局物体
+- [CreatePlayerObject](CreatePlayerObject): 创建玩家专属物体

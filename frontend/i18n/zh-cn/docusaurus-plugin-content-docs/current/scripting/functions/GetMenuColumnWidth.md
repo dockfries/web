@@ -1,37 +1,37 @@
 ---
 title: GetMenuColumnWidth
 sidebar_label: GetMenuColumnWidth
-description: Get the width of the one or two columns.
-tags: ["menu"]
+description: 获取菜单中一列或两列的宽度。
+tags: ["菜单"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the width of the one or two columns.
+获取菜单中一列或两列的宽度。
 
-| Name                | Description                                                                   |
-| ------------------- | ----------------------------------------------------------------------------- |
-| Menu:menuid         | The ID of the menu.                                                           |
-| &Float:column1Width | A float variable in which to store the column1 width in, passed by reference. |
-| &Float:column2Width | A float variable in which to store the column2 width in, passed by reference. |
+| 参数名              | 说明                                                 |
+| ------------------- | ---------------------------------------------------- |
+| Menu:menuid         | 要获取列宽的菜单 ID                                  |
+| &Float:column1Width | 浮点变量（引用传递），用于存储第一列宽度             |
+| &Float:column2Width | 浮点变量（引用传递），用于存储第二列宽度（可选参数） |
 
-## Returns
+## 返回值
 
-This function always returns **true**.
+本函数始终返回 **true**。
 
-## Examples
+## 示例代码
 
 ```c
 new Float:column1Width, Float:column2Width;
-GetMenuColumnWidth(menuid, column1Width, column2Width);
+GetMenuColumnWidth(menuid, column1Width, column2Width);  // 获取双列宽度
 
-// Or you can only get column1 width
+// 若只需获取第一列宽度
 new Float:column1Width;
 GetMenuColumnWidth(menuid, column1Width);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetMenuPos](GetMenuPos): Get the x/y screen position of the menu.
+- [GetMenuPos](GetMenuPos.md): 获取菜单在屏幕上的 X/Y 坐标位置

@@ -1,25 +1,25 @@
 ---
 title: GetObjectDrawDistance
 sidebar_label: GetObjectDrawDistance
-description: Get the draw distance of an object.
-tags: ["object"]
+description: 获取物体的绘制距离
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the draw distance of an object.
+获取物体的绘制距离。
 
-| Name     | Description                                      |
-| -------- | ------------------------------------------------ |
-| objectid | The ID of the object to get the draw distance of |
+| 名称     | 描述                      |
+| -------- | ------------------------- |
+| objectid | 需要获取绘制距离的物体 ID |
 
-## Returns
+## 返回值
 
-Returns the draw distance as float.
+以浮点数形式返回绘制距离。
 
-## Examples
+## 示例代码
 
 ```c
 new objectid = CreateObject(3335, 672.53485, -656.11023, 15.26560,  3.00000, 0.00000, 0.00000,  100.0);
@@ -28,6 +28,6 @@ new Float:drawDistance = GetObjectDrawDistance(objectid);
 // drawDistance = 100.0
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerObjectDrawDistance](GetPlayerObjectDrawDistance): Get the draw distance of a player-object.
+- [GetPlayerObjectDrawDistance](GetPlayerObjectDrawDistance): 获取玩家物体的绘制距离

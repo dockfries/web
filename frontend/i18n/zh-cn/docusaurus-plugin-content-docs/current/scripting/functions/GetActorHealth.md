@@ -1,50 +1,50 @@
 ---
 title: GetActorHealth
 sidebar_label: GetActorHealth
-description: Get the health of an actor.
-tags: ["actor"]
+description: 获取角色的生命值。
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Get the health of an actor.
+获取角色的生命值。
 
-| Name          | Description                                                                     |
-| ------------- | ------------------------------------------------------------------------------- |
-| actorid       | The ID of the actor to get the health of.                                       |
-| &Float:health | A float variable, passed by reference, in to which to store the actor's health. |
+| 参数名        | 说明                                       |
+| ------------- | ------------------------------------------ |
+| actorid       | 要获取生命值的角色 ID                      |
+| &Float:health | 浮点变量（引用传递），用于存储角色的生命值 |
 
-## Returns
+## 返回值
 
-**true** - success
+**true** - 函数执行成功
 
-**false** - failure (i.e. actor is not created).
+**false** - 函数执行失败（角色未创建）
 
-NOTE: The actor's health is stored in the specified variable, not in the return value.
+注意：角色的生命值存储在指定变量中，而非通过返回值获取。
 
-## Examples
+## 示例代码
 
 ```c
 new gMyActor;
 
 public OnGameModeInit()
 {
-    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // Actor as salesperson in Ammunation
+    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // 在武器商店创建销售员角色
 
     SetActorHealth(gMyActor, 100.0);
 
     new Float:actorHealth;
     GetActorHealth(gMyActor, actorHealth);
-    printf("Actor ID %d has %.2f health.", gMyActor, actorHealth);
+    printf("角色ID %d 当前生命值：%.2f", gMyActor, actorHealth);
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateActor](CreateActor): Create an actor (static NPC).
-- [SetActorHealth](SetActorHealth): Set the health of an actor.
-- [SetActorInvulnerable](SetActorInvulnerable): Set actor invulnerable.
-- [IsActorInvulnerable](IsActorInvulnerable): Check if actor is invulnerable.
+- [CreateActor](CreateActor): 创建角色（静态 NPC）
+- [SetActorHealth](SetActorHealth): 设置角色的生命值
+- [SetActorInvulnerable](SetActorInvulnerable): 设置角色无敌状态
+- [IsActorInvulnerable](IsActorInvulnerable): 检测角色是否处于无敌状态

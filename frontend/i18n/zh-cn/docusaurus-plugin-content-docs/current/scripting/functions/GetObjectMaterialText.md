@@ -1,38 +1,38 @@
 ---
 title: GetObjectMaterialText
 sidebar_label: GetObjectMaterialText
-description: Get the material text data from an index of the object.
-tags: ["object"]
+description: 从物体的材质索引获取文本材质数据
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the material text data from an index of the object.
+从物体的材质索引获取文本材质数据。
 
-| Name                                      | Description                                                             |
-| ----------------------------------------- | ----------------------------------------------------------------------- |
-| objectid                                  | The ID of the object.                                                   |
-| materialIndex                             | The material index on the object. (0 to 15)                             |
-| text[]                                    | An array into which to store the text, passed by reference.             |
-| textSize                                  | The size of the text.                                                   |
-| &OBJECT_MATERIAL_SIZE:materialSize        | A variable in which to store the materialSize, passed by reference.     |
-| fontFace[]                                | An array into which to store the fontFace, passed by reference.         |
-| fontFaceSize                              | The size of the fontFace.                                               |
-| &fontSize                                 | A variable in which to store the fontSize, passed by reference.         |
-| &bool:bold                                | A boolean variable in which to store the bold, passed by reference.     |
-| &fontColour                               | A variable in which to store the fontColour, passed by reference.       |
-| &backgroundColour                         | A variable in which to store the backgroundColour, passed by reference. |
-| &OBJECT_MATERIAL_TEXT_ALIGN:textAlignment | A variable in which to store the textAlignment, passed by reference.    |
+| 名称                                      | 描述                                 |
+| ----------------------------------------- | ------------------------------------ |
+| objectid                                  | 物体 ID                              |
+| materialIndex                             | 物体的材质索引 (0 至 15)             |
+| text[]                                    | 存储文本内容的数组，通过引用传递     |
+| textSize                                  | 文本数组的尺寸                       |
+| &OBJECT_MATERIAL_SIZE:materialSize        | 存储材质尺寸的变量，通过引用传递     |
+| fontFace[]                                | 存储字体名称的数组，通过引用传递     |
+| fontFaceSize                              | 字体名称数组的尺寸                   |
+| &fontSize                                 | 存储字号的变量，通过引用传递         |
+| &bool:bold                                | 存储粗体效果的布尔变量，通过引用传递 |
+| &fontColour                               | 存储字体颜色的变量，通过引用传递     |
+| &backgroundColour                         | 存储背景颜色的变量，通过引用传递     |
+| &OBJECT_MATERIAL_TEXT_ALIGN:textAlignment | 存储文本对齐方式的变量，通过引用传递 |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist or an invalid material index is specified.
+`false` - 函数执行失败（指定物体不存在或使用无效的材质索引）
 
-## Examples
+## 示例代码
 
 ```c
 new objectid = CreateObject(19174, 986.42767, -983.14850, 40.95220,   0.00000, 0.00000, 186.00000);
@@ -59,10 +59,10 @@ GetObjectMaterialText(objectid, 0, text, sizeof(text), materialSize, fontFace, s
 // textAlignment = OBJECT_MATERIAL_TEXT_ALIGN_LEFT
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetObjectMaterial](SetObjectMaterial): Replace the texture of an object with the texture from another model in the game.
-- [SetObjectMaterialText](SetObjectMaterialText): Replace the texture of an object with text.
-- [IsObjectMaterialSlotUsed](IsObjectMaterialSlotUsed): Checks if a slot of object material is used.
-- [GetObjectMaterial](GetObjectMaterial): Get the material data from an index of the object.
-- [GetPlayerObjectMaterialText](GetPlayerObjectMaterialText): Get the material text data from an index of the player-object.
+- [SetObjectMaterial](SetObjectMaterial): 用游戏内其他模型的纹理替换物体材质
+- [SetObjectMaterialText](SetObjectMaterialText): 使用文本替换物体的材质纹理
+- [IsObjectMaterialSlotUsed](IsObjectMaterialSlotUsed): 检查物体材质槽位是否被使用
+- [GetObjectMaterial](GetObjectMaterial): 从物体的材质索引获取材质数据
+- [GetPlayerObjectMaterialText](GetPlayerObjectMaterialText): 从玩家物体的材质索引获取文本材质数据

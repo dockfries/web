@@ -1,25 +1,25 @@
 ---
 title: GetObjectMoveSpeed
 sidebar_label: GetObjectMoveSpeed
-description: Get the move speed of an object.
-tags: ["object"]
+description: 获取物体的移动速度
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the move speed of an object.
+获取物体的移动速度。
 
-| Name     | Description                                    |
-| -------- | ---------------------------------------------- |
-| objectid | The ID of the object to get the move speed of. |
+| 名称     | 描述                      |
+| -------- | ------------------------- |
+| objectid | 需要获取移动速度的物体 ID |
 
-## Returns
+## 返回值
 
-Returns the move speed as float.
+以浮点数形式返回移动速度。
 
-## Examples
+## 示例代码
 
 ```c
 new objectid = CreateObject(985, 1003.39154, -643.33423, 122.35060,   0.00000, 1.00000, 24.00000);
@@ -29,8 +29,8 @@ new Float:moveSpeed = GetObjectMoveSpeed(objectid);
 // moveSpeed = 0.8
 ```
 
-## Related Functions
+## 相关函数
 
-- [MoveObject](MoveObject): Move an object to a new position with a set speed.
-- [SetObjectMoveSpeed](SetObjectMoveSpeed): Set the move speed of an object.
-- [GetPlayerObjectMoveSpeed](GetPlayerObjectMoveSpeed): Get the move speed of a player-object.
+- [MoveObject](MoveObject): 以指定速度移动物体到新位置
+- [SetObjectMoveSpeed](SetObjectMoveSpeed): 设置物体的移动速度
+- [GetPlayerObjectMoveSpeed](GetPlayerObjectMoveSpeed): 获取玩家物体的移动速度

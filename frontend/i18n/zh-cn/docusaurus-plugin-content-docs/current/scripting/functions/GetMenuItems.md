@@ -1,33 +1,33 @@
 ---
 title: GetMenuItems
 sidebar_label: GetMenuItems
-description: Get the number of rows in the given column.
-tags: ["menu"]
+description: 获取指定列中的行数。
+tags: ["菜单"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the number of rows in the given column.
+获取指定列中的行数。
 
-| Name        | Description         |
-| ----------- | ------------------- |
-| Menu:menuid | The ID of the menu. |
-| column      | The column.         |
+| 参数名      | 说明                    |
+| ----------- | ----------------------- |
+| Menu:menuid | 要查询的菜单 ID         |
+| column      | 列索引（从 0 开始计数） |
 
-## Returns
+## 返回值
 
-Returns the number of rows.
+返回指定列中的行数。
 
-## Examples
+## 示例代码
 
 ```c
-// Get the menu number of rows in the column 1
+// 获取菜单第1列的行数
 new items = GetMenuItems(menuid, 1);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetMenuColumns](GetMenuColumns): Get the number of active columns.
-- [GetMenuItem](GetMenuItem): Get the text in the specified cell - addressed by column and row.
+- [GetMenuColumns](GetMenuColumns.md): 获取菜单激活列数
+- [GetMenuItem](GetMenuItem.md): 通过行列索引获取单元格文本

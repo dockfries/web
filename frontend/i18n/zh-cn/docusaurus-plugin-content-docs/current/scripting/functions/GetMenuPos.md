@@ -1,33 +1,33 @@
 ---
 title: GetMenuPos
 sidebar_label: GetMenuPos
-description: Get the x/y screen position of the menu.
-tags: ["menu"]
+description: 获取菜单在屏幕上的X/Y坐标位置。
+tags: ["菜单"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the x/y screen position of the menu.
+获取菜单在屏幕上的 X/Y 坐标位置。
 
-| Name        | Description                                                                |
-| ----------- | -------------------------------------------------------------------------- |
-| Menu:menuid | The ID of the menu.                                                        |
-| &Float:x    | A float variable in which to store the X position in, passed by reference. |
-| &Float:y    | A float variable in which to store the Y position in, passed by reference. |
+| 参数名      | 说明                                    |
+| ----------- | --------------------------------------- |
+| Menu:menuid | 要获取位置的菜单 ID                     |
+| &Float:x    | 浮点变量（引用传递），用于存储 X 轴坐标 |
+| &Float:y    | 浮点变量（引用传递），用于存储 Y 轴坐标 |
 
-## Returns
+## 返回值
 
-This function always returns true.
+本函数始终返回 true。
 
-## Examples
+## 示例代码
 
 ```c
 new Float:x, Float:y;
-GetMenuPos(menuid, x, y);
+GetMenuPos(menuid, x, y);  // 获取菜单位置坐标
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetMenuColumnWidth](GetMenuColumnWidth): Get the width of columns.
+- [GetMenuColumnWidth](GetMenuColumnWidth.md): 获取菜单列宽

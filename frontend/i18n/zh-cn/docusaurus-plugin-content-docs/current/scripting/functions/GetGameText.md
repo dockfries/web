@@ -1,37 +1,37 @@
 ---
 title: GetGameText
 sidebar_label: GetGameText
-description: Returns all the information on the given game text style.
-tags: ["player"]
+description: 获取指定玩家游戏文本样式的所有相关信息。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Returns all the information on the given game text style.
+获取指定玩家游戏文本样式的所有相关信息。
 
-| Name                   | Description                                                           |
-| ---------------------- | --------------------------------------------------------------------- |
-| playerid               | The ID of the player to get the rotation of.                          |
-| style                  | The [style](../resources/gametextstyles) of text to get the data for. |
-| message[]              | Return array for the text string.                                     |
-| len = sizeof (message) | Size of the output.                                                   |
-| time                   | The time the gametext was originally shown for.                       |
-| remaining              | How much of that time is still remaining.                             |
+| 参数名          | 说明                                                |
+| --------------- | --------------------------------------------------- |
+| playerid        | 要获取信息的玩家 ID                                 |
+| style           | 要查询的[游戏文本样式](../resources/gametextstyles) |
+| message[]       | 存储文本内容的数组变量（引用传递）                  |
+| len（数组长度） | 输出数组的容量大小                                  |
+| time            | 游戏文本最初显示的持续时间（单位：毫秒）            |
+| remaining       | 当前剩余的显示时间（单位：毫秒）                    |
 
-## Returns
+## 返回值
 
-true - The function was executed successfully.
+true - 函数执行成功
 
-false - The function failed to execute. This means the player specified does not exist or the style is invalid.
+false - 函数执行失败（玩家不存在或样式无效）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    GameTextForPlayer(playerid, "Welcome to the server!", 5000, 3);
+    GameTextForPlayer(playerid, "欢迎来到服务器！", 5000, 3);  // 显示持续5秒的样式3文本
 
     new
         message[32],
@@ -39,16 +39,16 @@ public OnPlayerConnect(playerid)
         remaining;
 
     GetGameText(playerid, 3, message, sizeof(message), time, remaining);
-    // message = "Welcome to the server!"
+    // message = "欢迎来到服务器！"
     // time = 5000
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GameTextForPlayer](GameTextForPlayer): Display gametext to a player.
-- [HideGameTextForPlayer](HideGameTextForPlayer): Stop showing a gametext style to a player.
-- [GameTextForAll](GameTextForAll): Display gametext to all players.
-- [HideGameTextForAll](HideGameTextForAll): Stop showing a gametext style for all players.
-- [HasGameText](HasGameText): Does the player currently have text in the given gametext style displayed?
+- [GameTextForPlayer](GameTextForPlayer.md): 向玩家显示游戏文本
+- [HideGameTextForPlayer](HideGameTextForPlayer.md): 隐藏玩家的指定样式游戏文本
+- [GameTextForAll](GameTextForAll.md): 向所有玩家显示游戏文本
+- [HideGameTextForAll](HideGameTextForAll.md): 全局隐藏指定样式游戏文本
+- [HasGameText](HasGameText.md): 检测玩家是否正在显示指定样式的游戏文本

@@ -1,33 +1,33 @@
 ---
 title: GetMyFacingAngle
 sidebar_label: GetMyFacingAngle
-description: Get the current facing angle of the NPC.
+description: 获取NPC当前的面朝角度
 tags: []
 ---
 
-## Description
+## 描述
 
-Get the current facing angle of the NPC.
+获取 NPC 当前的面朝角度。
 
-| Name         | Description                                        |
-| ------------ | -------------------------------------------------- |
-| &Float:Angle | A float to save the angle in, passed by reference. |
+| 名称         | 描述                                     |
+| ------------ | ---------------------------------------- |
+| &Float:Angle | 用于存储角度的浮点数变量，通过引用传递。 |
 
-## Returns
+## 返回值
 
-The facing angle is stored in the specified variable.
+面朝角度将存储在指定变量中。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerText(playerid, text[])
 {
-new Float:Angle;
-GetMyFacingAngle(Angle);
-printf("I am currently facing %f!", Angle);
-
+  new Float:Angle;
+  GetMyFacingAngle(Angle);
+  printf("我正面对着 %f!", Angle);
+}
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetMyFacingAngle](../functions/SetMyFacingAngle): Set the NPC's facing angle.
+- [SetMyFacingAngle](../functions/SetMyFacingAngle): 设置 NPC 的面朝角度

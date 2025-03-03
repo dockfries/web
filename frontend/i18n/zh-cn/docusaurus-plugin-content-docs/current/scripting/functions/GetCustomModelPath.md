@@ -1,42 +1,42 @@
 ---
 title: GetCustomModelPath
 sidebar_label: GetCustomModelPath
-description: Get a custom model path.
-tags: ["custom model", "custom skin", "simple model"]
+description: 获取自定义模型的DFF/TXD文件路径。
+tags: ["自定义模型", "自定义皮肤", "简单模型"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get a custom model path.
+获取指定自定义模型的资源文件路径信息。
 
-| Name      | Description                                                     |
-| --------- | --------------------------------------------------------------- |
-| modelid   | The custom model id to get path from.                           |
-| dffPath[] | An array in which to store the dffPath in, passed by reference. |
-| dffSize   | The length of the dffPath that should be stored.                |
-| txdPath[] | An array in which to store the txdPath in, passed by reference. |
-| txdSize   | The length of the txdPath that should be stored.                |
+| 参数名    | 说明                                        |
+| --------- | ------------------------------------------- |
+| modelid   | 要查询的自定义模型 ID                       |
+| dffPath[] | 数组变量（引用传递），用于存储 DFF 文件路径 |
+| dffSize   | DFF 路径存储数组的长度                      |
+| txdPath[] | 数组变量（引用传递），用于存储 TXD 文件路径 |
+| txdSize   | TXD 路径存储数组的长度                      |
 
-## Examples
+## 示例代码
 
 ```c
 new
-    modelid = -2000,
-    dffPath[64],
-    txdPath[64];
+    modelid = -2000,  // 自定义模型ID
+    dffPath[64],      // DFF路径存储数组
+    txdPath[64];      // TXD路径存储数组
 
 GetCustomModelPath(modelid, dffPath, sizeof(dffPath), txdPath, sizeof(txdPath));
 
-printf("[Custom model id %d path]\n\
-    dff: %s\n\
-    txd: %s",
-    modelid, dffPath, txdPath);
+printf("[ID %d 自定义模型路径]\n\
+    DFF文件: %s\n\
+    TXD文件: %s",
+    modelid, dffPath, txdPath);  // 输出路径信息
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddSimpleModel](AddSimpleModel): Adds a new custom simple object model.
-- [AddSimpleModelTimed](AddSimpleModelTimed): Adds a new custom simple object model.
-- [IsValidCustomModel](IsValidCustomModel): Checks if a custom model ID is valid.
+- [AddSimpleModel](AddSimpleModel.md): 添加新的简单物体模型
+- [AddSimpleModelTimed](AddSimpleModelTimed.md): 添加带时间限制的简单物体模型
+- [IsValidCustomModel](IsValidCustomModel.md): 验证自定义模型 ID 是否有效

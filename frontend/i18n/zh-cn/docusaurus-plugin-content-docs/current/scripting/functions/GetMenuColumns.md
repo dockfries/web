@@ -1,31 +1,31 @@
 ---
 title: GetMenuColumns
 sidebar_label: GetMenuColumns
-description: Get the number of active columns.
-tags: ["menu"]
+description: 获取菜单中当前激活的列数。
+tags: ["菜单"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the number of active columns.
+获取菜单中当前激活的列数。
 
-| Name        | Description                                 |
-| ----------- | ------------------------------------------- |
-| Menu:menuid | The ID of the menu to get the columns from. |
+| 参数名      | 说明                |
+| ----------- | ------------------- |
+| Menu:menuid | 要获取列数的菜单 ID |
 
-## Returns
+## 返回值
 
-Returns the number of active columns.
+返回激活的列数。
 
-## Examples
+## 示例代码
 
 ```c
-new columns = GetMenuColumns(menuid);
+new columns = GetMenuColumns(menuid);  // 获取激活的列数
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetMenuItems](GetMenuItems): Get the menu items.
-- [GetMenuItem](GetMenuItem): Get the text in the specified cell - addressed by column and row.
+- [GetMenuItems](GetMenuItems.md): 获取菜单项列表
+- [GetMenuItem](GetMenuItem.md): 通过行列索引获取单元格文本

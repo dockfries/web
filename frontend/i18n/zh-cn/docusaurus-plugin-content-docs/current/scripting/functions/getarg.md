@@ -1,42 +1,42 @@
 ---
 title: getarg
 sidebar_label: getarg
-description: Get an argument that was passed to a function.
-tags: ["core", "arguments", "args"]
+description: 获取传递给函数的参数。
+tags: ["核心", "参数"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Get an argument that was passed to a function.
+获取传递给函数的参数。
 
-| Name  | Description                                                 |
-| ----- | ----------------------------------------------------------- |
-| arg   | The argument sequence number. Use 0 for first argument.     |
-| index | The index (in case the argument is an array) _(optional=0)_ |
+| 参数名 | 说明                             |
+| ------ | -------------------------------- |
+| arg    | 参数序号（0 表示第一个参数）     |
+| index  | 数组参数的索引（可选，默认为 0） |
 
-## Returns
+## 返回值
 
-The value of the argument.
+返回参数的对应值。
 
-## Examples
+## 示例代码
 
 ```c
 SomeFunc(...)
 {
-    printf("%i", getarg(3));
+    printf("%i", getarg(3));  // 获取第四个参数的值
 }
 
 public OnFilterScriptInit()
 {
-    SomeFunc(1, 3, 3, 7);
+    SomeFunc(1, 3, 3, 7);     // 传入四个参数
 }
 
-// Output: 7. The fourth argument (index 3) is 7.
+// 输出：7（第四个参数，索引3的值为7）
 ```
 
-## Related Functions
+## 相关函数
 
-- [numargs](numargs): Return the number of arguments.
-- [setarg](setarg): Set an argument.
+- [numargs](numargs.md): 获取参数数量
+- [setarg](setarg.md): 设置参数值

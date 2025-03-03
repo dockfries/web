@@ -1,36 +1,36 @@
 ---
 title: GetMenuColumnHeader
 sidebar_label: GetMenuColumnHeader
-description: Get the text in the header of the specified column.
-tags: ["menu"]
+description: 获取指定列标题中的文本内容。
+tags: ["菜单"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the text in the header of the specified column.
+获取指定列标题中的文本内容。
 
-| Name                  | Description                                                 |
-| --------------------- | ----------------------------------------------------------- |
-| Menu:menuid           | The ID of the menu.                                         |
-| column                | The column.                                                 |
-| header[]              | An array into which to store the text, passed by reference. |
-| len = sizeof (header) | The length of the text that should be stored.               |
+| 参数名                | 说明                               |
+| --------------------- | ---------------------------------- |
+| Menu:menuid           | 要查询的菜单 ID                    |
+| column                | 列索引（从 0 开始计数）            |
+| header[]              | 存储标题文本的数组变量（引用传递） |
+| len = sizeof (header) | 存储文本的数组容量长度             |
 
-## Returns
+## 返回值
 
-This function always returns **true**.
+本函数始终返回 **true**。
 
-## Examples
+## 示例代码
 
 ```c
 new text[32];
 
-// Get the menu header text in the column 1
+// 获取菜单第1列的标题文本
 GetMenuColumnHeader(menuid, 1, text, sizeof(text));
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateMenu](CreateMenu): Creates a menu.
+- [CreateMenu](CreateMenu.md): 创建新菜单

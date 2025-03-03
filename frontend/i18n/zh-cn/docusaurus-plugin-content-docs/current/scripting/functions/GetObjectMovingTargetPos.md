@@ -1,30 +1,30 @@
 ---
 title: GetObjectMovingTargetPos
 sidebar_label: GetObjectMovingTargetPos
-description: Get the move target position of an object.
-tags: ["object"]
+description: 获取物体的移动目标位置
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the move target position of an object.
+获取物体的移动目标位置。
 
-| Name           | Description                                                                     |
-| -------------- | ------------------------------------------------------------------------------- |
-| objectid       | The ID of the object to get the move target position of.                        |
-| &Float:targetX | A float variable in which to store the targetX coordinate, passed by reference. |
-| &Float:targetY | A float variable in which to store the targetY coordinate, passed by reference. |
-| &Float:targetZ | A float variable in which to store the targetZ coordinate, passed by reference. |
+| 名称           | 描述                                    |
+| -------------- | --------------------------------------- |
+| objectid       | 需要获取移动目标位置的物体 ID           |
+| &Float:targetX | 存储目标 X 坐标的浮点变量，通过引用传递 |
+| &Float:targetY | 存储目标 Y 坐标的浮点变量，通过引用传递 |
+| &Float:targetZ | 存储目标 Z 坐标的浮点变量，通过引用传递 |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist.
+`false` - 函数执行失败（指定物体不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new objectid = CreateObject(985, 1003.39154, -643.33423, 122.35060,   0.00000, 1.00000, 24.00000);
@@ -41,7 +41,7 @@ GetObjectMovingTargetPos(objectid, targetX, targetY, targetZ);
 // targetZ = 114.5122
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetObjectMovingTargetRot](GetObjectMovingTargetRot): Get the move target rotation of an object.
-- [GetPlayerObjectMovingTargetPos](GetPlayerObjectMovingTargetPos): Get the move target position of a player-object.
+- [GetObjectMovingTargetRot](GetObjectMovingTargetRot): 获取物体的移动目标旋转参数
+- [GetPlayerObjectMovingTargetPos](GetPlayerObjectMovingTargetPos): 获取玩家物体的移动目标位置

@@ -1,29 +1,29 @@
 ---
 title: GetModeRestartTime
 sidebar_label: GetModeRestartTime
-description: Gets the delay between loading main scripts, in seconds.
-tags: []
+description: 获取主脚本加载之间的延迟时间（单位：秒）。
+tags: ["核心", "配置"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the delay between loading main scripts, in seconds.
+获取主脚本（游戏模式/滤镜脚本）加载之间的重启延迟时间。
 
-## Return Values
+## 返回值
 
-Returns the delay as a float value.
+返回以秒为单位的浮点型延迟时间。
 
-## Examples
+## 示例代码
 
 ```c
-SetModeRestartTime(5.0);
+SetModeRestartTime(5.0);  // 设置重启延迟为5秒
 
 new Float:seconds = GetModeRestartTime();
-printf("Delay: %.1f", seconds); // Delay: 5.0
+printf("重启延迟时间: %.1f 秒", seconds); // 输出: 重启延迟时间: 5.0 秒
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetModeRestartTime](SetModeRestartTime): Sets the delay between loading main scripts, in seconds.
+- [SetModeRestartTime](SetModeRestartTime.md): 设置主脚本加载之间的延迟时间

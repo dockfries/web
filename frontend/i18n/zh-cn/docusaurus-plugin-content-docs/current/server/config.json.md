@@ -4,7 +4,7 @@ sidebar_label: config.json
 description: open.mp服务器配置文件
 ---
 
-## 功能描述
+## 描述
 
 - `config.json`是用于配置 open.mp 服务器各项参数的配置文件
 - 仍支持使用[server.cfg](server.cfg)文件，但推荐使用 config.json 以获得更全面的配置选项

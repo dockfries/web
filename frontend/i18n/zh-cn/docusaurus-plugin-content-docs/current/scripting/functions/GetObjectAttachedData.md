@@ -1,30 +1,30 @@
 ---
 title: GetObjectAttachedData
 sidebar_label: GetObjectAttachedData
-description: Get the attachment data of an object.
-tags: ["object"]
+description: 获取物体的附加数据
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the attachment data of an object.
+获取物体的附加数据。
 
-| Name           | Description                                                             |
-| -------------- | ----------------------------------------------------------------------- |
-| objectid       | The ID of the object to get the attachment data of                      |
-| &parentVehicle | A variable in which to store the parentVehicle ID, passed by reference. |
-| &parentObject  | A variable in which to store the parentObject ID, passed by reference.  |
-| &parentPlayer  | A variable in which to store the parentPlayer ID, passed by reference.  |
+| 名称           | 描述                                 |
+| -------------- | ------------------------------------ |
+| objectid       | 需要获取附加数据的物体 ID            |
+| &parentVehicle | 存储父车辆 ID 的变量，通过引用传递。 |
+| &parentObject  | 存储父物体 ID 的变量，通过引用传递。 |
+| &parentPlayer  | 存储父玩家 ID 的变量，通过引用传递。 |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist.
+`false` - 函数执行失败（指定物体不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new
@@ -35,7 +35,7 @@ new
 GetObjectAttachedData(objectid, parentVehicle, parentObject, parentPlayer);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetObjectAttachedOffset](GetObjectAttachedOffset): Get the attachment offset and rotation of an object.
-- [GetPlayerObjectAttachedData](GetPlayerObjectAttachedData): Get the attachment data of a player-object.
+- [GetObjectAttachedOffset](GetObjectAttachedOffset): 获取物体的附加偏移和旋转参数
+- [GetPlayerObjectAttachedData](GetPlayerObjectAttachedData): 获取玩家物体的附加数据

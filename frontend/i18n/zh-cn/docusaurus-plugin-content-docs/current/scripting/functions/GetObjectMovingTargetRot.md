@@ -1,30 +1,30 @@
 ---
 title: GetObjectMovingTargetRot
 sidebar_label: GetObjectMovingTargetRot
-description: Get the move target rotation of an object.
-tags: ["object"]
+description: 获取物体的移动目标旋转参数
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the move target rotation of an object.
+获取物体的移动目标旋转参数。
 
-| Name             | Description                                                                       |
-| ---------------- | --------------------------------------------------------------------------------- |
-| objectid         | The ID of the object to get the move target rotation of.                          |
-| &Float:rotationX | A float variable in which to store the rotationX coordinate, passed by reference. |
-| &Float:rotationY | A float variable in which to store the rotationY coordinate, passed by reference. |
-| &Float:rotationZ | A float variable in which to store the rotationZ coordinate, passed by reference. |
+| 名称             | 描述                                    |
+| ---------------- | --------------------------------------- |
+| objectid         | 需要获取移动目标旋转的物体 ID           |
+| &Float:rotationX | 存储旋转 X 坐标的浮点变量，通过引用传递 |
+| &Float:rotationY | 存储旋转 Y 坐标的浮点变量，通过引用传递 |
+| &Float:rotationZ | 存储旋转 Z 坐标的浮点变量，通过引用传递 |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist.
+`false` - 函数执行失败（指定物体不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new objectid = CreateObject(968, 1023.79541, -943.75879, 42.31450,   0.00000, 0.00000, 10.00000);
@@ -41,7 +41,7 @@ GetObjectMovingTargetRot(objectid, rotationX, rotationY, rotationZ);
 // rotationZ = 10.00000
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetObjectMovingTargetPos](GetObjectMovingTargetPos): Get the move target position of an object.
-- [GetPlayerObjectMovingTargetRot](GetPlayerObjectMovingTargetRot): Get the move target rotation of a player-object.
+- [GetObjectMovingTargetPos](GetObjectMovingTargetPos): 获取物体的移动目标位置
+- [GetPlayerObjectMovingTargetRot](GetPlayerObjectMovingTargetRot): 获取玩家物体的移动目标旋转参数

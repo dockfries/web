@@ -1,23 +1,23 @@
 ---
 title: GetConsoleVarAsBool
 sidebar_label: GetConsoleVarAsBool
-description: Get the boolean value of a console variable.
+description: 获取控制台变量的布尔类型值。
 tags: []
 ---
 
-## Description
+## 描述
 
-Get the boolean value of a console variable.
+获取控制台变量的布尔类型值。
 
-| Name         | Description                                           |
-| ------------ | ----------------------------------------------------- |
-| const cvar[] | The name of the boolean variable to get the value of. |
+| 参数名       | 说明                           |
+| ------------ | ------------------------------ |
+| const cvar[] | 要获取的布尔类型控制台变量名称 |
 
-## Returns
+## 返回值
 
-The value of the specified console variable. 0 if the specified console variable is not a boolean or doesn't exist.
+返回指定控制台变量的布尔值。若变量不存在或类型不符返回 0。
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
@@ -25,21 +25,21 @@ public OnGameModeInit()
     new queryEnabled = GetConsoleVarAsBool("enable_query");
     if (!queryEnabled)
     {
-        print("WARNING: Querying is disabled. The server will appear offline in the server browser.");
+        print("警告：查询功能已禁用，服务器将不会显示在服务器列表中。");
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Type 'varlist' in the server console to display a list of available console variables and their types.
+在服务器控制台输入 `varlist` 可查看所有可用控制台变量及其类型。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetConsoleVarAsString](GetConsoleVarAsString): Retreive a server variable as a string.
-- [GetConsoleVarAsInt](GetConsoleVarAsInt): Retreive a server variable as an integer.
+- [GetConsoleVarAsString](GetConsoleVarAsString.md): 以字符串形式获取控制台变量
+- [GetConsoleVarAsInt](GetConsoleVarAsInt.md): 以整型形式获取控制台变量

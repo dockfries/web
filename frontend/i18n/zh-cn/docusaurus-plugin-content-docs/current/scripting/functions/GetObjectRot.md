@@ -1,26 +1,26 @@
 ---
 title: GetObjectRot
 sidebar_label: GetObjectRot
-description: Use this function to get the objects current rotation.
-tags: ["object"]
+description: 使用此函数获取物体当前的旋转角度
+tags: ["物体"]
 ---
 
-## Description
+## 描述
 
-Use this function to get the objects current rotation. The rotation is saved by reference in three rotationX/rotationY/rotationZ variables.
+使用此函数获取物体当前的旋转角度。旋转参数通过引用方式存储在三个变量 rotationX/rotationY/rotationZ 中。
 
-| Name             | Description                                                   |
-| ---------------- | ------------------------------------------------------------- |
-| objectid         | The objectid of the object you want to get the rotation from. |
-| &Float:rotationX | The variable to store the X rotation, passed by reference.    |
-| &Float:rotationY | The variable to store the Y rotation, passed by reference.    |
-| &Float:rotationZ | The variable to store the Z rotation, passed by reference.    |
+| 名称             | 描述                                      |
+| ---------------- | ----------------------------------------- |
+| objectid         | 需要获取旋转参数的物体 ID                 |
+| &Float:rotationX | 存储 X 轴旋转角度的浮点变量，通过引用传递 |
+| &Float:rotationY | 存储 Y 轴旋转角度的浮点变量，通过引用传递 |
+| &Float:rotationZ | 存储 Z 轴旋转角度的浮点变量，通过引用传递 |
 
-## Returns
+## 返回值
 
-The object's rotation is stored in the referenced variables, not in the return value.
+物体的旋转角度通过引用变量返回，不通过函数返回值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
@@ -36,25 +36,24 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [MoveObject](MoveObject): Move an object.
-- [StopObject](StopObject): Stop an object from moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [MovePlayerObject](MovePlayerObject): Move a player object.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [SetPlayerObjectRot](SetPlayerObjectRot): Set the rotation of a player object.
-- [GetPlayerObjectPos](GetPlayerObjectPos): Locate a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
-- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): Attach a player object to a player.
+- [GetObjectPos](GetObjectPos): 获取物体位置
+- [CreateObject](CreateObject): 创建物体
+- [DestroyObject](DestroyObject): 销毁物体
+- [IsValidObject](IsValidObject): 验证物体有效性
+- [MoveObject](MoveObject): 移动物体
+- [StopObject](StopObject): 停止物体移动
+- [SetObjectPos](SetObjectPos): 设置物体位置
+- [SetObjectRot](SetObjectRot): 设置物体旋转
+- [AttachObjectToPlayer](AttachObjectToPlayer): 将物体附加到玩家
+- [CreatePlayerObject](CreatePlayerObject): 创建玩家专属物体
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家物体
+- [IsValidPlayerObject](IsValidPlayerObject): 验证玩家物体有效性
+- [MovePlayerObject](MovePlayerObject): 移动玩家物体
+- [StopPlayerObject](StopPlayerObject): 停止玩家物体移动
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置玩家物体位置
+- [SetPlayerObjectRot](SetPlayerObjectRot): 设置玩家物体旋转
+- [GetPlayerObjectPos](GetPlayerObjectPos): 获取玩家物体位置
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取玩家物体旋转角度
+- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 将玩家物体附加到其他玩家

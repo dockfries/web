@@ -1,27 +1,26 @@
 ---
 title: GetObjectModel
 sidebar_label: GetObjectModel
-description: Get the model ID of an object (CreateObject).
-tags: ["object"]
+description: 获取物体的模型ID（通过CreateObject创建）
+tags: ["物体"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Get the model ID of an object ([CreateObject](CreateObject)).
+获取通过 [CreateObject](CreateObject) 创建的物体模型 ID。
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| objectid | The ID of the object to get the model of |
+| 名称     | 描述                         |
+| -------- | ---------------------------- |
+| objectid | 需要获取模型 ID 的物体标识符 |
 
-## Returns
+## 返回值
 
-The model ID of the object.
+成功返回物体的模型 ID，  
+当指定物体不存在时返回 **-1**。
 
-**-1** if object does not exist.
-
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
@@ -29,11 +28,11 @@ public OnGameModeInit()
     new objectid = CreateObject(19609, 666.57239, 1750.79749, 4.95627,   0.00000, 0.00000, -156.00000);
 
     new modelid = GetObjectModel(objectid);
-    printf("Object model: %d", modelid); // Output: "Object model: 19609"
+    printf("Object model: %d", modelid); // 输出: "Object model: 19609"
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerObjectModel](GetPlayerObjectModel): Get the model ID of a player-object.
+- [GetPlayerObjectModel](GetPlayerObjectModel): 获取玩家物体的模型 ID

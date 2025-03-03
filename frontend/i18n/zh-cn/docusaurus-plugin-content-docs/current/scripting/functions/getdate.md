@@ -1,35 +1,35 @@
 ---
 title: getdate
 sidebar_label: getdate
-description: Get the current server date, which will be stored in the variables &year, &month and &day.
-tags: ["time", "date"]
+description: 获取当前服务器日期并存储到年、月、日变量中。
+tags: ["时间", "日期"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Get the current server date, which will be stored in the variables &year, &month and &day.
+获取当前服务器日期，并将结果存储到指定的年、月、日变量中。
 
-| Name     | Description                                              |
-| -------- | -------------------------------------------------------- |
-| &year=0  | The variable to store the year in, passed by reference.  |
-| &month=0 | The variable to store the month in, passed by reference. |
-| &day=0   | The variable to store the day in, passed by reference.   |
+| 参数名   | 说明                                       |
+| -------- | ------------------------------------------ |
+| &year=0  | 整型变量（引用传递），用于存储年份         |
+| &month=0 | 整型变量（引用传递），用于存储月份（1-12） |
+| &day=0   | 整型变量（引用传递），用于存储日期（1-31） |
 
-## Returns
+## 返回值
 
-The number of days since the start of the year.
+返回自年初以来的天数。
 
-## Examples
+## 示例代码
 
 ```c
 new Year, Month, Day, Days;
 Days = getdate(Year, Month, Day);
-printf("%02d/%02d/%d", Day, Month, Year);
-printf("Days since the start of the year: %d", Days);
+printf("当前日期: %02d/%02d/%d", Day, Month, Year);  // 输出格式：日/月/年
+printf("本年已过天数: %d", Days);                    // 输出自年初以来的天数
 ```
 
-## Related Functions
+## 相关函数
 
-- [gettime](gettime): Get the current time of the server as a unix timestamp.
+- [gettime](gettime.md): 获取服务器时间的 UNIX 时间戳

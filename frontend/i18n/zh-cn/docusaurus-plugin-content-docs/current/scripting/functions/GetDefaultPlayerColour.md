@@ -1,30 +1,30 @@
 ---
 title: GetDefaultPlayerColour
 sidebar_label: GetDefaultPlayerColour
-description: Gets the default colour for the player ID.
-tags: ["player"]
+description: 获取玩家ID的默认颜色。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the default colour for the player ID.
+获取玩家 ID 的默认颜色。
 
-| Name     | Description                                                              |
-| -------- | ------------------------------------------------------------------------ |
-| playerid | The ID of the player to get the colour of. Doesn't need to be connected. |
+| 参数名   | 说明                                |
+| -------- | ----------------------------------- |
+| playerid | 要获取颜色的玩家 ID（无需玩家在线） |
 
-## Returns
+## 返回值
 
-The player's default color.
+返回玩家的默认颜色值。
 
-## Examples
+## 示例代码
 
 ```c
-new colour = GetDefaultPlayerColour(playerid);
+new colour = GetDefaultPlayerColour(playerid);  // 获取玩家的默认颜色
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerColor](GetPlayerColor): Gets a player's color.
+- [GetPlayerColor](GetPlayerColor.md): 获取玩家当前使用的颜色

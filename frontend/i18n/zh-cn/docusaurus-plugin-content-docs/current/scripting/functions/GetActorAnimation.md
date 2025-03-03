@@ -1,35 +1,35 @@
 ---
 title: GetActorAnimation
 sidebar_label: GetActorAnimation
-description: Get the animation the actor is currently performing.
-tags: ["actor"]
+description: 获取角色当前正在播放的动画信息。
+tags: ["角色"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the animation the actor is currently performing.
+获取角色当前正在播放的动画信息。
 
-| Name               | Description                                                                |
-| ------------------ | -------------------------------------------------------------------------- |
-| actorid            | The ID of the actor to get the animation of.                               |
-| animationLibrary[] | An array into which to store the animationLibrary in, passed by reference. |
-| librarySize        | The size of the animationLibrary array.                                    |
-| animationName[]    | An array into which to store the animationName in, passed by reference.    |
-| nameSize           | The size of the animationName array.                                       |
-| &Float:delta       | A float variable into which to store the delta in, passed by reference.    |
-| &bool:loop         | A boolean variable into which to store the loop in, passed by reference.   |
-| &bool:lockX        | A float variable into which to store the lockX in, passed by reference.    |
-| &bool:lockY        | A float variable into which to store the lockY in, passed by reference.    |
-| &bool:freeze       | A boolean variable into which to store the freeze in, passed by reference. |
-| &time              | A variable into which to store the time in, passed by reference.           |
+| 参数名             | 说明                                        |
+| ------------------ | ------------------------------------------- |
+| actorid            | 要获取动画的角色 ID                         |
+| animationLibrary[] | 用于存储动画库名称的数组（引用传递）        |
+| librarySize        | 动画库名称数组的长度                        |
+| animationName[]    | 用于存储动画名称的数组（引用传递）          |
+| nameSize           | 动画名称数组的长度                          |
+| &Float:delta       | 浮点变量，用于存储动画增量（引用传递）      |
+| &bool:loop         | 布尔变量，用于存储循环状态（引用传递）      |
+| &bool:lockX        | 布尔变量，用于存储 X 轴锁定状态（引用传递） |
+| &bool:lockY        | 布尔变量，用于存储 Y 轴锁定状态（引用传递） |
+| &bool:freeze       | 布尔变量，用于存储冻结状态（引用传递）      |
+| &time              | 整型变量，用于存储动画时间（引用传递）      |
 
-## Return Values
+## 返回值
 
-Returns **true** if the actor is valid, otherwise returns **false**.
+若角色存在且有效返回 true，否则返回 false。
 
-## Examples
+## 示例代码
 
 ```c
 new gMyActor;
@@ -53,8 +53,8 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateActor](CreateActor): Create an actor (static NPC).
-- [ApplyActorAnimation](ApplyActorAnimation): Apply an animation to an actor.
-- [ClearActorAnimations](ClearActorAnimations): Clear any animations that are applied to an actor.
+- [CreateActor](CreateActor): 创建角色（静态 NPC）
+- [ApplyActorAnimation](ApplyActorAnimation): 对角色应用动画
+- [ClearActorAnimations](ClearActorAnimations): 清除角色的所有动画

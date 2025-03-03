@@ -1,38 +1,38 @@
 ---
 title: GetMenuItem
 sidebar_label: GetMenuItem
-description: Get the text in the specified cell - addressed by column and row.
-tags: ["menu"]
+description: 通过列和行索引获取指定单元格中的文本内容。
+tags: ["菜单"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the text in the specified cell - addressed by column and row.
+通过列和行索引获取指定单元格中的文本内容。
 
-| Name        | Description                                                 |
-| ----------- | ----------------------------------------------------------- |
-| Menu:menuid | The ID of the menu.                                         |
-| column      | The column.                                                 |
-| row         | The row to get the text of.                                 |
-| cell[]      | An array into which to store the text, passed by reference. |
-| len         | The length of the string that should be stored.             |
+| 参数名      | 说明                               |
+| ----------- | ---------------------------------- |
+| Menu:menuid | 要查询的菜单 ID                    |
+| column      | 列索引（从 0 开始计数）            |
+| row         | 行索引（从 0 开始计数）            |
+| cell[]      | 存储文本内容的数组变量（引用传递） |
+| len         | 存储数组的容量长度                 |
 
-## Returns
+## 返回值
 
-This function always returns true.
+本函数始终返回 true。
 
-## Examples
+## 示例代码
 
 ```c
 new text[32];
 
-// Get the menu item text in the column 1 and row 2
+// 获取第1列第2行的菜单项文本
 GetMenuItem(menuid, 1, 2, text, sizeof(text));
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetMenuItems](GetMenuItems): Get the menu items.
-- [GetMenuColumns](GetMenuColumns): Get the number of active columns.
+- [GetMenuItems](GetMenuItems.md): 获取菜单项列表
+- [GetMenuColumns](GetMenuColumns.md): 获取菜单激活列数
