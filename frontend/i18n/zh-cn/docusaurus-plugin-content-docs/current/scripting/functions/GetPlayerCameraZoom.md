@@ -1,40 +1,41 @@
 ---
 title: GetPlayerCameraZoom
 sidebar_label: GetPlayerCameraZoom
-description: Retrieves the game camera zoom level for a given player.
-tags: ["player", "camera"]
+description: 获取指定玩家的游戏视角缩放级别
+tags: ["玩家", "视角"]
 ---
 
-## Description
+## 描述
 
-Retrieves the game camera zoom level for a given player.
+获取指定玩家当前使用的游戏视角缩放级别
 
-| Name     | Description                                           |
-| -------- | ----------------------------------------------------- |
-| playerid | The ID of the player to get the camera zoom level of. |
+| 参数名   | 说明                          |
+| -------- | ----------------------------- |
+| playerid | 需要获取视角缩放级别的玩家 ID |
 
-## Returns
+## 返回值
 
-The player's camera zoom level (camera, sniper etc.), a float.
+玩家当前视角缩放级别（普通视角/狙击镜等），返回浮点数值
 
-## Examples
+## 示例代码
 
 ```c
+// 显示玩家当前视角缩放级别
 new string[128];
-format(string, sizeof(string), "Your camera zoom level: %f", GetPlayerCameraZoom(playerid));
+format(string, sizeof(string), "你的视角缩放级别: %f", GetPlayerCameraZoom(playerid));
 SendClientMessage(playerid, -1, string);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This retrieves the zoom level of the GAME Camera (including Sniper scope), not the camera WEAPON.
+本函数获取的是游戏内置视角系统（包含狙击镜缩放）的缩放级别，与武器模型自带的缩放效果无关
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerCameraAspectRatio](GetPlayerCameraAspectRation): Get the aspect ratio of a player's camera.
-- [GetPlayerCameraPos](GetPlayerCameraPos): Find out where the player's camera is.
-- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): Get the player's camera front vector
+- [GetPlayerCameraAspectRatio](GetPlayerCameraAspectRatio): 获取玩家视角宽高比
+- [GetPlayerCameraPos](GetPlayerCameraPos): 获取玩家视角位置坐标
+- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): 获取玩家视角前向向量

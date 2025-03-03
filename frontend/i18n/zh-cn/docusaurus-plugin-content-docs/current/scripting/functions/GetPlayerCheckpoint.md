@@ -1,29 +1,29 @@
 ---
 title: GetPlayerCheckpoint
 sidebar_label: GetPlayerCheckpoint
-description: Get the location of the current checkpoint.
-tags: ["player", "checkpoint"]
+description: 获取玩家当前检查点的位置信息
+tags: ["玩家", "检查点"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the location of the current checkpoint.
+获取玩家当前激活的检查点位置及参数信息
 
-| Name           | Description                                                                        |
-| -------------- | ---------------------------------------------------------------------------------- |
-| playerid       | The ID of the player to get the checkpoint position of.                            |
-| &Float:centreX | A float variable in which to store the centreX coordinate in, passed by reference. |
-| &Float:centreY | A float variable in which to store the centreY coordinate in, passed by reference. |
-| &Float:centreZ | A float variable in which to store the centreZ coordinate in, passed by reference. |
-| &Float:radius  | A float variable in which to store the radius in, passed by reference.             |
+| 参数名         | 说明                                            |
+| -------------- | ----------------------------------------------- |
+| playerid       | 需要获取检查点信息的玩家 ID                     |
+| &Float:centreX | 存储检查点中心 X 坐标的浮点变量（通过引用传递） |
+| &Float:centreY | 存储检查点中心 Y 坐标的浮点变量（通过引用传递） |
+| &Float:centreZ | 存储检查点中心 Z 坐标的浮点变量（通过引用传递） |
+| &Float:radius  | 存储检查点半径的浮点变量（通过引用传递）        |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不直接返回值，数据将通过引用参数返回
 
-## Examples
+## 示例代码
 
 ```c
 SetPlayerCheckpoint(playerid, 408.9874, 2537.8059, 16.5455, 1.5);
@@ -36,19 +36,19 @@ new Float:centreX,
 GetPlayerCheckpoint(playerid, centreX, centreY, centreZ, radius);
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerCheckpoint](SetPlayerCheckpoint): Create a checkpoint for a player.
-- [DisablePlayerCheckpoint](DisablePlayerCheckpoint): Disable the player's current checkpoint.
-- [IsPlayerInCheckpoint](IsPlayerInCheckpoint): Check if a player is in a checkpoint.
-- [IsPlayerCheckpointActive](IsPlayerCheckpointActive): Check if the player currently has a checkpoint visible.
-- [SetPlayerRaceCheckpoint](SetPlayerRaceCheckpoint): Create a race checkpoint for a player.
-- [DisablePlayerRaceCheckpoint](DisablePlayerRaceCheckpoint): Disable the player's current race checkpoint.
-- [IsPlayerInRaceCheckpoint](IsPlayerInRaceCheckpoint): Check if a player is in a race checkpoint.
+- [SetPlayerCheckpoint](SetPlayerCheckpoint): 为玩家创建普通检查点
+- [DisablePlayerCheckpoint](DisablePlayerCheckpoint): 禁用玩家当前检查点
+- [IsPlayerInCheckpoint](IsPlayerInCheckpoint): 检测玩家是否处于检查点内
+- [IsPlayerCheckpointActive](IsPlayerCheckpointActive): 检测玩家是否激活检查点
+- [SetPlayerRaceCheckpoint](SetPlayerRaceCheckpoint): 创建竞速检查点
+- [DisablePlayerRaceCheckpoint](DisablePlayerRaceCheckpoint): 禁用竞速检查点
+- [IsPlayerInRaceCheckpoint](IsPlayerInRaceCheckpoint): 检测玩家是否处于竞速检查点
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerEnterCheckpoint](../callbacks/OnPlayerEnterCheckpoint): Called when a player enters a checkpoint.
-- [OnPlayerLeaveCheckpoint](../callbacks/OnPlayerLeaveCheckpoint): Called when a player leaves a checkpoint.
-- [OnPlayerEnterRaceCheckpoint](../callbacks/OnPlayerEnterRaceCheckpoint): Called when a player enters a race checkpoint.
-- [OnPlayerLeaveRaceCheckpoint](../callbacks/OnPlayerLeaveRaceCheckpoint): Called when a player leaves a race checkpoint.
+- [OnPlayerEnterCheckpoint](../callbacks/OnPlayerEnterCheckpoint): 当玩家进入检查点时触发
+- [OnPlayerLeaveCheckpoint](../callbacks/OnPlayerLeaveCheckpoint): 当玩家离开检查点时触发
+- [OnPlayerEnterRaceCheckpoint](../callbacks/OnPlayerEnterRaceCheckpoint): 当玩家进入竞速检查点时触发
+- [OnPlayerLeaveRaceCheckpoint](../callbacks/OnPlayerLeaveRaceCheckpoint): 当玩家离开竞速检查点时触发

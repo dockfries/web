@@ -1,24 +1,24 @@
 ---
 title: GetPlayer3DTextLabelText
 sidebar_label: GetPlayer3DTextLabelText
-description: Gets the player's 3D text label text.
-tags: ["player", "3dtextlabel"]
+description: 获取玩家3D文本标签的文本内容
+tags: ["玩家", "3D文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the player's 3D text label text.
+获取玩家 3D 文本标签的文本内容。
 
-| Name                | Description                                                 |
-| ------------------- | ----------------------------------------------------------- |
-| playerid            | The ID of the player.                                       |
-| PlayerText3D:textid | The ID of the player's 3D text label to get the text of.    |
-| text[]              | An array into which to store the text, passed by reference. |
-| len                 | The length of the text that should be stored.               |
+| 名称                | 描述                              |
+| ------------------- | --------------------------------- |
+| playerid            | 玩家的 ID                         |
+| PlayerText3D:textid | 需要获取文本的玩家 3D 文本标签 ID |
+| text[]              | 存储文本内容的数组，通过引用传递  |
+| len                 | 待存储文本的最大长度              |
 
-## Examples
+## 示例代码
 
 ```c
 new PlayerText3D:playerTextId;
@@ -32,8 +32,8 @@ GetPlayer3DTextLabelText(playerid, playerTextId, text, sizeof(text));
 // text = "Hello World!"
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): Creates a 3D Text Label only for a specific player.
-- [UpdatePlayer3DTextLabelText](UpdatePlayer3DTextLabelText): Updates a player 3D Text Label's text and colour.
-- [Get3DTextLabelText](Get3DTextLabelText): Gets the 3D text label text.
+- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): 为指定玩家创建 3D 文本标签
+- [UpdatePlayer3DTextLabelText](UpdatePlayer3DTextLabelText): 更新玩家 3D 文本标签的内容和颜色
+- [Get3DTextLabelText](Get3DTextLabelText): 获取 3D 文本标签的文本内容

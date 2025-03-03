@@ -1,26 +1,26 @@
 ---
 title: GetPlayer3DTextLabelVirtualWorld
 sidebar_label: GetPlayer3DTextLabelVirtualWorld
-description: Gets the player's 3D text label virtual world id.
-tags: ["player", "3dtextlabel"]
+description: 获取玩家3D文本标签的虚拟世界ID
+tags: ["玩家", "3D文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the player's 3D text label virtual world id.
+获取玩家 3D 文本标签的虚拟世界 ID。
 
-| Name                | Description                                                          |
-| ------------------- | -------------------------------------------------------------------- |
-| playerid            | The ID of the player.                                                |
-| PlayerText3D:textid | The ID of the player's 3D text label to get the virtual world id of. |
+| 名称                | 描述                                      |
+| ------------------- | ----------------------------------------- |
+| playerid            | 玩家的 ID                                 |
+| PlayerText3D:textid | 需要获取虚拟世界 ID 的玩家 3D 文本标签 ID |
 
-## Returns
+## 返回值
 
-Returns the virtual world id of the player's 3D text label.
+返回玩家 3D 文本标签的虚拟世界 ID。
 
-## Examples
+## 示例代码
 
 ```c
 new PlayerText3D:playerTextId;
@@ -33,15 +33,15 @@ playerTextId = CreatePlayer3DTextLabel(playerid, "Hello\nI'm at your position", 
 worldid = GetPlayer3DTextLabelVirtualWorld(playerid, playerTextId);
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-There is no virtual world support for player 3D text labels.
-This function just returns the player's virtual world!
+玩家 3D 文本标签本身不支持虚拟世界设置，
+本函数实际返回的是玩家当前的虚拟世界 ID！
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [Get3DTextLabelVirtualWorld](Get3DTextLabelVirtualWorld): Gets the 3D text label virtual world id.
+- [Get3DTextLabelVirtualWorld](Get3DTextLabelVirtualWorld): 获取 3D 文本标签的虚拟世界 ID

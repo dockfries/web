@@ -1,34 +1,34 @@
 ---
 title: GetPlayerGhostMode
 sidebar_label: GetPlayerGhostMode
-description: Get player's ghost mode.
-tags: ["player"]
+description: 获取玩家幽灵模式状态
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get player's ghost mode.
+获取玩家当前幽灵模式的激活状态
 
-| Name     | Description                                    |
-| -------- | ---------------------------------------------- |
-| playerid | The ID of the player to get the ghost mode of. |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| playerid | 需要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - Ghost mode is enable.
+**true** - 幽灵模式已激活
 
-**false** - Ghost mode is disable.
+**false** - 幽灵模式未激活
 
-## Examples
+## 示例代码
 
 ```c
 new string[64];
-format(string, sizeof(string), "Your ghost mode is %s", GetPlayerGhostMode(playerid) == true ? "enable" : "disable");
+format(string, sizeof(string), "你的幽灵模式已%s", GetPlayerGhostMode(playerid) ? "启用" : "禁用");
 SendClientMessage(playerid, -1, string);
 ```
 
-## Related Functions
+## 相关函数
 
-- [TogglePlayerGhostMode](TogglePlayerGhostMode): Toggle player's ghost mode.
+- [TogglePlayerGhostMode](TogglePlayerGhostMode): 切换玩家幽灵模式状态

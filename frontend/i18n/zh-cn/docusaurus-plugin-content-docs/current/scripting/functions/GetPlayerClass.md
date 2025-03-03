@@ -1,33 +1,33 @@
 ---
 title: GetPlayerClass
 sidebar_label: GetPlayerClass
-description: Get the class data.
+description: 获取职业配置数据
 tags: ["class"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the class data.
+获取已注册职业的配置数据
 
-| Name            | Description                                                                      |
-| --------------- | -------------------------------------------------------------------------------- |
-| classid         | The class id to get data from.                                                   |
-| &team           | A variable in which to store the team in, passed by reference.                   |
-| &skin           | A variable in which to store the skin in, passed by reference.                   |
-| &Float:spawnX   | A float variable in which to store the X coordinate in, passed by reference.     |
-| &Float:spawnY   | A float variable in which to store the Y coordinate in, passed by reference.     |
-| &Float:spawnZ   | A float variable in which to store the Z coordinate in, passed by reference.     |
-| &Float:angle    | A float variable in which to store the angle coordinate in, passed by reference. |
-| &WEAPON:weapon1 | A variable in which to store the weapon1 in, passed by reference.                |
-| &ammo1          | A variable in which to store the ammo1 in, passed by reference.                  |
-| &WEAPON:weapon2 | A variable in which to store the weapon2 in, passed by reference.                |
-| &ammo2          | A variable in which to store the ammo2 in, passed by reference.                  |
-| &WEAPON:weapon3 | A variable in which to store the weapon3 in, passed by reference.                |
-| &ammo3          | A variable in which to store the ammo3 in, passed by reference.                  |
+| 参数名          | 说明                                        |
+| --------------- | ------------------------------------------- |
+| classid         | 要获取数据的职业 ID                         |
+| &team           | 存储队伍 ID 的变量（通过引用传递）          |
+| &skin           | 存储角色皮肤的变量（通过引用传递）          |
+| &Float:spawnX   | 存储出生点 X 坐标的浮点变量（通过引用传递） |
+| &Float:spawnY   | 存储出生点 Y 坐标的浮点变量（通过引用传递） |
+| &Float:spawnZ   | 存储出生点 Z 坐标的浮点变量（通过引用传递） |
+| &Float:angle    | 存储出生朝向角度的浮点变量（通过引用传递）  |
+| &WEAPON:weapon1 | 存储第一主武器的变量（通过引用传递）        |
+| &ammo1          | 存储第一武器弹药的变量（通过引用传递）      |
+| &WEAPON:weapon2 | 存储第二主武器的变量（通过引用传递）        |
+| &ammo2          | 存储第二武器弹药的变量（通过引用传递）      |
+| &WEAPON:weapon3 | 存储第三主武器的变量（通过引用传递）        |
+| &ammo3          | 存储第三武器弹药的变量（通过引用传递）      |
 
-## Examples
+## 示例代码
 
 ```c
 new
@@ -47,24 +47,24 @@ new
 
 GetPlayerClass(classid, team, skin, spawnX, spawnY, spawnZ, angle, weapon1, ammo1, weapon2, ammo2, weapon3, ammo3);
 
-printf("[Class id %d data]\n\
-    team: %d\n\
-    skin: %d\n\
-    spawnX: %f\n\
-    spawnY: %f\n\
-    spawnZ: %f\n\
-    angle: %f\n\
-    weapon1: %d\n\
-    ammo1: %d\n\
-    weapon2: %d\n\
-    ammo2: %d\n\
-    weapon3: %d\n\
-    ammo3: %d",
+printf("[职业ID %d 配置详情]\n\
+    队伍: %d\n\
+    皮肤: %d\n\
+    出生点X: %f\n\
+    出生点Y: %f\n\
+    出生点Z: %f\n\
+    朝向角度: %f\n\
+    武器1: %d\n\
+    弹药1: %d\n\
+    武器2: %d\n\
+    弹药2: %d\n\
+    武器3: %d\n\
+    弹药3: %d",
     classid, team, skin, spawnX, spawnY, spawnZ, angle, weapon1, ammo1, weapon2, ammo2, weapon3, ammo3);
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddPlayerClass](AddPlayerClass): Adds a class.
-- [AddPlayerClassEx](AddPlayerClassEx): Add a class with a default team.
-- [GetAvailableClasses](GetAvailableClasses): Get the number of classes defined.
+- [AddPlayerClass](AddPlayerClass): 添加基础职业配置
+- [AddPlayerClassEx](AddPlayerClassEx): 添加带默认队伍的扩展职业配置
+- [GetAvailableClasses](GetAvailableClasses): 获取已定义的职业总数

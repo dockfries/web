@@ -1,7 +1,7 @@
 ---
 title: EnablePlayerCameraTarget
 sidebar_label: EnablePlayerCameraTarget
-description: 切换玩家的摄像机目标功能（默认禁用以节省带宽）。
+description: 切换玩家的视角目标功能（默认禁用以节省带宽）。
 tags: ["玩家"]
 ---
 
@@ -9,11 +9,11 @@ tags: ["玩家"]
 
 ## 描述
 
-切换玩家的摄像机目标检测功能。该功能默认禁用以节省网络带宽。
+切换玩家的视角目标检测功能。该功能默认禁用以节省网络带宽。
 
 | 名称        | 描述                          |
 | ----------- | ----------------------------- |
-| playerid    | 要设置摄像机目标功能的玩家 ID |
+| playerid    | 要设置视角目标功能的玩家 ID |
 | bool:enable | true 启用 / false 禁用        |
 
 ## 返回值
@@ -27,14 +27,14 @@ tags: ["玩家"]
 ```c
 public OnPlayerConnect(playerid)
 {
-     EnablePlayerCameraTarget(playerid, true); // 玩家连接时启用摄像机目标功能
+     EnablePlayerCameraTarget(playerid, true); // 玩家连接时启用视角目标功能
      return 1;
 }
 ```
 
 ## 相关函数
 
-- [IsPlayerCameraTargetEnabled](IsPlayerCameraTargetEnabled): 检查玩家摄像机目标是否启用
+- [IsPlayerCameraTargetEnabled](IsPlayerCameraTargetEnabled): 检查玩家视角目标是否启用
 - [GetPlayerCameraTargetVehicle](GetPlayerCameraTargetVehicle): 获取玩家正在观察的车辆 ID
 - [GetPlayerCameraTargetPlayer](GetPlayerCameraTargetPlayer): 获取玩家正在观察的其他玩家 ID
-- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): 获取玩家摄像机前向向量
+- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): 获取玩家视角前向向量

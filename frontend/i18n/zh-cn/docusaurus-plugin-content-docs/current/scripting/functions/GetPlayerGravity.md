@@ -1,25 +1,25 @@
 ---
 title: GetPlayerGravity
 sidebar_label: GetPlayerGravity
-description: Get a player's gravity.
-tags: ["player"]
+description: 获取玩家当前重力值
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get a player's gravity.
+获取玩家当前的重力值设置
 
-| Name     | Description                                 |
-| -------- | ------------------------------------------- |
-| playerid | The ID of the player to get the gravity of. |
+| 参数名   | 说明                    |
+| -------- | ----------------------- |
+| playerid | 需要获取重力值的玩家 ID |
 
-## Returns
+## 返回值
 
-The player's gravity as float.
+玩家的重力值（浮点数值）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -27,7 +27,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (!strcmp(cmdtext, "/mygravity", true))
     {
         new string[32];
-        format(string, sizeof(string), "Your gravity is: %f", GetPlayerGravity(playerid));
+        format(string, sizeof(string), "你的当前重力值: %f", GetPlayerGravity(playerid));
         SendClientMessage(playerid, 0xFFFF00FF, string);
         return 1;
     }
@@ -35,8 +35,8 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerGravity](SetPlayerGravity): Set a player's gravity.
-- [GetGravity](GetGravity): Get the currently global gravity.
-- [SetGravity](SetGravity): Set the gravity for all players.
+- [SetPlayerGravity](SetPlayerGravity): 设置玩家重力值
+- [GetGravity](GetGravity): 获取全局重力值
+- [SetGravity](SetGravity): 设置全局重力值

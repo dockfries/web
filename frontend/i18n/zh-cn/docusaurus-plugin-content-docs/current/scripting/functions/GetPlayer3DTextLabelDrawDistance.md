@@ -1,26 +1,26 @@
 ---
 title: GetPlayer3DTextLabelDrawDistance
 sidebar_label: GetPlayer3DTextLabelDrawDistance
-description: Gets the player's 3D text label draw distance.
-tags: ["player", "3dtextlabel"]
+description: 获取玩家3D文本标签的绘制距离
+tags: ["玩家", "3D文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the player's 3D text label draw distance.
+获取玩家 3D 文本标签的绘制距离。
 
-| Name                | Description                                                       |
-| ------------------- | ----------------------------------------------------------------- |
-| playerid            | The ID of the player.                                             |
-| PlayerText3D:textid | The ID of the player's 3D text label to get the draw distance of. |
+| 名称                | 描述                                  |
+| ------------------- | ------------------------------------- |
+| playerid            | 玩家的 ID                             |
+| PlayerText3D:textid | 需要获取绘制距离的玩家 3D 文本标签 ID |
 
-## Returns
+## 返回值
 
-Returns the draw distance of the player's 3D text label as float.
+以浮点数形式返回玩家 3D 文本标签的绘制距离。
 
-## Examples
+## 示例代码
 
 ```c
 new PlayerText3D:playerTextId;
@@ -34,7 +34,7 @@ drawDistance = GetPlayer3DTextLabelDrawDistance(playerid, playerTextId);
 // drawDistance = 40.0
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayer3DTextLabelDrawDistance](SetPlayer3DTextLabelDrawDistance): Sets the player's 3D text label draw distance.
-- [Get3DTextLabelDrawDistance](Get3DTextLabelDrawDistance): Gets the 3D text label draw distance.
+- [SetPlayer3DTextLabelDrawDistance](SetPlayer3DTextLabelDrawDistance): 设置玩家 3D 文本标签的绘制距离
+- [Get3DTextLabelDrawDistance](Get3DTextLabelDrawDistance): 获取 3D 文本标签的绘制距离

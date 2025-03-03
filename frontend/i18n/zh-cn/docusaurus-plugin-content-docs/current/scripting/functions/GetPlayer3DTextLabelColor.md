@@ -1,30 +1,30 @@
 ---
 title: GetPlayer3DTextLabelColor
 sidebar_label: GetPlayer3DTextLabelColor
-description: Gets the player's 3D text label color.
-tags: ["player", "3dtextlabel"]
+description: 获取玩家3D文本标签的颜色
+tags: ["玩家", "3D文本标签"]
 ---
 
 :::warning
 
-This function is deprecated. Please see [GetPlayer3DTextLabelColour](GetPlayer3DTextLabelColour).
+该函数已弃用，请使用 [GetPlayer3DTextLabelColour](GetPlayer3DTextLabelColour)。
 
 :::
 
-## Description
+## 描述
 
-Gets the player's 3D text label color.
+获取玩家 3D 文本标签的颜色。
 
-| Name                | Description                                               |
-| ------------------- | --------------------------------------------------------- |
-| playerid            | The ID of the player.                                     |
-| PlayerText3D:textid | The ID of the player's 3D text label to get the color of. |
+| 名称                | 描述                              |
+| ------------------- | --------------------------------- |
+| playerid            | 玩家的 ID                         |
+| PlayerText3D:textid | 需要获取颜色的玩家 3D 文本标签 ID |
 
-## Returns
+## 返回值
 
-Returns the player's 3D text label color.
+返回玩家 3D 文本标签的颜色值（ARGB 格式）。
 
-## Examples
+## 示例代码
 
 ```c
 new PlayerText3D:playerTextId;
@@ -38,6 +38,6 @@ color = GetPlayer3DTextLabelColor(playerid, playerTextId);
 // color = 0x008080FF
 ```
 
-## Related Functions
+## 相关函数
 
-- [Get3DTextLabelColor](Get3DTextLabelColor): Gets the 3D text label color.
+- [Get3DTextLabelColor](Get3DTextLabelColor): 获取 3D 文本标签颜色

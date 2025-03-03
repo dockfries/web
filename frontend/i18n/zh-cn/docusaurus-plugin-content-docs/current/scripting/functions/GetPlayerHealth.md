@@ -1,37 +1,35 @@
 ---
 title: GetPlayerHealth
 sidebar_label: GetPlayerHealth
-description: The function GetPlayerHealth allows you to retrieve the health of a player.
-tags: ["player"]
+description: 获取玩家当前生命值
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-The function GetPlayerHealth allows you to retrieve the health of a player. Useful for cheat detection, among other things.
+本函数用于获取玩家当前的生命值，常用于反作弊检测等场景
 
-| Name          | Description                                 |
-| ------------- | ------------------------------------------- |
-| playerid      | The ID of the player.                       |
-| &Float:health | Float to store health, passed by reference. |
+| 参数名        | 说明                                 |
+| ------------- | ------------------------------------ |
+| playerid      | 需要获取生命值的玩家 ID              |
+| &Float:health | 存储生命值的浮点变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-**true** - success
+**true** - 函数执行成功
 
-**false** - failure (i.e. player not connected).
+**false** - 函数执行失败（玩家未连接）
 
-The player's health is stored in the specified variable.
+玩家当前生命值将存储在指定变量中
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (strcmp(cmdtext, "/doctor", true) == 0)
     {
-        // Sets players health to 50 if it was lower than
-        // 50 before, as soon as he typed /doctor
-
+        // 当玩家输入/doctor时，若生命值低于50则恢复至50
         new Float:health;
         GetPlayerHealth(playerid, health);
 
@@ -45,16 +43,16 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Even though the health can be set to near infinite values on the server side, the individual clients will only report values up to 255. Anything higher will wrap around; 256 becomes 0, 257 becomes 1, etc. Health is obtained rounded to integers: set 50.15, but get 50.0
+服务端可设置极大生命值，但客户端最大显示值为 255（超过部分会循环计算：256→0，257→1）。生命值获取时会取整，如设置 50.15 将返回 50.0
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerHealth](SetPlayerHealth): Set a player's health.
-- [GetVehicleHealth](GetVehicleHealth): Check the health of a vehicle.
-- [GetPlayerArmour](GetPlayerArmour): Find out how much armour a player has.
+- [SetPlayerHealth](SetPlayerHealth): 设置玩家生命值
+- [GetVehicleHealth](GetVehicleHealth): 获取载具耐久值
+- [GetPlayerArmour](GetPlayerArmour): 获取玩家护甲值

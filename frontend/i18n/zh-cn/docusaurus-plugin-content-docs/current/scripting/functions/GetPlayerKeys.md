@@ -1,26 +1,26 @@
 ---
 title: GetPlayerKeys
 sidebar_label: GetPlayerKeys
-description: Check which keys a player is pressing.
+description: 检测玩家当前按下的按键状态
 tags: ["player"]
 ---
 
-## Description
+## 描述
 
-Check which keys a player is pressing.
+检测玩家当前操作的按键状态（行走/驾驶控制）
 
-| Name      | Description                                                                                                                                    |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| playerid  | The ID of the player to get the keys of.                                                                                                       |
-| &KEY:keys | A set of bits containing the player's key states. This value is what is called a bit mask. [Click here](../resources/keys) for a list of keys. |
-| updown    | Up/down state.                                                                                                                                 |
-| leftright | Left/right state.                                                                                                                              |
+| 参数名     | 说明                                                                                                  |
+| ---------- | ----------------------------------------------------------------------------------------------------- |
+| playerid   | 需要检测的玩家 ID                                                                                     |
+| &KEY:keys  | 存储按键位掩码的变量（通过引用传递），用于检测特定功能键状态，详见[按键位掩码说明](../resources/keys) |
+| &updown    | 存储上下方向键状态（KEY_UP/KEY_DOWN）                                                                 |
+| &leftright | 存储左右方向键状态（KEY_LEFT/KEY_RIGHT）                                                              |
 
-## Returns
+## 返回值
 
-The keys are stored in the specified variables.
+按键状态数据将存储在指定的变量中
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerUpdate(playerid)
@@ -32,36 +32,34 @@ public OnPlayerUpdate(playerid)
 
     if (updown == KEY_UP)
     {
-        SendClientMessage(playerid, -1, "UP");
+        SendClientMessage(playerid, -1, "上方向键按下");
     }
     else if (updown == KEY_DOWN)
     {
-        SendClientMessage(playerid, -1, "DOWN");
+        SendClientMessage(playerid, -1, "下方向键按下");
     }
 
     if (leftright == KEY_LEFT)
     {
-        SendClientMessage(playerid, -1, "LEFT");
+        SendClientMessage(playerid, -1, "左方向键按下");
     }
     else if (leftright == KEY_RIGHT)
     {
-        SendClientMessage(playerid, -1, "RIGHT");
+        SendClientMessage(playerid, -1, "右方向键按下");
     }
-
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Only the FUNCTION of keys can be detected; not actual keys. For example, it is not possible to detect if a player presses SPACE, but you can detect if they press SPRINT (which can be mapped (assigned/binded) to ANY key (but is space by default)).
-
-As of update 0.3.7, the keys "A" and "D" are not recognized when in a vehicle. However, keys "W" and "S" can be detected with the "keys" parameter.
+1. 仅能检测功能映射，而非物理按键。例如无法直接检测空格键，但可检测 SPRINT 功能（默认映射为空格）
+2. 自 0.3.7 版本起，载具中的 A/D 键无法检测，但可通过 keys 参数检测 W/S 键
 
 :::
 
-## Related Resources
+## 相关资源
 
-- [Keys](../resources/keys)
+- [按键位掩码对照表](../resources/keys)

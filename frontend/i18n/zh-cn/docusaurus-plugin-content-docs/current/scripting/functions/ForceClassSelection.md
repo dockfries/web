@@ -1,6 +1,6 @@
 ---
 title: ForceClassSelection
-sidebar_label: 强制返回职业选择
+sidebar_label: ForceClassSelection
 description: 强制玩家返回职业选择界面。
 tags: ["职业系统"]
 ---

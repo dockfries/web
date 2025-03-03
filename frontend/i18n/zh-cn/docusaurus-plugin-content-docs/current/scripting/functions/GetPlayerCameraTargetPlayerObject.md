@@ -1,27 +1,25 @@
 ---
 title: GetPlayerCameraTargetPlayerObject
 sidebar_label: GetPlayerCameraTargetPlayerObject
-description: Allows you to retrieve the ID of the player-object the player is looking at.
-tags: ["player", "camera", "object", "playerobject"]
+description: 获取玩家当前正在注视的玩家物体ID
+tags: ["玩家", "视角", "物体", "玩家物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Allows you to retrieve the ID of the player-object the player is looking at.
+获取玩家当前正在注视的玩家创建物体（player-object）的 ID
 
-| Name     | Description                   |
-| -------- | ----------------------------- |
-| playerid | The ID of the player to check |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| playerid | 需要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-The ID of the player-object the player is looking at.
+玩家正在注视的玩家物体 ID（若无可视物体则返回 INVALID_OBJECT_ID）
 
-If `INVALID_OBJECT_ID` (65535) is returned, player isn't looking at any object.
-
-## Examples
+## 示例代码
 
 ```c
 new gPlayerObject[MAX_PLAYERS];
@@ -39,11 +37,11 @@ public OnPlayerCommandText(playerid, cmdtext[])
         new objectid = GetPlayerCameraTargetPlayerObject(playerid);
         if (objectid == gPlayerObject[playerid])
         {
-            SendClientMessage(playerid, -1, "You're looking at your object.");
+            SendClientMessage(playerid, -1, "你正在注视自己的玩家物体");
         }
         else if (objectid == INVALID_OBJECT_ID) // INVALID_OBJECT_ID = 65535
         {
-            SendClientMessage(playerid, -1, "You're not looking at any object.");
+            SendClientMessage(playerid, -1, "未检测到注视的玩家物体");
         }
         return 1;
     }
@@ -51,17 +49,17 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function is disabled by default to save bandwidth. Use [EnablePlayerCameraTarget](EnablePlayerCameraTarget) to enable it for each player.
+本功能默认禁用以节省带宽，需使用[EnablePlayerCameraTarget](EnablePlayerCameraTarget)为每个玩家单独启用
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerCameraTargetObject](GetPlayerCameraTargetObject): Get the ID of the object a player is looking at.
-- [GetPlayerCameraTargetVehicle](GetplayerCameraTargetVehicle): Get the ID of the vehicle a player is looking at.
-- [GetPlayerCameraTargetPlayer](GetplayerCameraTargetPlayer): Get the ID of the player a player is looking at.
-- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): Get the player's camera front vector
+- [GetPlayerCameraTargetObject](GetPlayerCameraTargetObject): 获取玩家注视的全局物体 ID
+- [GetPlayerCameraTargetVehicle](GetplayerCameraTargetVehicle): 获取玩家注视的车辆 ID
+- [GetPlayerCameraTargetPlayer](GetplayerCameraTargetPlayer): 获取玩家注视的玩家 ID
+- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): 获取玩家视角前向向量

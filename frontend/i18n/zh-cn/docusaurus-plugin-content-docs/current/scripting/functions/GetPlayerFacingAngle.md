@@ -1,28 +1,28 @@
 ---
 title: GetPlayerFacingAngle
 sidebar_label: GetPlayerFacingAngle
-description: Gets the angle a player is facing.
-tags: ["player"]
+description: 获取玩家当前朝向角度
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Gets the angle a player is facing.
+获取玩家当前面朝方向的水平旋转角度
 
-| Name         | Description                                           |
-| ------------ | ----------------------------------------------------- |
-| playerid     | The player you want to get the angle of.              |
-| &Float:angle | The Float to store the angle in, passed by reference. |
+| 参数名       | 说明                               |
+| ------------ | ---------------------------------- |
+| playerid     | 需要获取角度的玩家 ID              |
+| &Float:angle | 存储角度的浮点变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player does not exist.
+**false** - 函数执行失败（玩家不存在）
 
-The player's angle is stored in the specified variable.
+玩家当前角度将存储在指定变量中
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -30,11 +30,10 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (!strcmp(cmdtext, "/angle", true))
     {
         new string[64];
-
         new Float:angle;
-        GetPlayerFacingAngle(playerid, angle);
 
-        format(string, sizeof(string), "Your facing angle: %0.2f", angle);
+        GetPlayerFacingAngle(playerid, angle);
+        format(string, sizeof(string), "当前朝向角度: %0.2f", angle);
         SendClientMessage(playerid, 0xFFFFFFFF, string);
         return 1;
     }
@@ -42,22 +41,22 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Angles returned when inside a vehicle is rarely correct. To get the correct facing angle while inside a vehicle, use [GetVehicleZAngle](GetVehicleZAngle).
+当玩家处于载具内时，本函数返回的角度通常不准确。建议使用[GetVehicleZAngle](GetVehicleZAngle)获取载具 Z 轴旋转角度
 
 :::
 
 :::warning
 
-Angles are reversed in GTA:SA; 90 degrees would be East in the real world, but in GTA:SA 90 degrees is in fact West. North and South are still 0/360 and 180. To convert this, simply do 360 - angle.
+GTA:SA 中的角度方向与现实相反：90 度实际指向西方（现实为东方）。角度转换公式为：360 - 角度值。北/南方向仍对应 0/360 度和 180 度
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleZAngle](GetVehicleZAngle): Check the current angle of a vehicle.
-- [SetPlayerFacingAngle](SetPlayerFacingAngle): Set a player's facing angle.
-- [GetPlayerRotationQuat](GetPlayerRotationQuat): Get the quaternion rotation of a player.
+- [GetVehicleZAngle](GetVehicleZAngle): 获取载具 Z 轴旋转角度
+- [SetPlayerFacingAngle](SetPlayerFacingAngle): 设置玩家朝向角度
+- [GetPlayerRotationQuat](GetPlayerRotationQuat): 获取玩家的四元数旋转参数

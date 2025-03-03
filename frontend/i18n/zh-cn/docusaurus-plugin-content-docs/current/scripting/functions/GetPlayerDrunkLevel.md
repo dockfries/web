@@ -1,35 +1,35 @@
 ---
 title: GetPlayerDrunkLevel
 sidebar_label: GetPlayerDrunkLevel
-description: Checks the player's level of drunkenness.
-tags: ["player"]
+description: 检测玩家当前的醉酒等级
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Checks the player's level of drunkenness. If the level is less than 2000, the player is sober. The player's level of drunkness goes down slowly automatically (26 levels per second) but will always reach 2000 at the end. The higher drunkenness levels affect the player's camera, and the car driving handling. The level of drunkenness increases when the player drinks from a bottle (You can use SetPlayerSpecialAction to give them bottles).
+检测玩家当前的醉酒等级。当等级低于 2000 时表示清醒状态。醉酒等级会以每秒 26 点的速度自动降低，最终会稳定在 2000 点。高醉酒等级会影响玩家视角和载具操控，玩家使用酒瓶道具时该数值会增加（可通过 SetPlayerSpecialAction 赋予酒瓶道具）。
 
-| Name     | Description                                            |
-| -------- | ------------------------------------------------------ |
-| playerid | The player you want to check the drunkenness level of. |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| playerid | 需要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-An integer with the level of drunkenness of the player.
+玩家的醉酒等级整数值
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerStateChange(playerid, oldstate, newstate)
 {
     if (newstate == PLAYER_STATE_DRIVER && GetPlayerDrunkLevel(playerid) > 1999)
     {
-        SendClientMessage(playerid, 0xFFFFFFFF, "Don't drink and drive!");
-        RemovePlayerFromVehicle(playerid);
+        SendClientMessage(playerid, 0xFFFFFFFF, "禁止酒驾！");
+        RemovePlayerFromVehicle(playerid); // 强制移出载具
     }
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerDrunkLevel](SetPlayerDrunkLevel): Set a player's drunk level.
+- [SetPlayerDrunkLevel](SetPlayerDrunkLevel): 设置玩家醉酒等级

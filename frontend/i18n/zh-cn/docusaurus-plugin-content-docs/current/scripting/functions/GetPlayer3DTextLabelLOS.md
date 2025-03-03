@@ -1,26 +1,26 @@
 ---
 title: GetPlayer3DTextLabelLOS
 sidebar_label: GetPlayer3DTextLabelLOS
-description: Gets the player's 3D text label line-of-sight.
-tags: ["player", "3dtextlabel"]
+description: 获取玩家3D文本标签的视线检测状态
+tags: ["玩家", "3D文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the player's 3D text label line-of-sight.
+获取玩家 3D 文本标签的视线检测状态。
 
-| Name                | Description                                                       |
-| ------------------- | ----------------------------------------------------------------- |
-| playerid            | The ID of the player.                                             |
-| PlayerText3D:textid | The ID of the player's 3D text label to get the line-of-sight of. |
+| 名称                | 描述                                      |
+| ------------------- | ----------------------------------------- |
+| playerid            | 玩家的 ID                                 |
+| PlayerText3D:textid | 需要获取视线检测状态的玩家 3D 文本标签 ID |
 
-## Returns
+## 返回值
 
-Returns the line-of-sight of the player's 3D text label as boolean (false/true).
+返回表示玩家 3D 文本标签视线检测状态的布尔值（false/true）。
 
-## Examples
+## 示例代码
 
 ```c
 new PlayerText3D:playerTextId;
@@ -31,10 +31,10 @@ GetPlayerPos(playerid, X, Y, Z);
 playerTextId = CreatePlayer3DTextLabel(playerid, "Hello\nI'm at your position", 0x008080FF, X, Y, Z, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, true);
 
 testLOS = GetPlayer3DTextLabelLOS(playerid, playerTextId);
-// testLOS = true
+// testLOS = true（启用视线检测）
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayer3DTextLabelLOS](SetPlayer3DTextLabelLOS): Sets the player's 3D text label line-of-sight.
-- [Get3DTextLabelLOS](Get3DTextLabelLOS): Gets the 3D text label line-of-sight.
+- [SetPlayer3DTextLabelLOS](SetPlayer3DTextLabelLOS): 设置玩家 3D 文本标签的视线检测状态
+- [Get3DTextLabelLOS](Get3DTextLabelLOS): 获取 3D 文本标签的视线检测状态

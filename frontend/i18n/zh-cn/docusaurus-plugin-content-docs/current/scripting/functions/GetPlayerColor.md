@@ -1,42 +1,42 @@
 ---
 title: GetPlayerColor
 sidebar_label: GetPlayerColor
-description: Gets the color of the player's name and radar marker.
-tags: ["player"]
+description: 获取玩家名称颜色及雷达标记颜色
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Gets the color of the player's name and radar marker. Only works after SetPlayerColor.
+获取玩家名称及雷达标记的显示颜色（仅在调用 SetPlayerColor 后生效）
 
-| Name     | Description                               |
-| -------- | ----------------------------------------- |
-| playerid | The ID of the player to get the color of. |
+| 参数名   | 说明                  |
+| -------- | --------------------- |
+| playerid | 需要获取颜色的玩家 ID |
 
-## Returns
+## 返回值
 
-The player's color. 0 if no color set or player not connected.
+玩家的颜色值（若未设置颜色或玩家未连接则返回 0）
 
-## Examples
+## 示例代码
 
 ```c
-SendClientMessage(playerid, GetPlayerColor(playerid), "This message is in your color :)");
+SendClientMessage(playerid, GetPlayerColor(playerid), "本条消息将使用你的专属颜色 :)");
 
 new output[144];
-format(output, sizeof(output), "You can also use the player's color for {%06x}color embedding!", GetPlayerColor(playerid) >>> 8);
+format(output, sizeof(output), "可通过{%06x}格式代码嵌入玩家颜色！", GetPlayerColor(playerid) >>> 8);
 SendClientMessage(playerid, -1, output);
-// will output the message in white, with ''color embedding'' in the player's color
+// 消息将以白色显示，其中'嵌入颜色'部分使用玩家颜色
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-GetPlayerColor will return nothing (0) unless SetPlayerColor has been used first. Click [HERE](../../tutorials/colorfix) for a fix.
+若未预先调用 SetPlayerColor 设置颜色，本函数将返回 0。点击[此处](../../tutorials/colorfix)查看修复方法
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerColor](SetPlayerColor): Set a player's color.
-- [ChangeVehicleColor](ChangeVehicleColor): Set the color of a vehicle.
+- [SetPlayerColor](SetPlayerColor): 设置玩家颜色
+- [ChangeVehicleColor](ChangeVehicleColor): 修改载具颜色

@@ -1,25 +1,25 @@
 ---
 title: GetPlayerCameraTargetActor
 sidebar_label: GetPlayerCameraTargetActor
-description: Allows you to retrieve the ID of the actor the player is looking at (in any).
-tags: ["player", "camera", "actor"]
+description: 允许你获取玩家当前正在注视的角色（若有）的ID。
+tags: ["玩家", "视角", "角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Allows you to retrieve the ID of the actor the player is looking at (in any).
+获取玩家当前正在注视的角色（若有）的 ID。
 
-| Name     | Description                                      |
-| -------- | ------------------------------------------------ |
-| playerid | The ID of the player to get the target actor of. |
+| 参数名   | 说明                          |
+| -------- | ----------------------------- |
+| playerid | 需要获取目标角色 ID 的玩家 ID |
 
-## Returns
+## 返回值
 
-The ID of the actor the player is looking at.
+玩家正在注视的角色 ID（若无可视角色则返回 INVALID_ACTOR_ID）
 
-## Examples
+## 示例代码
 
 ```c
 new bool:ActorHandsup[MAX_ACTORS];
@@ -32,26 +32,25 @@ public OnPlayerConnect(playerid)
 
 public OnPlayerUpdate(playerid)
 {
-    // Find out what actor (if any) the player is LOOKING at
+    // 检测玩家当前注视的角色（若有）
     new playerTargetActor = GetPlayerCameraTargetActor(playerid);
 
-    // If they ARE looking at ANY actor
     if (playerTargetActor != INVALID_ACTOR_ID)
     {
-        // Store the player's weapon so we can check if they are armed
+        // 获取玩家当前武器以检测是否持械
         new playerWeapon = GetPlayerWeapon(playerid);
 
-        // Get the player's keys so we can check if they are aiming
+        // 获取玩家按键状态以检测是否处于瞄准状态
         new KEY:keys, updown, leftright;
         GetPlayerKeys(playerid, keys, updown, leftright);
 
-        // If the actor hasn't put its hands up yet, AND the player is ARMED
+        // 若角色未举手且玩家持械瞄准
         if (!ActorHandsup[playerTargetActor] && playerWeapon >= 22 && playerWeapon <= 42 && keys & KEY_AIM)
         {
-            // Apply 'hands up' animation
+            // 应用举手动画
             ApplyActorAnimation(playerTargetActor, "SHOP", "SHP_HandsUp_Scr",4.1,0,0,0,1,0);
 
-            // Set 'ActorHandsup' to true, so the animation won't keep being reapplied
+            // 标记角色已举手状态
             ActorHandsup[playerTargetActor] = true;
         }
     }
@@ -59,24 +58,24 @@ public OnPlayerUpdate(playerid)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function only tells you which actor (if any) the player is looking at. To find out if they are aiming at them, you need to use GetPlayerTargetActor.
+本函数仅返回玩家视角方向上的角色 ID，如需检测玩家是否正在瞄准该角色，请使用[GetPlayerTargetActor](GetPlayerTargetActor)
 
 :::
 
 :::warning
 
-This function is disabled by default to save bandwidth. Use [EnablePlayerCameraTarget](EnablePlayerCameraTarget) to enable it for each player.
+本功能默认禁用以节省带宽，需使用[EnablePlayerCameraTarget](EnablePlayerCameraTarget)为每个玩家单独启用
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerTargetActor](GetPlayerTargetActor): Gets id of an actor which is aimed by certain player.
-- [GetPlayerCameraTargetPlayer](GetPlayerCameratargetPlayer): Get the ID of the player a player is looking at.
-- [GetPlayerCameraTargetVehicle](GetPlayerCameraTargetVehicle): Get the ID of the vehicle a player is looking at.
-- [GetPlayerCameraTargetObject](GetPlayerCameraTargetObject): Get the ID of the object a player is looking at.
-- [GetPlayerCameraFrontVector](GetPlayerCaemraFrontVector): Get the player's camera front vector
+- [GetPlayerTargetActor](GetPlayerTargetActor): 获取指定玩家正在瞄准的角色 ID
+- [GetPlayerCameraTargetPlayer](GetPlayerCameratargetPlayer): 获取玩家当前注视的玩家 ID
+- [GetPlayerCameraTargetVehicle](GetPlayerCameraTargetVehicle): 获取玩家当前注视的车辆 ID
+- [GetPlayerCameraTargetObject](GetPlayerCameraTargetObject): 获取玩家当前注视的物体 ID
+- [GetPlayerCameraFrontVector](GetPlayerCaemraFrontVector): 获取玩家视角前向向量

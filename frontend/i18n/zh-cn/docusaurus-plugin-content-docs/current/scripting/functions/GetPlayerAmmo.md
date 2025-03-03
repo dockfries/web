@@ -1,26 +1,26 @@
 ---
 title: GetPlayerAmmo
 sidebar_label: GetPlayerAmmo
-description: Gets the amount of ammo in a player's current weapon.
-tags: ["player"]
+description: 获取玩家当前武器的弹药量
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Gets the amount of ammo in a player's current weapon.
+获取玩家当前武器的弹药量。
 
-| Name     | Description                             |
-| -------- | --------------------------------------- |
-| playerid | The ID of the player whose ammo to get. |
+| 名称     | 描述                    |
+| -------- | ----------------------- |
+| playerid | 需要获取弹药量的玩家 ID |
 
-## Returns
+## 返回值
 
-The amount of ammo in the player's current weapon.
+玩家当前武器的弹药数量。
 
-## Examples
+## 示例代码
 
 ```c
-ublic OnPlayerCommandText(playerid, cmdtext[])
+public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/myammo", true))
     {
@@ -28,7 +28,7 @@ ublic OnPlayerCommandText(playerid, cmdtext[])
             ammo = GetPlayerAmmo(playerid),
             string[32];
 
-        format(string, sizeof(string), "Your ammo: %i", ammo);
+        format(string, sizeof(string), "你的弹药量: %i", ammo);
         SendClientMessage(playerid, -1, string);
         return 1;
     }
@@ -36,15 +36,15 @@ ublic OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-The ammo can hold 16-bit values, therefore values over 32767 will return erroneous values.
+弹药量使用 16 位存储，超过 32767 时返回值会出现错误。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerAmmo](SetPlayerAmmo): Set the ammo of a specific player's weapon.
-- [GetPlayerWeaponData](GetPlayerWeaponData): Find out information about weapons a player has.
+- [SetPlayerAmmo](SetPlayerAmmo): 设置指定玩家武器的弹药量
+- [GetPlayerWeaponData](GetPlayerWeaponData): 获取玩家武器数据信息

@@ -27,7 +27,7 @@ sidebar_label: 天气ID列表
 | 17  | EXTRASUNNY_DESERT      | 热浪                   | 骨镇专属天气           |
 | 18  | SUNNY_DESERT           | 热浪                   | 骨镇专属天气           |
 | 19  | SANDSTORM_DESERT       | 沙尘暴                 | 骨镇专属天气           |
-| 20  | UNDERWATER             | 绿色雾状               | 摄像机在水下时内部使用 |
+| 20  | UNDERWATER             | 绿色雾状               | 视角在水下时内部使用 |
 | 21  | EXTRACOLOURS_1         | 极暗渐变天际线（紫色） | 室内场景专用天气       |
 | 22  | EXTRACOLOURS_2         | 极暗渐变天际线（紫色） | 室内场景专用天气       |
 

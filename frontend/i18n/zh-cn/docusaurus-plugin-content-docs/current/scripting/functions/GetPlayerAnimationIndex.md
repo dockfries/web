@@ -1,23 +1,23 @@
 ---
 title: GetPlayerAnimationIndex
 sidebar_label: GetPlayerAnimationIndex
-description: Returns the index of any running applied animations.
-tags: ["player", "animation"]
+description: 获取玩家当前播放的动画索引
+tags: ["玩家", "动画"]
 ---
 
-## Description
+## 描述
 
-Returns the index of any running applied animations.
+获取玩家当前正在应用的动画索引编号。
 
-| Name     | Description                                                      |
-| -------- | ---------------------------------------------------------------- |
-| playerid | ID of the player of whom you want to get the animation index of. |
+| 名称     | 描述                      |
+| -------- | ------------------------- |
+| playerid | 需要获取动画索引的玩家 ID |
 
-## Returns
+## 返回值
 
-0 if there is no animation applied.
+返回动画库中的索引编号，当没有应用动画时返回 0。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerUpdate(playerid)
@@ -29,16 +29,22 @@ public OnPlayerUpdate(playerid)
             animationName[32],
             string[128];
 
-        GetAnimationName(GetPlayerAnimationIndex(playerid), animationLibrary, sizeof (animationLibrary), animationName, sizeof (animationName));
+        GetAnimationName(GetPlayerAnimationIndex(playerid), animationLibrary, sizeof(animationLibrary), animationName, sizeof(animationName));
 
-        format(string, sizeof (string), "Running anim: %s %s", animationLibrary, animationName);
+        format(string, sizeof(string), "正在播放动画：%s 库中的 %s", animationLibrary, animationName);
         SendClientMessage(playerid, 0xFFFFFFFF, string);
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 注意事项
 
-- [ApplyAnimation](ApplyAnimation): Apply an animation to a player.
-- [GetAnimationName](GetAnimationName): Get the animation library/name for the index.
+:::tip
+动画索引对应 SA-MP 内置动画库的编号，可通过[GetAnimationName](GetAnimationName)获取具体动画名称
+:::
+
+## 相关函数
+
+- [ApplyAnimation](ApplyAnimation): 为玩家应用指定动画
+- [GetAnimationName](GetAnimationName): 通过索引获取动画库及动画名称

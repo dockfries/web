@@ -1,31 +1,29 @@
 ---
 title: GetPlayerCameraFrontVector
 sidebar_label: GetPlayerCameraFrontVector
-description: This function will return the current direction of player's aiming in 3-D space, the coords are relative to the camera position, see GetPlayerCameraPos.
-tags: ["player", "camera"]
+description: 本函数将返回玩家当前在三维空间中的瞄准方向坐标，该坐标相对于视角位置，具体位置信息请参见[GetPlayerCameraPos](GetPlayerCameraPos)。
+tags: ["玩家", "视角"]
 ---
 
-## Description
+## 描述
 
-This function will return the current direction of player's aiming in 3-D space, the coords are relative to the camera position, see [GetPlayerCameraPos](GetPlayerCameraPos).
+本函数将返回玩家当前在三维空间中的瞄准方向坐标，该坐标相对于视角位置，具体位置信息请参见[GetPlayerCameraPos](GetPlayerCameraPos)。
 
-| Name     | Description                                                        |
-| -------- | ------------------------------------------------------------------ |
-| playerid | The ID of the player you want to obtain the camera front vector of |
-| &Float:x | A float to store the X coordinate, passed by reference.            |
-| &Float:y | A float to store the Y coordinate, passed by reference.            |
-| &Float:z | A float to store the Z coordinate, passed by reference.            |
+| 参数名   | 说明                                      |
+| -------- | ----------------------------------------- |
+| playerid | 需要获取视角前向向量的玩家 ID             |
+| &Float:x | 用于存储 X 坐标的浮点变量（通过引用传递） |
+| &Float:y | 用于存储 Y 坐标的浮点变量（通过引用传递） |
+| &Float:z | 用于存储 Z 坐标的浮点变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-The position is stored in the specified variables.
+坐标数据将存储在指定的变量中。
 
-## Examples
+## 示例代码
 
 ```c
-// A simple command to manipulate this vector using the
-// positions from GetPlayerCameraPos. This command will create
-// a hydra missile in the direction of where the player is looking.
+// 一个利用该向量的简单命令，使用GetPlayerCameraPos获取的位置数据。该命令将在玩家视线方向生成九头蛇导弹
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/test camera vector"))
@@ -35,8 +33,8 @@ public OnPlayerCommandText(playerid, cmdtext[])
             Float:fVX, Float:fVY, Float:fVZ,
             Float:object_x, Float:object_y, Float:object_z;
 
-        // Change me to change the scale you want. A larger scale increases the distance from the camera.
-        // A negative scale will inverse the vectors and make them face in the opposite direction.
+        // 修改此常量可调整缩放比例。数值越大，生成物体离视角越远
+        // 使用负值将使向量反向，物体将在相反方向生成
         const
             Float:fScale = 5.0;
 
@@ -56,14 +54,14 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-The camera data can be obtained when the player is in any vehicle or on foot.
+无论玩家处于载具中还是步行状态，都可以获取视角数据
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerCameraPos](GetPlayerCameraPos): Find out where the player's camera is.
+- [GetPlayerCameraPos](GetPlayerCameraPos): 获取玩家视角位置

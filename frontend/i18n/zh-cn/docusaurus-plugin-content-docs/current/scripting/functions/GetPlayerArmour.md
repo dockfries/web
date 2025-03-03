@@ -1,57 +1,56 @@
 ---
 title: GetPlayerArmour
 sidebar_label: GetPlayerArmour
-description: This function stores the armour of a player into a variable.
-tags: ["player"]
+description: 获取玩家当前护甲值
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-This function stores the armour of a player into a variable.
+此函数用于将玩家的护甲值存储到指定变量中。
 
-| Name          | Description                                               |
-| ------------- | --------------------------------------------------------- |
-| playerid      | The ID of the player that you want to get the armour of.  |
-| &Float:armour | The float to to store the armour in, passed by reference. |
+| 名称          | 描述                               |
+| ------------- | ---------------------------------- |
+| playerid      | 需要获取护甲值的玩家 ID            |
+| &Float:armour | 存储护甲值的浮点变量，通过引用传递 |
 
-## Returns
+## 返回值
 
-**1** - success
+**1** - 成功获取
 
-**0** - failure (i.e. player not connected).
+**0** - 获取失败（玩家未连接）
 
-The player's armour is stored in the specified variable.
+护甲值将被存储在指定的浮点变量中。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/myarmour", true))
     {
-		new string[40];
+        new string[40];
+        new Float:armour;
+        GetPlayerArmour(playerid, armour);
 
-		new Float:armour;
-		GetPlayerArmour(playerid, armour);
-
-		format(string, sizeof(string), "SERVER: Your armour is %.2f percent", armour);
-		SendClientMessage(playerid, 0xFFFFFFAA, string);
+        format(string, sizeof(string), "系统: 你的护甲值为 %.2f", armour);
+        SendClientMessage(playerid, 0xFFFFFFAA, string);
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Even though the armour can be set to near infinite values on the server side, the individual clients will only report values up to 255. Anything higher will wrap around; 256 becomes 0, 257 becomes 1, etc. Armour is obtained rounded to integers: set 50.15, but get 50.0
+尽管服务端可以设置接近无限的护甲值，但客户端最多只能显示 255。超过的值会循环计算：256 变为 0，257 变为 1，依此类推。获取的护甲值会被取整：设置 50.15 将得到 50.0
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerArmour](SetPlayerArmour): Set the armour of a player.
-- [GetPlayerHealth](GetPlayerHealth): Find out how much health a player has.
-- [GetVehicleHealth](GetVehicleHealth): Check the health of a vehicle.
+- [SetPlayerArmour](SetPlayerArmour): 设置玩家护甲值
+- [GetPlayerHealth](GetPlayerHealth): 获取玩家生命值
+- [GetVehicleHealth](GetVehicleHealth): 获取载具耐久值

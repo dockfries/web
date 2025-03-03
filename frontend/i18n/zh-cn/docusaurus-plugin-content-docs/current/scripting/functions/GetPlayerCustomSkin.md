@@ -1,25 +1,25 @@
 ---
 title: GetPlayerCustomSkin
 sidebar_label: GetPlayerCustomSkin
-description: Returns the class of the players custom skin downloaded from the server.
-tags: ["player"]
+description: 获取玩家从服务器下载的自定义皮肤类ID
+tags: ["玩家"]
 ---
 
 <VersionWarn version='SA-MP 0.3.DL R1' />
 
-## Description
+## 描述
 
-Returns the class of the players custom skin downloaded from the server.
+获取玩家通过[AddCharModel](AddCharModel)下载的自定义皮肤类 ID
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| playerid | The player you want to get the skin from |
+| 参数名   | 说明                  |
+| -------- | --------------------- |
+| playerid | 需要获取皮肤的玩家 ID |
 
-## Returns
+## 返回值
 
-The custom skin id that was specified in [AddCharModel](AddCharModel) newid.
+通过 AddCharModel 函数设置的 newid 参数值（若未使用自定义皮肤则返回 0）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -29,7 +29,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
         new string[32];
         new customSkin = GetPlayerCustomSkin(playerid);
 
-        format(string, sizeof(string), "Your custom skin id: %d", customSkin);
+        format(string, sizeof(string), "您的自定义皮肤ID: %d", customSkin);
         SendClientMessage(playerid, -1, string);
         return 1;
     }
@@ -37,7 +37,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerSkin](GetPlayerSkin): Get a player's current skin.
-- [SetPlayerSkin](SetPlayerSkin): Set a player's skin.
+- [GetPlayerSkin](GetPlayerSkin): 获取玩家当前使用的皮肤 ID
+- [SetPlayerSkin](SetPlayerSkin): 设置玩家皮肤模型

@@ -1,36 +1,36 @@
 ---
 title: GetPlayerDialogData
 sidebar_label: GetPlayerDialogData
-description: Get the data of the dialog currently show to the player.
-tags: ["player", "dialog"]
+description: 获取当前显示给玩家的对话框数据
+tags: ["玩家", "对话框"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the data of the dialog currently show to the player.
+获取当前显示给玩家的对话框完整配置数据
 
-| Name                | Description                                                             |
-| ------------------- | ----------------------------------------------------------------------- |
-| playerid            | The ID of the player to get the data.                                   |
-| &DIALOG_STYLE:style | A variable into which to store the style, passed by reference.          |
-| title[]             | An array variable into which to store the title, passed by reference.   |
-| titleSize           | The size of the title array.                                            |
-| body[]              | An array variable into which to store the body, passed by reference.    |
-| bodySize            | The size of the body array.                                             |
-| button1[]           | An array variable into which to store the button1, passed by reference. |
-| button1Size         | The size of the button1 array.                                          |
-| button2[]           | An array variable into which to store the button2, passed by reference. |
-| button2Size         | The size of the button2 array.                                          |
+| 参数名              | 说明                                         |
+| ------------------- | -------------------------------------------- |
+| playerid            | 需要获取数据的玩家 ID                        |
+| &DIALOG_STYLE:style | 存储对话框样式的枚举变量（通过引用传递）     |
+| title[]             | 存储标题文本的数组变量（通过引用传递）       |
+| titleSize           | 标题数组的长度                         |
+| body[]              | 存储内容文本的数组变量（通过引用传递）       |
+| bodySize            | 内容数组的长度                         |
+| button1[]           | 存储第一个按钮文本的数组变量（通过引用传递） |
+| button1Size         | 按钮 1 数组的长度                      |
+| button2[]           | 存储第二个按钮文本的数组变量（通过引用传递） |
+| button2Size         | 按钮 2 数组的长度                      |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player is not connected or they don't have a dialog open.
+**false** - 函数执行失败（玩家未连接或未打开对话框）
 
-## Examples
+## 示例代码
 
 ```c
 enum
@@ -38,7 +38,7 @@ enum
     DIALOG_LOGIN
 }
 
-ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, "Login", "Enter your password below:", "Login", "Cancel");
+ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, "登录系统", "请输入您的密码:", "登录", "取消");
 
 new
     DIALOG_STYLE:style,
@@ -50,12 +50,12 @@ new
 GetPlayerDialogData(playerid, style, title, sizeof(title), body, sizeof(body), button1, sizeof(button1), button2, sizeof(button2));
 ```
 
-## Related Functions
+## 相关函数
 
-- [ShowPlayerDialog](ShowPlayerDialog): Shows the player a synchronous (only one at a time) dialog box.
-- [HidePlayerDialog](HidePlayerDialog): Hides the dialog currently show to the player.
-- [GetPlayerDialogID](GetPlayerDialogID): Get the ID of the dialog currently show to the player.
+- [ShowPlayerDialog](ShowPlayerDialog): 向玩家显示同步对话框（同一时间只能存在一个）
+- [HidePlayerDialog](HidePlayerDialog): 隐藏当前显示的对话框
+- [GetPlayerDialogID](GetPlayerDialogID): 获取当前对话框的 ID
 
-## Related Callbacks
+## 相关回调
 
-- [OnDialogResponse](../callbacks/OnDialogResponse): Called when a player responds to a dialog.
+- [OnDialogResponse](../callbacks/OnDialogResponse): 当玩家响应对话框时触发

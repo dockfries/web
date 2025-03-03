@@ -1,29 +1,29 @@
 ---
 title: GetPlayerDistanceFromPoint
 sidebar_label: GetPlayerDistanceFromPoint
-description: Calculate the distance between a player and a map coordinate.
-tags: ["player"]
+description: 计算玩家与指定地图坐标点之间的距离
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Calculate the distance between a player and a map coordinate.
+计算玩家当前位置与指定三维地图坐标点之间的直线距离
 
-| Name     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| playerid | The ID of the player to calculate the distance from. |
-| Float:x  | The X map coordinate.                                |
-| Float:y  | The Y map coordinate.                                |
-| Float:z  | The Z map coordinate.                                |
+| 参数名   | 说明                  |
+| -------- | --------------------- |
+| playerid | 需要计算距离的玩家 ID |
+| Float:x  | 目标点的 X 坐标       |
+| Float:y  | 目标点的 Y 坐标       |
+| Float:z  | 目标点的 Z 坐标       |
 
-## Returns
+## 返回值
 
-The distance between the player and the point as a float.
+玩家与目标点之间的三维空间距离（浮点数值）
 
-## Examples
+## 示例代码
 
 ```c
-/* when the player types '/vend' into the chat box, they'll see this.*/
+/* 当玩家在聊天框中输入'/vend'时触发 */
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (strcmp(cmdtext, "/vend", true) == 0)
@@ -32,7 +32,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
             Float:distance = GetPlayerDistanceFromPoint(playerid, 237.9, 115.6, 1010.2),
             string[64];
 
-        format(string, sizeof(string), "You're %0.2f meters away from the vending machine.", distance);
+        format(string, sizeof(string), "你距离自动贩卖机还有 %0.2f 米", distance);
         SendClientMessage(playerid, 0xA9C4E4FF, string);
         return 1;
     }
@@ -40,8 +40,8 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerInRangeOfPoint](IsPlayerInRangeOfPoint): Check whether a player is in range of a point.
-- [GetVehicleDistanceFromPoint](GetVehicleDistanceFromPoint): Get the distance between a vehicle and a point.
-- [GetPlayerPos](GetPlayerPos): Get a player's position.
+- [IsPlayerInRangeOfPoint](IsPlayerInRangeOfPoint): 检测玩家是否在指定点范围内
+- [GetVehicleDistanceFromPoint](GetVehicleDistanceFromPoint): 计算载具与坐标点之间的距离
+- [GetPlayerPos](GetPlayerPos): 获取玩家当前位置坐标
