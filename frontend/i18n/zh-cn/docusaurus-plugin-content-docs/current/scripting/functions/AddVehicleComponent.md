@@ -1,24 +1,24 @@
 ---
 title: AddVehicleComponent
 sidebar_label: AddVehicleComponent
-description: 为载具添加一个「组件」（通常称为「改装件」）
-tags: ["载具"]
+description: 为车辆添加一个「组件」（通常称为「改装件」）
+tags: ["车辆"]
 ---
 
 ## 描述
 
-为载具添加一个「组件」（通常称为「改装件」）。有效改装件 ID 可参考此列表。
+为车辆添加一个「组件」（通常称为「改装件」）。有效改装件 ID 可参考此列表。
 
 | 参数名                                   | 说明                                        |
 | ---------------------------------------- | ------------------------------------------- |
-| vehicleid                                | 需要添加组件的载具 ID（注意与模型 ID 区分） |
+| vehicleid                                | 需要添加组件的车辆 ID（注意与模型 ID 区分） |
 | [component](../resources/carcomponentid) | 要添加的组件 ID                             |
 
 ## 返回值
 
 **true** - 组件添加成功
 
-**false** - 载具不存在导致添加失败
+**false** - 车辆不存在导致添加失败
 
 ## 示例
 
@@ -55,16 +55,16 @@ public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstat
 
 ## 相关函数
 
-- [RemoveVehicleComponent](RemoveVehicleComponent): 移除载具组件
-- [GetVehicleComponentInSlot](GetVehicleComponentInSlot): 获取载具指定插槽的组件
+- [RemoveVehicleComponent](RemoveVehicleComponent): 移除车辆组件
+- [GetVehicleComponentInSlot](GetVehicleComponentInSlot): 获取车辆指定插槽的组件
 - [GetVehicleComponentType](GetVehicleComponentType): 通过 ID 检测组件类型
-- [VehicleCanHaveComponent](VehicleCanHaveComponent): 验证组件是否适用于载具
+- [VehicleCanHaveComponent](VehicleCanHaveComponent): 验证组件是否适用于车辆
 
 ## 相关回调
 
-- [OnVehicleMod](../callbacks/OnVehicleMod): 当载具被改装时触发
-- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当载具进出改装厂时触发
+- [OnVehicleMod](../callbacks/OnVehicleMod): 当车辆被改装时触发
+- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当车辆进出改装厂时触发
 
 ## 相关资源
 
-- [载具改装件 ID 列表](../resources/carcomponentid)
+- [车辆改装件 ID 列表](../resources/carcomponentid)

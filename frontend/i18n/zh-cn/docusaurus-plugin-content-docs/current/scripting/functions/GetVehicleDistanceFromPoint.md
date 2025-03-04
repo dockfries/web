@@ -1,29 +1,29 @@
 ---
 title: GetVehicleDistanceFromPoint
 sidebar_label: GetVehicleDistanceFromPoint
-description: This function can be used to calculate the distance (as a float) between a vehicle and another map coordinate.
-tags: ["vehicle"]
+description: 计算车辆与指定坐标点之间的距离（浮点型）
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-This function can be used to calculate the distance (as a float) between a vehicle and another map coordinate. This can be useful to detect how far a vehicle away is from a location.
+本函数用于计算车辆与指定地图坐标点之间的距离（浮点型），适用于检测车辆与某位置的间距。
 
-| Name      | Description                                          |
-| --------- | ---------------------------------------------------- |
-| vehicleid | The ID of the vehicle to calculate the distance for. |
-| Float:x   | The X map coordinate.                                |
-| Float:y   | The Y map coordinate.                                |
-| Float:z   | The Z map coordinate.                                |
+| 参数名    | 说明                |
+| --------- | ------------------- |
+| vehicleid | 要计算距离的车辆 ID |
+| Float:x   | 目标点的 X 坐标     |
+| Float:y   | 目标点的 Y 坐标     |
+| Float:z   | 目标点的 Z 坐标     |
 
-## Returns
+## 返回值
 
-A float containing the distance from the point specified in the coordinates.
+返回车辆到指定坐标点的距离（浮点型）
 
-## Examples
+## 示例
 
 ```c
-/* when the player types 'vendingmachine' in to the chat box, they'll see this.*/
+/* 当玩家在聊天框输入'vendingmachine'时触发此功能 */
 public OnPlayerText(playerid, text[])
 {
     if (strcmp(text, "vendingmachine", true) == 0)
@@ -35,14 +35,14 @@ public OnPlayerText(playerid, text[])
         new
             Float:distance = GetVehicleDistanceFromPoint(vehicleid, 237.9, 115.6, 1010.2);
 
-        format(string, sizeof(string), "You're %.2f away from our vending machine.", distance);
+        format(string, sizeof(string), "您距离自动售货机还有%.2f米。", distance);
         SendClientMessage(playerid, 0xA9C4E4FF, string);
     }
     return 0;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): Get the distance between a player and a point.
-- [GetVehiclePos](GetVehiclePos): Get the position of a vehicle.
+• [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): 获取玩家到点的距离
+• [GetVehiclePos](GetVehiclePos): 获取车辆坐标位置

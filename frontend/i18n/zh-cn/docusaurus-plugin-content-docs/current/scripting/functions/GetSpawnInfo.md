@@ -1,39 +1,39 @@
 ---
 title: GetSpawnInfo
 sidebar_label: GetSpawnInfo
-description: Return the current spawn data for a player, where they will spawn next.
-tags: ["player"]
+description: 获取玩家的当前重生数据，即下一次重生的位置信息。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Return the current spawn data for a player, where they will spawn next.
+获取玩家的当前重生数据，即下一次重生的位置信息。
 
-| Name            | Description                                                                 |
-| --------------- | --------------------------------------------------------------------------- |
-| playerid        | The ID of the player you want to get spawn information from.                |
-| &team           | A variable into which to store the team ID, passed by reference.            |
-| &skin           | A variable into which to store the skin ID, passed by reference.            |
-| &Float:spawnX   | A Float variable into which to store the X-coordinate, passed by reference. |
-| &Float:spawnY   | A Float variable into which to store the Y-coordinate, passed by reference. |
-| &Float:spawnZ   | A Float variable into which to store the Z-coordinate, passed by reference. |
-| &Float:angle    | A Float variable into which to store the Facing angle, passed by reference. |
-| &WEAPON:weapon1 | A variable into which to store the weapon1, passed by reference.            |
-| &ammo1          | A variable into which to store the ammo1, passed by reference.              |
-| &WEAPON:weapon2 | A variable into which to store the weapon2, passed by reference.            |
-| &ammo2          | A variable into which to store the ammo2, passed by reference.              |
-| &WEAPON:weapon3 | A variable into which to store the weapon3, passed by reference.            |
-| &ammo3          | A variable into which to store the ammo3, passed by reference.              |
+| 参数名          | 说明                                   |
+| --------------- | -------------------------------------- |
+| playerid        | 要获取重生信息的玩家 ID                |
+| &team           | 存储队伍 ID 的变量（通过引用传递）     |
+| &skin           | 存储皮肤 ID 的变量（通过引用传递）     |
+| &Float:spawnX   | 存储 X 坐标的浮点变量（通过引用传递）  |
+| &Float:spawnY   | 存储 Y 坐标的浮点变量（通过引用传递）  |
+| &Float:spawnZ   | 存储 Z 坐标的浮点变量（通过引用传递）  |
+| &Float:angle    | 存储面向角度的浮点变量（通过引用传递） |
+| &WEAPON:weapon1 | 存储武器 1 的变量（通过引用传递）      |
+| &ammo1          | 存储弹药 1 的变量（通过引用传递）      |
+| &WEAPON:weapon2 | 存储武器 2 的变量（通过引用传递）      |
+| &ammo2          | 存储弹药 2 的变量（通过引用传递）      |
+| &WEAPON:weapon3 | 存储武器 3 的变量（通过引用传递）      |
+| &ammo3          | 存储弹药 3 的变量（通过引用传递）      |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The specified player is not connected.
+`false` - 函数执行失败（指定玩家未连接）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerRequestClass(playerid, classid)
@@ -70,6 +70,6 @@ public OnPlayerRequestClass(playerid, classid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetSpawnInfo](SetSpawnInfo): This function can be used to change the spawn information of a specific player.
+- [SetSpawnInfo](SetSpawnInfo): 用于修改指定玩家的重生信息

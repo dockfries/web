@@ -1,61 +1,58 @@
 ---
 title: GetPlayerName
 sidebar_label: GetPlayerName
-description: Get a player's name.
-tags: ["player"]
+description: 获取玩家的名称
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Get a player's name.
+获取玩家的名称
 
-| Name     | Description                                                                                                                                     |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| playerid | The ID of the player to get the name of.                                                                                                        |
-| name[]   | An array into which to store the name, passed by reference.                                                                                     |
-| len      | The length of the string that should be stored. Recommended to be MAX_PLAYER_NAME + 1. The + 1 is necessary to account for the null terminator. |
+| 参数名   | 说明                                                                      |
+| -------- | ------------------------------------------------------------------------- |
+| playerid | 需要获取名称的玩家 ID                                                     |
+| name[]   | 用于存储名称的数组（引用传递）                                            |
+| len      | 存储字符串的长度，建议设置为 MAX_PLAYER_NAME + 1。其中+1 用于容纳空终止符 |
 
-## Return Values
+## 返回值
 
-Returns the length of the player's name.
+返回玩家名称的长度
 
-**0** if player specified doesn't exist.
+**0** 表示指定玩家不存在
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    // Get the name of the player that connected and display a join message to other players
-
+    // 获取连接玩家的名称并向其他玩家显示加入消息
     new name[MAX_PLAYER_NAME + 1];
     GetPlayerName(playerid, name, sizeof(name));
 
     new string[128];
-    format(string, sizeof(string), "%s has joined the server.", name);
+    format(string, sizeof(string), "%s 加入了服务器。", name);
     SendClientMessageToAll(0xC4C4C4FF, string);
 
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-A player's name can be up to 24 characters long by using [SetPlayerName](SetPlayerName).
+通过 [SetPlayerName](SetPlayerName) 设置玩家名称时，最大长度为 24 个字符（定义为`MAX_PLAYER_NAME`）
 
-This is defined as `MAX_PLAYER_NAME`.
-
-However, the client can only join with a nickname between 3 and 20 characters, otherwise the connection will be rejected and the player has to quit to choose a valid name.
+客户端实际可使用的昵称长度为 3-20 个字符，超出范围的名称会被服务器拒绝连接
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerName](SetPlayerName): Set a player's name.
-- [IsValidNickName](IsValidNickName): Checks if a nick name is valid.
-- [GetPlayerIp](GetPlayerIp): Get a player's IP.
-- [GetPlayerPing](GetPlayerPing): Get the ping of a player.
-- [GetPlayerScore](GetPlayerScore): Get the score of a player.
-- [GetPlayerVersion](GetPlayerVersion): Get a player's client-version.
+- [SetPlayerName](SetPlayerName): 设置玩家名称
+- [IsValidNickName](IsValidNickName): 检查昵称是否有效
+- [GetPlayerIp](GetPlayerIp): 获取玩家 IP 地址
+- [GetPlayerPing](GetPlayerPing): 获取玩家网络延迟
+- [GetPlayerScore](GetPlayerScore): 获取玩家分数
+- [GetPlayerVersion](GetPlayerVersion): 获取玩家客户端版本

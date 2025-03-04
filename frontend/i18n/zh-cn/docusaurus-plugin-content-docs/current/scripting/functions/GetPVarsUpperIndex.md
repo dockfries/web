@@ -1,51 +1,51 @@
 ---
 title: GetPVarsUpperIndex
 sidebar_label: GetPVarsUpperIndex
-description: Each PVar (player-variable) has its own unique identification number for lookup, this function returns the highest ID set for a player.
-tags: ["player variable", "pvar"]
+description: 获取玩家变量的最大索引值
+tags: ["玩家变量", "pvar"]
 ---
 
-## Description
+## 描述
 
-Each PVar (player-variable) has its own unique identification number for lookup, this function returns the highest ID set for a player.
+玩家变量(PVar)都有唯一的标识索引，本函数返回玩家已设置的变量最大索引值
 
-| Name     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| playerid | The ID of the player to get the upper PVar index of. |
+| 名称     | 说明                  |
+| -------- | --------------------- |
+| playerid | 需要获取索引的玩家 ID |
 
-## Returns
+## 返回值
 
-The highest set PVar ID.
+已设置的最高玩家变量索引值（从 0 开始）
 
-## Examples
+## 示例代码
 
 ```c
-// Store the upper index in the variable 'PVarUpperIndex' + 1
+// 将最大索引值存储在变量中并加1
 new PVarUpperIndex = GetPVarsUpperIndex(playerid) + 1;
 
-// This pVarCount variable will store how many pVars a player has set as we count them.
+// 此变量用于统计实际设置的变量数量
 new pVarCount;
 
 new pVarName[128];
 
-for(new i = 0; i != PVarUpperIndex; i++) // Loop through all pVar IDs under the upper index
+for(new i = 0; i != PVarUpperIndex; i++) // 遍历所有可能的变量索引
 {
-    // At first, we need to get PVar name
+    // 首先获取变量名称
     GetPVarNameAtIndex(playerid, i, pVarName, sizeof(pVarName));
 
-    // If the var is set (type not 0), increment pVarCount.
-    if (GetPVarType(playerid, pVarName) != 0)
+    // 若变量已设置（类型不为0），增加计数器
+    if (GetPVarType(playerid, pVarName) != 0)
     {
         pVarCount++;
     }
 }
 
 new szString[128];
-format(szString, sizeof(szString), "You have %i player-variables set. Upper index (highest ID): %i.", pVarCount, PVarUpperIndex-1);
+format(szString, sizeof(szString), "您已设置了 %i 个玩家变量，最大索引值为 %i", pVarCount, PVarUpperIndex-1);
 SendClientMessage(playerid, -1, szString);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPVarNameAtIndex](GetPVarNameAtIndex): Get the player variable's name from its index.
-- [GetPVarType](GetPVarType): Get the type of the player variable.
+- [GetPVarNameAtIndex](GetPVarNameAtIndex): 根据索引获取玩家变量名称
+- [GetPVarType](GetPVarType): 获取玩家变量的数据类型

@@ -77,7 +77,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 - [IsValid3DTextLabel](IsValid3DTextLabel): 验证标签有效性
 - [Is3DTextLabelStreamedIn](Is3DTextLabelStreamedIn): 检测标签是否流加载
 - [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer): 绑定标签到玩家实体
-- [Attach3DTextLabelToVehicle](Attach3DTextLabelToVehicle): 绑定标签到载具实体
+- [Attach3DTextLabelToVehicle](Attach3DTextLabelToVehicle): 绑定标签到车辆实体
 - [Update3DTextLabelText](Update3DTextLabelText): 更新标签文本内容
 - [Get3DTextLabelText](Get3DTextLabelText): 获取标签文本内容
 - [Get3DTextLabelColour](Get3DTextLabelColour): 获取标签颜色值

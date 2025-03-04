@@ -1,17 +1,17 @@
 ---
 title: GetTickCount
 sidebar_label: GetTickCount
-description: Returns a value which increases every millisecond.
-tags: ["time"]
+description: 返回一个每毫秒递增的数值。
+tags: ["时间"]
 ---
 
-## Description
+## 描述
 
-Returns a value which increases every millisecond. The absolute value returned is undefined and varies between systems, it should only be used to compare two points in time.
+返回一个每毫秒递增的数值。该数值的绝对值在不同系统中可能有差异，仅用于比较两个时间点的间隔。
 
-## Examples
+## 示例
 
-Only allow a player to call a command once every ten seconds (10000 milliseconds):
+限制玩家每 10 秒（10000 毫秒）只能使用一次指令：
 
 ```c
 static gLastCommandUse[MAX_PLAYERS];
@@ -22,13 +22,13 @@ public OnPlayerCommandText(playerid, cmdtext[])
     {
         if (GetTickCount() - gLastCommandUse[playerid] >= 10000)
         {
-            // Enough time has passed.
-            SendClientMessage(playerid, COLOUR_ERROR, "Called!");
+            // 时间间隔足够
+            SendClientMessage(playerid, COLOUR_ERROR, "指令已执行！");
             gLastCommandUse[playerid] = GetTickCount();
         }
         else
         {
-            SendClientMessage(playerid, COLOUR_ERROR, "Please wait");
+            SendClientMessage(playerid, COLOUR_ERROR, "请等待冷却");
         }
         return 1;
     }
@@ -36,38 +36,38 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-The difference in values that `GetTickCount` can handle is limited to just under 25 days (2147483647 milliseconds). As long as the events being compared are less than that amount apart this function works perfectly with one small caveat. Due to integer overflow, the following code may not work:
+`GetTickCount` 的有效差值范围约为 25 天（2147483647 毫秒）。只要事件间隔在此范围内，本函数能完美工作，但需注意整数溢出的情况：
 
 ```c
 new start = GetTickCount();
-// Long code.
+// 长时间代码
 new end = GetTickCount();
 if (start + 2000 > end)
 {
-    // The code took less than two seconds.
+    // 代码执行时间小于两秒
 }
 ```
 
-If `start` is very high this code will wrap around and may cause the check to pass erroneously. However, solving this is very simple:
+当`start`接近最大值时，计算可能产生溢出导致错误判断。建议改用以下安全方式：
 
 ```c
 new start = GetTickCount();
-// Long code.
+// 长时间代码
 new end = GetTickCount();
 if (2000 > end - start)
 {
-    // The code took less than two seconds.
+    // 代码执行时间小于两秒
 }
 ```
 
-Simply rearranging the comparison such that `start` and `end` are on the same side fixes the issue entirely. Those familiar with formula rearrangements should recognise that the two pieces of code are entirely equivalent, but the latter is more correct in modulo arithmetic.
+通过调整比较顺序，可完全避免溢出问题。两种写法在模运算中等效，但后者更安全。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [Tickcount](Tickcount): Get the uptime of the actual server.
+- [Tickcount](Tickcount): 获取服务器的实际运行时间

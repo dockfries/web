@@ -58,7 +58,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
 :::tip
 
-无论玩家处于载具中还是步行状态，都可以获取视角数据
+无论玩家处于车辆中还是步行状态，都可以获取视角数据
 
 :::
 

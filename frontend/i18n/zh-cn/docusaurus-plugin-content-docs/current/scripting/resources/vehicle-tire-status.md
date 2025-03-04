@@ -1,18 +1,18 @@
 ---
-title: 载具轮胎状态
-sidebar_label: 载具轮胎状态
-description: 载具轮胎状态定义表。
+title: 车辆轮胎状态
+sidebar_label: 车辆轮胎状态
+description: 车辆轮胎状态定义表。
 ---
 
 :::note
 
-这些定义被原生函数使用，例如[获取载具损伤状态](../functions/GetVehicleDamageStatus)和[更新载具损伤状态](../functions/UpdateVehicleDamageStatus)。
+这些定义被原生函数使用，例如[获取车辆损伤状态](../functions/GetVehicleDamageStatus)和[更新车辆损伤状态](../functions/UpdateVehicleDamageStatus)。
 
 :::
 
 | 定义                                                                                    | 数值 |
 | --------------------------------------------------------------------------------------- | ---- |
-| UNKNOWN_VEHICLE_TYRE_STATUS（未知载具轮胎状态）                                         | -1   |
+| UNKNOWN_VEHICLE_TYRE_STATUS（未知车辆轮胎状态）                                         | -1   |
 | VEHICLE_TYRE_STATUS_NONE（无轮胎损伤）                                                  | 0    |
 | VEHICLE_TYRE_STATUS_FRONT_LEFT_POPPED ​**/**​ CARTYRE_FRONT_LEFT_POPPED（左前轮爆胎）   | 8    |
 | VEHICLE_TYRE_STATUS_FRONT_RIGHT_POPPED ​**/**​ CARTYRE_FRONT_RIGHT_POPPED（右前轮爆胎） | 2    |

@@ -1,32 +1,32 @@
 ---
 title: GetVehicleLandingGearState
 sidebar_label: GetVehicleLandingGearState
-description: Gets the current vehicle landing gear state from the latest driver.
+description: 获取最近驾驶员的飞机当前起落架状态。
 tags: ["vehicle"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the current vehicle [landing gear state](../resources/landinggearstate) from the latest driver.
+获取最近驾驶员操作的飞机当前[起落架状态](../resources/landinggearstate)。
 
-## Parameters
+## 参数
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明            |
+| --------- | --------------- |
+| vehicleid | 目标飞机的 ID。 |
 
-## Examples
+## 示例代码
 
 ```c
 new LANDING_GEAR_STATE:state = GetVehicleLandingGearState(vehicleid);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerLandingGearState](GetPlayerLandingGearState): Gets the landing gear state of the current player's vehicle.
+- [GetPlayerLandingGearState](GetPlayerLandingGearState): 获取当前玩家所在飞机的起落架状态。
 
-## Related Resources
+## 相关资源
 
-- [Vehicle Landing Gear States](../resources/landinggearstate)
+- [飞机起落架状态说明](../resources/landinggearstate)

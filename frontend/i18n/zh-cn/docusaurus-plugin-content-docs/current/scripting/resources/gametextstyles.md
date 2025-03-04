@@ -74,7 +74,7 @@ description: 文本绘图与游戏文本的样式说明
 
 | 样式    | 预览图                                                               | 原型参照                       |
 | ------- | -------------------------------------------------------------------- | ------------------------------ |
-| 样式 7  | ![](https://assets.open.mp/assets/images/gameTextStyles/style7.png)  | 《圣安地列斯》载具名称风格     |
+| 样式 7  | ![](https://assets.open.mp/assets/images/gameTextStyles/style7.png)  | 《圣安地列斯》车辆名称风格     |
 | 样式 8  | ![](https://assets.open.mp/assets/images/gameTextStyles/style8.png)  | 《圣安地列斯》地点名称风格     |
 | 样式 9  | ![](https://assets.open.mp/assets/images/gameTextStyles/style9.png)  | 《圣安地列斯》电台选择完成样式 |
 | 样式 10 | ![](https://assets.open.mp/assets/images/gameTextStyles/style10.png) | 《圣安地列斯》电台切换中样式   |

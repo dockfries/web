@@ -15,7 +15,7 @@ tags: ["3D文本标签"]
 | ---------------- | ---------------------------------------- |
 | Text3D:textid    | 要获取附加数据的 3D 文本标签 ID          |
 | &parentPlayerid  | 用于存储父级玩家 ID 的变量（按引用传递） |
-| &parentVehicleid | 用于存储父级载具 ID 的变量（按引用传递） |
+| &parentVehicleid | 用于存储父级车辆 ID 的变量（按引用传递） |
 
 ## 示例
 
@@ -32,7 +32,7 @@ Attach3DTextLabelToPlayer(gMyLabel, playerid, 0.0, 0.0, 0.7);
 Get3DTextLabelAttachedData(gMyLabel, parentPlayerid, parentVehicleid);
 ```
 
-**父级载具 ID** 示例：
+**父级车辆 ID** 示例：
 
 ```c
 new Text3D:gVehicle3dText[MAX_VEHICLES];
@@ -52,5 +52,5 @@ Get3DTextLabelAttachedData(gVehicle3dText[gVehicleId], parentPlayerid, parentVeh
 ## 相关函数
 
 - [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer): 将 3D 文本标签附加到玩家身上
-- [Attach3DTextLabelToVehicle](Attach3DTextLabelToVehicle): 将 3D 文本标签附加到载具
+- [Attach3DTextLabelToVehicle](Attach3DTextLabelToVehicle): 将 3D 文本标签附加到车辆
 - [GetPlayer3DTextLabelAttachedData](GetPlayer3DTextLabelAttachedData): 获取玩家 3D 文本标签的附加数据

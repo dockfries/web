@@ -39,4 +39,4 @@ SendClientMessage(playerid, -1, output);
 ## 相关函数
 
 - [SetPlayerColor](SetPlayerColor): 设置玩家颜色
-- [ChangeVehicleColor](ChangeVehicleColor): 修改载具颜色
+- [ChangeVehicleColor](ChangeVehicleColor): 修改车辆颜色

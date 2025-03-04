@@ -1,46 +1,46 @@
 ---
 title: GetPlayerSpectateType
 sidebar_label: GetPlayerSpectateType
-description: Returns the player's spectate type (vehicle or player).
-tags: ["player"]
+description: 获取玩家的观战类型（车辆或玩家）
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Returns the player's spectate type (vehicle or player).
+获取玩家当前的观战类型（正在观战车辆或玩家）
 
-| Name     | Description           |
-| -------- | --------------------- |
-| playerid | The ID of the player. |
+| 参数名   | 说明    |
+| -------- | ------- |
+| playerid | 玩家 ID |
 
-## Returns
+## 返回值
 
-Returns the player's [spectate type](../resources/spectatetypes).
+返回玩家的[观战类型](../resources/spectatetypes)
 
-## Examples
+## 示例代码
 
 ```c
 new spectateType = GetPlayerSpectateType(playerid);
 
-if (spectateType == 1)
+if (spectateType == 1) // 观战车辆模式
 {
-    SendClientMessage(playerid, -1, "You are spectating a vehicle.");
+    SendClientMessage(playerid, -1, "你正在观战一辆车辆");
 }
-else if (spectateType == 2)
+else if (spectateType == 2) // 观战玩家模式
 {
-    SendClientMessage(playerid, -1, "You are spectating a player.");
+    SendClientMessage(playerid, -1, "你正在观战其他玩家");
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [PlayerSpectatePlayer](PlayerSpectatePlayer): Spectate a player.
-- [PlayerSpectateVehicle](PlayerSpectateVehicle): Spectate a vehicle.
-- [TogglePlayerSpectating](TogglePlayerSpectating): Start or stop spectating.
-- [GetPlayerSpectateID](GetPlayerSpectateID): Gets the ID of the player or vehicle the player is spectating (watching).
+- [PlayerSpectatePlayer](PlayerSpectatePlayer): 观战指定玩家
+- [PlayerSpectateVehicle](PlayerSpectateVehicle): 观战指定车辆
+- [TogglePlayerSpectating](TogglePlayerSpectating): 切换观战状态
+- [GetPlayerSpectateID](GetPlayerSpectateID): 获取观战目标 ID
 
-## Related Resources
+## 扩展资源
 
-- [Spectate Types](../resources/spectatetypes).
+- [观战类型说明](../resources/spectatetypes)

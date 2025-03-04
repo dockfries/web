@@ -1,28 +1,28 @@
 ---
 title: GetVehicleHydraReactorAngle
 sidebar_label: GetVehicleHydraReactorAngle
-description: Gets the hydra reactor angle of the vehicle.
-tags: ["vehicle"]
+description: 获取九头蛇战机推进器角度
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the hydra reactor angle of the vehicle.
+获取九头蛇战机的推进器角度
 
-## Parameters
+## 参数说明
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明              |
+| --------- | ----------------- |
+| vehicleid | 目标九头蛇战机 ID |
 
-## Examples
+## 示例
 
 ```c
 new reactorAngle = GetVehicleHydraReactorAngle(vehicleid);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerHydraReactorAngle](GetPlayerHydraReactorAngle): Gets the reactor angle of the player's hydra.
+- [GetPlayerHydraReactorAngle](GetPlayerHydraReactorAngle): 获取玩家九头蛇战机推进器角度

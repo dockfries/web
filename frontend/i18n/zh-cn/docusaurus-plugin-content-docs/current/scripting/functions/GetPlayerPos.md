@@ -1,55 +1,55 @@
 ---
 title: GetPlayerPos
 sidebar_label: GetPlayerPos
-description: Get the position of a player, represented by X, Y and Z coordinates.
-tags: ["player"]
+description: 获取玩家的三维坐标位置
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Get the position of a player, represented by X, Y and Z coordinates.
+获取玩家当前的三维坐标位置（X/Y/Z 轴坐标）
 
-| Name     | Description                                                                  |
-| -------- | ---------------------------------------------------------------------------- |
-| playerid | The ID of the player to get the position of.                                 |
-| &Float:x | A float variable in which to store the X coordinate in, passed by reference. |
-| &Float:y | A float variable in which to store the Y coordinate in, passed by reference. |
-| &Float:z | A float variable in which to store the Z coordinate in, passed by reference. |
+| 参数名   | 说明                                      |
+| -------- | ----------------------------------------- |
+| playerid | 需要获取位置的玩家 ID                     |
+| &Float:x | 存储 X 轴坐标的浮点型变量（通过引用传递） |
+| &Float:y | 存储 Y 轴坐标的浮点型变量（通过引用传递） |
+| &Float:z | 存储 Z 轴坐标的浮点型变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-**true** on success.
+**true** - 执行成功
 
-**false** on failure (i.e. player not connected).
+**false** - 执行失败（玩家未连接）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    // Declare 3 float variables to store the X, Y and Z coordinates in
+    // 声明三个浮点变量存储坐标
     new Float:x, Float:y, Float:z;
 
-    // Use GetPlayerPos, passing the 3 float variables we just created
+    // 调用GetPlayerPos获取玩家坐标
     GetPlayerPos(playerid, x, y, z);
 
-    // Create a cash pickup at the player's position
+    // 在玩家死亡位置生成现金拾取物
     CreatePickup(1212, 4, x, y, z, -1);
    return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function is known to return unreliable values when used in [OnPlayerDisconnect](../callbacks/OnPlayerDisconnect) and OnPlayerRequestClass. This is because the player is not spawned.
+在[OnPlayerDisconnect](../callbacks/OnPlayerDisconnect)和 OnPlayerRequestClass 回调中使用时可能返回不可靠值（因玩家尚未生成）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerPos](SetPlayerPos): Set a player's position.
-- [GetVehiclePos](GetVehiclePos): Get the position of a vehicle.
-- [IsPlayerInRangeOfPoint](IsPlayerInRangeOfPoint): Check whether a player is in range of a point.
-- [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): Get the distance between a player and a point.
+• [SetPlayerPos](SetPlayerPos): 设置玩家坐标位置
+• [GetVehiclePos](GetVehiclePos): 获取车辆坐标位置
+• [IsPlayerInRangeOfPoint](IsPlayerInRangeOfPoint): 检测玩家是否在指定点附近
+• [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): 计算玩家与指定点的距离

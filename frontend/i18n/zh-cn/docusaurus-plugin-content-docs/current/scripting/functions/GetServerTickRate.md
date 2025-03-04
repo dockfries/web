@@ -1,20 +1,20 @@
 ---
 title: GetServerTickRate
 sidebar_label: GetServerTickRate
-description: Gets the tick rate (like FPS) of the server.
+description: 获取服务器的 Tick 速率（类似 FPS）
 tags: []
 ---
 
-## Description
+## 描述
 
-Gets the tick rate (like FPS) of the server.
+获取服务器当前的 Tick 运行速率（即每秒逻辑更新次数）
 
-## Examples
+## 示例代码
 
 ```c
-printf("The current server tick rate is: %i", GetServerTickRate());
+printf("当前服务器Tick速率为：%i", GetServerTickRate());
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetNetworkStats](GetNetworkStats): Gets the servers networkstats and saves it into a string.
+- [GetNetworkStats](GetNetworkStats): 获取服务器网络状态并保存到字符串

@@ -1,26 +1,26 @@
 ---
 title: getpubvar
 sidebar_label: getpubvar
-description: Gets a specific public variable from the current script.
-tags: ["core", "pubvar", "public variable"]
+description: 获取当前脚本中的特定公共变量
+tags: ["核心", "pubvar", "公共变量"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Gets a specific public variable from the current script.
+获取当前脚本中声明的特定公共变量值
 
-| Name         | Description                 |
-| ------------ | --------------------------- |
-| const name[] | The public variable's name. |
+| 名称         | 说明             |
+| ------------ | ---------------- |
+| const name[] | 目标公共变量名称 |
 
-## Returns
+## 返回值
 
-Naught if the variable doesn't exist (use [existpubvar](existpubvar) first).
+若变量不存在返回无效值（建议先使用[existpubvar](existpubvar)进行检测）
 
-## Related Functions
+## 相关函数
 
-- [setpubvar](setpubvar): Sets a specific public variable in the current script.
-- [existpubvar](existpubvar): Checks if a specific public variable exists in the current script.
-- [numpubvars](numpubvars): Counts how many public variables there are in the script.
+- [setpubvar](setpubvar): 设置当前脚本的公共变量值
+- [existpubvar](existpubvar): 检测公共变量是否存在
+- [numpubvars](numpubvars): 统计脚本中公共变量数量

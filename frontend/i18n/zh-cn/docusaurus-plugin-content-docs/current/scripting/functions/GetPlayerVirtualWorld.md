@@ -1,23 +1,23 @@
 ---
 title: GetPlayerVirtualWorld
 sidebar_label: GetPlayerVirtualWorld
-description: Retrieves the current virtual world the player is in.
-tags: ["player"]
+description: 获取玩家当前所在的虚拟世界
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Retrieves the current virtual world the player is in.
+获取玩家当前所在的虚拟世界编号
 
-| Name     | Description                                       |
-| -------- | ------------------------------------------------- |
-| playerid | The ID of the player to get the virtual world of. |
+| 名称     | 说明                          |
+| -------- | ----------------------------- |
+| playerid | 需要获取虚拟世界信息的玩家 ID |
 
-## Returns
+## 返回值
 
-The ID of the virtual world the player is currently in.
+玩家当前所在的虚拟世界编号
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -25,7 +25,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (!strcmp(cmdtext, "/world", true))
     {
         new string[32];
-        format(string, sizeof(string), "Your virtual world: %i", GetPlayerVirtualWorld(playerid));
+        format(string, sizeof(string), "您所在的虚拟世界编号：%i", GetPlayerVirtualWorld(playerid));
         SendClientMessage(playerid, 0xFFFFFFFF, string);
         return 1;
     }
@@ -33,16 +33,16 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Virtual worlds are not the same as interiors.
+虚拟世界与室内空间（Interior）是两个独立的概念
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerVirtualWorld](SetPlayerVirtualWorld): Set the virtual world of a player.
-- [GetVehicleVirtualWorld](GetVehicleVirtualWorld): Check what virtual world a vehicle is in.
-- [GetPlayerInterior](GetPlayerInterior): Get the current interior of a player.
+• [SetPlayerVirtualWorld](SetPlayerVirtualWorld): 设置玩家虚拟世界
+• [GetVehicleVirtualWorld](GetVehicleVirtualWorld): 获取车辆所在虚拟世界
+• [GetPlayerInterior](GetPlayerInterior): 获取玩家当前室内空间编号

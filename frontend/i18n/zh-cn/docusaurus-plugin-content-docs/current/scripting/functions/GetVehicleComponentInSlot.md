@@ -1,26 +1,26 @@
 ---
 title: GetVehicleComponentInSlot
 sidebar_label: GetVehicleComponentInSlot
-description: Retrieves the installed component ID (modshop mod(ification)) on a vehicle in a specific slot.
-tags: ["vehicle"]
+description: 获取车辆指定改装槽位中安装的组件ID
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Retrieves the installed component ID (modshop mod(ification)) on a vehicle in a specific slot.
+获取车辆在特定改装槽位中已安装的组件 ID（改装店改装部件）。
 
-| Name            | Description                                                                |
-| --------------- | -------------------------------------------------------------------------- |
-| vehicleid       | The ID of the vehicle to check for the component.                          |
-| CARMODTYPE:slot | The [component slot](../resources/Componentslots) to check for components. |
+| 参数名          | 说明                                                            |
+| --------------- | --------------------------------------------------------------- |
+| vehicleid       | 要检查改装组件的车辆 ID                                         |
+| CARMODTYPE:slot | [改装槽位类型](../resources/Componentslots)（需检查的组件槽位） |
 
-## Returns
+## 返回值
 
-The ID of the component installed in the specified slot.
+返回指定槽位中安装的组件 ID。
 
-Returns **0** if no component in specified vehicle's specified slot, or if vehicle doesn't exist.
+若车辆不存在或该槽位未安装组件，则返回 **0**。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -37,7 +37,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
         if (component == 1049)
         {
-            SendClientMessage(playerid, -1, "You have an Alien spoiler installed in your Elegy!");
+            SendClientMessage(playerid, -1, "你的Elegy安装了Alien尾翼！");
         }
         return 1;
     }
@@ -45,29 +45,29 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Known Bug(s):
+已知缺陷：
 
-- Doesn't work for CARMODTYPE_STEREO.
-- Both front bull bars and front bumper components are saved in the CARMODTYPE_FRONT_BUMPER slot. If a vehicle has both of them installed, this function will only return the one which was installed last.
-- Both rear bull bars and rear bumper components are saved in the CARMODTYPE_REAR_BUMPER slot. If a vehicle has both of them installed, this function will only return the one which was installed last.
-- Both left side skirt and right side skirt are saved in the CARMODTYPE_SIDESKIRT slot. If a vehicle has both of them installed, this function will only return the one which was installed last.
+- 对 CARMODTYPE_STEREO 槽位无效
+- 前防撞杠和前保险杠组件都存储在 CARMODTYPE_FRONT_BUMPER 槽位，若同时安装仅返回最后安装的组件
+- 后防撞杠和后保险杠组件都存储在 CARMODTYPE_REAR_BUMPER 槽位，若同时安装仅返回最后安装的组件
+- 左右侧裙组件都存储在 CARMODTYPE_SIDESKIRT 槽位，若同时安装仅返回最后安装的组件
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [AddVehicleComponent](AddVehicleComponent): Add a component to a vehicle.
-- [GetVehicleComponentType](GetVehicleComponentType): Check the type of component via the ID.
+- [AddVehicleComponent](AddVehicleComponent): 为车辆添加改装组件
+- [GetVehicleComponentType](GetVehicleComponentType): 通过组件 ID 获取其类型
 
-## Related Callbacks
+## 相关回调
 
-- [OnVehicleMod](../callbacks/OnVehicleMod): Called when a vehicle is modded.
-- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): Called when a vehicle enters or exits a mod shop.
+- [OnVehicleMod](../callbacks/OnVehicleMod): 当车辆被改装时触发
+- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当车辆进出改装厂时触发
 
-## Related Resources
+## 相关资源
 
-- [Vehicle Component Slots](../resources/Componentslots)
+- [车辆改装槽位说明](../resources/Componentslots)

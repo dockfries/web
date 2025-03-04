@@ -134,7 +134,7 @@ description: open.mp 新增函数与回调说明。
 | [OnPlayerPickupStreamIn](../scripting/callbacks/OnPlayerPickupStreamIn)           |
 | [OnPlayerPickupStreamOut](../scripting/callbacks/OnPlayerPickupStreamOut)         |
 
-## 载具相关
+## 车辆相关
 
 | 名称                                                                                |
 | ----------------------------------------------------------------------------------- |

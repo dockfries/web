@@ -1,33 +1,33 @@
 ---
 title: GetPlayerLastShotVectors
 sidebar_label: GetPlayerLastShotVectors
-description: Retrieves the start and end (hit) position of the last bullet a player fired.
-tags: ["player"]
+description: 获取玩家最后一次射击子弹的起始点和命中点坐标
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Retrieves the start and end (hit) position of the last bullet a player fired.
+获取玩家最后一次射击子弹的起始点和命中点坐标
 
-| Name           | Description                                                                             |
-| -------------- | --------------------------------------------------------------------------------------- |
-| playerid       | The ID of the player to get the last bullet shot information of.                        |
-| &Float:originX | A float variable in which to save the X coordinate of where the bullet originated from. |
-| &Float:originY | A float variable in which to save the Y coordinate of where the bullet originated from. |
-| &Float:originZ | A float variable in which to save the Z coordinate of where the bullet originated from. |
-| &Float:hitPosX | A float variable in which to save the X coordinate of where the bullet hit.             |
-| &Float:hitPosY | A float variable in which to save the Y coordinate of where the bullet hit.             |
-| &Float:hitPosZ | A float variable in which to save the Z coordinate of where the bullet hit.             |
+| 参数名         | 说明                                    |
+| -------------- | --------------------------------------- |
+| playerid       | 需要获取射击信息的玩家 ID               |
+| &Float:originX | 用于存储子弹发射原点 X 坐标的浮点型变量 |
+| &Float:originY | 用于存储子弹发射原点 Y 坐标的浮点型变量 |
+| &Float:originZ | 用于存储子弹发射原点 Z 坐标的浮点型变量 |
+| &Float:hitPosX | 用于存储子弹命中点 X 坐标的浮点型变量   |
+| &Float:hitPosY | 用于存储子弹命中点 Y 坐标的浮点型变量   |
+| &Float:hitPosZ | 用于存储子弹命中点 Z 坐标的浮点型变量   |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player specified does not exist.
+**false** - 函数执行失败（指定的玩家不存在）
 
-The position of the last bullet is stored in the specified variables.
+最后一次射击的坐标信息会被存储在指定的变量中
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -48,21 +48,21 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-- This function will only work when lag compensation is enabled.
-- If the player hit nothing, the hit positions will be 0. This means you can't currently calculate how far a bullet travels through open air.
+- 本函数仅在开启延迟补偿时生效
+- 若子弹未命中任何物体，命中点坐标将返回 0。当前无法计算子弹在空中的飞行距离
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerWeaponData](GetPlayerWeaponData): Find out information about weapons a player has.
-- [GetPlayerWeapon](GetPlayerWeapon): Check what weapon a player is currently holding.
-- [VectorSize](VectorSize): Get the length (norm) of a vector.
+- [GetPlayerWeaponData](GetPlayerWeaponData): 获取玩家持有的武器信息
+- [GetPlayerWeapon](GetPlayerWeapon): 获取玩家当前手持的武器
+- [VectorSize](VectorSize): 计算向量的模长
 
-## Related Callbacks
+## 相关回调函数
 
-- [OnPlayerWeaponShot](../callbacks/OnPlayerWeaponShot): Called when a player fires a weapon.
+- [OnPlayerWeaponShot](../callbacks/OnPlayerWeaponShot): 当玩家发射武器时触发

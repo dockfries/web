@@ -43,5 +43,5 @@ public OnPlayerCommandText(playerid, cmdtext[])
 ## 相关函数
 
 - [IsPlayerInRangeOfPoint](IsPlayerInRangeOfPoint): 检测玩家是否在指定点范围内
-- [GetVehicleDistanceFromPoint](GetVehicleDistanceFromPoint): 计算载具与坐标点之间的距离
+- [GetVehicleDistanceFromPoint](GetVehicleDistanceFromPoint): 计算车辆与坐标点之间的距离
 - [GetPlayerPos](GetPlayerPos): 获取玩家当前位置坐标

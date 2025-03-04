@@ -34,7 +34,7 @@ AttachObjectToPlayer(gMyObject, playerid, 1.5, 0.5, 0.0, 0.0, 1.5, 2);
 
 ## 相关函数
 
-- [AttachObjectToVehicle](AttachObjectToVehicle): 将物体附加到载具
+- [AttachObjectToVehicle](AttachObjectToVehicle): 将物体附加到车辆
 - [AttachObjectToObject](AttachObjectToObject): 将物体附加到物体
 - [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 将玩家物体附加到玩家
 - [CreateObject](CreateObject): 创建物体

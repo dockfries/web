@@ -1,51 +1,52 @@
 ---
 title: GetServerVarAsBool
 sidebar_label: GetServerVarAsBool
-description: Get the boolean value of a server variable.
+description: 获取服务器布尔型变量的值
 tags: []
 ---
 
 :::warning
 
-This function, as of 0.3.7 R2, is deprecated. Please see GetConsoleVarAsBool
+本函数自 0.3.7 R2 版本起已弃用，请使用[GetConsoleVarAsBool](GetConsoleVarAsBool)
 
 :::
 
-## Description
+## 描述
 
-Get the boolean value of a server variable.
+获取服务器布尔型变量（true/false）的当前值
 
-| Name            | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| const varname[] | The name of the boolean variable to get the value of. |
+| 名称            | 说明               |
+| --------------- | ------------------ |
+| const varname[] | 目标布尔型变量名称 |
 
-## Returns
+## 返回值
 
-The value of the specified server variable. 0 if the specified server variable is not a boolean or doesn't exist.
+指定服务器变量的布尔值。若变量非布尔类型或不存在返回 **0**
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
 {
+    // 检测服务器query功能是否启用
     new queryEnabled = GetServerVarAsBool("query");
     if (!queryEnabled)
     {
-        print("WARNING: Querying is disabled. The server will appear offline in the server browser.");
+        print("警告：查询功能已禁用，服务器将不会显示在服务器列表中");
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Type 'varlist' in the server console to display a list of available server variables and their types.
+在服务器控制台输入'varlist'命令可查看所有可用变量及其类型
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetServerVarAsString](GetServerVarAsString): Retreive a server variable as a string.
-- [GetServerVarAsInt](GetServerVarAsInt): Retreive a server variable as an integer.
+- [GetServerVarAsString](GetServerVarAsString): 以字符串形式获取服务器变量
+- [GetServerVarAsInt](GetServerVarAsInt): 以整型数值获取服务器变量

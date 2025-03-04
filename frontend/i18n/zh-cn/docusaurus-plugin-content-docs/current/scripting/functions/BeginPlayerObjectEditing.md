@@ -48,7 +48,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
 :::tip
 
-编辑过程中按住空格键（载具中按 W 键）并移动鼠标可以控制视角移动
+编辑过程中按住空格键（车辆中按 W 键）并移动鼠标可以控制视角移动
 
 :::
 

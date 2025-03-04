@@ -54,5 +54,5 @@ public OnPlayerCommandText(playerid, cmdtext[])
 ## 相关函数
 
 - [SetPlayerHealth](SetPlayerHealth): 设置玩家生命值
-- [GetVehicleHealth](GetVehicleHealth): 获取载具耐久值
+- [GetVehicleHealth](GetVehicleHealth): 获取车辆耐久值
 - [GetPlayerArmour](GetPlayerArmour): 获取玩家护甲值

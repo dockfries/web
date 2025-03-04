@@ -1,23 +1,23 @@
 ---
 title: GetVehicleComponentType
 sidebar_label: GetVehicleComponentType
-description: Find out what type of component a certain ID is.
-tags: ["vehicle"]
+description: 根据组件ID获取其类型
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Find out what type of component a certain ID is.
+根据组件 ID 获取其对应的改装槽位类型
 
-| Name      | Description                |
-| --------- | -------------------------- |
-| component | The component ID to check. |
+| 参数名    | 说明            |
+| --------- | --------------- |
+| component | 要检查的组件 ID |
 
-## Returns
+## 返回值
 
-The component slot ID of the specified component or **-1** if the component is invalid.
+返回指定组件的槽位 ID，若组件无效则返回 **-1**
 
-## Examples
+## 示例
 
 ```c
 public OnVehicleMod(playerid, vehicleid, componentid)
@@ -30,24 +30,24 @@ public OnVehicleMod(playerid, vehicleid, componentid)
         new
             string[64];
 
-        format(string, sizeof(string), "You have modified your vehicle on slot %i", componentType);
+        format(string, sizeof(string), "你在 %i 号槽位改装了车辆", componentType);
         SendClientMessage(playerid, 0xFFFFFFFF, string);
     }
     else
     {
-        SendClientMessage(playerid, 0xFF0000FF, "The component is invalid.");
+        SendClientMessage(playerid, 0xFF0000FF, "无效的改装组件");
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddVehicleComponent](AddVehicleComponent): Add a component to a vehicle.
-- [RemoveVehicleComponent](RemoveVehicleComponent): Remove a component from a vehicle.
-- [GetVehicleComponentInSlot](GetVehicleComponentInSlot): Check what components a vehicle has.
+• [AddVehicleComponent](AddVehicleComponent): 为车辆添加改装组件
+• [RemoveVehicleComponent](RemoveVehicleComponent): 移除车辆改装组件
+• [GetVehicleComponentInSlot](GetVehicleComponentInSlot): 获取车辆指定槽位的组件
 
-## Related Callbacks
+## 相关回调
 
-- [OnVehicleMod](../callbacks/OnVehicleMod): Called when a vehicle is modded.
-- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): Called when a vehicle enters or exits a mod shop.
+• [OnVehicleMod](../callbacks/OnVehicleMod): 当车辆被改装时触发
+• [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当车辆进出改装厂时触发

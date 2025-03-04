@@ -1,18 +1,18 @@
 ---
-title: 载具灯光状态
-sidebar_label: 载具灯光状态
-description: 载具灯光状态定义表。
+title: 车辆灯光状态
+sidebar_label: 车辆灯光状态
+description: 车辆灯光状态定义表。
 ---
 
 :::note
 
-这些定义被原生函数使用，例如[获取载具损伤状态](../functions/GetVehicleDamageStatus)和[更新载具损伤状态](../functions/UpdateVehicleDamageStatus)。
+这些定义被原生函数使用，例如[获取车辆损伤状态](../functions/GetVehicleDamageStatus)和[更新车辆损伤状态](../functions/UpdateVehicleDamageStatus)。
 
 :::
 
 | 定义                                                                                      | 数值 |
 | ----------------------------------------------------------------------------------------- | ---- |
-| UNKNOWN_VEHICLE_LIGHT_STATUS（未知载具灯光状态）                                          | 0    |
+| UNKNOWN_VEHICLE_LIGHT_STATUS（未知车辆灯光状态）                                          | 0    |
 | VEHICLE_LIGHT_STATUS_NONE（无灯光损坏）                                                   | 0    |
 | VEHICLE_LIGHT_STATUS_FRONT_LEFT_BROKEN ​**/**​ CARLIGHT_FRONT_LEFT_BROKEN（左前灯损坏）   | 1    |
 | VEHICLE_LIGHT_STATUS_FRONT_RIGHT_BROKEN ​**/**​ CARLIGHT_FRONT_RIGHT_BROKEN（右前灯损坏） | 4    |

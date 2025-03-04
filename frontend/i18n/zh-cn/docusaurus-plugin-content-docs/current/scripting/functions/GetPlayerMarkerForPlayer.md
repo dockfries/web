@@ -1,39 +1,39 @@
 ---
 title: GetPlayerMarkerForPlayer
 sidebar_label: GetPlayerMarkerForPlayer
-description: Get the colour of a player's nametag and radar blip for another player.
-tags: ["player"]
+description: 获取指定玩家在另一玩家视角下的名称标签和雷达标记颜色
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
  
-## Description
+## 描述
 
-Get the colour of a player's **nametag** and **radar blip** for another player.
+获取指定玩家在另一玩家视角下的**名称标签**和**雷达标记**颜色
 
-| Name     | Description                                                      |
-| -------- | ---------------------------------------------------------------- | --- |
-| playerid | The player that can see the player's changed blip/nametag colour |     |
-| targetid | The player whose colour has been changed.                        |
+| 参数名   | 说明                                                   |
+| -------- | ------------------------------------------------------ |
+| playerid | 可以看到目标玩家改变后标记/名称标签颜色的观察者玩家 ID |
+| targetid | 被修改标记颜色的目标玩家 ID                            |
 
-## Returns
+## 返回值
 
-The target player's **nametag** and **radar blip** colour.
+目标玩家的**名称标签**和**雷达标记**颜色值
 
-## Examples
+## 示例代码
 
 ```c
-// Make player 42 see player 1 as a red marker
+// 让玩家42看到玩家1的标记为红色
 SetPlayerMarkerForPlayer(42, 1, 0xFF0000FF);
 
 new markerColour = GetPlayerMarkerForPlayer(42, 1);
 // markerColour = 0xFF0000FF
 ```
 
-## Related Functions
+## 相关函数
 
-- [ShowPlayerMarkers](ShowPlayerMarkers): Decide if the server should show markers on the radar.
-- [LimitPlayerMarkerRadius](LimitPlayerMarkerRadius): Limit the player marker radius.
-- [SetPlayerColor](SetPlayerColor): Set a player's color.
-- [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer): Show or hide a nametag for a certain player.
-- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): Set a player's marker for a specific player.
+- [ShowPlayerMarkers](ShowPlayerMarkers): 设置服务器是否显示雷达标记
+- [LimitPlayerMarkerRadius](LimitPlayerMarkerRadius): 限制玩家标记显示半径
+- [SetPlayerColor](SetPlayerColor): 设置玩家全局颜色
+- [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer): 控制特定玩家名称标签的可见性
+- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): 为指定玩家设置其他玩家的雷达标记

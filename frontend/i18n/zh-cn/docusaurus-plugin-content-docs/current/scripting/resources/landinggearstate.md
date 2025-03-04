@@ -1,7 +1,7 @@
 ---
-title: 载具起落架状态
-sidebar_label: 载具起落架状态
-description: 载具起落架状态说明
+title: 车辆起落架状态
+sidebar_label: 车辆起落架状态
+description: 车辆起落架状态说明
 ---
 
 :::note

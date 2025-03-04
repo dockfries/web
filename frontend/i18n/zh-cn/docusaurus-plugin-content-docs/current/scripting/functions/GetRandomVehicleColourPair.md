@@ -1,37 +1,38 @@
 ---
 title: GetRandomVehicleColourPair
 sidebar_label: GetRandomVehicleColourPair
-description: Get random colour indexes that are valid for the given vehicle model.
-tags: ["vehicle"]
+description: 获取指定车辆模型的有效随机颜色索引组合
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get random colour indexes that are valid for the given vehicle model.
+获取指定车辆模型的有效随机颜色索引组合
 
-## Parameters
+## 参数说明
 
-| Name         | Description                                                          |
-| ------------ | -------------------------------------------------------------------- |
-| modelid      | The ID of the [vehicle model](../resources/vehicleid).               |
-| &colour1     | A variable in which to store the colour1 value, passed by reference. |
-| &colour2     | A variable in which to store the colour2 value, passed by reference. |
-| &colour3 = 0 | A variable in which to store the colour3 value, passed by reference. |
-| &colour4 = 0 | A variable in which to store the colour4 value, passed by reference. |
+| 名称         | 说明                                         |
+| ------------ | -------------------------------------------- |
+| modelid      | [车辆模型 ID](../resources/vehicleid)        |
+| &colour1     | 存储主颜色索引的变量（引用传递）             |
+| &colour2     | 存储副颜色索引的变量（引用传递）             |
+| &colour3 = 0 | 存储第三颜色索引的变量（可选参数，引用传递） |
+| &colour4 = 0 | 存储第四颜色索引的变量（可选参数，引用传递） |
 
-## Examples
+## 示例代码
 
 ```c
 new
 	colour1,
 	colour2;
 
+// 获取Sultan车型的随机颜色组合（模型ID 560）
 GetRandomVehicleColourPair(560, colour1, colour2);
 ```
 
-## Related Functions
+## 相关函数
 
-- [VehicleColourIndexToColour](VehicleColourIndexToColour): Convert a car colour index to a HEX colour (RGBA).
-- [GetVehicleColours](GetVehicleColours): Gets the vehicle colours.
+- [VehicleColourIndexToColour](VehicleColourIndexToColour): 将颜色索引转换为 HEX 颜色值（RGBA 格式）
+- [GetVehicleColours](GetVehicleColours): 获取车辆当前颜色配置

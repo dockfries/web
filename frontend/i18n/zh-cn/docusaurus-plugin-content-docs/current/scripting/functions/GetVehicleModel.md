@@ -1,42 +1,42 @@
 ---
 title: GetVehicleModel
 sidebar_label: GetVehicleModel
-description: Gets the model ID of a vehicle.
-tags: ["vehicle"]
+description: 获取车辆的模型ID。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Gets the model ID of a vehicle.
+获取指定车辆的模型 ID。
 
-| Name      | Description                                |
-| --------- | ------------------------------------------ |
-| vehicleid | The ID of the vehicle to get the model of. |
+| 参数名    | 说明                  |
+| --------- | --------------------- |
+| vehicleid | 需要查询的目标车辆 ID |
 
-## Returns
+## 返回值
 
-The [vehicle's model ID](../resources/vehicleid), or **0** if the vehicle doesn't exist.
+返回车辆的[模型 ID](../resources/vehicleid)，若车辆不存在则返回 **0**
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 {
-    if (GetVehicleModel(vehicleid) == 411) // 411 is the Infernus model
+    if (GetVehicleModel(vehicleid) == 411) // 411是Infernus车型
     {
-        SendClientMessage(playerid, 0xFFFFFFFF, "Nice Infernus!");
+        SendClientMessage(playerid, 0xFFFFFFFF, "酷炫的Infernus!");
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerVehicleID](GetPlayerVehicleID): Get the ID of the vehicle the player is in.
-- [GetVehiclePos](GetVehiclePos): Get the position of a vehicle.
-- [GetVehicleZAngle](GetVehicleZAngle): Check the current angle of a vehicle.
-- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): Check what seat a player is in.
+- [GetPlayerVehicleID](GetPlayerVehicleID): 获取玩家所在车辆的 ID
+- [GetVehiclePos](GetVehiclePos): 获取车辆的坐标位置
+- [GetVehicleZAngle](GetVehicleZAngle): 获取车辆当前的水平旋转角度
+- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): 检测玩家所在的车辆座位
 
-## Related Resources
+## 相关资源
 
-- [Vehicle IDs](../resources/vehicleid)
+- [车辆模型 ID 对照表](../resources/vehicleid)

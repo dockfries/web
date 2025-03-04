@@ -32,4 +32,4 @@ GetActors(actors, sizeof(actors));
 ## 相关函数
 
 - [GetPlayers](GetPlayers.md): 获取当前在线玩家 ID 数组
-- [GetVehicles](GetVehicles.md): 获取已创建载具 ID 数组
+- [GetVehicles](GetVehicles.md): 获取已创建车辆 ID 数组

@@ -1,25 +1,25 @@
 ---
 title: GetPlayerTargetActor
 sidebar_label: GetPlayerTargetActor
-description: Gets id of an actor which is aimed by certain player.
-tags: ["player"]
+description: 获取指定玩家正在瞄准的角色ID
+tags: ["玩家"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Gets id of an actor which is aimed by certain player.
+获取指定玩家当前瞄准的角色（Actor）ID
 
-| Name     | Description                                |
-| -------- | ------------------------------------------ |
-| playerid | The ID of the player to get the target of. |
+| 名称     | 说明                  |
+| -------- | --------------------- |
+| playerid | 需要获取目标的玩家 ID |
 
-## Returns
+## 返回值
 
-The ID of the targeted actor, or `INVALID_ACTOR_ID` if none.
+被瞄准的角色 ID，若无目标则返回 `INVALID_ACTOR_ID`
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerUpdate(playerid)
@@ -28,25 +28,25 @@ public OnPlayerUpdate(playerid)
         targetActorId = GetPlayerTargetActor(playerid),
         string[32];
 
-    format(string, sizeof(string), "You are aiming at actor id %d", targetActorId);
+    format(string, sizeof(string), "您正在瞄准角色ID %d", targetActorId);
     SendClientMessage(playerid, -1, string);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Does not work for joypads/controllers, and after a certain distance. Does not work for the sniper rifle, as it doesn't lock on to anything and as such can't and won't return a player.
+不适用于游戏手柄/控制器，且存在有效距离限制。狙击步枪（Sniper Rifle）无法锁定目标，因此不会返回任何角色。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerCameraTargetActor](GetPlayerCameraTargetActor): Get the ID of the actor (if any) a player is looking at.
-- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): Get the player's camera front vector
+• [GetPlayerCameraTargetActor](GetPlayerCameraTargetActor): 获取玩家视角目标角色（若存在）
+• [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): 获取玩家视角前向向量
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerGiveDamageActor](../callbacks/OnPlayerGiveDamageActor): This callback is called when a player gives damage to an actor.
+• [OnPlayerGiveDamageActor](../callbacks/OnPlayerGiveDamageActor): 当玩家对角色造成伤害时触发

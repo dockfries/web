@@ -1,27 +1,27 @@
 ---
 title: GetPlayerTeam
 sidebar_label: GetPlayerTeam
-description: Get the ID of the team the player is on.
-tags: ["player"]
+description: 获取玩家所属队伍的ID
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Get the ID of the team the player is on.
+获取指定玩家当前所属的队伍编号
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| playerid | The ID of the player to get the team of. |
+| 名称     | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要获取队伍信息的玩家 ID |
 
-## Returns
+## 返回值
 
-**0-254:** The player's team. (0 is a valid team)
+**0-254:** 玩家所属队伍 ID（0 为有效队伍）
 
-**255:** Defined as NO_TEAM. The player is not on any team.
+**255:** 定义为 NO_TEAM，表示玩家未加入任何队伍
 
-**-1:** The function failed to execute. Player is not connected.
+**-1:** 函数执行失败（玩家未连接）
 
-## Examples
+## 示例代码
 
 ```c
 enum
@@ -32,8 +32,7 @@ enum
 
 public OnPlayerSpawn(playerid)
 {
-    // Players who are in team 1 should spawn at Las Venturas airport.
-
+    // 队伍1的玩家应在拉斯维加斯机场生成
     if (GetPlayerTeam(playerid) == TEAM_ONE)
     {
         SetPlayerPos(playerid, 1667.8909, 1405.5618, 10.7801);
@@ -42,7 +41,7 @@ public OnPlayerSpawn(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerTeam](SetPlayerTeam): Set a player's team.
-- [SetTeamCount](SetTeamCount): Set the number of teams available.
+- [SetPlayerTeam](SetPlayerTeam): 设置玩家队伍
+- [SetTeamCount](SetTeamCount): 设置可用队伍数量

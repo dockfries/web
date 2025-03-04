@@ -1,6 +1,6 @@
 ---
-title: 载具颜色ID
-sidebar_label: 载具颜色ID
+title: 车辆颜色ID
+sidebar_label: 车辆颜色ID
 ---
 
 :::danger

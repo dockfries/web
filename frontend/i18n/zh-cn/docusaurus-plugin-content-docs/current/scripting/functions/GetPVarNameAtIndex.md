@@ -1,28 +1,29 @@
 ---
 title: GetPVarNameAtIndex
 sidebar_label: GetPVarNameAtIndex
-description: Retrieve the name of a player's pVar via the index.
-tags: ["player variable", "pvar"]
+description: 通过索引获取玩家变量的名称
+tags: ["玩家变量", "pvar"]
 ---
 
-## Description
+## 描述
 
-Retrieve the name of a player's pVar via the index.
+通过索引值获取玩家变量的名称
 
-| Name                   | Description                                                    |
-| ---------------------- | -------------------------------------------------------------- |
-| playerid               | The ID of the player whose player variable to get the name of. |
-| index                  | The index of the player's pVar.                                |
-| output[]               | A string to store the pVar's name in, passed by reference.     |
-| size = sizeof (output) | The max length of the returned string.                         |
+| 名称                   | 说明                               |
+| ---------------------- | ---------------------------------- |
+| playerid               | 需要获取变量名称的玩家 ID          |
+| index                  | 玩家变量的索引编号（从 0 开始）    |
+| output[]               | 存储变量名称的字符数组（引用传递） |
+| size = sizeof (output) | 输出字符串的最大缓冲长度           |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不直接返回值，变量名称将存储于指定字符数组中
 
-## Related Functions
+## 相关函数
 
-- [GetPVarType](GetPVarType): Get the type of the player variable.
-- [GetPVarInt](GetPVarInt): Get the previously set integer from a player variable.
-- [GetPVarFloat](GetPVarFloat): Get the previously set float from a player variable.
-- [GetPVarString](GetPVarString): Get the previously set string from a player variable.
+- [GetPVarType](GetPVarType): 获取玩家变量的数据类型
+- [GetPVarInt](GetPVarInt): 获取玩家变量的整数值
+- [GetPVarFloat](GetPVarFloat): 获取玩家变量的浮点数值
+- [GetPVarString](GetPVarString): 获取玩家变量的字符串值
+- [GetPVarsUpperIndex](GetPVarsUpperIndex): 获取玩家变量的最大索引值

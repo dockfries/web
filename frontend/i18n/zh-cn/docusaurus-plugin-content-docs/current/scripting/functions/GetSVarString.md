@@ -1,43 +1,43 @@
 ---
 title: GetSVarString
 sidebar_label: GetSVarString
-description: Gets a string server variable's value.
-tags: ["server variable", "svar"]
+description: 获取字符串型服务器变量的值。
+tags: ["服务器变量", "svar"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7 R2' />
 
-## Description
+## 描述
 
-Gets a string server variable's value.
+获取字符串型服务器变量的值。
 
-| Name                  | Description                                                                                          |
-| --------------------- | ---------------------------------------------------------------------------------------------------- |
-| const svar[]          | The name of the server variable (case-insensitive).<br />Assigned in [SetSVarString](SetSVarString). |
-| output[]              | The array in which to store the string value in, passed by reference.                                |
-| len = sizeof (output) | The maximum length of the returned string.                                                           |
+| 参数名                | 说明                                                                      |
+| --------------------- | ------------------------------------------------------------------------- |
+| const svar[]          | 服务器变量名称（不区分大小写）<br/>通过[SetSVarString](SetSVarString)设置 |
+| output[]              | 存储字符串值的数组（通过引用传递）                                        |
+| len = sizeof (output) | 返回字符串的最大长度                                                      |
 
-## Returns
+## 返回值
 
-The length of the string.
+返回字符串的长度。
 
-## Examples
+## 示例
 
 ```c
-// set "Version"
+// 设置版本号
 SetSVarString("Version", "0.3.7");
 
-// will print version that server has
+// 打印服务器当前版本
 new string[5 + 1];
 GetSVarString("Version", string, sizeof(string));
 printf("Version: %s", string);
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetSVarInt](SetSVarInt): Set an integer for a server variable.
-- [GetSVarInt](GetSVarInt): Get a player server as an integer.
-- [SetSVarString](SetSVarString): Set a string for a server variable.
-- [SetSVarFloat](SetSVarFloat): Set a float for a server variable.
-- [GetSVarFloat](GetSVarFloat): Get the previously set float from a server variable.
-- [DeleteSVar](DeleteSVar): Delete a server variable.
+- [SetSVarInt](SetSVarInt): 设置整型服务器变量
+- [GetSVarInt](GetSVarInt): 获取整型服务器变量
+- [SetSVarString](SetSVarString): 设置字符串型服务器变量
+- [SetSVarFloat](SetSVarFloat): 设置浮点型服务器变量
+- [GetSVarFloat](GetSVarFloat): 获取浮点型服务器变量
+- [DeleteSVar](DeleteSVar): 删除服务器变量

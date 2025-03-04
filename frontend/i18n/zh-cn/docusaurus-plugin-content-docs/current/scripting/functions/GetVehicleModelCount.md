@@ -1,23 +1,23 @@
 ---
 title: GetVehicleModelCount
 sidebar_label: GetVehicleModelCount
-description: Gets the model count of a vehicle model.
-tags: ["vehicle"]
+description: 获取指定车辆模型的数量。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the model count of a vehicle model.
+获取指定车辆模型在服务器上的实例数量。
 
-## Parameters
+## 参数
 
-| Name    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| modelid | The ID of the [vehicle model](../resources/vehicleid). |
+| 参数名  | 说明                                        |
+| ------- | ------------------------------------------- |
+| modelid | 目标[车辆模型](../resources/vehicleid)的 ID |
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
@@ -27,11 +27,11 @@ public OnGameModeInit()
 	CreateVehicle(560, 2120.3616, -1308.4973, 23.6797, 90.0000, -1, -1, 100);
 
     new modelid = 560;
-    printf("Vehicle model: %d - model count: %d", modelid, GetVehicleModelCount(modelid)); // Vehicle model: 560 - model count: 3
+    printf("车辆模型：%d - 数量：%d", modelid, GetVehicleModelCount(modelid)); // 车辆模型：560 - 数量：3
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateVehicle](CreateVehicle): Create a vehicle.
-- [GetVehicleModelsUsed](GetVehicleModelsUsed): Get the number of used vehicle models on the server.
+- [CreateVehicle](CreateVehicle): 创建一辆车辆
+- [GetVehicleModelsUsed](GetVehicleModelsUsed): 获取服务器上已使用的车辆模型数量

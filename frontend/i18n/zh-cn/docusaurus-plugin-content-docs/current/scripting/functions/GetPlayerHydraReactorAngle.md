@@ -1,8 +1,8 @@
 ---
 title: GetPlayerHydraReactorAngle
 sidebar_label: GetPlayerHydraReactorAngle
-description: 获取玩家载具的九头蛇推进器角度
-tags: ["玩家", "载具"]
+description: 获取玩家车辆的九头蛇推进器角度
+tags: ["玩家", "车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
@@ -29,4 +29,4 @@ new reactorAngle = GetPlayerHydraReactorAngle(playerid);
 
 ## 相关函数
 
-- [GetVehicleHydraReactorAngle](GetVehicleHydraReactorAngle): 直接通过载具 ID 获取九头蛇推进器角度
+- [GetVehicleHydraReactorAngle](GetVehicleHydraReactorAngle): 直接通过车辆 ID 获取九头蛇推进器角度

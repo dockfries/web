@@ -1,47 +1,47 @@
 ---
 title: GetPlayerMenu
 sidebar_label: GetPlayerMenu
-description: Gets the ID of the menu the player is currently viewing (shown by ShowMenuForPlayer).
-tags: ["player", "menu"]
+description: 获取玩家当前正在查看的菜单ID（由ShowMenuForPlayer显示）
+tags: ["玩家", "菜单"]
 ---
 
-## Description
+## 描述
 
-Gets the ID of the menu the player is currently viewing (shown by ShowMenuForPlayer).
+获取玩家当前正在查看的菜单 ID（由 ShowMenuForPlayer 显示）
 
-| Name     | Description                                      |
-| -------- | ------------------------------------------------ |
-| playerid | The ID of the player to get the current menu of. |
+| 参数名   | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要获取当前菜单的玩家 ID |
 
-## Returns
+## 返回值
 
-The ID of the player's currently shown menu, or `INVALID_MENU` (255) if no menu shown.
+玩家当前显示的菜单 ID，若未显示菜单则返回`INVALID_MENU`（255）
 
-Value returned is tagged with **Menu:**
+返回值带有**Menu:**标签
 
-## Examples
+## 示例代码
 
 ```c
-new Menu:currentMenu = GetPlayerMenu(playerid); // Store the player's current menu in 'CurrentMenu'
+new Menu:currentMenu = GetPlayerMenu(playerid); // 将玩家当前菜单存入'currentMenu'变量
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Returns previous menu when none is displayed.
+当没有显示菜单时，会返回上一次显示的菜单 ID
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [ShowMenuForPlayer](ShowMenuForPlayer): Show a menu for a player.
-- [HideMenuForPlayer](HideMenuForPlayer): Hide a menu for a player.
-- [CreateMenu](CreateMenu): Create a menu.
-- [DestroyMenu](DestroyMenu): Destroy a menu.
-- [AddMenuItem](AddMenuItem): Add an item to a menu.
+- [ShowMenuForPlayer](ShowMenuForPlayer): 为玩家显示菜单
+- [HideMenuForPlayer](HideMenuForPlayer): 隐藏玩家的菜单
+- [CreateMenu](CreateMenu): 创建新菜单
+- [DestroyMenu](DestroyMenu): 销毁菜单
+- [AddMenuItem](AddMenuItem): 添加菜单项
 
-## Related Callbacks
+## 相关回调函数
 
-- [OnPlayerSelectedMenuRow](../callbacks/OnPlayerSelectedMenuRow): Called when a player selected a row in a menu.
-- [OnPlayerExitedMenu](../callbacks/OnPlayerExitedMenu): Called when a player exits a menu.
+- [OnPlayerSelectedMenuRow](../callbacks/OnPlayerSelectedMenuRow): 当玩家选择菜单项时触发
+- [OnPlayerExitedMenu](../callbacks/OnPlayerExitedMenu): 当玩家退出菜单时触发

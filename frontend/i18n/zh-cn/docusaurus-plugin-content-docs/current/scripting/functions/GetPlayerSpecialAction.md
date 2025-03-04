@@ -1,28 +1,28 @@
 ---
 title: GetPlayerSpecialAction
 sidebar_label: GetPlayerSpecialAction
-description: Retrieves a player's current special action.
-tags: ["player"]
+description: 获取玩家当前的特殊动作状态
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Retrieves a player's current special action.
+获取玩家当前激活的特殊动作状态
 
-| Name     | Description                                        |
-| -------- | -------------------------------------------------- |
-| playerid | The ID of the player to get the special action of. |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| playerid | 需要查询的玩家 ID |
 
-## Returns
+## 返回值
 
-The special action of the player (see: [Special Actions](../resources/specialactions)).
+返回玩家的特殊动作状态（参见：[特殊动作 ID 列表](../resources/specialactions)）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerUpdate(playerid)
 {
-    // Ban players if they have a jetpack
+    // 检测玩家是否使用喷气背包并封禁
     if (GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_USEJETPACK)
     {
         Ban(playerid);
@@ -31,11 +31,11 @@ public OnPlayerUpdate(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerSpecialAction](SetPlayerSpecialAction): Set a player's special action.
-- [GetPlayerState](GetPlayerState): Get a player's current state.
+- [SetPlayerSpecialAction](SetPlayerSpecialAction): 设置玩家特殊动作
+- [GetPlayerState](GetPlayerState): 获取玩家当前状态
 
-## Related Resources
+## 扩展资源
 
-- [Special Action IDs](../resources/specialactions)
+- [特殊动作 ID 列表](../resources/specialactions)

@@ -1,21 +1,21 @@
 ---
 title: Attach3DTextLabelToVehicle
 sidebar_label: Attach3DTextLabelToVehicle
-description: 将3D文本标签附加到指定载具上。
-tags: ["载具", "3dtextlabel"]
+description: 将3D文本标签附加到指定车辆上。
+tags: ["车辆", "3dtextlabel"]
 ---
 
 ## 描述
 
-将 3D 文本标签附加到指定载具上。
+将 3D 文本标签附加到指定车辆上。
 
 | 名称          | 说明                                                    |
 | ------------- | ------------------------------------------------------- |
 | Text3D:textid | 要附加的 3D 文本标签 ID                                 |
-| parentid      | 要附加的载具 ID                                         |
-| Float:offsetX | 载具坐标的 X 轴偏移量（原点为载具坐标 `0.0, 0.0, 0.0`） |
-| Float:offsetY | 载具坐标的 Y 轴偏移量（原点为载具坐标 `0.0, 0.0, 0.0`） |
-| Float:offsetZ | 载具坐标的 Z 轴偏移量（原点为载具坐标 `0.0, 0.0, 0.0`） |
+| parentid      | 要附加的车辆 ID                                         |
+| Float:offsetX | 车辆坐标的 X 轴偏移量（原点为车辆坐标 `0.0, 0.0, 0.0`） |
+| Float:offsetY | 车辆坐标的 Y 轴偏移量（原点为车辆坐标 `0.0, 0.0, 0.0`） |
+| Float:offsetZ | 车辆坐标的 Z 轴偏移量（原点为车辆坐标 `0.0, 0.0, 0.0`） |
 
 ## 返回值
 

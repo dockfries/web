@@ -1,32 +1,32 @@
 ---
 title: GetPlayerWeaponData
 sidebar_label: GetPlayerWeaponData
-description: Get the weapon and ammo in a specific player's weapon slot (e.
-tags: ["player"]
+description: 获取玩家指定武器槽的武器及弹药信息
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Get the weapon and ammo in a specific player's weapon slot (e.g. the weapon in the 'SMG' slot).
+获取玩家特定武器槽（如'SMG'槽位）中的武器类型及剩余弹药量
 
-| Name             | Description                                                                                |
-| ---------------- | ------------------------------------------------------------------------------------------ |
-| playerid         | The ID of the player whose weapon data to retrieve.                                        |
-| WEAPON_SLOT:slot | The [weapon slot](../resources/weaponslots) to get data for (0-12).                        |
-| &WEAPON:weapons  | A variable in which to store the [weapon ID](../resources/weaponids), passed by reference. |
-| &ammo            | A variable in which to store the ammo, passed by reference.                                |
+| 名称             | 说明                                                    |
+| ---------------- | ------------------------------------------------------- |
+| playerid         | 需要获取武器数据的玩家 ID                               |
+| WEAPON_SLOT:slot | [武器槽编号](../resources/weaponslots)（0-12）          |
+| &WEAPON:weapons  | 存储[武器 ID](../resources/weaponids)的变量（引用传递） |
+| &ammo            | 存储弹药量的变量（引用传递）                            |
 
-## Returns
+## 返回值
 
-**1** - The function was executed successfully.
+**1** - 函数执行成功
 
-**0** - The function failed to execute. The player isn't connected and/or the weapon slot specified is invalid (valid is 0-12).
+**0** - 函数执行失败（玩家未连接或武器槽编号无效）
 
-## Examples
+## 示例代码
 
 ```c
-// Common use: get all weapons and store info in an array containing 13 slots
-// The first value is the weapon ID, and second is the ammo
+// 常见用法：遍历所有武器槽并将信息存入二维数组
+// 数组第一列为武器ID，第二列为弹药量
 
 new weapons[13][2];
 
@@ -36,31 +36,31 @@ for (new i = 0; i <= 12; i++)
 }
 ```
 
-Another example:
+另一个示例：
 
 ```c
 new
     weaponid,
     ammo;
 
-// Get the player weapon ID and ammo in the PISTOL slot
+// 获取玩家手枪槽位的武器信息
 GetPlayerWeaponData(playerid, WEAPON_SLOT_PISTOL, weaponid, ammo);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Old weapons with no ammo left are still returned.
+即使武器弹药已耗尽，仍会返回该武器信息
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerWeapon](GetPlayerWeapon): Check what weapon a player is currently holding.
-- [GivePlayerWeapon](GivePlayerWeapon): Give a player a weapon.
+- [GetPlayerWeapon](GetPlayerWeapon): 获取玩家当前手持武器
+- [GivePlayerWeapon](GivePlayerWeapon): 给予玩家指定武器
 
-## Related Resources
+## 相关资源
 
-- [Weapon Slots](../resources/weaponslots)
-- [Weapon IDs](../resources/weaponids)
+- [武器槽位列表](../resources/weaponslots)
+- [武器 ID 对照表](../resources/weaponids)

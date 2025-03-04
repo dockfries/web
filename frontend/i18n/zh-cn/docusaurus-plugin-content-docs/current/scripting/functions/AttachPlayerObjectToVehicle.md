@@ -1,19 +1,19 @@
 ---
 title: AttachPlayerObjectToVehicle
 sidebar_label: AttachPlayerObjectToVehicle
-description: 将玩家物体附加到载具上。
-tags: ["玩家", "物体", "玩家物体", "载具"]
+description: 将玩家物体附加到车辆上。
+tags: ["玩家", "物体", "玩家物体", "车辆"]
 ---
 
 ## 描述
 
-将玩家物体附加到载具上。
+将玩家物体附加到车辆上。
 
 | 名称            | 说明                    |
 | --------------- | ----------------------- |
 | playerid        | 创建该物体的所属玩家 ID |
 | objectid        | 要附加的玩家物体 ID     |
-| parentid        | 目标载具 ID             |
+| parentid        | 目标车辆 ID             |
 | Float:offsetX   | X 轴位置偏移量          |
 | Float:offsetY   | Y 轴位置偏移量          |
 | Float:offsetZ   | Z 轴位置偏移量          |
@@ -30,7 +30,7 @@ tags: ["玩家", "物体", "玩家物体", "载具"]
 ```c
 public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
-    if (newstate == PLAYER_STATE_DRIVER) // 玩家进入载具时
+    if (newstate == PLAYER_STATE_DRIVER) // 玩家进入车辆时
     {
         // 附加巨型奶牛模型
         new cowObject = CreatePlayerObject(playerid, 16442, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);

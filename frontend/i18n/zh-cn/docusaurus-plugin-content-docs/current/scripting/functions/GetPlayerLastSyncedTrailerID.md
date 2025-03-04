@@ -1,38 +1,38 @@
 ---
 title: GetPlayerLastSyncedTrailerID
 sidebar_label: GetPlayerLastSyncedTrailerID
-description: Gets the player's last synced trailer ID.
-tags: ["player", "vehicle"]
+description: 获取玩家最后同步的拖车ID
+tags: ["玩家", "车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 :::warning
 
-This function has not yet been implemented.
+该函数尚未实现。
 
 :::
 
-## Description
+## 描述
 
-Gets the player's last synced trailer ID.
+获取玩家最后同步的拖车 ID
 
-## Parameters
+## 参数
 
-| Name     | Description           |
-| -------- | --------------------- |
-| playerid | The ID of the player. |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| playerid | 需要查询的玩家 ID |
 
-## Return Values
+## 返回值
 
-Returns the last synced trailer ID.
+返回最后同步的拖车 ID
 
-## Examples
+## 示例代码
 
 ```c
 new trailerid = GetPlayerLastSyncedTrailerID(playerid);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerLastSyncedVehicleID](GetPlayerLastSyncedVehicleID): Gets the player's last synced vehicle ID.
+• [GetPlayerLastSyncedVehicleID](GetPlayerLastSyncedVehicleID): 获取玩家最后同步的车辆 ID

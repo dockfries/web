@@ -1,28 +1,28 @@
 ---
 title: GetPlayerPickupType
 sidebar_label: GetPlayerPickupType
-description: Gets the type of a player-pickup.
-tags: ["player", "pickup", "playerpickup"]
+description: 获取玩家拾取物的类型
+tags: ["玩家", "拾取物", "玩家拾取物"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the type of a player-pickup.
+获取玩家拾取物的类型
 
-| Name     | Description                                     |
-| -------- | ----------------------------------------------- |
-| playerid | The ID of the player.                           |
-| pickupid | The ID of the player-pickup to get the type of. |
+| 参数名   | 说明                        |
+| -------- | --------------------------- |
+| playerid | 玩家 ID                     |
+| pickupid | 需要获取类型的玩家拾取物 ID |
 
-## Returns
+## 返回值
 
-Returns the type of the player-pickup.
+返回玩家拾取物的类型
 
-**-1** if the player-pickup is not valid.
+**-1** 表示玩家拾取物无效
 
-## Examples
+## 示例代码
 
 ```c
 new PlayerPickup[MAX_PLAYERS];
@@ -37,16 +37,16 @@ public OnPlayerConnect(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerPickup](CreatePlayerPickup): Creates a pickup which will be visible to only one player.
-- [DestroyPlayerPickup](DestroyPlayerPickup): Destroy a player-pickup.
-- [IsValidPlayerPickup](IsValidPlayerPickup): Checks if a player-pickup is valid.
-- [IsPlayerPickupStreamedIn](IsPlayerPickupStreamedIn): Checks if a player-pickup is streamed in for the player.
-- [SetPlayerPickupPos](SetPlayerPickupPos): Sets the position of a player-pickup.
-- [GetPlayerPickupPos](GetPlayerPickupPos): Gets the coordinates of a player-pickup.
-- [SetPlayerPickupModel](SetPlayerPickupModel): Sets the model of a player-pickup.
-- [GetPlayerPickupModel](GetPlayerPickupModel): Gets the model ID of a player-pickup.
-- [SetPlayerPickupType](SetPlayerPickupType): Sets the type of a player-pickup.
-- [SetPlayerPickupVirtualWorld](SetPlayerPickupVirtualWorld): Sets the virtual world ID of a player-pickup.
-- [GetPlayerPickupVirtualWorld](GetPlayerPickupVirtualWorld): Gets the virtual world ID of a player-pickup.
+- [CreatePlayerPickup](CreatePlayerPickup): 创建仅对单个玩家可见的拾取物
+- [DestroyPlayerPickup](DestroyPlayerPickup): 销毁玩家拾取物
+- [IsValidPlayerPickup](IsValidPlayerPickup): 验证玩家拾取物是否有效
+- [IsPlayerPickupStreamedIn](IsPlayerPickupStreamedIn): 检查玩家拾取物是否已流加载给玩家
+- [SetPlayerPickupPos](SetPlayerPickupPos): 设置玩家拾取物坐标
+- [GetPlayerPickupPos](GetPlayerPickupPos): 获取玩家拾取物坐标
+- [SetPlayerPickupModel](SetPlayerPickupModel): 设置玩家拾取物模型
+- [GetPlayerPickupModel](GetPlayerPickupModel): 获取玩家拾取物模型 ID
+- [SetPlayerPickupType](SetPlayerPickupType): 设置玩家拾取物类型
+- [SetPlayerPickupVirtualWorld](SetPlayerPickupVirtualWorld): 设置玩家拾取物虚拟世界 ID
+- [GetPlayerPickupVirtualWorld](GetPlayerPickupVirtualWorld): 获取玩家拾取物虚拟世界 ID

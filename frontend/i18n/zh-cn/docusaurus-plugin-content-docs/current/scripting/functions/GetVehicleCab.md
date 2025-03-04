@@ -1,30 +1,30 @@
 ---
 title: GetVehicleCab
 sidebar_label: GetVehicleCab
-description: Get the ID of the cab attached to a vehicle.
-tags: ["vehicle"]
+description: 获取连接到车辆的驾驶室ID
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the ID of the cab attached to a vehicle.
+获取连接到车辆的驾驶室 ID
 
-| Name      | Description                              |
-| --------- | ---------------------------------------- |
-| vehicleid | The ID of the vehicle to get the cab of. |
+| 参数名    | 说明                  |
+| --------- | --------------------- |
+| vehicleid | 要获取驾驶室的车辆 ID |
 
-## Returns
+## 返回值
 
-The vehicle ID of the cab or **0** if no cab is attached.
+驾驶室对应的车辆 ID，若无连接则返回 **0**
 
-## Examples
+## 示例
 
 ```c
 new cabId = GetVehicleCab(vehicleid);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleTrailer](GetVehicleTrailer): Get the ID of the trailer attached to a vehicle.
+• [GetVehicleTrailer](GetVehicleTrailer): 获取连接到车辆的挂车 ID

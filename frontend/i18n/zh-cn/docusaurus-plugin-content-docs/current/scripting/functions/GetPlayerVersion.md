@@ -1,25 +1,25 @@
 ---
 title: GetPlayerVersion
 sidebar_label: GetPlayerVersion
-description: Returns the SA-MP client version, as reported by the player.
-tags: ["player"]
+description: 返回玩家客户端的SA-MP版本信息
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Returns the SA-MP client version, as reported by the player.
+获取玩家当前连接的 SA-MP 客户端版本信息
 
-| Name                   | Description                                                       |
-| ---------------------- | ----------------------------------------------------------------- |
-| playerid               | The ID of the player to get the client version of.                |
-| version[]              | The string to store the player's version in, passed by reference. |
-| len = sizeof (version) | The maximum length of the version.                                |
+| 名称                   | 说明                             |
+| ---------------------- | -------------------------------- |
+| playerid               | 需要获取版本信息的玩家 ID        |
+| version[]              | 存储版本信息的字符串（引用传递） |
+| len = sizeof (version) | 版本信息的最大存储长度           |
 
-## Returns
+## 返回值
 
-The client version is stored in the specified array.
+客户端版本信息将存储在指定的字符数组中
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
@@ -28,29 +28,29 @@ public OnPlayerConnect(playerid)
     GetPlayerVersion(playerid, version, sizeof(version));
 
     new string[64];
-    format(string, sizeof(string), "Your version of SA-MP: %s", version);
+    format(string, sizeof(string), "您的SA-MP客户端版本：%s", version);
     SendClientMessage(playerid, 0xFFFFFFFF, string);
-    // Possible text: "Your version of SA-MP: 0.3.7"
+    // 可能显示："您的SA-MP客户端版本：0.3.7"
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-A client's version can be up to 24 characters long, otherwise the connection will be rejected due to "Invalid client connection". However, normal players can only join with a version length between 5 (0.3.7) and 9 (0.3.DL-R1) characters.
+客户端版本字符串最长 24 字符，超长会导致连接被拒绝。常规玩家版本长度通常在 5 字符（0.3.7）至 9 字符（0.3.DL-R1）之间
 
 :::
 
 :::warning
 
-The string the version gets stored in will be empty if playerid is an NPC.
+当指定玩家是 NPC 时，版本信息字符串将返回空值
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerName](GetPlayerName): Get a player's name.
-- [GetPlayerPing](GetPlayerPing): Get the ping of a player.
-- [GetPlayerIp](GetPlayerIp): Get a player's IP.
+- [GetPlayerName](GetPlayerName): 获取玩家名称
+- [GetPlayerPing](GetPlayerPing): 获取玩家网络延迟
+- [GetPlayerIp](GetPlayerIp): 获取玩家 IP 地址

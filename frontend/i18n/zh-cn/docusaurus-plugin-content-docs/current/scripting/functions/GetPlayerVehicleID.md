@@ -1,28 +1,28 @@
 ---
 title: GetPlayerVehicleID
 sidebar_label: GetPlayerVehicleID
-description: This function gets the ID of the vehicle the player is currently in.
-tags: ["player", "vehicle"]
+description: 获取玩家当前所在的车辆ID
+tags: ["玩家", "车辆"]
 ---
 
-## Description
+## 描述
 
-This function gets the ID of the vehicle the player is currently in.
+获取玩家当前乘坐的车辆 ID
 
-**Note:** NOT the model id of the vehicle. See [GetVehicleModel](GetVehicleModel) for that.
+**注意：** 并非车辆的模型 ID，获取模型 ID 请参考[GetVehicleModel](GetVehicleModel)
 
-| Name     | Description                                                        |
-| -------- | ------------------------------------------------------------------ |
-| playerid | The ID of the player in the vehicle that you want to get the ID of |
+| 名称     | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要获取车辆信息的玩家 ID |
 
-## Returns
+## 返回值
 
-ID of the vehicle or **0** if not in a vehicle
+车辆 ID，若不在车辆中则返回**0**
 
-## Examples
+## 示例代码
 
 ```c
-// Add 10x Nitro if the player is in a car. Might be called on a command.
+// 当玩家在车辆中时添加10倍氮气加速（可通过指令触发）
 new vehicleId = GetPlayerVehicleID(playerid);
 if (vehicleId != 0)
 {
@@ -30,9 +30,9 @@ if (vehicleId != 0)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerInVehicle](IsPlayerInVehicle): Check if a player is in a certain vehicle.
-- [IsPlayerInAnyVehicle](IsPlayerInAnyVehicle): Check if a player is in any vehicle.
-- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): Check what seat a player is in.
-- [GetVehicleModel](GetVehicleModel): Get the model id of a vehicle.
+• [IsPlayerInVehicle](IsPlayerInVehicle): 检测玩家是否处于特定车辆
+• [IsPlayerInAnyVehicle](IsPlayerInAnyVehicle): 检测玩家是否处于任何车辆
+• [GetPlayerVehicleSeat](GetPlayerVehicleSeat): 获取玩家所在车辆座位号
+• [GetVehicleModel](GetVehicleModel): 获取车辆的模型 ID

@@ -1,35 +1,35 @@
 ---
 title: GetPlayerObjectMaterial
 sidebar_label: GetPlayerObjectMaterial
-description: Get the material data from an index of the player-object.
-tags: ["player", "object", "playerobject"]
+description: 获取玩家物体指定索引的材质数据
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the material data from an index of the player-object.
+获取玩家物体指定索引的材质数据
 
-| Name               | Description                                                           |
-| ------------------ | --------------------------------------------------------------------- |
-| playerid           | The ID of the player.                                                 |
-| objectid           | The ID of the player-object.                                          |
-| materialIndex      | The material index on the object. (0 to 15)                           |
-| &modelid           | A variable in which to store the model ID, passed by reference.       |
-| textureLibrary[]   | An array into which to store the textureLibrary, passed by reference. |
-| textureLibrarySize | The size of the textureLibrary.                                       |
-| textureName[]      | An array into which to store the textureName, passed by reference.    |
-| textureNameSize    | The size of the textureName.                                          |
-| &materialColour    | A variable in which to store the materialColour, passed by reference. |
+| 参数名             | 说明                                 |
+| ------------------ | ------------------------------------ |
+| playerid           | 玩家 ID                              |
+| objectid           | 玩家物体 ID                          |
+| materialIndex      | 材质索引号（0-15）                   |
+| &modelid           | 存储模型 ID 的变量（通过引用传递）   |
+| textureLibrary[]   | 存储纹理库名称的数组（通过引用传递） |
+| textureLibrarySize | 纹理库数组的缓冲区大小               |
+| textureName[]      | 存储纹理名称的数组（通过引用传递）   |
+| textureNameSize    | 纹理名称数组的缓冲区大小             |
+| &materialColour    | 存储材质颜色的变量（通过引用传递）   |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist or an invalid material index is specified.
+`false` - 函数执行失败（指定物体不存在或材质索引无效）
 
-## Examples
+## 示例代码
 
 ```c
 new playerobjectid = CreatePlayerObject(playerid, 19371, 978.71143, -925.25708, 42.63720,   0.00000, 0.00000, 2.00000);
@@ -48,10 +48,10 @@ GetPlayerObjectMaterial(playerid, playerobjectid, 0, modelid, textureLibrary, si
 // materialColour = 0xFFFFFFFF
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerObjectMaterial](SetPlayerObjectMaterial): Replace the texture of a player-object with the texture from another model in the game.
-- [SetPlayerObjectMaterialText](SetPlayerObjectMaterialText): Replace the texture of a player object with text.
-- [IsPlayerObjectMaterialSlotUsed](IsPlayerObjectMaterialSlotUsed): Checks if a slot of player-object material is used.
-- [GetPlayerObjectMaterialText](GetPlayerObjectMaterialText): Get the material text data from an index of the player-object.
-- [GetObjectMaterial](GetObjectMaterial): Get the material data from an index of the object.
+- [SetPlayerObjectMaterial](SetPlayerObjectMaterial): 替换玩家物体的材质纹理
+- [SetPlayerObjectMaterialText](SetPlayerObjectMaterialText): 为玩家物体设置材质文本
+- [IsPlayerObjectMaterialSlotUsed](IsPlayerObjectMaterialSlotUsed): 检查玩家物体材质槽是否被使用
+- [GetPlayerObjectMaterialText](GetPlayerObjectMaterialText): 获取玩家物体的材质文本数据
+- [GetObjectMaterial](GetObjectMaterial): 获取全局物体的材质数据

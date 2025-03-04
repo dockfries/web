@@ -7,7 +7,7 @@ tags: ["车辆"]
 
 ## 描述
 
-启用队伍车辆的友军伤害机制。玩家将能够攻击同队成员的载具（必须使用 [SetPlayerTeam](SetPlayerTeam) 设置队伍）。
+启用队伍车辆的友军伤害机制。玩家将能够攻击同队成员的车辆（必须使用 [SetPlayerTeam](SetPlayerTeam) 设置队伍）。
 
 ## 返回值
 

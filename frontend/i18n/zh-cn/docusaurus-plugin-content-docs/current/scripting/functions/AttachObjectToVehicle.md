@@ -1,21 +1,21 @@
 ---
 title: AttachObjectToVehicle
 sidebar_label: AttachObjectToVehicle
-description: 将物体附加到载具上。
-tags: ["物体", "载具"]
+description: 将物体附加到车辆上。
+tags: ["物体", "车辆"]
 ---
 
 ## 描述
 
-将物体附加到载具上。
+将物体附加到车辆上。
 
 | 名称            | 说明                                                |
 | --------------- | --------------------------------------------------- |
 | objectid        | 要附加的物体 ID（必须是已创建的物体 ID，非模型 ID） |
-| parentid        | 目标载具 ID                                         |
-| Float:offsetX   | 载具坐标系的 X 轴偏移量                             |
-| Float:offsetY   | 载具坐标系的 Y 轴偏移量                             |
-| Float:offsetZ   | 载具坐标系的 Z 轴偏移量                             |
+| parentid        | 目标车辆 ID                                         |
+| Float:offsetX   | 车辆坐标系的 X 轴偏移量                             |
+| Float:offsetY   | 车辆坐标系的 Y 轴偏移量                             |
+| Float:offsetZ   | 车辆坐标系的 Z 轴偏移量                             |
 | Float:rotationX | 物体 X 轴旋转偏移量                                 |
 | Float:rotationY | 物体 Y 轴旋转偏移量                                 |
 | Float:rotationZ | 物体 Z 轴旋转偏移量                                 |
@@ -42,7 +42,7 @@ AttachObjectToVehicle(objectid, vehicleid, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0);
 
 :::warning
 
-当载具被销毁或重置时，附加物体不会随之销毁，它们会保持在载具消失的位置静止，并在新载具占用该 ID 时重新附加
+当车辆被销毁或重置时，附加物体不会随之销毁，它们会保持在车辆消失的位置静止，并在新车辆占用该 ID 时重新附加
 
 :::
 

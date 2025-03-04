@@ -1,28 +1,28 @@
 ---
 title: GetPlayerObjectModel
 sidebar_label: GetPlayerObjectModel
-description: Retrieve the model ID of a player-object.
-tags: ["player", "object", "playerobject"]
+description: 获取玩家物体的模型ID
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Retrieve the model ID of a player-object.
+获取玩家物体的模型 ID
 
-| Name     | Description                                                   |
-| -------- | ------------------------------------------------------------- |
-| playerid | The ID of the player whose player-object to get the model of  |
-| objectid | The ID of the player-object of which to retrieve the model ID |
+| 参数名   | 说明                          |
+| -------- | ----------------------------- |
+| playerid | 需要查询的玩家 ID             |
+| objectid | 需要获取模型 ID 的玩家物体 ID |
 
-## Returns
+## 返回值
 
-The model ID of the player object.
+玩家物体的模型 ID
 
-If the player or object don't exist, it will return **-1** or **0** if the player or object does not exist.
+若玩家或物体不存在，返回**-1**或**0**
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
@@ -30,11 +30,11 @@ public OnPlayerConnect(playerid)
     new objectid = CreatePlayerObject(playerid, 19609, 666.57239, 1750.79749, 4.95627,   0.00000, 0.00000, -156.00000);
 
     new modelid = GetPlayerObjectModel(playerid, objectid);
-    printf("Object model: %d", modelid); // Output: "Object model: 19609"
+    printf("物体模型ID: %d", modelid); // 输出: "物体模型ID: 19609"
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetObjectModel](GetObjectModel): Get the model ID of an object.
+- [GetObjectModel](GetObjectModel): 获取全局物体的模型 ID

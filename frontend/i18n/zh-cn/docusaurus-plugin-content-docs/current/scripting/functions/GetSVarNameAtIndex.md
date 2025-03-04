@@ -1,27 +1,27 @@
 ---
 title: GetSVarNameAtIndex
 sidebar_label: GetSVarNameAtIndex
-description: Retrieve the name of a sVar via the index.
-tags: ["server variable", "svar"]
+description: 通过索引获取服务器变量名称
+tags: ["服务器变量", "svar"]
 ---
 
-## Description
+## 描述
 
-Retrieve the name of a sVar via the index.
+通过索引获取服务器变量的名称
 
-| Name                   | Description                                                |
-| ---------------------- | ---------------------------------------------------------- |
-| index                  | The index of the sVar.                                     |
-| output[]               | A string to store the sVar's name in, passed by reference. |
-| size = sizeof (output) | The max length of the returned string.                     |
+| 参数名                 | 说明                             |
+| ---------------------- | -------------------------------- |
+| index                  | 服务器变量的索引值               |
+| output[]               | 存储变量名的数组（通过引用传递） |
+| size = sizeof (output) | 返回字符串的最大长度             |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数无特定返回值
 
-## Related Functions
+## 相关函数
 
-- [GetSVarType](GetSVarType): Get the type of the server variable.
-- [GetSVarInt](GetSVarInt): Get a player server as an integer.
-- [GetSVarFloat](GetSVarFloat): Get the previously set float from a server variable.
-- [GetSVarString](GetSVarString): Get the previously set string from a server variable.
+• [GetSVarType](GetSVarType): 获取服务器变量类型
+• [GetSVarInt](GetSVarInt): 获取整型服务器变量
+• [GetSVarFloat](GetSVarFloat): 获取浮点型服务器变量
+• [GetSVarString](GetSVarString): 获取字符串型服务器变量

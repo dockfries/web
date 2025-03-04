@@ -1,33 +1,33 @@
 ---
 title: GetPlayerRotationQuat
 sidebar_label: GetPlayerRotationQuat
-description: Returns a player's rotation on all axes as a quaternion.
-tags: ["player"]
+description: 以四元数形式获取玩家三维旋转参数
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Returns a player's rotation on all axes as a quaternion.
+获取玩家在所有三维轴向上的旋转参数（四元数表示法）
 
-| Name     | Description                                                                          |
-| -------- | ------------------------------------------------------------------------------------ |
-| playerid | The ID of the player to get the rotation of.                                         |
-| &Float:w | A float variable in which to store the first quaternion angle, passed by reference.  |
-| &Float:x | A float variable in which to store the second quaternion angle, passed by reference. |
-| &Float:y | A float variable in which to store the third quaternion angle, passed by reference.  |
-| &Float:z | A float variable in which to store the fourth quaternion angle, passed by reference. |
+| 参数名   | 说明                                             |
+| -------- | ------------------------------------------------ |
+| playerid | 需要获取旋转参数的玩家 ID                        |
+| &Float:w | 存储四元数第一个分量的浮点型变量（通过引用传递） |
+| &Float:x | 存储四元数第二个分量的浮点型变量（通过引用传递） |
+| &Float:y | 存储四元数第三个分量的浮点型变量（通过引用传递） |
+| &Float:z | 存储四元数第四个分量的浮点型变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player specified does not exist.
+**false** - 函数执行失败（指定玩家不存在）
 
-The player's rotation is stored in the specified variables.
+玩家的旋转参数将被存储在指定的浮点变量中
 
-## Examples
+## 示例代码
 
 ```c
 new
@@ -39,16 +39,16 @@ new
 GetPlayerRotationQuat(playerid, w, x, y, z);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-There is no 'set' variation of this function; you can not SET a player's rotation ( apart from the facing angle (Z rotation) ).
+本函数仅用于获取旋转参数，无法直接设置玩家旋转（可通过[SetPlayerFacingAngle](SetPlayerFacingAngle)设置 Z 轴朝向）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerFacingAngle](SetPlayerFacingAngle): Set a player's facing angle (Z rotation).
-- [GetPlayerFacingAngle](GetPlayerFacingAngle): Check where a player is facing.
-- [GetVehicleRotationQuat](GetVehicleRotationQuat): Get the quaternion rotation of a vehicle.
+- [SetPlayerFacingAngle](SetPlayerFacingAngle): 设置玩家面朝方向（Z 轴旋转）
+- [GetPlayerFacingAngle](GetPlayerFacingAngle): 获取玩家面朝方向
+- [GetVehicleRotationQuat](GetVehicleRotationQuat): 获取车辆四元数旋转参数

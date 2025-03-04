@@ -1,7 +1,7 @@
 ---
 title: CreateObject
 sidebar_label: CreateObject
-description: 在游戏世界指定坐标处创建物体对象。
+description: 在游戏世界指定坐标处创建物体。
 tags: ["物体"]
 ---
 

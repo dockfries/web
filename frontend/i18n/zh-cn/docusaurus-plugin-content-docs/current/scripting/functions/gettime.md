@@ -1,27 +1,27 @@
 ---
 title: gettime
 sidebar_label: gettime
-description: Get the current server time, which will be stored in the variables &hour, &minute and &second.
-tags: ["time"]
+description: 获取服务器当前时间，并将小时、分钟和秒存储到指定变量中。
+tags: ["时间"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Get the current server time, which will be stored in the variables &hour, &minute and &second.
+获取服务器当前时间，并将小时、分钟和秒存储到指定变量中。
 
-| Name      | Description                                                |
-| --------- | ---------------------------------------------------------- |
-| &hour=0   | The variable to store the hour in, passed by reference.    |
-| &minute=0 | The variable to store the minute in, passed by reference.  |
-| &second=0 | The variable to store the seconds in, passed by reference. |
+| 参数名    | 说明                                     |
+| --------- | ---------------------------------------- |
+| &hour=0   | 存储小时的变量（通过引用传递，默认值 0） |
+| &minute=0 | 存储分钟的变量（通过引用传递，默认值 0） |
+| &second=0 | 存储秒数的变量（通过引用传递，默认值 0） |
 
-## Returns
+## 返回值
 
-The function itself returns a Unix Timestamp.
+返回 Unix 时间戳。
 
-## Examples
+## 示例
 
 ```c
 new
@@ -32,17 +32,17 @@ new
 
 timestamp = gettime(hours, minutes, seconds);
 printf("%02d:%02d:%02d", hours, minutes, seconds);
-printf("Seconds since midnight 1st January 1970: %d", timestamp);
+printf("自1970年1月1日午夜起的秒数: %d", timestamp);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function is useful for measuring time intervals by using its timestamp characteristics. This can be particularly useful if you want to restrict some functionality based on a time (e.g. a command that can only be executed every 30 seconds). Using this method you don't have to rely on timers.
+本函数通过返回时间戳的特性，特别适合用于测量时间间隔。例如实现指令冷却功能（如某个指令每 30 秒才能执行一次），无需依赖计时器即可实现精准时间控制。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [getdate](getdate): Get the current date of the server.
+- [getdate](getdate): 获取服务器当前日期

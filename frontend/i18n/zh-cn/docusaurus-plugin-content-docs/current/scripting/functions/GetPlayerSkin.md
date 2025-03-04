@@ -1,25 +1,25 @@
 ---
 title: GetPlayerSkin
 sidebar_label: GetPlayerSkin
-description: Returns the class of the players skin.
-tags: ["player"]
+description: 获取玩家的皮肤ID
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Returns the class of the players skin
+获取玩家当前使用的皮肤 ID
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| playerid | The player you want to get the skin from |
+| 参数名   | 说明                   |
+| -------- | ---------------------- |
+| playerid | 需要获取皮肤 ID 的玩家 |
 
-## Returns
+## 返回值
 
-The [skin id](../resources/skins).
+返回玩家的[皮肤 ID](../resources/skins)
 
-**0** if invalid.
+**0** 表示获取失败（玩家无效）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -29,7 +29,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
         new string[32];
         new playerSkin = GetPlayerSkin(playerid);
 
-        format(string, sizeof(string), "Your skin id: %d", playerSkin);
+        format(string, sizeof(string), "你的皮肤ID: %d", playerSkin);
         SendClientMessage(playerid, -1, string);
         return 1;
     }
@@ -37,18 +37,18 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Returns the new skin after [SetSpawnInfo](SetSpawnInfo) is called but before the player actually respawns to get the new skin. Returns the old skin if the player was spawned through [SpawnPlayer](SpawnPlayer) function.
+在调用[SetSpawnInfo](SetSpawnInfo)后但玩家尚未重生时，返回的是新设置的皮肤 ID。若通过[SpawnPlayer](SpawnPlayer)重生玩家，会返回旧的皮肤 ID
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerSkin](SetPlayerSkin): Set a player's skin.
+- [SetPlayerSkin](SetPlayerSkin): 设置玩家皮肤
 
-## Related Resources
+## 扩展资源
 
-- [Skin IDs](../resources/skins)
+- [皮肤 ID 列表](../resources/skins)

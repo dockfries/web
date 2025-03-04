@@ -1,65 +1,63 @@
 ---
 title: GetPlayerPing
 sidebar_label: GetPlayerPing
-description: Get the ping of a player.
-tags: ["player"]
+description: 获取玩家的网络延迟（Ping）
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Get the ping of a player. The ping measures the amount of time it takes for the server to 'ping' the client and for the client to send the message back.
+获取玩家的网络延迟（Ping）。Ping 值表示服务器与客户端之间通信的往返时间。
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| playerid | The ID of the player to get the ping of. |
+| 参数名   | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要获取 Ping 值的玩家 ID |
 
-## Returns
+## 返回值
 
-The current ping of the player (expressed in milliseconds).
+返回玩家当前的 Ping 值（单位：毫秒）
 
-## Examples
+## 示例代码
 
 ```c
 new string[24];
-format(string, sizeof(string), "Your ping: %d", GetPlayerPing(playerid));
+format(string, sizeof(string), "你的Ping值: %d", GetPlayerPing(playerid));
 SendClientMessage(playerid, -1, string);
 ```
 
 <br />
 
-**Example to kick high ping players:**
+**自动踢出高延迟玩家示例:**
 
 ```c
-// Declare an array of all possible timer identifiers for timers for kicking players with
-// generally high ping with default value of 0
+// 声明定时器ID数组，默认值为0
 new gPlayerPingTimer[MAX_PLAYERS] = {0, ...};
 
-// A constant (nice documentation :))
+// 定义最大允许Ping值
 const MAX_ACCEPTED_PING = 500;
 
 public OnPlayerConnect(playerid)
 {
-    // Initiate the timer and assign the variable the identifier of the timer
+    // 创建定时器检测玩家Ping值
     gPlayerPingTimer[playerid] = SetTimerEx("Ping_Timer", 3 * 1000, true, "i", playerid);
 }
 
 public OnPlayerDisconnect(playerid, reason)
 {
-    // Kill the timer and reset the value to invalid
+    // 清除定时器
     KillTimer(gPlayerPingTimer[playerid]);
     gPlayerPingTimer[playerid] = 0;
 }
 
-// A forwarded function (callback)
+// 转发函数（回调）
 forward Ping_Timer(playerid);
 public Ping_Timer(playerid)
 {
-    // Kick player if their ping is more than the generally accepted high ping
-    new ping = GetPlayerPing(playerid);
+    // 如果玩家的ping值超过通常接受的高ping值，则踢出玩家
     if (ping > MAX_ACCEPTED_PING)
     {
         new string[128];
-        format(string, sizeof(string), "You have been kicked from the server. Reason: high ping (%d)", ping);
+        format(string, sizeof(string), "你因高延迟被踢出（当前Ping值：%d）", ping);
         SendClientMessage(playerid, -1, string);
 
         Kick(playerid);
@@ -68,16 +66,16 @@ public Ping_Timer(playerid)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Player's ping may be 65535 for a while after a player connects
+玩家刚连接时，Ping 值可能暂时显示为 65535
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerIp](GetPlayerIp): Get a player's IP.
-- [GetPlayerName](GetPlayerName): Get a player's name.
-- [GetPlayerVersion](GetPlayerVersion): Get a player's client-version.
+- [GetPlayerIp](GetPlayerIp): 获取玩家 IP 地址
+- [GetPlayerName](GetPlayerName): 获取玩家名称
+- [GetPlayerVersion](GetPlayerVersion): 获取玩家客户端版本

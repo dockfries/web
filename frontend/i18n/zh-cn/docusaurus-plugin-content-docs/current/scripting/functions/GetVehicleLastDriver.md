@@ -1,29 +1,29 @@
 ---
 title: GetVehicleLastDriver
 sidebar_label: GetVehicleLastDriver
-description: Get the last driver of a vehicle.
-tags: ["vehicle"]
+description: 获取车辆的最后驾驶员。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the last driver of a vehicle.
+获取指定车辆的最后驾驶员。
 
-## Parameters
+## 参数
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明            |
+| --------- | --------------- |
+| vehicleid | 目标车辆的 ID。 |
 
-## Return Values
+## 返回值
 
-Returns the last driver ID (player ID).
+返回最后驾驶员的玩家 ID。
 
-`INVALID_PLAYER_ID` - The vehicle has no last driver.
+`INVALID_PLAYER_ID` - 表示该车辆没有最后驾驶员记录
 
-## Examples
+## 示例代码
 
 ```c
 new g_Vehicle;
@@ -38,15 +38,15 @@ public OnGameModeExit()
     new lastDriver = GetVehicleLastDriver(g_Vehicle);
     if (lastDriver != INVALID_PLAYER_ID)
     {
-        printf("Vehicle ID %d last driver: %d", g_Vehicle, lastDriver);
+        printf("车辆ID %d 的最后驾驶员: %d", g_Vehicle, lastDriver);
     }
     else
     {
-        printf("Vehicle ID %d has no last driver.", g_Vehicle);
+        printf("车辆ID %d 没有最后驾驶员记录", g_Vehicle);
     }
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleDriver](GetVehicleDriver): Get the playerid of the person driving the vehicle.
+- [GetVehicleDriver](GetVehicleDriver): 获取当前驾驶车辆的玩家 ID

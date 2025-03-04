@@ -1,25 +1,23 @@
 ---
 title: GetPlayerWeaponState
 sidebar_label: GetPlayerWeaponState
-description: Check the state of a player's weapon.
-tags: ["player"]
+description: 检查玩家武器的当前状态
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Check the state of a player's weapon.
+获取指定玩家武器的当前状态信息
 
-| Name     | Description                                         |
-| -------- | --------------------------------------------------- |
-| playerid | The ID of the player to obtain the weapon state of. |
+| 名称     | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要获取武器状态的玩家 ID |
 
-## Returns
+## 返回值
 
-The [state of the player's weapon](../resources/weaponstates).
+玩家的[武器状态编号](../resources/weaponstates)。若指定玩家不存在，返回 **0**
 
-**0** if player specified does not exist.
-
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -30,14 +28,14 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
         static weaponStates[4][64] =
         {
-            "Current weapon has no ammo remaining",
-            "Current weapon has a single bullet left",
-            "Current weapon has more than one bullet left",
-            "Reloading current weapon"
+            "当前武器弹药已耗尽",       // WEAPONSTATE_NO_BULLETS
+            "当前武器仅剩最后一发弹药",  // WEAPONSTATE_LAST_BULLET
+            "当前武器弹药充足",         // WEAPONSTATE_MORE_BULLETS
+            "正在装填当前武器"          // WEAPONSTATE_RELOADING
         };
 
         new string[144];
-        format(string, sizeof(string), "Your weapon state: %s", weaponStates[state]);
+        format(string, sizeof(string), "您的武器状态：%s", weaponStates[_:state]);
         SendClientMessage(playerid, -1, string);
         return 1;
     }
@@ -45,10 +43,10 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GivePlayerWeapon](GivePlayerWeapon): Give a player a weapon.
+• [GivePlayerWeapon](GivePlayerWeapon): 给予玩家指定武器
 
-## Related Resources
+## 相关资源
 
-- [Weapon States](../resources/weaponstates)
+• [武器状态列表](../resources/weaponstates)

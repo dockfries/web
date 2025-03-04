@@ -1,34 +1,34 @@
 ---
 title: GetPlayerObjectAttachedOffset
 sidebar_label: GetPlayerObjectAttachedOffset
-description: Get the attachment offset and rotation of a player-object.
-tags: ["player", "object", "playerobject"]
+description: 获取玩家物体的附加偏移和旋转
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the attachment offset and rotation of a player-object.
+获取玩家物体的附加偏移和旋转
 
-| Name             | Description                                                                       |
-| ---------------- | --------------------------------------------------------------------------------- |
-| playerid         | The ID of the player.                                                             |
-| objectid         | The ID of the player-object to get the offset and rotation of.                    |
-| &Float:offsetX   | A float variable in which to store the offsetX coordinate, passed by reference.   |
-| &Float:offsetY   | A float variable in which to store the offsetY coordinate, passed by reference.   |
-| &Float:offsetZ   | A float variable in which to store the offsetZ coordinate, passed by reference.   |
-| &Float:rotationX | A float variable in which to store the rotationX coordinate, passed by reference. |
-| &Float:rotationY | A float variable in which to store the rotationY coordinate, passed by reference. |
-| &Float:rotationZ | A float variable in which to store the rotationZ coordinate, passed by reference. |
+| 参数名           | 说明                                          |
+| ---------------- | --------------------------------------------- |
+| playerid         | 玩家 ID                                       |
+| objectid         | 需要获取偏移和旋转的玩家物体 ID               |
+| &Float:offsetX   | 存储 X 轴偏移量的浮点型变量（通过引用传递）   |
+| &Float:offsetY   | 存储 Y 轴偏移量的浮点型变量（通过引用传递）   |
+| &Float:offsetZ   | 存储 Z 轴偏移量的浮点型变量（通过引用传递）   |
+| &Float:rotationX | 存储 X 轴旋转角度的浮点型变量（通过引用传递） |
+| &Float:rotationY | 存储 Y 轴旋转角度的浮点型变量（通过引用传递） |
+| &Float:rotationZ | 存储 Z 轴旋转角度的浮点型变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist.
+`false` - 函数执行失败（指定物体不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new
@@ -39,10 +39,11 @@ new
     Float:rotationY,
     Float:rotationZ;
 
+// 获取玩家物体的附加偏移和旋转数据
 GetPlayerObjectAttachedOffset(playerid, playerobjectid, offsetX, offsetY, offsetZ, rotationX, rotationY, rotationZ);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerObjectAttachedData](GetPlayerObjectAttachedData): Get the attachment data of a player-object.
-- [GetObjectAttachedOffset](GetObjectAttachedOffset): Get the attachment offset and rotation of an object.
+- [GetPlayerObjectAttachedData](GetPlayerObjectAttachedData): 获取玩家物体的附加数据
+- [GetObjectAttachedOffset](GetObjectAttachedOffset): 获取全局物体的附加偏移和旋转

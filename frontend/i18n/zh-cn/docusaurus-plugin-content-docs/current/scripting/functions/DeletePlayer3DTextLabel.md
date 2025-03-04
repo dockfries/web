@@ -51,7 +51,7 @@ public OnPlayerDisconnect(playerid, reason)
 
 - [创建 3D 文本标签](Create3DTextLabel): 创建 3D 文本标签
 - [将 3D 文本标签附加到玩家](Attach3DTextLabelToPlayer): 将 3D 文本标签附加到玩家身上
-- [将 3D 文本标签附加到载具](Attach3DTextLabelToVehicle): 将 3D 文本标签附加到载具上
+- [将 3D 文本标签附加到车辆](Attach3DTextLabelToVehicle): 将 3D 文本标签附加到车辆上
 - [更新 3D 文本标签内容](Update3DTextLabelText): 修改 3D 文本标签的文本内容
 - [为玩家创建 3D 文本标签](CreatePlayer3DTextLabel): 为单个玩家创建 3D 文本标签
 - [更新玩家 3D 文本标签内容](UpdatePlayer3DTextLabelText): 修改玩家的 3D 文本标签内容

@@ -31,5 +31,5 @@ stock Float:GetDistanceBetweenPoints(Float:x1, Float:y1, Float:z1, Float:x2, Flo
 ## 相关函数
 
 - [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): 获取玩家与坐标点之间的距离
-- [GetVehicleDistanceFromPoint](GetVehicleDistanceFromPoint): 获取载具与坐标点之间的距离
+- [GetVehicleDistanceFromPoint](GetVehicleDistanceFromPoint): 获取车辆与坐标点之间的距离
 - [floatsqroot](floatsqroot): 计算浮点数的平方根

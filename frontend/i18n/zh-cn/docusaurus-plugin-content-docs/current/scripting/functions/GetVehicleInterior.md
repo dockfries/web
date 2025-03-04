@@ -1,27 +1,27 @@
 ---
 title: GetVehicleInterior
 sidebar_label: GetVehicleInterior
-description: Get the interior id of a vehicle.
-tags: ["vehicle"]
+description: 获取车辆的内部空间ID。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the interior id of a vehicle.
+获取指定车辆的内部空间 ID。
 
-## Parameters
+## 参数
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明            |
+| --------- | --------------- |
+| vehicleid | 目标车辆的 ID。 |
 
-## Return Values
+## 返回值
 
-Returns vehicle interior id.
+返回车辆的内部空间 ID。
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
@@ -35,6 +35,6 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [LinkVehicleToInterior](LinkVehicleToInterior): Links a vehicle to an interior.
+- [LinkVehicleToInterior](LinkVehicleToInterior): 将车辆链接到指定内部空间。

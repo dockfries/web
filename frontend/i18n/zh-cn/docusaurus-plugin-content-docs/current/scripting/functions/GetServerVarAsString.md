@@ -1,31 +1,31 @@
 ---
 title: GetServerVarAsString
 sidebar_label: GetServerVarAsString
-description: Get the string value of a server variable.
+description: 获取服务器变量的字符串值。
 tags: []
 ---
 
 :::warning
 
-This function, as of 0.3.7 R2, is deprecated. Please see GetConsoleVarAsString
+该函数自 0.3.7 R2 版本起已弃用，请使用 GetConsoleVarAsString
 
 :::
 
-## Description
+## 描述
 
-Get the string value of a server variable.
+获取服务器变量的字符串值。
 
-| Name            | Description                                                  |
-| --------------- | ------------------------------------------------------------ |
-| const varname[] | The name of the string variable to get the value of.         |
-| buffer[]        | An array into which to store the value, passed by reference. |
-| len             | The length of the string that should be stored.              |
+| 参数名          | 说明                             |
+| --------------- | -------------------------------- |
+| const varname[] | 要获取值的字符串变量名称         |
+| buffer[]        | 用于存储值的数组（通过引用传递） |
+| len             | 应存储的字符串长度               |
 
-## Returns
+## 返回值
 
-The length of the returned string. 0 if the specified server variable is not a string or doesn't exist.
+返回字符串的长度。如果指定服务器变量不是字符串类型或不存在则返回 0。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -36,27 +36,27 @@ public OnGameModeInit()
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-When filterscripts or plugins is specified as the varname, this function only returns the name of the first specified filterscript or plugin. This is a bug.
+当变量名为 filterscripts 或 plugins 时，本函数仅返回第一个滤镜脚本或插件的名称。这是一个已知缺陷。
 
 :::
 
 :::tip
 
-Type 'varlist' in the server console to display a list of available server variables and their types.
+在服务器控制台输入 'varlist' 可显示可用服务器变量及其类型列表。
 
 :::
 
 :::warning
 
-Using this function on anything other than a string (int, bool or float) or a nonexistent server variable, will crash your server! This is a bug.
+在非字符串类型变量（整型/布尔型/浮点型）或不存在变量上使用本函数将导致服务器崩溃！这是一个已知缺陷。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetServerVarAsInt](GetServerVarAsInt): Retreive a server variable as an integer.
-- [GetServerVarAsBool](GetServerVarAsBool): Retreive a server variable as a boolean.
+• [GetServerVarAsInt](GetServerVarAsInt): 以整型获取服务器变量
+• [GetServerVarAsBool](GetServerVarAsBool): 以布尔值获取服务器变量

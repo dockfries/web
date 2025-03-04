@@ -1,28 +1,28 @@
 ---
 title: GetVehicleHealth
 sidebar_label: GetVehicleHealth
-description: Get the health of a vehicle.
-tags: ["vehicle"]
+description: 获取车辆的健康值
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Get the health of a vehicle.
+获取车辆的健康值
 
-| Name          | Description                                                                  |
-| ------------- | ---------------------------------------------------------------------------- |
-| vehicleid     | The ID of the vehicle to get the health of.                                  |
-| &Float:health | A float variable in which to store the vehicle's health, passed by reference |
+| 参数名        | 说明                                 |
+| ------------- | ------------------------------------ |
+| vehicleid     | 要获取健康值的车辆 ID                |
+| &Float:health | 存储健康值的浮点变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-**true** - success
+**true** - 执行成功
 
-**false** - failure (invalid vehicle ID).
+**false** - 执行失败（无效的车辆 ID）
 
-The vehicle's health is stored in the referenced variable, not in the return value.
+实际健康值通过引用变量返回，非函数返回值本身。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -37,37 +37,37 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
         if (vehicleHealth > 500.0)
         {
-            return SendClientMessage(playerid, COLOR_RED, "Vehicle doesn't need repairing!");
+            return SendClientMessage(playerid, COLOR_RED, "车辆无需修理！");
         }
 
         SetVehicleHealth(vehicleid, 1000.0);
-        SendClientMessage(playerid, COLOR_GREEN, "Vehicle repaired!");
+        SendClientMessage(playerid, COLOR_GREEN, "车辆已修复！");
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Full vehicle health is 1000, however higher values are possible and increase the health of the vehicle. For more information on health values, see [here](../resources/vehiclehealth).
+车辆满血量为 1000，但更高的数值可以提升车辆耐久度。详细健康值说明请参阅[此处](../resources/vehiclehealth)。
 
 :::
 
 :::tip
 
-A vehicle catches on fire when its health is below 250. It will explode a few seconds later.
+当车辆健康值低于 250 时会起火，数秒后将爆炸。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleHealth](SetVehicleHealth): Set the health of a vehicle.
-- [GetPlayerHealth](GetPlayerHealth): Find out how much health a player has.
-- [GetPlayerArmour](GetPlayerArmour): Find out how much armour a player has.
+- [SetVehicleHealth](SetVehicleHealth): 设置车辆健康值
+- [GetPlayerHealth](GetPlayerHealth): 获取玩家生命值
+- [GetPlayerArmour](GetPlayerArmour): 获取玩家护甲值
 
-## Related Resources
+## 相关资源
 
-- [Vehicle Health Values](../resources/vehiclehealth)
+- [车辆健康值说明](../resources/vehiclehealth)

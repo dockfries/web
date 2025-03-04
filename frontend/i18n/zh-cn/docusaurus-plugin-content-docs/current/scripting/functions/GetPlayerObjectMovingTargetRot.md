@@ -1,31 +1,31 @@
 ---
 title: GetPlayerObjectMovingTargetRot
 sidebar_label: GetPlayerObjectMovingTargetRot
-description: Get the move target rotation of a player-object.
-tags: ["player", "object", "playerobject"]
+description: 获取玩家物体的移动目标旋转
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the move target rotation of a player-object.
+获取玩家物体的移动目标旋转
 
-| Name             | Description                                                                       |
-| ---------------- | --------------------------------------------------------------------------------- |
-| playerid         | The ID of the player.                                                             |
-| objectid         | The ID of the player-object to get the move target rotation of.                   |
-| &Float:rotationX | A float variable in which to store the rotationX coordinate, passed by reference. |
-| &Float:rotationY | A float variable in which to store the rotationY coordinate, passed by reference. |
-| &Float:rotationZ | A float variable in which to store the rotationZ coordinate, passed by reference. |
+| 参数名           | 说明                                              |
+| ---------------- | ------------------------------------------------- |
+| playerid         | 玩家 ID                                           |
+| objectid         | 需要获取目标旋转的玩家物体 ID                     |
+| &Float:rotationX | 存储 X 轴目标旋转角度的浮点型变量（通过引用传递） |
+| &Float:rotationY | 存储 Y 轴目标旋转角度的浮点型变量（通过引用传递） |
+| &Float:rotationZ | 存储 Z 轴目标旋转角度的浮点型变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist.
+`false` - 函数执行失败（指定物体不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new playerobjectid = CreatePlayerObject(playerid, 968, 1023.79541, -943.75879, 42.31450,   0.00000, 0.00000, 10.00000);
@@ -42,7 +42,7 @@ GetPlayerObjectMovingTargetRot(playerid, playerobjectid, rotationX, rotationY, r
 // rotationZ = 10.00000
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerObjectMovingTargetPos](GetPlayerObjectMovingTargetPos): Get the move target position of a player-object.
-- [GetObjectMovingTargetRot](GetObjectMovingTargetRot): Get the move target rotation of an object.
+- [GetPlayerObjectMovingTargetPos](GetPlayerObjectMovingTargetPos): 获取玩家物体的移动目标位置
+- [GetObjectMovingTargetRot](GetObjectMovingTargetRot): 获取全局物体的移动目标旋转

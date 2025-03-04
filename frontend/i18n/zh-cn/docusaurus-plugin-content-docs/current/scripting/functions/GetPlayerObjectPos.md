@@ -1,31 +1,31 @@
 ---
 title: GetPlayerObjectPos
 sidebar_label: GetPlayerObjectPos
-description: Get the position of a player object (CreatePlayerObject).
-tags: ["player", "object", "playerobject"]
+description: 获取玩家物体的位置（通过CreatePlayerObject创建）
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
-## Description
+## 描述
 
-Get the position of a player object ([CreatePlayerObject](CreatePlayerObject)).
+获取玩家物体（通过[CreatePlayerObject](CreatePlayerObject)创建）的位置
 
-| Name     | Description                                                               |
-| -------- | ------------------------------------------------------------------------- |
-| playerid | The ID of the player whose player object to get the position of.          |
-| objectid | The object's id of which you want the current location.                   |
-| &Float:x | A float variable in which to store the X coordinate, passed by reference. |
-| &Float:y | A float variable in which to store the Y coordinate, passed by reference. |
-| &Float:z | A float variable in which to store the Z coordinate, passed by reference. |
+| 参数名   | 说明                                    |
+| -------- | --------------------------------------- |
+| playerid | 需要获取物体位置的玩家 ID               |
+| objectid | 需要获取位置的物体 ID                   |
+| &Float:x | 存储 X 坐标的浮点型变量（通过引用传递） |
+| &Float:y | 存储 Y 坐标的浮点型变量（通过引用传递） |
+| &Float:z | 存储 Z 坐标的浮点型变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player and/or the object don't exist.
+**false** - 函数执行失败（玩家或物体不存在）
 
-The object's position is stored in the specified variables.
+物体的位置会被存储在指定的变量中
 
-## Examples
+## 示例代码
 
 ```c
 new gPlayerObject[MAX_PLAYERS];
@@ -38,29 +38,29 @@ public OnPlayerConnect(playerid)
     GetPlayerObjectPos(playerid, gPlayerObject[playerid], x, y, z);
     // x = 2001.195679
     // y = 1547.113892
-    // z = 14.283400,
+    // z = 14.283400
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [MovePlayerObject](MovePlayerObject): Move a player object.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [SetPlayerObjectRot](SetPlayerObjectRot): Set the rotation of a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
-- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): Attach a player object to a player.
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [MoveObject](MoveObject): Move an object.
-- [StopObject](StopObject): Stop an object from moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
+- [CreatePlayerObject](CreatePlayerObject): 为单个玩家创建物体
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家物体
+- [IsValidPlayerObject](IsValidPlayerObject): 验证玩家物体是否有效
+- [MovePlayerObject](MovePlayerObject): 移动玩家物体
+- [StopPlayerObject](StopPlayerObject): 停止玩家物体移动
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置玩家物体位置
+- [SetPlayerObjectRot](SetPlayerObjectRot): 设置玩家物体旋转角度
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取玩家物体旋转角度
+- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 将玩家物体附加到玩家身上
+- [CreateObject](CreateObject): 创建全局物体
+- [DestroyObject](DestroyObject): 销毁全局物体
+- [IsValidObject](IsValidObject): 验证全局物体是否有效
+- [MoveObject](MoveObject): 移动全局物体
+- [StopObject](StopObject): 停止全局物体移动
+- [SetObjectPos](SetObjectPos): 设置全局物体位置
+- [SetObjectRot](SetObjectRot): 设置全局物体旋转角度
+- [GetObjectPos](GetObjectPos): 获取全局物体位置
+- [GetObjectRot](GetObjectRot): 获取全局物体旋转角度
+- [AttachObjectToPlayer](AttachObjectToPlayer): 将全局物体附加到玩家身上

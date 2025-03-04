@@ -1,41 +1,41 @@
 ---
 title: GetSVarsUpperIndex
 sidebar_label: GetSVarsUpperIndex
-description: Each SVar (server-variable) has its own unique identification number for lookup, this function returns the highest ID.
-tags: ["server variable", "svar"]
+description: 获取服务器变量的最大索引值（每个服务器变量都有唯一的标识号用于查找，本函数返回当前最大索引值）。
+tags: ["服务器变量", "svar"]
 ---
 
-## Description
+## 描述
 
-Each SVar (server-variable) has its own unique identification number for lookup, this function returns the highest ID.
+每个服务器变量(SVar)都有唯一的标识号用于查找，本函数返回当前已存在的最大索引值。
 
-## Examples
+## 示例
 
 ```c
-// Store the upper index in the variable 'SVarUpperIndex' + 1
+// 将最大索引值存入变量'SVarUpperIndex'并加1
 new SVarUpperIndex = GetSVarsUpperIndex() + 1;
 
-// This sVarCount variable will store how many sVars are set as we count them.
+// 该变量用于统计已设置的服务器变量数量
 new sVarCount;
 
 new sVarName[128];
 
-for(new i = 0; i != sVarUpperIndex; i++) // Loop through all sVar IDs under the upper index
+for(new i = 0; i != sVarUpperIndex; i++) // 遍历所有在最大索引值以下的服务器变量ID
 {
-    // At first, we need to get SVar name
+    // 首先获取服务器变量名称
     GetSVarNameAtIndex(i, sVarName, sizeof(sVarName));
 
-    // If the var is set (type not 0), increment sVarCount.
+    // 若变量已设置（类型非0），则计数加1
     if (GetSVarType(sVarName) != 0)
     {
         sVarCount ++;
     }
 }
 
-printf("There are %i server-variables set. Upper index (highest ID): %i.", sVarCount, SVarUpperIndex-1);
+printf("当前共设置了 %i 个服务器变量。最大索引值（最高ID）: %i.", sVarCount, SVarUpperIndex-1);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetSVarNameAtIndex](GetSVarNameAtIndex): Get the server variable's name from its index.
-- [GetSVarType](GetSVarType): Get the type of the server variable.
+- [GetSVarNameAtIndex](GetSVarNameAtIndex): 通过索引获取服务器变量名称
+- [GetSVarType](GetSVarType): 获取服务器变量类型

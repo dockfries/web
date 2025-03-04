@@ -51,7 +51,7 @@ AttachPlayerObjectToObject(playerid, objectid, parentid, 0.0, 0.0, 1.0, 0.0, 0.0
 
 - [AttachObjectToObject](AttachObjectToObject): 将物体附加到其他物体
 - [AttachObjectToPlayer](AttachObjectToPlayer): 将物体附加到玩家
-- [AttachObjectToVehicle](AttachObjectToVehicle): 将物体附加到载具
+- [AttachObjectToVehicle](AttachObjectToVehicle): 将物体附加到车辆
 - [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 将玩家物体附加到玩家
 - [CreatePlayerObject](CreatePlayerObject): 为单个玩家创建物体
 - [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家物体

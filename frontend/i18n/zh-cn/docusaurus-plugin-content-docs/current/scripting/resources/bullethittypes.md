@@ -13,7 +13,7 @@ sidebar_label: 子弹命中类型
 | --- | --------------------------------------------- |
 | 0   | 无命中（BULLET_HIT_TYPE_NONE）                |
 | 1   | 命中玩家（BULLET_HIT_TYPE_PLAYER）            |
-| 2   | 命中载具（BULLET_HIT_TYPE_VEHICLE）           |
+| 2   | 命中车辆（BULLET_HIT_TYPE_VEHICLE）           |
 | 3   | 命中物体（BULLET_HIT_TYPE_OBJECT）            |
 | 4   | 命中玩家物体（BULLET_HIT_TYPE_PLAYER_OBJECT） |
 

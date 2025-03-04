@@ -26,8 +26,8 @@ tags: ["player"]
 | 12  | SPECIAL_ACTION_SITTING \*       | 检测玩家是否处于坐下状态                                             |
 | 13  | SPECIAL_ACTION_STOPUSECELLPHONE | 使玩家停止使用手机                                                   |
 | 1   | SPECIAL_ACTION_DUCK \*          | 检测玩家是否处于蹲下状态                                             |
-| 3   | SPECIAL_ACTION_ENTER_VEHICLE \* | 检测玩家是否正在通过动画进入载具                                     |
-| 4   | SPECIAL_ACTION_EXIT_VEHICLE \*  | 检测玩家是否正在通过动画离开载具                                     |
+| 3   | SPECIAL_ACTION_ENTER_VEHICLE \* | 检测玩家是否正在通过动画进入车辆                                     |
+| 4   | SPECIAL_ACTION_EXIT_VEHICLE \*  | 检测玩家是否正在通过动画离开车辆                                     |
 | 20  | SPECIAL_ACTION_DRINK_BEER       | 使用后会增加玩家醉酒值                                               |
 | 21  | SPECIAL_ACTION_SMOKE_CIGGY      | 使玩家抽雪茄                                                         |
 | 22  | SPECIAL_ACTION_DRINK_WINE       | 使玩家饮用葡萄酒瓶并进入醉酒状态                                     |

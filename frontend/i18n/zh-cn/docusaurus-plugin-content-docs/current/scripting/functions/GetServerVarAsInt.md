@@ -1,44 +1,45 @@
 ---
 title: GetServerVarAsInt
 sidebar_label: GetServerVarAsInt
-description: Get the integer value of a server variable.
+description: 获取服务器整型变量的值
 tags: []
 ---
 
 :::warning
 
-This function, as of 0.3.7 R2, is deprecated. Please see GetConsoleVarAsInt
+本函数自 0.3.7 R2 版本起已弃用，请使用[GetConsoleVarAsInt](GetConsoleVarAsInt)
 
 :::
 
-## Description
+## 描述
 
-Get the integer value of a server variable.
+获取服务器整型变量的当前数值
 
-| Name            | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| const varname[] | The name of the integer variable to get the value of. |
+| 名称            | 说明             |
+| --------------- | ---------------- |
+| const varname[] | 目标整型变量名称 |
 
-## Returns
+## 返回值
 
-The value of the specified server variable. 0 if the specified server variable is not an integer or doesn't exist.
+指定服务器变量的整型数值。若变量非整型或不存在返回 **0**
 
-## Examples
+## 示例代码
 
 ```c
+// 获取服务器端口配置
 new serverPort = GetServerVarAsInt("port");
-printf("Server Port: %i", serverPort);
+printf("服务器端口号：%i", serverPort); // 输出示例："服务器端口号：7777"
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Type 'varlist' in the server console to display a list of available server variables and their types.
+在服务器控制台输入'varlist'命令可查看所有可用变量及其类型
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetServerVarAsString](GetServerVarAsString): Retreive a server variable as a string.
-- [GetServerVarAsBool](GetServerVarAsBool): Retreive a server variable as a boolean.
+- [GetServerVarAsString](GetServerVarAsString): 以字符串形式获取服务器变量
+- [GetServerVarAsBool](GetServerVarAsBool): 以布尔值形式获取服务器变量

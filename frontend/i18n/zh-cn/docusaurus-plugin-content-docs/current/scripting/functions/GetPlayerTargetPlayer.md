@@ -1,49 +1,49 @@
 ---
 title: GetPlayerTargetPlayer
 sidebar_label: GetPlayerTargetPlayer
-description: Check who a player is aiming at.
-tags: ["player"]
+description: 检查玩家正在瞄准的目标玩家
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Check who a player is aiming at.
+检查指定玩家当前瞄准的目标玩家
 
-| Name     | Description                                |
-| -------- | ------------------------------------------ |
-| playerid | The ID of the player to get the target of. |
+| 名称     | 说明                  |
+| -------- | --------------------- |
+| playerid | 需要获取目标的玩家 ID |
 
-## Returns
+## 返回值
 
-The ID of the target player, or `INVALID_PLAYER_ID` if none.
+被瞄准的玩家 ID，若无目标则返回 `INVALID_PLAYER_ID`
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerUpdate(playerid)
 {
-    // Store the ID
+    // 存储目标ID
     new playerTargetId = GetPlayerTargetPlayer(playerid);
     if (playerTargetId != INVALID_PLAYER_ID && GetPlayerTeam(playerTargetId) == GetPlayerTeam(playerid))
     {
-        GameTextForPlayer(playerid, "~R~do not shoot at team-mates!", 5000, 3);
+        GameTextForPlayer(playerid, "~R~禁止攻击队友！", 5000, 3);
     }
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Does not work for joypads/controllers, and after a certain distance. Does not work for the sniper rifle, as it doesn't lock on to anything and as such can't and won't return a player.
+不适用于游戏手柄/控制器，且存在有效距离限制。狙击步枪（Sniper Rifle）无法锁定目标，因此不会返回任何玩家。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): Get the player's camera front vector
+- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): 获取玩家视角前向向量
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerGiveDamage](../callbacks/OnPlayerGiveDamage): This callback is called when a player gives damage.
-- [OnPlayerTakeDamage](../callbacks/OnPlayerTakeDamage): This callback is called when a player takes damage.
+- [OnPlayerGiveDamage](../callbacks/OnPlayerGiveDamage): 当玩家造成伤害时触发
+- [OnPlayerTakeDamage](../callbacks/OnPlayerTakeDamage): 当玩家受到伤害时触发

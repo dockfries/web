@@ -1,23 +1,23 @@
 ---
 title: GetSVarType
 sidebar_label: GetSVarType
-description: Gets the type (integer, float or string) of a server variable.
-tags: ["server variable", "svar"]
+description: 获取服务器变量的类型（整型/浮点型/字符串型）
+tags: ["服务器变量", "svar"]
 ---
 
-## Description
+## 描述
 
-Gets the type (integer, float or string) of a server variable.
+获取服务器变量的数据类型（整型、浮点型或字符串型）
 
-| Name         | Description                                         |
-| ------------ | --------------------------------------------------- |
-| const svar[] | The name of the server variable to get the type of. |
+| 参数名       | 说明                       |
+| ------------ | -------------------------- |
+| const svar[] | 要获取类型的服务器变量名称 |
 
-## Returns
+## 返回值
 
-Returns the [type](../resources/svartypes) of the SVar.
+返回服务器变量的[类型](../resources/svartypes)
 
-## Examples
+## 示例
 
 ```c
 stock PrintSVar(varname[])
@@ -30,18 +30,18 @@ stock PrintSVar(varname[])
         }
         case SERVER_VARTYPE_INT:
         {
-            printf("Integer SVar '%s': %i", varname, GetSVarInt(varname));
+            printf("整型变量 '%s': %i", varname, GetSVarInt(varname));
         }
         case SERVER_VARTYPE_FLOAT:
         {
-            printf("Float SVar '%s': %f", varname, GetSVarFloat(varname));
+            printf("浮点型变量 '%s': %f", varname, GetSVarFloat(varname));
         }
         case SERVER_VARTYPE_STRING:
         {
             new varstring[256];
             GetSVarString(varname, varstring);
 
-            printf("String SVar '%s': %s", varname, varstring);
+            printf("字符串变量 '%s': %s", varname, varstring);
         }
     }
     return 1;
@@ -51,21 +51,21 @@ public OnGameModeInit()
 {
     SetSVarInt("Version", 37);
 
-    PrintSVar("Version"); // Output: "Integer SVar 'Version': 37"
+    PrintSVar("Version"); // 输出：整型变量 'Version': 37
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetSVarInt](SetSVarInt): Set an integer for a server variable.
-- [GetSVarInt](GetSVarInt): Get a player server as an integer.
-- [SetSVarString](SetSVarString): Set a string for a server variable.
-- [GetSVarString](GetSVarString): Get the previously set string from a server variable.
-- [SetSVarFloat](SetSVarFloat): Set a float for a server variable.
-- [GetSVarFloat](GetSVarFloat): Get the previously set float from a server variable.
-- [DeleteSVar](DeleteSVar): Delete a server variable.
+- [SetSVarInt](SetSVarInt): 设置整型服务器变量
+- [GetSVarInt](GetSVarInt): 获取整型服务器变量
+- [SetSVarString](SetSVarString): 设置字符串型服务器变量
+- [GetSVarString](GetSVarString): 获取字符串型服务器变量
+- [SetSVarFloat](SetSVarFloat): 设置浮点型服务器变量
+- [GetSVarFloat](GetSVarFloat): 获取浮点型服务器变量
+- [DeleteSVar](DeleteSVar): 删除服务器变量
 
-## Related Resources
+## 相关资源
 
-- [Server Variable Types](../resources/svartypes)
+- [服务器变量类型](../resources/svartypes)

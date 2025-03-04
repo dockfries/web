@@ -1,38 +1,42 @@
 ---
 title: GetPlayerWeather
 sidebar_label: GetPlayerWeather
-description: Get a player's weather.
-tags: ["player"]
+description: 获取玩家的天气ID
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get a player's weather.
+获取指定玩家的天气 ID
 
-| Name     | Description                                 |
-| -------- | ------------------------------------------- |
-| playerid | The ID of the player to get the weather of. |
+| 名称     | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要获取天气信息的玩家 ID |
 
-## Returns
+## 返回值
 
-Returns the player's weather.
+玩家当前的天气 ID 编号
 
-## Examples
+## 示例代码
 
 ```c
 SetPlayerWeather(playerid, 8);
 
-printf("Player weather: %d", GetPlayerWeather(playerid));
-// The output will be 'Player weather: 8'
+printf("玩家天气ID：%d", GetPlayerWeather(playerid));
+// 输出结果为"玩家天气ID：8"
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerWeather](SetPlayerWeather): Set a player's weather.
-- [SetWeather](SetWeather): Set the world weather for all players.
+- [SetPlayerWeather](SetPlayerWeather): 设置玩家独立天气
+- [SetWeather](SetWeather): 设置全局服务器天气
 
-## Related Resources
+## 相关资源
 
-- [Weather IDs](../resources/weatherid)
+- [天气 ID 列表](../resources/weatherid)
+
+```
+
+```

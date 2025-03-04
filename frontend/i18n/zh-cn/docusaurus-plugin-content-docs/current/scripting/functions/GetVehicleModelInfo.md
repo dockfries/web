@@ -1,41 +1,41 @@
 ---
 title: GetVehicleModelInfo
 sidebar_label: GetVehicleModelInfo
-description: Retrieve information about a specific vehicle model such as the size or position of seats.
-tags: ["vehicle"]
+description: 获取特定车辆模型的详细信息，例如尺寸或座位位置
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Retrieve information about a specific vehicle model such as the size or position of seats
+获取特定车辆模型的详细信息，例如尺寸或座位位置
 
-| Name                        | Description                                                                  |
-| --------------------------- | ---------------------------------------------------------------------------- |
-| vehiclemodel                | The vehicle model to get info of.                                            |
-| VEHICLE_MODEL_INFO:infotype | The [type of information](../resources/vehicleinformationtypes) to retrieve. |
-| &Float:x                    | A float to store the X value.                                                |
-| &Float:y                    | A float to store the Y value.                                                |
-| &Float:z                    | A float to store the Z value.                                                |
+| 参数名                      | 说明                                                       |
+| --------------------------- | ---------------------------------------------------------- |
+| vehiclemodel                | 需要查询的车辆模型 ID                                      |
+| VEHICLE_MODEL_INFO:infotype | 需要获取的[信息类型](../resources/vehicleinformationtypes) |
+| &Float:x                    | 用于存储 X 轴数据的浮点变量                                |
+| &Float:y                    | 用于存储 Y 轴数据的浮点变量                                |
+| &Float:z                    | 用于存储 Z 轴数据的浮点变量                                |
 
-## Returns
+## 返回值
 
-The vehicle info is stored in the specified variables.
+车辆信息将被存储到指定的变量中。
 
-## Examples
+## 示例代码
 
 ```c
 new
 	Float: x, Float: y, Float: z;
-//Get the size of vehicle model 411 (Infernus)
+// 获取411号车辆模型(Infernus)的尺寸
 GetVehicleModelInfo(411, VEHICLE_MODEL_INFO_SIZE, x, y, z);
-//Prints "The infernus is 2.3m wide, 5.7m long and 1.3m high" into the console
-printf("The infernus is %.1fm wide, %.1fm long and %.1fm high", X, Y, Z);
+// 控制台输出"Infernus的尺寸为：宽2.3米，长5.7米，高1.3米"
+printf("Infernus的尺寸为：宽%.1f米，长%.1f米，高%.1f米", x, y, z);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleModel](GetVehicleModel): Get the model id of a vehicle.
+- [GetVehicleModel](GetVehicleModel): 获取车辆的模型 ID
 
-## Related Resources
+## 相关资源
 
-- [Vehicle Information Types](../resources/vehicleinformationtypes)
+- [车辆信息类型说明](../resources/vehicleinformationtypes)

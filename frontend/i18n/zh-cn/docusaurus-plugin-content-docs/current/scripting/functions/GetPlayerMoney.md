@@ -1,34 +1,34 @@
 ---
 title: GetPlayerMoney
 sidebar_label: GetPlayerMoney
-description: Retrieves the amount of money a player has.
-tags: ["player"]
+description: 获取玩家当前持有的金钱数额
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Retrieves the amount of money a player has.
+获取玩家当前持有的金钱数额
 
-| Name     | Description                               |
-| -------- | ----------------------------------------- |
-| playerid | The ID of the player to get the money of. |
+| 参数名   | 说明                  |
+| -------- | --------------------- |
+| playerid | 需要查询金钱的玩家 ID |
 
-## Returns
+## 返回值
 
-The amount of money the player has.
+玩家当前持有的金钱数额
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerSpawn(playerid)
 {
     new string[32];
-    format(string, sizeof(string), "Your money: $%i", GetPlayerMoney(playerid));
+    format(string, sizeof(string), "当前金钱: $%i", GetPlayerMoney(playerid));
     SendClientMessage(playerid, 0x00FF00FF, string);
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GivePlayerMoney](GivePlayerMoney): Give a player money.
-- [ResetPlayerMoney](ResetPlayerMoney): Set the money of a player to \$0.
+- [GivePlayerMoney](GivePlayerMoney): 给予玩家金钱
+- [ResetPlayerMoney](ResetPlayerMoney): 重置玩家金钱至\$0

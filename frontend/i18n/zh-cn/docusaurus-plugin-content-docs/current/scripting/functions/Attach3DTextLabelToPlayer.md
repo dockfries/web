@@ -39,7 +39,7 @@ public OnPlayerConnect(playerid)
 - [Create3DTextLabel](Create3DTextLabel): 创建一个 3D 文本标签
 - [Delete3DTextLabel](Delete3DTextLabel): 删除 3D 文本标签
 - [Get3DTextLabelAttachedData](Get3DTextLabelAttachedData): 获取已附加的 3D 文本标签数据
-- [Attach3DTextLabelToVehicle](Attach3DTextLabelToVehicle): 将 3D 文本标签附加到载具
+- [Attach3DTextLabelToVehicle](Attach3DTextLabelToVehicle): 将 3D 文本标签附加到车辆
 - [Update3DTextLabelText](Update3DTextLabelText): 更新 3D 文本标签的文本内容
 - [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): 为单个玩家创建 3D 文本标签
 - [DeletePlayer3DTextLabel](DeletePlayer3DTextLabel): 删除玩家的 3D 文本标签

@@ -1,25 +1,25 @@
 ---
 title: GetPlayerNetworkStats
 sidebar_label: GetPlayerNetworkStats
-description: Gets a player's network stats and saves them into a string.
-tags: ["player", "network monitoring"]
+description: 获取玩家的网络统计信息并保存到字符串中
+tags: ["玩家", "网络监控"]
 ---
 
-## Description
+## 描述
 
-Gets a player's network stats and saves them into a string.
+获取玩家的网络统计信息并保存到字符串中
 
-| Name                   | Description                                                   |
-| ---------------------- | ------------------------------------------------------------- |
-| playerid               | The ID of the player you want to get the networkstats of.     |
-| output[]               | The string to store the networkstats in, passed by reference. |
-| size = sizeof (output) | The length of the string that should be stored.               |
+| 参数名                 | 说明                                     |
+| ---------------------- | ---------------------------------------- |
+| playerid               | 需要获取网络统计数据的玩家 ID            |
+| output[]               | 存储网络统计数据的字符串（通过引用传递） |
+| size = sizeof (output) | 存储字符串的缓冲区长度                   |
 
-## Returns
+## 返回值
 
-This function always returns 1.
+本函数总是返回 1
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -28,29 +28,29 @@ public OnPlayerCommandText(playerid, cmdtext[])
     {
         new stats[400+1];
         GetPlayerNetworkStats(playerid, stats, sizeof(stats));
-        ShowPlayerDialog(playerid, 0, DIALOG_STYLE_MSGBOX, "My Network Stats", stats, "Okay", "");
+        ShowPlayerDialog(playerid, 0, DIALOG_STYLE_MSGBOX, "我的网络统计", stats, "确定", "");
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function may not return accurate data when used under [OnPlayerDisconnect](OnPlayerDisconnect) if the player has quit normally. It usually returns accurate data if the player has been kicked or has timed out.
+当在[OnPlayerDisconnect](OnPlayerDisconnect)回调中使用时，若玩家正常退出可能返回不准确数据。通常在玩家被踢出或超时的情况下数据准确
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetNetworkStats](GetNetworkStats): Gets the servers networkstats and saves it into a string.
-- [NetStats_GetConnectedTime](NetStats_GetConnectedTime): Get the time that a player has been connected for.
-- [NetStats_MessagesReceived](NetStats_MessagesReceived): Get the number of network messages the server has received from the player.
-- [NetStats_BytesReceived](NetStats_BytesReceived): Get the amount of information (in bytes) that the server has received from the player.
-- [NetStats_MessagesSent](NetStats_MessagesSent): Get the number of network messages the server has sent to the player.
-- [NetStats_BytesSent](NetStats_BytesSent): Get the amount of information (in bytes) that the server has sent to the player.
-- [NetStats_MessagesRecvPerSecond](NetStats_MessagesRecvPerSecond): Get the number of network messages the server has received from the player in the last second.
-- [NetStats_PacketLossPercent](NetStats_PacketLossPercent): Get a player's packet loss percent.
-- [NetStats_ConnectionStatus](NetStats_ConnectionStatus): Get a player's connection status.
-- [NetStats_GetIpPort](NetStats_GetIpPort): Get a player's IP and port.
+- [GetNetworkStats](GetNetworkStats): 获取服务器的网络统计信息并保存到字符串
+- [NetStats_GetConnectedTime](NetStats_GetConnectedTime): 获取玩家已连接的时间
+- [NetStats_MessagesReceived](NetStats_MessagesReceived): 获取服务器从玩家接收的网络消息数量
+- [NetStats_BytesReceived](NetStats_BytesReceived): 获取服务器从玩家接收的数据量（字节）
+- [NetStats_MessagesSent](NetStats_MessagesSent): 获取服务器发送给玩家的网络消息数量
+- [NetStats_BytesSent](NetStats_BytesSent): 获取服务器发送给玩家的数据量（字节）
+- [NetStats_MessagesRecvPerSecond](NetStats_MessagesRecvPerSecond): 获取服务器最近一秒从玩家接收的消息数量
+- [NetStats_PacketLossPercent](NetStats_PacketLossPercent): 获取玩家的丢包率百分比
+- [NetStats_ConnectionStatus](NetStats_ConnectionStatus): 获取玩家的连接状态
+- [NetStats_GetIpPort](NetStats_GetIpPort): 获取玩家的 IP 地址和端口号

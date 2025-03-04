@@ -1,47 +1,47 @@
 ---
 title: GetPlayerState
 sidebar_label: GetPlayerState
-description: Get a player's current state.
-tags: ["player"]
+description: 获取玩家当前的状态
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Get a player's current state.
+获取玩家当前的游戏状态
 
-| Name     | Description                                       |
-| -------- | ------------------------------------------------- |
-| playerid | The ID of the player to get the current state of. |
+| 参数名   | 说明                  |
+| -------- | --------------------- |
+| playerid | 需要获取状态的玩家 ID |
 
-## Returns
+## 返回值
 
-The player's current state as an integer (see: [Player States](../resources/playerstates)).
+返回玩家当前的[状态值](../resources/playerstates)（整数形式）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    new PLAYER_STATE:state = GetPlayerState(killerid); // Get the killer's state
+    new PLAYER_STATE:state = GetPlayerState(killerid); // 获取击杀者的状态
 
-    if (state == PLAYER_STATE_DRIVER) // If the killer was in a vehicle
+    if (state == PLAYER_STATE_DRIVER) // 如果击杀者处于驾驶状态
     {
-        //It's a driver drive-by, take some money
+        // 驾驶车辆时击杀，扣除金钱
         GivePlayerMoney(killerid, -10000);
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerSpecialAction](GetPlayerSpecialAction): Get a player's current special action.
-- [SetPlayerSpecialAction](SetPlayerSpecialAction): Set a player's special action.
+- [GetPlayerSpecialAction](GetPlayerSpecialAction): 获取玩家特殊动作状态
+- [SetPlayerSpecialAction](SetPlayerSpecialAction): 设置玩家特殊动作
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerStateChange](../callbacks/OnPlayerStateChange): Called when a player changes state.
+- [OnPlayerStateChange](../callbacks/OnPlayerStateChange): 玩家状态变更时触发
 
-## Related Resources
+## 扩展资源
 
-- [Player States](../resources/playerstates)
+- [玩家状态列表](../resources/playerstates)

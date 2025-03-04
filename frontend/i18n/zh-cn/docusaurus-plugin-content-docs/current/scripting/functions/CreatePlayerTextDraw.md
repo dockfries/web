@@ -86,7 +86,7 @@ public OnPlayerConnect(playerid)
 - [PlayerTextDrawGetPos](PlayerTextDrawGetPos): 获取玩家文本绘图的坐标位置
 - [PlayerTextDrawGetPreviewModel](PlayerTextDrawGetPreviewModel): 获取 3D 预览玩家文本绘图的模型 ID
 - [PlayerTextDrawGetPreviewRot](PlayerTextDrawGetPreviewRot): 获取 3D 模型预览玩家文本绘图的旋转角度
-- [PlayerTextDrawGetPreviewVehicleColours](PlayerTextDrawGetPreviewVehicleColours): 获取 3D 预览玩家文本绘图的载具颜色
+- [PlayerTextDrawGetPreviewVehicleColours](PlayerTextDrawGetPreviewVehicleColours): 获取 3D 预览玩家文本绘图的车辆颜色
 - [PlayerTextDrawGetShadow](PlayerTextDrawGetShadow): 获取玩家文本绘图的阴影尺寸
 - [PlayerTextDrawGetString](PlayerTextDrawGetString): 获取玩家文本绘图的文本内容
 - [PlayerTextDrawGetTextSize](PlayerTextDrawGetTextSize): 获取玩家文本绘图的文本尺寸
@@ -94,7 +94,7 @@ public OnPlayerConnect(playerid)
 - [PlayerTextDrawIsProportional](PlayerTextDrawIsProportional): 检测玩家文本绘图是否启用比例间距
 - [PlayerTextDrawIsSelectable](PlayerTextDrawIsSelectable): 检测玩家文本绘图是否可交互
 - [PlayerTextDrawSetPos](PlayerTextDrawSetPos): 设置玩家文本绘图的位置坐标
-- [PlayerTextDrawSetPreviewVehicleColours](PlayerTextDrawSetPreviewVehicleColours): 设置玩家文本绘图载具模型预览的颜色
+- [PlayerTextDrawSetPreviewVehicleColours](PlayerTextDrawSetPreviewVehicleColours): 设置玩家文本绘图车辆模型预览的颜色
 
 ## 相关资源
 

@@ -1,18 +1,18 @@
 ---
-title: 载具车门状态
-sidebar_label: 载具车门状态
-description: 载具车门状态定义表。
+title: 车辆车门状态
+sidebar_label: 车辆车门状态
+description: 车辆车门状态定义表。
 ---
 
 :::note
 
-这些定义被原生函数使用，例如[获取载具损伤状态](../functions/GetVehicleDamageStatus)和[更新载具损伤状态](../functions/UpdateVehicleDamageStatus)。
+这些定义被原生函数使用，例如[获取车辆损伤状态](../functions/GetVehicleDamageStatus)和[更新车辆损伤状态](../functions/UpdateVehicleDamageStatus)。
 
 :::
 
 | 定义                                                                                      | 数值       |
 | ----------------------------------------------------------------------------------------- | ---------- |
-| UNKNOWN_VEHICLE_DOOR_STATUS（未知载具车门状态）                                           | -1         |
+| UNKNOWN_VEHICLE_DOOR_STATUS（未知车辆车门状态）                                           | -1         |
 | VEHICLE_DOOR_STATUS_NONE ​**/**​ CARDOOR_NONE（无车门异常）                               | 0          |
 | VEHICLE_DOOR_STATUS_BONNET_OPEN ​**/**​ CARDOOR_BONNET_OPEN（引擎盖开启）                 | 0x00000001 |
 | VEHICLE_DOOR_STATUS_BONNET_DAMAGED ​**/**​ CARDOOR_BONNET_DAMAGED（引擎盖损坏）           | 0x00000002 |

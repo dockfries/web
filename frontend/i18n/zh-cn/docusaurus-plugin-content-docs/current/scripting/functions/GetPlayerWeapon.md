@@ -1,34 +1,34 @@
 ---
 title: GetPlayerWeapon
 sidebar_label: GetPlayerWeapon
-description: Returns the ID of the weapon a player is currently holding.
-tags: ["player"]
+description: 获取玩家当前持有的武器ID
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Returns the ID of the weapon a player is currently holding.
+获取玩家当前手持武器的 ID 编号
 
-| Name     | Description                                               |
-| -------- | --------------------------------------------------------- |
-| playerid | The ID of the player to get the currently held weapon of. |
+| 名称     | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要获取武器信息的玩家 ID |
 
-## Returns
+## 返回值
 
-The ID of the player's current weapon. Returns -1 if the player specified does not exist.
+玩家当前持有的武器 ID。若指定玩家不存在，返回 **-1**
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    // Check if the killerid is not an invalid player (which means is connected).
+    // 检测杀手是否为有效玩家
     if (killerid != INVALID_PLAYER_ID)
     {
-        // The WEAPON_MINIGUN constant is pre-defined in the standard library and is equal to 38.
+        // WEAPON_MINIGUN常量在标准库中预定义为38（火神机枪）
         if (GetPlayerWeapon(killerid) == WEAPON_MINIGUN)
         {
-            //Ban if they have a minigun
+            // 检测到火神机枪则封禁
             Ban(killerid);
         }
     }
@@ -36,27 +36,27 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-When the player state is `PLAYER_STATE_DRIVER` or `PLAYER_STATE_PASSENGER` this function returns the weapon held by the player before they entered the vehicle. If a cheat is used to spawn a weapon inside a vehicle, this function will not report it.
+当玩家处于驾驶状态(`PLAYER_STATE_DRIVER`)或乘客状态(`PLAYER_STATE_PASSENGER`)时，本函数返回玩家进入车辆前持有的武器。若通过作弊手段在车辆内生成武器，本函数无法检测。
 
 :::
 
 :::warning
 
-Sometimes the result can be -1 which is an invalid weapon ID. Circumstances of this are not yet known, but it is best to discard information when returned weapon is -1.
+有时可能返回 **-1**（无效武器 ID），具体原因尚未明确，建议遇到此返回值时丢弃相关数据。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerWeaponData](GetPlayerWeaponData): Find out information about weapons a player has.
-- [GivePlayerWeapon](GivePlayerWeapon): Give a player a weapon.
-- [ResetPlayerWeapons](ResetPlayerWeapons): Remove all weapons from a player.
-- [RemovePlayerWeapon](RemovePlayerWeapon): Remove a specified weapon from a player.
+• [GetPlayerWeaponData](GetPlayerWeaponData): 获取玩家武器库详细信息
+• [GivePlayerWeapon](GivePlayerWeapon): 给予玩家指定武器
+• [ResetPlayerWeapons](ResetPlayerWeapons): 清空玩家所有武器
+• [RemovePlayerWeapon](RemovePlayerWeapon): 移除玩家特定武器
 
-## Related Resources
+## 相关资源
 
-- [Weapon IDs](../resources/weaponids)
+• [武器 ID 列表](../resources/weaponids)

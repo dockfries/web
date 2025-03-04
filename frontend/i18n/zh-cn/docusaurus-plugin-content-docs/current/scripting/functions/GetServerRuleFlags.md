@@ -1,43 +1,45 @@
 ---
 title: GetServerRuleFlags
 sidebar_label: GetServerRuleFlags
-description: Gets the flags of a server rule.
-tags: ["rule"]
+description: 获取服务器规则的标志位
+tags: ["规则"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 :::warning
 
-This function has not yet been implemented.
+本函数暂未实现，请勿在生产环境使用
 
 :::
 
-## Description
+## 描述
 
-Gets the flags of a server rule.
+获取指定服务器规则的标志位信息
 
-## Return Values
+## 返回值
 
-Returns the server rule flags.
+返回服务器规则标志位
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
 {
+    // 添加并配置Discord服务器规则
     AddServerRule("discord", "discord.gg/samp");
     SetServerRuleFlags("discord", 1);
 
+    // 获取并打印规则标志位
     new E_SERVER_RULE_FLAGS:flags = GetServerRuleFlags("discord");
-    printf("Flags: %d", _:flags); // Flags: 1
+    printf("规则标志位: %d", _:flags); // 输出"规则标志位: 1"
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddServerRule](AddServerRule): Add a server rule.
-- [RemoveServerRule](RemoveServerRule): Remove the server rule.
-- [IsValidServerRule](IsValidServerRule): Checks if the given server rule is valid.
-- [SetServerRuleFlags](SetServerRuleFlags): Sets the flags of a server rule.
+- [AddServerRule](AddServerRule): 添加服务器规则
+- [RemoveServerRule](RemoveServerRule): 移除服务器规则
+- [IsValidServerRule](IsValidServerRule): 验证规则有效性
+- [SetServerRuleFlags](SetServerRuleFlags): 设置服务器规则标志位

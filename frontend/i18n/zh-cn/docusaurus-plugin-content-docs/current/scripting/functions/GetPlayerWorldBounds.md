@@ -1,29 +1,29 @@
 ---
 title: GetPlayerWorldBounds
 sidebar_label: GetPlayerWorldBounds
-description: Get a player's world boundaries.
-tags: ["player"]
+description: 获取玩家的世界边界范围
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get a player's world boundaries.
+获取指定玩家的世界边界坐标范围
 
-| Name        | Description                                                                  |
-| ----------- | ---------------------------------------------------------------------------- |
-| playerid    | The ID of the player.                                                        |
-| &Float:maxX | A float variable in which to store the maxX coordinate, passed by reference. |
-| &Float:minX | A float variable in which to store the minX coordinate, passed by reference. |
-| &Float:maxY | A float variable in which to store the maxY coordinate, passed by reference. |
-| &Float:minY | A float variable in which to store the minY coordinate, passed by reference. |
+| 名称        | 说明                                    |
+| ----------- | --------------------------------------- |
+| playerid    | 需要获取边界信息的玩家 ID               |
+| &Float:maxX | 存储 X 轴最大边界的浮点变量（引用传递） |
+| &Float:minX | 存储 X 轴最小边界的浮点变量（引用传递） |
+| &Float:maxY | 存储 Y 轴最大边界的浮点变量（引用传递） |
+| &Float:minY | 存储 Y 轴最小边界的浮点变量（引用传递） |
 
-## Returns
+## 返回值
 
-This function does not return a specific value.
+本函数不直接返回值，边界坐标将存储于指定变量中
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerSpawn(playerid)
@@ -45,7 +45,7 @@ public OnPlayerSpawn(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerWorldBounds](SetPlayerWorldBounds): Set the world boundaries for a player. Players can not go out of the boundaries (they will be pushed back in).
-- [ClearPlayerWorldBounds](ClearPlayerWorldBounds): Reset the player's world boundaries to default world boundaries.
+- [SetPlayerWorldBounds](SetPlayerWorldBounds): 设置玩家的世界边界（越界时会被推回）
+- [ClearPlayerWorldBounds](ClearPlayerWorldBounds): 重置玩家的世界边界为默认范围

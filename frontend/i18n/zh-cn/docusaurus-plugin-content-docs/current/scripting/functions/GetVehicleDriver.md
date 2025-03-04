@@ -1,29 +1,29 @@
 ---
 title: GetVehicleDriver
 sidebar_label: GetVehicleDriver
-description: Get the playerid of the person driving the vehicle.
-tags: ["vehicle"]
+description: 获取驾驶指定车辆的玩家ID
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the playerid of the person driving the vehicle.
+获取驾驶指定车辆的玩家 ID
 
-## Parameters
+## 参数说明
 
-| Name      | Description                                 |
-| --------- | ------------------------------------------- |
-| vehicleid | The ID of the vehicle to get the driver of. |
+| 参数名    | 说明                  |
+| --------- | --------------------- |
+| vehicleid | 要获取驾驶员的车辆 ID |
 
-## Returns
+## 返回值
 
-Returns the driver ID (player ID).
+返回驾驶员 ID（玩家 ID）
 
-`INVALID_PLAYER_ID` - The vehicle has no driver.
+`INVALID_PLAYER_ID` - 表示车辆当前无驾驶员
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerExitVehicle(playerid, vehicleid)
@@ -31,12 +31,12 @@ public OnPlayerExitVehicle(playerid, vehicleid)
     new driverid = GetVehicleDriver(vehicleid);
     if (driverid != INVALID_PLAYER_ID)
     {
-        SendClientMessage(driverid, -1, "Someone is exiting your vehicle.");
+        SendClientMessage(driverid, -1, "有人正在离开你的车辆。");
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleLastDriver](GetVehicleLastDriver): Get the last driver of a vehicle.
+• [GetVehicleLastDriver](GetVehicleLastDriver): 获取车辆最后驾驶员

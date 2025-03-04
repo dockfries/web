@@ -1,25 +1,29 @@
 ---
 title: GetPlayerVehicleSeat
 sidebar_label: GetPlayerVehicleSeat
-description: Find out which seat a player is in.
-tags: ["player", "vehicle"]
+description: 获取玩家所在的车辆座位号
+tags: ["玩家", "车辆"]
 ---
 
-## Description
+## 描述
 
-Find out which seat a player is in.
+获取指定玩家当前在车辆中的座位编号
 
-| Name     | Description                                       |
-| -------- | ------------------------------------------------- |
-| playerid | The ID of the player you want to get the seat of. |
+| 名称     | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要获取座位信息的玩家 ID |
 
-## Returns
+## 返回值
 
-The ID of the seat the player is in.
+玩家当前所在的座位编号：
+• **-1** 未处于车辆中
+• **0** 驾驶位
+• **1** 前排乘客位
+• **2** 后排左侧乘客位
+• **3** 后排右侧乘客位
+• **4+** 扩展乘客位（如客车等）
 
-**-1** is not in vehicle, **0** is the driver, **1** is the front passenger, and **2** & **3** are the rear passengers.
-
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -29,16 +33,16 @@ public OnPlayerCommandText(playerid, cmdtext[])
         new
             playerSeat = GetPlayerVehicleSeat(playerid);
 
-        // How you can discard of your information.
+        // 异常状态处理
         if (playerSeat == 128)
         {
-            return SendClientMessage(playerid, 0xFFFFFFFF, "An error has prevented us from returning the seat ID.");
+            return SendClientMessage(playerid, 0xFFFFFFFF, "无法获取座位信息，发生系统错误");
         }
 
         new
             string[24];
 
-        format(string, sizeof(string), "Your seat: %i", playerSeat);
+        format(string, sizeof(string), "您的座位号：%i", playerSeat);
         SendClientMessage(playerid, 0xFFFFFFFF, string);
         return 1;
     }
@@ -46,15 +50,15 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-| ID  | Seat                         |
-| --- | ---------------------------- |
-| 0   | Driver                       |
-| 1   | Front passenger              |
-| 2   | Back-left passenger          |
-| 3   | Back-right passenger         |
-| 4+  | Passenger seats (coach etc.) |
+| ID  | 座位位置             |
+| --- | -------------------- |
+| 0   | 驾驶位               |
+| 1   | 前排乘客位           |
+| 2   | 后排左侧乘客位       |
+| 3   | 后排右侧乘客位       |
+| 4+  | 扩展乘客位（客车等） |
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerVehicleID](GetPlayerVehicleID): Get the ID of the vehicle the player is in.
-- [PutPlayerInVehicle](PutPlayerInVehicle): Put a player in a vehicle.
+• [GetPlayerVehicleID](GetPlayerVehicleID): 获取玩家所在车辆的 ID
+• [PutPlayerInVehicle](PutPlayerInVehicle): 将玩家放置到指定车辆座位

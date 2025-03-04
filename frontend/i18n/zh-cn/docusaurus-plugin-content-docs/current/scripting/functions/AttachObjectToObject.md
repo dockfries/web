@@ -54,7 +54,7 @@ SA-MP 原生版本没有玩家物体版的此函数
 ## 相关函数
 
 - [AttachObjectToPlayer](AttachObjectToPlayer): 将物体附加到玩家
-- [AttachObjectToVehicle](AttachObjectToVehicle): 将物体附加到载具
+- [AttachObjectToVehicle](AttachObjectToVehicle): 将物体附加到车辆
 - [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 将玩家物体附加到玩家
 - [CreateObject](CreateObject): 创建物体
 - [DestroyObject](DestroyObject): 销毁物体

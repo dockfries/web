@@ -1,44 +1,44 @@
 ---
 title: GetPlayerRawIp
 sidebar_label: GetPlayerRawIp
-description: Get the specified player's Raw IP address (v4).
-tags: ["player", "ip address"]
+description: 获取玩家的原始IPv4地址（整数形式）
+tags: ["玩家", "IP地址"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the specified player's Raw IP address (v4).
+获取指定玩家的原始 IPv4 地址（以整数形式表示）
 
-| Name     | Description                                        |
-| -------- | -------------------------------------------------- |
-| playerid | The ID of the player to get the Raw IP address of. |
+| 参数名   | 说明                          |
+| -------- | ----------------------------- |
+| playerid | 需要获取原始 IP 地址的玩家 ID |
 
-## Returns
+## 返回值
 
-Returns the player's Raw IP address as integer.
+以整数形式返回玩家的原始 IPv4 地址
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
 {
     new rawIp = GetPlayerRawIp(playerid);
-    SendClientMessage(playerid, 0xFFFF00FF, "SERVER: Your Raw IP address: %d", rawIp);
+    SendClientMessage(playerid, 0xFFFF00FF, "服务器：您的原始IP地址：%d", rawIp);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-PAWN is case-sensitive. GetPlayerRawIP will not work.
+PAWN 语言区分大小写。使用 GetPlayerRawIP（带大写 IP）将无法生效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerIp](GetPlayerIp): Get a player's IP.
-- [NetStats_GetIpPort](NetStats_GetIpPort): Get a player's IP and port.
+- [GetPlayerIp](GetPlayerIp): 获取玩家的字符串形式 IP 地址
+- [NetStats_GetIpPort](NetStats_GetIpPort): 获取玩家的 IP 地址和端口号

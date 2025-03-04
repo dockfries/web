@@ -87,7 +87,7 @@ omp-server --default-config
 | game.chat_radius                   | 浮点数 | 200.0  | ❌   | ❌   | 聊天有效半径（单位：米），同时影响玩家在地图上的可见距离                                                                                                     |
 | game.death_drop_amount             | 整型   | 0      | ❌   | ❌   | 玩家死亡时掉落的现金金额                                                                                                                                     |
 | game.gravity                       | 浮点数 | 0.008  | ❌   | ✅   | 全局重力参数（SA-MP 默认值为 0.008）                                                                                                                         |
-| game.group_player_objects          | 布尔值 | false  | ❌   | ❌   | 优化玩家对象 ID 分配机制。SA-MP 中全局对象与玩家对象共享 ID 池，启用后服务器会尝试复用其他玩家已占用的玩家对象槽位，避免全局对象占满后无法创建玩家对象的问题 |
+| game.group_player_objects          | 布尔值 | false  | ❌   | ❌   | 优化玩家物体 ID 分配机制。SA-MP 中全局物体与玩家物体共享 ID 池，启用后服务器会尝试复用其他玩家已占用的玩家物体槽位，避免全局物体占满后无法创建玩家物体的问题 |
 | game.lag_compensation_mode         | 整型   | 1      | ✅   | ✅   | **0**：完全禁用延迟补偿，**1**：完全启用延迟补偿，**2**：仅启用位置补偿（不补偿玩家旋转）                                                                    |
 | game.map                           | 字符串 |        | ❌   | ✅   | 服务器浏览器显示的自定义地图名称（例如："我的特技地图"）                                                                                                     |
 | game.mode                          | 字符串 |        | ❌   | ❌   | 服务器浏览器显示的游戏模式名称，可通过[SetGameModeText](../scripting/functions/SetGameModeText)覆盖                                                          |
@@ -104,11 +104,11 @@ omp-server --default-config
 | game.use_nametags                  | 布尔值 | true   | ❌   | ❌   | 显示玩家名牌、血条和护甲条                                                                                                                                   |
 | game.use_player_marker_draw_radius | 布尔值 | false  | ❌   | ❌   | 启用玩家标记（小地图上的雷达标记）显示                                                                                                                       |
 | game.use_player_ped_anims          | 布尔值 | false  | ❌   | ❌   | 使用标准 CJ 皮肤行走动画，而非各皮肤专属动画（如滑板皮肤的滑行动作）                                                                                         |
-| game.use_stunt_bonuses             | 布尔值 | true   | ❌   | ❌   | 启用载具特技奖励（如车辆翘轮行驶时给予金钱奖励）                                                                                                             |
-| game.use_vehicle_friendly_fire     | 布尔值 | false  | ❌   | ❌   | 启用载具友军伤害（允许攻击同队伍载具）                                                                                                                       |
+| game.use_stunt_bonuses             | 布尔值 | true   | ❌   | ❌   | 启用车辆特技奖励（如车辆翘轮行驶时给予金钱奖励）                                                                                                             |
+| game.use_vehicle_friendly_fire     | 布尔值 | false  | ❌   | ❌   | 启用车辆友军伤害（允许攻击同队伍车辆）                                                                                                                       |
 | game.use_zone_names                | 布尔值 | false  | ❌   | ❌   | 显示区域名称（如进入"Vinewood"区域时右下角显示文字提示）                                                                                                     |
 | game.validate_animations           | 布尔值 | true   | ❌   | ❌   | 验证玩家动画有效性                                                                                                                                           |
-| game.vehicle_respawn_time          | 整型   | 10000  | ❌   | ❌   | 载具重生时间（单位：毫秒，默认 10 秒）                                                                                                                       |
+| game.vehicle_respawn_time          | 整型   | 10000  | ❌   | ❌   | 车辆重生时间（单位：毫秒，默认 10 秒）                                                                                                                       |
 | game.weather                       | 整型   | 10     | ❌   | ✅   | 全局天气 ID（SA-MP 默认天气为 10）                                                                                                                           |
 
 ## 语言设置
@@ -158,7 +158,7 @@ omp-server --default-config
 | network.cookie_reseed_time      | 整型   | 300000 | ❌   | ❌   | 连接 cookie 种子刷新间隔（单位：毫秒，默认 5 分钟）                                                            |
 | network.grace_period            | 整型   | 5000   | ❌   | ❌   | 同 IP 连接宽限期（单位：毫秒，服务器启动后 5 秒内允许同一 IP 无限连接，主要用于 NPC 批量连接）                 |
 | network.http_threads            | 整型   | 50     | ❌   | ❌   | HTTP 服务线程数                                                                                                |
-| network.in_vehicle_sync_rate\*  | 整型   | 30     | ✅   | ❌   | 载具内状态同步间隔（单位：毫秒）                                                                               |
+| network.in_vehicle_sync_rate\*  | 整型   | 30     | ✅   | ❌   | 车辆内状态同步间隔（单位：毫秒）                                                                               |
 | network.limits_ban_time         | 整型   | 60000  | ❌   | ❌   | 违规连接封禁时间（单位：毫秒，当触发 acks/messages 限制时生效）                                                |
 | network.message_hole_limit      | 整型   | 3000   | ❌   | ❌   | 消息空洞数量限制（防 DDoS 设置）                                                                               |
 | network.messages_limit          | 整型   | 500    | ❌   | ❌   | 客户端每秒最大消息数限制                                                                                       |

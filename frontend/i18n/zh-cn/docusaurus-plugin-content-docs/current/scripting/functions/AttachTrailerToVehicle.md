@@ -1,22 +1,22 @@
 ---
 title: AttachTrailerToVehicle
 sidebar_label: AttachTrailerToVehicle
-description: 将一个载具作为拖车附加到另一个载具上。
-tags: ["载具"]
+description: 将一个车辆作为拖车附加到另一个车辆上。
+tags: ["车辆"]
 ---
 
 ## 描述
 
-将一个载具作为拖车附加到另一个载具上。
+将一个车辆作为拖车附加到另一个车辆上。
 
 | 名称      | 说明              |
 | --------- | ----------------- |
-| trailerid | 被牵引的载具 ID   |
-| vehicleid | 牵引拖车的载具 ID |
+| trailerid | 被牵引的车辆 ID   |
+| vehicleid | 牵引拖车的车辆 ID |
 
 ## 返回值
 
-本函数始终返回 **true**，即使传入的载具 ID 无效。
+本函数始终返回 **true**，即使传入的车辆 ID 无效。
 
 ## 示例
 
@@ -31,12 +31,12 @@ AttachTrailerToVehicle(trailerId, vehicleId);
 
 :::warning
 
-该功能仅在两个载具均被玩家流加载时生效（参见[IsVehicleStreamedIn](IsVehicleStreamedIn)）。
+该功能仅在两个车辆均被玩家流加载时生效（参见[IsVehicleStreamedIn](IsVehicleStreamedIn)）。
 
 :::
 
 ## 相关函数
 
-- [DetachTrailerFromVehicle](DetachTrailerFromVehicle): 将拖车从载具分离
+- [DetachTrailerFromVehicle](DetachTrailerFromVehicle): 将拖车从车辆分离
 - [IsTrailerAttachedToVehicle](IsTrailerAttachedToVehicle): 检测拖车是否已连接
-- [GetVehicleTrailer](GetVehicleTrailer): 获取载具牵引的拖车 ID
+- [GetVehicleTrailer](GetVehicleTrailer): 获取车辆牵引的拖车 ID

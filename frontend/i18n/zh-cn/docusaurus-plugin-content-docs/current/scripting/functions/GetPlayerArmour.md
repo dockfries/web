@@ -53,4 +53,4 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
 - [SetPlayerArmour](SetPlayerArmour): 设置玩家护甲值
 - [GetPlayerHealth](GetPlayerHealth): 获取玩家生命值
-- [GetVehicleHealth](GetVehicleHealth): 获取载具耐久值
+- [GetVehicleHealth](GetVehicleHealth): 获取车辆耐久值

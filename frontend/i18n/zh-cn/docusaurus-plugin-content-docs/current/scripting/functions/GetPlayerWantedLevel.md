@@ -1,37 +1,35 @@
 ---
 title: GetPlayerWantedLevel
 sidebar_label: GetPlayerWantedLevel
-description: Gets the wanted level of a player.
-tags: ["player"]
+description: 获取玩家的通缉等级
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Gets the wanted level of a player.
+获取指定玩家的当前通缉等级（警星数量）
 
-| Name     | Description                                                    |
-| -------- | -------------------------------------------------------------- |
-| playerid | The ID of the player that you want to get the wanted level of. |
+| 名称     | 说明                      |
+| -------- | ------------------------- |
+| playerid | 需要获取通缉等级的玩家 ID |
 
-## Returns
+## 返回值
 
-The player's wanted level.
+玩家当前的警星等级（0-6 级）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
      if (strcmp(cmdtext, "/getmywantedlevel", true) == 0)
      {
-          // Gets the current wanted level, saves it in the variable wantedlevel
-          //and then tells the player his wanted in a client message.
-
+          // 获取当前通缉等级并发送给玩家
           new
                wantedLevel = GetPlayerWantedLevel(playerid),
                message[64];
 
-          format(message, sizeof(message), "Your current wanted level is: %i", wantedlevel);
+          format(message, sizeof(message), "您当前的通缉等级为：%i 星", wantedLevel);
           SendClientMessage(playerid, 0xFF0000FF, message);
 
           return 1;
@@ -40,7 +38,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerWantedLevel](SetPlayerWantedLevel): Set a player's wanted level.
-- [PlayCrimeReportForPlayer](PlayCrimeReportForPlayer): Play a crime report for a player.
+- [SetPlayerWantedLevel](SetPlayerWantedLevel): 设置玩家通缉等级
+- [PlayCrimeReportForPlayer](PlayCrimeReportForPlayer): 为玩家播放犯罪通告

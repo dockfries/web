@@ -19,7 +19,7 @@ tags: ["玩家", "3D文本标签"]
 | Float:z            | Z 轴坐标（若绑定实体则为偏移量）                      |
 | Float:drawDistance | 可视距离（单位：游戏单位）                            |
 | attachedplayer     | 绑定玩家实体 ID（不绑定填 INVALID_PLAYER_ID）         |
-| attachedvehicle    | 绑定载具实体 ID（不绑定填 INVALID_VEHICLE_ID）        |
+| attachedvehicle    | 绑定车辆实体 ID（不绑定填 INVALID_VEHICLE_ID）        |
 | bool:testLOS       | 视线检测开关（true=穿透物体不可见，false=可穿透显示） |
 | OPEN_MP_TAGS:...   | 扩展参数（支持任意类型参数）                          |
 
