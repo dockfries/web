@@ -1,27 +1,27 @@
 ---
 title: GetVehiclePaintjob
 sidebar_label: GetVehiclePaintjob
-description: Gets the vehicle's paintjob id.
-tags: ["vehicle"]
+description: 获取车辆的涂装方案编号。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the vehicle's paintjob id.
+获取车辆当前的涂装方案编号。
 
-## Parameters
+## 参数
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明               |
+| --------- | ------------------ |
+| vehicleid | 目标车辆的 ID 编号 |
 
-## Return Values
+## 返回值
 
-Returns the [paintjob id](../resources/paintjobs).
+返回[涂装方案编号](../resources/paintjobs)。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -35,6 +35,6 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [ChangeVehiclePaintjob](ChangeVehiclePaintjob): Change a vehicle's paintjob
+- [ChangeVehiclePaintjob](ChangeVehiclePaintjob): 修改车辆涂装方案

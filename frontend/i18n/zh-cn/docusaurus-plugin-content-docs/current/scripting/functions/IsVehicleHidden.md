@@ -1,48 +1,48 @@
 ---
 title: IsVehicleHidden
 sidebar_label: IsVehicleHidden
-description: Checks if a vehicle is hidden.
-tags: ["vehicle"]
+description: 检测车辆是否隐藏
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 :::warning
 
-This function has not yet been implemented.
+该函数当前尚未实现
 
 :::
 
-## Description
+## 描述
 
-Checks if a vehicle is hidden.
+检测指定车辆是否处于隐藏状态。
 
-## Parameters
+## 参数说明
 
-| Name      | Description                     |
-| --------- | ------------------------------- |
-| vehicleid | The ID of the vehicle to check. |
+| 参数名    | 说明            |
+| --------- | --------------- |
+| vehicleid | 要检测的车辆 ID |
 
-## Return Values
+## 返回值
 
-**true** - Vehicle is hidden.
+**true** - 车辆已隐藏
 
-**false** - Vehicle is not hidden.
+**false** - 车辆可见
 
-## Examples
+## 示例代码
 
 ```c
 if (IsVehicleHidden(vehicleid))
 {
-    // Vehicle is hidden
+    // 车辆已隐藏
 }
 else
 {
-    // Vehicle is not hidden
+    // 车辆可见
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [HideVehicle](HideVehicle): Hides a vehicle from the game.
-- [ShowVehicle](ShowVehicle): Shows the hidden vehicle.
+- [HideVehicle](HideVehicle): 将车辆设为隐藏状态
+- [ShowVehicle](ShowVehicle): 取消车辆隐藏状态

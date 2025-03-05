@@ -1,22 +1,22 @@
 ---
 title: heapspace
 sidebar_label: heapspace
-description: Returns the amount of memory available for the heap/stack in bytes.
-tags: ["core"]
+description: 返回堆/栈内存的可用空间（单位：字节）。
+tags: ["核心"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Returns the amount of memory available for the heap/stack in bytes.
+返回当前堆/栈内存的可用空间（单位：字节）。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    printf("Heapspace: %i kilobytes", heapspace() / 1024);
+    printf("堆内存空间：%i KB", heapspace() / 1024);
     return 1;
 }
 ```

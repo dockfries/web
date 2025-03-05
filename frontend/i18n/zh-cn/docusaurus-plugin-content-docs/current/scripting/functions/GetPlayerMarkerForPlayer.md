@@ -35,5 +35,5 @@ new markerColour = GetPlayerMarkerForPlayer(42, 1);
 - [ShowPlayerMarkers](ShowPlayerMarkers): 设置服务器是否显示雷达标记
 - [LimitPlayerMarkerRadius](LimitPlayerMarkerRadius): 限制玩家标记显示半径
 - [SetPlayerColor](SetPlayerColor): 设置玩家全局颜色
-- [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer): 控制特定玩家名称标签的可见性
+- [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer): 控制特定玩家昵称标签的可见性
 - [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): 为指定玩家设置其他玩家的雷达标记

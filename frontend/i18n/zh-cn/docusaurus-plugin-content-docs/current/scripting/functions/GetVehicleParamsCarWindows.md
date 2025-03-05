@@ -1,44 +1,44 @@
 ---
 title: GetVehicleParamsCarWindows
 sidebar_label: GetVehicleParamsCarWindows
-description: Allows you to retrieve the current state of a vehicle's windows.
-tags: ["vehicle"]
+description: 获取车辆车窗的当前状态。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Allows you to retrieve the current state of a vehicle's windows
+获取车辆各个车窗的当前开启状态
 
-| Name             | Description                                                               |
-| ---------------- | ------------------------------------------------------------------------- |
-| vehicleid        | The ID of the vehicle                                                     |
-| &bool:frontLeft  | The integer to save the state of the drivers window to.                   |
-| &bool:frontRight | The integer to save the state of the passengers window to.                |
-| &bool:rearLeft   | The integer to save the state of the rear left window to (if available).  |
-| &bool:rearRight  | The integer to save the state of the rear right window to (if available). |
+| 参数名           | 说明                                               |
+| ---------------- | -------------------------------------------------- |
+| vehicleid        | 目标车辆 ID                                        |
+| &bool:frontLeft  | 用于存储驾驶员侧车窗状态的整型变量（按引用传递）   |
+| &bool:frontRight | 用于存储副驾驶侧车窗状态的整型变量（按引用传递）   |
+| &bool:rearLeft   | 用于存储左后车窗状态的整型变量（若车辆存在该车窗） |
+| &bool:rearRight  | 用于存储右后车窗状态的整型变量（若车辆存在该车窗） |
 
-## Returns
+## 返回值
 
-The vehicle's windows state is stored in the specified variables.
+车辆的车窗状态将被存储到指定的变量中。
 
-## Notes
+## 注意事项
 
 :::tip
 
-The values returned in each variable are as follows:
+各变量返回值对应状态：
 
-**-1**: Window state not set (generally closed, unless set explicitly to -1)
+**-1**: 未设置车窗状态（通常为关闭状态，除非显式设置为-1）
 
-**0**: Open
+**0**: 开启状态
 
-**1**: Closed
+**1**: 关闭状态
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleParamsCarWindows](SetVehicleParamsCarWindows): Open and close the windows of a vehicle.
-- [GetVehicleParamsCarDoors](GetVehicleParamsCarDoors): Retrive the current state of a vehicle's doors.
-- [SetVehicleParamsCarDoors](SetVehicleParamsCarDoors): Open and close the doors of a vehicle.
+- [SetVehicleParamsCarWindows](SetVehicleParamsCarWindows): 控制车辆车窗的开关状态
+- [GetVehicleParamsCarDoors](GetVehicleParamsCarDoors): 获取车辆车门的当前状态
+- [SetVehicleParamsCarDoors](SetVehicleParamsCarDoors): 控制车辆车门的开关状态

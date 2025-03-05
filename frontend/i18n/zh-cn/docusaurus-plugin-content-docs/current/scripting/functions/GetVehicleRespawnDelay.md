@@ -1,23 +1,23 @@
 ---
 title: GetVehicleRespawnDelay
 sidebar_label: GetVehicleRespawnDelay
-description: Get the respawn delay of a vehicle.
-tags: ["vehicle"]
+description: 获取车辆的重生延迟时间。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the respawn delay of a vehicle.
+获取车辆当前设置的重生延迟时间（单位：秒）。
 
-## Parameters
+## 参数
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明               |
+| --------- | ------------------ |
+| vehicleid | 目标车辆的 ID 编号 |
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -25,11 +25,11 @@ public OnGameModeInit()
     new vehicleid = CreateVehicle(560, 2096.1917, -1328.5150, 25.1059, 0.0000, 1, 8, 60);
 
     new respawnDelay = GetVehicleRespawnDelay(vehicleid);
-    // respawnDelay = 60
+    // 重生延迟时间 = 60 秒
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleRespawnDelay](SetVehicleRespawnDelay): Set the respawn delay of a vehicle.
+- [SetVehicleRespawnDelay](SetVehicleRespawnDelay): 设置车辆的重生延迟时间

@@ -1,23 +1,23 @@
 ---
 title: GetVehicleTrainSpeed
 sidebar_label: GetVehicleTrainSpeed
-description: Gets the speed of the train.
-tags: ["vehicle"]
+description: 获取列车的当前行驶速度。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the speed of the train.
+获取列车类车辆的实时运行速度。
 
-## Parameters
+## 参数
 
-| Name      | Description            |
+| 参数名    | 说明                   |
 | --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| vehicleid | 目标列车车辆的 ID 编号 |
 
-## Examples
+## 示例
 
 ```c
 new vehicleid = GetPlayerVehicleID(playerid);
@@ -25,6 +25,7 @@ new vehicleid = GetPlayerVehicleID(playerid);
 new Float:speed = GetVehicleTrainSpeed(vehicleid);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerTrainSpeed](GetPlayerTrainSpeed): Gets the speed of the player's train.
+- [GetPlayerTrainSpeed](GetPlayerTrainSpeed): 获取玩家当前驾驶的列车速度
+- [SetVehicleTrainSpeed](SetVehicleTrainSpeed): 设置轨道列车的运行速度

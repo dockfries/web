@@ -1,26 +1,26 @@
 ---
 title: HideGameTextForPlayer
 sidebar_label: HideGameTextForPlayer
-description: Stop showing a gametext style to a player.
-tags: ["player", "gametext"]
+description: 停止向玩家显示游戏文本样式。
+tags: ["玩家", "游戏文本"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Stop showing a gametext style to a player.
+停止向指定玩家显示特定样式的游戏文本。
 
-| Name     | Description                                               |
-| -------- | --------------------------------------------------------- |
-| playerid | The ID of the player to hide the gametext for.            |
-| style    | The [style](../resources/gametextstyles) of text to hide. |
+| 参数     | 说明                                            |
+| -------- | ----------------------------------------------- |
+| playerid | 需要隐藏游戏文本的玩家 ID                       |
+| style    | 要隐藏的文本[样式](../resources/gametextstyles) |
 
-## Returns
+## 返回值
 
-This function does not return any specific value.
+本函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
@@ -30,11 +30,11 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [HideGameTextForAll](HideGameTextForAll): Stop showing a gametext style for all players.
-- [GameTextForPlayer](GameTextForPlayer): Display gametext to a player.
-- [GameTextForAll](GameTextForAll): Display gametext to all players.
-- [GetGameText](GetGameText): Gets all the information on the given game text style.
-- [HasGameText](HasGameText): Does the player currently have text in the given gametext style displayed?
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
+- [HideGameTextForAll](HideGameTextForAll): 停止为所有玩家显示游戏文本样式
+- [GameTextForPlayer](GameTextForPlayer): 向玩家显示游戏文本
+- [GameTextForAll](GameTextForAll): 向所有玩家显示游戏文本
+- [GetGameText](GetGameText): 获取指定游戏文本样式的所有信息
+- [HasGameText](HasGameText): 玩家当前是否显示着指定样式的游戏文本？
+- [TextDrawHideForAll](TextDrawHideForAll): 为所有玩家隐藏文本绘图

@@ -1,45 +1,44 @@
 ---
 title: IsPlayerGangZoneFlashing
 sidebar_label: IsPlayerGangZoneFlashing
-description: Check if the player gangzone is flashing
-tags: ["player", "gangzone", "playergangzone"]
+description: 检查玩家的私人帮派区域是否处于闪烁状态
+tags: ["玩家", "帮派区域", "私人帮派区域"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Check if the player gangzone is flashing.
+检测指定玩家的私人帮派区域是否正在闪烁。
 
-| Name     | Description                                            |
-| -------- | ------------------------------------------------------ |
-| playerid | The ID of the player to whom player gangzone is bound. |
-| zoneid   | The ID of the player gangzone.                         |
+| 参数     | 说明                      |
+| -------- | ------------------------- |
+| playerid | 绑定帮派区域的玩家 ID     |
+| zoneid   | 需要检查的私人帮派区域 ID |
 
-## Returns
+## 返回值
 
-**true** - The player gangzone is flashing.
+**true** - 帮派区域正在闪烁  
+**false** - 未闪烁或区域不存在
 
-**false** - The player gangzone is not flashing.
-
-## Examples
+## 示例
 
 ```c
 new gGangZoneID[MAX_PLAYERS];
 
 public OnPlayerConnect(playerid)
 {
-    // Create the gangzone
+    // 为玩家创建私人帮派区域（坐标范围）
     gGangZoneID[playerid] = CreatePlayerGangZone(playerid, 2236.1475, 2424.7266, 2319.1636, 2502.4348);
 
-    // Show the gangzone to player
+    // 向玩家显示红色帮派区域
     PlayerGangZoneShow(playerid, gGangZoneID[playerid], 0xFF0000FF);
     return 1;
 }
 
 public OnPlayerSpawn(playerid)
 {
-    // Start player gangzone flash
+    // 设置帮派区域闪烁（青色闪烁效果）
     PlayerGangZoneFlash(playerid, gGangZoneID[playerid], 0x45D1ABFF);
     return 1;
 }
@@ -54,18 +53,18 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerGangZone](CreatePlayerGangZone): Create player gangzone.
-- [PlayerGangZoneDestroy](PlayerGangZoneDestroy): Destroy player gangzone.
-- [PlayerGangZoneShow](PlayerGangZoneShow): Show player gangzone.
-- [PlayerGangZoneHide](PlayerGangZoneHide): Hide player gangzone.
-- [PlayerGangZoneFlash](PlayerGangZoneFlash): Start player gangzone flash.
-- [PlayerGangZoneStopFlash](PlayerGangZoneStopFlash): Stop player gangzone flash.
-- [PlayerGangZoneGetFlashColour](PlayerGangZoneGetFlashColour): Get the flashing colour of a player gangzone.
-- [PlayerGangZoneGetColour](PlayerGangZoneGetColour): Get the colour of a player gangzone.
-- [PlayerGangZoneGetPos](PlayerGangZoneGetPos): Get the position of a gangzone, represented by minX, minY, maxX, maxY coordinates.
-- [IsValidPlayerGangZone](IsValidPlayerGangZone): Check if the player gangzone valid.
-- [IsPlayerInPlayerGangZone](IsPlayerInPlayerGangZone): Check if the player in player gangzone.
-- [IsPlayerGangZoneVisible](IsPlayerGangZoneVisible): Check if the player gangzone is visible.
-- [UsePlayerGangZoneCheck](UsePlayerGangZoneCheck): Enables the callback when a player enters/leaves this zone.
+- [CreatePlayerGangZone](CreatePlayerGangZone): 创建玩家专属帮派区域
+- [PlayerGangZoneDestroy](PlayerGangZoneDestroy): 销毁玩家帮派区域
+- [PlayerGangZoneShow](PlayerGangZoneShow): 显示玩家帮派区域
+- [PlayerGangZoneHide](PlayerGangZoneHide): 隐藏玩家帮派区域
+- [PlayerGangZoneFlash](PlayerGangZoneFlash): 启动帮派区域闪烁效果
+- [PlayerGangZoneStopFlash](PlayerGangZoneStopFlash): 停止闪烁效果
+- [PlayerGangZoneGetFlashColour](PlayerGangZoneGetFlashColour): 获取闪烁颜色值
+- [PlayerGangZoneGetColour](PlayerGangZoneGetColour): 获取基础颜色值
+- [PlayerGangZoneGetPos](PlayerGangZoneGetPos): 获取区域坐标范围（最小/最大 XY 坐标）
+- [IsValidPlayerGangZone](IsValidPlayerGangZone): 验证帮派区域有效性
+- [IsPlayerInPlayerGangZone](IsPlayerInPlayerGangZone): 检测玩家是否在专属区域内
+- [IsPlayerGangZoneVisible](IsPlayerGangZoneVisible): 检查帮派区域可见性状态
+- [UsePlayerGangZoneCheck](UsePlayerGangZoneCheck): 启用区域进出回调检测

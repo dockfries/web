@@ -49,7 +49,7 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 
 ## 相关函数
 
-• [SetPlayerPos](SetPlayerPos): 设置玩家坐标位置
-• [GetVehiclePos](GetVehiclePos): 获取车辆坐标位置
-• [IsPlayerInRangeOfPoint](IsPlayerInRangeOfPoint): 检测玩家是否在指定点附近
-• [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): 计算玩家与指定点的距离
+- [SetPlayerPos](SetPlayerPos): 设置玩家坐标位置
+- [GetVehiclePos](GetVehiclePos): 获取车辆坐标位置
+- [IsPlayerInRangeOfPoint](IsPlayerInRangeOfPoint): 检测玩家是否在指定点附近
+- [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): 计算玩家与指定点的距离

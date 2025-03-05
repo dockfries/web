@@ -1,37 +1,38 @@
 ---
 title: ispacked
 sidebar_label: ispacked
-description: Checks if the given string is packed.
-tags: ["string"]
+description: 检查字符串是否已打包
+tags: ["字符串"]
 ---
 
-<LowercaseNote />
+<函数名小写形式 />
 
-## Description
+## 描述
 
-Checks if the given string is packed.
+检查指定字符串是否处于打包状态。
 
-| Name           | Description          |
-| -------------- | -------------------- |
-| const string[] | The string to check. |
+| 参数           | 说明             |
+| -------------- | ---------------- |
+| const string[] | 需要检查的字符串 |
 
-## Returns
+## 返回值
 
-**1** if the string is packed, **0** if it's unpacked.
+**1** - 字符串已打包  
+**0** - 字符串未打包
 
-## Examples
+## 示例
 
 ```c
-// Create a packed string
+// 创建打包字符串
 new string[24 char];
 
 if (ispacked(string))
 {
-   print("The string is packed.");
+   print("该字符串已打包。");
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [strpack](strpack): Pack a string.
-- [strunpack](strunpack): This function can be used to unpack a string.
+- [strpack](strpack): 打包字符串
+- [strunpack](strunpack): 解包字符串

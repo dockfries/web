@@ -1,27 +1,27 @@
 ---
 title: IsPlayerTeleportAllowed
 sidebar_label: IsPlayerTeleportAllowed
-description: Can this player teleport by right-clicking on the map?
-tags: ["player"]
+description: 该玩家是否可以通过右键点击地图进行传送？
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Can this player teleport by right-clicking on the map?
+检测指定玩家是否拥有地图右键传送权限。
 
-| Name     | Description                             |
-| -------- | --------------------------------------- |
-| playerid | The ID of the player to allow teleport. |
+| 参数名   | 说明            |
+| -------- | --------------- |
+| playerid | 要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - Player is allowed.
+**true** - 允许地图传送
 
-**false** - Player is not allowed.
+**false** - 禁止地图传送
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
@@ -34,12 +34,12 @@ public OnPlayerSpawn(playerid)
 {
     if (IsPlayerTeleportAllowed(playerid))
     {
-        // Do something
+        // 执行相关操作
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [AllowPlayerTeleport](AllowPlayerTeleport): Sets the player as an RCON admin.
+- [AllowPlayerTeleport](AllowPlayerTeleport): 设置玩家的地图传送权限

@@ -1,30 +1,30 @@
 ---
 title: GetVehicleVelocity
 sidebar_label: GetVehicleVelocity
-description: Get the velocity of a vehicle on the X, Y and Z axes.
-tags: ["vehicle"]
+description: 获取车辆在XYZ轴上的三维速度。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Get the velocity of a vehicle on the X, Y and Z axes.
+获取车辆在三维空间中的运动速度分量。
 
-| Name      | Description                                                                          |
-| --------- | ------------------------------------------------------------------------------------ |
-| vehicleid | The ID of the vehicle to get the velocity of.                                        |
-| &Float:x  | A float variable in to which to store the vehicle's X velocity, passed by reference. |
-| &Float:y  | A float variable in to which to store the vehicle's Y velocity, passed by reference. |
-| &Float:z  | A float variable in to which to store the vehicle's Z velocity, passed by reference. |
+| 参数名    | 说明                                        |
+| --------- | ------------------------------------------- |
+| vehicleid | 目标车辆 ID                                 |
+| &Float:x  | 存储 X 轴速度分量的浮点变量（通过引用传递） |
+| &Float:y  | 存储 Y 轴速度分量的浮点变量（通过引用传递） |
+| &Float:z  | 存储 Z 轴速度分量的浮点变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 操作成功执行
 
-**false** - The function failed to execute. This means the vehicle specified does not exist.
+**false** - 操作执行失败（指定车辆不存在）
 
-The vehicle's velocity is stored in the specified variables.
+车辆的三维速度分量将被存储至指定变量。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -42,7 +42,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
         GetVehicleVelocity(GetPlayerVehicleID(playerid), vehVelocity[0], vehVelocity[1], vehVelocity[2]);
 
-        format(string, sizeof(string), "You are going at a velocity of X%f, Y%f, Z%f", vehVelocity[0], vehVelocity[1], vehVelocity[2]);
+        format(string, sizeof(string), "当前三维速度：X%.2f Y%.2f Z%.2f", vehVelocity[0], vehVelocity[1], vehVelocity[2]);
         SendClientMessage(playerid, 0xFFFFFFFF, string);
         return 1;
     }
@@ -50,16 +50,16 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function can be used to retrieve a vehicle's speed (km/h, m/s or mph).
+本函数可配合公式计算车辆的实际移动速度（单位：千米/小时 或 米/秒）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleVelocity](SetVehicleVelocity): Set a vehicle's velocity.
-- [SetPlayerVelocity](SetPlayerVelocity): Set a player's velocity.
-- [GetPlayerVelocity](GetPlayerVelocity): Get a player's velocity.
+- [SetVehicleVelocity](SetVehicleVelocity): 设置车辆的三维速度
+- [SetPlayerVelocity](SetPlayerVelocity): 设置玩家的三维速度
+- [GetPlayerVelocity](GetPlayerVelocity): 获取玩家的三维速度

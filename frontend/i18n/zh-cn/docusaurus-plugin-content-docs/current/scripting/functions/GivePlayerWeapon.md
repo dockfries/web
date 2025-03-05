@@ -1,39 +1,39 @@
 ---
 title: GivePlayerWeapon
 sidebar_label: GivePlayerWeapon
-description: Give a player a weapon with a specified amount of ammo.
-tags: ["player"]
+description: 给予玩家指定武器及弹药。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Give a player a weapon with a specified amount of ammo.
+为玩家添加指定武器及相应数量的弹药。
 
-| Name            | Description                                                           |
-| --------------- | --------------------------------------------------------------------- |
-| playerid        | The ID of the player to give a weapon to.                             |
-| WEAPON:weaponid | The [ID of the weapon](../resources/weaponids) to give to the player. |
-| ammo            | The amount of ammo to give to the player.                             |
+| 参数名          | 说明                                      |
+| --------------- | ----------------------------------------- |
+| playerid        | 目标玩家的 ID 编号                        |
+| WEAPON:weaponid | 要给予的[武器 ID](../resources/weaponids) |
+| ammo            | 给予的弹药数量                            |
 
-## Returns
+## 返回值
 
-**1** - The function was executed successfully.
+**1** - 操作成功执行
 
-**0** - The function failed to execute. This means the player is not connected.
+**0** - 操作执行失败（玩家未连接）
 
-## Examples
+## 示例
 
 ```c
-GivePlayerWeapon(playerid, WEAPON_SAWEDOFF, 64); // Give playerid a sawn-off shotgun with 64 ammo
+GivePlayerWeapon(playerid, WEAPON_SAWEDOFF, 64); // 给予玩家短管霰弹枪及64发弹药
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerArmedWeapon](SetPlayerArmedWeapon): Set a player's armed weapon.
-- [GetPlayerWeapon](GetPlayerWeapon): Check what weapon a player is currently holding.
-- [ResetPlayerWeapons](ResetPlayerWeapons): Removes all weapons from a player.
-- [RemovePlayerWeapon](RemovePlayerWeapon): Remove a specified weapon from a player.
+- [SetPlayerArmedWeapon](SetPlayerArmedWeapon): 设置玩家当前手持武器
+- [GetPlayerWeapon](GetPlayerWeapon): 获取玩家当前持有的武器
+- [ResetPlayerWeapons](ResetPlayerWeapons): 移除玩家所有武器
+- [RemovePlayerWeapon](RemovePlayerWeapon): 移除玩家指定武器
 
-## Related Resources
+## 相关资源
 
-- [Weapon IDs](../resources/weaponids)
+- [武器 ID 对照表](../resources/weaponids)

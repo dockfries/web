@@ -1,26 +1,26 @@
 ---
 title: LinkVehicleToInterior
-sidebar_label: LinkVehicleToInterior
-description: Links a vehicle to an interior.
-tags: ["vehicle"]
+sidebar_label: 关联车辆到室内空间
+description: 将车辆与指定室内空间绑定
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Links a vehicle to an interior. Vehicles can only be seen by players in the same interior (SetPlayerInterior).
+将指定车辆关联到特定室内空间。该车辆仅对处于相同室内空间的玩家可见（需通过[SetPlayerInterior](SetPlayerInterior)设置玩家室内位置）。
 
-| Name       | Description                                                |
-| ---------- | ---------------------------------------------------------- |
-| vehicleid  | The ID of the vehicle to link to an interior.              |
-| interiorid | The [Interior ID](../resources/interiorids) to link it to. |
+| 参数名     | 说明                                        |
+| ---------- | ------------------------------------------- |
+| vehicleid  | 要关联的车辆 ID                             |
+| interiorid | 目标[室内空间 ID](../resources/interiorids) |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 操作成功执行
 
-**false** - The function failed to execute. This means the vehicle does not exist.
+**false** - 操作执行失败（通常表示车辆不存在）
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
@@ -30,12 +30,12 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleInterior](GetVehicleInterior): Get the interior id of a vehicle.
-- [SetVehicleVirtualWorld](SetVehicleVirtualWorld): Set the virtual world of a vehicle.
-- [SetPlayerInterior](SetPlayerInterior): Set a player's interior.
+- [GetVehicleInterior](GetVehicleInterior): 获取车辆当前关联的室内空间 ID
+- [SetVehicleVirtualWorld](SetVehicleVirtualWorld): 设置车辆所属的虚拟世界
+- [SetPlayerInterior](SetPlayerInterior): 设置玩家所在室内空间
 
-## Related Resources
+## 相关资源
 
-- [Interior IDs](../resources/interiorids)
+- [室内空间 ID 对照表](../resources/interiorids)

@@ -1,49 +1,49 @@
 ---
 title: HidePlayerDialog
 sidebar_label: HidePlayerDialog
-description: Hides any dialog the player may currently be able to see.
-tags: ["player", "dialog"]
+description: 隐藏玩家当前可见的任何对话框
+tags: ["玩家", "对话框"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Hides any dialog the player may currently be able to see.
+隐藏玩家当前可见的任何对话框。
 
-| Name     | Description                                             |
-| -------- | ------------------------------------------------------- |
-| playerid | The ID of the player to hide their current dialog from. |
+| 参数     | 说明                        |
+| -------- | --------------------------- |
+| playerid | 需要隐藏当前对话框的玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player is not connected or they aren't looking at a dialog.
+**false** - 函数执行失败（玩家未连接或未查看对话框）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    if (IsAccountRegistered(playerid)) // Imaginary function to check if the player name is registered
+    if (IsAccountRegistered(playerid)) // （假设函数，用于检查玩家昵称是否已注册）
     {
-        ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Login", "Insert Your Password", "Login", ""); // shows login dialog to player
+        ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "登录", "请输入密码", "登录", ""); // 向玩家显示登录对话框
 
         new ipAddress[16];
-        GetPlayerIp(playerid, ipAddress, sizeof(ipAddress)); // get player's ip address
+        GetPlayerIp(playerid, ipAddress, sizeof(ipAddress)); // 获取玩家IP地址
 
-        if (IsBanned(ipAddress)) // check if the player ip is banned
+        if (IsBanned(ipAddress)) // 检查IP是否被封禁
         {
-            SendClientMessage(playerid, 0xFF0000FF, "You are banned from this server!");
-            HidePlayerDialog(playerid); // Hides login dialog
+            SendClientMessage(playerid, 0xFF0000FF, "您已被封禁！");
+            HidePlayerDialog(playerid); // 隐藏登录对话框
         }
     }
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [ShowPlayerDialog](ShowPlayerDialog): Shows the player a synchronous (only one at a time) dialog box.
-- [GetPlayerDialogData](GetPlayerDialogData): Get the data of the dialog currently show to the player.
-- [GetPlayerDialogID](GetPlayerDialogID): Get the ID of the dialog currently show to the player.
+- [ShowPlayerDialog](ShowPlayerDialog): 向玩家显示同步对话框（同一时间只能显示一个）
+- [GetPlayerDialogData](GetPlayerDialogData): 获取玩家当前对话框的数据
+- [GetPlayerDialogID](GetPlayerDialogID): 获取玩家当前对话框的 ID

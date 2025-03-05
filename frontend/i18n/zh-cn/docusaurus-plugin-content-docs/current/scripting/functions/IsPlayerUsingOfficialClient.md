@@ -1,32 +1,32 @@
 ---
 title: IsPlayerUsingOfficialClient
 sidebar_label: IsPlayerUsingOfficialClient
-description: Check if the player is using the official SA-MP client.
-tags: ["player"]
+description: 检测玩家是否使用官方SA-MP客户端。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Check if the player is using the official SA-MP client.
+检测指定玩家是否使用官方 SA-MP 客户端。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
+| 参数名   | 说明            |
+| -------- | --------------- |
+| playerid | 要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-Returns 1 if the player is using the official client, otherwise 0.
+当玩家使用官方客户端时返回 1，否则返回 0
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
 {
     if (IsPlayerUsingOfficialClient(playerid) == 0)
     {
-        SendClientMessage(playerid, 0xFF0000FF, "[KICK]: You doesn't seem to be using the official sa-mp client!");
+        SendClientMessage(playerid, 0xFF0000FF, "[踢出]: 检测到您未使用官方SA-MP客户端！");
         Kick(playerid);
     }
 
@@ -34,7 +34,7 @@ public OnPlayerConnect(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerUsingOmp](IsPlayerUsingOmp): Check if the player is using the open.mp launcher.
-- [SendClientCheck](SendClientCheck): Perform a memory check on the client.
+- [IsPlayerUsingOmp](IsPlayerUsingOmp): 检测玩家是否使用 open.mp 启动器
+- [SendClientCheck](SendClientCheck): 执行客户端内存校验

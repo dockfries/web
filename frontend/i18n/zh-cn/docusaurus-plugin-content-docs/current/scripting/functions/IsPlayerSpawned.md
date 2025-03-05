@@ -1,40 +1,40 @@
 ---
 title: IsPlayerSpawned
 sidebar_label: IsPlayerSpawned
-description: Checks if a player is spawned.
-tags: ["player"]
+description: 检测玩家是否已重生。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a player is spawned.
+检测指定玩家是否处于重生状态。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
+| 参数名   | 说明            |
+| -------- | --------------- |
+| playerid | 要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - The player is spawned.
+**true** - 玩家已重生
 
-**false** - The player is not spawned.
+**false** - 玩家未重生
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerText(playerid, text[])
 {
     if (!IsPlayerSpawned(playerid))
     {
-        SendClientMessage(playerid, COLOR_RED, "ERROR: You must be spawned to send messages.");
+        SendClientMessage(playerid, COLOR_RED, "错误：你必须重生后才能发送消息。");
         return 0;
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SpawnPlayer](SpawnPlayer): (Re)Spawns a player.
+- [SpawnPlayer](SpawnPlayer): 使玩家（重新）重生

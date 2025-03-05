@@ -1,23 +1,23 @@
 ---
 title: GetVehicleVirtualWorld
 sidebar_label: GetVehicleVirtualWorld
-description: Get the virtual world of a vehicle.
-tags: ["vehicle"]
+description: 获取车辆所在的虚拟世界编号。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Get the virtual world of a vehicle.
+获取车辆当前所处的虚拟世界编号。
 
-| Name      | Description                                        |
-| --------- | -------------------------------------------------- |
-| vehicleid | The ID of the vehicle to get the virtual world of. |
+| 参数名    | 说明               |
+| --------- | ------------------ |
+| vehicleid | 目标车辆的 ID 编号 |
 
-## Returns
+## 返回值
 
-The virtual world that the vehicle is in.
+返回整型数值表示车辆所在的虚拟世界编号
 
-## Examples
+## 示例
 
 ```c
 new
@@ -25,7 +25,7 @@ new
 SetPlayerVirtualWorld(playerid, vehicleWorld);
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleVirtualWorld](SetVehicleVirtualWorld): Set the virtual world of a vehicle.
-- [GetPlayerVirtualWorld](GetPlayerVirtualWorld): Check what virtual world a player is in.
+- [SetVehicleVirtualWorld](SetVehicleVirtualWorld): 设置车辆所处的虚拟世界
+- [GetPlayerVirtualWorld](GetPlayerVirtualWorld): 获取玩家当前所在的虚拟世界编号

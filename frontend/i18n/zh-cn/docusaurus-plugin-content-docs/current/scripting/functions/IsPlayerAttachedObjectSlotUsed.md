@@ -1,26 +1,25 @@
 ---
 title: IsPlayerAttachedObjectSlotUsed
-sidebar_label: IsPlayerAttachedObjectSlotUsed
-description: Check if a player has an object attached in the specified index (slot).
-tags: ["player", "object", "attachment"]
+sidebar_label: 检查玩家附加物体槽位使用状态
+description: 检查玩家是否在指定索引槽位附加了物体
+tags: ["玩家", "物体", "附加物"]
 ---
 
-## Description
+## 描述
 
-Check if a player has an object attached in the specified index (slot).
+检测玩家是否在指定索引槽位附加了物体。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
-| index    | The index (slot) to check.     |
+| 参数     | 说明               |
+| -------- | ------------------ |
+| playerid | 需要检查的玩家 ID  |
+| index    | 需要检查的槽位索引 |
 
-## Returns
+## 返回值
 
-**true** - The specified slot is used for an attached object.
+**true** - 该槽位已被附加物体占用  
+**false** - 该槽位未被使用
 
-**false** - The specified slot is not in use for an attached object.
-
-## Examples
+## 示例
 
 ```c
 stock CountAttachedObjects(playerid)
@@ -41,7 +40,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (!strcmp(cmdtext, "/count", true))
     {
         new string[32];
-        format(string, sizeof(string), "Attached objects: %d", CountAttachedObjects(playerid));
+        format(string, sizeof(string), "附加物体数量: %d", CountAttachedObjects(playerid));
         SendClientMessage(playerid, -1, string);
         return 1;
     }
@@ -49,8 +48,8 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerAttachedObject](SetPlayerAttachedObject): Attach an object to a player
-- [RemovePlayerAttachedObject](RemovePlayerAttachedObject): Remove an attached object from a player
-- [GetPlayerAttachedObject](GetPlayerAttachedObject): Gets the player attachment object data by index.
+- [SetPlayerAttachedObject](SetPlayerAttachedObject): 为玩家附加物体
+- [RemovePlayerAttachedObject](RemovePlayerAttachedObject): 移除玩家附加物体
+- [GetPlayerAttachedObject](GetPlayerAttachedObject): 获取玩家附加物体数据

@@ -1,49 +1,49 @@
 ---
 title: GetWeaponSlot
 sidebar_label: GetWeaponSlot
-description: Gets the slot of one weapon.
-tags: ["weapon"]
+description: 获取武器的槽位编号。
+tags: ["武器"]
 ---
 
 <versionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the slot of one weapon.
+获取指定武器对应的槽位编号。
 
-| Name            | Description                              |
-| --------------- | ---------------------------------------- |
-| WEAPON:weaponid | The ID of the weapon to get the slot of. |
+| 参数名          | 说明               |
+| --------------- | ------------------ |
+| WEAPON:weaponid | 目标武器的 ID 编号 |
 
-## Returns
+## 返回值
 
-The number of the [weapon slot](../resources/weaponslots) (0 - 12)
+返回对应的[武器槽位](../resources/weaponslots)编号（0 - 12）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (strcmp(cmdtext, "/weaponslot", true) == 0)
     {
-        new WEAPON:weaponid = GetPlayerWeapon(playerid); // will store the id of the weapon the player is currently holding
-        new WEAPON_SLOT:slot = GetWeaponSlot(weaponid); // will store the id of the weapon slot
-        SendClientMessage(playerid, -1, "Your weapon is occupying the slot %d.", slot); // sends a formatted message to the player
+        new WEAPON:weaponid = GetPlayerWeapon(playerid); // 存储玩家当前手持武器的ID
+        new WEAPON_SLOT:slot = GetWeaponSlot(weaponid);  // 存储武器对应的槽位编号
+        SendClientMessage(playerid, -1, "当前武器占用槽位：%d", slot); // 向玩家发送格式化消息
         return 1;
     }
     return 0;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerWeapon](GetPlayerWeapon): Gets the ID of the weapon a player is currently holding.
-- [GetPlayerWeaponData](GetPlayerWeaponData): Get the weapon and ammo in a specific player's weapon slot (e.g. the weapon in the 'SMG' slot).
-- [GetPlayerAmmo](GetPlayerAmmo): Gets the amount of ammo in a player's current weapon.
-- [SetPlayerArmedWeapon](SetPlayerArmedWeapon): Sets which weapon (that a player already has) the player is holding.
-- [ResetPlayerWeapon](ResetPlayerWeapons): Removes all weapons from a player.
-- [RemovePlayerWeapon](RemovePlayerWeapon): Remove a specified weapon from a player.
+- [GetPlayerWeapon](GetPlayerWeapon): 获取玩家当前持有的武器 ID
+- [GetPlayerWeaponData](GetPlayerWeaponData): 获取玩家指定槽位的武器及弹药数据（例如 SMG 槽位）
+- [GetPlayerAmmo](GetPlayerAmmo): 获取玩家当前武器的剩余弹药量
+- [SetPlayerArmedWeapon](SetPlayerArmedWeapon): 设置玩家切换至已持有的指定武器
+- [ResetPlayerWeapon](ResetPlayerWeapons): 清空玩家所有武器
+- [RemovePlayerWeapon](RemovePlayerWeapon): 移除玩家持有的指定武器
 
-## Related Resources
+## 相关资源
 
-- [Weapon Slots](../resources/weaponslots).
+- [武器槽位系统](../resources/weaponslots)

@@ -1,39 +1,40 @@
 ---
 title: IsNickNameCharacterAllowed
-sidebar_label: IsNickNameCharacterAllowed
-description: Checks if a character is allowed in nickname.
+sidebar_label: 检查昵称字符是否允许
+description: 检查字符是否允许在昵称中使用
 tags: []
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a character is allowed in nickname.
+检查指定字符是否允许用于玩家昵称。
 
-| Name      | Description             |
-| --------- | ----------------------- |
-| character | The character to check. |
+| 参数      | 说明           |
+| --------- | -------------- |
+| character | 需要检查的字符 |
 
-## Returns
+## 返回值
 
-This function returns **true** if the character is allowed, or **false** if it is not.
+**true** - 该字符允许使用  
+**false** - 该字符禁止使用
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    AllowNickNameCharacter('*', true); // Allow char *
+    AllowNickNameCharacter('*', true); // 允许字符*
 
     if (IsNickNameCharacterAllowed('*'))
     {
-        print("Character * is allowed in nickname.");
+        print("字符*已被允许用于昵称。");
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [AllowNickNameCharacter](AllowNickNameCharacter): Allows a character to be used in the nick name.
+- [AllowNickNameCharacter](AllowNickNameCharacter): 设置昵称字符使用权限

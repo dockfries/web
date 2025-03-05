@@ -77,5 +77,5 @@ public Ping_Timer(playerid)
 ## 相关函数
 
 - [GetPlayerIp](GetPlayerIp): 获取玩家 IP 地址
-- [GetPlayerName](GetPlayerName): 获取玩家名称
+- [GetPlayerName](GetPlayerName): 获取玩家昵称
 - [GetPlayerVersion](GetPlayerVersion): 获取玩家客户端版本

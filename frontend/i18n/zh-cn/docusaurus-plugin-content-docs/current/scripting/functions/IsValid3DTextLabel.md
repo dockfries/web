@@ -1,42 +1,42 @@
 ---
 title: IsValid3DTextLabel
 sidebar_label: IsValid3DTextLabel
-description: Checks if a 3D text label is valid.
-tags: ["3dtextlabel"]
+description: 检测3D文本标签是否有效。
+tags: ["3D文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a 3D text label is valid.
+检测指定的全局 3D 文本标签是否有效。
 
-| Name          | Description                           |
-| ------------- | ------------------------------------- |
-| Text3D:textid | The ID of the 3D text label to check. |
+| 参数名        | 说明                    |
+| ------------- | ----------------------- |
+| Text3D:textid | 要检测的 3D 文本标签 ID |
 
-## Returns
+## 返回值
 
-This function returns **true** if the 3D text label is valid, or **false** if it is not.
+当 3D 文本标签有效时返回 **true**，无效时返回 **false**
 
-## Examples
+## 示例代码
 
 ```c
-new Text3D:gMyLabel;
+new Text3D:gMyLabel; // 声明全局3D文本标签变量
 
 public OnGameModeInit()
 {
-    gMyLabel = Create3DTextLabel("I'm at the coordinates:\n30.0, 40.0, 50.0", 0x008080FF, 30.0, 40.0, 50.0, 40.0, 0, false);
+    gMyLabel = Create3DTextLabel("当前坐标：\n30.0, 40.0, 50.0", 0x008080FF, 30.0, 40.0, 50.0, 40.0, 0, false);
 
     if (IsValid3DTextLabel(gMyLabel))
     {
-        // Do something
+        // 执行相关逻辑
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [Create3DTextLabel](Create3DTextLabel): Creates a 3D Text Label at a specific location in the world.
-- [IsValidPlayer3DTextLabel](IsValidPlayer3DTextLabel): Checks if a player's 3D text label is valid.
+- [Create3DTextLabel](Create3DTextLabel): 在指定坐标创建全局 3D 文本标签
+- [IsValidPlayer3DTextLabel](IsValidPlayer3DTextLabel): 检测玩家 3D 文本标签有效性

@@ -1,43 +1,43 @@
 ---
 title: GivePlayerMoney
 sidebar_label: GivePlayerMoney
-description: Give money to or take money from a player.
-tags: ["player"]
+description: 给予或扣除玩家的资金。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Give money to or take money from a player.
+对指定玩家进行资金增减操作。
 
-| Name     | Description                                                              |
-| -------- | ------------------------------------------------------------------------ |
-| playerid | The ID of the player to give money to or take money from.                |
-| money    | The amount of money to give the player. Use a minus value to take money. |
+| 参数名   | 说明                                   |
+| -------- | -------------------------------------- |
+| playerid | 目标玩家的 ID 编号                     |
+| money    | 资金数额（正数表示给予，负数表示扣除） |
 
-## Returns
+## 返回值
 
-**1** - The function was executed successfully.
+**1** - 操作成功执行
 
-**0** - The function failed to execute. This means the player is not connected.
+**0** - 操作执行失败（玩家未连接）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
     if (killerid != INVALID_PLAYER_ID)
     {
-       // Award $1000 to the killer
+       // 给予击杀者1000美元奖励
        GivePlayerMoney(killerid, 1000);
-       SendClientMessage(killerid, -1, "You have been awarded $1000 for the kill.");
+       SendClientMessage(killerid, -1, "您因击杀获得1000美元奖励");
     }
 
-    // Take $500 from the player who died.
+    // 扣除死亡玩家500美元
     GivePlayerMoney(playerid, -500);
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [ResetPlayerMoney](ResetPlayerMoney): Set the money of a player to \$0.
-- [GetPlayerMoney](GetPlayerMoney): Check how much money a player has.
+- [ResetPlayerMoney](ResetPlayerMoney): 重置玩家资金至\$0
+- [GetPlayerMoney](GetPlayerMoney): 获取玩家当前资金总额

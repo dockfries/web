@@ -1,23 +1,23 @@
 ---
 title: LimitGlobalChatRadius
 sidebar_label: LimitGlobalChatRadius
-description: Set a radius limitation for the chat.
+description: 设置聊天信息的可见范围
 tags: []
 ---
 
-## Description
+## 描述
 
-Set a radius limitation for the chat. Only players at a certain distance from the player will see their message in the chat. Also changes the distance at which a player can see other players on the map at the same distance.
+设置全局聊天信息的可见范围。只有在该距离范围内的玩家才能看到彼此的聊天信息，同时该距离也影响小地图上玩家图标的可见范围。
 
-| Name             | Description                                          |
-| ---------------- | ---------------------------------------------------- |
-| Float:chatRadius | The range in which players will be able to see chat. |
+| 参数名           | 说明                               |
+| ---------------- | ---------------------------------- |
+| Float:chatRadius | 聊天信息的可见范围半径（单位：米） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有返回值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
@@ -27,12 +27,12 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetNameTagDrawDistance](SetNameTagDrawDistance): Set the distance from where people can see other player's nametags.
-- [SendPlayerMessageToPlayer](SendPlayerMessageToPlayer): Force a player to send text for one player.
-- [SendPlayerMessageToAll](SendPlayerMessageToAll): Force a player to send text for all players.
+- [SetNameTagDrawDistance](SetNameTagDrawDistance): 设置玩家名牌的可见距离
+- [SendPlayerMessageToPlayer](SendPlayerMessageToPlayer): 定向发送玩家聊天信息
+- [SendPlayerMessageToAll](SendPlayerMessageToAll): 全局发送玩家聊天信息
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerText](../callbacks/OnPlayerText): Called when a player sends a message via the chat.
+- [OnPlayerText](../callbacks/OnPlayerText): 玩家发送聊天信息时触发

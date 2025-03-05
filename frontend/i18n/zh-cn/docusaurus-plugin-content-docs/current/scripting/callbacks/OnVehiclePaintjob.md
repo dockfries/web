@@ -1,19 +1,19 @@
 ---
 title: OnVehiclePaintjob
 sidebar_label: OnVehiclePaintjob
-description: 当玩家在改装店预览车辆喷漆时触发该回调函数。
+description: 当玩家在改装店预览车辆涂装时触发该回调函数。
 tags: ["vehicle"]
 ---
 
 ## 描述
 
-当玩家在改装店内预览车辆喷漆时触发该回调函数（注意：玩家购买喷漆时不会触发）。
+当玩家在改装店内预览车辆涂装时触发该回调函数（注意：玩家购买涂装时不会触发）。
 
 | 参数名     | 说明                 |
 | ---------- | -------------------- |
-| playerid   | 变更喷漆预览的玩家ID |
-| vehicleid  | 变更喷漆预览的车辆ID |
-| paintjobid | 新预览的喷漆ID       |
+| playerid   | 变更涂装预览的玩家ID |
+| vehicleid  | 变更涂装预览的车辆ID |
+| paintjobid | 新预览的涂装ID       |
 
 ## 返回值
 
@@ -25,7 +25,7 @@ tags: ["vehicle"]
 public OnVehiclePaintjob(playerid, vehicleid, paintjobid)
 {
     new string[128];
-    format(string, sizeof(string), "您已将车辆预览喷漆变更为 %d 号样式！", paintjobid);
+    format(string, sizeof(string), "您已将车辆预览涂装变更为 %d 号样式！", paintjobid);
     SendClientMessage(playerid, 0x33AA33AA, string);
     return 1;
 }
@@ -36,7 +36,7 @@ public OnVehiclePaintjob(playerid, vehicleid, paintjobid)
 :::tip
 
 - 本回调不会通过 [ChangeVehiclePaintjob](../functions/ChangeVehiclePaintjob) 函数触发
-- 如需检测玩家购买喷漆行为，可使用 vSync 插件的 OnVehicleChangePaintjob 回调
+- 如需检测玩家购买涂装行为，可使用 vSync 插件的 OnVehicleChangePaintjob 回调
 
 :::
 
@@ -44,17 +44,17 @@ public OnVehiclePaintjob(playerid, vehicleid, paintjobid)
 
 以下回调可能与该回调存在关联：
 
-- [OnVehicleRespray](OnVehicleRespray): 当车辆重新喷漆时触发
+- [OnVehicleRespray](OnVehicleRespray): 当车辆重新涂装时触发
 - [OnVehicleMod](OnVehicleMod): 当车辆进行改装时触发
 
 ## 相关函数
 
 以下函数可能与该回调存在关联：
 
-- [ChangeVehiclePaintjob](../functions/ChangeVehiclePaintjob): 变更车辆喷漆样式
+- [ChangeVehiclePaintjob](../functions/ChangeVehiclePaintjob): 变更车辆涂装样式
 - [ChangeVehicleColor](../functions/ChangeVehicleColor): 设置车辆颜色
-- [GetVehiclePaintjob](../functions/GetVehiclePaintjob): 获取车辆当前喷漆样式
+- [GetVehiclePaintjob](../functions/GetVehiclePaintjob): 获取车辆当前涂装样式
 
 ## 相关资源
 
-- [车辆喷漆样式列表](../resources/paintjobids)
+- [车辆涂装样式列表](../resources/paintjobids)

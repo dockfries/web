@@ -1,28 +1,28 @@
 ---
 title: GetVehicleZAngle
 sidebar_label: GetVehicleZAngle
-description: Get the rotation of a vehicle on the Z axis (yaw).
-tags: ["vehicle"]
+description: 获取车辆在Z轴（水平方向）的旋转角度。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Get the rotation of a vehicle on the Z axis (yaw).
+获取车辆在 Z 轴（偏航角）的水平旋转角度。
 
-| Name         | Description                                                             |
-| ------------ | ----------------------------------------------------------------------- |
-| vehicleid    | The ID of the vehicle to get the Z angle of.                            |
-| &Float:angle | A float variable in which to store the Z rotation, passed by reference. |
+| 参数名       | 说明                                        |
+| ------------ | ------------------------------------------- |
+| vehicleid    | 目标车辆 ID                                 |
+| &Float:angle | 存储 Z 轴旋转角度的浮点变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 操作成功执行
 
-**false** - The function failed to execute. This means the vehicle does not exist.
+**false** - 操作执行失败（指定车辆不存在）
 
-The vehicle's rotation is stored in the specified variable.
+车辆的旋转角度将被存储至指定变量。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -38,7 +38,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
           GetVehicleZAngle(vehicleid, rotZ);
 
-          format(string, sizeof(string), "The current vehicle rotation is: %.0f", rotZ);
+          format(string, sizeof(string), "当前车辆旋转角度：%.0f度", rotZ);
           SendClientMessage(playerid, 0xFFFFFFFF, string);
           return 1;
      }
@@ -46,10 +46,10 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleRotationQuat](GetVehicleRotationQuat): Get the quaternion rotation of a vehicle.
-- [SetVehicleZAngle](SetVehicleZAngle): Set the direction of a vehicle.
-- [GetVehiclePos](GetVehiclePos): Get the position of a vehicle.
-- [GetVehicleMatrix](GetVehicleMatrix): Gets the actual rotation matrix of the vehicle.
-- [GetPlayerFacingAngle](GetPlayerFacingAngle): Check where a player is facing.
+- [GetVehicleRotationQuat](GetVehicleRotationQuat): 获取车辆的四元数旋转参数
+- [SetVehicleZAngle](SetVehicleZAngle): 设置车辆的水平朝向角度
+- [GetVehiclePos](GetVehiclePos): 获取车辆的三维坐标位置
+- [GetVehicleMatrix](GetVehicleMatrix): 获取车辆的实际旋转矩阵
+- [GetPlayerFacingAngle](GetPlayerFacingAngle): 获取玩家的水平朝向角度

@@ -51,6 +51,6 @@ public OnPlayerConnect(playerid)
 
 ## 相关函数
 
-- [GetPlayerName](GetPlayerName): 获取玩家名称
+- [GetPlayerName](GetPlayerName): 获取玩家昵称
 - [GetPlayerPing](GetPlayerPing): 获取玩家网络延迟
 - [GetPlayerIp](GetPlayerIp): 获取玩家 IP 地址

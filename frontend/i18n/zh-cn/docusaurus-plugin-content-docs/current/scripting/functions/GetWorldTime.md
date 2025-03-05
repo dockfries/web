@@ -1,26 +1,26 @@
 ---
 title: GetWorldTime
 sidebar_label: GetWorldTime
-description: Get the current world time.
-tags: ["worldtime"]
+description: 获取当前世界时间。
+tags: ["世界时间"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the current world time.
+获取服务器当前的全局世界时间。
 
-## Examples
+## 示例
 
 ```c
 SetWorldTime(12);
 
-printf("Current world time: %d", GetWorldTime());
-// The output will be 'Current world time: 12'
+printf("当前世界时间：%d", GetWorldTime());
+// 输出将为"当前世界时间：12"
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetWorldTime](SetWorldTime): Sets the world time (for all players) to a specific hour.
-- [SetPlayerTime](SetPlayerTime): Set a player's time.
+- [SetWorldTime](SetWorldTime): 为所有玩家设置全局时间（精确到小时）
+- [SetPlayerTime](SetPlayerTime): 设置玩家独立时间显示

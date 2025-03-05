@@ -1,29 +1,29 @@
 ---
 title: GetVehicleParamsSirenState
 sidebar_label: GetVehicleParamsSirenState
-description: Returns a vehicle's siren state (on/off).
-tags: ["vehicle"]
+description: 获取车辆警笛的开关状态。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Returns a vehicle's siren state (on/off).
+获取车辆警笛的当前开关状态。
 
-| Name      | Description                                      |
-| --------- | ------------------------------------------------ |
-| vehicleid | The ID of the vehicle to get the siren state of. |
+| 参数名    | 说明                         |
+| --------- | ---------------------------- |
+| vehicleid | 要检测警笛状态的车辆 ID 编号 |
 
-## Returns
+## 返回值
 
-**-1:** Vehicle siren hasn't been set yet (off)
+**-1:** 车辆警笛尚未被设置（默认关闭状态）
 
-**0:** Vehicle siren is off
+**0:** 警笛处于关闭状态
 
-**1:** Vehicle siren is on
+**1:** 警笛处于开启状态
 
-## Examples
+## 示例
 
 ```c
 new
@@ -31,26 +31,26 @@ new
 
 if (siren == 1)
 {
-    // Siren is on, do something
+    // 警笛开启，执行相关操作
 }
 else if (siren == 0)
 {
-    // Siren is off, do something
+    // 警笛关闭，执行相关操作
 }
 else
 {
-    // Vehicle does not have a siren
+    // 该车辆未配置警笛系统
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Because a siren state of -1 or 0 means 'off', you cannot use a boolean conditional statement to check whether sirens are on. If you do 'if (sirenstate)', it will be true for anything NOT 0 (so -1 or 1). You should check that the siren state explicitly equals 1.
+由于返回值-1 和 0 均表示"关闭"，不能直接使用布尔条件判断。若使用类似 if(sirenstate) 的判断语句，当值为-1 或 1 时都会返回 true。正确的做法是明确检查返回值是否等于 1。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleParamsSirenState](SetVehicleParamsSirenState): Turn the siren for a vehicle on or off.
+- [SetVehicleParamsSirenState](SetVehicleParamsSirenState): 控制车辆警笛的开关状态

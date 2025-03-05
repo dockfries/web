@@ -1,58 +1,58 @@
 ---
 title: IsPlayerStreamedIn
 sidebar_label: IsPlayerStreamedIn
-description: Checks if a player is streamed in another player's client.
-tags: ["player"]
+description: 检测玩家是否在另一玩家的客户端中完成流加载。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Checks if a player is streamed in another player's client.
+检测指定玩家是否在目标玩家的客户端中完成流加载。
 
-| Name        | Description                                                   |
-| ----------- | ------------------------------------------------------------- |
-| playerid    | The ID of the player to check is streamed in.                 |
-| forplayerid | The ID of the player to check if playerid is streamed in for. |
+| 参数名      | 说明                            |
+| ----------- | ------------------------------- |
+| playerid    | 被检测的玩家 ID                 |
+| forplayerid | 目标玩家 ID（检测的客户端主体） |
 
-## Returns
+## 返回值
 
-**true** - The player is streamed in.
+**true** - 玩家已完成流加载
 
-**false** - The player is not streamed in.
+**false** - 玩家未完成流加载
 
-## Examples
+## 示例代码
 
 ```c
 if (IsPlayerStreamedIn(playerid, 0))
 {
-	SendClientMessage(playerid, -1, "ID 0 can see you.");
+	SendClientMessage(playerid, -1, "ID 0 可以看到你。");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-**SA-MP server:** Players stream out if they are more than 200.0 meters away (see [server.cfg](../../server/server.cfg) - **stream_distance**)
+**SA-MP 服务器:** 玩家距离超过 200 米时自动流卸载（参见[server.cfg](../../server/server.cfg) - **stream_distance**）
 
-**open.mp server:** Players stream out if they are more than 200.0 meters away (see [config.json](../../server/config.json) - **network.stream_radius**)
+**open.mp 服务器:** 玩家距离超过 200 米时自动流卸载（参见[config.json](../../server/config.json) - **network.stream_radius**）
 
 :::
 
 :::warning
 
-Players aren't streamed in on their own client, so if playerid is the same as forplayerid it will return false!
+玩家无法在自己的客户端流加载自身，当 playerid 与 forplayerid 相同时始终返回 false！
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [IsActorStreamedIn](IsActorStreamedIn): Checks if an actor is streamed in for a player.
-- [IsVehicleStreamedIn](IsVehicleStreamedIn): Checks if a vehicle is streamed in for a player.
+- [IsActorStreamedIn](IsActorStreamedIn): 检测演员是否已为玩家流加载
+- [IsVehicleStreamedIn](IsVehicleStreamedIn): 检测车辆是否已为玩家流加载
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerStreamIn](../callbacks/OnPlayerStreamIn): Called when a player streams in for another player.
-- [OnPlayerStreamOut](../callbacks/OnPlayerStreamOut): Called when a player streams out for another player.
-- [OnVehicleStreamIn](../callbacks/OnVehicleStreamIn): Called when a vehicle streams in for a player.
-- [OnVehicleStreamOut](../callbacks/OnVehicleStreamOut): Called when a vehicle streams out for a player.
+- [OnPlayerStreamIn](../callbacks/OnPlayerStreamIn): 玩家完成流加载时触发
+- [OnPlayerStreamOut](../callbacks/OnPlayerStreamOut): 玩家完成流卸载时触发
+- [OnVehicleStreamIn](../callbacks/OnVehicleStreamIn): 车辆完成流加载时触发
+- [OnVehicleStreamOut](../callbacks/OnVehicleStreamOut): 车辆完成流卸载时触发

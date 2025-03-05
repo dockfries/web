@@ -27,4 +27,4 @@ new cabId = GetVehicleCab(vehicleid);
 
 ## 相关函数
 
-• [GetVehicleTrailer](GetVehicleTrailer): 获取连接到车辆的挂车 ID
+- [GetVehicleTrailer](GetVehicleTrailer): 获取连接到车辆的挂车 ID

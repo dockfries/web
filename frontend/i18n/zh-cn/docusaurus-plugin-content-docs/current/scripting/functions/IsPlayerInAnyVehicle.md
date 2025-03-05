@@ -1,25 +1,25 @@
 ---
 title: IsPlayerInAnyVehicle
 sidebar_label: IsPlayerInAnyVehicle
-description: Check if a player is inside any vehicle (as a driver or passenger).
-tags: ["player", "vehicle"]
+description: 检查玩家是否处于任何车辆内（作为驾驶员或乘客）
+tags: ["玩家", "车辆"]
 ---
 
-## Description
+## 描述
 
-Check if a player is inside any vehicle (as a driver or passenger).
+检测玩家是否乘坐于任何车辆内（包含驾驶位或乘客座位）
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| playerid | 需要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - The player is in a vehicle.
+**true** - 玩家正在车辆内
 
-**false** - The player is not in a vehicle.
+**false** - 玩家未处于任何车辆
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -28,11 +28,11 @@ public OnPlayerCommandText(playerid, cmdtext[])
     {
         if (IsPlayerInAnyVehicle(playerid))
         {
-            SendClientMessage(playerid, 0x00FF00FF, "You're in a vehicle.");
+            SendClientMessage(playerid, 0x00FF00FF, "你正在车辆中");
         }
         else
         {
-            SendClientMessage(playerid, 0xFF0000FF, "You're not in any vehicle.");
+            SendClientMessage(playerid, 0xFF0000FF, "你未乘坐任何车辆");
         }
         return 1;
     }
@@ -40,7 +40,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerInVehicle](IsPlayerInVehicle): Check if a player is in a certain vehicle.
-- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): Check what seat a player is in.
+- [IsPlayerInVehicle](IsPlayerInVehicle): 检测玩家是否处于指定车辆
+- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): 获取玩家当前乘坐的座位编号

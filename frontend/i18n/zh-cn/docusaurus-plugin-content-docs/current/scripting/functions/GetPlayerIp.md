@@ -54,7 +54,7 @@ PAWN 语言区分大小写，错误使用 GetPlayerIP（大写）将无法正常
 
 - [NetStats_GetIpPort](NetStats_GetIpPort): 获取玩家的 IP 和端口
 - [GetPlayerRawIp](GetPlayerRawIp): 获取玩家原始 IP 地址
-- [GetPlayerName](GetPlayerName): 获取玩家名称
+- [GetPlayerName](GetPlayerName): 获取玩家昵称
 - [GetPlayerPing](GetPlayerPing): 获取玩家网络延迟
 - [GetPlayerVersion](GetPlayerVersion): 获取玩家客户端版本
 

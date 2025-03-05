@@ -1,40 +1,40 @@
 ---
 title: IsPlayerWidescreenToggled
 sidebar_label: IsPlayerWidescreenToggled
-description: Checks if a player widescreen is on or off.
-tags: ["player"]
+description: 检测玩家宽屏模式开启状态。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a player widescreen is on or off.
+检测指定玩家的宽屏模式是否处于激活状态。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
+| 参数名   | 说明            |
+| -------- | --------------- |
+| playerid | 要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - The player widescreen is on.
+**true** - 玩家已启用宽屏模式
 
-**false** - The player widescreen is off.
+**false** - 玩家未启用宽屏模式
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/widescreencheck", true))
     {
-        SendClientMessage(playerid, -1, "Wide Screen: %s", IsPlayerWidescreenToggled(playerid) ? "On" : "Off");
+        SendClientMessage(playerid, -1, "宽屏模式：%s", IsPlayerWidescreenToggled(playerid) ? "开启" : "关闭");
         return 1;
     }
     return 0;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [TogglePlayerWidescreen](TogglePlayerWidescreen): Toggle player's widescreen.
+- [TogglePlayerWidescreen](TogglePlayerWidescreen): 切换玩家宽屏模式状态

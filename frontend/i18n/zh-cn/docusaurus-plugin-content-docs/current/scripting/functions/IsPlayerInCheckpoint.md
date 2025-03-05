@@ -1,23 +1,25 @@
 ---
 title: IsPlayerInCheckpoint
 sidebar_label: IsPlayerInCheckpoint
-description: Check if the player is currently inside a checkpoint, this could be used for properties or teleport points for example.
-tags: ["player", "checkpoint"]
+description: 检测玩家是否处于检查点内，可用于房产或传送点等场景
+tags: ["玩家", "检查点"]
 ---
 
-## Description
+## 描述
 
-Check if the player is currently inside a checkpoint, this could be used for properties or teleport points for example.
+检测玩家当前是否处于检查点范围内，该功能常用于房产系统或传送点等交互场景
 
-| Name     | Description                                |
-| -------- | ------------------------------------------ |
-| playerid | The player you want to know the status of. |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| playerid | 需要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-**false** if the player isn't inside the checkpoint, otherwise **true**
+**false** - 玩家未处于检查点内
 
-## Examples
+**true** - 玩家正处于检查点内
+
+## 示例代码
 
 ```c
 if (IsPlayerInCheckpoint(playerid))
@@ -26,18 +28,18 @@ if (IsPlayerInCheckpoint(playerid))
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerCheckpoint](SetPlayerCheckpoint): Create a checkpoint for a player.
-- [IsPlayerCheckpointActive](IsPlayerCheckpointActive): Check if the player currently has a checkpoint visible.
-- [DisablePlayerCheckpoint](DisablePlayerCheckpoint): Disable the player's current checkpoint.
-- [SetPlayerRaceCheckpoint](SetPlayerRaceCheckpoint): Create a race checkpoint for a player.
-- [DisablePlayerRaceCheckpoint](DisablePlayerRaceCheckpoint): Disable the player's current race checkpoint.
-- [IsPlayerInRaceCheckpoint](IsPlayerInRaceCheckpoint): Check if a player is in a race checkpoint.
+- [SetPlayerCheckpoint](SetPlayerCheckpoint): 为玩家创建检查点
+- [IsPlayerCheckpointActive](IsPlayerCheckpointActive): 检测玩家当前是否显示检查点
+- [DisablePlayerCheckpoint](DisablePlayerCheckpoint): 禁用玩家当前检查点
+- [SetPlayerRaceCheckpoint](SetPlayerRaceCheckpoint): 为玩家创建竞速检查点
+- [DisablePlayerRaceCheckpoint](DisablePlayerRaceCheckpoint): 禁用玩家当前竞速检查点
+- [IsPlayerInRaceCheckpoint](IsPlayerInRaceCheckpoint): 检测玩家是否处于竞速检查点
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerEnterCheckpoint](../callbacks/OnPlayerEnterCheckpoint): Called when a player enters a checkpoint.
-- [OnPlayerLeaveCheckpoint](../callbacks/OnPlayerLeaveCheckpoint): Called when a player leaves a checkpoint.
-- [OnPlayerEnterRaceCheckpoint](../callbacks/OnPlayerEnterRaceCheckpoint): Called when a player enters a race checkpoint.
-- [OnPlayerLeaveRaceCheckpoint](../callbacks/OnPlayerLeaveRaceCheckpoint): Called when a player leaves a race checkpoint.
+- [OnPlayerEnterCheckpoint](../callbacks/OnPlayerEnterCheckpoint): 当玩家进入检查点时触发
+- [OnPlayerLeaveCheckpoint](../callbacks/OnPlayerLeaveCheckpoint): 当玩家离开检查点时触发
+- [OnPlayerEnterRaceCheckpoint](../callbacks/OnPlayerEnterRaceCheckpoint): 当玩家进入竞速检查点时触发
+- [OnPlayerLeaveRaceCheckpoint](../callbacks/OnPlayerLeaveRaceCheckpoint): 当玩家离开竞速检查点时触发

@@ -1,26 +1,26 @@
 ---
 title: IsPlayerInVehicle
 sidebar_label: IsPlayerInVehicle
-description: Checks if a player is in a specific vehicle.
-tags: ["player", "vehicle"]
+description: 验证玩家是否乘坐于特定车辆实例
+tags: ["玩家", "车辆"]
 ---
 
-## Description
+## 描述
 
-Checks if a player is in a specific vehicle.
+检测玩家当前是否乘坐于指定车辆实例内
 
-| Name      | Description                               |
-| --------- | ----------------------------------------- |
-| playerid  | ID of the player.                         |
-| vehicleid | ID of the vehicle. Note: NOT the modelid! |
+| 参数名    | 说明                                 |
+| --------- | ------------------------------------ |
+| playerid  | 目标玩家 ID                          |
+| vehicleid | 车辆实例 ID（注意：非车辆模型 ID！） |
 
-## Returns
+## 返回值
 
-**true** - Player IS in the vehicle.
+**true** - 玩家处于该车辆内
 
-**false** - Player is NOT in the vehicle.
+**false** - 玩家未处于该车辆内
 
-## Examples
+## 示例代码
 
 ```c
 new gSpecialCar;
@@ -37,7 +37,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
     {
         if (IsPlayerInVehicle(playerid, gSpecialCar))
         {
-            SendClientMessage(playerid, -1, "You're in the special car!");
+            SendClientMessage(playerid, -1, "您正在特殊车辆中！");
         }
         return 1;
     }
@@ -45,7 +45,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerInAnyVehicle](IsPlayerInAnyVehicle): Check if a player is in any vehicle.
-- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): Check what seat a player is in.
+- [IsPlayerInAnyVehicle](IsPlayerInAnyVehicle): 检测玩家是否乘坐于任意车辆
+- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): 查询玩家当前座位位置

@@ -1,41 +1,41 @@
 ---
 title: GetVehicleSirenState
 sidebar_label: GetVehicleSirenState
-description: Gets the siren state of the vehicle.
-tags: ["vehicle"]
+description: 获取车辆的警笛开关状态。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the siren state of the vehicle.
+获取车辆当前警笛的启用状态。
 
-## Parameters
+## 参数
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明               |
+| --------- | ------------------ |
+| vehicleid | 目标车辆的 ID 编号 |
 
-## Return Values
+## 返回值
 
-Returns the vehicle siren state.
+返回布尔值表示警笛状态：**true** 开启 / **false** 关闭
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 {
     new bool:sirenState = GetVehicleSirenState(vehicleid);
 
-    SendClientMessage(playerid, 0xFFFF00FF, "Vehicle siren state: %s", sirenState ? "On" : "Off");
+    SendClientMessage(playerid, 0xFFFF00FF, "警笛状态: %s", sirenState ? "开启" : "关闭");
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleParamsSirenState](SetVehicleParamsSirenState): Turn the siren for a vehicle on or off.
-- [ToggleVehicleSirenEnabled](ToggleVehicleSirenEnabled): Turn the siren for a vehicle on or off.
-- [IsVehicleSirenEnabled](IsVehicleSirenEnabled): Checks if a vehicle siren is on or off.
-- [GetPlayerSirenState](GetPlayerSirenState): Gets the siren state of the player's vehicle.
+- [SetVehicleParamsSirenState](SetVehicleParamsSirenState): 设置车辆警笛的开关状态
+- [ToggleVehicleSirenEnabled](ToggleVehicleSirenEnabled): 切换车辆警笛的启用状态
+- [IsVehicleSirenEnabled](IsVehicleSirenEnabled): 检测车辆警笛是否处于开启状态
+- [GetPlayerSirenState](GetPlayerSirenState): 获取玩家当前车辆的警笛状态

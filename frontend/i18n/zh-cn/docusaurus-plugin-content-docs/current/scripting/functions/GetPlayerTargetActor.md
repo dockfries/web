@@ -44,9 +44,9 @@ public OnPlayerUpdate(playerid)
 
 ## 相关函数
 
-• [GetPlayerCameraTargetActor](GetPlayerCameraTargetActor): 获取玩家视角目标角色（若存在）
-• [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): 获取玩家视角前向向量
+- [GetPlayerCameraTargetActor](GetPlayerCameraTargetActor): 获取玩家视角目标角色（若存在）
+- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): 获取玩家视角前向向量
 
 ## 相关回调
 
-• [OnPlayerGiveDamageActor](../callbacks/OnPlayerGiveDamageActor): 当玩家对角色造成伤害时触发
+- [OnPlayerGiveDamageActor](../callbacks/OnPlayerGiveDamageActor): 当玩家对角色造成伤害时触发

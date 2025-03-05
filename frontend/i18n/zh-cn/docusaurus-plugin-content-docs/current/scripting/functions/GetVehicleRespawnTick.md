@@ -1,27 +1,27 @@
 ---
 title: GetVehicleRespawnTick
 sidebar_label: GetVehicleRespawnTick
-description: Get the respawn tick of a vehicle.
-tags: ["vehicle"]
+description: 获取车辆的重生计时。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the respawn tick of a vehicle.
+获取车辆当前的重生计时（单位：毫秒）。
 
-## Parameters
+## 参数
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明               |
+| --------- | ------------------ |
+| vehicleid | 目标车辆的 ID 编号 |
 
-## Return Values
+## 返回值
 
-Returns respawn tick in milliseconds.
+返回以毫秒为单位的重生剩余时间。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -29,11 +29,11 @@ public OnGameModeInit()
     new vehicleid = CreateVehicle(560, 2096.1917, -1328.5150, 25.1059, 0.0000, 1, 8, 60);
 
     new respawnTick = GetVehicleRespawnTick(vehicleid);
-    printf("Vehicle ID %d respawn tick: %d ms", vehicleid, respawnTick);
+    printf("车辆ID %d 重生倒计时: %d 毫秒", vehicleid, respawnTick);
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleRespawnTick](SetVehicleRespawnTick): Set the respawn tick of a vehicle.
+- [SetVehicleRespawnTick](SetVehicleRespawnTick): 设置车辆的重生计时

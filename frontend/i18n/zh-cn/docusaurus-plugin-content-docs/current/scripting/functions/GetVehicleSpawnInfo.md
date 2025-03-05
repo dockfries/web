@@ -1,29 +1,29 @@
 ---
 title: GetVehicleSpawnInfo
 sidebar_label: GetVehicleSpawnInfo
-description: Gets the vehicle spawn location and colours.
-tags: ["vehicle"]
+description: 获取车辆的生成位置与颜色参数。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the vehicle spawn location and colours.
+获取车辆的重生坐标位置与涂装颜色配置。
 
-## Parameters
+## 参数
 
-| Name          | Description                                                                    |
-| ------------- | ------------------------------------------------------------------------------ |
-| vehicleid     | The ID of the vehicle.                                                         |
-| &Float:spawnX | A float variable in which to store the spawnX coordinate, passed by reference. |
-| &Float:spawnY | A float variable in which to store the spawnY coordinate, passed by reference. |
-| &Float:spawnZ | A float variable in which to store the spawnZ coordinate, passed by reference. |
-| &Float:angle  | A float variable in which to store the angle coordinate, passed by reference.  |
-| &colour1      | A variable in which to store the colour1 value, passed by reference.           |
-| &colour2      | A variable in which to store the colour2 value, passed by reference.           |
+| 参数名        | 说明                                      |
+| ------------- | ----------------------------------------- |
+| vehicleid     | 目标车辆 ID                               |
+| &Float:spawnX | 存储重生点 X 坐标的浮点变量（按引用传递） |
+| &Float:spawnY | 存储重生点 Y 坐标的浮点变量（按引用传递） |
+| &Float:spawnZ | 存储重生点 Z 坐标的浮点变量（按引用传递） |
+| &Float:angle  | 存储重生角度的浮点变量（按引用传递）      |
+| &colour1      | 存储主色调编号的整型变量（按引用传递）    |
+| &colour2      | 存储副色调编号的整型变量（按引用传递）    |
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -39,10 +39,11 @@ public OnGameModeInit()
         colour2;
 
     GetVehicleSpawnInfo(vehicleid, spawnX, spawnY, spawnZ, angle, colour1, colour2);
+    // 获取生成信息
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleSpawnInfo](SetVehicleSpawnInfo): Adjusts vehicle model, spawn location, colours, respawn delay and interior.
+- [SetVehicleSpawnInfo](SetVehicleSpawnInfo): 设置车辆型号、重生坐标、涂装颜色、重生延迟与所属场景

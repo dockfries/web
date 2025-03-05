@@ -1,27 +1,25 @@
 ---
 title: GetVehicleSeats
 sidebar_label: GetVehicleSeats
-description: Gets the number of seats in the vehicle.
-tags: ["vehicle"]
+description: 获取车辆的座位数量。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the number of seats in the vehicle.
+获取指定车辆模型的座位数量。
 
-| Name    | Description              |
-| ------- | ------------------------ |
-| modelid | ID of the vehicle model. |
+| 参数名  | 说明              |
+| ------- | ----------------- |
+| modelid | 目标车辆的模型 ID |
 
-## Return Values
+## 返回值
 
-Returns the number of seats.
+成功返回座位数量，若模型 ID 无效则返回**255**。
 
-**255** if the model is invalid.
-
-## Examples
+## 示例
 
 ```c
 new vehicleid = GetPlayerVehicleID(playerid);
@@ -29,10 +27,10 @@ new modelid = GetVehicleModel(vehicleid);
 new seats = GetVehicleSeats(modelid);
 
 new string[64];
-format(string, sizeof(string), "Number of seats in this vehicle: %d", seats);
+format(string, sizeof(string), "当前车辆座位数: %d", seats);
 SendClientMessage(playerid, -1, string);
 ```
 
-## Related Functions
+## 相关函数
 
-- [PutPlayerInVehicle](PutPlayerInVehicle): Puts a player in a vehicle.
+- [PutPlayerInVehicle](PutPlayerInVehicle): 将玩家放入车辆中

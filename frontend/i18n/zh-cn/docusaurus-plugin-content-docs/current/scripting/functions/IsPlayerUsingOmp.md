@@ -1,39 +1,39 @@
 ---
 title: IsPlayerUsingOmp
 sidebar_label: IsPlayerUsingOmp
-description: Check if the player is using the open.mp launcher.
-tags: ["player"]
+description: 检测玩家是否使用open.mp启动器。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp 1.4.0.2779' />
 
-## Description
+## 描述
 
-Check if the player is using the open.mp launcher.
+检测指定玩家是否正在使用 open.mp 启动器。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
+| 参数名   | 说明            |
+| -------- | --------------- |
+| playerid | 要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-Returns 1 if the player is using the open.mp launcher, otherwise 0.
+当玩家使用 open.mp 启动器时返回 1，否则返回 0
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    // Player is using the open.mp launcher
+    // 玩家正在使用open.mp启动器
     if(IsPlayerUsingOmp(playerid))
     {
-        SendClientMessage(playerid, -1, "You are using the open.mp launcher.");
+        SendClientMessage(playerid, -1, "您正在使用open.mp启动器。");
     }
 
-    // Player is not using the open.mp launcher
+    // 玩家未使用open.mp启动器
     else
     {
-        SendClientMessage(playerid, 0xFF0000FF, "[KICK]: You don't seem to be using the open.mp launcher");
+        SendClientMessage(playerid, 0xFF0000FF, "[踢出]: 检测到您未使用open.mp启动器");
         Kick(playerid);
     }
 
@@ -41,7 +41,7 @@ public OnPlayerConnect(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerUsingOfficialClient](IsPlayerUsingOfficialClient): Check if the player is using the official SA-MP client.
-- [SendClientCheck](SendClientCheck): Perform a memory check on the client.
+- [IsPlayerUsingOfficialClient](IsPlayerUsingOfficialClient): 检测玩家是否使用官方 SA-MP 客户端
+- [SendClientCheck](SendClientCheck): 执行客户端内存校验

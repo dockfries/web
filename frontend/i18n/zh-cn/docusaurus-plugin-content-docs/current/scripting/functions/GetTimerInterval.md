@@ -40,10 +40,10 @@ public OnGameModeInit()
 
 ## 相关函数
 
-• [SetTimer](SetTimer): 设置定时器
-• [SetTimerEx](SetTimerEx): 带参数设置定时器
-• [KillTimer](KillTimer): 终止定时器
-• [IsValidTimer](IsValidTimer): 验证定时器有效性
-• [IsRepeatingTimer](IsRepeatingTimer): 检测定时器是否循环
-• [GetTimerRemaining](GetTimerRemaining): 获取定时器剩余时间
-• [CountRunningTimers](CountRunningTimers): 统计运行中的定时器
+- [SetTimer](SetTimer): 设置定时器
+- [SetTimerEx](SetTimerEx): 带参数设置定时器
+- [KillTimer](KillTimer): 终止定时器
+- [IsValidTimer](IsValidTimer): 验证定时器有效性
+- [IsRepeatingTimer](IsRepeatingTimer): 检测定时器是否循环
+- [GetTimerRemaining](GetTimerRemaining): 获取定时器剩余时间
+- [CountRunningTimers](CountRunningTimers): 统计运行中的定时器

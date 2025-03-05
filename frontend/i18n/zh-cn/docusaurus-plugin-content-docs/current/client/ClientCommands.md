@@ -18,7 +18,7 @@ description: 所有客户端命令列表。
 | /headmove      | 控制玩家头部是否随视角转动（本地生效，其他玩家仍会看到头部转动）。对应 sa-mp.cfg 文件的 'disableheadmove' 选项。                                                                               |
 | /timestamp     | 切换聊天框消息时间戳显示（显示本地计算机时间而非服务器时间）。对应 sa-mp.cfg 文件的 'timestamp' 选项。                                                                                         |
 | /dl            | 调试标签（Debug Labels）功能开关。开启后会在车辆上显示调试信息，包括：车辆 ID、模型、耐久度、预加载状态、与玩家距离、拖挂信息、可用座位、当前位置和生成坐标。                                  |
-| /nametagstatus | 切换暂停玩家名称标签旁沙漏图标显示（默认开启）。包括最小化游戏（alt-tab）、暂停菜单（ESC）、断线（崩溃/超时）和截图导致游戏冻结超过 3 秒的情况。对应 sa-mp.cfg 文件的 'nonametagstatus' 选项。 |
+| /nametagstatus | 切换暂停玩家昵称标签旁沙漏图标显示（默认开启）。包括最小化游戏（alt-tab）、暂停菜单（ESC）、断线（崩溃/超时）和截图导致游戏冻结超过 3 秒的情况。对应 sa-mp.cfg 文件的 'nonametagstatus' 选项。 |
 | /mem           | 显示当前内存使用量（通常仅显示 128 MB）。                                                                                                                                                      |
 | /audiomsg      | 切换音频流 URL 加载提示信息显示。对应 sa-mp.cfg 文件的 'audiomsgoff' 选项。                                                                                                                    |
 | /fontsize      | 调整 UI 字体大小（聊天框/对话框等），有效范围-3 至 5。                                                                                                                                         |

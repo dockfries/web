@@ -58,5 +58,5 @@ public OnGameModeInit()
 
 ## 相关函数
 
-• [GetServerVarAsInt](GetServerVarAsInt): 以整型获取服务器变量
-• [GetServerVarAsBool](GetServerVarAsBool): 以布尔值获取服务器变量
+- [GetServerVarAsInt](GetServerVarAsInt): 以整型获取服务器变量
+- [GetServerVarAsBool](GetServerVarAsBool): 以布尔值获取服务器变量

@@ -1,27 +1,27 @@
 ---
 title: GetVehicleOccupiedTick
 sidebar_label: GetVehicleOccupiedTick
-description: Get the occupied tick of a vehicle.
-tags: ["vehicle"]
+description: 获取车辆的占用时间。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the occupied tick of a vehicle.
+获取车辆的占用时间。
 
-## Parameters
+## 参数
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明               |
+| --------- | ------------------ |
+| vehicleid | 目标车辆的 ID 编号 |
 
-## Return Values
+## 返回值
 
-Returns occupied tick in milliseconds.
+返回以毫秒为单位的占用时长。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -29,11 +29,11 @@ public OnGameModeInit()
     new vehicleid = CreateVehicle(560, 2096.1917, -1328.5150, 25.1059, 0.0000, 1, 8, 60);
 
     new occupiedTick = GetVehicleOccupiedTick(vehicleid);
-    printf("Vehicle ID %d occupied tick: %d ms", vehicleid, occupiedTick);
+    printf("车辆ID %d 占用时长: %d 毫秒", vehicleid, occupiedTick);
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleOccupiedTick](SetVehicleOccupiedTick): Set the occupied tick of a vehicle.
+- [SetVehicleOccupiedTick](SetVehicleOccupiedTick): 设置车辆的占用时间

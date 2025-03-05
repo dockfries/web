@@ -1,52 +1,52 @@
 ---
 title: IsPlayerInModShop
 sidebar_label: IsPlayerInModShop
-description: Check if the player is in the mod shop.
-tags: ["player"]
+description: 检测玩家是否处于改装店内
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Check if the player is in the mod shop.
+检测玩家是否处于改装店内
 
-## Parameters
+## 参数说明
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| playerid | 需要检测的玩家 ID |
 
-## Return Values
+## 返回值
 
-**true** - Player is in mod shop.
+**true** - 玩家处于改装店内
 
-**false** - Player is not in mod shop.
+**false** - 玩家未处于改装店内
 
-## Examples
+## 示例代码
 
 ```c
 if (IsPlayerInModShop(playerid))
 {
-    SendClientMessage(playerid, 0xFFFF00FF, "You are in the mod shop.");
+    SendClientMessage(playerid, 0xFFFF00FF, "你正处于改装店内");
 }
 else
 {
-    SendClientMessage(playerid, 0xFF0000FF, "You are not in the mod shop.");
+    SendClientMessage(playerid, 0xFF0000FF, "你未处于改装店内");
 }
 ```
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this callback in one way or another.
+下列函数可能对本功能有参考价值，因存在关联性：
 
-- [AddVehicleComponent](AddVehicleComponent): Add a component to a vehicle.
+- [AddVehicleComponent](AddVehicleComponent): 为车辆添加改装组件
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this callback in one way or another.
+下列回调可能与本功能相关，建议配合使用：
 
-- [OnVehicleMod](../callbacks/OnVehicleMod): This callback is called when a vehicle is modded.
-- [OnVehicleRespray](../callbacks/OnVehicleRespray): This callback is called when a player exits a mod shop, even if the colors weren't changed.
-- [OnVehiclePaintjob](../callbacks/OnVehiclePaintjob): This callback is called when a player previews a vehicle paintjob inside a mod shop.
-- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): This callback is called when a player enters or exits a mod shop.
+- [OnVehicleMod](../callbacks/OnVehicleMod): 当车辆被改装时触发
+- [OnVehicleRespray](../callbacks/OnVehicleRespray): 当玩家离开改装店时触发（即使未更改颜色）
+- [OnVehiclePaintjob](../callbacks/OnVehiclePaintjob): 当玩家预览车辆涂装时触发
+- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当玩家进出改装店时触发

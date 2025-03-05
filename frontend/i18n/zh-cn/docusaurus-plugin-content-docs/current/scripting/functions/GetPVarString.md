@@ -25,7 +25,7 @@ tags: ["玩家变量", "pvar"]
 ```c
 public OnPlayerConnect(playerid)
 {
-    // 保存玩家名称到变量
+    // 保存玩家昵称到变量
     new playerName[MAX_PLAYER_NAME];
     GetPlayerName(playerid, playerName, MAX_PLAYER_NAME);
     SetPVarString(playerid, "PlayerName", playerName);
@@ -34,7 +34,7 @@ public OnPlayerConnect(playerid)
 
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    // 从变量读取玩家名称
+    // 从变量读取玩家昵称
     new playerName[MAX_PLAYER_NAME];
     GetPVarString(playerid, "PlayerName", playerName, sizeof(playerName));
 

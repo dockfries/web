@@ -1,23 +1,23 @@
 ---
 title: GetVehicleTrailer
 sidebar_label: GetVehicleTrailer
-description: Get the ID of the trailer attached to a vehicle.
-tags: ["vehicle"]
+description: 获取车辆所连接拖车的ID编号。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Get the ID of the trailer attached to a vehicle.
+获取与当前车辆连接的拖车单元 ID。
 
-| Name      | Description                                  |
-| --------- | -------------------------------------------- |
-| vehicleid | The ID of the vehicle to get the trailer of. |
+| 参数名    | 说明                          |
+| --------- | ----------------------------- |
+| vehicleid | 需要查询拖车连接的目标车辆 ID |
 
-## Returns
+## 返回值
 
-The vehicle ID of the trailer or 0 if no trailer is attached.
+成功返回拖车的车辆 ID 编号，若未连接拖车则返回**0**
 
-## Examples
+## 示例
 
 ```c
 new
@@ -25,16 +25,16 @@ new
 DetachTrailerFromVehicle(trailerId);
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function does not work for trains.
+该函数不适用于火车类轨道车辆
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [AttachTrailerToVehicle](AttachTrailerToVehicle): Attach a trailer to a vehicle.
-- [DetachTrailerFromVehicle](DetachTrailerFromVehicle): Detach a trailer from a vehicle.
-- [IsTrailerAttachedToVehicle](IsTrailerAttachedToVehicle): Check if a trailer is attached to a vehicle.
+- [AttachTrailerToVehicle](AttachTrailerToVehicle): 将拖车连接到指定车辆
+- [DetachTrailerFromVehicle](DetachTrailerFromVehicle): 从车辆分离已连接的拖车
+- [IsTrailerAttachedToVehicle](IsTrailerAttachedToVehicle): 检测拖车是否连接到车辆

@@ -21,6 +21,6 @@ description: SA-MP客户端配置文件
 | **directmode**      | 为存在聊天文本显示问题的玩家启用直接屏幕渲染模式（0=禁用 1=启用）。                                                                                                                                |
 | **audiomsgoff**     | 禁用音频流 URL 加载提示（1=不显示提示）。对应 `/audiomsg` 命令。                                                                                                                                   |
 | **audioproxyoff**   | 禁用 Windows 代理服务器进行音频流传输（1=绕过代理）。                                                                                                                                              |
-| **nonametagstatus** | 暂停玩家名称标签旁显示沙漏图标（默认 0=启用）。使用 `/nametagstatus` 命令调整。                                                                                                                    |
+| **nonametagstatus** | 暂停玩家昵称标签旁显示沙漏图标（默认 0=启用）。使用 `/nametagstatus` 命令调整。                                                                                                                    |
 | **fontface**        | 自定义 UI 字体（示例：`fontface="Comic Sans MS"`）。非官方支持功能，可能导致异常。                                                                                                                 |
 | **fontweight**      | 字体粗细设置（0=粗体[默认] 1=正常）。                                                                                                                                                              |

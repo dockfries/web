@@ -1,31 +1,31 @@
 ---
 title: InterpolateCameraPos
 sidebar_label: InterpolateCameraPos
-description: Move a player's camera from one position to another, within the set time.
-tags: ["player", "interpolate"]
+description: 在设定时间内将玩家的视角从一个位置平滑移动到另一个位置
+tags: ["玩家", "插值过渡"]
 ---
 
-## Description
+## 描述
 
-Move a player's camera from one position to another, within the set time. Useful for scripted cut scenes
+在指定时间内平滑移动玩家视角的位置。常用于脚本控制的过场动画。
 
-| Name         | Description                                                                                                          |
-| ------------ | -------------------------------------------------------------------------------------------------------------------- |
-| playerid     | The ID of the player the camera should be moved for                                                                  |
-| Float:fromX  | The X position the camera should start to move from                                                                  |
-| Float:fromY  | The Y position the camera should start to move from                                                                  |
-| Float:fromZ  | The Z position the camera should start to move from                                                                  |
-| Float:toX    | The X position the camera should move to                                                                             |
-| Float:toY    | The Y position the camera should move to                                                                             |
-| Float:toZ    | The Z position the camera should move to                                                                             |
-| time         | Time in milliseconds                                                                                                 |
-| CAM_MOVE:cut | The [jumpcut](../resources/cameracutstyles) to use. Defaults to CAMERA_CUT. Set to CAMERA_MOVE for a smooth movement |
+| 参数         | 说明                                                                                                       |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| playerid     | 需要移动视角的玩家 ID                                                                                      |
+| Float:fromX  | 视角起始位置的 X 坐标                                                                                      |
+| Float:fromY  | 视角起始位置的 Y 坐标                                                                                      |
+| Float:fromZ  | 视角起始位置的 Z 坐标                                                                                      |
+| Float:toX    | 视角目标位置的 X 坐标                                                                                      |
+| Float:toY    | 视角目标位置的 Y 坐标                                                                                      |
+| Float:toZ    | 视角目标位置的 Z 坐标                                                                                      |
+| time         | 移动持续毫秒数                                                                                             |
+| CAM_MOVE:cut | [视角切换样式](../resources/cameracutstyles)。默认 CAMERA_CUT（瞬间切换）。应设为 CAMERA_MOVE 实现平滑移动 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -34,28 +34,28 @@ public OnPlayerCommandText(playerid, cmdtext[])
     {
         TogglePlayerSpectating(playerid, true);
         InterpolateCameraPos(playerid, 0.0, 0.0, 10.0, 1000.0, 1000.0, 30.0, 10000, CAMERA_MOVE);
-        //Move the player's camera from point A to B in 10000 milliseconds (10 seconds).
+        // 在10000毫秒(10秒)内将玩家视角从A点(0,0,10)平滑移动到B点(1000,1000,30)
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- Use [TogglePlayerSpectating](TogglePlayerSpectating) to make objects stream in for the player while the camera is moving and remove the HUD.
-- The player's camera can be reset to behind the player with [SetCameraBehindPlayer](SetCameraBehindPlayer).
+- 使用[TogglePlayerSpectating](TogglePlayerSpectating)可在视角移动期间保持物体正常加载并隐藏 HUD 界面
+- 使用[SetCameraBehindPlayer](SetCameraBehindPlayer)可重置视角至玩家背后视角
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [InterpolateCameraLookAt](InterpolateCameraLookAt): Move a player's camera view from one location to another.
-- [SetPlayerCameraPos](SetPlayerCameraPos): Set a player's camera position.
-- [SetPlayerCameraLookAt](SetPlayerCameraLookAt): Set where a player's camera should face.
+- [InterpolateCameraLookAt](InterpolateCameraLookAt): 平滑调整视角注视点
+- [SetPlayerCameraPos](SetPlayerCameraPos): 直接设置视角位置
+- [SetPlayerCameraLookAt](SetPlayerCameraLookAt): 直接设置视角注视方向
 
-## Related Resources
+## 相关资源
 
-- [Camera Cut Styles](../resources/cameracutstyles)
+- [视角切换样式](../resources/cameracutstyles)

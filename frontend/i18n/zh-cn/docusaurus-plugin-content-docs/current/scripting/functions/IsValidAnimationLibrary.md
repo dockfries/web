@@ -1,41 +1,41 @@
 ---
 title: IsValidAnimationLibrary
 sidebar_label: IsValidAnimationLibrary
-description: Checks if the given animation library is valid.
-tags: ["animation"]
+description: 检测指定动画库是否有效。
+tags: ["动画"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if the given animation library is valid.
+检测给定动画库名称是否有效。
 
-| Name         | Description                          |
-| ------------ | ------------------------------------ |
-| const name[] | The animation library name to check. |
+| 参数名       | 说明               |
+| ------------ | ------------------ |
+| const name[] | 待检测的动画库名称 |
 
-## Returns
+## 返回值
 
-Returns true if the animation library is valid, otherwise false.
+当动画库有效时返回 **true**，否则返回 **false**
 
-## Examples
+## 示例代码
 
 ```c
 if (IsValidAnimationLibrary("PED"))
 {
-    // Animation library is valid
+    // 动画库有效
 }
 else
 {
-    // Animation library is not valid
+    // 动画库无效
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [ApplyAnimation](ApplyAnimation): Apply an animation to a player.
+- [ApplyAnimation](ApplyAnimation): 为玩家应用动画效果
 
-## Related Resources
+## 相关资源
 
-- [Animations](../resources/animations)
+- [动画资源](../resources/animations)

@@ -44,5 +44,5 @@ public OnPlayerText(playerid, text[])
 
 ## 相关函数
 
-• [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): 获取玩家到点的距离
-• [GetVehiclePos](GetVehiclePos): 获取车辆坐标位置
+- [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): 获取玩家到点的距离
+- [GetVehiclePos](GetVehiclePos): 获取车辆坐标位置

@@ -1,7 +1,7 @@
 ---
 title: GetVehicleInterior
 sidebar_label: GetVehicleInterior
-description: 获取车辆的内部空间ID。
+description: 获取车辆的室内空间ID。
 tags: ["车辆"]
 ---
 
@@ -9,7 +9,7 @@ tags: ["车辆"]
 
 ## 描述
 
-获取指定车辆的内部空间 ID。
+获取指定车辆的室内空间 ID。
 
 ## 参数
 
@@ -19,7 +19,7 @@ tags: ["车辆"]
 
 ## 返回值
 
-返回车辆的内部空间 ID。
+返回车辆的室内空间 ID。
 
 ## 示例代码
 
@@ -37,4 +37,4 @@ public OnGameModeInit()
 
 ## 相关函数
 
-- [LinkVehicleToInterior](LinkVehicleToInterior): 将车辆链接到指定内部空间。
+- [LinkVehicleToInterior](LinkVehicleToInterior): 将车辆链接到指定室内空间。

@@ -1,26 +1,26 @@
 ---
 title: HideMenuForPlayer
 sidebar_label: HideMenuForPlayer
-description: Hides a menu for a player.
-tags: ["player", "menu"]
+description: 隐藏玩家的菜单
+tags: ["玩家", "菜单"]
 ---
 
-## Description
+## 描述
 
-Hides a menu for a player.
+隐藏指定玩家的菜单。
 
-| Name        | Description                                                                                                                       |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Menu:menuid | The ID of the menu to hide. Returned by CreateMenu and passed to [OnPlayerSelectedMenuRow](../callbacks/OnPlayerSelectedMenuRow). |
-| playerid    | The ID of the player that the menu will be hidden for.                                                                            |
+| 参数        | 说明                                                                                                             |
+| ----------- | ---------------------------------------------------------------------------------------------------------------- |
+| Menu:menuid | 要隐藏的菜单 ID。由 CreateMenu 生成并传递给[OnPlayerSelectedMenuRow](../callbacks/OnPlayerSelectedMenuRow)回调。 |
+| playerid    | 需要隐藏菜单的玩家 ID                                                                                            |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute.
+**false** - 函数执行失败
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -35,19 +35,19 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Crashes the both server and player if an invalid menu ID given. (Fixed in open.mp)
+如果传入无效的菜单 ID，会导致服务端和玩家客户端崩溃（此问题已在 open.mp 中修复）
 
 :::
 
 :::tip
 
-This function has always taken a menu ID parameter, but in SA:MP this ID was not used. So whatever value was given the player's current menu would be closed, even if they weren't looking at the one you said to close.
+该函数始终需要菜单 ID 参数，但在 SA:MP 中该参数未被实际使用。无论传入任何值，都会关闭玩家当前正在查看的菜单。
 
-Old code may have looked like:
+旧代码可能如下所示：
 
 ```c
 gShopMenu = CreateMenu("text", 2, 100.0, 30.0, 7.0);
@@ -55,7 +55,7 @@ gShopMenu = CreateMenu("text", 2, 100.0, 30.0, 7.0);
 HideMenuForPlayer(gShopMenu, playerid);
 ```
 
-That would always close the player's current menu, regardless of which one they were actually looking at. Now you will need to remember which one they are looking at, or just get it:
+这种写法会始终关闭玩家当前查看的菜单，无论实际显示的是哪个菜单。现在您需要记录玩家当前查看的菜单，或直接获取：
 
 ```c
 gShopMenu = CreateMenu("text", 2, 100.0, 30.0, 7.0);
@@ -65,9 +65,9 @@ HideMenuForPlayer(GetPlayerMenu(playerid), playerid);
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreateMenu](CreateMenu): Create a menu.
-- [AddMenuItem](AddMenuItem): Adds an item to a specified menu.
-- [SetMenuColumnHeader](SetMenuColumnHeader): Set the header for one of the columns in a menu.
-- [ShowMenuForPlayer](ShowMenuForPlayer): Show a menu for a player.
+- [CreateMenu](CreateMenu): 创建菜单
+- [AddMenuItem](AddMenuItem): 为指定菜单添加选项
+- [SetMenuColumnHeader](SetMenuColumnHeader): 设置菜单列标题
+- [ShowMenuForPlayer](ShowMenuForPlayer): 为玩家显示菜单

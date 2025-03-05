@@ -1,25 +1,25 @@
 ---
 title: GetVehicleModelsUsed
 sidebar_label: GetVehicleModelsUsed
-description: Get the number of used vehicle models on the server.
-tags: ["vehicle"]
+description: 获取服务器上已使用的车辆模型数量。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the number of used vehicle models on the server.
+获取服务器上已使用的车辆模型数量。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    printf("Used vehicle models: %d", GetVehicleModelsUsed());
+    printf("已使用车辆模型数: %d", GetVehicleModelsUsed());
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleModelCount](GetVehicleModelCount): Gets the model count of a vehicle model.
+- [GetVehicleModelCount](GetVehicleModelCount): 获取指定车辆模型的计数

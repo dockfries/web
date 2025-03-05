@@ -1,33 +1,34 @@
 ---
 title: Is3DTextLabelStreamedIn
 sidebar_label: Is3DTextLabelStreamedIn
-description: Checks if a 3D text label is streamed in for a player.
-tags: ["3dtextlabel"]
+description: 检查3D文本标签是否已为玩家流加载
+tags: ["3d文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a 3D text label is streamed in for a player.
+检查指定 3D 文本标签是否已为玩家完成流加载。
 
-| Name          | Description                  |
-| ------------- | ---------------------------- |
-| playerid      | The ID of the player.        |
-| Text3D:textid | The ID of the 3D text label. |
+| 参数          | 说明           |
+| ------------- | -------------- |
+| playerid      | 玩家 ID        |
+| Text3D:textid | 3D 文本标签 ID |
 
-## Returns
+## 返回值
 
-This function returns **true** if the 3D text label is streamed in for the player, or **false** if it is not.
+**true** - 3D 文本标签已为玩家流加载  
+**false** - 尚未完成加载或标签不存在
 
-## Examples
+## 示例
 
 ```c
 new Text3D:gMyLabel;
 
 public OnGameModeInit()
 {
-    gMyLabel = Create3DTextLabel("I'm at the coordinates:\n30.0, 40.0, 50.0", 0x008080FF, 30.0, 40.0, 50.0, 40.0, 0, false);
+    gMyLabel = Create3DTextLabel("当前坐标：\n30.0, 40.0, 50.0", 0x008080FF, 30.0, 40.0, 50.0, 40.0, 0, false);
     return 1;
 }
 
@@ -35,13 +36,13 @@ public OnPlayerSpawn(playerid)
 {
     if (Is3DTextLabelStreamedIn(playerid, gMyLabel))
     {
-        // Do something
+        // 执行相关操作
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [Create3DTextLabel](Create3DTextLabel): Creates a 3D Text Label at a specific location in the world.
-- [IsPlayerStreamedIn](IsPlayerStreamedIn): Checks if a player is streamed in for another player.
+- [Create3DTextLabel](Create3DTextLabel): 在指定坐标创建 3D 文本标签
+- [IsPlayerStreamedIn](IsPlayerStreamedIn): 检查玩家是否已为另一玩家流加载

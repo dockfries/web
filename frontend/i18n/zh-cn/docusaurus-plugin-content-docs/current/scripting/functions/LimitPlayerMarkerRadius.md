@@ -1,33 +1,34 @@
 ---
 title: LimitPlayerMarkerRadius
 sidebar_label: LimitPlayerMarkerRadius
-description: Set the player marker radius.
-tags: ["player"]
+description: 设置玩家标记的显示半径
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set the player marker radius.
+设置玩家在小地图上的标记可见范围。只有在该半径范围内的其他玩家才会显示位置标记。
 
-| Name               | Description                          |
-| ------------------ | ------------------------------------ |
-| Float:markerRadius | The radius that markers will show at |
+| 参数名             | 说明         |
+| ------------------ | ------------ |
+| Float:markerRadius | 标记可见半径 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有返回值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
 {
     LimitPlayerMarkerRadius(100.0);
+    return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [ShowPlayerMarkers](ShowPlayerMarkers): Decide if the server should show markers on the radar.
-- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): Set a player's marker.
-- [LimitGlobalChatRadius](LimitGlobalChatRadius): Limit the distance between players needed to see their chat.
+- [ShowPlayerMarkers](ShowPlayerMarkers): 控制雷达是否显示玩家标记
+- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): 自定义玩家标记颜色
+- [LimitGlobalChatRadius](LimitGlobalChatRadius): 设置全局聊天可听范围

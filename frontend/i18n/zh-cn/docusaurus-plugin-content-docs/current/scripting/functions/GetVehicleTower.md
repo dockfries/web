@@ -1,34 +1,34 @@
 ---
 title: GetVehicleTower
 sidebar_label: GetVehicleTower
-description: Get the ID of the cab attached to a vehicle.
-tags: ["vehicle"]
+description: 获取车辆连接的驾驶室ID（已弃用）
+tags: ["车辆"]
 ---
 
 :::warning
 
-This function is deprecated, See [GetVehicleCab](GetVehicleCab).
+该函数已弃用，请使用[获取车辆驾驶室](GetVehicleCab)函数替代。
 
 :::
 
-## Description
+## 描述
 
-Get the ID of the cab attached to a vehicle.
+获取与车辆连接的驾驶室单元 ID。
 
-| Name      | Description                              |
-| --------- | ---------------------------------------- |
-| vehicleid | The ID of the vehicle to get the cab of. |
+| 参数名    | 说明                        |
+| --------- | --------------------------- |
+| vehicleid | 需要查询驾驶室的目标车辆 ID |
 
-## Returns
+## 返回值
 
-The vehicle ID of the cab or **0** if no cab is attached.
+成功返回驾驶室的车辆 ID，若未连接驾驶室则返回**0**
 
-## Examples
+## 示例
 
 ```c
 new cabId = GetVehicleTower(vehicleid);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleTrailer](GetVehicleTrailer): Get the ID of the trailer attached to a vehicle.
+- [GetVehicleTrailer](GetVehicleTrailer): 获取车辆连接的拖车 ID

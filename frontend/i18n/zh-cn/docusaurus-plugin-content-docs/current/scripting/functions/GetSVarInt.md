@@ -33,9 +33,9 @@ printf("Version: %d", GetSVarInt("Version"));
 
 ## 相关函数
 
-• [SetSVarInt](SetSVarInt): 设置整型服务器变量
-• [SetSVarString](SetSVarString): 设置字符串型服务器变量
-• [GetSVarString](GetSVarString): 获取字符串型服务器变量
-• [SetSVarFloat](SetSVarFloat): 设置浮点型服务器变量
-• [GetSVarFloat](GetSVarFloat): 获取浮点型服务器变量
-• [DeleteSVar](DeleteSVar): 删除服务器变量
+- [SetSVarInt](SetSVarInt): 设置整型服务器变量
+- [SetSVarString](SetSVarString): 设置字符串型服务器变量
+- [GetSVarString](GetSVarString): 获取字符串型服务器变量
+- [SetSVarFloat](SetSVarFloat): 设置浮点型服务器变量
+- [GetSVarFloat](GetSVarFloat): 获取浮点型服务器变量
+- [DeleteSVar](DeleteSVar): 删除服务器变量

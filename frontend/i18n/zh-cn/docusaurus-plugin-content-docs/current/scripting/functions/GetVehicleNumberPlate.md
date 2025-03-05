@@ -1,25 +1,25 @@
 ---
 title: GetVehicleNumberPlate
 sidebar_label: GetVehicleNumberPlate
-description: Get the number plate of a vehicle.
-tags: ["vehicle"]
+description: 获取车辆的牌照号码。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the number plate of a vehicle.
+获取车辆的牌照号码。
 
-## Parameters
+## 参数
 
-| Name                 | Description                                                 |
-| -------------------- | ----------------------------------------------------------- |
-| vehicleid            | The ID of the vehicle.                                      |
-| plate[]              | An array into which to store the name, passed by reference. |
-| len = sizeof (plate) | The length of the plate that should be stored.              |
+| 参数名               | 说明                                 |
+| -------------------- | ------------------------------------ |
+| vehicleid            | 车辆 ID                              |
+| plate[]              | 用于存储车牌号的数组，通过引用传递。 |
+| len = sizeof (plate) | 应当存储的车牌字符长度。             |
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -34,6 +34,6 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleNumberPlate](SetVehicleNumberPlate): Set a vehicle numberplate.
+- [SetVehicleNumberPlate](SetVehicleNumberPlate): 设置车辆牌照

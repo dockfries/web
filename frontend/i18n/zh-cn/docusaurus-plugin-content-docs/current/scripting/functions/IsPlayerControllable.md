@@ -1,33 +1,32 @@
 ---
 title: IsPlayerControllable
 sidebar_label: IsPlayerControllable
-description: Check if the player is controllable.
-tags: ["player"]
+description: 检查玩家是否可被控制
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Check if the player is controllable.
+检测玩家角色是否处于可控制状态。
 
-| Name     | Description           |
-| -------- | --------------------- |
-| playerid | The ID of the player. |
+| 参数     | 说明    |
+| -------- | ------- |
+| playerid | 玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - Controllable
+**true** - 玩家可控制  
+**false** - 玩家不可控制（如被冻结状态）
 
-**false** - Uncontrollable
-
-## Examples
+## 示例
 
 ```c
 public OnPlayerSpawn(playerid)
 {
-    // Unfreeze the player if it is freezed
-    if (IsPlayerControllable(playerid) == false)
+    // 如果玩家被冻结则解除冻结
+    if (!IsPlayerControllable(playerid))
     {
         TogglePlayerControllable(playerid, true);
     }
@@ -36,6 +35,6 @@ public OnPlayerSpawn(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [TogglePlayerControllable](TogglePlayerControllable): Toggles whether a player can control their character or not. The player will also be unable to move their camera.
+- [TogglePlayerControllable](TogglePlayerControllable): 切换玩家控制状态（同时禁用视角移动）

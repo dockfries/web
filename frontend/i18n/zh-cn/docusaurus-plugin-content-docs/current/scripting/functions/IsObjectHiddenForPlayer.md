@@ -1,37 +1,37 @@
 ---
 title: IsObjectHiddenForPlayer
-sidebar_label: IsObjectHiddenForPlayer
-description: Checks if an object is hidden for a player.
-tags: ["player", "object"]
+sidebar_label: 检查物体是否对玩家隐藏
+description: 检查物体是否对指定玩家隐藏
+tags: ["玩家", "物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if an object is hidden for a player.
+检查指定物体是否对玩家处于隐藏状态。
 
-## Parameters
+## 参数
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player.          |
-| objectid | The ID of the object to check. |
+| 参数     | 说明              |
+| -------- | ----------------- |
+| playerid | 玩家 ID           |
+| objectid | 需要检查的物体 ID |
 
-## Returns
+## 返回值
 
-`true` - Object is hidden for the player.
+`true` - 物体对玩家处于隐藏状态  
+`false` - 物体对玩家可见
 
-`false` - Object is not hidden for the player.
-
-## Examples
+## 示例
 
 ```c
 new gObject;
 
 public OnGameModeInit()
 {
-    gObject = CreateObject(1431, 921.12201, -1206.78613, 16.52670,   0.00000, 0.00000, 90.00000);
+    // 在坐标921.12, -1206.78, 16.52创建木箱物体
+    gObject = CreateObject(1431, 921.12201, -1206.78613, 16.52670, 0.0, 0.0, 90.0);
     return 1;
 }
 
@@ -45,22 +45,22 @@ public OnPlayerSpawn(playerid)
 {
     if (IsObjectHiddenForPlayer(playerid, gObject))
     {
-        printf("Object %d is hidden for player %d", gObject, playerid);
+        printf("物体 %d 对玩家 %d 处于隐藏状态", gObject, playerid);
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
-:::tip
+:::提示
 
-You can hide objects for a specific player with [HideObjectForPlayer](HideObjectForPlayer) function.
+可通过[HideObjectForPlayer](HideObjectForPlayer)函数为指定玩家隐藏物体
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [HideObjectForPlayer](HideObjectForPlayer): Hide an object for a player.
-- [ShowObjectForPlayer](ShowObjectForPlayer): Show an object for a player.
-- [CreateObject](CreateObject): Create an object.
+- [HideObjectForPlayer](HideObjectForPlayer): 对玩家隐藏物体
+- [ShowObjectForPlayer](ShowObjectForPlayer): 对玩家显示物体
+- [CreateObject](CreateObject): 创建新物体

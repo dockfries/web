@@ -1,26 +1,27 @@
 ---
 title: IsActorStreamedIn
 sidebar_label: IsActorStreamedIn
-description: Checks if an actor is streamed in for a player.
-tags: ["actor"]
+description: 检查角色是否已为玩家流加载
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Checks if an actor is streamed in for a player.
+检查指定角色是否已为玩家完成流加载。
 
-| Name     | Description           |
-| -------- | --------------------- |
-| actorid  | The ID of the actor.  |
-| playerid | The ID of the player. |
+| 参数     | 说明              |
+| -------- | ----------------- |
+| actorid  | 需要检查的角色 ID |
+| playerid | 玩家 ID           |
 
-## Returns
+## 返回值
 
-This function returns 1 if the actor is streamed in for the player, or 0 if it is not.
+**1** - 角色已为玩家流加载  
+**0** - 角色尚未加载或不存在
 
-## Examples
+## 示例
 
 ```c
 new gMyActor;
@@ -35,13 +36,13 @@ public OnPlayerSpawn(playerid)
 {
     if (IsActorStreamedIn(gMyActor, playerid))
     {
-        // Do something
+        // 执行相关操作
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateActor](CreateActor): Create an actor (static NPC).
-- [IsPlayerStreamedIn](IsPlayerStreamedIn): Checks if a player is streamed in for another player.
+- [CreateActor](CreateActor): 创建角色（静态 NPC）
+- [IsPlayerStreamedIn](IsPlayerStreamedIn): 检查玩家是否已为另一玩家流加载

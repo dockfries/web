@@ -49,8 +49,8 @@ public OnVehicleMod(playerid, vehicleid, componentid)
 以下回调可能与该回调存在关联：
 
 - [OnEnterExitModShop](OnEnterExitModShop): 当车辆进入/离开改装店时触发
-- [OnVehiclePaintjob](OnVehiclePaintjob): 当车辆喷漆变更时触发
-- [OnVehicleRespray](OnVehicleRespray): 当车辆重新喷漆时触发
+- [OnVehiclePaintjob](OnVehiclePaintjob): 当车辆涂装变更时触发
+- [OnVehicleRespray](OnVehicleRespray): 当车辆重新涂装时触发
 
 ## 相关函数
 

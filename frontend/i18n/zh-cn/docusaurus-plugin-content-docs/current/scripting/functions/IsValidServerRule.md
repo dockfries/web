@@ -1,38 +1,38 @@
 ---
 title: IsValidServerRule
 sidebar_label: IsValidServerRule
-description: Checks if the given server rule is valid.
-tags: ["rule"]
+description: 检测服务器规则有效性
+tags: ["服务器规则"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if the given server rule is valid.
+检测指定服务器规则是否有效。
 
-| Name         | Description                    |
-| ------------ | ------------------------------ |
-| const rule[] | The server rule name to check. |
+| 参数名       | 说明                   |
+| ------------ | ---------------------- |
+| const rule[] | 待检测的服务器规则名称 |
 
-## Returns
+## 返回值
 
-Returns true if the server rule is valid, otherwise false.
+当服务器规则有效时返回 **true**，否则返回 **false**
 
-## Examples
+## 示例代码
 
 ```c
 if (IsValidServerRule("version"))
 {
-    // Server rule is valid
+    // 服务器规则有效
 }
 else
 {
-    // Server rule is not valid
+    // 服务器规则无效
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddServerRule](AddServerRule): Add a server rule.
-- [RemoveServerRule](RemoveServerRule): Remove the server rule.
+- [AddServerRule](AddServerRule): 添加服务器规则
+- [RemoveServerRule](RemoveServerRule): 移除服务器规则

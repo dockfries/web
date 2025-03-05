@@ -1,63 +1,63 @@
 ---
 title: IsPlayerTextDrawVisible
 sidebar_label: IsPlayerTextDrawVisible
-description: Checks if a player-textdraw is shown for the player.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 检测玩家专属文本绘制是否对指定玩家可见。
+tags: ["玩家", "文本绘制", "玩家文本绘制"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a player-textdraw is shown for the player.
+检测指定玩家的专属文本绘制是否处于显示状态。
 
-| Name              | Description                    |
-| ----------------- | ------------------------------ |
-| playerid          | The ID of the player to check. |
-| PlayerText:textid | The ID of the player-textdraw. |
+| 参数名            | 说明              |
+| ----------------- | ----------------- |
+| playerid          | 要检测的玩家 ID   |
+| PlayerText:textid | 玩家文本绘制的 ID |
 
-## Returns
+## 返回值
 
-**true** - Player-Textdraw is shown for the player.
+**true** - 文本绘制当前可见
 
-**false** - Player-Textdraw is not shown for the player.
+**false** - 文本绘制当前不可见
 
-## Examples
+## 示例代码
 
 ```c
-new PlayerText:welcomeText[MAX_PLAYERS];
+new PlayerText:welcomeText[MAX_PLAYERS]; // 创建玩家文本绘制存储数组
 
 public OnPlayerConnect(playerid)
 {
-    welcomeText[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, "Welcome to my OPEN.MP server");
+    welcomeText[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, "欢迎来到我的OPEN.MP服务器");
     PlayerTextDrawShow(playerid, welcomeText[playerid]);
 
     if (IsPlayerTextDrawVisible(playerid, welcomeText[playerid]))
     {
-        // Player-Textdraw is shown
+        // 玩家文本绘制已显示
     }
     else
     {
-        // Player-Textdraw is not shown
+        // 玩家文本绘制未显示
     }
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): Destroy a player-textdraw.
-- [PlayerTextDrawColor](PlayerTextDrawColor): Set the color of the text in a player-textdraw.
-- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): Set the color of a player-textdraw's box.
-- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): Set the background color of a player-textdraw.
-- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): Set the alignment of a player-textdraw.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
-- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): Set the letter size of the text in a player-textdraw.
-- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): Set the size of a player-textdraw box (or clickable area for PlayerTextDrawSetSelectable).
-- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): Toggle the outline on a player-textdraw.
-- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): Set the shadow on a player-textdraw.
-- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): Scale the text spacing in a player-textdraw to a proportional ratio.
-- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): Toggle the box on a player-textdraw.
-- [PlayerTextDrawSetString](PlayerTextDrawSetString): Set the text of a player-textdraw.
-- [PlayerTextDrawShow](PlayerTextDrawShow): Show a player-textdraw.
-- [PlayerTextDrawHide](PlayerTextDrawHide): Hide a player-textdraw.
-- [IsValidPlayerTextDraw](IsValidPlayerTextDraw): Checks if a player-textdraw is valid.
+- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘制
+- [PlayerTextDrawColor](PlayerTextDrawColor): 设置文本颜色
+- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): 设置文本框颜色
+- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): 设置背景色
+- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): 设置对齐方式
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置字体样式
+- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): 设置字符尺寸
+- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): 设置绘制区域尺寸
+- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): 启用文本描边
+- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): 设置文本阴影
+- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): 启用比例间距
+- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): 启用文本框
+- [PlayerTextDrawSetString](PlayerTextDrawSetString): 更新文本内容
+- [PlayerTextDrawShow](PlayerTextDrawShow): 显示文本绘制
+- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏文本绘制
+- [IsValidPlayerTextDraw](IsValidPlayerTextDraw): 验证文本绘制有效性

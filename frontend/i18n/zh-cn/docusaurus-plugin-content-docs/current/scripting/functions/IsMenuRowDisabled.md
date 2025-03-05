@@ -1,25 +1,26 @@
 ---
 title: IsMenuRowDisabled
 sidebar_label: IsMenuRowDisabled
-description: Checks if a menu row is disabled.
-tags: ["menu"]
+description: 检查菜单行是否被禁用
+tags: ["菜单"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a menu row is disabled.
+检查指定菜单行是否被禁用。
 
-| Name        | Description                  |
-| ----------- | ---------------------------- |
-| Menu:menuid | The ID of the menu to check. |
+| 参数        | 说明              |
+| ----------- | ----------------- |
+| Menu:menuid | 需要检查的菜单 ID |
 
-## Returns
+## 返回值
 
-Returns **true** if the row is disabled, otherwise **false**.
+**true** - 菜单行已被禁用  
+**false** - 菜单行未被禁用
 
-## Related Functions
+## 相关函数
 
-- [IsValidMenu](IsValidMenu): Checks if a menu ID is valid.
-- [IsMenuDisabled](IsMenuDisabled): Checks if a menu is disabled.
+- [IsValidMenu](IsValidMenu): 验证菜单 ID 有效性
+- [IsMenuDisabled](IsMenuDisabled): 检查菜单是否禁用

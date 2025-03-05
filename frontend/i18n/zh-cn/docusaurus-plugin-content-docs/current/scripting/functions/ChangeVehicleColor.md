@@ -54,11 +54,11 @@ new VehicleColoursTableRGBA[256] = {
 ## 相关函数
 
 - [GetVehicleColours](GetVehicleColours): 获取车辆颜色配置
-- [ChangeVehiclePaintjob](ChangeVehiclePaintjob): 修改车辆喷漆样式
+- [ChangeVehiclePaintjob](ChangeVehiclePaintjob): 修改车辆涂装样式
 
 ## 相关回调
 
-- [OnVehicleRespray](../callbacks/OnVehicleRespray): 当车辆重新喷漆时触发
+- [OnVehicleRespray](../callbacks/OnVehicleRespray): 当车辆重新涂装时触发
 
 ## 扩展资源
 

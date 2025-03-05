@@ -1,38 +1,38 @@
 ---
 title: IsPlayerRaceCheckpointActive
 sidebar_label: IsPlayerRaceCheckpointActive
-description: Check if the player currently has a race checkpoint visible.
-tags: ["player", "checkpoint", "racecheckpoint"]
+description: 检测玩家当前是否显示竞速检查点。
+tags: ["玩家", "检查点", "竞速检查点"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Check if the player currently has a race checkpoint visible.
+检测指定玩家的竞速检查点是否处于激活可见状态。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
+| 参数名   | 说明            |
+| -------- | --------------- |
+| playerid | 要检测的玩家 ID |
 
-## Return Values
+## 返回值
 
-Returns **false** if there is no race checkpoint currently shown, otherwise returns **true**
+当未显示竞速检查点时返回 **false**，否则返回 **true**
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerSpawn(playerid)
 {
     if (IsPlayerRaceCheckpointActive(playerid))
     {
-        // Do something
+        // 执行相关逻辑
     }
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerRaceCheckpoint](SetPlayerRaceCheckpoint): Create a race checkpoint for a player.
-- [IsPlayerInRaceCheckpoint](IsPlayerInRaceCheckpoint): Check if a player is in a race checkpoint.
-- [IsPlayerCheckpointActive](IsPlayerCheckpointActive): Check if the player currently has a checkpoint visible.
+- [SetPlayerRaceCheckpoint](SetPlayerRaceCheckpoint): 创建玩家专属竞速检查点
+- [IsPlayerInRaceCheckpoint](IsPlayerInRaceCheckpoint): 检测玩家是否处于竞速检查点范围内
+- [IsPlayerCheckpointActive](IsPlayerCheckpointActive): 检测玩家是否激活普通检查点

@@ -1,43 +1,42 @@
 ---
 title: IsVehicleSirenEnabled
 sidebar_label: IsVehicleSirenEnabled
-description: Checks if a vehicle siren is on or off.
-tags: ["vehicle"]
+description: 检测车辆警笛状态
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a vehicle siren is on or off.
+检测指定车辆的警笛是否处于开启状态。
 
-## Parameters
+## 参数说明
 
-| Name      | Description                     |
-| --------- | ------------------------------- |
-| vehicleid | The ID of the vehicle to check. |
+| 参数名    | 说明            |
+| --------- | --------------- |
+| vehicleid | 要检测的车辆 ID |
 
-## Return Values
+## 返回值
 
-**true** - Vehicle siren is on.
+**true** - 警笛开启
 
-**false** - Vehicle siren is off.
+**false** - 警笛关闭
 
-## Examples
+## 示例代码
 
 ```c
 if (IsVehicleSirenEnabled(vehicleid))
 {
-    // Vehicle siren is on
+    // 警笛已开启
 }
 else
 {
-    // Vehicle siren is off
+    // 警笛已关闭
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleParamsSirenState](SetVehicleParamsSirenState): Turn the siren for a vehicle on or off.
-- [ToggleVehicleSirenEnabled](ToggleVehicleSirenEnabled): Turn the siren for a vehicle on or off.
-- [IsVehicleSirenEnabled](IsVehicleSirenEnabled): Checks if a vehicle siren is on or off.
+- [`SetVehicleParamsSirenState`](SetVehicleParamsSirenState): 设置车辆警笛状态
+- [`ToggleVehicleSirenEnabled`](ToggleVehicleSirenEnabled): 切换车辆警笛状态

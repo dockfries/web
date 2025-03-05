@@ -22,7 +22,7 @@ tags: ["玩家", "管理"]
 
 :::warning
 
-在 BanEx()之前立即执行的操作（如使用[SendClientMessage](SendClientMessage)发送消息）将无法送达玩家。必须使用计时器延迟封禁操作。
+在 BanEx()之前立即执行的操作（如使用[SendClientMessage](SendClientMessage)发送消息）将无法送达玩家。必须使用定时器延迟封禁操作。
 
 :::
 
@@ -44,7 +44,7 @@ public OnPlayerCommandText( playerid, cmdtext[] )
 
 ```c
 // 为了在连接关闭前显示消息（如封禁原因）
-// 必须使用计时器延迟操作。延迟仅需数毫秒，
+// 必须使用定时器延迟操作。延迟仅需数毫秒，
 // 本示例使用1秒确保可靠性
 
 forward BanExPublic(playerid, reason[]);

@@ -1,56 +1,58 @@
 ---
 title: IsPlayerObjectMaterialSlotUsed
 sidebar_label: IsPlayerObjectMaterialSlotUsed
-description: Checks if a slot of player-object material is used.
-tags: ["player", "object", "playerobject"]
+description: 检测玩家物体材质槽位是否被使用
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a slot of player-object material is used.
+检测指定玩家物体的材质槽位使用状态
 
-| Name          | Description                                 |
-| ------------- | ------------------------------------------- |
-| playerid      | The ID of the player.                       |
-| objectid      | The ID of the player-object.                |
-| materialIndex | The material index on the object. (0 to 15) |
+| 参数名        | 说明                            |
+| ------------- | ------------------------------- |
+| playerid      | 目标玩家 ID                     |
+| objectid      | 玩家物体 ID                     |
+| materialIndex | 材质槽位索引值（有效范围 0-15） |
 
-## Returns
+## 返回值
 
-The function returns the type of material slot usage.
+返回材质槽位使用类型：
 
-`0` - None
+`0` - 未使用
 
-`1` - Material
+`1` - 材质贴图
 
-`2` - Text
+`2` - 文本贴图
 
-## Examples
+## 示例代码
 
 ```c
-new playerobjectid = CreatePlayerObject(playerid, 19371, 978.71143, -925.25708, 42.63720,   0.00000, 0.00000, 2.00000);
+new playerobjectid = CreatePlayerObject(playerid, 19371, 978.71143, -925.25708, 42.63720, 0.0, 0.0, 2.0);
 SetPlayerObjectMaterial(playerid, playerobjectid, 0, 19341, "egg_texts", "easter_egg01", 0xFFFFFFFF);
 
 new type = IsPlayerObjectMaterialSlotUsed(playerid, playerobjectid, 0);
-// type = 1
+// type值为1
 ```
 
-Another example:
+另一示例：
 
 ```c
-new playerobjectid = CreatePlayerObject(playerid, 19174, 986.42767, -983.14850, 40.95220,   0.00000, 0.00000, 186.00000);
-SetPlayerObjectMaterialText(playerid, playerobjectid, "OPEN.MP", 0, OBJECT_MATERIAL_SIZE_256x128, "Arial", 38, true, 0xFF0000FF, 0x00000000, OBJECT_MATERIAL_TEXT_ALIGN_LEFT);
+new playerobjectid = CreatePlayerObject(playerid, 19174, 986.42767, -983.14850, 40.95220, 0.0, 0.0, 186.0);
+SetPlayerObjectMaterialText(playerid, playerobjectid, "OPEN.MP", 0,
+    OBJECT_MATERIAL_SIZE_256x128, "Arial", 38, true, 0xFF0000FF, 0x00000000,
+    OBJECT_MATERIAL_TEXT_ALIGN_LEFT);
 
 new type = IsPlayerObjectMaterialSlotUsed(playerid, playerobjectid, 0);
-// type = 2
+// type值为2
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerObjectMaterial](SetPlayerObjectMaterial): Replace the texture of a player-object with the texture from another model in the game.
-- [SetPlayerObjectMaterialText](SetPlayerObjectMaterialText): Replace the texture of a player object with text.
-- [GetPlayerObjectMaterial](GetPlayerObjectMaterial): Get the material data from an index of the player-object.
-- [GetPlayerObjectMaterialText](GetPlayerObjectMaterialText): Get the material text data from an index of the player-object.
-- [IsObjectMaterialSlotUsed](IsObjectMaterialSlotUsed): Checks if a slot of object material is used.
+- [SetPlayerObjectMaterial](SetPlayerObjectMaterial): 为玩家物体设置游戏内建材质
+- [SetPlayerObjectMaterialText](SetPlayerObjectMaterialText): 为玩家物体设置文本材质
+- [GetPlayerObjectMaterial](GetPlayerObjectMaterial): 获取玩家物体材质数据
+- [GetPlayerObjectMaterialText](GetPlayerObjectMaterialText): 获取玩家物体文本材质数据
+- [IsObjectMaterialSlotUsed](IsObjectMaterialSlotUsed): 检测物体材质槽位使用状态

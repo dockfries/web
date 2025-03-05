@@ -52,11 +52,11 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 
 ## 相关函数
 
-• [GetPlayerWeaponData](GetPlayerWeaponData): 获取玩家武器库详细信息
-• [GivePlayerWeapon](GivePlayerWeapon): 给予玩家指定武器
-• [ResetPlayerWeapons](ResetPlayerWeapons): 清空玩家所有武器
-• [RemovePlayerWeapon](RemovePlayerWeapon): 移除玩家特定武器
+- [GetPlayerWeaponData](GetPlayerWeaponData): 获取玩家武器库详细信息
+- [GivePlayerWeapon](GivePlayerWeapon): 给予玩家指定武器
+- [ResetPlayerWeapons](ResetPlayerWeapons): 清空玩家所有武器
+- [RemovePlayerWeapon](RemovePlayerWeapon): 移除玩家特定武器
 
 ## 相关资源
 
-• [武器 ID 列表](../resources/weaponids)
+- [武器 ID 列表](../resources/weaponids)

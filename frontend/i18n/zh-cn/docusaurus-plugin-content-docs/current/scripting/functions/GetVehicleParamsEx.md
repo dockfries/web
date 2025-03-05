@@ -1,50 +1,50 @@
 ---
 title: GetVehicleParamsEx
 sidebar_label: GetVehicleParamsEx
-description: Gets a vehicle's parameters.
-tags: ["vehicle"]
+description: 获取车辆的扩展参数。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Gets a vehicle's parameters.
+获取车辆的扩展参数集。
 
-| Name            | Description                                                         |
-| --------------- | ------------------------------------------------------------------- |
-| vehicleid       | The ID of the vehicle to get the parameters from.                   |
-| &bool:engine    | Get the engine status. If 1, the engine is running..                |
-| &bool:lights    | Get the vehicle's lights' state. If 1 the lights are on.            |
-| &bool:alarm     | Get the vehicle's alarm state. If 1 the alarm is (or was) sounding. |
-| &bool:doors     | Get the lock status of the doors. If 1 the doors are locked.        |
-| &bool:bonnet    | Get the bonnet/hood status. If 1, it's open.                        |
-| &bool:boot      | Get the boot/trunk status. 1 means it is open.                      |
-| &bool:objective | Get the objective status. 1 means the objective is on.              |
+| 参数名          | 说明                                                                 |
+| --------------- | -------------------------------------------------------------------- |
+| vehicleid       | 目标车辆 ID                                                          |
+| &bool:engine    | 存储引擎状态的布尔变量（按引用传递），1 表示引擎处于运行状态         |
+| &bool:lights    | 存储车灯状态的布尔变量（按引用传递），1 表示车灯开启                 |
+| &bool:alarm     | 存储警报器状态的布尔变量（按引用传递），1 表示警报正在（或曾）鸣响   |
+| &bool:doors     | 存储车门锁状态的布尔变量（按引用传递），1 表示车门已上锁             |
+| &bool:bonnet    | 存储引擎盖状态的布尔变量（按引用传递），1 表示引擎盖开启             |
+| &bool:boot      | 存储后备箱状态的布尔变量（按引用传递），1 表示后备箱开启             |
+| &bool:objective | 存储任务目标状态的布尔变量（按引用传递），1 表示任务目标处于激活状态 |
 
-## Returns
+## 返回值
 
-**true** - success
+**true** - 操作成功
 
-**false** - failure (invalid vehicle ID).
+**false** - 操作失败（无效的车辆 ID）
 
-The vehicle's parameters are stored in the referenced variables, not in the return value.
+车辆参数实际存储于通过引用传递的变量中，而非通过返回值获取。
 
-## Examples
+## 示例
 
 ```c
 new
 	bool:engine, bool:lights, bool:alarm, bool:doors, bool:bonnet, bool:boot, bool:objective;
 GetVehicleParamsEx(vehicleid, engine, lights, alarm, doors, bonnet, boot, objective);
-//This would cause all the variable above, to become the status of its subject.
+// 该操作将使上述所有变量更新为对应部件的状态值
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-If a parameter is unset (SetVehicleParamsEx not used beforehand) the value will be -1 ('unset').
+若参数未被预先设置（即未使用 SetVehicleParamsEx 进行设置），返回值将为-1（'未设置'状态）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleParamsEx](SetVehicleParamsEx): Sets a vehicle's params for all players.
+- [SetVehicleParamsEx](SetVehicleParamsEx): 为所有玩家设置车辆的扩展参数

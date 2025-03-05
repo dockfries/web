@@ -1,35 +1,35 @@
 ---
 title: GetVehicles
 sidebar_label: GetVehicles
-description: Gets an array variable of the IDs of the created vehicles on the server.
-tags: ["vehicle"]
+description: 获取服务器上已创建车辆的ID数组。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets an array variable of the IDs of the created vehicles on the server.
+获取服务器上所有已生成车辆的 ID 数组变量。
 
-| Name       | Description                                                        |
-| ---------- | ------------------------------------------------------------------ |
-| vehicles[] | An array into which to store the vehicle IDs, passed by reference. |
-| size       | The size of the array.                                             |
+| 参数名     | 说明                                   |
+| ---------- | -------------------------------------- |
+| vehicles[] | 用于存储车辆 ID 的数组（通过引用传递） |
+| size       | 目标数组的容量大小                     |
 
-## Returns
+## 返回值
 
-The function returns the number of vehicles stored in the array.
+返回数组中实际存储的车辆数量。
 
-## Examples
+## 示例
 
 ```c
 new vehicles[MAX_VEHICLES];
 
 GetVehicles(vehicles, sizeof(vehicles));
-// The `vehicles` array now contains created vehicle IDs. { 0, 1, 2, 3, 4, ... }
+// `vehicles` 数组现在包含已创建的车辆ID。{ 0, 1, 2, 3, 4, ... }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayers](GetPlayers): Gets an array variable of the IDs of the current players on the server.
-- [GetActors](GetActors): Gets an array variable of the IDs of the created actors on the server.
+- [GetPlayers](GetPlayers): 获取当前在线玩家的 ID 数组
+- [GetActors](GetActors): 获取服务器上已创建角色的 ID 数组

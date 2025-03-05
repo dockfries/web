@@ -1,29 +1,29 @@
 ---
 title: HideVehicle
 sidebar_label: HideVehicle
-description: Hides a vehicle from the game.
-tags: ["vehicle"]
+description: 将车辆从游戏中隐藏
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 :::warning
 
-This function has not yet been implemented.
+此功能尚未实现
 
 :::
 
-## Description
+## 描述
 
-Hides a vehicle from the game.
+将指定车辆从游戏中隐藏。
 
-## Parametes
+## 参数
 
-| Name      | Description                    |
-| --------- | ------------------------------ |
-| vehicleid | The ID of the vehicle to hide. |
+| 参数      | 说明              |
+| --------- | ----------------- |
+| vehicleid | 需要隐藏的车辆 ID |
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -34,7 +34,7 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [ShowVehicle](ShowVehicle): Shows the hidden vehicle.
-- [IsVehicleHidden](IsVehicleHidden): Checks if a vehicle is hidden.
+- [ShowVehicle](ShowVehicle): 显示隐藏的车辆
+- [IsVehicleHidden](IsVehicleHidden): 检查车辆是否隐藏

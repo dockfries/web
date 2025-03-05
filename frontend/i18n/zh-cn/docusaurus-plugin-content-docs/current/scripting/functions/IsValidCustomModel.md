@@ -1,28 +1,28 @@
 ---
 title: IsValidCustomModel
 sidebar_label: IsValidCustomModel
-description: Checks if a custom model ID is valid.
-tags: ["custom model", "custom skin", "simple model"]
+description: 检测自定义模型ID是否有效。
+tags: ["自定义模型", "自定义皮肤", "简单模型"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a custom model ID is valid.
+检测指定的自定义模型 ID 是否有效。
 
-| Name    | Description                   |
-| ------- | ----------------------------- |
-| modelid | The custom model ID to check. |
+| 参数名  | 说明                  |
+| ------- | --------------------- |
+| modelid | 要检测的自定义模型 ID |
 
-## Returns
+## 返回值
 
-**true** - The custom model ID is valid.
+**true** - 自定义模型 ID 有效
 
-**false** - The custom model ID is not valid.
+**false** - 自定义模型 ID 无效
 
-## Related functions
+## 相关函数
 
-- [AddSimpleModel](AddSimpleModel): Adds a new custom simple object model.
-- [AddSimpleModelTimed](AddSimpleModelTimed): Adds a new custom simple object model.
-- [GetCustomModelPath](GetCustomModelPath): Get a custom model path.
+- [AddSimpleModel](AddSimpleModel): 添加新的自定义简单物体模型
+- [AddSimpleModelTimed](AddSimpleModelTimed): 添加带时限的自定义简单物体模型
+- [GetCustomModelPath](GetCustomModelPath): 获取自定义模型文件路径

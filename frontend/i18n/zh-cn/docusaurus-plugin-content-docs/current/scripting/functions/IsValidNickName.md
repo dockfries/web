@@ -1,47 +1,47 @@
 ---
 title: IsValidNickName
 sidebar_label: IsValidNickName
-description: Checks if a nick name is valid.
+description: 检测昵称是否符合规范。
 tags: []
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a nick name is valid.
+检测指定昵称字符串是否符合服务器命名规则。
 
-| Name         | Description             |
-| ------------ | ----------------------- |
-| const name[] | The nick name to check. |
+| 参数名       | 说明               |
+| ------------ | ------------------ |
+| const name[] | 待检测的昵称字符串 |
 
-## Returns
+## 返回值
 
-Returns true if the nick name is valid, otherwise false.
+当昵称符合规范时返回 **true**，否则返回 **false**
 
-## Examples
+## 示例代码
 
 ```c
 if (IsValidNickName("Barnaby_Keene"))
 {
-    // Do something
+    // 执行相关操作
 }
 else
 {
-    SendClientMessage(playerid, 0xFF0000FF, "Your nick name is not valid.");
+    SendClientMessage(playerid, 0xFF0000FF, "您的昵称不符合规范。");
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-By default the valid characters in the nick name is (0-9, a-z, A-Z, [], (), \$ @ . \_ and = only).
+默认允许的昵称字符包含：数字(0-9)、大小写字母(a-z/A-Z)以及符号 `[]()$@.\_=`
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [AllowNickNameCharacter](AllowNickNameCharacter): Allows a character to be used in the nick name.
-- [SetPlayerName](SetPlayerName): Sets the name of a player.
-- [GetPlayerName](GetPlayerName): Gets the name of a player.
+- [AllowNickNameCharacter](AllowNickNameCharacter): 允许特定字符用于昵称
+- [SetPlayerName](SetPlayerName): 设置玩家昵称
+- [GetPlayerName](GetPlayerName): 获取玩家当前昵称

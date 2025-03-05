@@ -45,8 +45,8 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
 ## 相关函数
 
-• [GivePlayerWeapon](GivePlayerWeapon): 给予玩家指定武器
+- [GivePlayerWeapon](GivePlayerWeapon): 给予玩家指定武器
 
 ## 相关资源
 
-• [武器状态列表](../resources/weaponstates)
+- [武器状态列表](../resources/weaponstates)

@@ -1,30 +1,30 @@
 ---
 title: HideObjectForPlayer
 sidebar_label: HideObjectForPlayer
-description: Hide an object for a player.
-tags: ["player", "object"]
+description: 对玩家隐藏物体
+tags: ["玩家", "物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Hide an object for a player.
+对指定玩家隐藏物体。
 
-## Parameters
+## 参数
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| playerid | The ID of the player.                    |
-| objectid | The ID of the object to hide for player. |
+| 参数     | 说明              |
+| -------- | ----------------- |
+| playerid | 玩家 ID           |
+| objectid | 需要隐藏的物体 ID |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The playerid or objectid specified does not exist.
+`false` - 函数执行失败（指定的玩家或物体不存在）
 
-## Examples
+## 示例
 
 ```c
 new gObject;
@@ -42,8 +42,8 @@ public OnPlayerConnect(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [ShowObjectForPlayer](ShowObjectForPlayer): Show an object for a player.
-- [IsObjectHiddenForPlayer](IsObjectHiddenForPlayer): Checks if an object is hidden for a player.
-- [CreateObject](CreateObject): Create an object.
+- [ShowObjectForPlayer](ShowObjectForPlayer): 对玩家显示物体
+- [IsObjectHiddenForPlayer](IsObjectHiddenForPlayer): 检查物体是否对玩家隐藏
+- [CreateObject](CreateObject): 创建物体

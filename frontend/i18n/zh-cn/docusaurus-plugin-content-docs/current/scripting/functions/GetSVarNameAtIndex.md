@@ -21,7 +21,7 @@ tags: ["服务器变量", "svar"]
 
 ## 相关函数
 
-• [GetSVarType](GetSVarType): 获取服务器变量类型
-• [GetSVarInt](GetSVarInt): 获取整型服务器变量
-• [GetSVarFloat](GetSVarFloat): 获取浮点型服务器变量
-• [GetSVarString](GetSVarString): 获取字符串型服务器变量
+- [GetSVarType](GetSVarType): 获取服务器变量类型
+- [GetSVarInt](GetSVarInt): 获取整型服务器变量
+- [GetSVarFloat](GetSVarFloat): 获取浮点型服务器变量
+- [GetSVarString](GetSVarString): 获取字符串型服务器变量

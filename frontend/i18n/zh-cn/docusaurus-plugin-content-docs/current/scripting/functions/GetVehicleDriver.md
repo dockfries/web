@@ -39,4 +39,4 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 
 ## 相关函数
 
-• [GetVehicleLastDriver](GetVehicleLastDriver): 获取车辆最后驾驶员
+- [GetVehicleLastDriver](GetVehicleLastDriver): 获取车辆最后驾驶员

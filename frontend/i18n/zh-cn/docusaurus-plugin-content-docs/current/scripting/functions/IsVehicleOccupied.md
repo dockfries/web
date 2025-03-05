@@ -1,41 +1,41 @@
 ---
 title: IsVehicleOccupied
 sidebar_label: IsVehicleOccupied
-description: Check if a vehicle is occupied.
-tags: ["vehicle"]
+description: 检测车辆是否被占用
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Check if a vehicle is occupied.
+检测指定车辆是否处于被占用状态。
 
-## Parameters
+## 参数说明
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明            |
+| --------- | --------------- |
+| vehicleid | 要检测的车辆 ID |
 
-## Return Values
+## 返回值
 
-**true** - Vehicle is occupied.
+**true** - 车辆已被占用
 
-**false** - Vehicle is not occupied.
+**false** - 车辆未被占用
 
-## Examples
+## 示例代码
 
 ```c
 if (IsVehicleOccupied(vehicleid))
 {
-    // Vehicle is occupied
+    // 车辆已被占用
 }
 else
 {
-    // Vehicle is not occupied
+    // 车辆未被占用
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleBeenOccupied](SetVehicleBeenOccupied): Sets the vehicle's occupancy.
+- [SetVehicleBeenOccupied](SetVehicleBeenOccupied): 设置车辆占用状态

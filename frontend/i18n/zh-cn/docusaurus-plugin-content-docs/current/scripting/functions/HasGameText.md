@@ -1,44 +1,46 @@
 ---
 title: HasGameText
 sidebar_label: HasGameText
-description: Does the player currently have text in the given gametext style displayed?
-tags: ["player"]
+description: 检测玩家当前是否显示指定样式的游戏文本。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Does the player currently have text in the given gametext style displayed?
+检测玩家当前是否显示指定样式的游戏文本。
 
-| Name     | Description                                                |
-| -------- | ---------------------------------------------------------- |
-| playerid | The ID of the player to check the gametext for.            |
-| style    | The [style](../resources/gametextstyles) of text to check. |
+| 参数名   | 说明                                                |
+| -------- | --------------------------------------------------- |
+| playerid | 要检测的玩家 ID 编号                                |
+| style    | 要检测的[游戏文本样式](../resources/gametextstyles) |
 
-## Returns
+## 返回值
 
-This function returns **true** if the player has gametext, or **false** if it is not.
+**true** - 玩家当前显示该样式游戏文本
 
-## Examples
+**false** - 玩家未显示该样式游戏文本
+
+## 示例
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    GameTextForPlayer(playerid, "Welcome to the server!", 5000, 3);
+    GameTextForPlayer(playerid, "欢迎来到服务器！", 5000, 3);
 
     if (HasGameText(playerid, 3))
     {
-        // Do something
+        // 当检测到3号样式文本时执行操作
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GameTextForPlayer](GameTextForPlayer): Display gametext to a player.
-- [HideGameTextForPlayer](HideGameTextForPlayer): Stop showing a gametext style to a player.
-- [GameTextForAll](GameTextForAll): Display gametext to all players.
-- [HideGameTextForAll](HideGameTextForAll): Stop showing a gametext style for all players.
-- [GetGameText](GetGameText): Gets all the information on the given game text style.
+- [GameTextForPlayer](GameTextForPlayer): 向玩家显示游戏文本
+- [HideGameTextForPlayer](HideGameTextForPlayer): 隐藏玩家指定样式的游戏文本
+- [GameTextForAll](GameTextForAll): 向所有玩家显示游戏文本
+- [HideGameTextForAll](HideGameTextForAll): 全局隐藏指定样式的游戏文本
+- [GetGameText](GetGameText): 获取指定样式游戏文本的详细信息

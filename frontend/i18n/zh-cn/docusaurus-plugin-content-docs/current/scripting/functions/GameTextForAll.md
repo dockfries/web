@@ -25,7 +25,7 @@ tags: ["游戏文本"]
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    // 此示例在玩家死亡后，为所有玩家显示白色大字体的"[玩家名称] 已死亡"
+    // 此示例在玩家死亡后，为所有玩家显示白色大字体的"[玩家昵称] 已死亡"
     // 使用3号文本类型，持续5秒（5000毫秒）
     new name[MAX_PLAYER_NAME];
     GetPlayerName(playerid, name, sizeof(name));

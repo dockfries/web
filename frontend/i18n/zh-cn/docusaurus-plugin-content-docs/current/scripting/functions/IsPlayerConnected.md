@@ -1,32 +1,31 @@
 ---
 title: IsPlayerConnected
 sidebar_label: IsPlayerConnected
-description: Checks if a player is connected (if an ID is taken by a connected player).
-tags: ["player"]
+description: 检查玩家是否已连接
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Checks if a player is connected (if an ID is taken by a connected player).
+检测指定玩家 ID 是否对应已连接玩家。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
+| 参数     | 说明              |
+| -------- | ----------------- |
+| playerid | 需要检查的玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - Player is connected.
+**true** - 玩家已连接  
+**false** - 玩家未连接
 
-**false** - Player is NOT connected.
-
-## Examples
+## 示例
 
 ```c
 KillPlayer(playerid)
 {
     if (!IsPlayerConnected(playerid))
     {
-        printf("Player ID %i is not connected!", playerid);
+        printf("玩家ID %i 未连接！", playerid);
     }
     else
     {
@@ -35,19 +34,19 @@ KillPlayer(playerid)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function can be omitted in a lot of cases. Many other functions already have some sort of connection check built in.
+许多其他函数已内置连接状态检查，实际开发中可酌情省略本函数调用
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerAdmin](IsPlayerAdmin): Checks if a player is logged into RCON.
+- [IsPlayerAdmin](IsPlayerAdmin): 检查玩家是否具有 RCON 管理员权限
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerConnect](../callbacks/OnPlayerConnect): Called when a player connects to the server.
-- [OnPlayerDisconnect](../callbacks/OnPlayerDisconnect): Called when a player leaves the server.
+- [OnPlayerConnect](../callbacks/OnPlayerConnect): 玩家连接服务器时触发
+- [OnPlayerDisconnect](../callbacks/OnPlayerDisconnect): 玩家断开连接时触发

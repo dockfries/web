@@ -1,40 +1,39 @@
 ---
 title: IsPlayerCameraTargetEnabled
-sidebar_label: IsPlayerCameraTargetEnabled
-description: Check if the player camera target is enabled.
-tags: ["player"]
+sidebar_label: 检查玩家视角目标启用状态
+description: 检查玩家视角目标功能是否启用
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Check if the player camera target is enabled.
+检测玩家视角目标功能是否处于启用状态。
 
-| Name     | Description          |
-| -------- | -------------------- |
-| playerid | The ID of the player |
+| 参数     | 说明    |
+| -------- | ------- |
+| playerid | 玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - Enable.
+**true** - 功能已启用  
+**false** - 功能已禁用
 
-**false** - Disable.
-
-## Examples
+## 示例
 
 ```c
 public OnPlayerSpawn(playerid)
 {
     if (IsPlayerCameraTargetEnabled(playerid))
     {
-        // do something
+        // 执行相关操作
     }
 
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [EnablePlayerCameraTarget](EnablePlayerCameraTarget): Toggle camera targeting functions for a player.
+- [EnablePlayerCameraTarget](EnablePlayerCameraTarget): 切换玩家视角目标功能开关

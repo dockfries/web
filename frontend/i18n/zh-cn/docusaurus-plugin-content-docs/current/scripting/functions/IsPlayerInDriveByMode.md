@@ -1,29 +1,31 @@
 ---
 title: IsPlayerInDriveByMode
 sidebar_label: IsPlayerInDriveByMode
-description: Check if the player is in driveby mode.
-tags: ["player"]
+description: 检测玩家是否处于驾驶扫射模式
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Check if the player is in driveby mode.
+检测玩家是否处于驾驶扫射模式
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to check. |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| playerid | 需要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-Returns true if the player is in driveby mode, otherwise false.
+**true** - 玩家处于驾驶扫射模式
 
-## Examples
+**false** - 玩家未处于驾驶扫射模式
+
+## 示例代码
 
 ```c
 if (IsPlayerInDriveByMode(playerid))
 {
-    // do something
+    // 执行相关操作
 }
 ```

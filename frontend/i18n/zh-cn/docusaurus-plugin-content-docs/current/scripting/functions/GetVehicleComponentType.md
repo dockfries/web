@@ -43,11 +43,11 @@ public OnVehicleMod(playerid, vehicleid, componentid)
 
 ## 相关函数
 
-• [AddVehicleComponent](AddVehicleComponent): 为车辆添加改装组件
-• [RemoveVehicleComponent](RemoveVehicleComponent): 移除车辆改装组件
-• [GetVehicleComponentInSlot](GetVehicleComponentInSlot): 获取车辆指定槽位的组件
+- [AddVehicleComponent](AddVehicleComponent): 为车辆添加改装组件
+- [RemoveVehicleComponent](RemoveVehicleComponent): 移除车辆改装组件
+- [GetVehicleComponentInSlot](GetVehicleComponentInSlot): 获取车辆指定槽位的组件
 
 ## 相关回调
 
-• [OnVehicleMod](../callbacks/OnVehicleMod): 当车辆被改装时触发
-• [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当车辆进出改装厂时触发
+- [OnVehicleMod](../callbacks/OnVehicleMod): 当车辆被改装时触发
+- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当车辆进出改装厂时触发

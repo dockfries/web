@@ -1,62 +1,62 @@
 ---
 title: GetWeaponName
 sidebar_label: GetWeaponName
-description: Get the name of a weapon.
+description: 获取武器的名称。
 tags: []
 ---
 
-## Description
+## 描述
 
-Get the name of a weapon.
+获取指定武器的名称。
 
-| Name                  | Description                                                             |
-| --------------------- | ----------------------------------------------------------------------- |
-| WEAPON:weaponid       | The ID of the weapon to get the name of.                                |
-| weapon[]              | An array to store the weapon's name in, passed by reference.            |
-| len = sizeof (weapon) | The maximum length of the weapon name to store. Should be sizeof(name). |
+| 参数名                | 说明                                                  |
+| --------------------- | ----------------------------------------------------- |
+| WEAPON:weaponid       | 武器的 ID 编号                                        |
+| weapon[]              | 存储武器名称的数组（按引用传递）                      |
+| len = sizeof (weapon) | 应存储的武器名称最大长度（通常使用 sizeof(name)获取） |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 操作成功执行
 
-**false** - The function failed to execute. The weapon specified does not exist.
+**false** - 操作执行失败（指定武器不存在）
 
-The weapon's name is stored in the specified array.
+武器的名称将被存储到指定数组中。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    // Variable declarations, with killerName having the default value of "World".
+    // 变量声明，killerName默认值为"World"
     new
         weaponName[32],
         string[64],
         playerName[MAX_PLAYER_NAME],
         killerName[MAX_PLAYER_NAME] = "World";
 
-    // Get the weapon/ reason and player name
+    // 获取武器/击杀原因及玩家昵称
     GetWeaponName(reason, weaponName, sizeof(weaponName));
     GetPlayerName(playerid, playerName, sizeof(playerName));
 
-    // Check if the player was killed by another player or was it because of environment
+    // 检测玩家是否被其他玩家击杀
     if (killerid != INVALID_PLAYER_ID)
     {
-        // We empty the killerName string by setting the first index to EOS (End of String)
+        // 清空killerName字符串
         killerName[0] = EOS;
-        // Get the killer's name
+        // 获取击杀者名称
         GetPlayerName(killerid, killerName, sizeof(killerName));
     }
 
-    // Send a message to the public chat that the X has caused death of Y with Z as the reason
-    format(string, sizeof(string), "%s (%i) has wasted %s (%i) using a %s.", killerName, killerid, playerName, playerid, weaponName);
+    // 向全局聊天发送死亡信息
+    format(string, sizeof(string), "%s (%i) 使用 %s 击杀了 %s (%i)", killerName, killerid, playerName, playerid, weaponName);
     SendClientMessageToAll(0xFFFFFFAA, string);
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerWeapon](GetPlayerWeapon): Check what weapon a player is currently holding.
-- [AllowInteriorWeapons](AllowInteriorWeapons): Determine if weapons can be used in interiors.
-- [GivePlayerWeapon](GivePlayerWeapon): Give a player a weapon.
+- [GetPlayerWeapon](GetPlayerWeapon): 获取玩家当前持有的武器
+- [AllowInteriorWeapons](AllowInteriorWeapons): 设置室内是否允许使用武器
+- [GivePlayerWeapon](GivePlayerWeapon): 给予玩家指定武器

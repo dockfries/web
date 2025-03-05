@@ -73,7 +73,7 @@ SA:MP 内置浏览器已失效。请下载新版[open.mp 启动器](https://gith
 1. 重新安装 DirectX 并重启系统
 2. 手动复制 C:\\Windows\\System32\\dinput.dll 到游戏根目录
 
-### 无法显示玩家名称标签
+### 无法显示玩家昵称标签
 
 可能原因：
 

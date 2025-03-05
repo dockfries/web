@@ -1,29 +1,29 @@
 ---
 title: IsPlayerInRangeOfPoint
-sidebar_label: IsPlayerInRangeOfPoint
-description: Checks if a player is in range of a point.
-tags: ["player"]
+sidebar_label: 检测玩家坐标范围
+description: 检测玩家是否处于指定坐标点范围内
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Checks if a player is in range of a point. This native function is faster than the PAWN implementation using distance formula.
+快速检测玩家是否处于三维坐标点范围内（原生函数性能优于 PAWN 的距离公式计算）
 
-| Name        | Description                                                            |
-| ----------- | ---------------------------------------------------------------------- |
-| playerid    | The ID of the player.                                                  |
-| Float:range | The furthest distance the player can be from the point to be in range. |
-| Float:x     | The X coordinate of the point to check the range to.                   |
-| Float:y     | The Y coordinate of the point to check the range to.                   |
-| Float:z     | The Z coordinate of the point to check the range to.                   |
+| 参数名      | 说明                                   |
+| ----------- | -------------------------------------- |
+| playerid    | 目标玩家 ID                            |
+| Float:range | 检测半径（最大有效距离，使用浮点数值） |
+| Float:x     | 检测点 X 坐标（浮点数值）              |
+| Float:y     | 检测点 Y 坐标（浮点数值）              |
+| Float:z     | 检测点 Z 坐标（浮点数值）              |
 
-## Returns
+## 返回值
 
-**true** - The player is in range of the point.
+**true** - 玩家坐标在检测范围内
 
-**false** - The player is not in range of the point.
+**false** - 玩家坐标超出检测范围
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -32,7 +32,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
     {
         if (IsPlayerInRangeOfPoint(playerid, 7.0, 2695.6880, -1704.6300, 11.8438))
         {
-            SendClientMessage(playerid, 0xFFFFFFFF, "You are near the stadium entrance!");
+            SendClientMessage(playerid, 0xFFFFFFFF, "您位于体育馆入口区域！");
         }
         return 1;
     }
@@ -40,8 +40,8 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): Get the distance between a player and a point.
-- [GetVehicleDistanceFromPoint](GetVehicleDistanceFromPoint): Get the distance between a vehicle and a point.
-- [GetPlayerPos](GetPlayerPos): Get a player's position.
+- [GetPlayerDistanceFromPoint](GetPlayerDistanceFromPoint): 获取玩家与坐标点精确距离
+- [GetVehicleDistanceFromPoint](GetVehicleDistanceFromPoint): 获取车辆与坐标点精确距离
+- [GetPlayerPos](GetPlayerPos): 获取玩家当前三维坐标

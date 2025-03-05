@@ -1,45 +1,45 @@
 ---
 title: IsValidActor
 sidebar_label: IsValidActor
-description: Checks if an actor ID is valid.
-tags: ["actor"]
+description: 检测角色ID是否有效。
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Checks if an actor ID is valid.
+检测指定角色 ID 是否有效。
 
-| Name    | Description                   |
-| ------- | ----------------------------- |
-| actorid | The ID of the actor to check. |
+| 参数名  | 说明            |
+| ------- | --------------- |
+| actorid | 要检测的角色 ID |
 
-## Returns
+## 返回值
 
-**true** - The actor is valid.
+**true** - 角色有效
 
-**false** - The actor is not valid.
+**false** - 角色无效
 
-## Examples
+## 示例代码
 
 ```c
-new gMyActor;
+new gMyActor; // 声明角色存储变量
 
 public OnGameModeInit()
 {
-    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // Actor as a salesperson in Ammunation.
+    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // 在武器商店创建销售员角色
 
     if (IsValidActor(gMyActor))
     {
-        SetActorHealth(gMyActor, 100.0);
+        SetActorHealth(gMyActor, 100.0); // 设置角色生命值
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateActor](CreateActor): Create an actor.
-- [GetActorPoolSize](GetActorPoolSize): Gets the highest actorid created on the server.
-- [SetActorHealth](SetActorHealth): Set the health of an actor.
+- [CreateActor](CreateActor): 创建新角色
+- [GetActorPoolSize](GetActorPoolSize): 获取服务器最大角色 ID
+- [SetActorHealth](SetActorHealth): 设置角色生命值

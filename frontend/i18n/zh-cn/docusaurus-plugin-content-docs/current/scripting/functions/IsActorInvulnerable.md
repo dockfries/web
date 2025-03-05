@@ -1,49 +1,49 @@
 ---
 title: IsActorInvulnerable
 sidebar_label: IsActorInvulnerable
-description: Check if an actor is invulnerable.
-tags: ["actor"]
+description: 检查角色是否处于无敌状态
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Check if an actor is invulnerable.
+检查指定角色是否处于无敌状态。
 
-| Name    | Description                   |
-| ------- | ----------------------------- |
-| actorid | The ID of the actor to check. |
+| 参数    | 说明              |
+| ------- | ----------------- |
+| actorid | 需要检查的角色 ID |
 
-## Returns
+## 返回值
 
-**true** - The actor is invulnerable.
+**true** - 角色处于无敌状态
 
-**false** - The actor is vulnerable.
+**false** - 角色可受到伤害
 
-## Examples
+## 示例
 
 ```c
 new gMyActor;
 
 public OnGameModeInit()
 {
-    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // Actor as a salesperson in Ammunation.
+    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // 在武器商店创建销售员角色
 
     if (IsActorInvulnerable(gMyActor))
     {
-        print("Actor is invulnerable.");
+        print("角色处于无敌状态。");
     }
     else
     {
-        print("Actor is vulnerable.");
+        print("角色可被伤害。");
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateActor](CreateActor): Create an actor (static NPC).
-- [SetActorInvulnerable](SetActorInvulnerable): Set actor invulnerable.
-- [SetActorHealth](SetActorHealth): Set the health of an actor.
+- [CreateActor](CreateActor): 创建角色（静态 NPC）
+- [SetActorInvulnerable](SetActorInvulnerable): 设置角色无敌状态
+- [SetActorHealth](SetActorHealth): 设置角色生命值

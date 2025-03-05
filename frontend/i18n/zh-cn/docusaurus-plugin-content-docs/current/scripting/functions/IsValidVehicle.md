@@ -1,38 +1,40 @@
 ---
 title: IsValidVehicle
 sidebar_label: IsValidVehicle
-description: Check if a vehicle is created.
-tags: ["vehicle"]
+description: 检测车辆是否已创建
+tags: ["车辆"]
 ---
 
 :::note
 
-This function is not present in the old libraries packaged with the SA-MP server however the [latest versions of the maintained libraries](https://github.com/pawn-lang/samp-stdlib) contain this and other formerly missing declarations.
+此函数在 SA-MP 服务器旧版库中不存在，但[维护库的最新版本](https://github.com/pawn-lang/samp-stdlib)包含此函数及其他缺失声明。
 
 :::
 
-## Description
+## 描述
 
-Check if a vehicle is created.
+检测指定车辆是否已被成功创建。
 
-## Parameters
+## 参数说明
 
-| Name      | Description                        |
-| --------- | ---------------------------------- |
-| vehicleid | The vehicle to check for existance |
+| 参数名    | 说明            |
+| --------- | --------------- |
+| vehicleid | 要检测的车辆 ID |
 
-## Return Values
+## 返回值
 
-**true** if the vehicle exists, otherwise **false**.
+**true** - 车辆存在
 
-## Example Usage
+**false** - 车辆不存在
+
+## 示例代码
 
 ```c
 #if !defined IsValidVehicle
     native IsValidVehicle(vehicleid);
 #endif
 
-// Count vehicles
+// 统计服务器车辆数量
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/countvehicles", true))
@@ -49,7 +51,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
             }
         }
 
-        format(string, sizeof(string), "* There are %d valid spawned vehicles on this server.", count);
+        format(string, sizeof(string), "* 当前服务器共有 %d 辆有效车辆。", count);
         SendClientMessage(playerid, 0x33CCCCFF, string);
         return 1;
     }
@@ -57,7 +59,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerVehicleID](GetPlayerVehicleID): Get the ID of the vehicle the player is in.
-- [GetVehicleModel](GetVehicleModel): Get the model id of a vehicle.
+- [GetPlayerVehicleID](GetPlayerVehicleID): 获取玩家当前所在车辆 ID
+- [GetVehicleModel](GetVehicleModel): 获取车辆模型 ID

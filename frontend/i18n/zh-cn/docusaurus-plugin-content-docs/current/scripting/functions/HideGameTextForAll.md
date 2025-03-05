@@ -1,25 +1,25 @@
 ---
 title: HideGameTextForAll
 sidebar_label: HideGameTextForAll
-description: Stop showing a gametext style for all players.
-tags: ["player", "gametext"]
+description: 隐藏所有玩家的指定样式游戏文本。
+tags: ["玩家", "游戏文本"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Stop showing a gametext style for all players.
+停止为所有玩家显示指定样式的游戏文本。
 
-| Name  | Description                                               |
-| ----- | --------------------------------------------------------- |
-| style | The [style](../resources/gametextstyles) of text to hide. |
+| 参数名 | 说明                                                    |
+| ------ | ------------------------------------------------------- |
+| style  | 要隐藏的[游戏文本样式](../resources/gametextstyles)编号 |
 
-## Returns
+## 返回值
 
-This function does not return any specific value.
+此函数没有返回值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -38,9 +38,9 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [HideGameTextForPlayer](HideGameTextForPlayer): Stop showing a gametext style to a player.
-- [GameTextForPlayer](GameTextForPlayer): Display gametext to a player.
-- [GameTextForAll](GameTextForAll): Display gametext to all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
+- [HideGameTextForPlayer](HideGameTextForPlayer): 隐藏单个玩家的游戏文本
+- [GameTextForPlayer](GameTextForPlayer): 为玩家显示游戏文本
+- [GameTextForAll](GameTextForAll): 为所有玩家显示游戏文本
+- [TextDrawHideForAll](TextDrawHideForAll): 隐藏全服文本绘制元素

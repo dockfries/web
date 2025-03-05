@@ -35,4 +35,4 @@ new trailerid = GetPlayerLastSyncedTrailerID(playerid);
 
 ## 相关函数
 
-• [GetPlayerLastSyncedVehicleID](GetPlayerLastSyncedVehicleID): 获取玩家最后同步的车辆 ID
+- [GetPlayerLastSyncedVehicleID](GetPlayerLastSyncedVehicleID): 获取玩家最后同步的车辆 ID

@@ -1,47 +1,47 @@
 ---
 title: Kick
 sidebar_label: Kick
-description: Kicks a player from the server. They will have to quit the game and re-connect if they wish to continue playing.
-tags: ["player", "administration"]
+description: 将玩家踢出服务器，玩家需要退出游戏并重新连接才能继续游玩。
+tags: ["玩家", "管理"]
 ---
 
-## Description
+## 描述
 
-Kicks a player from the server. They will have to quit the game and re-connect if they wish to continue playing.
+将指定玩家踢出服务器。被踢出的玩家必须退出游戏并重新连接才能继续游玩。
 
-| Name     | Description                   |
-| -------- | ----------------------------- |
-| playerid | The ID of the player to kick. |
+| 参数名   | 说明            |
+| -------- | --------------- |
+| playerid | 要踢出的玩家 ID |
 
-## Returns
+## 返回值
 
-This function always returns 1, even if the function failed to execute (player specified doesn't exist).
+该函数总是返回 1，即使执行失败（指定玩家不存在）。
 
-## Notes
+## 注意事项
 
 :::warning
 
-Any action taken directly before Kick() (such as sending a message with [SendClientMessage](SendClientMessage)) will not reach the player. A timer must be used to delay the kick.
+任何在 Kick()之前直接执行的操作（如使用[SendClientMessage](SendClientMessage)发送消息）将无法送达玩家。必须使用定时器延迟踢出操作。
 
 :::
 
-## Examples
+## 示例代码
 
 ```c
-// In order to display a message (eg. reason) for the player before the connection is closed
-// you have to use a timer to create a delay. This delay only needs to be a few milliseconds long,
-// but this example uses a full second just to be on the safe side.
+// 为了在连接关闭前显示消息（例如踢出原因）
+// 需要使用定时器创建延迟。这个延迟只需几毫秒，
+// 但本示例使用完整的一秒以确保可靠性。
 
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (strcmp(cmdtext, "/kickme", true) == 0)
     {
-        // Kick the player who executed this command.
+        // 踢出执行该命令的玩家
 
-        // First, send them a message.
-        SendClientMessage(playerid, 0xFF0000FF, "You have been kicked!");
+        // 首先发送踢出提示
+        SendClientMessage(playerid, 0xFF0000FF, "您已被踢出服务器！");
 
-        // Actually kick them a second later on a timer.
+        // 通过定时器在1秒后执行踢出
         SetTimerEx("DelayedKick", 1000, false, "i", playerid);
         return 1;
     }
@@ -51,12 +51,12 @@ public OnPlayerCommandText(playerid, cmdtext[])
 forward DelayedKick(playerid);
 public DelayedKick(playerid)
 {
-    Kick(playerid);
+    Kick(playerid); // 实际执行踢出操作
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [Ban](Ban): Ban a player from playing on the server.
-- [BanEx](BanEx): Ban a player with a custom reason.
+- [Ban](Ban): 永久封禁玩家
+- [BanEx](BanEx): 自定义封禁原因封禁玩家

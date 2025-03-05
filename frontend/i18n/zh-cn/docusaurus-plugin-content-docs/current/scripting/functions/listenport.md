@@ -1,40 +1,40 @@
 ---
 title: listenport
 sidebar_label: listenport
-description: Sets up the port number to listen at.
-tags: ["datagram"]
+description: 设置监听的端口号
+tags: ["数据报文"]
 ---
 
 <LowercaseNote />
 
 :::warning
 
-This function is deprecated, Use [HTTP](HTTP) or [pawn-requests](https://github.com/Southclaws/pawn-requests) plugin.
+该函数已弃用，请使用 [HTTP](HTTP) 插件或 [pawn-requests](https://github.com/Southclaws/pawn-requests) 插件替代
 
 :::
 
-## Description
+## 描述
 
-Sets up the port number to listen at.
+设置服务器监听的端口号。
 
-| Name | Description                                                                                                                                           |
-| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| port | The number of the port to listen at. This must be a value between 1 and 65535, but you should probably avoid to use any of the reserved port numbers. |
+| 参数名 | 说明                                             |
+| ------ | ------------------------------------------------ |
+| port   | 要监听的端口号 (1-65535)，应避免使用系统保留端口 |
 
-## Return Values
+## 返回值
 
-This function always returns **0**.
+本函数总是返回 **0**
 
-## Notes
+## 注意事项
 
 :::warning
 
-- You must call this function **before** receiving the first packet. In other words, you should set up a port in main.
-- If no port number has been explicitily chosen, the module will listen at port **9930**.
+- 必须在接收首个数据包**之前**调用此函数，通常应在 `main` 函数中配置
+- 若未明确指定端口，默认监听 **9930** 端口
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [@receivestring](@receivestring): A packed was received.
-- [sendstring](sendstring): Sends a packet containing a string.
+- [@receivestring](@receivestring): 接收字符串数据包时触发
+- [sendstring](sendstring): 发送包含字符串的数据包

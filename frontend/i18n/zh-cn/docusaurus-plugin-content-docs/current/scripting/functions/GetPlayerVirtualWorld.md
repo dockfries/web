@@ -43,6 +43,6 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
 ## 相关函数
 
-• [SetPlayerVirtualWorld](SetPlayerVirtualWorld): 设置玩家虚拟世界
-• [GetVehicleVirtualWorld](GetVehicleVirtualWorld): 获取车辆所在虚拟世界
-• [GetPlayerInterior](GetPlayerInterior): 获取玩家当前室内空间编号
+- [SetPlayerVirtualWorld](SetPlayerVirtualWorld): 设置玩家虚拟世界
+- [GetVehicleVirtualWorld](GetVehicleVirtualWorld): 获取车辆所在虚拟世界
+- [GetPlayerInterior](GetPlayerInterior): 获取玩家当前室内空间编号

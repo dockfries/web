@@ -1,56 +1,57 @@
 ---
 title: IsValidPickup
 sidebar_label: IsValidPickup
-description: Checks if a pickup is valid.
-tags: ["pickup"]
+description: 检测拾取物是否有效。
+tags: ["拾取物"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a pickup is valid.
+检测指定拾取物 ID 是否有效。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| pickupid | The ID of the pickup to check. |
+| 参数名   | 说明              |
+| -------- | ----------------- |
+| pickupid | 要检测的拾取物 ID |
 
-## Returns
+## 返回值
 
-This function returns **true** if the pickup is valid, or **false** if it is not.
+当拾取物有效时返回 **true**，无效时返回 **false**
 
-## Examples
+## 示例代码
 
 ```c
-new g_Pickup;
+new g_Pickup; // 全局拾取物存储变量
 
 public OnGameModeInit()
 {
+    // 在坐标(1503.33,1432.35,10.11)创建防弹衣拾取物
     g_Pickup = CreatePickup(1242, 2, 1503.3359, 1432.3585, 10.1191, -1);
 
     if (IsValidPickup(g_Pickup))
     {
-        // Do something
+        // 执行有效状态处理
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePickup](CreatePickup): Create a pickup.
-- [AddStaticPickup](AddStaticPickup): Add a static pickup.
-- [DestroyPickup](DestroyPickup): Destroy a pickup.
-- [IsPickupStreamedIn](IsPickupStreamedIn): Checks if a pickup is streamed in for a specific player.
-- [IsPickupHiddenForPlayer](IsPickupHiddenForPlayer): Checks if a pickup is hidden for a specific player.
-- [SetPickupPos](SetPickupPos): Sets the position of a pickup.
-- [GetPickupPos](GetPickupPos): Gets the coordinates of a pickup.
-- [SetPickupModel](SetPickupModel): Sets the model of a pickup.
-- [GetPickupModel](GetPickupModel): Gets the model ID of a pickup.
-- [SetPickupType](SetPickupType): Sets the type of a pickup.
-- [GetPickupType](GetPickupType): Gets the type of a pickup.
-- [SetPickupVirtualWorld](SetPickupVirtualWorld): Sets the virtual world ID of a pickup.
-- [GetPickupVirtualWorld](GetPickupVirtualWorld): Gets the virtual world ID of a pickup.
-- [ShowPickupForPlayer](ShowPickupForPlayer): Shows a pickup for a specific player.
-- [HidePickupForPlayer](HidePickupForPlayer): Hides a pickup for a specific player.
-- [SetPickupForPlayer](SetPickupForPlayer): Adjusts the pickup model, type, and position for a specific player.
+- [CreatePickup](CreatePickup): 创建全局拾取物
+- [AddStaticPickup](AddStaticPickup): 添加静态拾取物
+- [DestroyPickup](DestroyPickup): 销毁拾取物
+- [IsPickupStreamedIn](IsPickupStreamedIn): 检测玩家是否加载该拾取物
+- [IsPickupHiddenForPlayer](IsPickupHiddenForPlayer): 检测拾取物对玩家是否隐藏
+- [SetPickupPos](SetPickupPos): 设置拾取物坐标
+- [GetPickupPos](GetPickupPos): 获取拾取物坐标
+- [SetPickupModel](SetPickupModel): 设置拾取物模型
+- [GetPickupModel](GetPickupModel): 获取拾取物模型 ID
+- [SetPickupType](SetPickupType): 设置拾取物类型
+- [GetPickupType](GetPickupType): 获取拾取物类型
+- [SetPickupVirtualWorld](SetPickupVirtualWorld): 设置拾取物虚拟世界
+- [GetPickupVirtualWorld](GetPickupVirtualWorld): 获取拾取物所在虚拟世界
+- [ShowPickupForPlayer](ShowPickupForPlayer): 为玩家显示拾取物
+- [HidePickupForPlayer](HidePickupForPlayer): 为玩家隐藏拾取物
+- [SetPickupForPlayer](SetPickupForPlayer): 为玩家自定义拾取物属性

@@ -1,41 +1,41 @@
 ---
 title: IsValidPlayer3DTextLabel
 sidebar_label: IsValidPlayer3DTextLabel
-description: Checks if a player's 3D text label is valid.
-tags: ["player", "3dtextlabel"]
+description: 检测玩家的3D文本标签是否有效。
+tags: ["玩家", "3D文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a player's 3D text label is valid.
+检测指定玩家的专属 3D 文本标签是否有效。
 
-| Name                | Description                                    |
-| ------------------- | ---------------------------------------------- |
-| playerid            | The ID of the player.                          |
-| PlayerText3D:textid | The ID of the player's 3D text label to check. |
+| 参数名              | 说明                  |
+| ------------------- | --------------------- |
+| playerid            | 要检测的玩家 ID       |
+| PlayerText3D:textid | 玩家的 3D 文本标签 ID |
 
-## Returns
+## 返回值
 
-This function returns **true** if the player's 3D text label is valid, or **false** if it is not.
+当 3D 文本标签有效时返回 **true**，无效时返回 **false**
 
-## Examples
+## 示例代码
 
 ```c
-new PlayerText3D:playerTextId;
+new PlayerText3D:playerTextId; // 声明玩家3D文本标签变量
 new Float:X, Float:Y, Float:Z;
 
-GetPlayerPos(playerid, X, Y, Z);
-playerTextId = CreatePlayer3DTextLabel(playerid, "Hello\nI'm at your position", 0x008080FF, X, Y, Z, 40.0);
+GetPlayerPos(playerid, X, Y, Z); // 获取玩家当前位置
+playerTextId = CreatePlayer3DTextLabel(playerid, "你好\n我在你的位置", 0x008080FF, X, Y, Z, 40.0);
 
 if (IsValidPlayer3DTextLabel(playerid, playerTextId))
 {
-    // Do something
+    // 执行有效状态处理
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): Creates a 3D Text Label only for a specific player.
-- [IsValid3DTextLabel](IsValid3DTextLabel): Checks if a 3D text label is valid.
+- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): 创建玩家专属 3D 文本标签
+- [IsValid3DTextLabel](IsValid3DTextLabel): 检测全局 3D 文本标签有效性

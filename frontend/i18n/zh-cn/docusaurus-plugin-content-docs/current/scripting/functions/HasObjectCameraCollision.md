@@ -1,40 +1,40 @@
 ---
 title: HasObjectCameraCollision
 sidebar_label: HasObjectCameraCollision
-description: Checks if an object has camera collision enabled. (SetObjectNoCameraCollision)
-tags: ["object"]
+description: 检查物体是否启用了视角碰撞功能。
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if an object has camera collision enabled. ([SetObjectNoCameraCollision](SetObjectNoCameraCollision))
+检测物体是否启用了视角碰撞功能（通过[SetObjectNoCameraCollision](SetObjectNoCameraCollision)设置）。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| objectid | The ID of the object to check. |
+| 参数名   | 说明                 |
+| -------- | -------------------- |
+| objectid | 待检测的物体 ID 编号 |
 
-## Returns
+## 返回值
 
-`true` - Object camera collision is enable.
+`true` - 物体视角碰撞功能已启用
 
-`false` - Object camera collision is disable.
+`false` - 物体视角碰撞功能已禁用
 
-## Examples
+## 示例
 
 ```c
 if (HasObjectCameraCollision(objectid))
 {
-    printf("Object %d camera collision: enable", objectid);
+    printf("物体 %d 视角碰撞状态: 已启用", objectid);
 }
 else
 {
-    printf("Object %d camera collision: disable", objectid);
+    printf("物体 %d 视角碰撞状态: 已禁用", objectid);
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetObjectNoCameraCollision](SetObjectNoCameraCollision): Disable collisions between players' cameras and the specified object.
-- [HasPlayerObjectCameraCollision](HasPlayerObjectCameraCollision): Checks if a player-object has camera collision enabled.
+- [SetObjectNoCameraCollision](SetObjectNoCameraCollision): 禁用玩家视角与指定物体的碰撞检测
+- [HasPlayerObjectCameraCollision](HasPlayerObjectCameraCollision): 检查玩家私有物体是否启用了视角碰撞功能

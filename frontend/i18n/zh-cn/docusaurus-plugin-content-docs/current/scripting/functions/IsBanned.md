@@ -1,46 +1,47 @@
 ---
 title: IsBanned
 sidebar_label: IsBanned
-description: Checks if the given IP address is banned.
-tags: ["ip address"]
+description: 检查指定IP地址是否被封禁
+tags: ["IP地址"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if the given IP address is banned.
+检查指定 IP 地址是否存在于封禁列表中。
 
-| Name              | Description              |
-| ----------------- | ------------------------ |
-| const ipAddress[] | The IP address to check. |
+| 参数              | 说明               |
+| ----------------- | ------------------ |
+| const ipAddress[] | 需要检查的 IP 地址 |
 
-## Returns
+## 返回值
 
-Returns **true** if the IP address is banned, otherwise **false**.
+**true** - IP 地址已被封禁  
+**false** - IP 地址未被封禁
 
-## Examples
+## 示例
 
 ```c
 if (IsBanned("255.255.255.255"))
 {
-    // Do something
+    // 执行相关操作
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-You can see the ban list in the **bans.json** file.
+封禁列表可通过查看 **bans.json** 文件获取
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [BlockIpAddress](BlockIpAddress): Block an IP address from connecting to the server for a set amount of time.
-- [UnBlockIpAddress](UnBlockIpAddress): Unblock an IP that was previously blocked.
-- [Ban](Ban): Ban a player from playing on the server.
-- [BanEx](BanEx): Ban a player with a custom reason.
-- [Kick](Kick): Kick a player from the server.
-- [ClearBanList](ClearBanList): Clears the ban list.
+- [BlockIpAddress](BlockIpAddress): 禁止指定 IP 地址在设定时间内连接服务器
+- [UnBlockIpAddress](UnBlockIpAddress): 解除已封禁的 IP 地址
+- [Ban](Ban): 封禁指定玩家
+- [BanEx](BanEx): 使用自定义原因封禁玩家
+- [Kick](Kick): 踢出指定玩家
+- [ClearBanList](ClearBanList): 清空封禁列表

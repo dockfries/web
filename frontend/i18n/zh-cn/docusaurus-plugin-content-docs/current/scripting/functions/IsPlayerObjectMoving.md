@@ -1,33 +1,35 @@
 ---
 title: IsPlayerObjectMoving
 sidebar_label: IsPlayerObjectMoving
-description: Checks if the given player objectid is moving.
-tags: ["player", "object", "playerobject"]
+description: 检测指定玩家物体是否处于移动中
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
-## Description
+## 描述
 
-Checks if the given player objectid is moving.
+检测指定玩家物体是否处于移动状态
 
-| Name     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| playerid | The ID of the player whose player-object is checked. |
-| objectid | The player objectid you want to check if is moving.  |
+| 参数名   | 说明                |
+| -------- | ------------------- |
+| playerid | 需检测的玩家 ID     |
+| objectid | 待检测的玩家物体 ID |
 
-## Returns
+## 返回值
 
-1 if the player object is moving, 0 if not.
+**1** - 玩家物体正在移动
 
-## Examples
+**0** - 玩家物体处于静止
+
+## 示例代码
 
 ```c
 new gPlayerObject[MAX_PLAYERS];
 
 public OnPlayerConnect(playerid)
 {
-    gPlayerObject[playerid] = CreatePlayerObject(playerid, 2587, 2001.195679, 1547.113892, 14.283400, 0.0, 0.0, 96.0);
+    gPlayerObject[playerid] = CreatePlayerObject(playerid, 2587, 2001.195679, 1547.113892, 14.2834, 0.0, 0.0, 96.0);
 
-    MovePlayerObject(playerid, gPlayerObject[playerid], 2001.195679, 1547.113892, 10.000000, 2.0);
+    MovePlayerObject(playerid, gPlayerObject[playerid], 2001.195679, 1547.113892, 10.0, 2.0);
 
 	if (IsPlayerObjectMoving(playerid, gPlayerObject[playerid]))
 	{
@@ -37,30 +39,30 @@ public OnPlayerConnect(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [MovePlayerObject](MovePlayerObject): Move a player object.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [SetPlayerObjectRot](SetPlayerObjectRot): Set the rotation of a player object.
-- [GetPlayerObjectPos](GetPlayerObjectPos): Locate a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
-- [AttachPlayerObjectToPlayer](AttachObjectToPlayer): Attach a player object to a player.
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [MoveObject](MoveObject): Move an object.
-- [IsObjectMoving](IsObjectMoving): Check if the object is moving.
-- [StopObject](StopObject): Stop an object from moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
+- [CreatePlayerObject](CreatePlayerObject): 创建玩家专属物体
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家物体
+- [IsValidPlayerObject](IsValidPlayerObject): 验证玩家物体有效性
+- [MovePlayerObject](MovePlayerObject): 移动玩家物体
+- [StopPlayerObject](StopPlayerObject): 停止玩家物体移动
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置玩家物体坐标
+- [SetPlayerObjectRot](SetPlayerObjectRot): 设置玩家物体旋转角度
+- [GetPlayerObjectPos](GetPlayerObjectPos): 获取玩家物体坐标
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取玩家物体旋转角度
+- [AttachPlayerObjectToPlayer](AttachObjectToPlayer): 将玩家物体附加至玩家
+- [CreateObject](CreateObject): 创建物体
+- [DestroyObject](DestroyObject): 销毁物体
+- [IsValidObject](IsValidObject): 验证物体有效性
+- [MoveObject](MoveObject): 移动物体
+- [IsObjectMoving](IsObjectMoving): 检测物体移动状态
+- [StopObject](StopObject): 停止物体移动
+- [SetObjectPos](SetObjectPos): 设置物体坐标
+- [SetObjectRot](SetObjectRot): 设置物体旋转角度
+- [GetObjectPos](GetObjectPos): 获取物体坐标
+- [GetObjectRot](GetObjectRot): 获取物体旋转角度
+- [AttachObjectToPlayer](AttachObjectToPlayer): 将物体附加至玩家
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerObjectMoved](../callbacks/OnPlayerObjectMoved): Called when a player-object stops moving.
+- [OnPlayerObjectMoved](../callbacks/OnPlayerObjectMoved): 当玩家物体停止移动时触发

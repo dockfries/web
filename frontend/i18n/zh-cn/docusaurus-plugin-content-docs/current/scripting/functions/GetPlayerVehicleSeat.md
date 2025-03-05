@@ -60,5 +60,5 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
 ## 相关函数
 
-• [GetPlayerVehicleID](GetPlayerVehicleID): 获取玩家所在车辆的 ID
-• [PutPlayerInVehicle](PutPlayerInVehicle): 将玩家放置到指定车辆座位
+- [GetPlayerVehicleID](GetPlayerVehicleID): 获取玩家所在车辆的 ID
+- [PutPlayerInVehicle](PutPlayerInVehicle): 将玩家放置到指定车辆座位

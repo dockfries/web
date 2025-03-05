@@ -1,28 +1,28 @@
 ---
 title: GetVehiclePos
 sidebar_label: GetVehiclePos
-description: Gets the position of a vehicle.
-tags: ["vehicle"]
+description: 获取车辆的坐标位置。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Gets the position of a vehicle.
+获取车辆的三维坐标位置。
 
-| Name      | Description                                                               |
-| --------- | ------------------------------------------------------------------------- |
-| vehicleid | The ID of the vehicle to get the position of.                             |
-| &Float:x  | A float variable in which to store the X coordinate, passed by reference. |
-| &Float:y  | A float variable in which to store the Y coordinate, passed by reference. |
-| &Float:z  | A float variable in which to store the Z coordinate, passed by reference. |
+| 参数名    | 说明                                    |
+| --------- | --------------------------------------- |
+| vehicleid | 目标车辆 ID                             |
+| &Float:x  | 存储 X 坐标的浮点型变量（通过引用传递） |
+| &Float:y  | 存储 Y 坐标的浮点型变量（通过引用传递） |
+| &Float:z  | 存储 Z 坐标的浮点型变量（通过引用传递） |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 操作成功
 
-**false** - The function failed to execute. The vehicle specified does not exist.
+**false** - 操作失败（指定车辆不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -31,10 +31,10 @@ public OnPlayerCommandText(playerid, cmdtext[])
      {
           new vehicleid = GetPlayerVehicleID(playerid);
 
-          // if vehicleid is equal to 0
+          // 检测玩家是否处于车辆内
           if (vehicleid == 0)
           {
-               return SendClientMessage(playerid, -1, "You are not in any vehicle!");
+               return SendClientMessage(playerid, -1, "您当前未处于任何车辆中！");
           }
 
           new
@@ -42,7 +42,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
                string[128];
 
           GetVehiclePos(vehicleid, vehX, vehY, vehZ);
-          format(string, sizeof(string), "The current vehicle positions are: %f, %f, %f", vehX, vehY, vehZ);
+          format(string, sizeof(string), "当前车辆坐标：X=%f Y=%f Z=%f", vehX, vehY, vehZ);
           SendClientMessage(playerid, 0xFFFFFFFF, string);
           return 1;
      }
@@ -51,9 +51,9 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleDistanceFromPoint](GetVehicleDistanceFromPoint): Get the distance between a vehicle and a point.
-- [SetVehiclePos](SetVehiclePos): Set the position of a vehicle.
-- [GetVehicleZAngle](GetVehicleZAngle): Check the current angle of a vehicle.
-- [GetVehicleRotationQuat](GetVehicleRotationQuat): Get the rotation quaternion of a vehicle.
+- [GetVehicleDistanceFromPoint](GetVehicleDistanceFromPoint): 获取车辆与指定坐标点之间的距离
+- [SetVehiclePos](SetVehiclePos): 设置车辆坐标位置
+- [GetVehicleZAngle](GetVehicleZAngle): 获取车辆水平旋转角度
+- [GetVehicleRotationQuat](GetVehicleRotationQuat): 获取车辆旋转四元数值

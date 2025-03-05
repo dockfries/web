@@ -1,35 +1,36 @@
 ---
 title: IsValidTimer
 sidebar_label: IsValidTimer
-description: Checks if a timer is valid.
-tags: ["timer"]
+description: 检测定时器有效性
+tags: ["定时器"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a timer is valid.
+检测指定定时器 ID 是否有效。
 
-## Parameters
+## 参数说明
 
-| Name    | Description                   |
-| ------- | ----------------------------- |
-| timerid | The ID of the timer to check. |
+| 参数名  | 说明              |
+| ------- | ----------------- |
+| timerid | 要检测的定时器 ID |
 
-## Return Values
+## 返回值
 
-**true**: Timer is valid.
+**true**: 定时器有效
 
-**false**: Timer is not valid.
+**false**: 定时器无效
 
-## Examples
+## 示例代码
 
 ```c
-new g_Timer;
+new g_Timer; // 全局定时器存储变量
 
 public OnGameModeInit()
 {
+    // 创建每分钟循环的定时器
     g_Timer = SetTimer("TimerCallback", 60000, true);
     return 1;
 }
@@ -38,21 +39,21 @@ public OnGameModeExit()
 {
     if (IsValidTimer(g_Timer))
     {
-        printf("Timer ID %d is valid.", g_Timer);
+        printf("定时器ID %d 有效，即将终止", g_Timer);
         KillTimer(g_Timer);
     }
     else
     {
-        printf("Timer ID %d is not valid.", g_Timer);
+        printf("定时器ID %d 无效", g_Timer);
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetTimer](SetTimer): Set a timer.
-- [SetTimerEx](SetTimerEx): Set a timer with parameters.
-- [KillTimer](KillTimer): Stop a timer.
-- [IsRepeatingTimer](IsRepeatingTimer): Checks if a timer is set to repeat.
-- [CountRunningTimers](CountRunningTimers): Get the running timers.
+- [SetTimer](SetTimer): 创建基础定时器
+- [SetTimerEx](SetTimerEx): 创建带参数的定时器
+- [KillTimer](KillTimer): 终止定时器运行
+- [IsRepeatingTimer](IsRepeatingTimer): 检测定时器循环状态
+- [CountRunningTimers](CountRunningTimers): 统计运行中的定时器数量

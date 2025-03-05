@@ -1,13 +1,13 @@
 ---
 title: GetPlayerColor
 sidebar_label: GetPlayerColor
-description: 获取玩家名称颜色及雷达标记颜色
+description: 获取玩家昵称颜色及雷达标记颜色
 tags: ["玩家"]
 ---
 
 ## 描述
 
-获取玩家名称及雷达标记的显示颜色（仅在调用 SetPlayerColor 后生效）
+获取玩家昵称及雷达标记的显示颜色（仅在调用 SetPlayerColor 后生效）
 
 | 参数名   | 说明                  |
 | -------- | --------------------- |

@@ -1,41 +1,41 @@
 ---
 title: IsVehicleDead
 sidebar_label: IsVehicleDead
-description: Check if a vehicle is dead.
-tags: ["vehicle"]
+description: 检测车辆是否处于损毁状态
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Check if a vehicle is dead.
+检测指定车辆是否处于损毁状态。
 
-## Parameters
+## 参数说明
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
+| 参数名    | 说明            |
+| --------- | --------------- |
+| vehicleid | 要检测的车辆 ID |
 
-## Return Values
+## 返回值
 
-**true** - Vehicle is dead.
+**true** - 车辆已损毁
 
-**false** - Vehicle is not dead.
+**false** - 车辆正常运作
 
-## Examples
+## 示例代码
 
 ```c
 if (IsVehicleDead(vehicleid))
 {
-    // Vehicle is dead
+    // 车辆已损毁
 }
 else
 {
-    // Vehicle is not dead
+    // 车辆正常运作
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleDead](SetVehicleDead): Sets the vehicle to dead.
+- [`SetVehicleDead`](SetVehicleDead): 设置车辆损毁状态

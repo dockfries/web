@@ -1,31 +1,31 @@
 ---
 title: GetWeather
 sidebar_label: GetWeather
-description: Get the current world weather.
+description: 获取当前全局天气。
 tags: []
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Get the current world weather.
+获取服务器当前的全局天气状态。
 
-## Examples
+## 示例
 
 ```c
 SetWeather(19);
 
-printf("Current world weather: %d", GetWeather());
-// The output will be 'Current world weather: 19'
+printf("当前全局天气：%d", GetWeather());
+// 输出将为"当前全局天气：19"
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetWeather](SetWeather): Set the world weather for all players.
-- [GetPlayerWeather](GetPlayerWeather): Get a player's weather.
-- [SetPlayerWeather](SetPlayerWeather): Set a player's weather.
+- [SetWeather](SetWeather): 为所有玩家设置全局天气
+- [GetPlayerWeather](GetPlayerWeather): 获取玩家个人天气设置
+- [SetPlayerWeather](SetPlayerWeather): 设置玩家独立天气效果
 
-## Related Resources
+## 相关资源
 
-- [Weather IDs](../resources/weatherid)
+- [天气 ID 对照表](../resources/weatherid)

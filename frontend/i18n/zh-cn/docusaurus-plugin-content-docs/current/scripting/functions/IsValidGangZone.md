@@ -1,34 +1,34 @@
 ---
 title: IsValidGangZone
 sidebar_label: IsValidGangZone
-description: Check if the gangzone valid
-tags: ["gangzone"]
+description: 检测帮派区域是否有效。
+tags: ["帮派区域"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Check if the gangzone valid.
+检测指定帮派区域 ID 是否有效。
 
-| Name   | Description             |
-| ------ | ----------------------- |
-| zoneid | The ID of the gangzone. |
+| 参数名 | 说明                |
+| ------ | ------------------- |
+| zoneid | 要检测的帮派区域 ID |
 
-## Returns
+## 返回值
 
-**true** - The gangzone is valid.
+**true** - 帮派区域有效
 
-**false** - The gangzone is not valid.
+**false** - 帮派区域无效
 
-## Related Functions
+## 相关函数
 
-- [GangZoneDestroy](GangZoneDestroy): Destroy a gangzone.
-- [GangZoneShowForPlayer](GangZoneShowForPlayer): Show a gangzone for a player.
-- [GangZoneShowForAll](GangZoneShowForAll): Show a gangzone for all players.
-- [GangZoneHideForPlayer](GangZoneHideForPlayer): Hide a gangzone for a player.
-- [GangZoneHideForAll](GangZoneHideForAll): Hide a gangzone for all players.
-- [GangZoneFlashForPlayer](GangZoneFlashForPlayer): Make a gangzone flash for a player.
-- [GangZoneFlashForAll](GangZoneFlashForAll): Make a gangzone flash for all players.
-- [GangZoneStopFlashForPlayer](GangZoneStopFlashForPlayer): Stop a gangzone flashing for a player.
-- [GangZoneStopFlashForAll](GangZoneStopFlashForAll): Stop a gangzone flashing for all players.
+- [GangZoneDestroy](GangZoneDestroy): 销毁帮派区域
+- [GangZoneShowForPlayer](GangZoneShowForPlayer): 为玩家显示帮派区域
+- [GangZoneShowForAll](GangZoneShowForAll): 为所有玩家显示帮派区域
+- [GangZoneHideForPlayer](GangZoneHideForPlayer): 为玩家隐藏帮派区域
+- [GangZoneHideForAll](GangZoneHideForAll): 为所有玩家隐藏帮派区域
+- [GangZoneFlashForPlayer](GangZoneFlashForPlayer): 使帮派区域对玩家闪烁
+- [GangZoneFlashForAll](GangZoneFlashForAll): 使帮派区域对所有玩家闪烁
+- [GangZoneStopFlashForPlayer](GangZoneStopFlashForPlayer): 停止帮派区域对玩家的闪烁
+- [GangZoneStopFlashForAll](GangZoneStopFlashForAll): 停止帮派区域对所有玩家的闪烁

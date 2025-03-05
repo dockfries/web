@@ -1,37 +1,37 @@
 ---
 title: gpci
 sidebar_label: gpci
-description: Fetch the CI (computer/client identification) of a user, this is linked to their SAMP/GTA on their computer.
+description: 获取玩家的客户端识别码（CI），该编码关联玩家的SAMP/GTA客户端实例。
 tags: []
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Fetch the CI of a user, this is linked to their SAMP/GTA on their computer.
+获取玩家的客户端识别码（Computer/Client Identification），该编码与玩家计算机上的 SAMP/GTA 客户端绑定。
 
 :::warning
 
-A player's CI is NOT UNIQUE, some players may have similar or the same CI, don't ban solely due to a CI match.
+客户端识别码不具备唯一性，不同玩家可能拥有相同或相似的 CI，禁止仅凭 CI 匹配进行封禁操作
 
 :::
 
-## Parameters
+## 参数
 
-| Name                  | Description                             |
-| --------------------- | --------------------------------------- |
-| playerid              | The ID of the player to fetch their CI. |
-| serial[]              | String to store the fetched CI in.      |
-| len = sizeof (serial) | Assigned size of the string.            |
+| 参数名                | 说明                                 |
+| --------------------- | ------------------------------------ |
+| playerid              | 目标玩家的 ID 编号                   |
+| serial[]              | 存储 CI 的字符串数组（通过引用传递） |
+| len = sizeof (serial) | 数组容量（建议使用 sizeof 获取）     |
 
-## Return Values
+## 返回值
 
-This function will return the string value of a user's CI.
+返回玩家客户端识别码的字符串形式
 
-## Example Usage
+## 使用示例
 
-**SA-MP server:**
+**SA-MP 服务器:**
 
 ```c
 #include <a_samp>
@@ -42,39 +42,39 @@ This function will return the string value of a user's CI.
 
 public OnPlayerConnect(playerid)
 {
-    new serial[41]; // 40 + \0
+    new serial[41]; // 40字符长度 + 终止符\0
     gpci(playerid, serial, sizeof(serial));
 
     new string[128];
-    format(string, sizeof(string), "Your CI Serial: %s", serial);
+    format(string, sizeof(string), "您的客户端识别码: %s", serial);
     SendClientMessage(playerid, -1, string);
     return 1;
 }
 ```
 
-**open.mp server:**
+**open.mp 服务器:**
 
 ```c
 #include <open.mp>
 
 public OnPlayerConnect(playerid)
 {
-    new serial[41]; // 40 + \0
+    new serial[41]; // 40字符长度 + 终止符\0
     GPCI(playerid, serial, sizeof(serial));
-    SendClientMessage(playerid, -1, "Your CI Serial: %s", serial);
+    SendClientMessage(playerid, -1, "您的客户端识别码: %s", serial);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-In SA-MP server you must add 'native gpci(playerid, serial[], len);' at the top of your script before using any CI functions.
+在 SA-MP 服务器使用时，必须在脚本顶部添加 'native gpci(playerid, serial[], len);' 声明
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetNetworkStats](GetNetworkStats): Gets the servers networkstats and saves it into a string.
-- [GetPlayerNetworkStats](GetPlayerNetworkStats): Gets a player networkstats and saves it into a string.
+- [GetNetworkStats](GetNetworkStats): 获取服务器网络状态统计信息
+- [GetPlayerNetworkStats](GetPlayerNetworkStats): 获取玩家网络状态统计信息

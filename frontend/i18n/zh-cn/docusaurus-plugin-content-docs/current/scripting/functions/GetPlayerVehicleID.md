@@ -32,7 +32,7 @@ if (vehicleId != 0)
 
 ## 相关函数
 
-• [IsPlayerInVehicle](IsPlayerInVehicle): 检测玩家是否处于特定车辆
-• [IsPlayerInAnyVehicle](IsPlayerInAnyVehicle): 检测玩家是否处于任何车辆
-• [GetPlayerVehicleSeat](GetPlayerVehicleSeat): 获取玩家所在车辆座位号
-• [GetVehicleModel](GetVehicleModel): 获取车辆的模型 ID
+- [IsPlayerInVehicle](IsPlayerInVehicle): 检测玩家是否处于特定车辆
+- [IsPlayerInAnyVehicle](IsPlayerInAnyVehicle): 检测玩家是否处于任何车辆
+- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): 获取玩家所在车辆座位号
+- [GetVehicleModel](GetVehicleModel): 获取车辆的模型 ID

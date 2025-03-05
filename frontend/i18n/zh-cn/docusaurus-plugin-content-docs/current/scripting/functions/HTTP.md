@@ -1,45 +1,45 @@
 ---
 title: HTTP
 sidebar_label: HTTP
-description: Sends a threaded HTTP request.
+description: 发送线程化的HTTP请求
 tags: ["http"]
 ---
 
-## Description
+## 描述
 
-Sends a threaded HTTP request.
+发送异步 HTTP 请求。
 
-| Name               | Description                                                                                 |
-| ------------------ | ------------------------------------------------------------------------------------------- |
-| index              | ID used to differentiate requests that are sent to the same callback (useful for playerids) |
-| HTTP_METHOD:method | The [type](../resources/http-request-methods) of request you wish to send.                  |
-| const url[]        | The URL you want to request. **(Without 'http://')**                                        |
-| const data[]       | Any POST data you want to send with the request.                                            |
-| const callback[]   | Name of the callback function you want to use to handle responses to this request.          |
+| 参数               | 说明                                                           |
+| ------------------ | -------------------------------------------------------------- |
+| index              | 用于区分相同回调请求的标识符（通常使用玩家 ID）                |
+| HTTP_METHOD:method | 请求[类型](../resources/http-request-methods)（GET/POST/HEAD） |
+| const url[]        | 目标 URL（无需包含'http://'前缀）                              |
+| const data[]       | 需要随请求发送的 POST 数据                                     |
+| const callback[]   | 处理该请求响应的回调函数名称                                   |
 
-## Returns
+## 返回值
 
-1 on success, 0 on failure
+成功返回 1，失败返回 0
 
-## Definitions
+## 定义
 
 ```c
-// HTTP request types
-#define HTTP_GET                               (HTTP_METHOD:1) // Sends a regular HTTP request.
-#define HTTP_POST                              (HTTP_METHOD:2) // Sends a HTTP request with POST data.
-#define HTTP_HEAD                              (HTTP_METHOD:3) // Sends a regular HTTP request, but ignores any response data - returning only the response code.
+// HTTP请求类型
+#define HTTP_GET                               (HTTP_METHOD:1) // 发送常规HTTP请求
+#define HTTP_POST                              (HTTP_METHOD:2) // 发送带POST数据的HTTP请求
+#define HTTP_HEAD                              (HTTP_METHOD:3) // 发送HTTP请求但忽略响应内容，仅返回状态码
 
-// HTTP error response codes
-// These codes compliment ordinary HTTP response codes returned in 'response_code'
-#define HTTP_ERROR_BAD_HOST                    (HTTP_ERROR:1)
-#define HTTP_ERROR_NO_SOCKET                   (HTTP_ERROR:2)
-#define HTTP_ERROR_CANT_CONNECT                (HTTP_ERROR:3)
-#define HTTP_ERROR_CANT_WRITE                  (HTTP_ERROR:4)
-#define HTTP_ERROR_CONTENT_TOO_BIG             (HTTP_ERROR:5)
-#define HTTP_ERROR_MALFORMED_RESPONSE          (HTTP_ERROR:6)
+// HTTP错误响应码
+// 这些代码是对常规HTTP状态码的补充
+#define HTTP_ERROR_BAD_HOST                    (HTTP_ERROR:1)  // 无效主机
+#define HTTP_ERROR_NO_SOCKET                   (HTTP_ERROR:2)  // 无法创建套接字
+#define HTTP_ERROR_CANT_CONNECT                (HTTP_ERROR:3)  // 连接失败
+#define HTTP_ERROR_CANT_WRITE                  (HTTP_ERROR:4)  // 写入失败
+#define HTTP_ERROR_CONTENT_TOO_BIG             (HTTP_ERROR:5)  // 响应内容过大
+#define HTTP_ERROR_MALFORMED_RESPONSE          (HTTP_ERROR:6)  // 响应格式错误
 ```
 
-## Examples
+## 示例
 
 ```c
 forward MyHttpResponse(index, response_code, data[]);
@@ -56,33 +56,30 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
 public MyHttpResponse(index, response_code, data[])
 {
-    // In this callback "index" would normally be called "playerid" ( if you didn't get it already )
     new buffer[128];
 
-    if (response_code == 200) // Did the request succeed?
+    if (response_code == 200) // 请求成功
     {
-        // Yes!
-        format(buffer, sizeof(buffer), "The URL replied: %s", data);
+        format(buffer, sizeof(buffer), "服务器返回内容: %s", data);
         SendClientMessage(index, 0xFFFFFFFF, buffer);
     }
     else
     {
-        // No!
-        format(buffer, sizeof(buffer), "The request failed! The response code was: %d", response_code);
+        format(buffer, sizeof(buffer), "请求失败！状态码: %d", response_code);
         SendClientMessage(index, 0xFF0000FF, buffer);
     }
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-As well as the response codes listed above, there are also all of the typical HTTP responses such as 404 (Page not found), 500 (Server error) or 403 (forbidden)
+除了上述错误代码，本函数也支持标准 HTTP 状态码，例如 404（页面未找到）、500（服务器错误）和 403（禁止访问）
 
 :::
 
-## Related Information
+## 相关信息
 
-- [HTTP Request Methods](../resources/http-request-methods)
-- [HTTP Error Response Codes](../resources/http-error-response-codes)
+- [HTTP 请求方法](../resources/http-request-methods)
+- [HTTP 错误响应码](../resources/http-error-response-codes)

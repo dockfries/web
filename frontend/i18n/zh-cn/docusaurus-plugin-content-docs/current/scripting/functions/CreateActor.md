@@ -52,7 +52,7 @@ public OnGameModeExit()
 :::warning
 
 - 角色系统独立于 NPC 系统，不占用玩家槽位且操作方式不同（最大数量 1000）
-- 角色会被车辆推动，建议使用计时器重置位置
+- 角色会被车辆推动，建议使用定时器重置位置
 - 默认处于无敌状态
 
 :::
@@ -70,7 +70,7 @@ public OnGameModeExit()
 - [ApplyActorAnimation](ApplyActorAnimation): 应用角色动画
 - [ClearActorAnimations](ClearActorAnimations): 清除所有动画
 - [GetActorAnimation](GetActorAnimation): 获取当前播放动画
-- [GetPlayerCameraTargetActor](GetPlayerCameraTargetActor): 检测玩家镜头对准的角色
+- [GetPlayerCameraTargetActor](GetPlayerCameraTargetActor): 检测玩家视角对准的角色
 - [IsActorStreamedIn](IsActorStreamedIn): 检测是否流加载
 - [SetActorSkin](SetActorSkin): 更换角色皮肤
 - [GetActorSkin](GetActorSkin): 获取当前皮肤
