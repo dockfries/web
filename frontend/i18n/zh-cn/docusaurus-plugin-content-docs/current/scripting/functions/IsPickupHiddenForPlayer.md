@@ -1,6 +1,6 @@
 ---
 title: IsPickupHiddenForPlayer
-sidebar_label: 检查拾取物是否对玩家隐藏
+sidebar_label: IsPickupHiddenForPlayer
 description: 检查指定拾取物是否对玩家隐藏
 tags: ["玩家", "拾取物"]
 ---

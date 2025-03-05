@@ -1,54 +1,54 @@
 ---
-title: print
-sidebar_label: print
-description: Prints a string to the server console (not in-game chat) and logs (log.txt).
-tags: ["console"]
+title: "print"
+sidebar_label: "print"
+description: "将字符串输出至服务器控制台（非游戏内聊天框）并记录日志（log.txt）。"
+tags: ["控制台"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Prints a string to the server console (not in-game chat) and logs (log.txt).
+将字符串输出至服务器控制台（非游戏内聊天框）并记录日志（log.txt）。
 
-| Name                  | Description                   |
-| --------------------- | ----------------------------- | ----------------------------- |
-| const string[]        | The string to print.          |
-| <!--                  | foreground (optional)         | The foreground colour to use. |
-| background (optional) | The background colour to use. | -->                           |
+| 名称              | 描述              |
+| ----------------- | ----------------- | -------------- |
+| const string[]    | 需要输出的字符串  |
+| <!--              | foreground (可选) | 指定文本前景色 |
+| background (可选) | 指定文本背景色    | -->            |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
 <!-- :::tip
 
-When the colour codes are left at -1, the default colours of the server console are used.
+当颜色参数保持 -1 时，将使用服务器控制台的默认配色方案。
 
 :::
 
 :::tip
 
-On most systems the following foreground and background colour codes can be used: black (0), red (1), green (2), yellow (3), blue (4), magenta (5), cyan (6) and white (7).
+在多数系统中可使用以下前景色与背景色代码：黑色 (0)、红色 (1)、绿色 (2)、黄色 (3)、蓝色 (4)、品红 (5)、青色 (6) 和白色 (7)。
 
 :::
 
 :::tip
 
-Most systems also support the bright/bold versions of these colours. The following highlight values can be used: regular (0) and bright/bold (1).
+大多数系统也支持这些颜色的高亮/加粗版本。可使用以下高亮值：常规 (0) 和 高亮/加粗 (1)。
 
 ::: -->
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    print("Gamemode started.");
+    print("游戏模式已启动。");
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [printf](printf): Print a formatted message into the server logs and console.
+- [printf](printf): 向服务器日志和控制台输出格式化信息

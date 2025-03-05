@@ -1,14 +1,14 @@
 ---
 title: PauseRecordingPlayback
 sidebar_label: PauseRecordingPlayback
-description: This will pause playing back the recording.
+description: 暂停录制回放
 tags: []
 ---
 
-## Description
+## 描述
 
-This will pause playing back the recording.
+该函数用于暂停当前正在进行的录制回放
 
-## Related Functions
+## 相关函数
 
-- [ResumeRecordingPlayback](../functions/ResumeRecordingPlayback): Resumes the recording if its paused.
+- [ResumeRecordingPlayback](../functions/ResumeRecordingPlayback): 恢复已暂停的录制回放

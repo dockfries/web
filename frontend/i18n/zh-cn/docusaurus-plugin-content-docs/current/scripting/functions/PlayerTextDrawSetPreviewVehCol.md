@@ -1,26 +1,26 @@
 ---
 title: PlayerTextDrawSetPreviewVehCol
 sidebar_label: PlayerTextDrawSetPreviewVehCol
-description: Set the color of a vehicle in a player-textdraw model preview (if a vehicle is shown).
-tags: ["player", "textdraw", "playertextdraw"]
+description: 设置玩家文本绘图3D预览中车辆的配色
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
-## Description
+## 描述
 
-Set the color of a vehicle in a player-textdraw model preview (if a vehicle is shown).
+设置玩家文本绘图 3D 预览中显示的车辆主副配色（需预览模型为车辆）
 
-| Name              | Description                                           |
-| ----------------- | ----------------------------------------------------- |
-| playerid          | The ID of the player whose player-textdraw to change. |
-| PlayerText:textid | The ID of the player's player-textdraw to change.     |
-| colour1           | The color to set the vehicle's primary color to.      |
-| colour2           | The color to set the vehicle's secondary color to.    |
+| 参数名            | 说明                      |
+| ----------------- | ------------------------- |
+| playerid          | 要修改的玩家 ID           |
+| PlayerText:textid | 要修改的玩家文本绘图的 ID |
+| colour1           | 车辆主颜色 ID             |
+| colour2           | 车辆副颜色 ID             |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 new PlayerText:gTextDraw[MAX_PLAYERS];
@@ -33,28 +33,31 @@ public OnPlayerConnect(playerid)
     PlayerTextDrawBoxColor(playerid, gTextDraw[playerid], 0x000000FF);
     PlayerTextDrawTextSize(playerid, gTextDraw[playerid], 40.0, 40.0);
 
-    PlayerTextDrawSetPreviewModel(playerid, gTextDraw[playerid], 411);
-    PlayerTextDrawSetPreviewVehCol(playerid, gTextDraw[playerid], 3, 6);
+    PlayerTextDrawSetPreviewModel(playerid, gTextDraw[playerid], 411); // 设置预览模型为Infernus
+    PlayerTextDrawSetPreviewVehCol(playerid, gTextDraw[playerid], 3, 6); // 主颜色3(亮红)，副颜色6(亮蓝)
 
     PlayerTextDrawShow(playerid, gTextDraw[playerid]);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-The textdraw MUST use the font `TEXT_DRAW_FONT_MODEL_PREVIEW` and be showing a vehicle in order for this function to have effect.
+生效条件需同时满足：
+
+1. 使用`TEXT_DRAW_FONT_MODEL_PREVIEW`字体类型
+2. 已通过 PlayerTextDrawSetPreviewModel 设置车辆模型
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [PlayerTextDrawSetPreviewModel](PlayerTextDrawSetPreviewModel): Set model ID of a 3D player textdraw preview.
-- [PlayerTextDrawSetPreviewRot](PlayerTextDrawSetPreviewRot): Set rotation of a 3D player textdraw preview.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
+- [PlayerTextDrawSetPreviewModel](PlayerTextDrawSetPreviewModel): 设置玩家文本绘图的 3D 预览模型
+- [PlayerTextDrawSetPreviewRot](PlayerTextDrawSetPreviewRot): 设置玩家文本绘图的 3D 预览旋转
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置玩家文本绘图的字体类型
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerClickPlayerTextDraw](../callbacks/OnPlayerClickPlayerTextDraw): Called when a player clicks on a player-textdraw.
+- [OnPlayerClickPlayerTextDraw](../callbacks/OnPlayerClickPlayerTextDraw): 当玩家点击玩家文本绘图时触发

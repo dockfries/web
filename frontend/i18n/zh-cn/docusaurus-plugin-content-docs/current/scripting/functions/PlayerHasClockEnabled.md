@@ -1,49 +1,49 @@
 ---
 title: PlayerHasClockEnabled
 sidebar_label: PlayerHasClockEnabled
-description: Checks whether the player has their in-game clock enabled.
-tags: ["player"]
+description: 检测玩家是否启用游戏内时钟
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Checks whether the player has their in-game clock enabled. ([TogglePlayerClock](TogglePlayerClock))
+用于检测玩家是否启用了游戏内时钟显示（参见[TogglePlayerClock](TogglePlayerClock)）
 
-| Name     | Description                               |
-| -------- | ----------------------------------------- |
-| playerid | The player whose clock you want to check. |
+| 参数     | 说明            |
+| -------- | --------------- |
+| playerid | 要检测的玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - The clock is enabled.
+**true** - 时钟显示已启用
 
-**false** - The clock isn't enabled, or the specified player does not exist.
+**false** - 未启用或指定玩家不存在
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    TogglePlayerClock(playerid, true); // Show the clock
+    TogglePlayerClock(playerid, true); // 显示时钟
 
     if (PlayerHasClockEnabled(playerid))
     {
-        SendClientMessage(playerid, COLOR_WHITE, "The clock is enabled.");
+        SendClientMessage(playerid, COLOR_WHITE, "已启用游戏时钟显示");
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Time is not synced with other players! Time can be synced using [SetPlayerTime](SetPlayerTime).
+玩家时间不会与其他玩家同步！如需同步时间请使用[SetPlayerTime](SetPlayerTime)
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerTime](SetPlayerTime): Set a player's time.
-- [SetWorldTime](SetWorldTime): Set the global server time.
-- [TogglePlayerClock](TogglePlayerClock): Toggle the clock in the top-right corner.
+- [SetPlayerTime](SetPlayerTime): 设置玩家个人时间
+- [SetWorldTime](SetWorldTime): 设置全局服务器时间
+- [TogglePlayerClock](TogglePlayerClock): 切换右上角时钟显示

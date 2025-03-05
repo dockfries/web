@@ -1,6 +1,6 @@
 ---
 title: IsObjectMaterialSlotUsed
-sidebar_label: 检查物体材质槽位使用状态
+sidebar_label: IsObjectMaterialSlotUsed
 description: 检查物体材质槽位是否被使用
 tags: ["物体"]
 ---

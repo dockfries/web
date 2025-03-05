@@ -1,6 +1,6 @@
 ---
 title: IsPlayerInRangeOfPoint
-sidebar_label: 检测玩家坐标范围
+sidebar_label: IsPlayerInRangeOfPoint
 description: 检测玩家是否处于指定坐标点范围内
 tags: ["玩家"]
 ---

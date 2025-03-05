@@ -1,27 +1,27 @@
 ---
 title: PlayerTextDrawSetPreviewModel
 sidebar_label: PlayerTextDrawSetPreviewModel
-description: Sets a player textdraw 3D preview sprite of a specified model ID.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 设置玩家文本绘图的3D预览模型
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
-## Description
+## 描述
 
-Sets a player textdraw 3D preview sprite of a specified model ID.
+设置玩家文本绘图的指定模型 ID 的 3D 预览模型
 
-| Name              | Description                                       |
-| ----------------- | ------------------------------------------------- |
-| playerid          | The PlayerTextDraw player ID.                     |
-| PlayerText:textid | The textdraw id that will display the 3D preview. |
-| model             | The GTA SA or SA:MP model ID to display.          |
+| 参数名            | 说明                              |
+| ----------------- | --------------------------------- |
+| playerid          | 玩家的 ID                         |
+| PlayerText:textid | 要显示 3D 预览的玩家文本绘图的 ID |
+| model             | 要显示的 GTA SA 或 SA:MP 模型 ID  |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully. If an invalid model is passed 'success' is reported, but the model will appear as a yellow/black question mark.
+**true** - 函数执行成功。如果传入无效模型会返回成功，但会显示为黄/黑问号
 
-**false** - The function failed to execute. Player and/or textdraw do not exist.
+**false** - 函数执行失败。玩家或文本绘图不存在
 
-## Examples
+## 示例
 
 ```c
 new PlayerText:gTextDraw[MAX_PLAYERS];
@@ -34,30 +34,30 @@ public OnPlayerConnect(playerid)
     PlayerTextDrawBoxColor(playerid, gTextDraw[playerid], 0x000000FF);
     PlayerTextDrawTextSize(playerid, gTextDraw[playerid], 40.0, 40.0);
 
-    PlayerTextDrawSetPreviewModel(playerid, gTextDraw[playerid], 411); // Show an Infernus (model 411)
-    //PlayerTextDrawSetPreviewModel(playerid, gTextDraw[playerid], 0); // Display model 0 (CJ Skin)
-    //PlayerTextDrawSetPreviewModel(playerid, gTextDraw[playerid], 18646); // Display model 18646 (police light object)
+    PlayerTextDrawSetPreviewModel(playerid, gTextDraw[playerid], 411); // 显示Infernus跑车（模型ID 411）
+    //PlayerTextDrawSetPreviewModel(playerid, gTextDraw[playerid], 0);  // 显示模型0（CJ皮肤）
+    //PlayerTextDrawSetPreviewModel(playerid, gTextDraw[playerid], 18646); // 显示模型18646（警灯物体）
 
     PlayerTextDrawShow(playerid, gTextDraw[playerid]);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-The textdraw MUST use the font type `TEXT_DRAW_FONT_MODEL_PREVIEW` in order for this function to have effect.
+必须使用字体类型`TEXT_DRAW_FONT_MODEL_PREVIEW`（模型预览字体）才能使此功能生效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [PlayerTextDrawGetPreviewModel](PlayerTextDrawGetPreviewModel): Gets the preview model of a 3D preview player-textdraw.
-- [PlayerTextDrawSetPreviewRot](PlayerTextDrawSetPreviewRot): Set rotation of a 3D player textdraw preview.
-- [PlayerTextDrawSetPreviewVehCol](PlayerTextDrawSetPreviewVehCol): Set the colours of a vehicle in a 3D player textdraw preview.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
+- [PlayerTextDrawGetPreviewModel](PlayerTextDrawGetPreviewModel): 获取 3D 预览玩家文本绘图的模型 ID
+- [PlayerTextDrawSetPreviewRot](PlayerTextDrawSetPreviewRot): 设置 3D 预览模型的旋转角度
+- [PlayerTextDrawSetPreviewVehCol](PlayerTextDrawSetPreviewVehCol): 设置 3D 预览车辆的配色
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置玩家文本绘图的字体类型
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerClickPlayerTextDraw](../callbacks/OnPlayerClickPlayerTextDraw): Called when a player clicks on a player-textdraw.
+- [OnPlayerClickPlayerTextDraw](../callbacks/OnPlayerClickPlayerTextDraw): 当玩家点击玩家文本绘图时触发

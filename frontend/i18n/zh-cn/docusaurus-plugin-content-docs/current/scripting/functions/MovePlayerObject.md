@@ -1,31 +1,31 @@
 ---
 title: MovePlayerObject
 sidebar_label: MovePlayerObject
-description: Move a player object with a set speed.
-tags: ["player"]
+description: 以指定速度移动玩家专属物体
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Move a player object with a set speed. Also supports rotation. Players/vehicles will surf moving objects.
+用于移动玩家专属物体并支持旋转的函数。玩家/车辆将在物体移动时附着其上
 
-| Name            | Description                                       |
-| --------------- | ------------------------------------------------- |
-| playerid        | The ID of the player whose player-object to move. |
-| objectid        | The ID of the object to move.                     |
-| Float:targetX   | The X coordinate to move the object to.           |
-| Float:targetY   | The Y coordinate to move the object to.           |
-| Float:targetZ   | The Z coordinate to move the object to.           |
-| Float:speed     | The speed at which to move the object.            |
-| Float:rotationX | The final X rotation (optional).                  |
-| Float:rotationY | The final Y rotation (optional).                  |
-| Float:rotationZ | The final Z rotation (optional).                  |
+| 参数            | 说明                      |
+| --------------- | ------------------------- |
+| playerid        | 目标玩家的 ID             |
+| objectid        | 要移动的物体 ID           |
+| Float:targetX   | 目标位置的 X 坐标         |
+| Float:targetY   | 目标位置的 Y 坐标         |
+| Float:targetZ   | 目标位置的 Z 坐标         |
+| Float:speed     | 移动速度（单位：单位/秒） |
+| Float:rotationX | 最终 X 轴旋转角度（可选） |
+| Float:rotationY | 最终 Y 轴旋转角度（可选） |
+| Float:rotationZ | 最终 Z 轴旋转角度（可选） |
 
-## Returns
+## 返回值
 
-The time it will take for the object to move in milliseconds.
+物体移动所需的时间（以毫秒为单位）
 
-## Examples
+## 示例
 
 ```c
 new gPlayerObject[MAX_PLAYERS];
@@ -39,34 +39,34 @@ public OnPlayerConnect(playerid)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-If using the rotation parameters, the object must be moved (X/Y/Z). The object will interpolate the rotation from when the objects starts moving and when it stops.
+当使用旋转参数时，物体必须发生位移（X/Y/Z 坐标变化）。系统将在物体开始移动至停止期间自动插值计算旋转角度
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [IsObjectMoving](IsObjectMoving): Check if the object is moving.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [SetPlayerObjectRot](SetPlayerObjectRot): Set the rotation of a player object.
-- [GetPlayerObjectPos](GetPlayerObjectPos): Locate a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
-- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): Attach a player object to a player.
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [MoveObject](MoveObject): Move an object.
-- [StopObject](StopObject): Stop an object from moving.
-- [IsPlayerObjectMoving](IsPlayerObjectMoving): Check if the player object is moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
+- [CreatePlayerObject](CreatePlayerObject): 创建玩家专属物体
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家专属物体
+- [IsValidPlayerObject](IsValidPlayerObject): 验证玩家物体有效性
+- [StopPlayerObject](StopPlayerObject): 停止玩家物体移动
+- [IsObjectMoving](IsObjectMoving): 检测物体是否移动
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置玩家物体位置
+- [SetPlayerObjectRot](SetPlayerObjectRot): 设置玩家物体旋转
+- [GetPlayerObjectPos](GetPlayerObjectPos): 获取玩家物体坐标
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取玩家物体旋转角度
+- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 附加物体到其他玩家
+- [CreateObject](CreateObject): 创建全局物体
+- [DestroyObject](DestroyObject): 销毁全局物体
+- [IsValidObject](IsValidObject): 验证全局物体有效性
+- [MoveObject](MoveObject): 移动全局物体
+- [StopObject](StopObject): 停止全局物体移动
+- [IsPlayerObjectMoving](IsPlayerObjectMoving): 检测玩家物体移动状态
+- [SetObjectPos](SetObjectPos): 设置全局物体位置
+- [SetObjectRot](SetObjectRot): 设置全局物体旋转
+- [GetObjectPos](GetObjectPos): 获取全局物体坐标
+- [GetObjectRot](GetObjectRot): 获取全局物体旋转角度
+- [AttachObjectToPlayer](AttachObjectToPlayer): 附加全局物体到玩家

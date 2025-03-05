@@ -1,49 +1,49 @@
 ---
 title: PlayerSpectateVehicle
 sidebar_label: PlayerSpectateVehicle
-description: Sets a player to spectate another vehicle.
-tags: ["player", "vehicle"]
+description: 设置玩家观战指定车辆
+tags: ["玩家", "车辆"]
 ---
 
-## Description
+## 描述
 
-Sets a player to spectate another vehicle. Their camera will be attached to the vehicle as if they are driving it.
+使玩家进入旁观模式并附着视角到指定车辆，获得类似驾驶位的观察视角
 
-| Name               | Description                                                                                              |
-| ------------------ | -------------------------------------------------------------------------------------------------------- |
-| playerid           | The ID of the player who should spectate a vehicle.                                                      |
-| targetvehicleid    | The ID of the vehicle the player should spectate.                                                        |
-| SPECTATE_MODE:mode | The spectate [mode](../resources/spectatemodes). Can generally be left blank as it defaults to 'normal'. |
+| 参数               | 说明                                                             |
+| ------------------ | ---------------------------------------------------------------- |
+| playerid           | 观战者玩家 ID                                                    |
+| targetvehicleid    | 被观战车辆 ID                                                    |
+| SPECTATE_MODE:mode | [旁观模式](../resources/spectatemodes)（可选参数，默认普通模式） |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully. Note that success is reported if the player is not in spectator mode (TogglePlayerSpectating), but nothing will happen. TogglePlayerSpectating MUST be used first.
+**true** - 指令执行成功（注意：未启用旁观模式时也会返回成功，但实际无效，必须先调用 TogglePlayerSpectating）
 
-**false** - The function failed to execute. The player, vehicle, or both don't exist.
+**false** - 执行失败（玩家/车辆不存在或参数无效）
 
-## Examples
+## 示例
 
 ```c
-TogglePlayerSpectating(playerid, 1);
-PlayerSpectateVehicle(playerid, vehicleid);
+TogglePlayerSpectating(playerid, 1);         // 激活旁观模式
+PlayerSpectateVehicle(playerid, vehicleid); // 开始观察指定车辆
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-- Order is CRITICAL! Ensure that you use TogglePlayerSpectating before PlayerSpectateVehicle.
-- The playerid and vehicleid have to be in the same interior and virtual world for this function to work properly.
+- 调用顺序强制要求：必须先使用 TogglePlayerSpectating 启用观战状态
+- 观战者与被观战车辆必须处于相同室内空间和虚拟世界
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [PlayerSpectatePlayer](PlayerSpectatePlayer): Spectate a player.
-- [TogglePlayerSpectating](TogglePlayerSpectating): Start or stop spectating.
-- [GetPlayerSpectateID](GetPlayerSpectateID): Gets the ID of the player or vehicle the player is spectating (watching).
-- [GetPlayerSpectateType](GetPlayerSpectateType): Gets the player's spectate type.
+- [PlayerSpectatePlayer](PlayerSpectatePlayer): 观战其他玩家
+- [TogglePlayerSpectating](TogglePlayerSpectating): 切换观战状态
+- [GetPlayerSpectateID](GetPlayerSpectateID): 获取当前观战目标 ID
+- [GetPlayerSpectateType](GetPlayerSpectateType): 获取观战实体类型
 
-## Related Resources
+## 相关资源
 
-- [Spectate Modes](../resources/spectatemodes)
+- [旁观模式详解](../resources/spectatemodes)

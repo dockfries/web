@@ -1,6 +1,6 @@
 ---
 title: LinkVehicleToInterior
-sidebar_label: 关联车辆到室内空间
+sidebar_label: LinkVehicleToInterior
 description: 将车辆与指定室内空间绑定
 tags: ["车辆"]
 ---

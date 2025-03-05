@@ -1,33 +1,33 @@
 ---
 title: MoveObject
 sidebar_label: MoveObject
-description: Move an object to a new position with a set speed.
-tags: ["object"]
+description: 以指定速度将物体移动到新位置
+tags: ["物体"]
 ---
 
-## Description
+## 描述
 
-Move an object to a new position with a set speed. Players/vehicles will 'surf' the object as it moves.
+用于将物体以指定速度移动到新位置的函数。玩家/车辆将在物体移动时附着其上
 
-| Name            | Description                                               |
-| --------------- | --------------------------------------------------------- |
-| objectid        | The ID of the object to move.                             |
-| Float:targetX   | The X coordinate to move the object to.                   |
-| Float:targetY   | The Y coordinate to move the object to.                   |
-| Float:targetZ   | The Z coordinate to move the object to.                   |
-| Float:speed     | The speed at which to move the object (units per second). |
-| Float:rotationX | The FINAL X rotation (optional).                          |
-| Float:rotationY | The FINAL Y rotation (optional).                          |
-| Float:rotationZ | The FINAL Z rotation (optional).                          |
+| 参数            | 说明                      |
+| --------------- | ------------------------- |
+| objectid        | 要移动的物体 ID           |
+| Float:targetX   | 目标位置的 X 坐标         |
+| Float:targetY   | 目标位置的 Y 坐标         |
+| Float:targetZ   | 目标位置的 Z 坐标         |
+| Float:speed     | 移动速度（单位：单位/秒） |
+| Float:rotationX | 最终 X 轴旋转角度（可选） |
+| Float:rotationY | 最终 Y 轴旋转角度（可选） |
+| Float:rotationZ | 最终 Z 轴旋转角度（可选） |
 
-## Returns
+## 返回值
 
-The time it will take for the object to move in milliseconds.
+物体移动所需的时间（以毫秒为单位）
 
-## Examples
+## 示例
 
 ```c
-new gAirportGate; // Somewhere at the top of your script
+new gAirportGate; // 在脚本顶部定义
 
 public OnGameModeInit()
 {
@@ -43,7 +43,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
             string[64],
             moveTime = MoveObject(gAirportGate, 0.0, 0.0, 10.0, 2.00);
 
-        format(string, sizeof(string), "Object will finish moving in %d milliseconds", moveTime);
+        format(string, sizeof(string), "物体将在 %d 毫秒后完成移动", moveTime);
         SendClientMessage(playerid, 0xFF0000FF, string);
         return 1;
     }
@@ -51,35 +51,35 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-- This function can be used to make objects rotate smoothly. In order to achieve this however, the object must also be **moved**. The specified rotation is the rotation the object will have after the movement. Hence the object will not rotate when no movement is applied. For a script example take a look at the ferriswheel.pwn filterscript made by Kye included in the server package (SA-MP 0.3d and above).
-- To fully understand the above note, you can (but not limited to) increase the z position by (+0.001) and then (-0.001) after moving it again, as not changing the X,Y or Z will not rotate the object.
+• 该函数可用于使物体平滑旋转。但为实现此效果，物体必须同时进行**移动**。指定的旋转角度是物体移动后的最终旋转角度。因此，若物体未发生位移，则不会产生旋转效果。具体示例可参考服务器包中 Kye 制作的 ferriswheel.pwn 滤镜脚本（适用于 SA-MP 0.3d 及以上版本）
+• 为充分理解上述说明，可采用（但不限于）将 Z 轴坐标先增加(+0.001)再减少(-0.001)的操作，因为不改变 X、Y 或 Z 坐标将不会触发物体旋转
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [IsObjectMoving](IsObjectMoving): Check if the object is moving.
-- [StopObject](StopObject): Stop an object from moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [MovePlayerObject](MovePlayerObject): Move a player object.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [IsPlayerObjectMoving](IsPlayerObjectMoving): Check if the player object is moving.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [SetPlayerObjectRot](SetPlayerObjectRot): Set the rotation of a player object.
-- [GetPlayerObjectPos](GetPlayerObjectPos): Locate a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
-- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): Attach a player object to a player.
+- [CreateObject](CreateObject): 创建物体
+- [DestroyObject](DestroyObject): 销毁物体
+- [IsValidObject](IsValidObject): 检查物体是否有效
+- [IsObjectMoving](IsObjectMoving): 检测物体是否在移动
+- [StopObject](StopObject): 停止物体移动
+- [SetObjectPos](SetObjectPos): 设置物体位置
+- [SetObjectRot](SetObjectRot): 设置物体旋转
+- [GetObjectPos](GetObjectPos): 获取物体坐标
+- [GetObjectRot](GetObjectRot): 获取物体旋转角度
+- [AttachObjectToPlayer](AttachObjectToPlayer): 将物体附加到玩家
+- [CreatePlayerObject](CreatePlayerObject): 创建玩家专属物体
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家物体
+- [IsValidPlayerObject](IsValidPlayerObject): 检查玩家物体是否有效
+- [MovePlayerObject](MovePlayerObject): 移动玩家物体
+- [StopPlayerObject](StopPlayerObject): 停止玩家物体移动
+- [IsPlayerObjectMoving](IsPlayerObjectMoving): 检测玩家物体是否移动
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置玩家物体位置
+- [SetPlayerObjectRot](SetPlayerObjectRot): 设置玩家物体旋转
+- [GetPlayerObjectPos](GetPlayerObjectPos): 获取玩家物体坐标
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取玩家物体旋转角度
+- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 将玩家物体附加到其他玩家

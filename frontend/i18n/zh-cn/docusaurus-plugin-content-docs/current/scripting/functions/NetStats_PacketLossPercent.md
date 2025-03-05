@@ -1,23 +1,23 @@
 ---
 title: NetStats_PacketLossPercent
 sidebar_label: NetStats_PacketLossPercent
-description: Gets the packet loss percentage of a player.
-tags: ["network monitoring"]
+description: 获取玩家网络丢包百分比
+tags: ["网络监控"]
 ---
 
-## Description
+## 描述
 
-Gets the packet loss percentage of a player. Packet loss means data the player is sending to the server is being lost (or vice-versa).
+用于获取玩家的网络丢包百分比。丢包率表示玩家发送至服务器的数据存在丢失（反之亦然）
 
-| Name     | Description                                |
-| -------- | ------------------------------------------ |
-| playerid | The ID of the player to get the data from. |
+| 参数     | 说明                |
+| -------- | ------------------- |
+| playerid | 要获取数据的玩家 ID |
 
-## Returns
+## 返回值
 
-The percentage packet loss as a float. 0 if player not connected.
+以浮点数形式返回丢包百分比，若玩家未连接则返回 0
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid,cmdtext[])
@@ -25,23 +25,23 @@ public OnPlayerCommandText(playerid,cmdtext[])
     if (!strcmp(cmdtext, "/packetloss"))
     {
         new szString[144];
-        format(szString, sizeof(szString), "Packets lost: %.2f percent.", NetStats_PacketLossPercent(playerid));
+        format(szString, sizeof(szString), "当前丢包率: %.2f%%", NetStats_PacketLossPercent(playerid));
         SendClientMessage(playerid, -1, szString);
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function has been found to be currently unreliable the output is not as expected when compared to the client. Therefore this function should not be used as a packet loss kicker. A more accurate packetloss function:
+当前该函数的返回值可能存在偏差，实际结果与客户端显示数据存在差异。建议使用以下更精确的替代方案：
 
 ```c
 stock GetPlayerPacketLoss(playerid, &Float:packetLoss)
 {
-    /* Returns the packetloss percentage of the given playerid - Made by Fusez */
+    /* 返回指定玩家的丢包率百分比 - 由Fusez制作 */
 
     if(!IsPlayerConnected(playerid))
     {
@@ -64,25 +64,25 @@ stock GetPlayerPacketLoss(playerid, &Float:packetLoss)
 
 :::tip
 
-Be advised that this function will report the packets lost by the server. The packet loss number reported by the client **will** be different, not because either is incorrect, but because both the server and the client are only aware of the loss packages sent by them.
+请注意该函数反映的是服务器的丢包数据。客户端显示的数值**会**有所不同，并非数据错误，而是因为服务器与客户端各自仅能感知自身发送的数据包丢失情况
 
 :::
 
 :::tip
 
-Anything greater than 0.0% should already be a cause of concern. Anything greater than 1.0% is outright bad.
+丢包率高于 0.0%时应当引起注意，超过 1.0%则表明网络状况非常糟糕
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerNetworkStats](GetPlayerNetworkStats): Gets a player's networkstats and saves it into a string.
-- [GetNetworkStats](GetNetworkStats): Gets the server's networkstats and saves it into a string.
-- [NetStats_GetConnectedTime](NetStats_GetConnectedTime): Get the time that a player has been connected for.
-- [NetStats_MessagesReceived](NetStats_MessagesReceived): Get the number of network messages the server has received from the player.
-- [NetStats_BytesReceived](NetStats_BytesReceived): Get the amount of information (in bytes) that the server has received from the player.
-- [NetStats_MessagesSent](NetStats_MessagesSent): Get the number of network messages the server has sent to the player.
-- [NetStats_BytesSent](NetStats_BytesSent): Get the amount of information (in bytes) that the server has sent to the player.
-- [NetStats_MessagesRecvPerSecond](NetStats_MessagesRecvPerSecond): Get the number of network messages the server has received from the player in the last second.
-- [NetStats_ConnectionStatus](NetStats_ConnectionStatus): Get a player's connection status.
-- [NetStats_GetIpPort](NetStats_GetIpPort): Get a player's IP and port.
+- [GetPlayerNetworkStats](GetPlayerNetworkStats): 获取玩家网络统计数据并存入字符串
+- [GetNetworkStats](GetNetworkStats): 获取服务器网络统计数据并存入字符串
+- [NetStats_GetConnectedTime](NetStats_GetConnectedTime): 获取玩家持续连接时间
+- [NetStats_MessagesReceived](NetStats_MessagesReceived): 获取服务器接收的消息总数
+- [NetStats_BytesReceived](NetStats_BytesReceived): 获取服务器接收的字节总数
+- [NetStats_MessagesSent](NetStats_MessagesSent): 获取服务器发送的消息总数
+- [NetStats_BytesSent](NetStats_BytesSent): 获取服务器发送的字节总数
+- [NetStats_MessagesRecvPerSecond](NetStats_MessagesRecvPerSecond): 获取每秒接收的消息数量
+- [NetStats_ConnectionStatus](NetStats_ConnectionStatus): 获取玩家连接状态
+- [NetStats_GetIpPort](NetStats_GetIpPort): 获取玩家 IP 地址与端口号

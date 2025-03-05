@@ -1,6 +1,6 @@
 ---
 title: IsPlayerCheckpointActive
-sidebar_label: 检查玩家检查点活动状态
+sidebar_label: IsPlayerCheckpointActive
 description: 检查玩家当前是否显示检查点
 tags: ["玩家", "检查点"]
 ---

@@ -1,25 +1,25 @@
 ---
 title: PlayerTextDrawSetOutline
 sidebar_label: PlayerTextDrawSetOutline
-description: Set the outline of a player-textdraw.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 设置玩家文本绘图的轮廓
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
-## Description
+## 描述
 
-Set the outline of a player-textdraw. The outline colour cannot be changed unless [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor) is used.
+设置玩家文本绘图的轮廓。轮廓颜色需通过[PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor)进行修改
 
-| Name              | Description                                                      |
-| ----------------- | ---------------------------------------------------------------- |
-| playerid          | The ID of the player whose player-textdraw to set the outline of |
-| PlayerText:textid | The ID of the player-textdraw to set the outline of              |
-| outlineSize       | The thickness of the outline.                                    |
+| 参数名            | 说明                                         |
+| ----------------- | -------------------------------------------- |
+| playerid          | 要设置轮廓的玩家 ID                          |
+| PlayerText:textid | 要设置轮廓的玩家文本绘图的 ID                |
+| outlineSize       | 轮廓的厚度（0 表示无轮廓，数值越大轮廓越粗） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 new PlayerText:welcomeText[MAX_PLAYERS];
@@ -34,21 +34,21 @@ public OnPlayerConnect(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerTextDraw](CreatePlayerTextDraw): Create a player-textdraw.
-- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): Destroy a player-textdraw.
-- [PlayerTextDrawGetOutline](PlayerTextDrawGetOutline): Get the outline size on a player-textdraw.
-- [PlayerTextDrawColor](PlayerTextDrawColor): Set the color of the text in a player-textdraw.
-- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): Set the color of a player-textdraw's box.
-- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): Set the background color of a player-textdraw.
-- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): Set the alignment of a player-textdraw.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
-- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): Set the letter size of the text in a player-textdraw.
-- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): Set the size of a player-textdraw box (or clickable area for PlayerTextDrawSetSelectable).
-- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): Set the shadow on a player-textdraw.
-- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): Scale the text spacing in a player-textdraw to a proportional ratio.
-- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): Toggle the box on a player-textdraw.
-- [PlayerTextDrawSetString](PlayerTextDrawSetString): Set the text of a player-textdraw.
-- [PlayerTextDrawShow](PlayerTextDrawShow): Show a player-textdraw.
-- [PlayerTextDrawHide](PlayerTextDrawHide): Hide a player-textdraw.
+- [CreatePlayerTextDraw](CreatePlayerTextDraw): 创建玩家文本绘图
+- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘图
+- [PlayerTextDrawGetOutline](PlayerTextDrawGetOutline): 获取玩家文本绘图的轮廓大小
+- [PlayerTextDrawColor](PlayerTextDrawColor): 设置玩家文本绘图的文本颜色
+- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): 设置玩家文本绘图方框颜色
+- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): 设置玩家文本绘图背景颜色
+- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): 设置玩家文本绘图对齐方式
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置玩家文本绘图的字体
+- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): 设置玩家文本绘图字符尺寸
+- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): 设置玩家文本绘图文本尺寸（或 PlayerTextDrawSetSelectable 的可点击区域）
+- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): 设置玩家文本绘图的阴影
+- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): 按比例缩放玩家文本绘图的字符间距
+- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): 切换玩家文本绘图的方框显示
+- [PlayerTextDrawSetString](PlayerTextDrawSetString): 设置玩家文本绘图的文本内容
+- [PlayerTextDrawShow](PlayerTextDrawShow): 显示玩家文本绘图
+- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏玩家文本绘图

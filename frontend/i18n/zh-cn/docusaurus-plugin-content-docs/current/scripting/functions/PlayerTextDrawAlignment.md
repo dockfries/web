@@ -1,72 +1,73 @@
 ---
 title: PlayerTextDrawAlignment
 sidebar_label: PlayerTextDrawAlignment
-description: Set the text alignment of a player-textdraw.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 设置玩家文本绘图的文本对齐方式
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
-## Description
+## 描述
 
-Set the text alignment of a player-textdraw.
+设置玩家文本绘图的文本对齐方式
 
-| Name                      | Description                                                                 |
-| ------------------------- | --------------------------------------------------------------------------- |
-| playerid                  | The ID of the player whose player-textdraw to set the alignment of.         |
-| PlayerText:textid         | The ID of the player-textdraw to set the alignment of.                      |
-| TEXT_DRAW_ALIGN:alignment | `TEXT_DRAW_ALIGN_LEFT` / `TEXT_DRAW_ALIGN_CENTER` / `TEXT_DRAW_ALIGN_RIGHT` |
+| 参数                      | 说明                                                                                                        |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| playerid                  | 目标玩家 ID                                                                                                 |
+| PlayerText:textid         | 要设置的玩家文本绘图 ID                                                                                     |
+| TEXT_DRAW_ALIGN:alignment | 对齐方式：`左对齐(TEXT_DRAW_ALIGN_LEFT)` / `居中(TEXT_DRAW_ALIGN_CENTER)` / `右对齐(TEXT_DRAW_ALIGN_RIGHT)` |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+此函数不返回特定值
 
-## Examples
+## 示例
 
 ```c
 /*
-    TEXT_DRAW_ALIGN_LEFT
-    TEXT_DRAW_ALIGN_CENTER
-    TEXT_DRAW_ALIGN_RIGHT
+    可用对齐方式常量：
+    TEXT_DRAW_ALIGN_LEFT   左对齐
+    TEXT_DRAW_ALIGN_CENTER 居中对齐
+    TEXT_DRAW_ALIGN_RIGHT  右对齐
 */
 
 new PlayerText:gMyTextdraw[MAX_PLAYERS];
 
 public OnPlayerConnect(playerid)
 {
-    gMyTextdraw[playerid] = CreatePlayerTextDraw(playerid, 320.0, 425.0, "This is an example textdraw");
-    PlayerTextDrawAlignment(playerid, gMyTextdraw[playerid], TEXT_DRAW_ALIGN_CENTER); // Align the textdraw in the center
+    gMyTextdraw[playerid] = CreatePlayerTextDraw(playerid, 320.0, 425.0, "示例文本绘图");
+    PlayerTextDrawAlignment(playerid, gMyTextdraw[playerid], TEXT_DRAW_ALIGN_CENTER); // 将文本绘图居中对齐
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-For alignment 2 (TEXT_DRAW_ALIGN_CENTER) the x and y values of TextSize need to be swapped, see notes at [PlayerTextDrawTextSize](PlayerTextDrawTextSize).
+使用居中对齐(TEXT_DRAW_ALIGN_CENTER)时，必须交换[PlayerTextDrawTextSize](PlayerTextDrawTextSize)的 x 和 y 参数值
 
 :::
 
 :::tip
 
-If the textdraw is already shown for the player, it must be re-shown ([PlayerTextDrawShow](PlayerTextDrawShow)) to show the changes of this function.
+若文本绘图已对玩家显示，需重新调用[PlayerTextDrawShow](PlayerTextDrawShow)才能使更改生效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerTextDraw](CreatePlayerTextDraw): Create a player-textdraw.
-- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): Destroy a player-textdraw.
-- [PlayerTextDrawGetAlignment](PlayerTextDrawGetAlignment): Gets the text alignment of a player-textdraw.
-- [PlayerTextDrawColor](PlayerTextDrawColor): Set the color of the text in a player-textdraw.
-- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): Set the color of a player-textdraw's box.
-- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): Set the background color of a player-textdraw.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
-- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): Set the letter size of the text in a player-textdraw.
-- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): Set the size of a player-textdraw box (or clickable area for PlayerTextDrawSetSelectable).
-- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): Toggle the outline on a player-textdraw.
-- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): Set the shadow on a player-textdraw.
-- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): Scale the text spacing in a player-textdraw to a proportional ratio.
-- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): Toggle the box on a player-textdraw.
-- [PlayerTextDrawSetString](PlayerTextDrawSetString): Set the text of a player-textdraw.
-- [PlayerTextDrawShow](PlayerTextDrawShow): Show a player-textdraw.
-- [PlayerTextDrawHide](PlayerTextDrawHide): Hide a player-textdraw.
+- [CreatePlayerTextDraw](CreatePlayerTextDraw): 创建玩家文本绘图
+- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘图
+- [PlayerTextDrawGetAlignment](PlayerTextDrawGetAlignment): 获取文本对齐方式
+- [PlayerTextDrawColor](PlayerTextDrawColor): 设置文本颜色
+- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): 设置文本框颜色
+- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): 设置背景颜色
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置文本字体
+- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): 设置字符尺寸
+- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): 设置文本框尺寸
+- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): 设置文本描边
+- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): 设置文本阴影
+- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): 启用等比缩放
+- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): 启用文本框显示
+- [PlayerTextDrawSetString](PlayerTextDrawSetString): 更新文本内容
+- [PlayerTextDrawShow](PlayerTextDrawShow): 显示文本绘图
+- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏文本绘图

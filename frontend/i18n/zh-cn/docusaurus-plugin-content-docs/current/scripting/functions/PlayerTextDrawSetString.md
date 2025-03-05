@@ -1,26 +1,26 @@
 ---
 title: PlayerTextDrawSetString
 sidebar_label: PlayerTextDrawSetString
-description: Change the text of a player-textdraw.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 修改玩家文本绘图的文本内容
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
-## Description
+## 描述
 
-Change the text of a player-textdraw.
+修改玩家文本绘图的文本内容
 
-| Name              | Description                                       |
-| ----------------- | ------------------------------------------------- |
-| playerid          | The ID of the player who's textdraw string to set |
-| PlayerText:textid | The ID of the textdraw to change                  |
-| const format[]    | The new string for the TextDraw                   |
-| OPEN_MP_TAGS:...  | Indefinite number of arguments of any tag.        |
+| 参数名            | 说明                           |
+| ----------------- | ------------------------------ |
+| playerid          | 要设置文本的玩家 ID            |
+| PlayerText:textid | 要修改的玩家文本绘图的 ID      |
+| const format[]    | 新的格式化字符串               |
+| OPEN_MP_TAGS:...  | 可变参数（支持任意标签的参数） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 new PlayerText:pVehicleHealthTD[MAX_PLAYERS];
@@ -28,15 +28,15 @@ new pVehicleHealthTimer[MAX_PLAYERS];
 
 public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
-    if (newstate == PLAYER_STATE_DRIVER) // Entered a vehicle as driver
+    if (newstate == PLAYER_STATE_DRIVER) // 以驾驶员身份进入车辆
     {
         pVehicleHealthTD[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, " ");
         PlayerTextDrawShow(playerid, pVehicleHealthTD[playerid]);
 
-        // Set a timer to update the textdraw every second
+        // 设置每秒更新文本绘图的计时器
         pVehicleHealthTimer[playerid] = SetTimerEx("UpdateVehicleHealthTextDraw", 1000, true, "i", playerid);
     }
-    if (oldstate == PLAYER_STATE_DRIVER)
+    if (oldstate == PLAYER_STATE_DRIVER) // 退出驾驶状态
     {
         KillTimer(pVehicleHealthTimer[playerid]);
         PlayerTextDrawDestroy(playerid, pVehicleHealthTD[playerid]);
@@ -54,48 +54,48 @@ public UpdateVehicleHealthTextDraw(playerid)
 
     GetVehicleHealth(vehicleid, health);
 
-    format(string, sizeof(string), "Vehicle Health: %.0f", health);
-    PlayerTextDrawSetString(playerid, pVehicleHealthTD[playerid], string); // <<< Update the text to show the vehicle health
+    format(string, sizeof(string), "车辆耐久: %.0f", health);
+    PlayerTextDrawSetString(playerid, pVehicleHealthTD[playerid], string); // <<< 更新显示车辆耐久度
 
-    // PRO TIP: You don't need `format` in open.mp
-    PlayerTextDrawSetString(playerid, pVehicleHealthTD[playerid], "Vehicle Health: %.0f", health);
+    // 专业建议：open.mp中可直接使用以下简化写法
+    PlayerTextDrawSetString(playerid, pVehicleHealthTD[playerid], "车辆耐久: %.0f", health);
     return 1;
 }
 
 /*
-NOTE: This example is purely for demonstration purposes, it is not guaranteed to work in-game. It is merely to show the usage of the PlayerTextDrawSetString function.
+注意：本示例仅用于演示目的，实际游戏中使用需进行额外验证和错误处理
 */
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-You don't have to show the TextDraw again in order to apply the changes.
+修改文本内容后无需重新调用 PlayerTextDrawShow 即可生效
 
 :::
 
 :::warning
 
-There are limits to the length of textdraw strings! See [Limits](../resources/limits) for more info.
+文本字符串长度存在限制，详见[系统限制](../resources/limits)
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerTextDraw](CreatePlayerTextDraw): Create a player-textdraw.
-- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): Destroy a player-textdraw.
-- [PlayerTextDrawGetString](PlayerTextDrawGetString): Gets the text of a player-textdraw.
-- [PlayerTextDrawColor](PlayerTextDrawColor): Set the color of the text in a player-textdraw.
-- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): Set the color of a player-textdraw's box.
-- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): Set the background color of a player-textdraw.
-- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): Set the alignment of a player-textdraw.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
-- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): Set the letter size of the text in a player-textdraw.
-- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): Set the size of a player-textdraw box (or clickable area for PlayerTextDrawSetSelectable).
-- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): Toggle the outline on a player-textdraw.
-- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): Set the shadow on a player-textdraw.
-- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): Scale the text spacing in a player-textdraw to a proportional ratio.
-- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): Toggle the box on a player-textdraw.
-- [PlayerTextDrawShow](PlayerTextDrawShow): Show a player-textdraw.
-- [PlayerTextDrawHide](PlayerTextDrawHide): Hide a player-textdraw.
+- [CreatePlayerTextDraw](CreatePlayerTextDraw): 创建玩家文本绘图
+- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘图
+- [PlayerTextDrawGetString](PlayerTextDrawGetString): 获取文本内容
+- [PlayerTextDrawColor](PlayerTextDrawColor): 设置文本颜色
+- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): 设置方框颜色
+- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): 设置背景颜色
+- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): 设置对齐方式
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置字体类型
+- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): 设置字符尺寸
+- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): 设置文本区域尺寸
+- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): 切换轮廓显示
+- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): 设置阴影效果
+- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): 启用比例缩放
+- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): 切换方框显示
+- [PlayerTextDrawShow](PlayerTextDrawShow): 显示文本绘图
+- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏文本绘图

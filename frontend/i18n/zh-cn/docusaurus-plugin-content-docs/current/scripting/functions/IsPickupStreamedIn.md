@@ -1,6 +1,6 @@
 ---
 title: IsPickupStreamedIn
-sidebar_label: 检查拾取物流式加载状态
+sidebar_label: IsPickupStreamedIn
 description: 检查指定拾取物是否已为玩家流式加载
 tags: ["玩家", "拾取物"]
 ---

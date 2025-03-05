@@ -1,28 +1,28 @@
 ---
 title: PlayerTextDrawIsSelectable
 sidebar_label: PlayerTextDrawIsSelectable
-description: Checks if a player-textdraw is selectable.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 检查玩家文本绘图是否可被选择
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a player-textdraw is selectable.
+检查玩家文本绘图是否可被选择
 
-## Parameters
+## 参数
 
-| Name              | Description                             |
-| ----------------- | --------------------------------------- |
-| playerid          | The ID of the player.                   |
-| PlayerText:textid | The ID of the player-textdraw to check. |
+| 参数名            | 说明                      |
+| ----------------- | ------------------------- |
+| playerid          | 玩家的 ID                 |
+| PlayerText:textid | 要检查的玩家文本绘图的 ID |
 
-## Return Values
+## 返回值
 
-Returns **true** if the player-textdraw is selectable, otherwise **false**.
+返回 **true** 表示可被选择，**false** 表示不可被选择
 
-## Example Usage
+## 示例用法
 
 ```c
 new PlayerText:welcomeText[MAX_PLAYERS];
@@ -36,34 +36,34 @@ public OnPlayerConnect(playerid)
 
     if (PlayerTextDrawIsSelectable(playerid, welcomeText[playerid]))
     {
-        // Player-Textdraw is selectable
+        // 玩家文本绘图可被选择
     }
     else
     {
-        // Player-Textdraw is not selectable
+        // 玩家文本绘图不可被选择
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [PlayerTextDrawCreate](PlayerTextDrawCreate): Create a player-textdraw.
-- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): Destroy a player-textdraw.
-- [PlayerTextDrawSetSelectable](PlayerTextDrawSetSelectable): Toggles whether a player-textdraw can be selected or not.
-- [PlayerTextDrawColor](PlayerTextDrawColor): Set the color of the text in a player-textdraw.
-- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): Set the color of a player-textdraw's box.
-- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): Set the background color of a player-textdraw.
-- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): Set the alignment of a player-textdraw.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
-- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): Set the letter size of the text in a player-textdraw.
-- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): Set the size of a player-textdraw box (or clickable area for PlayerTextDrawSetSelectable).
-- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): Toggle the outline on a player-textdraw.
-- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): Set the shadow on a player-textdraw.
-- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): Scale the text spacing in a player-textdraw to a proportional ratio.
-- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): Toggle the box on a player-textdraw.
-- [PlayerTextDrawSetString](PlayerTextDrawSetString): Set the text of a player-textdraw.
-- [PlayerTextDrawShow](PlayerTextDrawShow): Show a player-textdraw.
-- [PlayerTextDrawHide](PlayerTextDrawHide): Hide a player-textdraw.
-- [IsPlayerTextDrawVisible](IsPlayerTextDrawVisible): Checks if a player-textdraw is shown for the player.
-- [IsValidPlayerTextDraw](IsValidPlayerTextDraw): Checks if a player-textdraw is valid.
+- [PlayerTextDrawCreate](PlayerTextDrawCreate): 创建玩家文本绘图
+- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘图
+- [PlayerTextDrawSetSelectable](PlayerTextDrawSetSelectable): 设置玩家文本绘图的可选状态
+- [PlayerTextDrawColor](PlayerTextDrawColor): 设置玩家文本绘图的文本颜色
+- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): 设置玩家文本绘图方框颜色
+- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): 设置玩家文本绘图背景颜色
+- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): 设置玩家文本绘图对齐方式
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置玩家文本绘图的字体
+- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): 设置玩家文本绘图字符尺寸
+- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): 设置玩家文本绘图文本尺寸（或 PlayerTextDrawSetSelectable 的可点击区域）
+- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): 切换玩家文本绘图轮廓显示
+- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): 设置玩家文本绘图的阴影
+- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): 按比例缩放玩家文本绘图的字符间距
+- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): 切换玩家文本绘图的方框显示
+- [PlayerTextDrawSetString](PlayerTextDrawSetString): 设置玩家文本绘图的文本内容
+- [PlayerTextDrawShow](PlayerTextDrawShow): 显示玩家文本绘图
+- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏玩家文本绘图
+- [IsPlayerTextDrawVisible](IsPlayerTextDrawVisible): 检查玩家文本绘图是否对玩家可见
+- [IsValidPlayerTextDraw](IsValidPlayerTextDraw): 检查玩家文本绘图是否有效

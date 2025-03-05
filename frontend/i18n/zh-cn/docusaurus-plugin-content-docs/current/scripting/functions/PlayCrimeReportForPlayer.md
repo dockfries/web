@@ -1,45 +1,46 @@
 ---
 title: PlayCrimeReportForPlayer
 sidebar_label: PlayCrimeReportForPlayer
-description: This function plays a crime report for a player - just like in single-player when CJ commits a crime.
-tags: ["player"]
+description: 为玩家播放犯罪报告（模拟单机模式警用通报）
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-This function plays a crime report for a player - just like in single-player when CJ commits a crime.
+该函数用于为玩家播放犯罪报告，效果类似于《侠盗猎车手》单机模式中 CJ 犯罪时的警用通报
 
-| Name      | Description                                                                                                               |
-| --------- | ------------------------------------------------------------------------------------------------------------------------- |
-| playerid  | The ID of the player that will hear the crime report.                                                                     |
-| suspectid | The ID of the suspect player whom will be described in the crime report.                                                  |
-| crime     | The [crime ID](../resources/crimelist), which will be reported as a 10-code (i.e. 10-16 if 16 was passed as the crimeid). |
+| 参数      | 说明                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------------- |
+| playerid  | 接收犯罪报告的玩家 ID                                                                             |
+| suspectid | 被通缉的嫌疑玩家 ID                                                                               |
+| crime     | [犯罪类型 ID](../resources/crimelist)，将转换为 10-code 警用代码（例如传入 16 将播放"10-16"代码） |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player specified does not exist.
+**false** - 执行失败（指定玩家不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/suspect"))
     {
+        // 为玩家播放ID 0玩家的16号犯罪报告
         PlayCrimeReportForPlayer(playerid, 0, 16);
-        SendClientMessage(playerid, 0xFFFFFFFF, "ID 0 committed a crime (10-16).");
+        SendClientMessage(playerid, 0xFFFFFFFF, "玩家ID 0触发了16号犯罪类型（代码10-16）");
         return 1;
     }
     return 0;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [PlayerPlaySound](PlayerPlaySound): Play a sound for a player.
+- [PlayerPlaySound](PlayerPlaySound): 为玩家播放音效
 
-## Related Resources
+## 相关资源
 
-- [Crime IDs](../resources/crimelist)
+- [犯罪类型 ID 对照表](../resources/crimelist)

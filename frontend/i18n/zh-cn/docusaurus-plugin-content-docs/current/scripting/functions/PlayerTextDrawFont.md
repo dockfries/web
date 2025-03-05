@@ -1,74 +1,84 @@
 ---
 title: PlayerTextDrawFont
 sidebar_label: PlayerTextDrawFont
-description: Change the font of a player-textdraw.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 设置玩家文本绘图的字体样式。
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
-## Description
+## 描述
 
-Change the font of a player-textdraw.
+设置玩家文本绘图的字体样式。
 
-| Name                | Description                                                                                                                               |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| playerid            | The ID of the player whose player-textdraw to change the font of                                                                          |
-| PlayerText:textid   | The ID of the player-textdraw to change the font of                                                                                       |
-| TEXT_DRAW_FONT:font | There are four font styles as shown below. A font value greater than 3 does not display, and anything greater than 16 crashes the client. |
+| 名称                | 描述                                                                          |
+| ------------------- | ----------------------------------------------------------------------------- |
+| playerid            | 要设置字体的玩家文本绘图所属玩家的 ID                                         |
+| PlayerText:textid   | 要设置字体的玩家文本绘图的 ID                                                 |
+| TEXT_DRAW_FONT:font | 支持以下四种基础字体样式。当设置值>3 时将无法显示，若值>16 会导致客户端崩溃。 |
 
-Available Styles:
-![Available Styles](https://assets.open.mp/assets/images/textdraws/Textdraw_font_styles.png)
+可用基础样式：
+![可用基础样式](https://assets.open.mp/assets/images/textdraws/Textdraw_font_styles.png)
 
-Available Fonts:
-![Available Fonts](https://assets.open.mp/assets/images/textdraws/Textdraw_Fonts.png)
+扩展字体资源：
+![扩展字体资源](https://assets.open.mp/assets/images/textdraws/Textdraw_Fonts.png)
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
 /*
-    TEXT_DRAW_FONT_0
-    TEXT_DRAW_FONT_1
-    TEXT_DRAW_FONT_2
-    TEXT_DRAW_FONT_3
-    TEXT_DRAW_FONT_SPRITE_DRAW
-    TEXT_DRAW_FONT_MODEL_PREVIEW
+    TEXT_DRAW_FONT_0   // 经典数字样式
+    TEXT_DRAW_FONT_1   // 细线字体
+    TEXT_DRAW_FONT_2   // 常规字体
+    TEXT_DRAW_FONT_3   // 大写粗体
+    TEXT_DRAW_FONT_SPRITE_DRAW    // 精灵图模式
+    TEXT_DRAW_FONT_MODEL_PREVIEW  // 3D模型预览模式
 */
 
 new PlayerText:welcomeText[MAX_PLAYERS];
 
 public OnPlayerConnect(playerid)
 {
-    // First, create the textdraw
-    welcomeText[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, "Welcome to my server!");
+    // 创建基础文本绘图
+    welcomeText[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, "欢迎来到我的服务器！");
 
-    // Set the font of player-textdraw 'welcomeText[playerid]' to 2.
+    // 将玩家文本绘图的字体设置为样式2（常规字体）
     PlayerTextDrawFont(playerid, welcomeText[playerid], TEXT_DRAW_FONT_2);
 
-    // Show 'welcomeText[playerid]' to player
+    // 向玩家显示文本绘图
     PlayerTextDrawShow(playerid, welcomeText[playerid]);
 
     return 1;
 }
 ```
 
-## Related Functions
+## 注意事项
 
-- [CreatePlayerTextDraw](CreatePlayerTextDraw): Create a player-textdraw.
-- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): Destroy a player-textdraw.
-- [PlayerTextDrawGetFont](PlayerTextDrawGetFont): Gets the text font of a player-textdraw.
-- [PlayerTextDrawColor](PlayerTextDrawColor): Set the color of the text in a player-textdraw.
-- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): Set the color of a player-textdraw's box.
-- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): Set the background color of a player-textdraw.
-- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): Set the alignment of a player-textdraw.
-- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): Set the letter size of the text in a player-textdraw.
-- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): Set the size of a player-textdraw box (or clickable area for PlayerTextDrawSetSelectable).
-- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): Toggle the outline on a player-textdraw.
-- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): Set the shadow on a player-textdraw.
-- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): Scale the text spacing in a player-textdraw to a proportional ratio.
-- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): Toggle the box on a player-textdraw.
-- [PlayerTextDrawSetString](PlayerTextDrawSetString): Set the text of a player-textdraw.
-- [PlayerTextDrawShow](PlayerTextDrawShow): Show a player-textdraw.
-- [PlayerTextDrawHide](PlayerTextDrawHide): Hide a player-textdraw.
+:::tip
+
+- 使用 TEXT_DRAW_FONT_SPRITE_DRAW 时可加载.txd 精灵图集
+- 设置字体值为 4-16 区间时需配合 PlayerTextDrawSetPreviewModel 使用模型预览功能
+- 字体值超过 16 会导致客户端立即崩溃
+
+:::
+
+## 相关函数
+
+- [CreatePlayerTextDraw](CreatePlayerTextDraw): 创建玩家文本绘图
+- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘图
+- [PlayerTextDrawGetFont](PlayerTextDrawGetFont): 获取玩家文本绘图的字体样式
+- [PlayerTextDrawColor](PlayerTextDrawColor): 设置玩家文本绘图的文字颜色
+- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): 设置玩家文本绘图方框颜色
+- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): 设置玩家文本绘图的背景颜色
+- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): 设置玩家文本绘图对齐方式
+- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): 设置玩家文本绘图的字符尺寸
+- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): 设置玩家文本绘图方框尺寸（或 PlayerTextDrawSetSelectable 的可点击区域）
+- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): 切换玩家文本绘图的轮廓显示
+- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): 设置玩家文本绘图的阴影效果
+- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): 按比例缩放玩家文本绘图的文字间距
+- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): 切换玩家文本绘图的方框显示
+- [PlayerTextDrawSetString](PlayerTextDrawSetString): 设置玩家文本绘图的显示内容
+- [PlayerTextDrawShow](PlayerTextDrawShow): 显示玩家文本绘图
+- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏玩家文本绘图

@@ -1,61 +1,61 @@
 ---
 title: PlayerTextDrawBackgroundColor
 sidebar_label: PlayerTextDrawBackgroundColor
-description: Adjust the background color of a player-textdraw.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 调整玩家文本绘图的背景颜色。
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
-## Description
+## 描述
 
-Adjust the background color of a player-textdraw.
+调整玩家文本绘图的背景颜色。
 
-| Name              | Description                                                               |
-| ----------------- | ------------------------------------------------------------------------- |
-| playerid          | The ID of the player whose player-textdraw to set the background color of |
-| PlayerText:textid | The ID of the player-textdraw to set the background color of              |
-| backgroundColour  | The color that the textdraw should be set to.                             |
+| 名称              | 描述                                      |
+| ----------------- | ----------------------------------------- |
+| playerid          | 要设置背景颜色的玩家文本绘图所属玩家的 ID |
+| PlayerText:textid | 要设置背景颜色的玩家文本绘图的 ID         |
+| backgroundColour  | 需要设置的背景颜色数值                    |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
 new PlayerText:gMyTextdraw[MAX_PLAYERS];
 
 public OnPlayerConnect(playerid)
 {
-    gMyTextdraw[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, "Welcome to my OPEN.MP server");
+    gMyTextdraw[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, "欢迎来到我的OPEN.MP服务器");
     PlayerTextDrawUseBox(playerid, gMyTextdraw[playerid], true);
-    PlayerTextDrawBackgroundColor(playerid, gMyTextdraw[playerid], 0xFFFFFFFF); // Set the background colour of gMyTextdraw to white
+    PlayerTextDrawBackgroundColor(playerid, gMyTextdraw[playerid], 0xFFFFFFFF); // 将gMyTextdraw的背景颜色设置为白色
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- If [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline) is used with size > 0, the outline colour will match the colour used in PlayerTextDrawBackgroundColour.
-- Changing the value of colour seems to alter the colour used in PlayerTextDrawColour.
+- 当使用[PlayerTextDrawSetOutline](PlayerTextDrawSetOutline)且尺寸参数>0 时，轮廓颜色将与 PlayerTextDrawBackgroundColor 设置的颜色一致
+- 修改颜色值会影响 PlayerTextDrawColor 函数设置的颜色效果
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerTextDraw](CreatePlayerTextDraw): Create a player-textdraw.
-- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): Destroy a player-textdraw.
-- [PlayerTextDrawColor](PlayerTextDrawColor): Set the color of the text in a player-textdraw.
-- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): Set the color of a player-textdraw's box.
-- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): Set the alignment of a player-textdraw.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
-- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): Set the letter size of the text in a player-textdraw.
-- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): Set the size of a player-textdraw box (or clickable area for PlayerTextDrawSetSelectable).
-- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): Toggle the outline on a player-textdraw.
-- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): Set the shadow on a player-textdraw.
-- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): Scale the text spacing in a player-textdraw to a proportional ratio.
-- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): Toggle the box on a player-textdraw.
-- [PlayerTextDrawSetString](PlayerTextDrawSetString): Set the text of a player-textdraw.
-- [PlayerTextDrawShow](PlayerTextDrawShow): Show a player-textdraw.
-- [PlayerTextDrawHide](PlayerTextDrawHide): Hide a player-textdraw.
+- [CreatePlayerTextDraw](CreatePlayerTextDraw): 创建玩家文本绘图
+- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘图
+- [PlayerTextDrawColor](PlayerTextDrawColor): 设置玩家文本绘图的文字颜色
+- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): 设置玩家文本绘图方框颜色
+- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): 设置玩家文本绘图对齐方式
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置玩家文本绘图的字体样式
+- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): 设置玩家文本绘图的字符尺寸
+- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): 设置玩家文本绘图方框尺寸（或 PlayerTextDrawSetSelectable 的可点击区域）
+- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): 切换玩家文本绘图的轮廓显示
+- [PlayerTextDrawSetShadow](PlayerTextDrawSetShadow): 设置玩家文本绘图的阴影效果
+- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): 按比例缩放玩家文本绘图的文字间距
+- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): 切换玩家文本绘图的方框显示
+- [PlayerTextDrawSetString](PlayerTextDrawSetString): 设置玩家文本绘图的显示内容
+- [PlayerTextDrawShow](PlayerTextDrawShow): 显示玩家文本绘图
+- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏玩家文本绘图

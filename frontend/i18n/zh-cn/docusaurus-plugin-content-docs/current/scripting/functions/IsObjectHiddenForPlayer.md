@@ -1,6 +1,6 @@
 ---
 title: IsObjectHiddenForPlayer
-sidebar_label: 检查物体是否对玩家隐藏
+sidebar_label: IsObjectHiddenForPlayer
 description: 检查物体是否对指定玩家隐藏
 tags: ["玩家", "物体"]
 ---

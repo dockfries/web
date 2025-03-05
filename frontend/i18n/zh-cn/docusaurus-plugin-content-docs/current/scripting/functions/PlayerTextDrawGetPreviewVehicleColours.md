@@ -1,31 +1,31 @@
 ---
 title: PlayerTextDrawGetPreviewVehicleColours
 sidebar_label: PlayerTextDrawGetPreviewVehicleColours
-description: Gets the preview vehicle colors of a 3D preview player-textdraw.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 获取3D预览玩家文本绘图的车辆颜色
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the preview vehicle colors of a 3D preview player-textdraw.
+获取 3D 预览玩家文本绘图的车辆颜色
 
-| Name              | Description                                                      |
-| ----------------- | ---------------------------------------------------------------- |
-| playerid          | The ID of the player.                                            |
-| PlayerText:textid | The ID of the player-textdraw to get the vehicle colors of.      |
-| &colour1          | A variable into which to store the colour1, passed by reference. |
-| &colour2          | A variable into which to store the colour2, passed by reference. |
+| 参数名            | 说明                               |
+| ----------------- | ---------------------------------- |
+| playerid          | 玩家的 ID                          |
+| PlayerText:textid | 要获取车辆颜色的玩家文本绘图的 ID  |
+| &colour1          | 用于存储主颜色的变量，通过引用传递 |
+| &colour2          | 用于存储副颜色的变量，通过引用传递 |
 
-## Examples
+## 示例
 
 ```c
 new PlayerText:pTextdraw[MAX_PLAYERS];
 
 public OnPlayerConnect(playerid)
 {
-    pTextdraw[playerid] = CreatePlayerTextDraw(playeird, 320.0, 240.0, "_");
+    pTextdraw[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, "_");
     PlayerTextDrawFont(playerid, pTextdraw[playerid], TEXT_DRAW_FONT_MODEL_PREVIEW);
     PlayerTextDrawUseBox(playerid, pTextdraw[playerid], true);
     PlayerTextDrawBoxColor(playerid, pTextdraw[playerid], 0x000000FF);
@@ -41,12 +41,12 @@ public OnPlayerConnect(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [PlayerTextDrawSetPreviewModel](PlayerTextDrawSetPreviewModel): Set model ID of a 3D player textdraw preview.
-- [PlayerTextDrawSetPreviewRot](PlayerTextDrawSetPreviewRot): Set rotation of a 3D player textdraw preview.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
+- [PlayerTextDrawSetPreviewModel](PlayerTextDrawSetPreviewModel): 设置 3D 玩家文本绘图的预览模型 ID
+- [PlayerTextDrawSetPreviewRot](PlayerTextDrawSetPreviewRot): 设置 3D 玩家文本绘图的预览旋转角度
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置玩家文本绘图的字体
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerClickPlayerTextDraw](../callbacks/OnPlayerClickPlayerTextDraw): Called when a player clicks on a player-textdraw.
+- [OnPlayerClickPlayerTextDraw](../callbacks/OnPlayerClickPlayerTextDraw): 当玩家点击玩家文本绘图时触发

@@ -1,65 +1,65 @@
 ---
-title: printf
-sidebar_label: printf
-description: Outputs a formatted string on the console (the server window, not the in-game chat).
-tags: ["console"]
+title: "printf"
+sidebar_label: "printf"
+description: "在控制台（服务器窗口，非游戏内聊天框）输出格式化字符串。"
+tags: ["控制台"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Outputs a formatted string on the console (the server window, not the in-game chat).
+在控制台（服务器窗口，非游戏内聊天框）输出格式化字符串。
 
-| Name              | Description                               |
-| ----------------- | ----------------------------------------- |
-| const format[]    | The format string                         |
-| \{Float, \_\}:... | Indefinite number of arguments of any tag |
+| 名称              | 描述                       |
+| ----------------- | -------------------------- |
+| const format[]    | 格式字符串                 |
+| \{Float, \_\}:... | 任意标签类型的可变数量参数 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Format Specifiers
+## 格式说明符
 
-| Specifier | Meaning                                       |
-| --------- | --------------------------------------------- |
-| %i        | Integer                                       |
-| %d        | Integer                                       |
-| %s        | String                                        |
-| %f        | Floating-point number                         |
-| %c        | ASCII character                               |
-| %x        | Hexadecimal number                            |
-| %b        | Binary number                                 |
-| %%        | Literal '%'                                   |
-| %q        | Escape a text for SQLite. (Added in 0.3.7 R2) |
+| 标识符 | 含义                                    |
+| ------ | --------------------------------------- |
+| %i     | 整数                                    |
+| %d     | 整数                                    |
+| %s     | 字符串                                  |
+| %f     | 浮点数                                  |
+| %c     | ASCII 字符                              |
+| %x     | 十六进制数                              |
+| %b     | 二进制数                                |
+| %%     | 字面量 '%'                              |
+| %q     | 为 SQLite 转义文本（0.3.7 R2 版本新增） |
 
-The values for the placeholders follow in the exact same order as parameters in the call, i.e. `"I am %i years old"` - the `%i` will be replaced with an integer variable, which is the person's age.
+占位符对应的参数值必须严格按照调用时的参数顺序排列，例如 `"我今年%i岁"` 中的 `%i` 将被替换为表示年龄的整型变量。
 
-You may optionally put a number between the `%` and the letter of the placeholder code. This number indicates the field width; if the size of the parameter to print at the position of the placeholder is smaller than the field width, the field is expanded with spaces. To cut the number of decimal places beeing shown of a float, you can add '.\<max number\>' between the `%` and the `f`, i.e. `%.2f`.
+可在 `%` 和格式字母之间添加数字指定字段宽度。若参数值的实际宽度小于指定字段宽度，系统会自动用空格扩展字段。若要限制浮点数显示的小数位数，可在 `%` 和 `f` 之间添加 `.<最大位数>`，例如 `%.2f` 表示保留两位小数。
 
-## Examples
+## 示例
 
 ```c
 new number = 42;
-printf("The number is %d.", number);  // The number is 42.
+printf("数值为 %d。", number);  // 数值为 42。
 
-new string[] = "simple message";
-printf("This is a %s containing the number %d.", string, number); // This is a simple message containing the number 42.
+new string[] = "简单信息";
+printf("这是包含数字 %d 的 %s。", string, number); // 这是包含数字 42 的简单信息。
 
 new character = 64;
-printf("I'm %c home", character); // I'm @ home
+printf("字符表示为：%c", character); // 字符表示为：@
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-The format string or its output should not exceed 1024 characters. Anything beyond that length can lead to a server to crash.
+格式字符串或其输出结果不应超过 1024 个字符。超出该长度可能导致服务器崩溃。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [print](print): Print a basic message to the server logs and console.
-- [format](format): Format a string.
+- [print](print): 向服务器日志和控制台输出基础信息
+- [format](format): 格式化字符串

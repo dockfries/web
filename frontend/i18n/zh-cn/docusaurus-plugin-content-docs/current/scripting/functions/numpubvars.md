@@ -1,22 +1,22 @@
 ---
 title: numpubvars
 sidebar_label: numpubvars
-description: Counts how many public variables there are in the script.
-tags: ["core", "pubvar", "public variable"]
+description: 统计脚本中公共变量的数量
+tags: ["核心", "公共变量"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Counts how many public variables there are in the script.
+用于统计脚本中声明的公共变量总数
 
-## Returns
+## 返回值
 
-The number of public variables declared.
+当前脚本中声明的公共变量数量
 
-## Related Functions
+## 相关函数
 
-- [getpubvar](getpubvar): Gets a specific public variable from the current script.
-- [setpubvar](setpubvar): Sets a specific public variable in the current script.
-- [existpubvar](existpubvar): Checks if a specific public variable exists in the current script.
+- [getpubvar](getpubvar): 从当前脚本获取指定公共变量的值
+- [setpubvar](setpubvar): 设置当前脚本中的指定公共变量
+- [existpubvar](existpubvar): 检测指定公共变量是否存在

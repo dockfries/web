@@ -1,6 +1,6 @@
 ---
 title: IsPlayerCameraTargetEnabled
-sidebar_label: 检查玩家视角目标启用状态
+sidebar_label: IsPlayerCameraTargetEnabled
 description: 检查玩家视角目标功能是否启用
 tags: ["玩家"]
 ---

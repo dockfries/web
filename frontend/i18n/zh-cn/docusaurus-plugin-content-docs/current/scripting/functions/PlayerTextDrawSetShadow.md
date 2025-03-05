@@ -1,27 +1,27 @@
 ---
 title: PlayerTextDrawSetShadow
 sidebar_label: PlayerTextDrawSetShadow
-description: Adds a shadow to the bottom-right side of the text in a player-textdraw.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 为玩家文本绘图的文本添加右下角阴影
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
-## Description
+## 描述
 
-Adds a shadow to the bottom-right side of the text in a player-textdraw. The shadow font matches the text font.
+为玩家文本绘图的文本添加右下角阴影效果，阴影的字体样式与文本字体保持一致
 
-| Name              | Description                                                           |
-| ----------------- | --------------------------------------------------------------------- |
-| playerid          | The ID of the player whose player-textdraw to set the shadow size of. |
-| PlayerText:textid | The ID of the player-textdraw to change the shadow of                 |
-| shadowSize        | The size of the shadow. 0 will hide the shadow.                       |
+| 参数名            | 说明                          |
+| ----------------- | ----------------------------- |
+| playerid          | 要设置阴影的玩家 ID           |
+| PlayerText:textid | 要设置阴影的玩家文本绘图的 ID |
+| shadowSize        | 阴影尺寸（0 为隐藏阴影）      |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player-textdraw doesn't exist.
+**false** - 函数执行失败（玩家或文本绘图不存在）
 
-## Examples
+## 示例
 
 ```c
 new PlayerText:welcomeText[MAX_PLAYERS];
@@ -29,36 +29,36 @@ new PlayerText:welcomeText[MAX_PLAYERS];
 public OnPlayerConnect(playerid)
 {
     welcomeText[playerid] = CreatePlayerTextDraw(playerid, 320.0, 240.0, "Welcome to my server!");
-    PlayerTextDrawSetShadow(playerid, welcomeText[playerid], 1);
+    PlayerTextDrawSetShadow(playerid, welcomeText[playerid], 1); // 设置1单位阴影
 
     PlayerTextDrawShow(playerid, welcomeText[playerid]);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-The shadow can be cut by the box area if the size is set too big for the area.
+当阴影尺寸超过文本区域大小时，阴影可能会被方框边界裁剪
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerTextDraw](CreatePlayerTextDraw): Create a player-textdraw.
-- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): Destroy a player-textdraw.
-- [PlayerTextDrawGetShadow](PlayerTextDrawGetShadow): Get the shadow size on a player-textdraw.
-- [PlayerTextDrawColor](PlayerTextDrawColor): Set the color of the text in a player-textdraw.
-- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): Set the color of a player-textdraw's box.
-- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): Set the background color of a player-textdraw.
-- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): Set the alignment of a player-textdraw.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
-- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): Set the letter size of the text in a player-textdraw.
-- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): Set the size of a player-textdraw box (or clickable area for PlayerTextDrawSetSelectable).
-- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): Toggle the outline on a player-textdraw.
-- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): Scale the text spacing in a player-textdraw to a proportional ratio.
-- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): Toggle the box on a player-textdraw.
-- [PlayerTextDrawSetString](PlayerTextDrawSetString): Set the text of a player-textdraw.
-- [PlayerTextDrawShow](PlayerTextDrawShow): Show a player-textdraw.
-- [PlayerTextDrawHide](PlayerTextDrawHide): Hide a player-textdraw.
+- [CreatePlayerTextDraw](CreatePlayerTextDraw): 创建玩家文本绘图
+- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘图
+- [PlayerTextDrawGetShadow](PlayerTextDrawGetShadow): 获取阴影尺寸
+- [PlayerTextDrawColor](PlayerTextDrawColor): 设置文本颜色
+- [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): 设置方框颜色
+- [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): 设置背景颜色
+- [PlayerTextDrawAlignment](PlayerTextDrawAlignment): 设置对齐方式
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置字体类型
+- [PlayerTextDrawLetterSize](PlayerTextDrawLetterSize): 设置字符尺寸
+- [PlayerTextDrawTextSize](PlayerTextDrawTextSize): 设置文本区域尺寸
+- [PlayerTextDrawSetOutline](PlayerTextDrawSetOutline): 切换轮廓显示
+- [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): 启用比例缩放
+- [PlayerTextDrawUseBox](PlayerTextDrawUseBox): 切换方框显示
+- [PlayerTextDrawSetString](PlayerTextDrawSetString): 修改文本内容
+- [PlayerTextDrawShow](PlayerTextDrawShow): 显示文本绘图
+- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏文本绘图

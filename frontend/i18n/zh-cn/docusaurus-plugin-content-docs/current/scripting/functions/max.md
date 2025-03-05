@@ -1,28 +1,28 @@
 ---
 title: max
 sidebar_label: max
-description: Return the highest of two numbers.
-tags: ["core"]
+description: 返回两个数值中的较大者
+tags: ["核心"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Function used to compare the values.
+用于比较数值的函数
 
-| Name   | Description             |
-| ------ | ----------------------- |
-| value1 | Value 1 (a) to compare. |
-| value2 | Value 2 (b) to compare. |
+| 参数   | 说明                  |
+| ------ | --------------------- |
+| value1 | 待比较的第一个值（a） |
+| value2 | 待比较的第二个值（b） |
 
-## Returns
+## 返回值
 
-The higher value of `value1` and `value2`
+`value1` 与 `value2` 中的较大值
 
-If both are equivalent, `value1` is returned.
+若两者相等，则返回 `value1`
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -34,12 +34,12 @@ public OnGameModeInit()
     result = max(a, b);
 
     printf("max(%d, %d) = %d", a, b, result);
-    // Since b is bigger than a so result will be 10.
+    // 由于b大于a，结果将为10
 
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [min](min): Compare and get the minimum value.
+- [min](min): 比较并获取最小值

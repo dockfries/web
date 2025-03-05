@@ -1,6 +1,6 @@
 ---
 title: IsPlayerAdmin
-sidebar_label: 检查玩家管理员状态
+sidebar_label: IsPlayerAdmin
 description: 检查玩家是否以RCON管理员身份登录
 tags: ["玩家", "远程控制台", "管理"]
 ---

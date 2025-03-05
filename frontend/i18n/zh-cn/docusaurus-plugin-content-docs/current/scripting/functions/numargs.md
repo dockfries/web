@@ -1,17 +1,17 @@
 ---
 title: numargs
 sidebar_label: numargs
-description: Get the number of arguments passed to a function.
-tags: ["core", "arguments", "args"]
+description: 获取函数接收的参数数量
+tags: ["核心", "参数", "args"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Get the number of arguments passed to a function.
+用于获取函数接收的参数数量
 
-## Examples
+## 示例
 
 ```c
 SomeFunction(...)
@@ -24,11 +24,11 @@ public OnFilterScriptInit()
     SomeFunction(1, 2, 3);
 }
 
-// Output: "numargs(): 3"
-// Because 3 parameters (1, 2, 3) were passed.
+// 输出: "numargs(): 3"
+// 因为传递了三个参数（1, 2, 3）
 ```
 
-## Related Functions
+## 相关函数
 
-- [getarg](getarg): Retrieve an argument from a variable argument list.
-- [setarg](setarg): Set an argument.
+- [getarg](getarg): 从可变参数列表获取指定参数
+- [setarg](setarg): 设置可变参数的值

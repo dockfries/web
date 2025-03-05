@@ -1,6 +1,6 @@
 ---
 title: IsNickNameCharacterAllowed
-sidebar_label: 检查昵称字符是否允许
+sidebar_label: IsNickNameCharacterAllowed
 description: 检查字符是否允许在昵称中使用
 tags: []
 ---

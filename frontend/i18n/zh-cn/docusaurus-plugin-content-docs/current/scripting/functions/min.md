@@ -1,31 +1,30 @@
 ---
 title: min
 sidebar_label: min
-description: Return the lowest of two numbers.
-tags: ["core"]
+description: 返回两个数值中的较小者
+tags: ["核心"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Function used to compare the values.
+用于比较数值的函数
 
-| Name   | Description             |
-| ------ | ----------------------- |
-| value1 | Value 1 (a) to compare. |
-| value1 | Value 2 (b) to compare. |
+| 参数   | 说明                  |
+| ------ | --------------------- |
+| value1 | 待比较的第一个值（a） |
+| value1 | 待比较的第二个值（b） |
 
-## Returns
+## 返回值
 
-The lower value of `value1` and `value2`
+`value1` 与 `value2` 中的较小值
 
-If both are equivalent, `value1` is returned.
+若两者相等，则返回 `value1`
 
-## Examples
+## 示例
 
 ```c
-
 public OnGameModeInit()
 {
     new a, b, result;
@@ -35,12 +34,12 @@ public OnGameModeInit()
     result = min(a, b);
 
     printf("min(%d, %d) = %d", a, b, result);
-    // Since a is smaller than b so result will be 5.
+    // 由于a小于b，结果将为5
 
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [max](max): Compare and get the maximum value.
+- [max](max): 比较并获取最大值

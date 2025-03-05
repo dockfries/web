@@ -1,28 +1,28 @@
 ---
 title: PlayerTextDrawSetPreviewRot
 sidebar_label: PlayerTextDrawSetPreviewRot
-description: Sets the rotation and zoom of a 3D model preview player-textdraw.
-tags: ["player", "textdraw", "playertextdraw"]
+description: 设置3D模型预览玩家文本绘图的旋转和缩放参数
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
-## Description
+## 描述
 
-Sets the rotation and zoom of a 3D model preview player-textdraw.
+设置 3D 模型预览玩家文本绘图的旋转角度和缩放值
 
-| Name              | Description                                                                                                              |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| playerid          | The ID of the player whose player-textdraw to change.                                                                    |
-| PlayerText:textid | The ID of the player-textdraw to change.                                                                                 |
-| Float:rotX        | The X rotation value.                                                                                                    |
-| Float:rotY        | The Y rotation value.                                                                                                    |
-| Float:rotZ        | The Z rotation value.                                                                                                    |
-| Float:zoom        | The zoom value, default value 1.0, smaller values make the camera closer and larger values make the camera further away. |
+| 参数名            | 说明                                               |
+| ----------------- | -------------------------------------------------- |
+| playerid          | 要修改的玩家 ID                                    |
+| PlayerText:textid | 要修改的玩家文本绘图的 ID                          |
+| Float:rotX        | X 轴旋转角度（单位：度）                           |
+| Float:rotY        | Y 轴旋转角度（单位：度）                           |
+| Float:rotZ        | Z 轴旋转角度（单位：度）                           |
+| Float:zoom        | 缩放值（默认 1.0），值越小视角越近，值越大视角越远 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 new PlayerText:gMyTextdraw[MAX_PLAYERS];
@@ -42,21 +42,24 @@ public OnPlayerConnect(playerid)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-The textdraw MUST use the font type `TEXT_DRAW_FONT_MODEL_PREVIEW` and already have a model set in order for this function to have effect.
+必须同时满足以下条件才能生效：
+
+1. 使用`TEXT_DRAW_FONT_MODEL_PREVIEW`字体类型
+2. 已通过 PlayerTextDrawSetPreviewModel 设置有效模型
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawSetPreviewRot](TextDrawSetPreviewRot): Set rotation of a 3D textdraw preview.
-- [PlayerTextDrawSetPreviewModel](PlayerTextDrawSetPreviewModel): Set model ID of a 3D player textdraw preview.
-- [PlayerTextDrawSetPreviewVehCol](PlayerTextDrawSetPreviewVehCol): Set the colours of a vehicle in a 3D player textdraw preview.
-- [PlayerTextDrawFont](PlayerTextDrawFont): Set the font of a player-textdraw.
+- [TextDrawSetPreviewRot](TextDrawSetPreviewRot): 设置全局文本绘图的 3D 预览旋转
+- [PlayerTextDrawSetPreviewModel](PlayerTextDrawSetPreviewModel): 设置玩家文本绘图的 3D 预览模型
+- [PlayerTextDrawSetPreviewVehCol](PlayerTextDrawSetPreviewVehCol): 设置玩家文本绘图 3D 预览的车辆配色
+- [PlayerTextDrawFont](PlayerTextDrawFont): 设置玩家文本绘图的字体类型
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerClickPlayerTextDraw](../callbacks/OnPlayerClickPlayerTextDraw): Called when a player clicks on a player-textdraw.
+- [OnPlayerClickPlayerTextDraw](../callbacks/OnPlayerClickPlayerTextDraw): 当玩家点击玩家文本绘图时触发

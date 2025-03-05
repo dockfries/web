@@ -1,31 +1,31 @@
 ---
 title: IsPlayerTextDrawVisible
 sidebar_label: IsPlayerTextDrawVisible
-description: 检测玩家专属文本绘制是否对指定玩家可见。
-tags: ["玩家", "文本绘制", "玩家文本绘制"]
+description: 检测玩家专属文本绘图是否对指定玩家可见。
+tags: ["玩家", "文本绘图", "玩家文本绘图"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 ## 描述
 
-检测指定玩家的专属文本绘制是否处于显示状态。
+检测指定玩家的专属文本绘图是否处于显示状态。
 
 | 参数名            | 说明              |
 | ----------------- | ----------------- |
 | playerid          | 要检测的玩家 ID   |
-| PlayerText:textid | 玩家文本绘制的 ID |
+| PlayerText:textid | 玩家文本绘图的 ID |
 
 ## 返回值
 
-**true** - 文本绘制当前可见
+**true** - 文本绘图当前可见
 
-**false** - 文本绘制当前不可见
+**false** - 文本绘图当前不可见
 
 ## 示例代码
 
 ```c
-new PlayerText:welcomeText[MAX_PLAYERS]; // 创建玩家文本绘制存储数组
+new PlayerText:welcomeText[MAX_PLAYERS]; // 创建玩家文本绘图存储数组
 
 public OnPlayerConnect(playerid)
 {
@@ -34,18 +34,18 @@ public OnPlayerConnect(playerid)
 
     if (IsPlayerTextDrawVisible(playerid, welcomeText[playerid]))
     {
-        // 玩家文本绘制已显示
+        // 玩家文本绘图已显示
     }
     else
     {
-        // 玩家文本绘制未显示
+        // 玩家文本绘图未显示
     }
 }
 ```
 
 ## 相关函数
 
-- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘制
+- [PlayerTextDrawDestroy](PlayerTextDrawDestroy): 销毁玩家文本绘图
 - [PlayerTextDrawColor](PlayerTextDrawColor): 设置文本颜色
 - [PlayerTextDrawBoxColor](PlayerTextDrawBoxColor): 设置文本框颜色
 - [PlayerTextDrawBackgroundColor](PlayerTextDrawBackgroundColor): 设置背景色
@@ -58,6 +58,6 @@ public OnPlayerConnect(playerid)
 - [PlayerTextDrawSetProportional](PlayerTextDrawSetProportional): 启用比例间距
 - [PlayerTextDrawUseBox](PlayerTextDrawUseBox): 启用文本框
 - [PlayerTextDrawSetString](PlayerTextDrawSetString): 更新文本内容
-- [PlayerTextDrawShow](PlayerTextDrawShow): 显示文本绘制
-- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏文本绘制
-- [IsValidPlayerTextDraw](IsValidPlayerTextDraw): 验证文本绘制有效性
+- [PlayerTextDrawShow](PlayerTextDrawShow): 显示文本绘图
+- [PlayerTextDrawHide](PlayerTextDrawHide): 隐藏文本绘图
+- [IsValidPlayerTextDraw](IsValidPlayerTextDraw): 验证文本绘图有效性

@@ -1,51 +1,49 @@
 ---
 title: PlayerPlaySound
 sidebar_label: PlayerPlaySound
-description: Plays the specified sound for a player.
-tags: ["player"]
+description: 为指定玩家播放特定音效
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Plays the specified sound for a player.
+用于为特定玩家播放指定音效
 
-For a library that lists all sounds, check out [this](https://github.com/WoutProvost/samp-sound-array).
+| 参数     | 说明                                      |
+| -------- | ----------------------------------------- |
+| playerid | 目标玩家 ID                               |
+| soundid  | 要播放的[音效 ID](../resources/sound-ids) |
+| Float:x  | 音源 X 坐标（0.0 表示无位置音效）         |
+| Float:y  | 音源 Y 坐标（0.0 表示无位置音效）         |
+| Float:z  | 音源 Z 坐标（0.0 表示无位置音效）         |
 
-| Name     | Description                                                  |
-| -------- | ------------------------------------------------------------ |
-| playerid | The ID of the player for whom to play the sound.             |
-| soundid  | The [sound](../resources/sound-ids) to play.                 |
-| Float:x  | X coordinate for the sound to play at. (0.0 for no position) |
-| Float:y  | Y coordinate for the sound to play at. (0.0 for no position) |
-| Float:z  | Z coordinate for the sound to play at. (0.0 for no position) |
+## 返回值
 
-## Returns
+**true** - 操作成功执行
 
-**true** - The function was executed successfully.
+**false** - 执行失败（玩家未连接）
 
-**false** - The function failed to execute. This means the player is not connected.
-
-## Examples
+## 示例
 
 ```c
-// player punching sound (fits for commands such as /slap well). The sound will be quiet, as the source is actually 10 meters above the player.
+// 播放拳击音效（适用于/slap等命令），因音源位于玩家上方10米处，音量会较小
 PlayerPlaySound(playerid, 1130, 0.0, 0.0, 10.0);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Only use the coordinates if you want the sound to be played at a certain position. Set coordinates all to 0.0 to just play the sound.
+仅在需要空间音效时使用坐标参数，若只需普通音效请将坐标全部设为 0.0
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [PlayCrimeReportForPlayer](PlayCrimeReportForPlayer): Play a crime report for a player.
-- [PlayAudioStreamForPlayer](PlayAudioStreamForPlayer): Plays a audio stream for a player.
-- [StopAudioStreamForPlayer](StopAudioStreamForPlayer): Stops the current audio stream for a player.
+- [PlayCrimeReportForPlayer](PlayCrimeReportForPlayer): 为玩家播放犯罪报告
+- [PlayAudioStreamForPlayer](PlayAudioStreamForPlayer): 为玩家播放音频流
+- [StopAudioStreamForPlayer](StopAudioStreamForPlayer): 停止当前音频流
 
-## Related Resources
+## 相关资源
 
-- [Sound IDs](../resources/sound-ids)
+- [音效 ID 对照表](../resources/sound-ids)

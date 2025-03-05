@@ -1,33 +1,33 @@
 ---
 title: random
 sidebar_label: random
-description: Get a pseudo-random number.
-tags: ["core"]
+description: 获取伪随机数
+tags: ["核心"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Get a pseudo-random number.
+获取伪随机数
 
-| Name | Description                                                                |
-| ---- | -------------------------------------------------------------------------- |
-| max  | The range of values (from 0 to this value minus one) that can be returned. |
+| 参数名 | 描述                                    |
+| ------ | --------------------------------------- |
+| max    | 定义返回值范围（从 0 到该值减一的区间） |
 
-## Returns
+## 返回值
 
-A random number ranging from 0 to max-1.
+返回一个介于 0 到 max-1 之间的随机整数
 
-## Examples
+## 示例
 
 ```c
 new value = random(5);
 
-// 'value' might be 0, 1, 2, 3 or 4. (5 possible values)
+// 'value' 可能为 0, 1, 2, 3 或 4 (共5种可能值)
 new Float:RandomSpawn[][4] =
 {
-    // Positions, (X, Y, Z and Facing Angle)
+    // 坐标数组 (X, Y, Z 及朝向角度)
     {-2796.9854, 1224.8180, 20.5429, 192.0335},
     {-2454.2170, 503.8759, 30.0790, 267.2932},
     {-2669.7322, -6.0874, 6.1328, 89.8853}
@@ -38,19 +38,19 @@ public OnPlayerSpawn(playerid)
 {
     new rand = random(sizeof(RandomSpawn));
 
-    // SetPlayerPos to the random spawn data
+    // 将玩家传送到随机坐标
     SetPlayerPos(playerid, RandomSpawn[rand][0], RandomSpawn[rand][1], RandomSpawn[rand][2]);
 
-    // SetPlayerFacingAngle to the random facing angle data
+    // 设置玩家随机朝向角度
     SetPlayerFacingAngle(playerid, RandomSpawn[rand][3]);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Using a value smaller than 1 gives weird values.
+当参数值小于 1 时会产生异常结果
 
 :::

@@ -43,4 +43,4 @@ public OnPlayerCommandText(playerid, cmdtext[])
 - [HideGameTextForPlayer](HideGameTextForPlayer): 隐藏单个玩家的游戏文本
 - [GameTextForPlayer](GameTextForPlayer): 为玩家显示游戏文本
 - [GameTextForAll](GameTextForAll): 为所有玩家显示游戏文本
-- [TextDrawHideForAll](TextDrawHideForAll): 隐藏全服文本绘制元素
+- [TextDrawHideForAll](TextDrawHideForAll): 隐藏全服文本绘图元素

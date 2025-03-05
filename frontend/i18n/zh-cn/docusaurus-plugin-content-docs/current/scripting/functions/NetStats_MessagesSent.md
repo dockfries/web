@@ -1,23 +1,23 @@
 ---
 title: NetStats_MessagesSent
 sidebar_label: NetStats_MessagesSent
-description: Gets the number of messages the server has sent to the player.
-tags: ["network monitoring"]
+description: 获取服务器向玩家发送的消息数量
+tags: ["网络监控"]
 ---
 
-## Description
+## 描述
 
-Gets the number of messages the server has sent to the player.
+用于获取服务器向指定玩家发送的网络消息总数
 
-| Name     | Description                                |
-| -------- | ------------------------------------------ |
-| playerid | The ID of the player to get the data from. |
+| 参数     | 说明                |
+| -------- | ------------------- |
+| playerid | 要获取数据的玩家 ID |
 
-## Returns
+## 返回值
 
-The number of messages the server has sent to the player.
+服务器向该玩家发送的网络消息总数
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid,cmdtext[])
@@ -25,22 +25,22 @@ public OnPlayerCommandText(playerid,cmdtext[])
     if (!strcmp(cmdtext, "/msgsent"))
     {
         new szString[144];
-        format(szString, sizeof(szString), "You have recieved %i network messages.", NetStats_MessagesSent(playerid));
+        format(szString, sizeof(szString), "服务器已向您发送了 %i 条网络消息", NetStats_MessagesSent(playerid));
         SendClientMessage(playerid, -1, szString);
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerNetworkStats](GetPlayerNetworkStats): Gets a player's networkstats and saves it into a string.
-- [GetNetworkStats](GetNetworkStats): Gets the server's networkstats and saves it into a string.
-- [NetStats_GetConnectedTime](NetStats_GetConnectedTime): Get the time that a player has been connected for.
-- [NetStats_MessagesReceived](NetStats_MessagesReceived): Get the number of network messages the server has received from the player.
-- [NetStats_BytesReceived](NetStats_BytesReceived): Get the amount of information (in bytes) that the server has received from the player.
-- [NetStats_BytesSent](NetStats_BytesSent): Get the amount of information (in bytes) that the server has sent to the player.
-- [NetStats_MessagesRecvPerSecond](NetStats_MessagesRecvPerSecond): Get the number of network messages the server has received from the player in the last second.
-- [NetStats_PacketLossPercent](NetStats_PacketLossPercent): Get a player's packet loss percent.
-- [NetStats_ConnectionStatus](NetStats_ConnectionStatus): Get a player's connection status.
-- [NetStats_GetIpPort](NetStats_GetIpPort): Get a player's IP and port.
+- [GetPlayerNetworkStats](GetPlayerNetworkStats): 获取玩家网络统计数据并存入字符串
+- [GetNetworkStats](GetNetworkStats): 获取服务器网络统计数据并存入字符串
+- [NetStats_GetConnectedTime](NetStats_GetConnectedTime): 获取玩家持续连接时间
+- [NetStats_MessagesReceived](NetStats_MessagesReceived): 获取服务器接收的消息总数
+- [NetStats_BytesReceived](NetStats_BytesReceived): 获取服务器接收的字节总数
+- [NetStats_BytesSent](NetStats_BytesSent): 获取服务器发送的字节总数
+- [NetStats_MessagesRecvPerSecond](NetStats_MessagesRecvPerSecond): 获取每秒接收的消息数量
+- [NetStats_PacketLossPercent](NetStats_PacketLossPercent): 获取玩家丢包率百分比
+- [NetStats_ConnectionStatus](NetStats_ConnectionStatus): 获取玩家连接状态
+- [NetStats_GetIpPort](NetStats_GetIpPort): 获取玩家 IP 地址与端口号

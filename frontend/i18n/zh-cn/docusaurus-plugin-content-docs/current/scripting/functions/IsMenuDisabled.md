@@ -1,6 +1,6 @@
 ---
 title: IsMenuDisabled
-sidebar_label: 菜单是否禁用
+sidebar_label: IsMenuDisabled
 description: 检查菜单是否被禁用
 tags: ["菜单"]
 ---

@@ -1,44 +1,44 @@
 ---
 title: PutPlayerInVehicle
 sidebar_label: PutPlayerInVehicle
-description: Puts a player in a vehicle.
-tags: ["player", "vehicle"]
+description: 将玩家放置到车辆中
+tags: ["玩家", "车辆"]
 ---
 
-## Description
+## 描述
 
-Puts a player in a vehicle.
+将玩家放置到车辆中
 
-| Name      | Description                                 |
-| --------- | ------------------------------------------- |
-| playerid  | The ID of the player to put in a vehicle.   |
-| vehicleid | The ID of the vehicle to put the player in. |
-| seatid    | The ID of the seat to put the player in.    |
+| 参数名    | 描述              |
+| --------- | ----------------- |
+| playerid  | 需要放置的玩家 ID |
+| vehicleid | 目标车辆 ID       |
+| seatid    | 指定座位的 ID     |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player or vehicle doesn't exist.
+**false** - 函数执行失败。玩家或车辆不存在
 
-## Examples
+## 示例
 
 ```c
-// Global array to track which vehicle belongs to each player.
-// INVALID_VEHICLE_ID is used as a placeholder for players without a vehicle.
+// 全局数组用于追踪每位玩家所属的车辆
+// 使用 INVALID_VEHICLE_ID 表示玩家当前无车辆
 static s_PlayerVehicle[MAX_PLAYERS] = { INVALID_VEHICLE_ID, ... };
 
 public OnPlayerSpawn(playerid)
 {
-    // Check if the player already has a valid vehicle.
+    // 检查玩家是否已有有效车辆
     if (!IsValidVehicle(s_PlayerVehicle[playerid]))
     {
-        // If not, create a new vehicle for the player and store its ID.
+        // 若没有则创建新车辆并存储ID
         s_PlayerVehicle[playerid] = CreateVehicle(411, 0.0, 0.0, 3.5, 0.0, -1, -1, -1);
     }
 
-    // Mark that the player should be placed in their vehicle once it is fully loaded.
-    // This avoids issues where the vehicle might not yet be loaded on the client's side.
+    // 标记需要在车辆加载完成后放置玩家
+    // 避免客户端车辆模型尚未加载完成的情况
     SetPVarInt(playerid, "PutPlayerInVehicle", 1);
 
     return 1;
@@ -46,15 +46,15 @@ public OnPlayerSpawn(playerid)
 
 public OnVehicleStreamIn(vehicleid, forplayerid)
 {
-    // This callback is triggered when a vehicle streams in for the player (i.e. when it is loaded into memory).
-    // Check if the streamed-in vehicle is the player's and if they need to be placed in it.
+    // 当车辆完成流加载时触发此回调
+    // 检查是否为该玩家的车辆且需要放置
     if (vehicleid == s_PlayerVehicle[forplayerid] && GetPVarInt(forplayerid, "PutPlayerInVehicle"))
     {
-        // Put the player into the vehicle.
+        // 将玩家放置至车辆
         PutPlayerInVehicle(forplayerid, vehicleid, 0);
 
-        // Clear the marker to prevent repeatedly putting the player into the vehicle
-        // (e.g., if the player leaves the vehicle and it streams in again later).
+        // 清除标记防止重复放置
+        // 例如玩家离开后车辆再次流加载的情况
         DeletePVar(forplayerid, "PutPlayerInVehicle");
     }
 
@@ -63,37 +63,37 @@ public OnVehicleStreamIn(vehicleid, forplayerid)
 
 ```
 
-| ID  | Seat                         |
-| --- | ---------------------------- |
-| 0   | Driver                       |
-| 1   | Front passenger              |
-| 2   | Back-left passenger          |
-| 3   | Back-right passenger         |
-| 4+  | Passenger seats (coach etc.) |
+| 座位 ID | 对应位置                   |
+| ------- | -------------------------- |
+| 0       | 驾驶员                     |
+| 1       | 前排乘客                   |
+| 2       | 后排左侧乘客               |
+| 3       | 后排右侧乘客               |
+| 4+      | 额外座位（巴士等大型车辆） |
 
-## Notes
+## 注意事项
 
 :::tip
 
-You can use [GetPlayerVehicleSeat](GetPlayerVehicleSeat) in a loop to check if a seat is occupied by any players.
+可通过循环调用 [GetPlayerVehicleSeat](GetPlayerVehicleSeat) 检查座位占用状态
 
 :::
 
 :::warning
 
-- If the seat is invalid or already taken, the client will crash when they EXIT the vehicle.
-- Putting a player into a vehicle that is not streamed in can be unreliable. This is due to a potential client-side issue where the vehicle may not have fully loaded into memory yet.
-- This also applies when attempting to put a player into a vehicle that was just created.
+• 若指定非法座位或座位已被占用，玩家离开车辆时会导致客户端崩溃
+• 将玩家放置到尚未流加载的车辆中可能不可靠，因客户端可能未完成车辆资源加载
+• 此问题同样适用于刚创建的车辆
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [RemovePlayerFromVehicle](RemovePlayerFromVehicle): Throw a player out of their vehicle.
-- [GetPlayerVehicleID](GetPlayerVehicleID): Get the ID of the vehicle the player is in.
-- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): Check what seat a player is in.
-- [GetVehicleSeats](GetVehicleSeats): Gets the number of seats in the vehicle.
+- [RemovePlayerFromVehicle](RemovePlayerFromVehicle): 强制玩家离开车辆
+- [GetPlayerVehicleID](GetPlayerVehicleID): 获取玩家当前所在车辆 ID
+- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): 获取玩家当前座位信息
+- [GetVehicleSeats](GetVehicleSeats): 获取车辆最大座位数
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerEnterVehicle](../callbacks/OnPlayerEnterVehicle): Called when a player starts to enter a vehicle.
+- [OnPlayerEnterVehicle](../callbacks/OnPlayerEnterVehicle): 当玩家开始进入车辆时触发

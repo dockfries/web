@@ -1,6 +1,6 @@
 ---
 title: HasVehicleBeenOccupied
-sidebar_label: 检查车辆占用状态
+sidebar_label: HasVehicleBeenOccupied
 description: 检查车辆是否曾被占用过。
 tags: ["车辆"]
 ---

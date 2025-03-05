@@ -1,6 +1,6 @@
 ---
-title: 检查物体是否在移动
-sidebar_label: 检查物体是否在移动
+title: IsObjectMoving
+sidebar_label: IsObjectMoving
 description: 检查指定物体是否处于移动状态
 tags: ["物体"]
 ---
