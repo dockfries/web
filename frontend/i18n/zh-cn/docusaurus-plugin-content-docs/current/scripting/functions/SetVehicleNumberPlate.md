@@ -1,55 +1,55 @@
 ---
 title: SetVehicleNumberPlate
 sidebar_label: SetVehicleNumberPlate
-description: Set a vehicle numberplate.
-tags: ["vehicle"]
+description: 设置车辆车牌。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Set a vehicle numberplate.
+设置车辆的车牌。
 
-| Name                | Description                                            |
-| ------------------- | ------------------------------------------------------ |
-| vehicleid           | The ID of the vehicle to set the number plate of.      |
-| const numberPlate[] | The text that should be displayed on the number plate. |
+| 名称                | 说明                 |
+| ------------------- | -------------------- |
+| vehicleid           | 要设置车牌的车辆 ID  |
+| const numberPlate[] | 要在车牌上显示的文本 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. The vehicle does not exist
+**false** - 函数执行失败。车辆不存在。
 
-## Examples
+## 示例
 
 ```c
 new
-	vehicleid = CreateVehicle(542, 2074.73, 1089.89, 10.51, 0.0, -1, -1, -1);
-SetVehicleNumberPlate(vehicleid, "ABCD 123");
+	vehicleid = CreateVehicle(542, 2074.73, 1089.89, 10.51, 0.0, -1, -1, -1); // 创建Comet跑车
+SetVehicleNumberPlate(vehicleid, "ABCD 123"); // 设置车牌号为ABCD 123
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-- This function has no internal error checking.
-- Do not assign custom number plates to vehicles without plates (boats, planes, etc) as this will result in some unneeded processing time on the client.
-- The vehicle must be re-spawned or re-streamed for the changes to take effect.
-- There's a limit of 32 characters on each number plate (including embedded colors).
-- The text length that can be seen on the number plate is around 9 to 10 characters, more characters will cause the text to split.
-- Some vehicle models has a backward number plate, e.g. Boxville (498) (as an alternative to this vehicle you can use vehicle model ID 609, which is a duplicated Boxville (aka Boxburg), but with a regular number plate).
+- 本函数不会进行内置错误校验
+- 请勿为无车牌车辆（船只、飞机等）设置自定义车牌，这会导致不必要的客户端处理
+- 需重新生成或重新流加载车辆才能使更改生效
+- 车牌文本最大支持 32 字符（含颜色代码）
+- 可视区域仅显示约 9-10 个字符，超长文本会自动换行
+- 部分车辆模型（如 Boxville 498）使用倒置车牌，可用 Boxburg 609 替代
 
 :::
 
 :::tip
 
-You can use color embedding on the number plate text.
+车牌文本支持颜色代码嵌入
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleNumberPlate](GetVehicleNumberPlate): Get the number plate of a vehicle.
-- [SetVehicleToRespawn](SetVehicleToRespawn): Respawn a vehicle.
-- [ChangeVehicleColor](ChangeVehicleColor): Set the color of a vehicle.
-- [ChangeVehiclePaintjob](ChangeVehiclePaintjob): Change the paintjob on a vehicle.
+- [GetVehicleNumberPlate](GetVehicleNumberPlate): 获取车辆车牌
+- [SetVehicleToRespawn](SetVehicleToRespawn): 重置车辆状态
+- [ChangeVehicleColor](ChangeVehicleColor): 修改车辆颜色
+- [ChangeVehiclePaintjob](ChangeVehiclePaintjob): 更换车辆涂装

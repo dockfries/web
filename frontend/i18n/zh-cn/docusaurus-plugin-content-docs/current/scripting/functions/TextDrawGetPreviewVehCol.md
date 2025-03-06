@@ -1,23 +1,23 @@
 ---
 title: TextDrawGetPreviewVehCol
 sidebar_label: TextDrawGetPreviewVehCol
-description: Gets the preview vehicle colors of a 3D preview textdraw.
-tags: ["textdraw"]
+description: 获取3D预览文本绘图的车辆颜色。
+tags: ["文本绘图"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the preview vehicle colors of a 3D preview textdraw.
+获取 3D 预览文本绘图的车辆颜色。
 
-| Name        | Description                                                      |
-| ----------- | ---------------------------------------------------------------- |
-| Text:textid | The ID of the textdraw to get the vehicle colors of.             |
-| &colour1    | A variable into which to store the colour1, passed by reference. |
-| &colour2    | A variable into which to store the colour2, passed by reference. |
+| 名称        | 说明                               |
+| ----------- | ---------------------------------- |
+| Text:textid | 需要获取车辆颜色的文本绘图 ID      |
+| &colour1    | 用于存储主颜色的变量（按引用传递） |
+| &colour2    | 用于存储副颜色的变量（按引用传递） |
 
-## Examples
+## 示例
 
 ```c
 new Text:gMyTextdraw;
@@ -40,12 +40,12 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [TextDrawSetPreviewModel](TextDrawSetPreviewModel): Set the 3D preview model of a textdraw.
-- [TextDrawSetPreviewRot](TextDrawSetPreviewRot): Set rotation of a 3D textdraw preview.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
+- [TextDrawSetPreviewModel](TextDrawSetPreviewModel): 设置文本绘图的 3D 预览模型
+- [TextDrawSetPreviewRot](TextDrawSetPreviewRot): 设置 3D 预览的旋转参数
+- [TextDrawFont](TextDrawFont): 设置文本绘图字体样式
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): Called when a player clicks on a textdraw.
+- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): 玩家点击文本绘图时触发

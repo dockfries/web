@@ -1,28 +1,28 @@
 ---
 title: GetPlayerSurfingPlayerObjectID
 sidebar_label: GetPlayerSurfingPlayerObjectID
-description: Returns the ID of the player-object the player is surfing on.
-tags: ["player", "object", "playerobject"]
+description: 获取玩家正在“冲浪”的玩家私有物体ID。
+tags: ["玩家", "物体", "玩家私有物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Returns the ID of the player-object the player is surfing on.
+获取玩家当前正在“冲浪”的玩家私有物体 ID。
 
-| Name     | Description                             |
-| -------- | --------------------------------------- |
-| playerid | The ID of the player surfing the object |
+| 参数名   | 描述                       |
+| -------- | -------------------------- |
+| playerid | 正在“冲浪”物体的玩家标识符 |
 
-## Returns
+## 返回值
 
-The ID of the moving object the player is surfing. If the player isn't surfing a moving object, it will return INVALID_OBJECT_ID
+成功返回被“冲浪”的移动物体 ID。若玩家未在任何移动的物体上方“冲浪”，返回`INVALID_OBJECT_ID`。
 
-## Examples
+## 示例
 
 ```c
-/* when the player types 'objectsurfing' in to the chat box, they'll see this.*/
+/* 当玩家在聊天框中输入 'objectsurfing' 时触发 */
 public OnPlayerText(playerid, text[])
 {
     if (strcmp(text, "objectsurfing", true) == 0)
@@ -30,15 +30,15 @@ public OnPlayerText(playerid, text[])
         new
             szMessage[46];
 
-        format(szMessage, sizeof(szMessage), "You're surfing on object #%d.", GetPlayerSurfingPlayerObjectID(playerid));
+        format(szMessage, sizeof(szMessage), "你正在“冲浪”玩家私有物体 #%d。", GetPlayerSurfingPlayerObjectID(playerid));
         SendClientMessage(playerid, 0xA9C4E4FF, szMessage);
     }
     return 0;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerSurfingObjectID](GetPlayerSurfingObjectID): Get the ID of the object that the player is surfing on.
-- [GetPlayerSurfingVehicleID](GetPlayerSurfingVehicleID): Get the ID of the vehicle that the player is surfing (stuck to the roof of).
-- [GetPlayerSurfingOffsets](GetPlayerSurfingOffsets): Gets a player's surfing offsets.
+- [GetPlayerSurfingObjectID](GetPlayerSurfingObjectID): 获取玩家正在“冲浪”的物体 ID
+- [GetPlayerSurfingVehicleID](GetPlayerSurfingVehicleID): 获取玩家正在“冲浪”（停留在车顶）的车辆 ID
+- [GetPlayerSurfingOffsets](GetPlayerSurfingOffsets): 获取玩家“冲浪”时的坐标偏移量

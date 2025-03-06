@@ -1,6 +1,6 @@
 ---
 title: SendClientMessageToAllf
-sidebar_label: 发送格式化全局客户端消息
+sidebar_label: SendClientMessageToAllf
 description: 向所有玩家发送格式化聊天消息（已弃用）。
 tags: []
 ---
@@ -19,11 +19,11 @@ tags: []
 
 向所有玩家发送格式化聊天消息（该函数已弃用，请使用 SendClientMessageToAll 替代）。此功能等同于对每个玩家调用 SendClientMessage。
 
-| 参数名           | 说明                                     |
-| ---------------- | ---------------------------------------- |
-| color            | 消息颜色（0xRRGGBBAA 十六进制格式）      |
-| const message[]  | 格式化消息内容（最多 144 字符）          |
-| {Float, \_\}:... | 可变参数列表（支持浮点型及其他类型参数） |
+| 参数名            | 说明                                     |
+| ----------------- | ---------------------------------------- |
+| color             | 消息颜色（0xRRGGBBAA 十六进制格式）      |
+| const message[]   | 格式化消息内容（最多 144 字符）          |
+| \{Float, \_\}:... | 可变参数列表（支持浮点型及其他类型参数） |
 
 ## 返回值
 

@@ -1,44 +1,44 @@
 ---
 title: ShowNameTags
 sidebar_label: ShowNameTags
-description: Toggle the drawing of nametags, health bars and armor bars above players.
+description: 切换玩家头顶名称标签、血条和护甲条的显示。
 tags: []
 ---
 
-## Description
+## 描述
 
-Toggle the drawing of nametags, health bars and armor bars above players.
+控制是否显示玩家头顶的名称标签、生命值条和护甲条。
 
-| Name      | Description                                                |
-| --------- | ---------------------------------------------------------- |
-| bool:show | 'false' to disable, 'true' to enable (enabled by default). |
+| 名称      | 说明                                        |
+| --------- | ------------------------------------------- |
+| bool:显示 | 'false'禁用显示，'true'启用显示（默认启用） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    // This will fully disable all player nametags
-    // (including health and armour bars)
+    // 这将完全禁用所有玩家的名称标签
+    //（包括血条和护甲条）
     ShowNameTags(false);
 }
 ```
 
-## Notes
+## 注意
 
 :::warning
 
-This function can only be used in [OnGameModeInit](OnGameModeInit). For other times, see [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer).
+本函数只能在[OnGameModeInit](OnGameModeInit)回调中使用。其他场景请使用[ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer)。
 
 :::
 
 :::tip
 
-You can also toggle player nametags via [config.json](../../server/config.json)
+也可通过[config.json](../../server/config.json)配置文件全局设置：
 
 ```json
 "use_nametags": false,
@@ -46,8 +46,8 @@ You can also toggle player nametags via [config.json](../../server/config.json)
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [DisableNameTagLOS](DisableNameTagLOS): Disable nametag Line-Of-Sight checking.
-- [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer): Show or hide a nametag for a certain player.
-- [ShowPlayerMarkers](ShowPlayerMarkers): Decide if the server should show markers on the radar.
+- [DisableNameTagLOS](DisableNameTagLOS): 禁用名称标签的视线检测
+- [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer): 显示/隐藏指定玩家的名称标签
+- [ShowPlayerMarkers](ShowPlayerMarkers): 控制玩家雷达标记的显示

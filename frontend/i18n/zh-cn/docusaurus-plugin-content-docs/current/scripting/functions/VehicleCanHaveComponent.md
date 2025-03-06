@@ -1,49 +1,49 @@
 ---
 title: VehicleCanHaveComponent
 sidebar_label: VehicleCanHaveComponent
-description: Is the component legal on a vehicle model?
-tags: ["vehicle"]
+description: 检测指定组件是否可合法安装在特定车辆模型上
+tags: ["车辆系统"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Is the component legal on the vehicle model?
+检测指定车辆组件是否可合法安装在特定车辆模型上。
 
-| Name                                     | Description                   |
-| ---------------------------------------- | ----------------------------- |
-| [modelid](../resources/vehicleid)        | Vehicle Model ID              |
-| [component](../resources/carcomponentid) | ID of the component to check. |
+| 参数名                                   | 说明            |
+| ---------------------------------------- | --------------- |
+| [modelid](../resources/vehicleid)        | 车辆模型 ID     |
+| [component](../resources/carcomponentid) | 待检测的组件 ID |
 
-## Returns
+## 返回值
 
-**true** - The component is legal on the vehicle.
+**true** - 组件可合法安装
 
-**false** - The component is illegal on the vehicle.
+**false** - 组件不可合法安装
 
-## Examples
+## 示例代码
 
 ```c
 new vehicleid = GetPlayerVehicleID(playerid);
 
 if (VehicleCanHaveComponent(GetVehicleModel(vehicleid), 1010))
 {
-    SendClientMessage(playerid, 0x00FF00FF, "Nitro is legal on this vehicle.");
+    SendClientMessage(playerid, 0x00FF00FF, "氮气加速组件可合法安装于本车型");
 }
 else
 {
-    SendClientMessage(playerid, 0xFF0000FF, "Nitro is illegal on this vehicle.");
+    SendClientMessage(playerid, 0xFF0000FF, "当前车型禁止安装氮气加速组件");
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddVehicleComponent](AddVehicleComponent): Add a component to a vehicle.
-- [RemoveVehicleComponent](RemoveVehicleComponent): Remove a component from a vehicle.
-- [GetVehicleComponentInSlot](GetVehicleComponentInSlot): Check what components a vehicle has.
-- [GetVehicleComponentType](GetVehicleComponentType): Check the type of component via the ID.
+- [AddVehicleComponent](AddVehicleComponent): 为车辆添加组件
+- [RemoveVehicleComponent](RemoveVehicleComponent): 移除车辆组件
+- [GetVehicleComponentInSlot](GetVehicleComponentInSlot): 获取指定插槽组件
+- [GetVehicleComponentType](GetVehicleComponentType): 通过组件 ID 获取类型
 
-## Related Resources
+## 相关资源
 
-- [Car Component IDs](../resources/carcomponentid)
+- [车辆组件 ID 对照表](../resources/carcomponentid)

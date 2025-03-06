@@ -1,34 +1,34 @@
 ---
 title: uuencode
 sidebar_label: uuencode
-description: Encode a string to an UU-decoded string.
-tags: ["string", "encryption"]
+description: 将字符串编码为UU格式字符串。
+tags: ["字符串处理", "加密"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Encode a string to an UU-decoded string.
+将原始字符串编码为 UU 格式字符串。
 
-| Name                      | Description                                               |
-| ------------------------- | --------------------------------------------------------- |
-| dest[]                    | The destination string for the encoded stream.            |
-| const source[]            | The source, non-encoded string.                           |
-| numbytes                  | The number of bytes to encode, this should not exceed 45. |
-| maxlength = sizeof (dest) | The maximum length of the dest[] array.                   |
+| 名称                      | 描述                                 |
+| ------------------------- | ------------------------------------ |
+| dest[]                    | 用于存储编码后字符串的目标数组       |
+| const source[]            | 需要编码的原始字符串                 |
+| numbytes                  | 要编码的字节数（建议不超过 45 字节） |
+| maxlength = sizeof (dest) | 目标数组的最大存储容量               |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
-uuencode(encodedString, normalString, 45);
+uuencode(encodedString, normalString, 45); // 将普通字符串编码为UU格式
 ```
 
-## Related Functions
+## 相关函数
 
-- [uudecode](uudecode): Decode an UU-encoded string.
-- [memcpy](memcpy): Copy bytes from one location to another.
+- [uudecode](uudecode): 解码 UU 编码字符串
+- [memcpy](memcpy): 内存复制函数

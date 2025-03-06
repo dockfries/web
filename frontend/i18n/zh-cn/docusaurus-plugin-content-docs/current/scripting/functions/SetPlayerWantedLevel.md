@@ -1,26 +1,26 @@
 ---
 title: SetPlayerWantedLevel
 sidebar_label: SetPlayerWantedLevel
-description: Set a player's wanted level (6 brown stars under HUD).
-tags: ["player"]
+description: 设置玩家的通缉等级（HUD下方显示6颗棕色通缉星）。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set a player's wanted level (6 brown stars under HUD).
+设置玩家的通缉等级（HUD 下方显示 6 颗棕色通缉星）。
 
-| Name     | Description                                      |
-| -------- | ------------------------------------------------ |
-| playerid | The ID of the player to set the wanted level of. |
-| level    | The wanted level to set for the player (0-6).    |
+| 参数名   | 描述                    |
+| -------- | ----------------------- |
+| playerid | 要设置通缉等级的玩家 ID |
+| level    | 要设置的通缉等级（0-6） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player specified does not exist.
+**false** - 函数执行失败（指定的玩家不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -28,14 +28,14 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (strcmp(cmdtext, "/turnuptheheat", true) == 0)
     {
         SetPlayerWantedLevel(playerid, 6);
-        SendClientMessage(playerid, 0xFF0000FF, "Wanted Level: 6");
+        SendClientMessage(playerid, 0xFF0000FF, "通缉等级：6");
         return 1;
     }
     return 0;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerWantedLevel](GetPlayerWantedLevel): Check a player's wanted level.
-- [PlayCrimeReportForPlayer](PlayCrimeReportForPlayer): Play a crime report for a player.
+- [GetPlayerWantedLevel](GetPlayerWantedLevel): 获取玩家的通缉等级
+- [PlayCrimeReportForPlayer](PlayCrimeReportForPlayer): 为玩家播放犯罪通告

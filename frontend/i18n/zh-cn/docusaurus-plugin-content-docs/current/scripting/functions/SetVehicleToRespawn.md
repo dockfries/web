@@ -1,35 +1,35 @@
 ---
 title: SetVehicleToRespawn
 sidebar_label: SetVehicleToRespawn
-description: Sets a vehicle back to the position at where it was created.
-tags: ["vehicle"]
+description: 将车辆重置到其初始创建位置。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Sets a vehicle back to the position at where it was created.
+将车辆重置到其创建时的位置。
 
-| Name      | Description                      |
-| --------- | -------------------------------- |
-| vehicleid | The ID of the vehicle to respawn |
+| 名称      | 说明            |
+| --------- | --------------- |
+| vehicleid | 要重置的车辆 ID |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. The vehicle does not exist.
+**false** - 函数执行失败。车辆不存在。
 
-## Examples
+## 示例
 
 ```c
-// Respawns the all vehicles
+// 重置所有车辆
 for (new i = 1; i < MAX_VEHICLES; i++)
 {
     SetVehicleToRespawn(i);
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateVehicle](CreateVehicle): Create a vehicle.
-- [DestroyVehicle](DestroyVehicle): Destroy a vehicle.
+- [CreateVehicle](CreateVehicle): 创建车辆
+- [DestroyVehicle](DestroyVehicle): 销毁车辆

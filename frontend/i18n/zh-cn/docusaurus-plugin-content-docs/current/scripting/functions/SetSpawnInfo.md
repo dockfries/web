@@ -1,64 +1,62 @@
 ---
 title: SetSpawnInfo
 sidebar_label: SetSpawnInfo
-description: This function can be used to change the spawn information of a specific player.
-tags: ["player"]
+description: 设置指定玩家的生成信息。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-This function can be used to change the spawn information of a specific player. It allows you to automatically set someone's spawn weapons, their team, skin and spawn position, normally used in case of minigames or automatic-spawn systems. This function is more crash-safe then using [SetPlayerSkin](SetPlayerSkin) in [OnPlayerSpawn](../callbacks/OnPlayerSpawn) and/or [OnPlayerRequestClass](../callbacks/OnPlayerRequestClass).
+该函数用于设置指定玩家的生成信息，可配置生成时的武器、队伍、皮肤及坐标。适用于迷你游戏或自动生成系统，相比在[OnPlayerSpawn](../callbacks/OnPlayerSpawn)或[OnPlayerRequestClass](../callbacks/OnPlayerRequestClass)中使用[SetPlayerSkin](SetPlayerSkin)更稳定。
 
-| Name           | Description                                                          |
-| -------------- | -------------------------------------------------------------------- |
-| playerid       | The PlayerID of who you want to set the spawn information.           |
-| team           | The Team-ID of the chosen player.                                    |
-| skin           | The [skin](../resources/skins) which the player will spawn with.     |
-| Float:spawnX   | The X-coordinate of the player's spawn position.                     |
-| Float:spawnY   | The Y-coordinate of the player's spawn position.                     |
-| Float:spawnZ   | The Z-coordinate of the player's spawn position.                     |
-| Float:angle    | The direction in which the player needs to be facing after spawning. |
-| WEAPON:weapon1 | The first spawn-weapon for the player.                               |
-| ammo1          | The amount of ammunition for the primary spawnweapon.                |
-| WEAPON:weapon2 | The second spawn-weapon for the player.                              |
-| ammo2          | The amount of ammunition for the second spawnweapon.                 |
-| WEAPON:weapon3 | The third spawn-weapon for the player.                               |
-| ammo3          | The amount of ammunition for the third spawnweapon.                  |
+| 参数名         | 说明                                      |
+| -------------- | ----------------------------------------- |
+| playerid       | 需要设置生成信息的玩家 ID                 |
+| team           | 玩家所属队伍 ID                           |
+| skin           | 生成时使用的[皮肤 ID](../resources/skins) |
+| Float:spawnX   | 生成点的 X 坐标                           |
+| Float:spawnY   | 生成点的 Y 坐标                           |
+| Float:spawnZ   | 生成点的 Z 坐标                           |
+| Float:angle    | 生成后的面朝方向（角度制）                |
+| WEAPON:weapon1 | 第一主武器 ID                             |
+| ammo1          | 第一主武器弹药量                          |
+| WEAPON:weapon2 | 第二副武器 ID                             |
+| ammo2          | 第二副武器弹药量                          |
+| WEAPON:weapon3 | 第三近战武器 ID                           |
+| ammo3          | 第三近战武器弹药量                        |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerRequestClass(playerid, classid)
 {
-    // This simple example demonstrates how to spawn every player automatically with
-    // CJ's skin, which is number 0. The player will spawn in Las Venturas, with
-    // 36 Sawnoff-Shotgun rounds and 150 Tec9 rounds.
+    // 设置玩家生成信息：CJ皮肤(0号)，拉斯云祖华坐标
+    // 携带36发短管霰弹枪(WEAPON_SAWEDOFF)和150发乌兹冲锋枪(WEAPON_UZI)
     SetSpawnInfo(playerid, NO_TEAM, 0, 1958.33, 1343.12, 15.36, 269.15, WEAPON_SAWEDOFF, 36, WEAPON_UZI, 150, WEAPON_FIST, 0);
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-In case you don't need to set a team to the player, make sure that the "team" parameter is set to `NO_TEAM` (255).
-
-Team ID 0 in open.mp is a valid team while in SA-MP it is not (SA-MP bug).
+- 若不需要队伍归属，请将 team 参数设为`NO_TEAM`(255)
+- open.mp 中 0 号队伍为有效队伍（与 SA-MP 存在差异）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetSpawnInfo](GetSpawnInfo): Return the current spawn data for a player, where they will spawn next.
-- [SetPlayerSkin](SetPlayerSkin): Set a player's skin.
-- [SetPlayerTeam](SetPlayerTeam): Set a player's team.
-- [SpawnPlayer](SpawnPlayer): Force a player to spawn.
+- [GetSpawnInfo](GetSpawnInfo): 获取玩家当前生成配置
+- [SetPlayerSkin](SetPlayerSkin): 设置玩家皮肤
+- [SetPlayerTeam](SetPlayerTeam): 设置玩家队伍
+- [SpawnPlayer](SpawnPlayer): 强制玩家生成
 
-## Related Resources
+## 相关资源
 
-- [Skin IDs](../resources/skins)
-- [Weapon IDs](../resources/weaponids)
+- [皮肤 ID 列表](../resources/skins)
+- [武器 ID 列表](../resources/weaponids)

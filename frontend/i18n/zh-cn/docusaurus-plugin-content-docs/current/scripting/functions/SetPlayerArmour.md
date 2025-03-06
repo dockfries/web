@@ -1,52 +1,52 @@
 ---
 title: SetPlayerArmour
 sidebar_label: SetPlayerArmour
-description: Set a player's armor level.
-tags: ["player"]
+description: 设置玩家的护甲等级。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set a player's armor level.
+设置玩家的护甲等级。
 
-| Name         | Description                                                                                                                             |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| playerid     | The ID of the player to set the armour of.                                                                                              |
-| Float:armour | The amount of armour to set, as a percentage (float). Values larger than 100 are valid, but won't be displayed in the HUD's armour bar. |
+| 参数名       | 说明                                                                       |
+| ------------ | -------------------------------------------------------------------------- |
+| playerid     | 要设置护甲的玩家 ID                                                        |
+| Float:armour | 设置的护甲值（浮点数百分比）。超过 100 的值有效，但不会在 HUD 护甲条中显示 |
 
-## Returns
+## 返回值
 
-**1** - The function was executed successfully.
+**1** - 函数执行成功
 
-**0** - The function failed to execute. This means the player specified does not exist.
+**0** - 函数执行失败（指定的玩家不存在）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerSpawn(playerid)
 {
-    // Give players full armour (100%) when they spawn.
+    // 玩家重生时给予满护甲（100%）
     SetPlayerArmour(playerid, 100.0);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-The function's name is armour, not armor (Americanized). This is inconsistent with the rest of SA-MP, so remember that.
+本函数使用英式拼写"armour"而非美式"armor"，与 SA-MP 其他函数存在拼写差异
 
 :::
 
 :::warning
 
-Armour is obtained rounded to integers: set 50.15, but get 50.0
+护甲值会被四舍五入为整数：设置 50.15 实际获得 50.0
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerArmour](GetPlayerArmour): Find out how much armour a player has.
-- [SetPlayerHealth](SetPlayerHealth): Set a player's health.
-- [GetPlayerHealth](GetPlayerHealth): Find out how much health a player has.
+- [GetPlayerArmour](GetPlayerArmour): 获取玩家护甲值
+- [SetPlayerHealth](SetPlayerHealth): 设置玩家生命值
+- [GetPlayerHealth](GetPlayerHealth): 获取玩家生命值

@@ -1,43 +1,43 @@
 ---
 title: SetPlayerVelocity
 sidebar_label: SetPlayerVelocity
-description: Set a player's velocity on the X, Y and Z axes.
-tags: ["player"]
+description: 在X、Y、Z轴上设置玩家的速度。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set a player's velocity on the X, Y and Z axes.
+在 X、Y、Z 轴上设置玩家的速度。
 
-| Name     | Description                         |
-| -------- | ----------------------------------- |
-| playerid | The player to apply the speed to.   |
-| Float:x  | The velocity (speed) on the X axis. |
-| Float:y  | The velocity (speed) on the Y axis. |
-| Float:z  | The velocity (speed) on the Z axis. |
+| 名称     | 说明                |
+| -------- | ------------------- |
+| playerid | 要设置速度的玩家 ID |
+| Float:x  | X 轴方向的速度      |
+| Float:y  | Y 轴方向的速度      |
+| Float:z  | Z 轴方向的速度      |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. This means the player is not connected.
+**false** - 函数执行失败。玩家未连接。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp("/jump", cmdtext))
     {
-        SetPlayerVelocity(playerid, 0.0, 0.0, 0.2); // Forces the player to jump (Z velocity + 0.2)
+        SetPlayerVelocity(playerid, 0.0, 0.0, 0.2); // 强制玩家跳跃（Z轴速度+0.2）
         return 1;
     }
     return 0;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerVelocity](GetPlayerVelocity): Get a player's velocity.
-- [SetVehicleVelocity](SetVehicleVelocity): Set a vehicle's velocity.
-- [GetVehicleVelocity](GetVehicleVelocity): Get a vehicle's velocity.
+- [GetPlayerVelocity](GetPlayerVelocity): 获取玩家速度
+- [SetVehicleVelocity](SetVehicleVelocity): 设置车辆速度
+- [GetVehicleVelocity](GetVehicleVelocity): 获取车辆速度

@@ -1,31 +1,31 @@
 ---
 title: SetPlayerScore
 sidebar_label: SetPlayerScore
-description: Set a player's score.
-tags: ["player"]
+description: 设置玩家的分数。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set a player's score. Players' scores are shown in the scoreboard (shown by holding the TAB key).
+设置玩家的分数。玩家的分数会显示在积分板中（通过按住 TAB 键查看）。
 
-| Name     | Description                               |
-| -------- | ----------------------------------------- |
-| playerid | The ID of the player to set the score of. |
-| score    | The value to set the player's score to.   |
+| 参数名   | 描述                |
+| -------- | ------------------- |
+| playerid | 要设置分数的玩家 ID |
+| score    | 要设置的分数值      |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player specified does not exist.
+**false** - 函数执行失败（指定的玩家不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    // Add 1 to this killer's score. We must check it is valid first.
+    // 给击杀者的分数加1。需先验证有效性
     if (killerid != INVALID_PLAYER_ID)
     {
         SetPlayerScore(killerid, GetPlayerScore(killerid) + 1);
@@ -34,6 +34,6 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerScore](GetPlayerScore): Get the score of a player.
+- [GetPlayerScore](GetPlayerScore): 获取玩家的分数

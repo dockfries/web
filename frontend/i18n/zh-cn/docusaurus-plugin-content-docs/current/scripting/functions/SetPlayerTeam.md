@@ -1,48 +1,46 @@
 ---
 title: SetPlayerTeam
 sidebar_label: SetPlayerTeam
-description: Set the team of a player.
-tags: ["player"]
+description: 设置玩家所属的队伍。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set the team of a player.
+设置玩家所属的队伍。
 
-| Name     | Description                                                                    |
-| -------- | ------------------------------------------------------------------------------ |
-| playerid | The ID of the player you want to set the team of.                              |
-| teamid   | The team to put the player in. Use NO_TEAM to remove the player from any team. |
+| 参数名   | 说明                                              |
+| -------- | ------------------------------------------------- |
+| playerid | 需要设置队伍的玩家 ID                             |
+| teamid   | 目标队伍编号。使用 NO_TEAM 可移除玩家当前队伍归属 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerSpawn(playerid)
 {
-    // Set a player's team to 4 when they spawn
+    // 玩家生成时将其队伍设为4
     SetPlayerTeam(playerid, 4);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- Players can not damage/kill players on the same team unless they use a knife to slit their throat.
-
-- Players are also unable to damage vehicles driven by a player from the same team. This can be enabled with [EnableVehicleFriendlyFire](EnableVehicleFriendlyFire).
-
-- 255 (or `NO_TEAM`) is the default team to be able to shoot other players, not 0.
+- 同队伍玩家之间无法造成伤害（使用割喉刀除外）
+- 同队伍玩家驾驶的车辆默认免疫友方伤害，可通过[EnableVehicleFriendlyFire](EnableVehicleFriendlyFire)启用
+- 默认无队伍状态使用 255（或 NO_TEAM），而非 0 号队伍
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerTeam](GetPlayerTeam): Check what team a player is on.
-- [SetTeamCount](SetTeamCount): Set the number of teams available.
-- [EnableVehicleFriendlyFire](EnableVehicleFriendlyFire): Enable friendly fire for team vehicles.
+- [GetPlayerTeam](GetPlayerTeam): 获取玩家当前所属队伍
+- [SetTeamCount](SetTeamCount): 设置服务器队伍总数
+- [EnableVehicleFriendlyFire](EnableVehicleFriendlyFire): 启用车辆友军伤害功能

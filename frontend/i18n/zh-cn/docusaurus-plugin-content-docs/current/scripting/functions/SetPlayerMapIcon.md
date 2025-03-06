@@ -1,64 +1,64 @@
 ---
 title: SetPlayerMapIcon
 sidebar_label: SetPlayerMapIcon
-description: Place an icon/marker on a player's map.
-tags: ["player"]
+description: 在玩家地图上放置图标/标记。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Place an icon/marker on a player's map. Can be used to mark locations such as banks and hospitals to players.
+在玩家地图上放置图标/标记。可用于标记银行、医院等重要位置。
 
-| Name          | Description                                                                                                                                               |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| playerid      | The ID of the player to set the map icon for.                                                                                                             |
-| iconid        | The player's icon ID, ranging from 0 to 99. This means there is a maximum of 100 map icons. ID can be used in [RemovePlayerMapIcon](RemovePlayerMapIcon). |
-| Float:x       | The X coordinate to place the map icon at.                                                                                                                |
-| Float:y       | The Y coordinate to place the map icon at.                                                                                                                |
-| Float:z       | The Z coordinate to place the map icon at.                                                                                                                |
-| markerType    | The [icon](../resources/mapicons) to set.                                                                                                                 |
-| colour        | The color of the icon, as an integer or hex in RGBA color format. This should only be used with the square icon (ID: 0).                                  |
-| MAPICON:style | The [style](../resources/mapiconstyles) of icon.                                                                                                          |
+| 参数名        | 说明                                                                                           |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| playerid      | 目标玩家 ID                                                                                    |
+| iconid        | 图标 ID（0-99），单个玩家最多 100 个图标。可通过[RemovePlayerMapIcon](RemovePlayerMapIcon)移除 |
+| Float:x       | 图标 X 坐标                                                                                    |
+| Float:y       | 图标 Y 坐标                                                                                    |
+| Float:z       | 图标 Z 坐标                                                                                    |
+| markerType    | 要设置的[图标类型](../resources/mapicons)                                                      |
+| colour        | 图标颜色（RGBA 格式整数或十六进制），仅适用于方形图标（ID:0）                                  |
+| MAPICON:style | 图标[显示样式](../resources/mapiconstyles)                                                     |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. Player is not connected.
+**false** - 函数执行失败（玩家未连接）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    // This example demonstrates how to create a dollar-icon on top of a 24/7 located
-    // in Las Venturas. This way new players know where to go with their money!
+    // 在拉斯维加斯的24/7商店顶部创建美元图标
+    // 新玩家连接时显示取款位置
     SetPlayerMapIcon(playerid, 12, 2204.9468, 1986.2877, 16.7380, 52, 0, MAPICON_LOCAL);
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- If you use an invalid marker type, it will create ID 1 (White Square ![](https://assets.open.mp/assets/images/mapIcons/icon1.gif)).
-- If you use an icon ID that is already in use, it will replace the current map icon using that ID.
+• 使用无效图标类型将默认显示 ID1 白方块 ![](https://assets.open.mp/assets/images/mapIcons/icon1.gif)
+• 重复使用相同图标 ID 会覆盖已有图标
 
 :::
 
 :::warning
 
-- You can only have 100 map icons. To circumvent this limit, you can use the [streamer](https://github.com/samp-incognito/samp-streamer-plugin) plugin.
-- Marker type 1 (![](https://assets.open.mp/assets/images/mapIcons/icon1.gif)), 2 (![](https://assets.open.mp/assets/images/mapIcons/icon2.gif)), 4 (![](https://assets.open.mp/assets/images/mapIcons/icon4.gif)), and 56 (![](https://assets.open.mp/assets/images/mapIcons/icon56.gif)) will cause your game to crash if you have map legends enabled while viewing the map.
+• 突破 100 图标限制需使用[streamer 插件](https://github.com/samp-incognito/samp-streamer-plugin)
+• 启用地图图例时，类型 1/2/4/56 图标会导致游戏崩溃
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [RemovePlayerMapIcon](RemovePlayerMapIcon): Remove a map icon for a player.
-- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): Set a player's marker.
+- [RemovePlayerMapIcon](RemovePlayerMapIcon): 移除指定地图图标
+- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): 设置玩家标记
 
-## Related Resources
+## 相关资源
 
-- [Map Icons](../resources/mapicons): A list of map icons.
-- [Map Icon Styles](../resources/mapiconstyles): A list of map icon styles.
+- [地图图标列表](../resources/mapicons): 可用图标类型参考
+- [图标样式列表](../resources/mapiconstyles): 图标显示样式说明

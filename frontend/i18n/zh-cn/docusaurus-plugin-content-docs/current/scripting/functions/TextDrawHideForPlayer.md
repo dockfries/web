@@ -1,31 +1,31 @@
 ---
 title: TextDrawHideForPlayer
 sidebar_label: TextDrawHideForPlayer
-description: Hides a textdraw for a specific player.
-tags: ["player", "textdraw"]
+description: 对指定玩家隐藏文本绘图。
+tags: ["玩家", "文本绘图"]
 ---
 
-## Description
+## 描述
 
-Hides a textdraw for a specific player.
+对指定玩家隐藏文本绘图。
 
-| Name        | Description                                                 |
-| ----------- | ----------------------------------------------------------- |
-| playerid    | The ID of the player that the textdraw should be hidden for |
-| Text:textid | The ID of the textdraw to hide                              |
+| 名称        | 说明                      |
+| ----------- | ------------------------- |
+| playerid    | 需要隐藏文本绘图的玩家 ID |
+| Text:textid | 需要隐藏的文本绘图 ID     |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
 new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(123.0, 123.0, "Example");
+    gMyTextdraw = TextDrawCreate(123.0, 123.0, "示例");
     return 1;
 }
 
@@ -48,9 +48,9 @@ public OnPlayerDeath(playerid, reason)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [IsTextDrawVisibleForPlayer](IsTextDrawVisibleForPlayer): Checks if a textdraw is shown for a player.
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏文本绘图
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 对玩家显示文本绘图
+- [TextDrawShowForAll](TextDrawShowForAll): 全局显示文本绘图
+- [IsTextDrawVisibleForPlayer](IsTextDrawVisibleForPlayer): 检测文本绘图是否对玩家可见

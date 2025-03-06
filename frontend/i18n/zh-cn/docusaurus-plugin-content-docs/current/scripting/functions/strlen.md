@@ -1,37 +1,37 @@
 ---
 title: strlen
 sidebar_label: strlen
-description: Get the length of a string.
-tags: ["string"]
+description: 获取字符串长度。
+tags: ["字符串"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Get the length of a string.
+获取指定字符串的长度。
 
-| Name           | Description                      |
-| -------------- | -------------------------------- |
-| const string[] | The string to get the length of. |
+| 参数名称       | 说明                     |
+| -------------- | ------------------------ |
+| const string[] | 需要获取长度的目标字符串 |
 
-## Returns
+## 返回值
 
-The length of the string as an integer.
+返回字符串的长度（整数值）。
 
-## Examples
+## 示例代码
 
 ```c
-new stringLength = strlen("This is an example string."); // stringLength is now set to 26
+new stringLength = strlen("This is an example string."); // stringLength的值将被设为26
 ```
 
-## Related Functions
+## 相关函数
 
-- [strcmp](strcmp): Compare two strings to check if they are the same.
-- [strfind](strfind): Search for a string in another string.
-- [strins](strins): Insert text into a string.
-- [strmid](strmid): Extract part of a string into another string.
-- [strpack](strpack): Pack a string into a destination string.
-- [strval](strval): Convert a string into an integer.
-- [strcat](strcat): Concatenate two strings into a destination reference.
-- [strdel](strdel): Delete part of a string.
+- [strcmp](strcmp): 比较两个字符串是否相同
+- [strfind](strfind): 在字符串中搜索子字符串
+- [strins](strins): 向字符串插入内容
+- [strmid](strmid): 截取字符串片段
+- [strpack](strpack): 压缩字符串到目标变量
+- [strval](strval): 将字符串转为整数值
+- [strcat](strcat): 连接两个字符串到目标引用
+- [strdel](strdel): 删除字符串指定部分

@@ -1,27 +1,27 @@
 ---
 title: SetPlayerWorldBounds
 sidebar_label: SetPlayerWorldBounds
-description: Set the world boundaries for a player.
-tags: ["player"]
+description: 设置玩家的世界边界。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set the world boundaries for a player. Players can not go out of the boundaries (they will be pushed back in).
+设置玩家的世界边界。玩家无法越出边界（越界时将被推回）。
 
-| Name       | Description                                          |
-| ---------- | ---------------------------------------------------- |
-| playerid   | The ID of the player to set the world boundaries of. |
-| Float:maxX | The maximum X coordinate the player can go to.       |
-| Float:minX | The minimum X coordinate the player can go to.       |
-| Float:maxY | The maximum Y coordinate the player can go to.       |
-| Float:minY | The minimum Y coordinate the player can go to.       |
+| 名称       | 说明                    |
+| ---------- | ----------------------- |
+| playerid   | 要设置边界的玩家 ID     |
+| Float:maxX | 玩家可到达的最大 X 坐标 |
+| Float:minX | 玩家可到达的最小 X 坐标 |
+| Float:maxY | 玩家可到达的最大 Y 坐标 |
+| Float:minY | 玩家可到达的最小 Y 坐标 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerSpawn(playerid)
@@ -32,33 +32,33 @@ public OnPlayerSpawn(playerid)
 ```
 
 ```
-               (North)
+               (北)
                 ymax
             |----------|
             |          |
-(West) xmin |          | xmax (East)
+(西) xmin |          | xmax (东)
             |          |
             |----------|
                 ymin
-               (South)
+               (南)
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-A player's world boundaries can be reset by setting them to 20000.0000, -20000.0000, 20000.0000, -20000.0000. These are the default values. You can also use [ClearPlayerWorldBounds](ClearPlayerWorldBounds).
+可通过设置边界为 20000.0000, -20000.0000, 20000.0000, -20000.0000 来重置默认值，或使用 [ClearPlayerWorldBounds](ClearPlayerWorldBounds)。
 
 :::
 
 :::warning
 
-This function doesn't work in interiors!
+本函数在室内环境中无效！
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [ClearPlayerWorldBounds](ClearPlayerWorldBounds): Reset the player's world boundaries to default world boundaries.
-- [GetPlayerWorldBounds](GetPlayerWorldBounds): Get a player's world boundaries.
-- [GangZoneCreate](GangZoneCreate): Create a gangzone.
+- [ClearPlayerWorldBounds](ClearPlayerWorldBounds): 重置玩家的世界边界至默认值
+- [GetPlayerWorldBounds](GetPlayerWorldBounds): 获取玩家的世界边界
+- [GangZoneCreate](GangZoneCreate): 创建帮派区域

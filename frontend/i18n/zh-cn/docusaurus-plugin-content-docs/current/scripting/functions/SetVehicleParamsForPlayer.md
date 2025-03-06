@@ -1,34 +1,34 @@
 ---
 title: SetVehicleParamsForPlayer
 sidebar_label: SetVehicleParamsForPlayer
-description: Set the parameters of a vehicle for a player.
-tags: ["player", "vehicle"]
+description: 为特定玩家设置车辆的参数。
+tags: ["玩家", "车辆"]
 ---
 
-## Description
+## 描述
 
-Set the parameters of a vehicle for a player.
+为指定玩家设置车辆的专属参数。
 
-| Name             | Description                                                                                              |
-| ---------------- | -------------------------------------------------------------------------------------------------------- |
-| vehicle          | The ID of the vehicle to set the parameters of.                                                          |
-| playerid         | The ID of the player to set the vehicle's parameters for.                                                |
-| bool:objective   | 'false' to disable the objective or 'true' to show it. This is a bobbing yellow arrow above the vehicle. |
-| bool:doorslocked | 'false' to unlock the doors or 'true' to lock them.                                                      |
+| 参数名           | 说明                                              |
+| ---------------- | ------------------------------------------------- |
+| vehicle          | 目标车辆的 ID                                     |
+| playerid         | 需要设置参数的玩家 ID                             |
+| bool:objective   | 目标箭头显示（true=显示黄色浮动箭头，false=隐藏） |
+| bool:doorslocked | 车门锁定状态（true=上锁，false=解锁）             |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player and/or vehicle specified do not exist.
+**false** - 函数执行失败（玩家或车辆不存在）
 
-## Examples
+## 示例代码
 
 ```c
-// sometime earlier:
+// 初始化时设置玩家专属车辆
 SetVehicleParamsForPlayer(iPlayerVehicle, iPlayerID, true, false);
 
-// sometime later when you want the vehicle to respawn:
+// 需要重置车辆时获取当前参数
 new
     bool:iEngine, bool:iLights, bool:iAlarm,
     bool:iDoors, bool:iBonnet, bool:iBoot,
@@ -37,22 +37,19 @@ new
 GetVehicleParamsEx(iPlayerVehicle, iEngine, iLights, iAlarm, iDoors, iBonnet, iBoot, iObjective);
 SetVehicleParamsEx(iPlayerVehicle, iEngine, iLights, iAlarm, iDoors, iBonnet, iBoot, false);
 
-// Locks own car for all players, except the player who used the command.
+// 锁定自己车辆（排除自己）
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/lock", true))
     {
         if (!IsPlayerInAnyVehicle(playerid))
         {
-            return SendClientMessage(playerid,0xFFFFFFAA,"You have to be inside a vehicle.");
+            return SendClientMessage(playerid,0xFFFFFFAA,"请进入车辆后使用此命令");
         }
 
         for (new i = 0; i < MAX_PLAYERS; i++)
         {
-            if (i == playerid)
-            {
-                continue;
-            }
+            if (i == playerid) continue;
             SetVehicleParamsForPlayer(GetPlayerVehicleID(playerid), i, false, true);
         }
         return 1;
@@ -60,14 +57,14 @@ public OnPlayerCommandText(playerid, cmdtext[])
     return 0;
 }
 
-// Will show vehicle markers for players streaming in for 0.3a+
+// 0.3a+版本流加载处理示例
 new bool:iVehicleObjective[MAX_VEHICLES][2];
 
-public OnGameModeInit() //Or another callback
+public OnGameModeInit()
 {
-    new temp = AddStaticVehicleEx(400, 0.0, 0.0, 5.0, 0.0, 0, 0, -1); //ID 1
-    iVehicleObjective[temp][0] = true; //Marker
-    iVehicleObjective[temp][1] = false; //Door Lock
+    new temp = AddStaticVehicleEx(400, 0.0, 0.0, 5.0, 0.0, 0, 0, -1); // 创建车辆ID 1
+    iVehicleObjective[temp][0] = true;  // 默认显示箭头
+    iVehicleObjective[temp][1] = false; // 默认解锁车门
     return 1;
 }
 
@@ -80,43 +77,45 @@ stock SetVehicleParamsForPlayerEx(vehicleid, playerid, bool:objective, bool:door
 
 public OnVehicleStreamIn(vehicleid, forplayerid)
 {
+    // 车辆流加载时重新应用参数
     SetVehicleParamsForPlayer(vehicleid, forplayerid, iVehicleObjective[vehicleid][0], iVehicleObjective[vehicleid][1]);
 }
 
-//Top
+// 标记特定车辆示例
 new myMarkedCar;
 
-public OnGameModeInit() //Or another callback
+public OnGameModeInit()
 {
-    myMarkedCar = AddStaticVehicleEx(400, 0.0, 0.0, 5.0, 0.0, 0, 0, -1); // For example: Black Landstalker near Blueberry Acres
+    myMarkedCar = AddStaticVehicleEx(400, 0.0, 0.0, 5.0, 0.0, 0, 0, -1); // 创建标记车辆
     return 1;
 }
 
-//Whatever your want
 public OnVehicleStreamIn(vehicleid, forplayerid)
 {
     if (vehicleid == myMarkedCar)
     {
-        SetVehicleParamsForPlayer(myMarkedCar, forplayerid, true, false); // marker can be visible only if the vehicle streamed for player
+        // 流加载时显示目标箭头
+        SetVehicleParamsForPlayer(myMarkedCar, forplayerid, true, false);
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Vehicles must be respawned for the 'objective' to be removed.
+- 需要重置车辆（Respawn）才能完全移除目标箭头
+- 必须通过[OnVehicleStreamIn](../callbacks/OnVehicleStreamIn)回调重新应用参数设置
 
 :::
 
 :::warning
 
-You will have to reapply this function when [OnVehicleStreamIn](../callbacks/OnVehicleStreamIn) is called.
+参数设置在车辆流加载时需要重新应用
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleParamsEx](SetVehicleParamsEx): Sets a vehicle's params for all players.
+- [SetVehicleParamsEx](SetVehicleParamsEx): 设置全局车辆参数（对所有玩家生效）

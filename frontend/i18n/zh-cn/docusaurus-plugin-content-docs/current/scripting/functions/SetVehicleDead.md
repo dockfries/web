@@ -1,35 +1,35 @@
 ---
 title: SetVehicleDead
 sidebar_label: SetVehicleDead
-description: Sets the vehicle to dead.
-tags: ["vehicle"]
+description: "设置车辆为损毁状态。"
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 :::warning
 
-This function has not yet been implemented.
+该函数暂未实现。
 
 :::
 
-## Description
+## 描述
 
-Sets the vehicle to dead.
+设置车辆为损毁状态。
 
-## Parameters
+## 参数
 
-| Name      | Description                          |
-| --------- | ------------------------------------ |
-| vehicleid | The ID of the vehicle.               |
-| bool:dead | **true**: dead - **false**: not dead |
+| 参数名    | 描述                                        |
+| --------- | ------------------------------------------- |
+| vehicleid | 要设置的车辆 ID                             |
+| bool:dead | **true**表示损毁状态，**false**表示正常状态 |
 
-## Examples
+## 示例
 
 ```c
 SetVehicleDead(vehicleid, true);
 ```
 
-## Related Functions
+## 相关函数
 
-- [IsVehicleDead](IsVehicleDead): Check if a vehicle is dead.
+- [IsVehicleDead](IsVehicleDead): 检查车辆是否处于损毁状态

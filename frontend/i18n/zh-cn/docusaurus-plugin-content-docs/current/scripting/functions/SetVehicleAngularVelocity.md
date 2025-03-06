@@ -1,34 +1,34 @@
 ---
 title: SetVehicleAngularVelocity
 sidebar_label: SetVehicleAngularVelocity
-description: Sets the angular X, Y and Z velocity of a vehicle.
-tags: ["vehicle"]
+description: 设置车辆在X、Y、Z轴上的角速度。
+tags: ["车辆"]
 ---
 
 :::info
 
-This function is in _world_ space not _local_ space. If you want to make local space angular velocity adjustments, you must apply a rotation matrix based on the [vehicle rotation quat](GetVehicleRotationQuat).
+本函数基于世界坐标系而非局部坐标系。如需进行局部坐标系角速度调整，必须基于[车辆旋转四元数](GetVehicleRotationQuat)应用旋转矩阵。
 
 :::
 
-## Description
+## 描述
 
-Sets the angular X, Y and Z velocity of a vehicle
+设置车辆在 X、Y、Z 轴上的角速度
 
-| Name      | Description                                        |
-| --------- | -------------------------------------------------- |
-| vehicleid | The ID of the vehicle to set the velocity of.      |
-| Float:x   | The amount of velocity in the angular X direction. |
-| Float:y   | The amount of velocity in the angular Y direction. |
-| Float:z   | The amount of velocity in the angular Z direction. |
+| 名称      | 说明                  |
+| --------- | --------------------- |
+| vehicleid | 要设置角速度的车辆 ID |
+| Float:x   | X 轴方向的角速度量    |
+| Float:y   | Y 轴方向的角速度量    |
+| Float:z   | Z 轴方向的角速度量    |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. The vehicle does not exist.
+**false** - 函数执行失败。车辆不存在。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -44,15 +44,15 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意
 
 :::warning
 
-This function has no effect on unoccupied vehicles and does not affect trains.
+本函数对无人车辆无效且不影响火车。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleVelocity](SetVehicleVelocity): Set a vehicle's velocity.
-- [GetVehicleVelocity](GetVehicleVelocity): Get a vehicle's velocity.
+- [SetVehicleVelocity](SetVehicleVelocity): 设置车辆线速度
+- [GetVehicleVelocity](GetVehicleVelocity): 获取车辆线速度

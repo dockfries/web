@@ -1,49 +1,49 @@
 ---
 title: SetPlayerCameraPos
 sidebar_label: SetPlayerCameraPos
-description: Sets the camera to a specific position for a player.
-tags: ["player", "camera"]
+description: 设置玩家的视角到指定位置
+tags: ["玩家", "视角"]
 ---
 
-## Description
+## 描述
 
-Sets the camera to a specific position for a player.
+设置玩家的视角到指定位置
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| playerid | ID of the player                         |
-| Float:x  | The X coordinate to place the camera at. |
-| Float:y  | The Y coordinate to place the camera at. |
-| Float:z  | The Z coordinate to place the camera at. |
+| 参数名   | 说明                          |
+| -------- | ----------------------------- |
+| playerid | 要设置的目标玩家 ID           |
+| Float:x  | 视角设定的 X 坐标（浮点型） |
+| Float:y  | 视角设定的 Y 坐标（浮点型） |
+| Float:z  | 视角设定的 Z 坐标（浮点型） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player specified doesn't exist.
+**false** - 函数执行失败（指定玩家不存在）
 
-## Examples
+## 示例
 
 ```c
 SetPlayerCameraPos(playerid, 652.23, 457.21, 10.84);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- You may also have to use SetPlayerCameraLookAt with this function in order to work properly.
-- Use SetCameraBehindPlayer to reset the camera to behind the player.
+- 需配合使用 SetPlayerCameraLookAt 以确保功能正常
+- 使用 SetCameraBehindPlayer 可重置视角至玩家身后视角
 
 :::
 
 :::warning
 
-Using the camera functions directly after enabling spectator mode doesn't work.
+在启用观战模式后立即调用本函数无效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerCameraLookAt](SetPlayerCameraLookAt): Set where a player's camera should face.
-- [SetCameraBehindPlayer](SetCameraBehindPlayer): Set a player's camera behind them.
+- [SetPlayerCameraLookAt](SetPlayerCameraLookAt): 设置玩家视角的观察焦点
+- [SetCameraBehindPlayer](SetCameraBehindPlayer): 将视角重置至玩家身后视角

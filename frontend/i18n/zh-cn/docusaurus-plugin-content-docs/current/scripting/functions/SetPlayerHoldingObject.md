@@ -1,54 +1,54 @@
 ---
 title: SetPlayerHoldingObject
 sidebar_label: SetPlayerHoldingObject
-description: Attaches an object to a bone.
-tags: ["player"]
+description: 将物体附加到骨骼上。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Attaches an object to a bone.
+将物体附加到骨骼上。
 
-| Name     | Description                                                       |
-| -------- | ----------------------------------------------------------------- |
-| playerid | ID of the player you want to attach the object to.                |
-| modelid  | The model you want to use.                                        |
-| bone     | The [bone](../resources/boneid) you want to attach the object to. |
-| fOffsetX | (optional) X axis offset for the object position.                 |
-| fOffsetY | (optional) Y axis offset for the object position.                 |
-| fOffsetZ | (optional) Z axis offset for the object position.                 |
-| fRotX    | (optional) X axis rotation of the object.                         |
-| fRotY    | (optional) Y axis rotation of the object.                         |
-| fRotZ    | (optional) Z axis rotation of the object.                         |
+| 参数名   | 说明                               |
+| -------- | ---------------------------------- |
+| playerid | 要附加物体的玩家 ID                |
+| modelid  | 使用的物体模型 ID                  |
+| bone     | 目标[骨骼 ID](../resources/boneid) |
+| fOffsetX | (可选) X 轴位置偏移量              |
+| fOffsetY | (可选) Y 轴位置偏移量              |
+| fOffsetZ | (可选) Z 轴位置偏移量              |
+| fRotX    | (可选) X 轴旋转角度                |
+| fRotY    | (可选) Y 轴旋转角度                |
+| fRotZ    | (可选) Z 轴旋转角度                |
 
-## Returns
+## 返回值
 
-1 on success, 0 on failure
+成功返回 **1**，失败返回 **0**。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerSpawn(playerid)
 {
-    SetPlayerHoldingObject(playerid, 1609, 2); //Attach a turtle to the playerid's head!
+    SetPlayerHoldingObject(playerid, 1609, 2); // 将乌龟附加到玩家头部
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Only one object may be attached per player. This function is seperate from the CreateObject / CreatePlayerObject pools.
+每个玩家只能附加一个物体。本函数与 CreateObject/CreatePlayerObject 对象池相互独立
 
 :::
 
 :::warning
 
-This function was removed in SA-MP 0.3c. See [SetPlayerAttachedObject](SetPlayerAttachedObject)
+该函数已在 SA-MP 0.3c 版本移除，请使用[SetPlayerAttachedObject](SetPlayerAttachedObject)
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [StopPlayerHoldingObject](StopPlayerHoldingObject): Removes attached objects.
+- [StopPlayerHoldingObject](StopPlayerHoldingObject): 移除附加物体

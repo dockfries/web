@@ -1,42 +1,42 @@
 ---
 title: SetPlayerRaceCheckpoint
 sidebar_label: SetPlayerRaceCheckpoint
-description: Creates a race checkpoint.
-tags: ["player", "checkpoint", "racecheckpoint"]
+description: 创建竞速检查点。
+tags: ["玩家", "检查点", "竞速检查点"]
 ---
 
-## Description
+## 描述
 
-Creates a race checkpoint. When the player enters it, the OnPlayerEnterRaceCheckpoint callback is called.
+创建竞速检查点。当玩家进入时，将触发 OnPlayerEnterRaceCheckpoint 回调。
 
-| Name          | Description                                                    |
-| ------------- | -------------------------------------------------------------- |
-| playerid      | The ID of the player to set the checkpoint for                 |
-| CP_TYPE:type  | [Type of race checkpoint](../resources/race-checkpoint-types)  |
-| Float:centreX | X-Coordinate                                                   |
-| Float:centreY | Y-Coordinate                                                   |
-| Float:centreZ | Z-Coordinate                                                   |
-| Float:nextX   | X-Coordinate of the next point, for the arrow facing direction |
-| Float:nextY   | Y-Coordinate of the next point, for the arrow facing direction |
-| Float:nextZ   | Z-Coordinate of the next point, for the arrow facing direction |
-| Float:radius  | Size (diameter) of the checkpoint                              |
+| 名称          | 说明                                                 |
+| ------------- | ---------------------------------------------------- |
+| playerid      | 要设置检查点的玩家 ID                                |
+| CP_TYPE:type  | [竞速检查点类型](../resources/race-checkpoint-types) |
+| Float:centreX | X 坐标                                               |
+| Float:centreY | Y 坐标                                               |
+| Float:centreZ | Z 坐标                                               |
+| Float:nextX   | 箭头指向的下个点 X 坐标                              |
+| Float:nextY   | 箭头指向的下个点 Y 坐标                              |
+| Float:nextZ   | 箭头指向的下个点 Z 坐标                              |
+| Float:radius  | 检查点的大小（直径）                                 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. This means the player specified does not exist.
+**false** - 函数执行失败。指定的玩家不存在。
 
-## Examples
+## 示例
 
 ```c
 SetPlayerRaceCheckpoint(playerid, CP_TYPE_GROUND_NORMAL, 644.3091, 1767.0223, 4.9970, 650.6734, 1812.0367, 4.9970, 3.0);
 ```
 
-Another example:
+另一个示例：
 
 ```c
-//from Yagu's race filterscript, (c) by Yagu
+// 来自Yagu的竞速滤镜脚本，版权所有：Yagu
 public SetRaceCheckpoint(playerid, Airrace, target, next)
 {
     if (next == -1 && Airrace == 0)
@@ -58,31 +58,31 @@ public SetRaceCheckpoint(playerid, Airrace, target, next)
 }
 ```
 
-## Notes
+## 注意
 
 :::warning
 
-Race checkpoints are asynchronous, meaning only one can be shown at a time. To 'stream' race checkpoints (only show them when players are close enough), use a race checkpoint streamer.
+竞速检查点是异步的，同一时间只能显示一个。要实现"流加载"效果（仅在玩家接近时显示），请使用竞速检查点流加载器。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerCheckpoint](SetPlayerCheckpoint): Create a checkpoint for a player.
-- [DisablePlayerCheckpoint](DisablePlayerCheckpoint): Disable the player's current checkpoint.
-- [IsPlayerInCheckpoint](IsPlayerInCheckpoint): Check if a player is in a checkpoint.
-- [DisablePlayerRaceCheckpoint](DisablePlayerRaceCheckpoint): Disable the player's current race checkpoint.
-- [GetPlayerRaceCheckpoint](GetPlayerRaceCheckpoint): Get the location of the current race checkpoint.
-- [IsPlayerInRaceCheckpoint](IsPlayerInRaceCheckpoint): Check if a player is in a race checkpoint.
-- [IsPlayerRaceCheckpointActive](IsPlayerRaceCheckpointActive): Check if the player currently has a race checkpoint visible.
+- [SetPlayerCheckpoint](SetPlayerCheckpoint): 为玩家创建普通检查点
+- [DisablePlayerCheckpoint](DisablePlayerCheckpoint): 禁用玩家的当前检查点
+- [IsPlayerInCheckpoint](IsPlayerInCheckpoint): 检测玩家是否处于检查点内
+- [DisablePlayerRaceCheckpoint](DisablePlayerRaceCheckpoint): 禁用玩家的当前竞速检查点
+- [GetPlayerRaceCheckpoint](GetPlayerRaceCheckpoint): 获取当前竞速检查点位置
+- [IsPlayerInRaceCheckpoint](IsPlayerInRaceCheckpoint): 检测玩家是否处于竞速检查点内
+- [IsPlayerRaceCheckpointActive](IsPlayerRaceCheckpointActive): 检测玩家当前是否有可见的竞速检查点
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerEnterCheckpoint](../callbacks/OnPlayerEnterCheckpoint): Called when a player enters a checkpoint.
-- [OnPlayerLeaveCheckpoint](../callbacks/OnPlayerLeaveCheckpoint): Called when a player leaves a checkpoint.
-- [OnPlayerEnterRaceCheckpoint](../callbacks/OnPlayerEnterRaceCheckpoint): Called when a player enters a race checkpoint.
-- [OnPlayerLeaveRaceCheckpoint](../callbacks/OnPlayerLeaveRaceCheckpoint): Called when a player leaves a race checkpoint.
+- [OnPlayerEnterCheckpoint](../callbacks/OnPlayerEnterCheckpoint): 玩家进入检查点时触发
+- [OnPlayerLeaveCheckpoint](../callbacks/OnPlayerLeaveCheckpoint): 玩家离开检查点时触发
+- [OnPlayerEnterRaceCheckpoint](../callbacks/OnPlayerEnterRaceCheckpoint): 玩家进入竞速检查点时触发
+- [OnPlayerLeaveRaceCheckpoint](../callbacks/OnPlayerLeaveRaceCheckpoint): 玩家离开竞速检查点时触发
 
-## Related Resources
+## 相关资源
 
-- [Types of race checkpoints](../resources/race-checkpoint-types).
+- [竞速检查点类型](../resources/race-checkpoint-types)

@@ -1,76 +1,75 @@
 ---
 title: strcmp
 sidebar_label: strcmp
-description: Compares two strings to see if they are the same.
-tags: ["string"]
+description: 比较两个字符串是否相同。
+tags: ["字符串"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Compares two strings to see if they are the same.
+比较两个字符串是否相同。
 
-| Name                         | Description                                                                                                                                 |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| const string1[]              | The first string to compare.                                                                                                                |
-| const string2[]              | The second string to compare.                                                                                                               |
-| bool:ignorecase _(optional)_ | When set to **true**, the case doesn't matter - HeLLo is the same as Hello. When **false**, they're not the same.                           |
-| length _(optional)_          | When this length is set, the first x chars will be compared - doing "Hello" and "Hell No" with a length of 4 will say it's the same string. |
+## 参数
 
-## Returns
+| 名称                     | 说明                                                                                 |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| const string1[]          | 要比较的第一个字符串                                                                 |
+| const string2[]          | 要比较的第二个字符串                                                                 |
+| bool:ignorecase _(可选)_ | 设为 **true** 时忽略大小写（HeLLo 与 Hello 视为相同），设为 **false** 时区分大小写   |
+| length _(可选)_          | 设置比较长度，仅比较前 X 个字符（如用长度 4 比较 "Hello" 和 "Hell No" 将判定为相同） |
 
-**0** if strings match each other on given length.
+## 返回值
 
-**1** or **-1** if some character do not match: `string1[i] - string2[i]` ('`i`' represents character index starting from 0)
+- **0**：在指定长度内字符串完全匹配
+- **1** 或 **-1**：存在不匹配字符（计算方式为 `string1[i] - string2[i]`，i 表示从 0 开始的字符索引）
+- **字符数差异**：当某一字符串仅部分匹配另一字符串时返回字符数量差
 
-**difference in number of characters** if one string matches only part of another string.
-
-## Examples
+## 示例
 
 ```c
 new string1[] = "Hello World";
 new string2[] = "Hello World";
 
-// Check if the strings are the same
+// 检查字符串是否相同
 if (!strcmp(string1, string2))
 
 new string3[] = "Hell";
 
-// Check if the first 4 characters match
+// 检查前4个字符是否匹配
 if (!strcmp(string2, string3, false, 4))
 
-// Check for null strings with isnull()
+// 使用 isnull() 检查空字符串
 if (!strcmp(string1, string2) && !isnull(string1) && !isnull(string2))
 
-// Definition for isnull():
+// isnull() 宏定义：
 #if !defined isnull
     #define isnull(%1) ((!(%1[0])) || (((%1[0]) == '\1') && (!(%1[1]))))
 #endif
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-- This function returns **0** if either string is empty. Check for null strings with `isnull()`.
-
-- If you compare strings from a text file, you should take in to account the 'carriage return' and 'new line' special characters (`\r` `\n`), as they are included, when using [fread](fread).
+- 当任一字符串为空时本函数会返回 **0**，请使用 `isnull()` 进行空值检测
+- 比较来自文本文件的字符串时需注意回车符 (`\r`) 和换行符 (`\n`)，使用 [fread](fread) 读取时会包含这些特殊字符
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [strfind](strfind): Search for a string in another string.
-- [strequal](strequal): Compares two strings to see if they are the same.
-- [strdel](strdel): Delete part of a string.
-- [strins](strins): Insert text into a string.
-- [strlen](strlen): Get the length of a string.
-- [strmid](strmid): Extract part of a string into another string.
-- [strpack](strpack): Pack a string into a destination string.
-- [strval](strval): Convert a string into an integer.
-- [strcat](strcat): Concatenate two strings into a destination reference.
+- [strfind](strfind): 在字符串中搜索子串
+- [strequal](strequal): 判断两个字符串是否相同
+- [strdel](strdel): 删除字符串片段
+- [strins](strins): 插入字符串内容
+- [strlen](strlen): 获取字符串长度
+- [strmid](strmid): 截取子字符串
+- [strpack](strpack): 打包字符串
+- [strval](strval): 字符串转整型
+- [strcat](strcat): 字符串拼接
 
-## Tutorials
+## 教程指南
 
-- [String Manipulation](../../tutorials/stringmanipulation)
+- [字符串操作技巧](../../tutorials/stringmanipulation)

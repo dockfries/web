@@ -1,57 +1,57 @@
 ---
 title: TextDrawSetSelectable
 sidebar_label: TextDrawSetSelectable
-description: Sets whether a textdraw can be selected (clicked on) or not.
-tags: ["textdraw"]
+description: 设置文本绘图是否可被选中（点击）。
+tags: ["文本绘图"]
 ---
 
-## Description
+## 描述
 
-Sets whether a textdraw can be selected (clicked on) or not
+设置文本绘图是否可被选中（点击）
 
-| Name            | Description                                                         |
-| --------------- | ------------------------------------------------------------------- |
-| Text:textid     | The ID of the textdraw to make selectable.                          |
-| bool:selectable | 'true' to make it selectable, or 'false' to make it not selectable. |
+| 名称            | 描述                                    |
+| --------------- | --------------------------------------- |
+| Text:textid     | 需要设置可选中状态的文本绘图 ID。       |
+| bool:selectable | 'true'表示可选中，'false'表示不可选中。 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+此函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(100.0, 33.0, "Example TextDraw");
+    gMyTextdraw = TextDrawCreate(100.0, 33.0, "示例文本绘图");
     TextDrawTextSize(gMyTextdraw, 30.0, 10.0);
-    TextDrawSetSelectable(gMyTextdraw, true);
+    TextDrawSetSelectable(gMyTextdraw, true); // true表示可选中
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Use [TextDrawTextSize](TextDrawTextSize) to define the clickable area.
+使用[TextDrawTextSize](TextDrawTextSize)定义可点击区域的范围。
 
 :::
 
 :::warning
 
-TextDrawSetSelectable must be used BEFORE the textdraw is shown to players for it to be selectable.
+必须在文本绘图显示给玩家前调用 TextDrawSetSelectable 才能生效。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawIsSelectable](TextDrawIsSelectable): Checks if a textdraw is selectable.
-- [SelectTextDraw](SelectTextDraw): Enables the mouse, so the player can select a textdraw
-- [CancelSelectTextDraw](CancelSelectTextDraw): Cancel textdraw selection with the mouse
+- [TextDrawIsSelectable](TextDrawIsSelectable): 检查文本绘图是否可选中
+- [SelectTextDraw](SelectTextDraw): 启用鼠标选择功能
+- [CancelSelectTextDraw](CancelSelectTextDraw): 取消文本绘图的鼠标选择状态
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): Called when a player clicks on a textdraw.
+- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): 当玩家点击文本绘图时触发

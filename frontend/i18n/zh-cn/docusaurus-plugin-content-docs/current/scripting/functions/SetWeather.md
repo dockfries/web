@@ -1,51 +1,51 @@
 ---
 title: SetWeather
 sidebar_label: SetWeather
-description: Set the world weather for all players.
+description: 为所有玩家设置世界天气。
 tags: []
 ---
 
-## Description
+## 描述
 
-Set the world weather for all players.
+为所有玩家设置全局天气效果。
 
-| Name      | Description                                   |
-| --------- | --------------------------------------------- |
-| weatherid | The [weather](../resources/weatherid) to set. |
+| 参数名    | 说明                                      |
+| --------- | ----------------------------------------- |
+| weatherid | 要设置的[天气 ID](../resources/weatherid) |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
-    if (!strcmp(cmdtext, "/sandstorm", true))
+    if (!strcmp(cmdtext, "/sandstorm", true)) // 检测沙尘暴指令
     {
-        SetWeather(19);
+        SetWeather(19); // 设置19号沙尘暴天气
         return 1;
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- If [TogglePlayerClock](TogglePlayerClock) is enabled, weather will slowly change over time, instead of changing instantly.
-- There are only valid 21 weather IDs in the game (0 - 20), however the game does not have any form of range check.
+• 启用[TogglePlayerClock](TogglePlayerClock)后天气会渐变切换，而非立即生效
+• 游戏仅支持 0-20 共 21 种天气 ID，但未做范围校验
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetWeather](GetWeather): Get the current world weather.
-- [SetPlayerWeather](SetPlayerWeather): Set a player's weather.
-- [SetGravity](SetGravity): Set the global gravity.
+- [GetWeather](GetWeather): 获取当前全局天气
+- [SetPlayerWeather](SetPlayerWeather): 设置玩家独立天气
+- [SetGravity](SetGravity): 设置全局重力参数
 
-## Related Resources
+## 相关资源
 
-- [Weather IDs](../resources/weatherid)
+- [天气 ID 对照表](../resources/weatherid)

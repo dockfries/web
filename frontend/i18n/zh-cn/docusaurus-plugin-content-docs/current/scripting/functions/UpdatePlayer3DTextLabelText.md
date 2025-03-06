@@ -1,38 +1,38 @@
 ---
 title: UpdatePlayer3DTextLabelText
 sidebar_label: UpdatePlayer3DTextLabelText
-description: Updates a player 3D Text Label's text and color.
-tags: ["player", "3dtextlabel"]
+description: 更新玩家3D文本标签的文本内容及颜色。
+tags: ["玩家", "3D文本标签"]
 ---
 
-## Description
+## 描述
 
-Updates a player 3D Text Label's text and color
+更新指定玩家 3D 文本标签的文本内容及颜色。
 
-| Name                | Description                                                   |
-| ------------------- | ------------------------------------------------------------- |
-| playerid            | The ID of the player for which the 3D Text Label was created. |
-| PlayerText3D:textid | The 3D Text Label you want to update.                         |
-| colour              | The color the 3D Text Label should have from now on.          |
-| const text[]        | The new text which the 3D Text Label should have from now on. |
-| OPEN_MP_TAGS:...    | Indefinite number of arguments of any tag.                    |
+| 名称                | 描述                                         |
+| ------------------- | -------------------------------------------- |
+| playerid            | 创建该 3D 文本标签的玩家 ID                  |
+| PlayerText3D:textid | 需要更新的 3D 文本标签 ID                    |
+| colour              | 3D 文本标签的新颜色值（十六进制格式）        |
+| const text[]        | 3D 文本标签的新文本内容                      |
+| OPEN_MP_TAGS:...    | 用于格式化文本的可变参数（类似 printf 语法） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Notes
+## 注意事项
 
 :::warning
 
-If text[] is empty, the server/clients next to the text might crash! (Fixed in open.mp)
+若 text[]为空字符串，原版 SA-MP 中附近客户端/服务端可能崩溃！（该问题在 open.mp 中已修复）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): Create A 3D text label for one player.
-- [DeletePlayer3DTextLabel](DeletePlayer3DTextLabel): Delete a player's 3D text label.
-- [GetPlayer3DTextLabelText](GetPlayer3DTextLabelText): Gets the player's 3D text label text.
-- [GetPlayer3DTextLabelColour](GetPlayer3DTextLabelColour): Gets the player's 3D text label colour.
-- [Update3DTextLabelText](Update3DTextLabelText): Change the text of a 3D text label.
+- [CreatePlayer3DTextLabel](CreatePlayer3DTextLabel): 为指定玩家创建 3D 文本标签
+- [DeletePlayer3DTextLabel](DeletePlayer3DTextLabel): 删除玩家的 3D 文本标签
+- [GetPlayer3DTextLabelText](GetPlayer3DTextLabelText): 获取玩家 3D 文本标签的文本内容
+- [GetPlayer3DTextLabelColour](GetPlayer3DTextLabelColour): 获取玩家 3D 文本标签的颜色值
+- [Update3DTextLabelText](Update3DTextLabelText): 更新全局 3D 文本标签的显示内容

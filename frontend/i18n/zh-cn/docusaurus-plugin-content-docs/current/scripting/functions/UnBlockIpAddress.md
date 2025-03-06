@@ -1,37 +1,37 @@
 ---
 title: UnBlockIpAddress
 sidebar_label: UnBlockIpAddress
-description: Unblock an IP address that was previously blocked using BlockIpAddress.
-tags: ["administration", "ip address"]
+description: 解除通过BlockIpAddress封禁的IP地址。
+tags: ["管理", "IP地址"]
 ---
 
-## Description
+## 描述
 
-Unblock an IP address that was previously blocked using [BlockIpAddress](BlockIpAddress).
+解除通过[BlockIpAddress](BlockIpAddress)封禁的 IP 地址。
 
-| Name              | Description                |
-| ----------------- | -------------------------- |
-| const ipAddress[] | The IP address to unblock. |
+| 名称              | 描述                   |
+| ----------------- | ---------------------- |
+| const ipAddress[] | 需要解除封禁的 IP 地址 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+此函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    UnBlockIpAddress("127.0.0.1");
+    UnBlockIpAddress("127.0.0.1"); // 解除本地IP地址的封禁
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [BlockIpAddress](BlockIpAddress): Block an IP address from connecting to the server for a set amount of time.
-- [IsBanned](IsBanned): Checks if the given IP address is banned.
+- [BlockIpAddress](BlockIpAddress): 封禁 IP 地址禁止连接服务器
+- [IsBanned](IsBanned): 检测指定 IP 是否被封禁
 
-## Related Callbacks
+## 相关回调
 
-- [OnIncomingConnection](../callbacks/OnIncomingConnection): Called when a player is attempting to connect to the server.
+- [OnIncomingConnection](../callbacks/OnIncomingConnection): 当玩家尝试连接服务器时触发

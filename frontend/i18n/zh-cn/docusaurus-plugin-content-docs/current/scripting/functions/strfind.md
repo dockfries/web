@@ -1,43 +1,43 @@
 ---
 title: strfind
 sidebar_label: strfind
-description: Search for a sub string in a string.
-tags: ["string"]
+description: 在字符串中搜索子字符串。
+tags: ["字符串"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Search for a sub string in a string.
+在字符串中搜索指定子字符串。
 
-| Name                         | Description                                                                                               |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
-| const string[]               | The string you want to search in (haystack).                                                              |
-| const sub[]                  | The string you want to search for (needle).                                                               |
-| bool:ignorecase _(optional)_ | When set to true, the case doesn't matter - HeLLo is the same as Hello. When false, they're not the same. |
-| Position _(optional)_        | The offset to start searching from.                                                                       |
+| 参数名称                     | 说明                                                                       |
+| ---------------------------- | -------------------------------------------------------------------------- |
+| const string[]               | 被搜索的目标字符串（haystack）                                             |
+| const sub[]                  | 需要查找的子字符串（needle）                                               |
+| bool:ignorecase _(可选参数)_ | 设为 true 时忽略大小写（HeLLo 与 Hello 视为相同），设为 false 时区分大小写 |
+| Position _(可选参数)_        | 指定搜索起始位置的字符偏移量                                               |
 
-## Returns
+## 返回值
 
-The number of characters before the sub string (the sub string's start position) or -1 if it's not found.
+返回子字符串的起始字符位置索引，若未找到则返回-1。
 
-## Examples
+## 示例代码
 
 ```c
-if (strfind("Are you in here?", "you", true) != -1) // Returns 4, because the start of 'you' (y) is at index 4 in the string
+if (strfind("Are you in here?", "you", true) != -1) // 返回4，因为子字符串'you'的起始位置在索引4
 {
-    SendClientMessageToAll(0xFFFFFFFF, "I found you!");
+    SendClientMessageToAll(0xFFFFFFFF, "找到目标字符串！");
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [strcmp](strcmp): Compare two strings to check if they are the same.
-- [strdel](strdel): Delete part of a string.
-- [strins](strins): Insert text into a string.
-- [strlen](strlen): Get the length of a string.
-- [strmid](strmid): Extract part of a string into another string.
-- [strpack](strpack): Pack a string into a destination string.
-- [strval](strval): Convert a string into an integer.
-- [strcat](strcat): Concatenate two strings into a destination reference.
+- [strcmp](strcmp): 比较两个字符串是否相同
+- [strdel](strdel): 删除字符串指定部分
+- [strins](strins): 向字符串插入内容
+- [strlen](strlen): 获取字符串长度
+- [strmid](strmid): 截取字符串片段
+- [strpack](strpack): 压缩字符串到目标变量
+- [strval](strval): 将字符串转为整数值
+- [strcat](strcat): 连接两个字符串到目标引用

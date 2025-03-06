@@ -1,26 +1,26 @@
 ---
 title: SetPlayerSpecialAction
 sidebar_label: SetPlayerSpecialAction
-description: This function allows to set players special action.
-tags: ["player"]
+description: 设置玩家执行特殊动作。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-This function allows to set players special action.
+设置玩家执行特殊动作。
 
-| Name                    | Description                                                         |
-| ----------------------- | ------------------------------------------------------------------- |
-| playerid                | The player that should perform the action                           |
-| SPECIAL_ACTION:actionid | The [action](../resources/specialactions) that should be performed. |
+| 参数名                  | 描述                                                |
+| ----------------------- | --------------------------------------------------- |
+| playerid                | 要执行特殊动作的玩家 ID                             |
+| SPECIAL_ACTION:actionid | 要执行的[特殊动作类型](../resources/specialactions) |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player is not connected.
+**false** - 函数执行失败（玩家未连接）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -39,19 +39,19 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 重要说明
 
 :::tip
 
-Removing jetpacks from players by setting their special action to `SPECIAL_ACTION_NONE` (0) causes the sound to stay until death. There is a solution for this, Just apply a random animation to the player and their jetpack will be removed.
+通过设置特殊动作类型为`SPECIAL_ACTION_NONE`（无动作）来移除喷气背包时，喷射音效会持续到玩家死亡。解决方法是对玩家应用随机动画即可正确移除喷气背包。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerSpecialAction](GetPlayerSpecialAction): Get a player's current special action.
-- [ApplyAnimation](ApplyAnimation): Apply an animation to a player.
+- [GetPlayerSpecialAction](GetPlayerSpecialAction): 获取玩家当前特殊动作
+- [ApplyAnimation](ApplyAnimation): 应用动画到玩家
 
-## Related Resources
+## 相关资源
 
-- [Special Action IDs](../resources/specialactions)
+- [特殊动作 ID 列表](../resources/specialactions)

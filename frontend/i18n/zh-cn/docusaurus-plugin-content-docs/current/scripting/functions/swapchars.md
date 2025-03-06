@@ -1,18 +1,20 @@
 ---
 title: swapchars
 sidebar_label: swapchars
-description: Swap bytes in a cell.
-tags: ["string"]
+description: 交换变量中的字节顺序。
+tags: ["字符串"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-| Name | Description                            |
-| ---- | -------------------------------------- |
-| c    | The value for which to swap the bytes. |
+交换变量中的字节顺序。
 
-## Returns
+| 参数名称 | 说明                     |
+| -------- | ------------------------ |
+| c        | 需要进行字节交换的变量值 |
 
-A value where the bytes are swapped (the lowest byte becomes the highest byte)
+## 返回值
+
+返回字节顺序交换后的变量值（最低有效字节变为最高有效字节）

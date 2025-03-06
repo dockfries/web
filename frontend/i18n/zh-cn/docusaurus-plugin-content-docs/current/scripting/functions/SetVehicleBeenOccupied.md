@@ -1,35 +1,36 @@
 ---
 title: SetVehicleBeenOccupied
 sidebar_label: SetVehicleBeenOccupied
-description: Sets the vehicle's occupancy.
-tags: ["vehicle"]
+description: 设置车辆的占用状态。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 :::warning
 
-This function has not yet been implemented.
+该功能在当前版本中尚未实现
 
 :::
 
-## Description
+## 描述
 
-Sets the vehicle's occupancy.
+设置车辆的占用状态标记。
 
-## Parameters
+## 参数说明
 
-| Name          | Description                                  |
-| ------------- | -------------------------------------------- |
-| vehicleid     | The ID of the vehicle.                       |
-| bool:occupied | **true**: occupied - **false**: not occupied |
+| 参数名        | 说明                                     |
+| ------------- | ---------------------------------------- |
+| vehicleid     | 目标车辆的 ID                            |
+| bool:occupied | **true**标记为占用 **false**清除占用标记 |
 
-## Examples
+## 示例代码
 
 ```c
+// 将指定车辆标记为已被占用
 SetVehicleBeenOccupied(vehicleid, true);
 ```
 
-## Related Functions
+## 相关函数
 
-- [HasVehicleBeenOccupied](HasVehicleBeenOccupied): Check if a vehicle is occupied.
+- [HasVehicleBeenOccupied](HasVehicleBeenOccupied): 检测车辆是否被标记为占用状态

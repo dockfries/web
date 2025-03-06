@@ -1,26 +1,26 @@
 ---
 title: SetVehicleZAngle
 sidebar_label: SetVehicleZAngle
-description: Set the Z rotation (yaw) of a vehicle.
-tags: ["vehicle"]
+description: 设置车辆Z轴旋转角度（偏航角）。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Set the Z rotation (yaw) of a vehicle.
+设置车辆 Z 轴旋转角度（偏航角）。
 
-| Name        | Description                                   |
-| ----------- | --------------------------------------------- |
-| vehicleid   | The ID of the vehicle to set the rotation of. |
-| Float:angle | The Z angle to set.                           |
+| 参数名      | 描述                              |
+| ----------- | --------------------------------- |
+| vehicleid   | 要设置旋转角度的车辆 ID           |
+| Float:angle | 要设置的 Z 轴旋转角度（单位：度） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The vehicle specified does not exist.
+**false** - 函数执行失败（指定的车辆不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -35,24 +35,24 @@ public OnPlayerCommandText(playerid, cmdtext[])
         GetVehicleZAngle(vehicleid, angle);
         SetVehicleZAngle(vehicleid, angle);
 
-        SendClientMessage(playerid, 0xFFFFFFFF, "Your vehicle has been flipped.");
+        SendClientMessage(playerid, 0xFFFFFFFF, "您的车辆已复位角度");
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 重要说明
 
 :::tip
 
-- A vehicle's X and Y (pitch and roll) rotation will be reset when this function is used.
-- The X and Y rotations can not be set.
-- This function does not work on unoccupied vehicles (It is believed to be a GTA limitation).
+- 使用本函数将重置车辆的 X/Y 轴旋转（俯仰和横滚）
+- X/Y 轴旋转角度不可通过本函数设置
+- 本函数对无人驾驶的车辆无效（GTA 引擎原生限制）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleZAngle](GetVehicleZAngle): Check the current angle of a vehicle.
-- [SetVehiclePos](SetVehiclePos): Set the position of a vehicle.
+- [GetVehicleZAngle](GetVehicleZAngle): 获取车辆当前 Z 轴角度
+- [SetVehiclePos](SetVehiclePos): 设置车辆坐标位置

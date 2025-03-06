@@ -1,36 +1,36 @@
 ---
 title: SetVehicleOccupiedTick
 sidebar_label: SetVehicleOccupiedTick
-description: Set the occupied tick of a vehicle.
-tags: ["vehicle"]
+description: 设置车辆的占用时间戳。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 :::warning
 
-This function has not yet been implemented.
+该函数暂未实现。
 
 :::
 
-## Description
+## 描述
 
-Set the occupied tick of a vehicle.
+设置车辆的占用时间戳。
 
-## Parameters
+## 参数
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | The ID of the vehicle. |
-| ticks     | The ticks to set.      |
+| 参数名    | 描述               |
+| --------- | ------------------ |
+| vehicleid | 要设置的车辆 ID    |
+| ticks     | 要设置的时间戳数值 |
 
-## Return Values
+## 返回值
 
-**true** - Function executed successfully.
+**true** - 函数执行成功
 
-**false** - Function failed to execute.
+**false** - 函数执行失败
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -42,6 +42,6 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleOccupiedTick](GetVehicleOccupiedTick): Get the occupied tick of a vehicle.
+- [GetVehicleOccupiedTick](GetVehicleOccupiedTick): 获取车辆的占用时间戳

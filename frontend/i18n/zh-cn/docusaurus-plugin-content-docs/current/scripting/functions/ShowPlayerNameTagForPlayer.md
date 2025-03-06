@@ -1,55 +1,55 @@
 ---
 title: ShowPlayerNameTagForPlayer
 sidebar_label: ShowPlayerNameTagForPlayer
-description: This functions allows you to toggle the drawing of player nametags, healthbars and armor bars which display above their head.
-tags: ["player"]
+description: 此函数允许您切换玩家头顶显示的玩家名称标签、生命条和护甲条的绘制。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-This functions allows you to toggle the drawing of player nametags, healthbars and armor bars which display above their head. For use of a similar function like this on a global level, [ShowNameTags](ShowNameTags) function.
+此函数允许您切换玩家头顶显示的玩家名称标签、生命条和护甲条的绘制。若需全局控制类似功能，请使用[ShowNameTags](ShowNameTags)函数。
 
-| Name      | Description                                          |
-| --------- | ---------------------------------------------------- |
-| playerid  | Player who will see the results of this function.    |
-| targetid  | Player whose name tag will be shown or hidden.       |
-| bool:show | 'true' for show name tag, 'false' for hide name tag. |
+| 参数      | 说明                                  |
+| --------- | ------------------------------------- |
+| playerid  | 将看到此函数生效结果的观察者玩家 ID   |
+| targetid  | 需要显示/隐藏名称标签的目标玩家 ID    |
+| bool:show | true 显示名称标签，false 隐藏名称标签 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player specified does not exist.
+**false** - 函数执行失败（指定玩家不存在）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
-    // The player who typed /nameoff will not be able to see any other players nametag.
+    // 输入/nameoff的玩家将无法看到其他玩家的名称标签
     if (strcmp("/nameoff", cmdtext, true) == 0)
     {
         for (new i = 0; i < MAX_PLAYERS; i++)
         {
             ShowPlayerNameTagForPlayer(playerid, i, false);
         }
-        GameTextForPlayer(playerid, "~W~Nametags ~R~off", 5000, 5);
+        GameTextForPlayer(playerid, "~W~名称标签 ~R~已关闭", 5000, 5);
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-[ShowNameTags](ShowNameTags) must be set to 'true' to be able to show name tags with ShowPlayerNameTagForPlayer, that means that in order to be effective you need to ShowPlayerNameTagForPlayer(forplayerid, playerid, 0) ahead of time ([OnPlayerStreamIn](../callbacks/OnPlayerStreamIn) is a good spot).
+需先通过[ShowNameTags](ShowNameTags)启用全局名称标签显示，本函数才能生效。建议在玩家流加载时（[OnPlayerStreamIn](../callbacks/OnPlayerStreamIn)回调）预先设置 ShowPlayerNameTagForPlayer(forplayerid, playerid, 0)。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [ShowNameTags](ShowNameTags): Set nametags on or off.
-- [DisableNameTagLOS](DisableNameTagLOS): Disable nametag Line-Of-Sight checking.
-- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): Set a player's marker.
+- [ShowNameTags](ShowNameTags): 设置名称标签显示开关
+- [DisableNameTagLOS](DisableNameTagLOS): 禁用名称标签的视线检测
+- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): 设置玩家地图标记

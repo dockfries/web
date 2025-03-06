@@ -1,45 +1,45 @@
 ---
 title: SetSVarString
 sidebar_label: SetSVarString
-description: Set a string server variable.
-tags: ["server variable", "svar"]
+description: 设置字符串型服务器变量。
+tags: ["服务器变量", "svar"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7 R2' />
 
-## Description
+## 描述
 
-Set a string server variable.
+设置字符串型服务器变量。
 
-| Name             | Description                                |
-| ---------------- | ------------------------------------------ |
-| const svar[]     | The name of the server variable.           |
-| const value[]    | The string to be set.                      |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag. |
+| 名称             | 说明                       |
+| ---------------- | -------------------------- |
+| const svar[]     | 服务器变量名称             |
+| const value[]    | 要设置的字符串值           |
+| OPEN_MP_TAGS:... | 不定数量的任意标签类型参数 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. The variable name is null or over 40 characters.
+**false** - 函数执行失败。变量名为空或超过 40 字符。
 
-## Examples
+## 示例
 
 ```c
-// set "Version"
+// 设置版本号
 SetSVarString("Version", "0.3.7");
 
-// will print version that server has
+// 打印服务器版本
 new string[5 + 1];
 GetSVarString("Version", string, sizeof(string));
-printf("Version: %s", string);
+printf("版本号: %s", string);
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetSVarInt](SetSVarInt): Set an integer for a server variable.
-- [GetSVarInt](GetSVarInt): Get a player server as an integer.
-- [GetSVarString](GetSVarString): Get the previously set string from a server variable.
-- [SetSVarFloat](SetSVarFloat): Set a float for a server variable.
-- [GetSVarFloat](GetSVarFloat): Get the previously set float from a server variable.
-- [DeleteSVar](DeleteSVar): Delete a server variable.
+- [SetSVarInt](SetSVarInt): 设置整型服务器变量
+- [GetSVarInt](GetSVarInt): 获取整型服务器变量值
+- [GetSVarString](GetSVarString): 获取字符串型服务器变量值
+- [SetSVarFloat](SetSVarFloat): 设置浮点型服务器变量
+- [GetSVarFloat](GetSVarFloat): 获取浮点型服务器变量值
+- [DeleteSVar](DeleteSVar): 删除服务器变量

@@ -1,33 +1,34 @@
 ---
 title: ShowMenuForPlayer
 sidebar_label: ShowMenuForPlayer
-description: Shows a previously created menu for a player.
-tags: ["player", "menu"]
+description: 向指定玩家显示已创建的菜单界面。
+tags: ["玩家", "菜单"]
 ---
 
-## Description
+## 描述
 
-Shows a previously created menu for a player.
+向指定玩家显示已创建的菜单界面。
 
-| Name        | Description                                          |
-| ----------- | ---------------------------------------------------- |
-| Menu:menuid | The ID of the menu to show. Returned by CreateMenu.  |
-| playerid    | The ID of the player to whom the menu will be shown. |
+| 参数名      | 描述                                    |
+| ----------- | --------------------------------------- |
+| Menu:menuid | 要显示的菜单 ID（通过 CreateMenu 创建） |
+| playerid    | 目标玩家 ID                             |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. Menu and/or player doesn't exist.
+**false** - 函数执行失败（菜单或玩家不存在）
 
-## Examples
+## 示例
 
 ```c
 new Menu:exampleMenu;
 
 public OnGameModeInit()
 {
-    exampleMenu = CreateMenu("Example Menu", 2, 200.0, 100.0, 150.0, 150.0);
+    // 创建双列菜单
+    exampleMenu = CreateMenu("示例菜单", 2, 200.0, 100.0, 150.0, 150.0);
     return 1;
 }
 
@@ -35,6 +36,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (strcmp(cmdtext, "/menu", true) == 0)
     {
+        // 显示菜单给玩家
         ShowMenuForPlayer(exampleMenu, playerid);
         return 1;
     }
@@ -42,22 +44,22 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Crashes the both server and player if an invalid menu ID given.
+传入无效的菜单 ID 将导致服务端与客户端同时崩溃！
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreateMenu](CreateMenu): Create a menu.
-- [AddMenuItem](AddMenuItem): Adds an item to a specified menu.
-- [SetMenuColumnHeader](SetMenuColumnHeader): Set the header for one of the columns in a menu.
-- [DestroyMenu](DestroyMenu): Destroy a menu.
+- [CreateMenu](CreateMenu): 创建新菜单
+- [AddMenuItem](AddMenuItem): 添加菜单选项
+- [SetMenuColumnHeader](SetMenuColumnHeader): 设置菜单列标题
+- [DestroyMenu](DestroyMenu): 销毁菜单
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerSelectedMenuRow](../callbacks/OnPlayerSelectedMenuRow): Called when a player selected a row in a menu.
-- [OnPlayerExitedMenu](../callbacks/OnPlayerExitedMenu): Called when a player exits a menu.
+- [OnPlayerSelectedMenuRow](../callbacks/OnPlayerSelectedMenuRow): 玩家选择菜单项时触发
+- [OnPlayerExitedMenu](../callbacks/OnPlayerExitedMenu): 玩家退出菜单时触发

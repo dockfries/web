@@ -1,49 +1,49 @@
 ---
 title: SetPVarInt
 sidebar_label: SetPVarInt
-description: Set an integer player variable.
-tags: ["player variable", "pvar"]
+description: 设置整数型玩家变量。
+tags: ["玩家变量", "pvar"]
 ---
 
-## Description
+## 描述
 
-Set an integer player variable.
+设置一个整数类型的玩家变量。
 
-| Name         | Description                                             |
-| ------------ | ------------------------------------------------------- |
-| playerid     | The ID of the player whose player variable will be set. |
-| const pvar[] | The name of the player variable.                        |
-| value        | The integer to be set.                                  |
+| 参数名       | 说明                       |
+| ------------ | -------------------------- |
+| playerid     | 需要设置变量的玩家 ID      |
+| const pvar[] | 变量名称（需用双引号包裹） |
+| value        | 要存储的整数值             |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. Either the player specified is not connected, or the variable name is null or over 40 characters.
+**false** - 函数执行失败（玩家未连接或变量名为空/超过 40 字符）
 
-## Examples
+## 示例代码
 
 ```c
-// set GetPlayerMoney the value of player variable named "Money"
+// 将玩家当前金钱存储到名为"Money"的变量
 SetPVarInt(playerid, "Money", GetPlayerMoney(playerid));
 
-// will print money that player has
-printf("money: %d", GetPVarInt(playerid, "Money"));
+// 打印玩家存储的金钱数值
+printf("当前金钱: %d", GetPVarInt(playerid, "Money"));
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Variables aren't reset until after [OnPlayerDisconnect](../callbacks/OnPlayerDisconnect) is called, so the values are still accessible in OnPlayerDisconnect.
+玩家变量在[OnPlayerDisconnect](../callbacks/OnPlayerDisconnect)回调触发前不会被重置，因此在该回调中仍可访问变量值。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPVarInt](GetPVarInt): Get the previously set integer from a player variable.
-- [SetPVarString](SetPVarString): Set a string for a player variable.
-- [GetPVarString](GetPVarString): Get the previously set string from a player variable.
-- [SetPVarFloat](SetPVarFloat): Set a float for a player variable.
-- [GetPVarFloat](GetPVarFloat): Get the previously set float from a player variable.
-- [DeletePVar](DeletePVar): Delete a player variable.
+- [GetPVarInt](GetPVarInt): 获取已存储的整数值
+- [SetPVarString](SetPVarString): 设置字符串型玩家变量
+- [GetPVarString](GetPVarString): 获取已存储的字符串值
+- [SetPVarFloat](SetPVarFloat): 设置浮点型玩家变量
+- [GetPVarFloat](GetPVarFloat): 获取已存储的浮点数值
+- [DeletePVar](DeletePVar): 删除玩家变量

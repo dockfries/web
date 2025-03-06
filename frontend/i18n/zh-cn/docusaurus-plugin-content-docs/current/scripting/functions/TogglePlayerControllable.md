@@ -1,37 +1,37 @@
 ---
 title: TogglePlayerControllable
 sidebar_label: TogglePlayerControllable
-description: Toggles whether a player can control their character or not.
-tags: ["player"]
+description: 切换玩家角色控制状态
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Toggles whether a player can control their character or not. The player will also be unable to move their camera.
+切换玩家是否能够控制其角色。该操作同时会禁用镜头转动功能。
 
-| Name              | Description                                                            |
-| ----------------- | ---------------------------------------------------------------------- |
-| playerid          | The ID of the player to toggle the controllability of                  |
-| bool:controllable | 'false' to make them uncontrollable, 'true' to make them controllable. |
+| 名称              | 描述                            |
+| ----------------- | ------------------------------- |
+| playerid          | 需要设置控制状态的玩家 ID       |
+| bool:controllable | 'false'禁用控制，'true'启用控制 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player specified does not exist.
+**false** - 函数执行失败（指定玩家不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
-     // Freezes a player when they types /freezeme
+     // 当玩家输入/freezeme时冻结玩家
      if (strcmp(cmdtext, "/freezeme", true) == 0)
      {
           TogglePlayerControllable(playerid, false);
           return 1;
      }
-     // Unfreezes a player when they types /unfreezeme
+     // 当玩家输入/unfreezeme时解冻玩家
      if (strcmp(cmdtext, "/unfreezeme", true) == 0)
      {
           TogglePlayerControllable(playerid, true);
@@ -41,6 +41,6 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerControllable](IsPlayerControllable): Check if the player is controllable.
+- [IsPlayerControllable](IsPlayerControllable): 检测玩家是否处于可控状态

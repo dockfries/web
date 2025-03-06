@@ -1,33 +1,33 @@
 ---
 title: uudecode
 sidebar_label: uudecode
-description: Decode an UU-encoded string.
-tags: ["string", "encryption"]
+description: 解码UU编码字符串
+tags: ["字符串", "加密"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Decode an UU-encoded string.
+解码 UU 编码格式的字符串。
 
-| Name                      | Description                                   |
-| ------------------------- | --------------------------------------------- |
-| dest[]                    | The destination for the decoded string array. |
-| const source[]            | The UU-encoded source string.                 |
-| maxlength = sizeof (dest) | The maximum length of dest that can be used.  |
+| 名称                      | 描述                     |
+| ------------------------- | ------------------------ |
+| dest[]                    | 存储解码结果的数组       |
+| const source[]            | 需要解码的 UU 编码字符串 |
+| maxlength = sizeof (dest) | 目标数组的最大可用长度   |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+此函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
-uudecode(normalString, encodedString);
+uudecode(normalString, encodedString); // 将encodedString解码到normalString数组
 ```
 
-## Related Functions
+## 相关函数
 
-- [uuencode](uuencode): Encode a string to an UU-decoded string.
-- [memcpy](memcpy): Copy bytes from one location to another.
+- [uuencode](uuencode): 将字符串编码为 UU 格式
+- [memcpy](memcpy): 内存数据复制函数

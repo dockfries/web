@@ -1,33 +1,33 @@
 ---
 title: UpdateVehicleDamageStatus
 sidebar_label: UpdateVehicleDamageStatus
-description: Sets the various visual damage statuses of a vehicle, such as popped tires, broken lights and damaged panels.
-tags: ["vehicle"]
+description: 设置车辆的各类视觉损坏状态，包括爆胎、车灯破损和车身面板损伤。
+tags: ["车辆"]
 ---
 
 :::tip
 
-For some useful functions for working with vehicle damage values, see [here](../resources/damagestatus).
+关于处理车辆损坏值的实用函数，请参阅[损坏状态](../resources/damagestatus)。
 
 :::
 
-## Description
+## 描述
 
-Sets the various visual damage statuses of a vehicle, such as popped tires, broken lights and damaged panels.
+设置车辆的各类视觉损坏状态，包括爆胎、车灯破损和车身面板损伤。
 
-| Name                        | Description                                       |
-| --------------------------- | ------------------------------------------------- |
-| vehicleid                   | The ID of the vehicle to set the damage of.       |
-| VEHICLE_PANEL_STATUS:panels | A set of bits containing the panel damage status. |
-| VEHICLE_DOOR_STATUS:doors   | A set of bits containing the door damage status.  |
-| VEHICLE_LIGHT_STATUS:lights | A set of bits containing the light damage status. |
-| VEHICLE_TIRE_STATUS:tires   | A set of bits containing the tire damage status.  |
+| 名称                        | 描述                      |
+| --------------------------- | ------------------------- |
+| vehicleid                   | 需要设置损坏状态的车辆 ID |
+| VEHICLE_PANEL_STATUS:panels | 包含面板损坏状态的位集合  |
+| VEHICLE_DOOR_STATUS:doors   | 包含车门损坏状态的位集合  |
+| VEHICLE_LIGHT_STATUS:lights | 包含车灯损坏状态的位集合  |
+| VEHICLE_TIRE_STATUS:tires   | 包含轮胎损坏状态的位集合  |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+此函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 new
@@ -38,29 +38,29 @@ new
 
 GetVehicleDamageStatus(vehicleid, panels, doors, lights, tires);
 
-tires = VEHICLE_TIRE_STATUS:15; // Setting tires to 15 will pop them all
+tires = VEHICLE_TIRE_STATUS:15; // 将轮胎状态设为15会使所有轮胎爆裂
 
-// Or do it like this:
+// 或使用位运算方式：
 tires = (VEHICLE_TIRE_STATUS_FRONT_LEFT_POPPED | VEHICLE_TIRE_STATUS_FRONT_RIGHT_POPPED | VEHICLE_TIRE_STATUS_REAR_LEFT_POPPED | VEHICLE_TIRE_STATUS_REAR_RIGHT_POPPED);
 
 UpdateVehicleDamageStatus(vehicleid, panels, doors, lights, tires);
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleHealth](SetVehicleHealth): Set the health of a vehicle.
-- [GetVehicleHealth](GetVehicleHealth): Check the health of a vehicle.
-- [RepairVehicle](RepairVehicle): Fully repair a vehicle.
-- [GetVehicleDamageStatus](GetVehicleDamageStatus): Get the vehicle damage state for each part individually.
+- [SetVehicleHealth](SetVehicleHealth): 设置车辆耐久值
+- [GetVehicleHealth](GetVehicleHealth): 获取车辆耐久值
+- [RepairVehicle](RepairVehicle): 完全修复车辆
+- [GetVehicleDamageStatus](GetVehicleDamageStatus): 获取车辆各部件损坏状态
 
-## Related Callbacks
+## 相关回调
 
-- [OnVehicleDamageStatusUpdate](../callbacks/OnVehicleDamageStatusUpdate): Called when a vehicle's damage state changes.
+- [OnVehicleDamageStatusUpdate](../callbacks/OnVehicleDamageStatusUpdate): 车辆损坏状态变化时触发
 
-## Related Resources
+## 相关资源
 
-- [Damage Status](../resources/damagestatus)
-- [Vehicle Panel Status](../resources/vehicle-panel-status)
-- [Vehicle Door Status](../resources/vehicle-door-status)
-- [Vehicle Light Status](../resources/vehicle-light-status)
-- [Vehicle Tire Status](../resources/vehicle-tire-status)
+- [损坏状态](../resources/damagestatus)
+- [车辆面板状态](../resources/vehicle-panel-status)
+- [车辆车门状态](../resources/vehicle-door-status)
+- [车辆车灯状态](../resources/vehicle-light-status)
+- [车辆轮胎状态](../resources/vehicle-tire-status)

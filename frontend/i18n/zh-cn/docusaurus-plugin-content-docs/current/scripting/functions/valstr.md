@@ -1,45 +1,45 @@
 ---
 title: valstr
 sidebar_label: valstr
-description: Convert an integer into a string.
-tags: ["string"]
+description: 将整数值转换为字符串形式
+tags: ["字符串处理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Convert an integer into a string.
+将整数值转换为字符串形式存储。
 
-| Name              | Description                                       |
-| ----------------- | ------------------------------------------------- |
-| dest              | The destination of the string.                    |
-| value             | The value to convert to a string.                 |
-| pack _(optional)_ | Whether to pack the destination (off by default). |
+| 参数名        | 说明                             |
+| ------------- | -------------------------------- |
+| dest          | 目标字符串存储位置               |
+| value         | 待转换的整数值                   |
+| pack _(可选)_ | 是否启用字符串压缩（默认不启用） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回特定值。
 
-## Examples
+## 示例代码
 
 ```c
 new string[4];
 new value = 250;
-valstr(string, value); // string is now "250"
+valstr(string, value); // 字符串内容变为"250"
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Passing a high value to this function can cause the server to freeze/crash. Fixes are available. Below is a fix that can be put straight in to your script (before valstr is used anywhere). [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes) includes this fix.
+当传入极大整数值时可能导致服务端崩溃，建议使用以下修复方案（需在脚本中预先声明）：
 
 ```c
-// valstr fix by Slice
+// valstr修复代码 by Slice
 stock FIX_valstr(dest[], value, bool:pack = false)
 {
-    // format can't handle cellmin properly
+    // 处理cellmin特殊值
     static const cellmin_value[] = !"-2147483648";
 
     if (value == cellmin)
@@ -50,9 +50,11 @@ stock FIX_valstr(dest[], value, bool:pack = false)
 #define valstr FIX_valstr
 ```
 
+完整修复方案参见[fixes.inc](https://github.com/pawn-lang/sa-mp-fixes)
+
 :::
 
-## Related Functions
+## 相关函数
 
-- [strval](strval): Convert a string into an integer.
-- [strcmp](strcmp): Compare two strings to check if they are the same.
+- [strval](strval): 将字符串转换为整数值
+- [strcmp](strcmp): 对比两个字符串是否相同

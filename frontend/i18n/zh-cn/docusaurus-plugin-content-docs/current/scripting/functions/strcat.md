@@ -1,42 +1,42 @@
 ---
 title: strcat
 sidebar_label: strcat
-description: This function concatenates (joins together) two strings into the destination string.
-tags: ["string"]
+description: 该函数用于将两个字符串拼接（连接）到目标字符串中。
+tags: ["字符串"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-This function concatenates (joins together) two strings into the destination string.
+该函数用于将两个字符串拼接（连接）到目标字符串中。
 
-| Name                      | Description                                          |
-| ------------------------- | ---------------------------------------------------- |
-| dest[]                    | The string to store the two concatenated strings in. |
-| const source[]            | The source string.                                   |
-| maxlength = sizeof (dest) | The maximum length of the destination.               |
+| 参数                      | 说明                     |
+| ------------------------- | ------------------------ |
+| dest[]                    | 存储拼接结果的目标字符串 |
+| const source[]            | 源字符串                 |
+| maxlength = sizeof (dest) | 目标字符串的最大容量     |
 
-## Returns
+## 返回值
 
-The length of the new destination string.
+新目标字符串的长度。
 
-## Examples
+## 示例代码
 
 ```c
 new string[40] = "Hello";
 strcat(string, " World!");
 
-// The string is now 'Hello World!'
+// 字符串现在变为'Hello World!'
 ```
 
-## Related Functions
+## 相关函数
 
-- [strcmp](strcmp): Compare two strings to check if they are the same.
-- [strfind](strfind): Search for a string in another string.
-- [strdel](strdel): Delete part of a string.
-- [strins](strins): Insert text into a string.
-- [strlen](strlen): Get the length of a string.
-- [strmid](strmid): Extract part of a string into another string.
-- [strpack](strpack): Pack a string into a destination string.
-- [strval](strval): Convert a string into an integer.
+- [strcmp](strcmp): 比较两个字符串是否相同
+- [strfind](strfind): 在字符串中搜索子串
+- [strdel](strdel): 删除字符串片段
+- [strins](strins): 向字符串插入内容
+- [strlen](strlen): 获取字符串长度
+- [strmid](strmid): 提取字符串片段
+- [strpack](strpack): 压缩字符串到目标地址
+- [strval](strval): 将字符串转换为整数值

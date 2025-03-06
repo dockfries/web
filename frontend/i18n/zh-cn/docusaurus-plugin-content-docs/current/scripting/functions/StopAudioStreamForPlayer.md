@@ -1,37 +1,39 @@
 ---
-title: StopAudioStreamForPlayer
+title: 停止玩家音频流
 sidebar_label: StopAudioStreamForPlayer
-description: Stops the current audio stream for a player.
-tags: ["player"]
+description: 停止玩家当前正在播放的音频流。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Stops the current audio stream for a player.
+停止玩家当前正在播放的音频流。
 
-| Name     | Description                                       |
-| -------- | ------------------------------------------------- |
-| playerid | The player you want to stop the audio stream for. |
+## 参数
 
-## Returns
+| 名称     | 说明                    |
+| -------- | ----------------------- |
+| playerid | 要停止音频流的玩家 ID。 |
 
-This function does not return any specific values.
+## 返回值
 
-## Examples
+此函数不返回任何特定值。
+
+## 示例
 
 ```c
 public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
-    // If the player exits a vehicle
+    // 当玩家离开车辆时
     if (oldstate == PLAYER_STATE_DRIVER || oldstate == PLAYER_STATE_PASSENGER)
     {
-        StopAudioStreamForPlayer(playerid); // Stop the audio stream
+        StopAudioStreamForPlayer(playerid); // 停止音频流
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [PlayAudioStreamForPlayer](PlayAudioStreamForPlayer): Plays a audio stream for a player.
-- [PlayerPlaySound](PlayerPlaySound): Play a sound for a player.
+- [PlayAudioStreamForPlayer](PlayAudioStreamForPlayer): 为玩家播放音频流
+- [PlayerPlaySound](PlayerPlaySound): 为玩家播放音效

@@ -1,73 +1,72 @@
 ---
 title: SetPlayerName
 sidebar_label: SetPlayerName
-description: Sets the name of a player.
-tags: ["player"]
+description: 设置玩家的昵称
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Sets the name of a player.
+设置玩家的昵称
 
-| Name         | Description                                                                                                                    |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| playerid     | The ID of the player to set the name of.                                                                                       |
-| const name[] | The name to set. Must be 1-24 characters long and only contain valid characters (0-9, a-z, A-Z, [], (), \$ @ . \_ and = only). |
+| 参数名       | 说明                                                                                    |
+| ------------ | --------------------------------------------------------------------------------------- |
+| playerid     | 要设置昵称的玩家 ID                                                                     |
+| const name[] | 新昵称。长度需为 1-24 个字符，且仅包含有效字符（0-9, a-z, A-Z, [], (), \$ @ . \_ 和 =） |
 
-## Returns
+## 返回值
 
-**1** The name was changed successfully
+**1** - 昵称修改成功
 
-**0** The player is not connected or the name is already in use
+**0** - 玩家未连接或昵称已被占用
 
-**-1** The name can not be changed (it's less than 3 symbols, too long or has invalid characters)
+**-1** - 昵称不合法（长度不足 3 字符、过长或包含无效字符）
 
-## Examples
+## 示例
 
 ```c
-// Command simply sets the player's name to to "Superman" if possible, with no error checking or messages.
+// 简单示例：无条件将玩家昵称设置为'Superman'（无错误检查）
 if (strcmp(cmdtext, "/superman", true) == 0)
 {
     SetPlayerName(playerid, "Superman");
     return 1;
 }
 
-// Command sets the players name to "Superman" if possible, informs the player of
-// any errors using a "switch" statement.
+// 完整示例：带错误处理的昵称修改
 if (strcmp(cmdtext, "/superman", true) == 0)
 {
     switch (SetPlayerName(playerid, "Superman"))
     {
         case -1:
         {
-            SendClientMessage(playerid, 0xFF0000FF, "The name has invalid characters or it's out of length.");
+            SendClientMessage(playerid, 0xFF0000FF, "昵称包含非法字符或长度不符合要求");
         }
         case 0:
         {
-            SendClientMessage(playerid, 0xFF0000FF, "Unable to change your name, someone else is known as 'Superman' already.");
+            SendClientMessage(playerid, 0xFF0000FF, "昵称修改失败，'Superman'已被其他玩家使用");
         }
         case 1:
         {
-            SendClientMessage(playerid, 0x00FF00FF, "You are now known as 'Superman'");
+            SendClientMessage(playerid, 0x00FF00FF, "您已成功更名为'Superman'");
         }
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-- Changing the players' name to the same name but with different character cases (e.g. "John" to "JOHN") will not work.
-- If used in [OnPlayerConnect](../callbacks/OnPlayerConnect), the new name will not be shown for the connecting player.
-- Passing a null string as the new name will crash the server. (Fixed in open.mp)
-- Player names can be up to 24 characters when using this function, but when joining the server from the SA-MP server browser, players' names must be no more than 20 and less than 3 characters (the server will deny entry). This allows for 4 characters extra when using SetPlayerName.
+- 仅修改大小写的昵称变更无效（如"John"改为"JOHN"）
+- 在 [OnPlayerConnect](../callbacks/OnPlayerConnect) 回调中使用时，新昵称对连接中的玩家不可见
+- 传递空字符串作为新昵称会导致服务器崩溃（open.mp 版本已修复）
+- 通过本函数最多可设置 24 字符昵称，但玩家通过 SA-MP 服务器浏览器加入时昵称不得超过 20 字符
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerName](GetPlayerName): Get a player's name.
-- [IsValidNickName](IsValidNickName): Checks if a nick name is valid.
-- [AllowNickNameCharacter](AllowNickNameCharacter): Allows a character to be used in the nick name.
+- [GetPlayerName](GetPlayerName): 获取玩家当前昵称
+- [IsValidNickName](IsValidNickName): 验证昵称合法性
+- [AllowNickNameCharacter](AllowNickNameCharacter): 允许特殊字符用于玩家昵称

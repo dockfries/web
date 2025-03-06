@@ -1,71 +1,71 @@
 ---
 title: SetPlayerAttachedObject
 sidebar_label: SetPlayerAttachedObject
-description: Attach an object to a specific bone on a player.
-tags: ["player", "object", "attachment"]
+description: 将物体附加到玩家指定骨骼上。
+tags: ["玩家", "物体", "附加物"]
 ---
 
-## Description
+## 描述
 
-Attach an object to a specific bone on a player.
+将物体附加到玩家指定骨骼上。
 
-| Name            | Description                                                                          |
-| --------------- | ------------------------------------------------------------------------------------ |
-| playerid        | The ID of the player to attach the object to.                                        |
-| index           | The index (slot 0-9) to assign the object to.                                        |
-| modelid         | The model to attach.                                                                 |
-| bone            | The [bone](../resources/boneid) to attach the object to.                             |
-| Float:offsetX   | (optional) X axis offset for the object position.                                    |
-| Float:offsetY   | (optional) Y axis offset for the object position.                                    |
-| Float:offsetZ   | (optional) Z axis offset for the object position.                                    |
-| Float:rotationX | (optional) X axis rotation of the object.                                            |
-| Float:rotationY | (optional) Y axis rotation of the object.                                            |
-| Float:rotationZ | (optional) Z axis rotation of the object.                                            |
-| Float:scaleX    | (optional) X axis scale of the object.                                               |
-| Float:scaleY    | (optional) Y axis scale of the object.                                               |
-| Float:scaleZ    | (optional) Z axis scale of the object.                                               |
-| materialColour1 | (optional) The first object color to set, as an integer or hex in ARGB color format. |
-| materialColour2 | (optional) The second object color to set, as an integer or hex in ARGB color format |
+| 参数名          | 说明                                              |
+| --------------- | ------------------------------------------------- |
+| playerid        | 目标玩家 ID                                       |
+| index           | 附加槽位索引（0-9）                               |
+| modelid         | 要附加的物体模型 ID                               |
+| bone            | 目标[骨骼 ID](../resources/boneid)                |
+| Float:offsetX   | (可选) X 轴位置偏移量                             |
+| Float:offsetY   | (可选) Y 轴位置偏移量                             |
+| Float:offsetZ   | (可选) Z 轴位置偏移量                             |
+| Float:rotationX | (可选) X 轴旋转角度                               |
+| Float:rotationY | (可选) Y 轴旋转角度                               |
+| Float:rotationZ | (可选) Z 轴旋转角度                               |
+| Float:scaleX    | (可选) X 轴缩放比例                               |
+| Float:scaleY    | (可选) Y 轴缩放比例                               |
+| Float:scaleZ    | (可选) Z 轴缩放比例                               |
+| materialColour1 | (可选) 第一材质颜色（整数或 ARGB 十六进制颜色值） |
+| materialColour2 | (可选) 第二材质颜色（整数或 ARGB 十六进制颜色值） |
 
-## Returns
+## 返回值
 
-**1** on success, **0** on failure.
+成功返回 **1**，失败返回 **0**。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerSpawn(playerid)
 {
-    SetPlayerAttachedObject(playerid, 3, 1609, 2); // Attach a turtle to the playerid's head, in slot 3
+    SetPlayerAttachedObject(playerid, 3, 1609, 2); // 在槽位3附加乌龟到玩家头部
 
-    // Example of using colors on an object being attached to the player:
+    // 带颜色参数的附加示例：
     SetPlayerAttachedObject(playerid, 3, 19487, 2, 0.101, -0.0, 0.0, 5.50, 84.60, 83.7, 1.0, 1.0, 1.0, 0xFF00FF00);
-    // Attach a white hat to the head of the player and paint it green
+    // 给玩家附加白色帽子并染成绿色
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function is separate from the CreateObject / CreatePlayerObject pools.
+本函数与 CreateObject/CreatePlayerObject 对象池相互独立
 
 :::
 
 :::warning
 
-Up to 10 objects can be attached to a single player (index 0-9)
+单个玩家最多附加 10 个物体（槽位 0-9）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [RemovePlayerAttachedObject](RemovePlayerAttachedObject): Remove an attached object from a player
-- [IsPlayerAttachedObjectSlotUsed](IsPlayerAttachedObjectSlotUsed): Check whether an object is attached to a player in a specified index
-- [GetPlayerAttachedObject](GetPlayerAttachedObject): Gets the player attachment object data by index.
-- [EditAttachedObject](EditAttachedObject): Edit an attached object.
+- [RemovePlayerAttachedObject](RemovePlayerAttachedObject): 移除玩家附加物体
+- [IsPlayerAttachedObjectSlotUsed](IsPlayerAttachedObjectSlotUsed): 检测指定槽位是否被占用
+- [GetPlayerAttachedObject](GetPlayerAttachedObject): 获取指定槽位的附加物体数据
+- [EditAttachedObject](EditAttachedObject): 编辑已附加物体
 
-## Related Resources
+## 相关资源
 
-- [Bone IDs](../resources/boneid)
+- [骨骼 ID 列表](../resources/boneid)

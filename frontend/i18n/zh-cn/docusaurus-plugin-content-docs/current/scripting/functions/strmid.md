@@ -1,42 +1,44 @@
 ---
 title: strmid
 sidebar_label: strmid
-description: Extract a range of characters from a string.
-tags: ["string"]
+description: 从字符串中提取指定范围的字符
+tags: ["字符串"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Extract a range of characters from a string.
+该函数用于从字符串中提取指定范围的字符。
 
-| Name                      | Description                                                          |
-| ------------------------- | -------------------------------------------------------------------- |
-| dest[]                    | The string to store the extracted characters in.                     |
-| const source[]            | The string from which to extract characters.                         |
-| start                     | The position of the first character.                                 |
-| end                       | The position of the last character.                                  |
-| maxlength = sizeof (dest) | The length of the destination. (Will be the size of dest by default) |
+| 参数                      | 说明                                         |
+| ------------------------- | -------------------------------------------- |
+| dest[]                    | 存储提取结果的目标字符串                     |
+| const source[]            | 源字符串                                     |
+| start                     | 起始位置（基于 0 的索引）                    |
+| end                       | 结束位置（基于 0 的索引）                    |
+| maxlength = sizeof (dest) | 目标字符串的最大容量（默认为 dest 数组长度） |
 
-## Returns
+## 返回值
 
-The number of characters stored in dest[]
+存入目标字符串的字符数量。
 
-## Examples
+## 示例代码
 
 ```c
 new string[6];
-strmid(string, "Extract 'HELLO' without the !!!!: HELLO!!!!", 34, 39); // string contains "HELLO"
+// 从字符串提取'HELLO'并去除感叹号
+strmid(string, "Extract 'HELLO' without the !!!!: HELLO!!!!", 34, 39);
+// 字符串将包含"HELLO"
 ```
 
-## Related Functions
+## 相关函数
 
-- [strcmp](strcmp): Compare two strings to check if they are the same.
-- [strfind](strfind): Search for a string in another string.
-- [strins](strins): Insert text into a string.
-- [strlen](strlen): Get the length of a string.
-- [strpack](strpack): Pack a string into a destination string.
-- [strval](strval): Convert a string into an integer.
-- [strcat](strcat): Concatenate two strings into a destination reference.
-- [strdel](strdel): Delete part of a string.
+- [strcmp](strcmp): 比较两个字符串是否相同
+- [strfind](strfind): 在字符串中搜索子串
+- [strins](strins): 向字符串插入内容
+- [strlen](strlen): 获取字符串长度
+- [strpack](strpack): 压缩字符串到目标地址
+- [strval](strval): 将字符串转换为整数值
+- [strcat](strcat): 拼接两个字符串到目标地址
+- [strdel](strdel): 删除字符串片段

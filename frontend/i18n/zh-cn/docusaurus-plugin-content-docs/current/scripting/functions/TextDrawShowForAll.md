@@ -1,32 +1,32 @@
 ---
 title: TextDrawShowForAll
 sidebar_label: TextDrawShowForAll
-description: Shows a textdraw for all players.
-tags: ["textdraw"]
+description: 为所有玩家显示文本绘图。
+tags: ["文本绘图"]
 ---
 
-## Description
+## 描述
 
-Shows a textdraw for all players.
+为所有玩家显示指定的文本绘图。
 
-| Name        | Description                                                                        |
-| ----------- | ---------------------------------------------------------------------------------- |
-| Text:textid | The ID of the textdraw to show.<br />Returned by [TextDrawCreate](TextDrawCreate). |
+| 名称        | 描述                                                                          |
+| ----------- | ----------------------------------------------------------------------------- |
+| Text:textid | 需要显示的文本绘图 ID<br />由[TextDrawCreate](TextDrawCreate)函数创建时返回。 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the textdraw specified does not exist.
+**false** - 函数执行失败（指定的文本绘图不存在）
 
-## Examples
+## 示例
 
 ```c
 new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(240.0, 580.0, "Example Text");
+    gMyTextdraw = TextDrawCreate(240.0, 580.0, "示例文本");
     return 1;
 }
 
@@ -41,8 +41,8 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 为特定玩家显示文本绘图
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 对玩家隐藏文本绘图
+- [TextDrawHideForAll](TextDrawHideForAll): 对所有玩家隐藏文本绘图

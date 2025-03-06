@@ -1,30 +1,30 @@
 ---
 title: VehicleColourIndexToColour
 sidebar_label: VehicleColourIndexToColour
-description: Convert a car colour index to a HEX colour (RGBA).
-tags: ["vehicle"]
+description: 将车辆颜色索引转换为HEX格式颜色值（RGBA）。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Convert a car colour index to a HEX colour (RGBA).
+将车辆颜色索引转换为 HEX 格式颜色值（RGBA）。
 
-## Parameters
+## 参数
 
-| Name         | Description                                    |
-| ------------ | ---------------------------------------------- |
-| index        | [Vehicle colour](../resources/vehiclecolorid). |
-| alpha = 0xFF | Alpha channel.                                 |
+| 名称         | 描述                                        |
+| ------------ | ------------------------------------------- |
+| index        | [车辆颜色索引](../resources/vehiclecolorid) |
+| alpha = 0xFF | Alpha 通道（默认值为 0xFF）                 |
 
-## Examples
+## 示例
 
 ```c
-new colour = VehicleColourIndexToColour(3, 0xFF);
+new colour = VehicleColourIndexToColour(3, 0xFF); // 将索引3转换为不透明度FF的HEX颜色
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetRandomVehicleColourPair](GetRandomVehicleColourPair): Get random colour indexes that are valid for the given vehicle model.
-- [GetVehicleColours](GetVehicleColours): Gets the vehicle colours.
+- [GetRandomVehicleColourPair](GetRandomVehicleColourPair): 获取指定车辆模型的随机有效颜色索引组合
+- [GetVehicleColours](GetVehicleColours): 获取车辆的主副颜色索引

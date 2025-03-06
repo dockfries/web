@@ -1,35 +1,35 @@
 ---
 title: TextDrawSetStringForPlayer
 sidebar_label: TextDrawSetStringForPlayer
-description: Changes the text on a textdraw for a specific player.
-tags: ["textdraw"]
+description: 为特定玩家更改文本绘图中的文字内容
+tags: ["文本绘图"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Changes the text on a textdraw for a specific player.
+为特定玩家动态修改文本绘图显示内容。
 
-| Name             | Description                               |
-| ---------------- | ----------------------------------------- |
-| Text:textid      | The ID of the TextDraw to change          |
-| playerid         | The ID of the player                      |
-| const format[]   | The new string for the TextDraw           |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag |
+| 参数名           | 说明                   |
+| ---------------- | ---------------------- |
+| Text:textid      | 需修改的文本绘图 ID    |
+| playerid         | 目标玩家 ID            |
+| const format[]   | 格式化字符串内容       |
+| OPEN_MP_TAGS:... | 不定数量的任意类型参数 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回特定值。
 
-## Examples
+## 示例代码
 
 ```c
 new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(317.799987, 331.475006, "Hi, how are you?");
+    gMyTextdraw = TextDrawCreate(317.799987, 331.475006, "你好，最近怎么样？");
     TextDrawLetterSize(gMyTextdraw, 0.238997, 1.250000);
     TextDrawTextSize(gMyTextdraw, 505.000000, 202.000000);
     TextDrawAlignment(gMyTextdraw, TEXT_DRAW_ALIGN_CENTER);
@@ -49,43 +49,43 @@ public OnPlayerConnect(playerid)
 
     TextDrawShowForPlayer(playerid, gMyTextdraw);
 
-    TextDrawSetStringForPlayer(gMyTextdraw, playerid, "Welcome %s!", playerName);
+    TextDrawSetStringForPlayer(gMyTextdraw, playerid, "欢迎%s！", playerName);
     return 1;
 }
 
 public OnPlayerRequestClass(playerid, classid)
 {
-    TextDrawSetStringForPlayer(gMyTextdraw, playerid, "You chose class %d", classid);
+    TextDrawSetStringForPlayer(gMyTextdraw, playerid, "您选择了%d号职业", classid);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-There are limits to the length of textdraw strings - see [here](../resources/limits) for more info.
+文本字符串存在长度限制，详细信息请参阅[此处](../resources/limits)
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawCreate](TextDrawCreate): Create a textdraw.
-- [TextDrawDestroy](TextDrawDestroy): Destroy a textdraw.
-- [TextDrawSetString](TextDrawSetString): Changes the text on a textdraw.
-- [TextDrawColor](TextDrawColor): Set the color of the text in a textdraw.
-- [TextDrawBoxColor](TextDrawBoxColor): Set the color of the box in a textdraw.
-- [TextDrawBackgroundColor](TextDrawBackgroundColor): Set the background color of a textdraw.
-- [TextDrawAlignment](TextDrawAlignment): Set the alignment of a textdraw.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
-- [TextDrawLetterSize](TextDrawLetterSize): Set the letter size of the text in a textdraw.
-- [TextDrawTextSize](TextDrawTextSize): Set the size of a textdraw box.
-- [TextDrawSetOutline](TextDrawSetOutline): Choose whether the text has an outline.
-- [TextDrawSetShadow](TextDrawSetShadow): Toggle shadows on a textdraw.
-- [TextDrawSetProportional](TextDrawSetProportional): Scale the text spacing in a textdraw to a proportional ratio.
-- [TextDrawUseBox](TextDrawUseBox): Toggle if the textdraw has a box or not.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
-- [TextDrawGetString](TextDrawGetString): Gets the text of a textdraw.
+- [TextDrawCreate](TextDrawCreate): 创建文本绘图
+- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘图
+- [TextDrawSetString](TextDrawSetString): 全局修改文本内容
+- [TextDrawColor](TextDrawColor): 设置文本颜色
+- [TextDrawBoxColor](TextDrawBoxColor): 设置文本框颜色
+- [TextDrawBackgroundColor](TextDrawBackgroundColor): 设置文本背景色
+- [TextDrawAlignment](TextDrawAlignment): 设置文本对齐方式
+- [TextDrawFont](TextDrawFont): 设置文本字体样式
+- [TextDrawLetterSize](TextDrawLetterSize): 设置文本字符尺寸
+- [TextDrawTextSize](TextDrawTextSize): 设置文本框尺寸
+- [TextDrawSetOutline](TextDrawSetOutline): 设置文本描边效果
+- [TextDrawSetShadow](TextDrawSetShadow): 设置文本阴影效果
+- [TextDrawSetProportional](TextDrawSetProportional): 启用比例缩放
+- [TextDrawUseBox](TextDrawUseBox): 切换文本框显示状态
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 为玩家显示文本
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 对玩家隐藏文本
+- [TextDrawShowForAll](TextDrawShowForAll): 全局显示文本
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏文本
+- [TextDrawGetString](TextDrawGetString): 获取文本内容

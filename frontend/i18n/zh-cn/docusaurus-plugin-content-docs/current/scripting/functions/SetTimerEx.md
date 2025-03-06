@@ -1,101 +1,92 @@
 ---
 title: SetTimerEx
 sidebar_label: SetTimerEx
-description: Sets a timer to call a function after the specified interval.
-tags: ["timer"]
+description: 设置定时器以在指定间隔后调用函数，并可传递参数。
+tags: ["定时器"]
 ---
 
-## Description
+## 描述
 
-Sets a timer to call a function after the specified interval. This variant ('Ex') can pass parameters (such as a player ID) to the function.
+设置定时器以在指定间隔后调用函数。此变体 ('Ex') 可向目标函数传递参数（如玩家 ID）。
 
-| Name                 | Description                                                                                                                                |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| const functionName[] | The name of a public function to call when the timer expires.                                                                              |
-| interval             | Interval in milliseconds (1 second = 1000 MS).                                                                                             |
-| bool:repeating       | Boolean (true/false (or 1/0)) that states whether the timer should be called repeatedly (can only be stopped with KillTimer) or only once. |
-| const specifiers[]   | Special format indicating the types of values the timer will pass.                                                                         |
-| OPEN_MP_TAGS:...     | Indefinite number of arguments to pass (must follow format specified in previous parameter).                                               |
+| 名称                 | 说明                                                                                     |
+| -------------------- | ---------------------------------------------------------------------------------------- |
+| const functionName[] | 定时器到期时调用的公共函数名称                                                           |
+| interval             | 时间间隔（单位：毫秒，1 秒=1000 毫秒）                                                   |
+| bool:repeating       | 布尔值（true/false 或 1/0），决定定时器是否重复执行（仅能通过 KillTimer 停止）或单次执行 |
+| const specifiers[]   | 特殊格式说明符，用于指示传递参数的类型                                                   |
+| OPEN_MP_TAGS:...     | 不定数量参数（需符合前参数指定的格式）                                                   |
 
-## Returns
+## 返回值
 
-The ID of the timer that was started. Timer IDs start at 1 and are never reused. There are no internal checks to verify that the parameters passed are valid (e.g. duration not a minus value). Y_Less' 'fixes2' plugin implements these checks and also vastly improves the accuracy of timers, and also adds support for array/string passing.
+返回已启动定时器的 ID。定时器 ID 从 1 开始且永不重复。系统不会校验参数合法性（如负值间隔），推荐使用 Y_Less 的'fixes2'插件增强校验精度及数组/字符串传递功能。
 
-## Examples
+## 示例
 
 ```c
 SetTimerEx("EndAntiSpawnKill", 5000, false, "i", playerid);
-// EndAntiSpawnKill - The function that will be called
-// 5000 - 5000 MS (5 seconds). This is the interval. The timer will be called after 5 seconds.
-// false - Not repeating. Will only be called once.
-// "i" - I stands for integer (whole number). We are passing an integer (a player ID) to the function.
-// playerid - The value to pass. This is the integer specified in the previous parameter.
+// EndAntiSpawnKill - 将要调用的函数
+// 5000 - 5000毫秒（5秒）时间间隔
+// false - 非重复执行，仅触发一次
+// "i" - i代表整型，此处传递玩家ID
+// playerid - 要传递的整型值（玩家ID）
 ```
 
 <br />
 
 ```c
-// The event callback (OnPlayerSpawn) - we will start a timer here
+// 在玩家生成事件中启动定时器
 public OnPlayerSpawn(playerid)
 {
-    // Anti-Spawnkill (5 seconds)
-
-    // Set their health very high so they can't be killed
+    // 反重生点击杀保护（5秒）
     SetPlayerHealth(playerid, 999999.0);
+    SendClientMessage(playerid, -1, "你已获得5秒重生保护");
 
-    // Notify them
-    SendClientMessage(playerid, -1, "You are protected against spawn-killing for 5 seconds.");
-
-    // Start a 5 second timer to end the anti-spawnkill
+    // 启动5秒定时器
     SetTimerEx("EndAntiSpawnKill", 5000, false, "i", playerid);
 }
 
-// Forward (make public) the function so the server can 'see' it
+// 声明公共函数
 forward EndAntiSpawnKill(playerid);
-// The timer function - the code to be executed when the timer is called goes here
 public EndAntiSpawnKill(playerid)
 {
-    // 5 seconds has passed, so let's set their health back to 100
+    // 5秒后恢复生命值
     SetPlayerHealth(playerid, 100.0);
-
-    // Let's notify them also
-    SendClientMessage(playerid, -1, "You are no longer protected against spawn-killing.");
+    SendClientMessage(playerid, -1, "重生保护已失效");
     return 1;
 }
 ```
 
-## Notes
+## 注意
 
 :::warning
 
-Timer intervals are not accurate (roughly 25% off) in SA-MP. There are fixes available [here](https://sampforum.blast.hk/showthread.php?tid=289675) and [here](https://sampforum.blast.hk/showthread.php?tid=650736).
-
-But it is fixed in open.mp
+SA-MP 中定时器精度存在约 25%偏差，可通过[此修复](https://sampforum.blast.hk/showthread.php?tid=289675)或[此方案](https://sampforum.blast.hk/showthread.php?tid=650736)优化。open.mp 已修复此问题。
 
 :::
 
 :::tip
 
-Timer ID variables should be reset to 0 when they can to minimise the chance of accidentally killing new timers by mistake. `-1` is commonly mistaken to be the invalid ID - it isn't.
-
-The function to be called must be public. That means it has to be forwarded.
+- 定时器 ID 变量建议用完后重置为 0，避免误操作终止新定时器
+- 目标函数必须声明为 public 并通过 forward 预声明
+- `-1`并非无效 ID，实际无效 ID 为 0
 
 :::
 
-## Definitions
+## 定义值
 
-| Definition    | Value |
-| ------------- | ----- |
-| INVALID_TIMER | 0     |
+| 定义值        | 值  |
+| ------------- | --- |
+| INVALID_TIMER | 0   |
 
-## Related Functions
+## 相关函数
 
-- [SetTimer](SetTimer): Set a timer.
-- [KillTimer](KillTimer): Stop a timer.
-- [IsValidTimer](IsValidTimer): Checks if a timer is valid.
-- [IsRepeatingTimer](IsRepeatingTimer): Checks if a timer is set to repeat.
-- [GetTimerInterval](GetTimerInterval): Gets the interval of a timer.
-- [GetTimerRemaining](GetTimerRemaining): Gets the remaining interval of a timer.
-- [CountRunningTimers](CountRunningTimers): Get the running timers.
-- [CallLocalFunction](CallLocalFunction): Call a function in the script.
-- [CallRemoteFunction](CallRemoteFunction): Call a function in any loaded script.
+- [SetTimer](SetTimer): 创建基础定时器
+- [KillTimer](KillTimer): 终止定时器
+- [IsValidTimer](IsValidTimer): 校验定时器有效性
+- [IsRepeatingTimer](IsRepeatingTimer): 检测定时器是否循环
+- [GetTimerInterval](GetTimerInterval): 获取定时器间隔
+- [GetTimerRemaining](GetTimerRemaining): 获取定时器剩余时间
+- [CountRunningTimers](CountRunningTimers): 统计运行中定时器
+- [CallLocalFunction](CallLocalFunction): 调用脚本内函数
+- [CallRemoteFunction](CallRemoteFunction): 跨脚本调用函数

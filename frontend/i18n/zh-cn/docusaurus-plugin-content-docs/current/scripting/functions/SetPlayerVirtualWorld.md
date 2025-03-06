@@ -1,32 +1,33 @@
 ---
 title: SetPlayerVirtualWorld
 sidebar_label: SetPlayerVirtualWorld
-description: Set the virtual world of a player.
-tags: ["player"]
+description: 设置玩家所在的虚拟世界。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set the virtual world of a player. They can only see other players or vehicles that are in that same world.
+设置玩家所在的虚拟世界。玩家只能看到同属该虚拟世界的其他玩家和车辆。
 
-| Name         | Description                                                |
-| ------------ | ---------------------------------------------------------- |
-| playerid     | The ID of the player you want to set the virtual world of. |
-| virtualWorld | The virtual world ID to put the player in.                 |
+| 参数名       | 说明                      |
+| ------------ | ------------------------- |
+| playerid     | 需要设置虚拟世界的玩家 ID |
+| virtualWorld | 目标虚拟世界 ID           |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player is not connected.
+**false** - 函数执行失败（通常表示玩家未连接）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (strcmp(cmdtext, "/world3", true) == 0)
     {
+        // 将玩家切换到3号虚拟世界
         SetPlayerVirtualWorld(playerid, 3);
         return 1;
     }
@@ -34,15 +35,15 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-The default virtual world is 0.
+默认虚拟世界 ID 为 0。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerVirtualWorld](GetPlayerVirtualWorld): Check what virtual world a player is in.
-- [SetVehicleVirtualWorld](SetVehicleVirtualWorld): Set the virtual world of a vehicle.
+- [GetPlayerVirtualWorld](GetPlayerVirtualWorld): 获取玩家当前所在的虚拟世界
+- [SetVehicleVirtualWorld](SetVehicleVirtualWorld): 设置车辆所在的虚拟世界

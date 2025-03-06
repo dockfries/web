@@ -1,33 +1,33 @@
 ---
 title: SetPlayerCheckpoint
 sidebar_label: SetPlayerCheckpoint
-description: Sets a checkpoint (red cylinder) for a player.
-tags: ["player", "checkpoint"]
+description: 为玩家设置检查点（红色圆柱体）。
+tags: ["玩家", "检查点"]
 ---
 
-## Description
+## 描述
 
-Sets a checkpoint (red cylinder) for a player. Also shows a red blip on the radar. When players enter a checkpoint, OnPlayerEnterCheckpoint is called and actions can be performed.
+为玩家设置检查点（红色圆柱体），同时在小地图显示红色标记。当玩家进入检查点时，将触发 OnPlayerEnterCheckpoint 回调并执行相关操作。
 
-| Name          | Description                                        |
-| ------------- | -------------------------------------------------- |
-| playerid      | The ID of the player for whom to set a checkpoint. |
-| Float:centreX | The X coordinate to set the checkpoint at.         |
-| Float:centreY | The Y coordinate to set the checkpoint at.         |
-| Float:centreZ | The Z coordinate to set the checkpoint at.         |
-| Float:radius  | The size of the checkpoint.                        |
+| 参数名        | 说明                  |
+| ------------- | --------------------- |
+| playerid      | 要设置检查点的玩家 ID |
+| Float:centreX | 检查点中心 X 坐标     |
+| Float:centreY | 检查点中心 Y 坐标     |
+| Float:centreZ | 检查点中心 Z 坐标     |
+| Float:radius  | 检查点范围半径        |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player specified does not exist.
+**false** - 函数执行失败（指定玩家不存在）
 
-## Examples
+## 示例代码
 
 ```c
-// In this example the player's checkpoint will be set when they spawn.
-// On entering the checkpoint they will receive $1000 and the checkpoint will be disabled.
+// 本示例演示玩家重生时设置检查点
+// 进入检查点后获得$1000并禁用检查点
 
 new bool:gOnCheck[MAX_PLAYERS];
 
@@ -40,7 +40,7 @@ public OnPlayerSpawn(playerid)
 
 public OnPlayerEnterCheckpoint(playerid)
 {
-    if (gOnCheck[playerid]) // if it's true
+    if (gOnCheck[playerid]) // 检查状态标识
     {
         GivePlayerMoney(playerid, 1000);
         DisablePlayerCheckpoint(playerid);
@@ -50,27 +50,27 @@ public OnPlayerEnterCheckpoint(playerid)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Checkpoints are asynchronous, meaning only one can be shown at a time. To 'stream' checkpoints (only show them when players are close enough), use a checkpoint streamer.
+检查点是异步的，同一时间只能显示一个。要实现"流式加载"效果（仅在玩家接近时显示），请使用检查点流式加载器
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [DisablePlayerCheckpoint](DisablePlayerCheckpoint): Disable the player's current checkpoint.
-- [GetPlayerCheckpoint](GetPlayerCheckpoint): Get the location of the current checkpoint.
-- [IsPlayerInCheckpoint](IsPlayerInCheckpoint): Check if a player is in a checkpoint.
-- [IsPlayerCheckpointActive](IsPlayerCheckpointActive): Check if the player currently has a checkpoint visible.
-- [SetPlayerRaceCheckpoint](SetPlayerRaceCheckpoint): Create a race checkpoint for a player.
-- [DisablePlayerRaceCheckpoint](DisablePlayerRaceCheckpoint): Disable the player's current race checkpoint.
-- [IsPlayerInRaceCheckpoint](IsPlayerInRaceCheckpoint): Check if a player is in a race checkpoint.
+- [DisablePlayerCheckpoint](DisablePlayerCheckpoint): 禁用玩家当前检查点
+- [GetPlayerCheckpoint](GetPlayerCheckpoint): 获取当前检查点坐标
+- [IsPlayerInCheckpoint](IsPlayerInCheckpoint): 检测玩家是否在检查点内
+- [IsPlayerCheckpointActive](IsPlayerCheckpointActive): 检测玩家是否有激活的检查点
+- [SetPlayerRaceCheckpoint](SetPlayerRaceCheckpoint): 设置竞速检查点
+- [DisablePlayerRaceCheckpoint](DisablePlayerRaceCheckpoint): 禁用竞速检查点
+- [IsPlayerInRaceCheckpoint](IsPlayerInRaceCheckpoint): 检测玩家是否在竞速检查点内
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerEnterCheckpoint](../callbacks/OnPlayerEnterCheckpoint): Called when a player enters a checkpoint.
-- [OnPlayerLeaveCheckpoint](../callbacks/OnPlayerLeaveCheckpoint): Called when a player leaves a checkpoint.
-- [OnPlayerEnterRaceCheckpoint](../callbacks/OnPlayerEnterRaceCheckpoint): Called when a player enters a race checkpoint.
-- [OnPlayerLeaveRaceCheckpoint](../callbacks/OnPlayerLeaveRaceCheckpoint): Called when a player leaves a race checkpoint.
+- [OnPlayerEnterCheckpoint](../callbacks/OnPlayerEnterCheckpoint): 玩家进入检查点时触发
+- [OnPlayerLeaveCheckpoint](../callbacks/OnPlayerLeaveCheckpoint): 玩家离开检查点时触发
+- [OnPlayerEnterRaceCheckpoint](../callbacks/OnPlayerEnterRaceCheckpoint): 玩家进入竞速检查点时触发
+- [OnPlayerLeaveRaceCheckpoint](../callbacks/OnPlayerLeaveRaceCheckpoint): 玩家离开竞速检查点时触发

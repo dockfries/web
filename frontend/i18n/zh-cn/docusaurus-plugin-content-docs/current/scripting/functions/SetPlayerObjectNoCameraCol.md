@@ -1,28 +1,28 @@
 ---
-title: SetPlayerObjectNoCameraCol
+title: 设置玩家物体无视角碰撞
 sidebar_label: SetPlayerObjectNoCameraCol
-description: Toggles a player object camera collision.
-tags: ["player"]
+description: 切换玩家物体的视角碰撞状态
+tags: ["玩家"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Toggles a player object camera collision.
+启用或禁用玩家专属物体的视角碰撞检测功能
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| playerid | The playerID the object belongs to.      |
-| objectid | The ID of the object you want to toggle. |
+| 参数名   | 说明                |
+| -------- | ------------------- |
+| playerid | 物体所属的玩家 ID   |
+| objectid | 要设置的目标物体 ID |
 
-## Returns
+## 返回值
 
-1: The function was executed successfully.
+**1** - 函数执行成功
 
-0: The function failed to execute. The object specified does not exist.
+**0** - 函数执行失败（物体不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerObjectMoved(playerid, objectid)
@@ -31,20 +31,20 @@ public OnPlayerObjectMoved(playerid, objectid)
     GetPlayerObjectPos(playerid, objectid, objX, objY, objZ);
     if (objX >= 3000.0 && objY >= 3000.0)
     {
-        SetPlayerObjectNoCameraCol(playerid, objectid);
+        SetPlayerObjectNoCameraCol(playerid, objectid); // 对移动到3000单位外的物体禁用视角碰撞
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This does not work inside the normal SA map boundaries.
+在正常圣安地列斯地图边界内此功能无效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetObjectNoCameraCol](SetObjectNoCameraCol): Disables collisions between camera and object.
+- [SetObjectNoCameraCol](SetObjectNoCameraCol): 设置全局物体无视角碰撞

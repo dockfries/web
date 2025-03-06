@@ -1,27 +1,27 @@
 ---
 title: setpubvar
 sidebar_label: setpubvar
-description: Sets a specific public variable in the current script.
-tags: ["core", "pubvar", "public variable"]
+description: 设置当前脚本中的特定公共变量。
+tags: ["核心", "公共变量"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Sets a specific public variable in the current script.
+设置当前脚本中的特定公共变量。
 
-| Name         | Description                                |
-| ------------ | ------------------------------------------ |
-| const name[] | The public variable's name.                |
-| value        | The value to store in the public variable. |
+| 参数名       | 说明                 |
+| ------------ | -------------------- |
+| const name[] | 公共变量名称         |
+| value        | 要存储到公共变量的值 |
 
-## Returns
+## 返回值
 
-The previous value of the variable.
+该变量的先前值。
 
-## Related Functions
+## 相关函数
 
-- [getpubvar](getpubvar): Gets a specific public variable from the current script.
-- [existpubvar](existpubvar): Checks if a specific public variable exists in the current script.
-- [numpubvars](numpubvars): Counts how many public variables there are in the script.
+- [getpubvar](getpubvar): 获取当前脚本中的特定公共变量
+- [existpubvar](existpubvar): 检查当前脚本中是否存在特定公共变量
+- [numpubvars](numpubvars): 统计脚本中公共变量的总数

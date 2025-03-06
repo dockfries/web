@@ -1,34 +1,34 @@
 ---
 title: SetServerRuleFlags
 sidebar_label: SetServerRuleFlags
-description: Sets the flags of a server rule.
-tags: ["rule"]
+description: "设置服务器规则的标志。"
+tags: ["规则"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 :::warning
 
-This function has not yet been implemented.
+该函数暂未实现。
 
 :::
 
-## Description
+## 描述
 
-Sets the flags of a server rule.
+设置服务器规则的标志。
 
-## Parameters
+## 参数
 
-| Name                      | Description           |
-| ------------------------- | --------------------- |
-| const rule[]              | The server rule name. |
-| E_SERVER_RULE_FLAGS:flags | The flags to set.     |
+| 参数名                    | 描述           |
+| ------------------------- | -------------- |
+| const rule[]              | 服务器规则名称 |
+| E_SERVER_RULE_FLAGS:flags | 要设置的标志位 |
 
-## Returns
+## 返回值
 
-Returns **true** if the function executed successfully, otherwise **false**.
+函数执行成功返回 **true**，否则返回 **false**。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
@@ -39,9 +39,9 @@ public OnGameModeInit()
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddServerRule](AddServerRule): Add a server rule.
-- [RemoveServerRule](RemoveServerRule): Remove the server rule.
-- [IsValidServerRule](IsValidServerRule): Checks if the given server rule is valid.
-- [GetServerRuleFlags](GetServerRuleFlags): Gets the flags of a server rule.
+- [AddServerRule](AddServerRule): 添加服务器规则
+- [RemoveServerRule](RemoveServerRule): 移除服务器规则
+- [IsValidServerRule](IsValidServerRule): 验证服务器规则有效性
+- [GetServerRuleFlags](GetServerRuleFlags): 获取服务器规则标志位

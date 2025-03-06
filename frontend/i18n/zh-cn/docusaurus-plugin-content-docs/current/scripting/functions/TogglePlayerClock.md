@@ -1,46 +1,46 @@
 ---
 title: TogglePlayerClock
 sidebar_label: TogglePlayerClock
-description: Toggle the in-game clock (top-right corner) for a specific player.
-tags: ["player"]
+description: 切换指定玩家的游戏内时钟显示（位于右上角）。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Toggle the in-game clock (top-right corner) for a specific player. When this is enabled, time will progress at 1 minute per second. Weather will also interpolate (slowly change over time) when set using [SetWeather](SetWeather)/[SetPlayerWeather](SetPlayerWeather).
+切换指定玩家的游戏内时钟显示（位于右上角）。启用后，游戏时间将以每分钟对应现实一秒的速度推进。使用[SetWeather](SetWeather)/[SetPlayerWeather](SetPlayerWeather)设置天气时，天气效果将呈现渐变过渡。
 
-| Name        | Description                                            |
-| ----------- | ------------------------------------------------------ |
-| playerid    | The player whose clock you want to enable/disable      |
-| bool:toggle | 'true' to show and 'false' to hide. Hidden by default. |
+| 名称        | 描述                                            |
+| ----------- | ----------------------------------------------- |
+| playerid    | 需要启用/禁用时钟的玩家 ID                      |
+| bool:toggle | 显示时钟设为'true'，隐藏设为'false'（默认隐藏） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The specified player does not exist.
+**false** - 函数执行失败（指定玩家不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    TogglePlayerClock(playerid, true); // Show the clock
+    TogglePlayerClock(playerid, true); // 显示时钟
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- Time is not synced with other players! Time can be synced using [SetPlayerTime](SetPlayerTime).
-- Time will automatically advance 6 hours when the player dies.
+- 玩家时间不会自动同步！需使用[SetPlayerTime](SetPlayerTime)实现时间同步
+- 玩家死亡时，时间将自动推进 6 小时
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerTime](GetPlayerTime): Get the time of a player.
-- [SetPlayerTime](SetPlayerTime): Set a player's time.
-- [SetWorldTime](SetWorldTime): Set the global server time.
+- [GetPlayerTime](GetPlayerTime): 获取玩家的当前时间
+- [SetPlayerTime](SetPlayerTime): 设置玩家的个性化时间
+- [SetWorldTime](SetWorldTime): 设置服务器全局时间

@@ -1,35 +1,35 @@
 ---
 title: tolower
 sidebar_label: tolower
-description: This function changes a single character to lowercase.
-tags: ["string"]
+description: 将单个字符转换为小写形式
+tags: ["字符串处理"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-This function changes a single character to lowercase.
+将指定字符转换为小写形式。
 
-| Name | Description                           |
-| ---- | ------------------------------------- |
-| c    | The character to change to lowercase. |
+| 参数名 | 说明           |
+| ------ | -------------- |
+| c      | 需要转换的字符 |
 
-## Returns
+## 返回值
 
-The ASCII value of the character provided as lowercase.
+返回对应字符的小写 ASCII 编码值
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerText(playerid, text[])
 {
     text[0] = tolower(text[0]);
-    //This sets the first character to lowercase.
+    // 将输入文本的首字母转换为小写
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [toupper](toupper): This function changes a single character to uppercase.
+- [toupper](toupper): 将单个字符转换为大写形式

@@ -1,71 +1,77 @@
 ---
 title: TextDrawTextSize
 sidebar_label: TextDrawTextSize
-description: Change the size of a textdraw (box if TextDrawUseBox is enabled and/or clickable area for use with TextDrawSetSelectable).
-tags: ["textdraw"]
+description: 调整文本绘图的尺寸（当启用TextDrawUseBox时控制文本框大小，或配合TextDrawSetSelectable定义可点击区域）
+tags: ["文本绘图"]
 ---
 
-## Description
+## 描述
 
-Change the size of a textdraw (box if [TextDrawUseBox](TextDrawUseBox) is enabled and/or clickable area for use with [TextDrawSetSelectable](TextDrawSetSelectable)).
+调整文本绘图的尺寸（当启用[TextDrawUseBox](TextDrawUseBox)时控制文本框大小，或配合[TextDrawSetSelectable](TextDrawSetSelectable)定义可点击区域）。
 
-| Name         | Description                                                                            |
-| ------------ | -------------------------------------------------------------------------------------- |
-| Text:textid  | The TextDraw to set the size of.                                                       |
-| Float:width  | The size on the X axis (left/right) following the same 640x480 grid as TextDrawCreate. |
-| Float:height | The size on the Y axis (up/down) following the same 640x480 grid as TextDrawCreate.    |
+| 参数名       | 说明                                                                  |
+| ------------ | --------------------------------------------------------------------- |
+| Text:textid  | 需要调整尺寸的文本绘图 ID                                             |
+| Float:width  | X 轴尺寸（左右方向），使用与 TextDrawCreate 相同的 640x480 网格坐标系 |
+| Float:height | Y 轴尺寸（上下方向），使用与 TextDrawCreate 相同的 640x480 网格坐标系 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回特定值。
 
-## Examples
+## 示例代码
 
 ```c
 new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(100.0, 33.0, "Example TextDraw");
+    gMyTextdraw = TextDrawCreate(100.0, 33.0, "示例文本绘图");
     TextDrawTextSize(gMyTextdraw, 2.0, 3.6);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- The x and y have different meanings with different TextDrawAlignment values: 1 (left): they are the right-most corner of the box, absolute coordinates. 2 (center): they need to inverted (switch the two) and the x value is the overall width of the box. 3 (right): the x and y are the coordinates of the left-most corner of the box
-- Using font type 4 (sprite) and 5 (model preview) converts X and Y of this function from corner coordinates to WIDTH and HEIGHT (offsets).
-- The TextDraw box starts 10.0 units up and 5.0 to the left as the origin (TextDrawCreate coordinate).
-- This function defines the clickable area for use with TextDrawSetSelectable, whether a box is shown or not.
+• 不同 TextDrawAlignment 值对坐标系的解释差异：
+1（左对齐）：参数值为文本框右侧边界的绝对坐标
+2（居中对齐）：需交换 X/Y 参数顺序，X 值代表整体宽度
+3（右对齐）：参数值为文本框左侧边界的绝对坐标
+
+• 使用 4 号字体（精灵）和 5 号字体（模型预览）时，本函数参数将转换为宽高偏移量
+
+• 文本框坐标系原点（TextDrawCreate 设定坐标）向左偏移 5.0 单位，向上偏移 10.0 单位
+
+• 本函数定义的可点击区域在启用 TextDrawSetSelectable 时生效，无论是否显示文本框
 
 :::
 
 :::tip
 
-- If you want to change the text size of a textdraw that is already shown, you don't have to recreate it. Simply use [TextDrawShowForPlayer](TextDrawShowForPlayer)/[TextDrawShowForAll](TextDrawShowForAll) after modifying the textdraw and the change will be visible.
+• 修改已显示的文本绘图尺寸时无需重建，通过[TextDrawShowForPlayer](TextDrawShowForPlayer)/[TextDrawShowForAll](TextDrawShowForAll)刷新即可立即生效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawCreate](TextDrawCreate): Create a textdraw.
-- [TextDrawDestroy](TextDrawDestroy): Destroy a textdraw.
-- [TextDrawGetTextSize](TextDrawGetTextSize): Gets the X axis and Y axis of the textdraw.
-- [TextDrawColor](TextDrawColor): Set the color of the text in a textdraw.
-- [TextDrawBoxColor](TextDrawBoxColor): Set the color of the box in a textdraw.
-- [TextDrawBackgroundColor](TextDrawBackgroundColor): Set the background color of a textdraw.
-- [TextDrawAlignment](TextDrawAlignment): Set the alignment of a textdraw.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
-- [TextDrawLetterSize](TextDrawLetterSize): Set the letter size of the text in a textdraw.
-- [TextDrawSetOutline](TextDrawSetOutline): Choose whether the text has an outline.
-- [TextDrawSetShadow](TextDrawSetShadow): Toggle shadows on a textdraw.
-- [TextDrawSetProportional](TextDrawSetProportional): Scale the text spacing in a textdraw to a proportional ratio.
-- [TextDrawUseBox](TextDrawUseBox): Toggle if the textdraw has a box or not.
-- [TextDrawSetString](TextDrawSetString): Set the text in an existing textdraw.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
+- [TextDrawCreate](TextDrawCreate): 创建文本绘图
+- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘图
+- [TextDrawGetTextSize](TextDrawGetTextSize): 获取文本绘图尺寸数据
+- [TextDrawColor](TextDrawColor): 设置文本颜色
+- [TextDrawBoxColor](TextDrawBoxColor): 设置文本框颜色
+- [TextDrawBackgroundColor](TextDrawBackgroundColor): 设置文本背景色
+- [TextDrawAlignment](TextDrawAlignment): 设置文本对齐方式
+- [TextDrawFont](TextDrawFont): 设置文本字体样式
+- [TextDrawLetterSize](TextDrawLetterSize): 设置文本字符尺寸
+- [TextDrawSetOutline](TextDrawSetOutline): 设置文本描边效果
+- [TextDrawSetShadow](TextDrawSetShadow): 设置文本阴影效果
+- [TextDrawSetProportional](TextDrawSetProportional): 启用比例缩放
+- [TextDrawUseBox](TextDrawUseBox): 切换文本框显示状态
+- [TextDrawSetString](TextDrawSetString): 更新文本内容
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 为玩家显示文本
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 对玩家隐藏文本
+- [TextDrawShowForAll](TextDrawShowForAll): 全局显示文本
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏文本

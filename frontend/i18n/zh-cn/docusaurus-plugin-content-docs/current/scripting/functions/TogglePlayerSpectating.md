@@ -1,57 +1,57 @@
 ---
 title: TogglePlayerSpectating
 sidebar_label: TogglePlayerSpectating
-description: Toggle whether a player is in spectator mode or not.
-tags: ["player"]
+description: 切换玩家观察者模式状态
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Toggle whether a player is in spectator mode or not. While in spectator mode a player can spectate (watch) other players and vehicles. After using this function, either [PlayerSpectatePlayer](PlayerSpectatePlayer) or [PlayerSpectateVehicle](PlayerSpectateVehicle) needs to be used.
+切换玩家是否处于观察者模式。在该模式下可观察其他玩家或车辆，使用后需配合[PlayerSpectatePlayer](PlayerSpectatePlayer)或[PlayerSpectateVehicle](PlayerSpectateVehicle)实现观察功能。
 
-| Name        | Description                                       |
-| ----------- | ------------------------------------------------- |
-| playerid    | The ID of the player who should spectate          |
-| bool:toggle | 'true' to enable spectating and 'false to disable |
+| 名称        | 描述                            |
+| ----------- | ------------------------------- |
+| playerid    | 需要设置观察模式的玩家 ID       |
+| bool:toggle | 'true'启用观察模式，'false'禁用 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player does not exist.
+**false** - 函数执行失败（玩家不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    TogglePlayerSpectating(playerid, true);
-    PlayerSpectatePlayer(playerid, killerid);
+    TogglePlayerSpectating(playerid, true); // 开启观察模式
+    PlayerSpectatePlayer(playerid, killerid); // 观察击杀者视角
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-When spectator mode is disabled, OnPlayerSpawn will automatically be called, if you wish to restore player to state before spectating, you will have to handle that in OnPlayerSpawn. Note also, that player can also go to class selection before if they used F4 during spectate, a player also CAN die in spectate mode due to various glitches.
+禁用观察模式时会自动触发 OnPlayerSpawn 回调。若需恢复玩家原始状态，需在 OnPlayerSpawn 中处理。注意玩家可能通过 F4 进入选角界面，且观察模式中可能因漏洞导致死亡。
 
 :::
 
 :::tip
 
-When a player is in spectate mode their HUD is hidden, making it useful for setting a player's camera without the HUD. Also, objects near the player's camera will be streamed in, making this useful for interpolating cameras.
+观察模式下会隐藏 HUD 界面，适合需要纯净镜头控制的场景。玩家镜头附近的物体会自动流加载，适用于镜头插值功能。
 
 :::
 
 :::warning
 
-If the player is not loaded in before setting the spectate status to false, the connection can be closed unexpectedly.
+如果玩家在关闭观察模式前未加载完毕，连接可能会意外关闭。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [PlayerSpectatePlayer](PlayerSpectatePlayer): Spectate a player.
-- [PlayerSpectateVehicle](PlayerSpectateVehicle): Spectate a vehicle.
+- [PlayerSpectatePlayer](PlayerSpectatePlayer): 观察指定玩家
+- [PlayerSpectateVehicle](PlayerSpectateVehicle): 观察指定车辆

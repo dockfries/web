@@ -1,27 +1,27 @@
 ---
 title: TextDrawSetPreviewRot
 sidebar_label: TextDrawSetPreviewRot
-description: Sets the rotation and zoom of a 3D model preview textdraw.
-tags: ["textdraw"]
+description: 设置3D模型预览文本绘图的旋转角度和缩放比例。
+tags: ["文本绘图"]
 ---
 
-## Description
+## 描述
 
-Sets the rotation and zoom of a 3D model preview textdraw.
+设置 3D 模型预览文本绘图的旋转角度和缩放比例。
 
-| Name            | Description                                                                                                              |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Text:textid     | The ID of the textdraw to change.                                                                                        |
-| Float:rotationX | The X rotation value.                                                                                                    |
-| Float:rotationY | The Y rotation value.                                                                                                    |
-| Float:rotationZ | The Z rotation value.                                                                                                    |
-| Float:zoom      | The zoom value, default value 1.0, smaller values make the camera closer and larger values make the camera further away. |
+| 名称            | 描述                                                                                   |
+| --------------- | -------------------------------------------------------------------------------------- |
+| Text:textid     | 要更改的文本绘图 ID                                                                    |
+| Float:rotationX | X 轴旋转角度值                                                                         |
+| Float:rotationY | Y 轴旋转角度值                                                                         |
+| Float:rotationZ | Z 轴旋转角度值                                                                         |
+| Float:zoom      | 缩放值（默认 1.0），小于 1.0 的值会使摄像机更靠近模型，大于 1.0 的值会使摄像机远离模型 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 new Text:gMyTextdraw;
@@ -36,27 +36,27 @@ public OnGameModeInit()
     TextDrawSetPreviewModel(gMyTextdraw, 411);
     TextDrawSetPreviewRot(gMyTextdraw, -10.0, 0.0, -20.0, 1.0);
 
-    // You still have to use TextDrawShowForAll/TextDrawShowForPlayer to make the textdraw visible.
+    // 仍需使用TextDrawShowForAll/TextDrawShowForPlayer使文本绘图可见
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-The textdraw MUST use the font type `TEXT_DRAW_FONT_MODEL_PREVIEW` and already have a model set in order for this function to have effect.
+文本绘图必须使用`TEXT_DRAW_FONT_MODEL_PREVIEW`字体类型且已设置预览模型，该函数才能生效。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawGetPreviewRot](TextDrawGetPreviewRot): Gets the rotation and zoom of a 3D model preview textdraw.
-- [PlayerTextDrawSetPreviewRot](PlayerTextDrawSetPreviewRot): Set rotation of a 3D player textdraw preview.
-- [TextDrawSetPreviewModel](TextDrawSetPreviewModel): Set the 3D preview model of a textdraw.
-- [TextDrawSetPreviewVehCol](TextDrawSetPreviewVehCol): Set the colours of a vehicle in a 3D textdraw preview.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
+- [TextDrawGetPreviewRot](TextDrawGetPreviewRot): 获取 3D 模型预览文本绘图的旋转参数
+- [PlayerTextDrawSetPreviewRot](PlayerTextDrawSetPreviewRot): 设置玩家 3D 文本绘图预览的旋转参数
+- [TextDrawSetPreviewModel](TextDrawSetPreviewModel): 设置文本绘图的 3D 预览模型
+- [TextDrawSetPreviewVehCol](TextDrawSetPreviewVehCol): 设置文本绘图预览中车辆的配色方案
+- [TextDrawFont](TextDrawFont): 设置文本绘图的字体样式
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): Called when a player clicks on a textdraw.
+- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): 当玩家点击文本绘图时触发

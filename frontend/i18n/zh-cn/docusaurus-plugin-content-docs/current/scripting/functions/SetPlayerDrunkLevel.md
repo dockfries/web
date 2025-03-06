@@ -1,26 +1,26 @@
 ---
 title: SetPlayerDrunkLevel
 sidebar_label: SetPlayerDrunkLevel
-description: Sets the drunk level of a player which makes the player's camera sway and vehicles hard to control.
-tags: ["player"]
+description: 设置玩家的醉酒等级，这将导致玩家的镜头摇晃且难以控制车辆。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Sets the drunk level of a player which makes the player's camera sway and vehicles hard to control.
+设置玩家的醉酒等级，这将导致玩家的镜头摇晃且难以控制车辆。
 
-| Name     | Description                                     |
-| -------- | ----------------------------------------------- |
-| playerid | The ID of the player to set the drunkenness of. |
-| level    | The level of drunkenness to set.                |
+| 参数     | 说明                    |
+| -------- | ----------------------- |
+| playerid | 要设置醉酒等级的玩家 ID |
+| level    | 要设置的醉酒等级数值    |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player is not connected.
+**false** - 函数执行失败（玩家未连接）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -35,18 +35,18 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- Players' drunk level will automatically decrease over time, based on their FPS (players with 50 FPS will lose 50 'levels' per second. This is useful for determining a player's FPS!).
-- In 0.3a the drunk level will decrement and stop at 2000.
-- In 0.3b+ the drunk level decrements to zero.
-- Levels over 2000 make the player drunk (camera swaying and vehicles difficult to control).
-- Max drunk level is 50000. While the drunk level is above 5000, the player's HUD (radar etc.) will be hidden.
+- 玩家醉酒等级会基于其帧率(FPS)自动递减（50FPS 的玩家每秒减少 50 等级，可用于检测玩家 FPS）
+- 0.3a 版本中醉酒等级递减至 2000 停止
+- 0.3b+版本中醉酒等级会递减至 0
+- 等级超过 2000 时玩家呈现醉酒状态（镜头摇晃、车辆操控困难）
+- 最大醉酒等级为 50000，当等级超过 5000 时玩家 HUD（雷达等界面）将被隐藏
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerDrunkLevel](GetPlayerDrunkLevel): Returns the current drunk level of a player.
+- [GetPlayerDrunkLevel](GetPlayerDrunkLevel): 获取玩家当前醉酒等级

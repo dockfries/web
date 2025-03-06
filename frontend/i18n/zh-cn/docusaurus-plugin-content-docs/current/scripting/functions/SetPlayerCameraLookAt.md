@@ -1,50 +1,50 @@
 ---
 title: SetPlayerCameraLookAt
 sidebar_label: SetPlayerCameraLookAt
-description: Set the direction a player's camera looks at.
-tags: ["player", "camera"]
+description: 设置玩家视角的观察方向。
+tags: ["玩家", "视角"]
 ---
 
-## Description
+## 描述
 
-Set the direction a player's camera looks at. Generally meant to be used in combination with SetPlayerCameraPos.
+设置玩家视角的观察方向。通常需与 SetPlayerCameraPos 配合使用。
 
-| Name         | Description                                                                                                                                    |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| playerid     | The ID of the player whose camera to set.                                                                                                      |
-| Float:x      | The X coordinate for the player's camera to look at.                                                                                           |
-| Float:y      | The Y coordinate for the player's camera to look at.                                                                                           |
-| Float:z      | The Z coordinate for the player's camera to look at.                                                                                           |
-| CAM_MOVE:cut | The [style](../resources/cameracutstyles) of the change. Can be used to interpolate (change slowly) from old pos to new pos using CAMERA_MOVE. |
+| 参数名       | 说明                                                                              |
+| ------------ | --------------------------------------------------------------------------------- |
+| playerid     | 目标玩家 ID                                                                       |
+| Float:x      | 视角观察点的 X 坐标                                                             |
+| Float:y      | 视角观察点的 Y 坐标                                                             |
+| Float:z      | 视角观察点的 Z 坐标                                                             |
+| CAM_MOVE:cut | [镜头切换风格](../resources/cameracutstyles)。可使用 CAMERA_MOVE 实现视角渐变效果 |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player specified does not exist.
+**false** - 函数执行失败（指定玩家不存在）
 
-## Examples
+## 示例代码
 
 ```c
 SetPlayerCameraPos(playerid, 320.0, 50.0, 170.0);
 SetPlayerCameraLookAt(playerid, 324.34, 54.122, 173.35);
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Using the camera functions directly after enabling spectator mode doesn't work.
+在启用观察者模式后立即使用本函数将无法生效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerCameraPos](SetPlayerCameraPos): Set a player's camera position.
-- [SetCameraBehindPlayer](SetCameraBehindPlayer): Set a player's camera behind them.
-- [GetPlayerCameraPos](GetPlayerCameraPos): Find out where the player's camera is.
-- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): Get the player's camera front vector
+- [SetPlayerCameraPos](SetPlayerCameraPos): 设置玩家视角位置
+- [SetCameraBehindPlayer](SetCameraBehindPlayer): 重置玩家至默认跟随视角
+- [GetPlayerCameraPos](GetPlayerCameraPos): 获取玩家视角坐标
+- [GetPlayerCameraFrontVector](GetPlayerCameraFrontVector): 获取视角前向向量
 
-## Related Resources
+## 相关资源
 
-- [Camera Cut Styles](../resources/cameracutstyles)
+- [镜头切换风格列表](../resources/cameracutstyles)

@@ -1,20 +1,20 @@
 ---
 title: StartRecordingPlayback
 sidebar_label: StartRecordingPlayback
-description: This will run a .rec file which has to be saved in the npcmodes/recordings folder. These files allow the NPC to follow certain actions. Their actions can be recorded manually. For more information, check the related functions.
+description: 加载并运行存储在npcmodes/recordings目录下的.rec文件。这些录制文件允许NPC执行特定动作，可通过手动录制生成。更多信息请参考相关函数。
 tags: []
 ---
 
-## Description
+## 描述
 
-This will run a .rec file which has to be saved in the npcmodes/recordings folder. These files allow the NPC to follow certain actions. Their actions can be recorded manually. For more information, check the related functions.
+加载并运行存储在 npcmodes/recordings 目录下的.rec 文件。这些录制文件允许 NPC 执行特定动作，可通过手动录制生成。更多信息请参考相关函数。
 
-| Name         | Description                                                     |
-| ------------ | --------------------------------------------------------------- |
-| playbacktype | The [type](../resources/recordtypes) of recording to be loaded. |
-| recordname[] | The filename to be loaded, without the .rec extension.          |
+| 名称         | 说明                                         |
+| ------------ | -------------------------------------------- |
+| playbacktype | 要加载的录制[类型](../resources/recordtypes) |
+| recordname[] | 要加载的文件名（无需包含.rec 扩展名）        |
 
-## Examples
+## 示例
 
 ```c
 public OnNPCEnterVehicle(vehicleid, seatid)
@@ -23,6 +23,6 @@ public OnNPCEnterVehicle(vehicleid, seatid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [StopRecordingPlayback](../functions/StopRecordingPlayback): Stops reproducing a .rec file.
+- [StopRecordingPlayback](../functions/StopRecordingPlayback): 停止回放.rec 文件

@@ -1,29 +1,29 @@
 ---
 title: SetPlayerObjectMaterial
 sidebar_label: SetPlayerObjectMaterial
-description: Replace the texture of a player-object with the texture from another model in the game.
-tags: ["player", "object", "playerobject"]
+description: 替换玩家专属物体的纹理为游戏内其他模型的纹理
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
-## Description
+## 描述
 
-Replace the texture of a player-object with the texture from another model in the game.
+将玩家专属物体的纹理替换为游戏内其他模型的纹理
 
-| Name                   | Description                                                                                                                                      |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| playerid               | The ID of the player the object is associated to.                                                                                                |
-| objectid               | The ID of the object to replace the texture of                                                                                                   |
-| materialIndex          | The material index on the object to change (0 to 15)                                                                                             |
-| modelid                | The modelid on which replacement texture is located. Use 0 for alpha. Use -1 to change the material color without altering the existing texture. |
-| const textureLibrary[] | The name of the txd file which contains the replacement texture (use "none" if not required)                                                     |
-| const textureName[]    | The name of the texture to use as the replacement (use "none" if not required)                                                                   |
-| materialColour         | The object color to set, as an integer or hex in ARGB format. Using 0 keeps the existing material color.                                         |
+| 参数名                 | 说明                                                                   |
+| ---------------------- | ---------------------------------------------------------------------- |
+| playerid               | 所属玩家 ID                                                            |
+| objectid               | 要替换纹理的物体 ID                                                    |
+| materialIndex          | 要修改的材质索引（0-15）                                               |
+| modelid                | 目标纹理所在的模型 ID。0 表示透明通道，-1 表示仅修改材质颜色不改变纹理 |
+| const textureLibrary[] | 包含替换纹理的 txd 文件名称（若无需求使用"none"）                      |
+| const textureName[]    | 要使用的替换纹理名称（若无需求使用"none"）                             |
+| materialColour         | 材质颜色（ARGB 格式整型或十六进制）。0 表示保留原色                    |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid,cmdtext[])
@@ -37,33 +37,33 @@ public OnPlayerCommandText(playerid,cmdtext[])
         GetPlayerPos(playerid, x, y, z);
         myObject = CreatePlayerObject(playerid, 19371, x, y, z+0.5, 0.0, 0.0, 0.0, 300.0);
         SetPlayerObjectMaterial(playerid, myObject, 0, 19341, "egg_texts", "easter_egg01", 0xFFFFFFFF);
-        // Replaces the texture of our player-object with the texture of model 19341
+        // 将玩家专属物体的纹理替换为模型19341的纹理
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Vertex lightning of the object will disappear if material color is changed.
+修改材质颜色会导致物体顶点光照效果消失
 
 :::
 
 :::warning
 
-You MUST use ARGB color format, not RGBA like used in client messages etc.
+必须使用 ARGB 颜色格式，而非客户端消息中常用的 RGBA 格式
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetObjectMaterial](SetObjectMaterial): Replace the texture of an object with the texture from another model in the game.
+- [SetObjectMaterial](SetObjectMaterial): 替换全局物体的纹理
 
-## Advanaced Map Editors
+## 高级地图编辑器
 
-- [Texture Studio](https://github.com/Pottus/Texture-Studio) by Pottus
-- [Ultimate Creator](https://github.com/NexiusTailer/Ultimate-Creator) by Nexius
-- [Fusez's Map Editor](https://github.com/fusez/Map-Editor-V3) by RedFusion
+- [Texture Studio](https://github.com/Pottus/Texture-Studio) 作者：Pottus
+- [Ultimate Creator](https://github.com/NexiusTailer/Ultimate-Creator) 作者：Nexius
+- [Fusez's Map Editor](https://github.com/fusez/Map-Editor-V3) 作者：RedFusion

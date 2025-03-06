@@ -1,48 +1,48 @@
 ---
 title: SetPlayerColor
 sidebar_label: SetPlayerColor
-description: Set the colour of a player's nametag and marker (radar blip).
-tags: ["player"]
+description: 设置玩家的名牌和地图标记（雷达点）颜色
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set the colour of a player's nametag and marker (radar blip).
+设置玩家的名牌和地图标记（雷达点）颜色
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| playerid | The ID of the player whose color to set. |
-| colour   | The color to set. Supports alpha values. |
+| 参数名   | 说明                             |
+| -------- | -------------------------------- |
+| playerid | 要设置颜色的玩家 ID              |
+| colour   | 要设置的颜色值（支持透明度通道） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有特定返回值
 
-## Examples
+## 示例
 
 ```c
-// Red, using hexadecimal notation:
+// 红色，使用十六进制表示：
 SetPlayerColor(playerid, 0xFF0000FF);
 
-//Red, using decimal notation:
+// 红色，使用十进制表示：
 SetPlayerColor(playerid, 4278190335);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- This function will change player's color for everyone, even if player's color was changed with SetPlayerMarkerForPlayer for any other player.
-- If used under OnPlayerConnect, the affecting player will not see the color in the TAB menu.
+• 本函数将全局修改玩家颜色，即使其他玩家通过 SetPlayerMarkerForPlayer 设置了不同颜色
+• 在 OnPlayerConnect 回调中使用时，被设置玩家在 TAB 列表中将看不到颜色变化
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): Set a player's marker.
-- [GetPlayerColor](GetPlayerColor): Check the color of a player.
-- [ChangeVehicleColor](ChangeVehicleColor): Set the color of a vehicle.
+- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): 设置指定玩家可见的标记颜色
+- [GetPlayerColor](GetPlayerColor): 获取玩家当前颜色
+- [ChangeVehicleColor](ChangeVehicleColor): 设置车辆颜色
 
-## Related Resources
+## 相关资源
 
-- [Color List](../resources/colorslist)
+- [颜色代码表](../resources/colorslist)

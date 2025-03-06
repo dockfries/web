@@ -1,24 +1,24 @@
 ---
 title: TextDrawAlignment
 sidebar_label: TextDrawAlignment
-description: Set the alignment of text in a text draw.
+description: 设置文本绘图中文字的对齐方式。
 tags: ["textdraw"]
 ---
 
-## Description
+## 描述
 
-Set the alignment of text in a text draw.
+设置文本绘图中文字内容的对齐方式。
 
-| Parameter                 | Description                                                                 |
-| ------------------------- | --------------------------------------------------------------------------- |
-| Text:textid               | The ID of the textdraw to set the alignment of.                             |
-| TEXT_DRAW_ALIGN:alignment | `TEXT_DRAW_ALIGN_LEFT` / `TEXT_DRAW_ALIGN_CENTER` / `TEXT_DRAW_ALIGN_RIGHT` |
+| 参数名称                  | 说明                                                                                                            |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Text:textid               | 需要设置对齐方式的文本绘图 ID                                                                                   |
+| TEXT_DRAW_ALIGN:alignment | 对齐模式：`TEXT_DRAW_ALIGN_LEFT`（左对齐）/ `TEXT_DRAW_ALIGN_CENTER`（居中）/ `TEXT_DRAW_ALIGN_RIGHT`（右对齐） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回特定值。
 
-## Examples
+## 示例代码
 
 ```c
 /*
@@ -31,43 +31,46 @@ new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(320.0, 425.0, "This is an example textdraw");
-    TextDrawAlignment(gMyTextdraw, TEXT_DRAW_ALIGN_CENTER); // Align the textdraw text in the center
+    gMyTextdraw = TextDrawCreate(320.0, 425.0, "这是一个示例文本绘图");
+    TextDrawAlignment(gMyTextdraw, TEXT_DRAW_ALIGN_CENTER); // 设置文本内容居中对齐
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-For alignment TEXT_DRAW_ALIGN_CENTER (center) the x and y values of TextSize need to be swapped, see notes at [TextDrawTextSize](TextDrawTextSize), also position coordinate become position of center of textdraw and not left/top edges.
+使用`TEXT_DRAW_ALIGN_CENTER`居中对齐时：
+
+- 必须交换[TextDrawTextSize](TextDrawTextSize)参数的 x/y 坐标值
+- 文本绘图的坐标定位点将变为中心点而非左上角
 
 :::
 
 :::tip
 
-If the textdraw is already shown, it must be re-shown ([TextDrawShowForAll](TextDrawShowForAll)/[TextDrawShowForPlayer](TextDrawShowForPlayer)) to show the changes of this function.
+若文本绘图已处于显示状态，修改对齐方式后需重新调用显示函数([TextDrawShowForAll](TextDrawShowForAll)/[TextDrawShowForPlayer](TextDrawShowForPlayer))才能生效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawCreate](TextDrawCreate): Create a textdraw.
-- [TextDrawDestroy](TextDrawDestroy): Destroy a textdraw.
-- [TextDrawGetAlignment](TextDrawGetAlignment): Gets the text alignment of a textdraw.
-- [TextDrawColor](TextDrawColor): Set the color of the text in a textdraw.
-- [TextDrawBoxColor](TextDrawBoxColor): Set the color of the box in a textdraw.
-- [TextDrawBackgroundColor](TextDrawBackgroundColor): Set the background color of a textdraw.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
-- [TextDrawLetterSize](TextDrawLetterSize): Set the letter size of the text in a textdraw.
-- [TextDrawTextSize](TextDrawTextSize): Set the size of a textdraw box.
-- [TextDrawSetOutline](TextDrawSetOutline): Choose whether the text has an outline.
-- [TextDrawSetShadow](TextDrawSetShadow): Toggle shadows on a textdraw.
-- [TextDrawSetProportional](TextDrawSetProportional): Scale the text spacing in a textdraw to a proportional ratio.
-- [TextDrawUseBox](TextDrawUseBox): Toggle if the textdraw has a box or not.
-- [TextDrawSetString](TextDrawSetString): Set the text in an existing textdraw.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
+- [TextDrawCreate](TextDrawCreate): 创建文本绘图
+- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘图
+- [TextDrawGetAlignment](TextDrawGetAlignment): 获取当前对齐方式
+- [TextDrawColor](TextDrawColor): 设置文本颜色
+- [TextDrawBoxColor](TextDrawBoxColor): 设置边框颜色
+- [TextDrawBackgroundColor](TextDrawBackgroundColor): 设置背景色
+- [TextDrawFont](TextDrawFont): 设置字体类型
+- [TextDrawLetterSize](TextDrawLetterSize): 设置字符尺寸
+- [TextDrawTextSize](TextDrawTextSize): 设置绘制区域尺寸
+- [TextDrawSetOutline](TextDrawSetOutline): 设置文字描边
+- [TextDrawSetShadow](TextDrawSetShadow): 设置阴影效果
+- [TextDrawSetProportional](TextDrawSetProportional): 启用比例间距
+- [TextDrawUseBox](TextDrawUseBox): 启用边框显示
+- [TextDrawSetString](TextDrawSetString): 更新文本内容
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 为玩家显示
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 对玩家隐藏
+- [TextDrawShowForAll](TextDrawShowForAll): 全局显示
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏

@@ -1,29 +1,29 @@
 ---
-title: SetPlayerObjectRot
-sidebar_label: SetPlayerObjectRot
-description: Set the rotation of an object on the X, Y and Z axis.
-tags: ["player", "object", "playerobject"]
+title: "SetPlayerObjectRot"
+sidebar_label: "SetPlayerObjectRot"
+description: "设置物体在X、Y和Z轴上的旋转角度。"
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
-## Description
+## 描述
 
-Set the rotation of an object on the X, Y and Z axis.
+设置物体在 X、Y 和 Z 轴上的旋转角度。
 
-| Name            | Description                                         |
-| --------------- | --------------------------------------------------- |
-| playerid        | The ID of the player whose player-object to rotate. |
-| objectid        | The ID of the player-object to rotate.              |
-| Float:rotationX | The X rotation to set.                              |
-| Float:rotationY | The Y rotation to set.                              |
-| Float:rotationZ | The Z rotation to set.                              |
+| 参数名          | 描述                        |
+| --------------- | --------------------------- |
+| playerid        | 需要旋转其玩家物体的玩家 ID |
+| objectid        | 需要旋转的玩家物体 ID       |
+| Float:rotationX | 要设置的 X 轴旋转角度       |
+| Float:rotationY | 要设置的 Y 轴旋转角度       |
+| Float:rotationZ | 要设置的 Z 轴旋转角度       |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute.
+**false** - 函数执行失败
 
-## Examples
+## 示例
 
 ```c
 new gPlayerObject[MAX_PLAYERS];
@@ -37,32 +37,32 @@ public OnPlayerConnect(playerid)
 }
 ```
 
-## Notes
+## 要点提示
 
 :::tip
 
-To smoothly rotate an object, see [MovePlayerObject](MovePlayerObject).
+要实现平滑旋转效果，请参考[MovePlayerObject](MovePlayerObject)。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreatePlayerObject](CreatePlayerObject): Create an object for only one player.
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
-- [IsValidPlayerObject](IsValidPlayerObject): Checks if a certain player object is vaild.
-- [MovePlayerObject](MovePlayerObject): Move a player object.
-- [StopPlayerObject](StopPlayerObject): Stop a player object from moving.
-- [SetPlayerObjectPos](SetPlayerObjectPos): Set the position of a player object.
-- [GetPlayerObjectPos](GetPlayerObjectPos): Locate a player object.
-- [GetPlayerObjectRot](GetPlayerObjectRot): Check the rotation of a player object.
-- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): Attach a player object to a player.
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [IsValidObject](IsValidObject): Checks if a certain object is vaild.
-- [MoveObject](MoveObject): Move an object.
-- [StopObject](StopObject): Stop an object from moving.
-- [SetObjectPos](SetObjectPos): Set the position of an object.
-- [SetObjectRot](SetObjectRot): Set the rotation of an object.
-- [GetObjectPos](GetObjectPos): Locate an object.
-- [GetObjectRot](GetObjectRot): Check the rotation of an object.
-- [AttachObjectToPlayer](AttachObjectToPlayer): Attach an object to a player.
+- [CreatePlayerObject](CreatePlayerObject): 创建玩家专属物体
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家物体
+- [IsValidPlayerObject](IsValidPlayerObject): 验证玩家物体有效性
+- [MovePlayerObject](MovePlayerObject): 移动玩家物体
+- [StopPlayerObject](StopPlayerObject): 停止玩家物体移动
+- [SetPlayerObjectPos](SetPlayerObjectPos): 设置玩家物体位置
+- [GetPlayerObjectPos](GetPlayerObjectPos): 获取玩家物体坐标
+- [GetPlayerObjectRot](GetPlayerObjectRot): 获取玩家物体旋转角度
+- [AttachPlayerObjectToPlayer](AttachPlayerObjectToPlayer): 将玩家物体附加到玩家身上
+- [CreateObject](CreateObject): 创建全局物体
+- [DestroyObject](DestroyObject): 销毁全局物体
+- [IsValidObject](IsValidObject): 验证全局物体有效性
+- [MoveObject](MoveObject): 移动全局物体
+- [StopObject](StopObject): 停止全局物体移动
+- [SetObjectPos](SetObjectPos): 设置全局物体位置
+- [SetObjectRot](SetObjectRot): 设置全局物体旋转角度
+- [GetObjectPos](GetObjectPos): 获取全局物体坐标
+- [GetObjectRot](GetObjectRot): 获取全局物体旋转角度
+- [AttachObjectToPlayer](AttachObjectToPlayer): 将全局物体附加到玩家身上

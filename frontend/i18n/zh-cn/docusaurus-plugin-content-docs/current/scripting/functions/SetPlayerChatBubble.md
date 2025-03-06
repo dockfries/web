@@ -1,28 +1,28 @@
 ---
 title: SetPlayerChatBubble
 sidebar_label: SetPlayerChatBubble
-description: Creates a chat bubble above a player's name tag.
-tags: ["player"]
+description: 在玩家名牌上方创建聊天气泡。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Creates a chat bubble above a player's name tag.
+在玩家名牌上方创建聊天气泡。
 
-| Name               | Description                                                      |
-| ------------------ | ---------------------------------------------------------------- |
-| playerid           | The player which should have the chat bubble.                    |
-| const text[]       | The text to display.                                             |
-| colour             | The text color                                                   |
-| Float:drawDistance | The distance from where players are able to see the chat bubble. |
-| expireTime         | The time in miliseconds the bubble should be displayed for.      |
-| OPEN_MP_TAGS:...   | Indefinite number of arguments of any tag.                       |
+| 参数               | 说明                                       |
+| ------------------ | ------------------------------------------ |
+| playerid           | 要显示聊天气泡的玩家 ID                    |
+| const text[]       | 要显示的文本内容                           |
+| colour             | 文本颜色（RGBA 格式）                      |
+| Float:drawDistance | 其他玩家可见该气泡的距离（单位：游戏单位） |
+| expireTime         | 气泡显示持续时间（单位：毫秒）             |
+| OPEN_MP_TAGS:...   | 可变参数列表（支持任意标签类型）           |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数没有特定返回值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerText(playerid, text[])
@@ -32,21 +32,21 @@ public OnPlayerText(playerid, text[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-You can't see your own chat bubbles. The same applies to attached 3D text labels.
+玩家无法看到自己的聊天气泡，此规则同样适用于附加的 3D 文本标签
 
 :::
 
 :::tip
 
-- You can use color embedding for multiple colors in the message.
-- Using '-1' as the color will make the text white (for the simple reason that -1, when represented in hexadecimal notation, is 0xFFFFFFFF).
+- 支持在文本中使用颜色嵌入代码实现多色文字效果
+- 使用"-1"作为颜色值将显示为白色（因为-1 的十六进制表示为 0xFFFFFFFF）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer): Attach a 3D text label to a player.
+- [Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer): 为玩家附加 3D 文本标签

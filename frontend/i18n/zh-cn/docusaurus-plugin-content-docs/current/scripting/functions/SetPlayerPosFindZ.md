@@ -1,45 +1,45 @@
 ---
 title: SetPlayerPosFindZ
 sidebar_label: SetPlayerPosFindZ
-description: This sets the players position then adjusts the players z-coordinate to the nearest solid ground under the position.
-tags: ["player"]
+description: 设置玩家坐标并自动寻找地面高度。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-This sets the players position then adjusts the players z-coordinate to the nearest solid ground under the position.
+设置玩家坐标后，自动将玩家的 Z 轴坐标调整至该位置下方最近的实体地面高度。
 
-| Name     | Description                                  |
-| -------- | -------------------------------------------- |
-| playerid | The ID of the player to set the position of. |
-| Float:x  | The X coordinate to position the player at.  |
-| Float:y  | The X coordinate to position the player at.  |
-| Float:z  | The Z coordinate to position the player at.  |
+| 参数名   | 说明                                      |
+| -------- | ----------------------------------------- |
+| playerid | 需要设置坐标的玩家 ID                     |
+| Float:x  | 玩家所处的 X 坐标                         |
+| Float:y  | 玩家所处的 Y 坐标                         |
+| Float:z  | 玩家所处的初始 Z 坐标（将自动校准到地面） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player specified does not exist.
+**false** - 函数执行失败（通常表示指定玩家不存在）
 
-## Examples
+## 示例代码
 
 ```c
 SetPlayerPosFindZ(playerid, 1234.5, 1234.5, 1000.0);
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function does not work if the new coordinates are far away from where the player currently is. The Z height will be 0, which will likely put them underground. It is highly recommended that the [MapAndreas](https://github.com/philip1337/samp-plugin-mapandreas) or [ColAndreas](https://github.com/Pottus/ColAndreas) plugin be used instead.
+当新坐标距离玩家当前位置过远时，此函数可能失效。此时 Z 轴高度会被设为 0，可能导致玩家陷入地下。建议改用 [MapAndreas](https://github.com/philip1337/samp-plugin-mapandreas) 或 [ColAndreas](https://github.com/Pottus/ColAndreas) 插件进行地面高度检测。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerPos](SetPlayerPos): Set a player's position.
+- [SetPlayerPos](SetPlayerPos): 直接设置玩家三维坐标
 
-## Related Callbacks
+## 相关回调函数
 
-- [OnPlayerClickMap](../callbacks/OnPlayerClickMap): Called when a player sets a waypoint/target on the pause menu map.
+- [OnPlayerClickMap](../callbacks/OnPlayerClickMap): 当玩家在暂停菜单地图上设置路径点时触发

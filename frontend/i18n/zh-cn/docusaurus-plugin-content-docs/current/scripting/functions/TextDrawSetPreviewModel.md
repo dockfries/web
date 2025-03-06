@@ -1,24 +1,24 @@
 ---
 title: TextDrawSetPreviewModel
 sidebar_label: TextDrawSetPreviewModel
-description: Set the model for a textdraw model preview.
-tags: ["textdraw"]
+description: 设置文本绘图的模型预览。
+tags: ["文本绘图"]
 ---
 
-## Description
+## 描述
 
-Set the model for a textdraw model preview.
+设置用于文本绘图模型预览的 3D 模型。
 
-| Name        | Description                                       |
-| ----------- | ------------------------------------------------- |
-| Text:textid | The textdraw id that will display the 3D preview. |
-| model       | The GTA SA or SA:MP model ID to display.          |
+| 名称        | 描述                               |
+| ----------- | ---------------------------------- |
+| Text:textid | 需要显示 3D 预览的文本绘图 ID。    |
+| model       | 要显示的 GTA SA 或 SA:MP 模型 ID。 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+此函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 new Text:gMyTextdraw;
@@ -31,37 +31,37 @@ public OnGameModeInit()
     TextDrawBoxColor(gMyTextdraw, 0x000000FF);
     TextDrawTextSize(gMyTextdraw, 40.0, 40.0);
 
-    TextDrawSetPreviewModel(gMyTextdraw, 411); // Display model 411 (Infernus)
-    // TextDrawSetPreviewModel(gMyTextdraw, 1); // Display model 1 (CJ Skin)
-    // TextDrawSetPreviewModel(gMyTextdraw, 18646); // Display model 18646 (Police light object)
+    TextDrawSetPreviewModel(gMyTextdraw, 411); // 显示模型411（Infernus）
+    // TextDrawSetPreviewModel(gMyTextdraw, 1); // 显示模型1（CJ皮肤）
+    // TextDrawSetPreviewModel(gMyTextdraw, 18646); // 显示模型18646（警灯物体）
 
-    // You still have to use TextDrawShowForAll/TextDrawShowForPlayer to make the textdraw visible.
+    // 仍需使用TextDrawShowForAll/TextDrawShowForPlayer使文本绘图可见
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Use [TextDrawBackgroundColor](TextDrawBackgroundColor) to set the background color behind the model.
+使用[TextDrawBackgroundColor](TextDrawBackgroundColor)设置模型背后的背景颜色。
 
 :::
 
 :::warning
 
-The textdraw MUST use the font type `TEXT_DRAW_FONT_MODEL_PREVIEW` in order for this function to have effect.
+文本绘图必须使用`TEXT_DRAW_FONT_MODEL_PREVIEW`字体类型才能使本函数生效。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawGetPreviewModel](TextDrawGetPreviewModel): Gets the preview model of a 3D preview textdraw.
-- [TextDrawSetPreviewRot](TextDrawSetPreviewRot): Set rotation of a 3D textdraw preview.
-- [TextDrawSetPreviewVehCol](TextDrawSetPreviewVehCol): Set the colours of a vehicle in a 3D textdraw preview.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
-- [PlayerTextDrawSetPreviewModel](PlayerTextDrawSetPreviewModel): Set model ID of a 3D player textdraw preview.
+- [TextDrawGetPreviewModel](TextDrawGetPreviewModel): 获取 3D 预览文本绘图的模型 ID
+- [TextDrawSetPreviewRot](TextDrawSetPreviewRot): 设置 3D 文本绘图预览的旋转角度
+- [TextDrawSetPreviewVehCol](TextDrawSetPreviewVehCol): 设置 3D 文本绘图预览中车辆的颜色
+- [TextDrawFont](TextDrawFont): 设置文本绘图的字体类型
+- [PlayerTextDrawSetPreviewModel](PlayerTextDrawSetPreviewModel): 设置玩家专属 3D 文本绘图的预览模型 ID
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): Called when a player clicks on a textdraw.
+- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): 当玩家点击文本绘图时触发

@@ -1,41 +1,41 @@
 ---
 title: ToggleChatTextReplacement
 sidebar_label: ToggleChatTextReplacement
-description: Toggles the chat input filter.
+description: 切换聊天输入过滤器的开关状态。
 tags: []
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Toggles the chat input filter.
+切换聊天输入过滤器的开关状态。
 
-Disable it to use of chars like % in the chat.
+禁用后可允许在聊天中使用%等特殊字符。
 
-| Name        | Description                                                   |
-| ----------- | ------------------------------------------------------------- |
-| bool:enable | 'true' to enable or 'false' to disable the chat input filter. |
+| 名称        | 描述                                |
+| ----------- | ----------------------------------- |
+| bool:enable | 'true'启用过滤器，'false'禁用过滤器 |
 
-## Returns
+## 返回值
 
-This function does not return any specific value.
+此函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit()
 {
-    ToggleChatTextReplacement(false);
+    ToggleChatTextReplacement(false); // 切换聊天输入过滤器
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-You can also toggle the chat input filter in the config.json file.
+可通过 config.json 配置文件设置初始状态：
 
 ```json
 "chat_input_filter": true,
@@ -43,6 +43,6 @@ You can also toggle the chat input filter in the config.json file.
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [ChatTextReplacementToggled](ChatTextReplacementToggled): Checks if the chat input filtering is enabled or disabled.
+- [ChatTextReplacementToggled](ChatTextReplacementToggled): 检测聊天输入过滤器是否启用

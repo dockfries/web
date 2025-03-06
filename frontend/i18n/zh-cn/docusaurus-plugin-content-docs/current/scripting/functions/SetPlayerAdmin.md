@@ -1,26 +1,26 @@
 ---
 title: SetPlayerAdmin
 sidebar_label: SetPlayerAdmin
-description: Sets the player as an RCON admin.
-tags: ["player", "rcon", "administration"]
+description: 设置玩家为RCON管理员。
+tags: ["玩家", "rcon", "管理"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Sets the player as an RCON admin.
+设置玩家为 RCON 管理员。
 
-| Name       | Description                                                              |
-| ---------- | ------------------------------------------------------------------------ |
-| playerid   | The ID of the player.                                                    |
-| bool:admin | **true** for set as an RCON admin, **false** for remove from RCON admin. |
+| 参数名     | 说明                                          |
+| ---------- | --------------------------------------------- |
+| playerid   | 要设置的玩家 ID                               |
+| bool:admin | **true**设置为 RCON 管理员，**false**移除权限 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有返回值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -35,10 +35,14 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerAdmin](IsPlayerAdmin): Check if a player is logged in as an RCON admin.
+- [IsPlayerAdmin](IsPlayerAdmin): 检测玩家是否为 RCON 管理员
 
-## Related Callbacks
+## 相关回调
 
-- [OnRconLoginAttempt](OnRconLoginAttempt): Called when an attempt to login to RCON is made.
+- [OnRconLoginAttempt](OnRconLoginAttempt): RCON 登录尝试回调
+
+```
+
+```

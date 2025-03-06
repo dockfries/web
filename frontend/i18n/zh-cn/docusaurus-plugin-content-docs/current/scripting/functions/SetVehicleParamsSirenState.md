@@ -1,31 +1,31 @@
 ---
 title: SetVehicleParamsSirenState
 sidebar_label: SetVehicleParamsSirenState
-description: Turn the siren for a vehicle on or off.
-tags: ["vehicle"]
+description: 控制车辆警笛的开启与关闭状态。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Turn the siren for a vehicle on or off.
+控制车辆警笛的开启与关闭状态。
 
-## Parameters
+## 参数
 
-| Name         | Description                   |
-| ------------ | ----------------------------- |
-| vehicleid    | The ID of the vehicle.        |
-| bool:enabled | **true**: On - **false**: Off |
+| 参数名       | 描述                                        |
+| ------------ | ------------------------------------------- |
+| vehicleid    | 要操作的车辆 ID                             |
+| bool:enabled | **true**表示开启警笛，**false**表示关闭警笛 |
 
-## Examples
+## 示例
 
 ```c
 SetVehicleParamsSirenState(vehicleid, true);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleParamsSirenState](GetVehicleParamsSirenState): Returns a vehicle's siren state (on/off).
-- [GetVehicleSirenState](GetVehicleSirenState): Gets the siren state of the vehicle.
-- [GetPlayerSirenState](GetPlayerSirenState): Gets the siren state of the player's vehicle.
+- [GetVehicleParamsSirenState](GetVehicleParamsSirenState): 获取车辆警笛状态
+- [GetVehicleSirenState](GetVehicleSirenState): 获取车辆警笛激活状态
+- [GetPlayerSirenState](GetPlayerSirenState): 获取玩家车辆警笛状态

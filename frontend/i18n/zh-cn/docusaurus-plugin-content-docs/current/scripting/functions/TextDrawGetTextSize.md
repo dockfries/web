@@ -1,60 +1,60 @@
 ---
 title: TextDrawGetTextSize
 sidebar_label: TextDrawGetTextSize
-description: Gets the X axis and Y axis of the textdraw.
-tags: ["textdraw"]
+description: 获取文本绘图的X轴和Y轴尺寸。
+tags: ["文本绘图"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the X axis and Y axis of the textdraw.
+获取文本绘图的 X 轴和 Y 轴尺寸。
 
-| Name          | Description                                                       |
-| ------------- | ----------------------------------------------------------------- |
-| Text:textid   | The ID of the textdraw to get text size of.                       |
-| &Float:width  | A float variable into which to store width, passed by reference.  |
-| &Float:height | A float variable into which to store height, passed by reference. |
+| 名称          | 说明                                 |
+| ------------- | ------------------------------------ |
+| Text:textid   | 需要获取尺寸的文本绘图 ID            |
+| &Float:width  | 用于存储宽度的浮点变量（按引用传递） |
+| &Float:height | 用于存储高度的浮点变量（按引用传递） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
 new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(100.0, 33.0, "Example TextDraw");
+    gMyTextdraw = TextDrawCreate(100.0, 33.0, "示例文本绘图");
     TextDrawTextSize(gMyTextdraw, 2.0, 3.6);
 
     new Float:width, Float:height;
     TextDrawGetTextSize(gMyTextdraw, width, height);
-    // The `width` will be '2.0' and `height` will be '3.6'
+    // 此时`width`将为2.0，`height`将为3.6
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [TextDrawCreate](TextDrawCreate): Create a textdraw.
-- [TextDrawDestroy](TextDrawDestroy): Destroy a textdraw.
-- [TextDrawTextSize](TextDrawTextSize): Change the size of a textdraw.
-- [TextDrawColor](TextDrawColor): Set the color of the text in a textdraw.
-- [TextDrawBoxColor](TextDrawBoxColor): Set the color of the box in a textdraw.
-- [TextDrawBackgroundColor](TextDrawBackgroundColor): Set the background color of a textdraw.
-- [TextDrawAlignment](TextDrawAlignment): Set the alignment of a textdraw.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
-- [TextDrawLetterSize](TextDrawLetterSize): Set the letter size of the text in a textdraw.
-- [TextDrawSetOutline](TextDrawSetOutline): Choose whether the text has an outline.
-- [TextDrawSetShadow](TextDrawSetShadow): Toggle shadows on a textdraw.
-- [TextDrawSetProportional](TextDrawSetProportional): Scale the text spacing in a textdraw to a proportional ratio.
-- [TextDrawUseBox](TextDrawUseBox): Toggle if the textdraw has a box or not.
-- [TextDrawSetString](TextDrawSetString): Set the text in an existing textdraw.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
+- [TextDrawCreate](TextDrawCreate): 创建文本绘图
+- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘图
+- [TextDrawTextSize](TextDrawTextSize): 设置文本框尺寸
+- [TextDrawColor](TextDrawColor): 设置字体颜色
+- [TextDrawBoxColor](TextDrawBoxColor): 设置文本框颜色
+- [TextDrawBackgroundColor](TextDrawBackgroundColor): 设置背景颜色
+- [TextDrawAlignment](TextDrawAlignment): 设置文本对齐方式
+- [TextDrawFont](TextDrawFont): 设置字体样式
+- [TextDrawLetterSize](TextDrawLetterSize): 设置字符尺寸
+- [TextDrawSetOutline](TextDrawSetOutline): 启用文本描边
+- [TextDrawSetShadow](TextDrawSetShadow): 启用文本阴影
+- [TextDrawSetProportional](TextDrawSetProportional): 启用等比例间距
+- [TextDrawUseBox](TextDrawUseBox): 启用文本框显示
+- [TextDrawSetString](TextDrawSetString): 更新文本内容
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 对玩家显示文本
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 对玩家隐藏文本
+- [TextDrawShowForAll](TextDrawShowForAll): 全局显示文本
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏文本

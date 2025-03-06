@@ -1,36 +1,37 @@
 ---
 title: SetVehicleVelocity
 sidebar_label: SetVehicleVelocity
-description: Sets the X, Y and Z velocity of a vehicle.
-tags: ["vehicle"]
+description: 设置车辆在三维空间中的运动速度。
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Sets the X, Y and Z velocity of a vehicle.
+设置车辆在 X、Y、Z 三个坐标轴方向的瞬时运动速度。
 
-| Name      | Description                                   |
-| --------- | --------------------------------------------- |
-| vehicleid | The ID of the vehicle to set the velocity of. |
-| Float:x   | The velocity in the X direction.              |
-| Float:y   | The velocity in the Y direction.              |
-| Float:z   | The velocity in the Z direction.              |
+| 参数名    | 说明                                |
+| --------- | ----------------------------------- |
+| vehicleid | 目标车辆的 ID                       |
+| Float:x   | X 轴方向的速度（单位：游戏单位/秒） |
+| Float:y   | Y 轴方向的速度（单位：游戏单位/秒） |
+| Float:z   | Z 轴方向的速度（单位：游戏单位/秒） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The vehicle does not exist.
+**false** - 函数执行失败（通常表示车辆不存在）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
-    if (!strcmp("/jump", cmdtext))
+    if (!strcmp("/jump", cmdtext)) // 检测"/jump"指令
     {
-        if (IsPlayerInAnyVehicle(playerid))
+        if (IsPlayerInAnyVehicle(playerid)) // 确认玩家在车辆内
         {
+            // 给车辆垂直方向施加速度实现跳跃效果
             SetVehicleVelocity(GetPlayerVehicleID(playerid), 0.0, 0.0, 0.2);
         }
         return 1;
@@ -38,14 +39,15 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function has no affect on un-occupied vehicles and does not affect trains.
+- 本函数仅对玩家驾驶的车辆有效
+- 无法作用于火车类车辆
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetVehicleVelocity](GetVehicleVelocity): Get the velocity of a vehicle on the X, Y and Z axes.
+- [GetVehicleVelocity](GetVehicleVelocity): 获取车辆当前的三轴速度

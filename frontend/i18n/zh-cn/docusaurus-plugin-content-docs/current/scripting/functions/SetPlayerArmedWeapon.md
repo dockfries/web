@@ -1,31 +1,31 @@
 ---
 title: SetPlayerArmedWeapon
 sidebar_label: SetPlayerArmedWeapon
-description: Sets which weapon (that a player already has) the player is holding.
-tags: ["player"]
+description: 设置玩家当前手持的武器（必须是玩家已拥有的武器）
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Sets which weapon (that a player already has) the player is holding.
+设置玩家当前手持的武器（必须是玩家已拥有的武器）
 
-| Name            | Description                                                                          |
-| --------------- | ------------------------------------------------------------------------------------ |
-| playerid        | The ID of the player to arm with a weapon.                                           |
-| WEAPON:weaponid | The ID of the [weapon](../resources/weaponids) that the player should be armed with. |
+| 参数名          | 说明                                         |
+| --------------- | -------------------------------------------- |
+| playerid        | 要设置武器的玩家 ID                          |
+| WEAPON:weaponid | 玩家应持有的[武器](../resources/weaponids)ID |
 
-## Returns
+## 返回值
 
-**1** - The function was executed successfully. Success is returned even when the function fails to execute (the player doesn't have the weapon specified, or it is an invalid weapon).
+**1** - 函数执行成功。即使玩家未拥有指定武器或武器 ID 无效，仍会返回成功
 
-**0** - The function failed to execute. The player is not connected.
+**0** - 函数执行失败。玩家未连接
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerUpdate(playerid)
 {
-    SetPlayerArmedWeapon(playerid, WEAPON_FIST); // disables weapons
+    SetPlayerArmedWeapon(playerid, WEAPON_FIST); // 禁用武器
     return 1;
 }
 
@@ -38,27 +38,27 @@ public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstat
             weapon,
             ammo;
 
-        GetPlayerWeaponData(playerid, WEAPON_SLOT_MACHINE_GUN, weapon, ammo); // Get the players SMG weapon in slot 4 (WEAPON_SLOT_MACHINE_GUN)
-        SetPlayerArmedWeapon(playerid, weapon); // Set the player to driveby with SMG
+        GetPlayerWeaponData(playerid, WEAPON_SLOT_MACHINE_GUN, weapon, ammo); // 获取玩家在第4武器槽位（WEAPON_SLOT_MACHINE_GUN）的冲锋枪
+        SetPlayerArmedWeapon(playerid, weapon); // 设置玩家使用冲锋枪进行车载射击
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This function arms a player with a weapon they already have; it does not give them a new weapon. See GivePlayerWeapon.
+该函数仅切换玩家已持有的武器，不会给予新武器。具体给予武器功能请参考 GivePlayerWeapon
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GivePlayerWeapon](GivePlayerWeapon): Give a player a weapon.
-- [GetPlayerWeapon](GetPlayerWeapon): Check what weapon a player is currently holding.
+- [GivePlayerWeapon](GivePlayerWeapon): 给予玩家武器
+- [GetPlayerWeapon](GetPlayerWeapon): 获取玩家当前手持武器
 
-## Related Functions
+## 相关资源
 
-- [Weapon IDs](../resources/weaponids)
-- [Weapon Slots](../resources/weaponslots)
+- [武器 ID](../resources/weaponids)
+- [武器槽位](../resources/weaponslots)

@@ -1,49 +1,49 @@
 ---
 title: SetPlayerGravity
 sidebar_label: SetPlayerGravity
-description: Set a player's gravity.
-tags: ["player"]
+description: 设置玩家的重力。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Set a player's gravity.
+设置玩家的重力参数。
 
-| Name          | Description                                                       |
-| ------------- | ----------------------------------------------------------------- |
-| playerid      | The ID of the player to set the gravity.                          |
-| Float:gravity | The value that the gravity should be set to (between -50 and 50). |
+| 参数          | 说明                                  |
+| ------------- | ------------------------------------- |
+| playerid      | 要设置重力的玩家 ID                   |
+| Float:gravity | 要设置的重力值（有效范围：-50 至 50） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The player specified does not exist.
+**false** - 函数执行失败（指定玩家不存在）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    // Set moon-like gravity
+    // 设置月球般的低重力环境
     SetPlayerGravity(playerid, 0.001);
 
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Default gravity is 0.008.
+默认重力值为 0.008
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerGravity](GetPlayerGravity): Get a player's gravity.
-- [SetGravity](SetGravity): Set the gravity for all players.
-- [GetGravity](GetGravity): Get the currently global gravity.
+- [GetPlayerGravity](GetPlayerGravity): 获取玩家的重力参数
+- [SetGravity](SetGravity): 设置全局重力参数
+- [GetGravity](GetGravity): 获取当前全局重力参数

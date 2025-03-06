@@ -1,65 +1,65 @@
 ---
 title: TextDrawIsBox
 sidebar_label: TextDrawIsBox
-description: Checks if a textdraw is box.
-tags: ["textdraw"]
+description: 检测文本绘图是否启用方框
+tags: ["文本绘图"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a textdraw is box.
+检测文本绘图是否启用了方框显示
 
-## Parameters
+## 参数
 
-| Name        | Description                      |
-| ----------- | -------------------------------- |
-| Text:textid | The ID of the textdraw to check. |
+| 参数名      | 说明                  |
+| ----------- | --------------------- |
+| Text:textid | 需要检测的文本绘图 ID |
 
-## Return Values
+## 返回值
 
-Returns **true** if the textdraw is box, otherwise **false**.
+若文本绘图启用了方框返回**true**，否则返回**false**
 
-## Example Usage
+## 示例用法
 
 ```c
 new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(100.0, 33.0, "Example TextDraw");
-    TextDrawUseBox(gMyTextdraw, true); // Toggle box ON
+    gMyTextdraw = TextDrawCreate(100.0, 33.0, "示例文本绘图");
+    TextDrawUseBox(gMyTextdraw, true); // 启用方框显示
 
     if (TextDrawIsBox(gMyTextdraw))
     {
-        // Textdraw is box
+        // 文本绘图已启用方框
     }
     else
     {
-        // Textdraw is not box
+        // 文本绘图未启用方框
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [TextDrawCreate](TextDrawCreate): Create a textdraw.
-- [TextDrawDestroy](TextDrawDestroy): Destroy a textdraw.
-- [TextDrawColor](TextDrawColor): Set the color of the text in a textdraw.
-- [TextDrawBoxColor](TextDrawBoxColor): Set the color of the box in a textdraw.
-- [TextDrawBackgroundColor](TextDrawBackgroundColor): Set the background color of a textdraw.
-- [TextDrawAlignment](TextDrawAlignment): Set the alignment of a textdraw.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
-- [TextDrawLetterSize](TextDrawLetterSize): Set the letter size of the text in a textdraw.
-- [TextDrawTextSize](TextDrawTextSize): Set the size of a textdraw box.
-- [TextDrawSetOutline](TextDrawSetOutline): Choose whether the text has an outline.
-- [TextDrawSetShadow](TextDrawSetShadow): Toggle shadows on a textdraw.
-- [TextDrawSetProportional](TextDrawSetProportional): Scale the text spacing in a textdraw to a proportional ratio.
-- [TextDrawUseBox](TextDrawUseBox): Toggle if the textdraw has a box or not.
-- [TextDrawSetString](TextDrawSetString): Set the text in an existing textdraw.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
+- [TextDrawCreate](TextDrawCreate): 创建文本绘图
+- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘图
+- [TextDrawColor](TextDrawColor): 设置文本颜色
+- [TextDrawBoxColor](TextDrawBoxColor): 设置方框颜色
+- [TextDrawBackgroundColor](TextDrawBackgroundColor): 设置背景颜色
+- [TextDrawAlignment](TextDrawAlignment): 设置对齐方式
+- [TextDrawFont](TextDrawFont): 设置字体类型
+- [TextDrawLetterSize](TextDrawLetterSize): 设置字符尺寸
+- [TextDrawTextSize](TextDrawTextSize): 设置文本区域尺寸
+- [TextDrawSetOutline](TextDrawSetOutline): 设置文字描边
+- [TextDrawSetShadow](TextDrawSetShadow): 设置阴影效果
+- [TextDrawSetProportional](TextDrawSetProportional): 启用比例间距
+- [TextDrawUseBox](TextDrawUseBox): 切换方框显示状态
+- [TextDrawSetString](TextDrawSetString): 更新文本内容
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 为玩家显示
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 为玩家隐藏
+- [TextDrawShowForAll](TextDrawShowForAll): 全局显示
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏

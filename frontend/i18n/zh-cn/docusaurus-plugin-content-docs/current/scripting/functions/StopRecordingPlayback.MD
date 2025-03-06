@@ -1,15 +1,15 @@
 ---
 title: StopRecordingPlayback
 sidebar_label: StopRecordingPlayback
-description: This will stop the current .rec file which is being ran by the NPC, making it stay idle until some other order is given.
+description: 停止NPC当前正在运行的.rec文件，使其保持空闲状态直到接收到其他指令。
 tags: []
 ---
 
-## Description
+## 描述
 
-This will stop the current .rec file which is being ran by the NPC, making it stay idle until some other order is given.
+停止 NPC 当前正在运行的.rec 文件，使其保持空闲状态直到接收到其他指令。
 
-## Examples
+## 示例代码
 
 ```c
 public OnNPCExitVehicle(vehicleid, seatid)
@@ -18,6 +18,6 @@ public OnNPCExitVehicle(vehicleid, seatid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [StartRecordingPlayback](../functions/StartRecordingPlayback): Stops reproducing a .rec file.
+- [StartRecordingPlayback](../functions/StartRecordingPlayback): 开始播放.rec 文件

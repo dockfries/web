@@ -1,40 +1,40 @@
 ---
 title: SetPlayerObjectMoveSpeed
 sidebar_label: SetPlayerObjectMoveSpeed
-description: Set the move speed of a player-object.
-tags: ["player", "object", "playerobject"]
+description: 设置玩家物体的移动速度。
+tags: ["玩家", "物体", "玩家物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Set the move speed of a player-object.
+设置玩家物体的移动速度。
 
-| Name        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| playerid    | The ID of the player.                                     |
-| objectid    | The ID of the player-object to set the move speed of.     |
-| Float:speed | The speed at which to move the object (units per second). |
+| 参数        | 说明                                |
+| ----------- | ----------------------------------- |
+| playerid    | 所属玩家的 ID                       |
+| objectid    | 要设置移动速度的玩家物体 ID         |
+| Float:speed | 物体的移动速度（单位：游戏单位/秒） |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist.
+`false` - 函数执行失败（指定物体不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new playerobjectid = CreatePlayerObject(playerid, 985, 1003.39154, -643.33423, 122.35060,   0.00000, 1.00000, 24.00000);
 MovePlayerObject(playerid, playerobjectid, 1003.3915, -643.3342, 114.5122,  0.8);
 
 SetPlayerObjectMoveSpeed(playerid, playerobjectid, 1.5);
-// Move speed changed from 0.8 to 1.5
+// 移动速度从0.8调整为1.5
 ```
 
-## Related Functions
+## 相关函数
 
-- [MovePlayerObject](MovePlayerObject): Move a player object to a new position with a set speed.
-- [GetPlayerObjectMoveSpeed](GetPlayerObjectMoveSpeed): Get the move speed of a player-object.
-- [SetObjectMoveSpeed](SetObjectMoveSpeed): Set the move speed of an object.
+- [MovePlayerObject](MovePlayerObject): 以指定速度移动玩家物体至新坐标
+- [GetPlayerObjectMoveSpeed](GetPlayerObjectMoveSpeed): 获取玩家物体的当前移动速度
+- [SetObjectMoveSpeed](SetObjectMoveSpeed): 设置全局物体的移动速度

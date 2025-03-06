@@ -1,25 +1,25 @@
 ---
 title: TextDrawSetPreviewVehCol
 sidebar_label: TextDrawSetPreviewVehCol
-description: If a vehicle model is used in a 3D preview textdraw, this sets the two colour values for that vehicle.
-tags: ["textdraw"]
+description: 若在3D预览文本绘图中使用车辆模型，本函数用于设置该车辆的两个颜色值。
+tags: ["文本绘图"]
 ---
 
-## Description
+## 描述
 
-If a vehicle model is used in a 3D preview textdraw, this sets the two colour values for that vehicle.
+若在 3D 预览文本绘图中使用车辆模型，本函数用于设置该车辆的两个颜色值。
 
-| Name        | Description                                                        |
-| ----------- | ------------------------------------------------------------------ |
-| Text:textid | The textdraw id that is set to display a 3D vehicle model preview. |
-| colour1     | The primary Color ID to set the vehicle to.                        |
-| colour2     | The secondary Color ID to set the vehicle to.                      |
+| 参数名      | 说明                                      |
+| ----------- | ----------------------------------------- |
+| Text:textid | 已设置为显示 3D 车辆模型预览的文本绘图 ID |
+| colour1     | 车辆主颜色 ID                             |
+| colour2     | 车辆副颜色 ID                             |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回特定值。
 
-## Examples
+## 示例代码
 
 ```c
 new Text:gMyTextdraw;
@@ -31,28 +31,28 @@ public OnGameModeInit()
     TextDrawUseBox(gMyTextdraw, true);
     TextDrawBoxColor(gMyTextdraw, 0x000000FF);
     TextDrawTextSize(gMyTextdraw, 40.0, 40.0);
-    TextDrawSetPreviewModel(gMyTextdraw, 411); // Display model 411 (Infernus)
-    TextDrawSetPreviewVehCol(gMyTextdraw, 6, 6); // Set the Infernus to have colour 6 (Yellow)
+    TextDrawSetPreviewModel(gMyTextdraw, 411); // 显示模型411（灵车）
+    TextDrawSetPreviewVehCol(gMyTextdraw, 6, 6); // 设置灵车主副颜色为6号（黄色）
 
-    // You still have to use TextDrawShowForAll/TextDrawShowForPlayer to make the textdraw visible.
+    // 仍需使用TextDrawShowForAll/TextDrawShowForPlayer使文本绘图可见
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-The textdraw MUST use the font type `TEXT_DRAW_FONT_MODEL_PREVIEW` in order for this function to have effect.
+文本绘图必须使用字体类型`TEXT_DRAW_FONT_MODEL_PREVIEW`，否则本函数将无效。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawSetPreviewModel](TextDrawSetPreviewModel): Set the 3D preview model of a textdraw.
-- [TextDrawSetPreviewRot](TextDrawSetPreviewRot): Set rotation of a 3D textdraw preview.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
+- [TextDrawSetPreviewModel](TextDrawSetPreviewModel): 设置文本绘图的 3D 预览模型。
+- [TextDrawSetPreviewRot](TextDrawSetPreviewRot): 设置 3D 文本绘图预览的旋转角度。
+- [TextDrawFont](TextDrawFont): 设置文本绘图的字体样式。
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): Called when a player clicks on a textdraw.
+- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): 当玩家点击文本绘图时调用。

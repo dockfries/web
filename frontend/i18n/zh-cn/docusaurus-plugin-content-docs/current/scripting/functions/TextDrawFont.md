@@ -1,30 +1,30 @@
 ---
 title: TextDrawFont
 sidebar_label: TextDrawFont
-description: Changes the text font.
-tags: ["textdraw"]
+description: 更改文本字体
+tags: ["文本绘图"]
 ---
 
-## Description
+## 描述
 
-Changes the text font.
+更改文本绘图的字体样式
 
-| Name                | Description                                                                                                                                                                                                                                            |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Text:textid         | The TextDraw to change                                                                                                                                                                                                                                 |
-| TEXT_DRAW_FONT:font | There are four font styles as shown below. Font value 4 specifies that this is a txd sprite; 5 specifies that this textdraw can display preview models. A font value greater than 5 does not display, and anything greater than 16 crashes the client. |
+| 参数名              | 说明                                                                                                                                                                                              |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Text:textid         | 需要修改的文本绘图 ID                                                                                                                                                                             |
+| TEXT_DRAW_FONT:font | SA-MP 提供四种字体样式选择机制：1. ​**字体值 4** 表示使用 txd 精灵图字体 2. ​**字体值 5** 用于 3D 模型预览显示功能 3. ​**字体值 >5** 时文本内容将不可见 4. ​**字体值 >16** 会导致客户端程序崩溃 |
 
-Available Styles:
-![Available Styles](https://assets.open.mp/assets/images/textdraws/Textdraw_font_styles.png)
+可用样式预览：
+![可用样式](https://assets.open.mp/assets/images/textdraws/Textdraw_font_styles.png)
 
-Available Fonts:
-![Available Fonts](https://assets.open.mp/assets/images/textdraws/Textdraw_Fonts.png)
+字体效果展示：
+![字体效果](https://assets.open.mp/assets/images/textdraws/Textdraw_Fonts.png)
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回任何特定值
 
-## Examples
+## 示例
 
 ```c
 /*
@@ -40,37 +40,37 @@ new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(320.0, 425.0, "This is an example textdraw");
+    gMyTextdraw = TextDrawCreate(320.0, 425.0, "示例文本绘图");
     TextDrawFont(gMyTextdraw, TEXT_DRAW_FONT_2);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-If you want to change the font of a textdraw that is already shown, you don't have to recreate it. Simply use [TextDrawShowForPlayer](TextDrawShowForPlayer)/[TextDrawShowForAll](TextDrawShowForAll) after modifying the textdraw and the change will be visible.
+修改已显示的文本绘图字体后，无需重新创建，只需调用[TextDrawShowForPlayer](TextDrawShowForPlayer)或[TextDrawShowForAll](TextDrawShowForAll)即可刷新显示效果
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawCreate](TextDrawCreate): Create a textdraw.
-- [TextDrawDestroy](TextDrawDestroy): Destroy a textdraw.
-- [TextDrawGetFont](TextDrawGetFont): Gets the text font of a textdraw.
-- [TextDrawColor](TextDrawColor): Set the color of the text in a textdraw.
-- [TextDrawBoxColor](TextDrawBoxColor): Set the color of the box in a textdraw.
-- [TextDrawBackgroundColor](TextDrawBackgroundColor): Set the background color of a textdraw.
-- [TextDrawAlignment](TextDrawAlignment): Set the alignment of a textdraw.
-- [TextDrawLetterSize](TextDrawLetterSize): Set the letter size of the text in a textdraw.
-- [TextDrawTextSize](TextDrawTextSize): Set the size of a textdraw box.
-- [TextDrawSetOutline](TextDrawSetOutline): Choose whether the text has an outline.
-- [TextDrawSetShadow](TextDrawSetShadow): Toggle shadows on a textdraw.
-- [TextDrawSetProportional](TextDrawSetProportional): Scale the text spacing in a textdraw to a proportional ratio.
-- [TextDrawUseBox](TextDrawUseBox): Toggle if the textdraw has a box or not.
-- [TextDrawSetString](TextDrawSetString): Set the text in an existing textdraw.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
+- [TextDrawCreate](TextDrawCreate): 创建文本绘图
+- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘图
+- [TextDrawGetFont](TextDrawGetFont): 获取文本字体
+- [TextDrawColor](TextDrawColor): 设置文本颜色
+- [TextDrawBoxColor](TextDrawBoxColor): 设置方框颜色
+- [TextDrawBackgroundColor](TextDrawBackgroundColor): 设置背景颜色
+- [TextDrawAlignment](TextDrawAlignment): 设置对齐方式
+- [TextDrawLetterSize](TextDrawLetterSize): 设置字符尺寸
+- [TextDrawTextSize](TextDrawTextSize): 设置文本区域尺寸
+- [TextDrawSetOutline](TextDrawSetOutline): 设置文字描边
+- [TextDrawSetShadow](TextDrawSetShadow): 设置阴影效果
+- [TextDrawSetProportional](TextDrawSetProportional): 启用比例间距
+- [TextDrawUseBox](TextDrawUseBox): 切换方框显示
+- [TextDrawSetString](TextDrawSetString): 更新文本内容
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 为玩家显示
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 为玩家隐藏
+- [TextDrawShowForAll](TextDrawShowForAll): 全局显示
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏

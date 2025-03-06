@@ -1,24 +1,24 @@
 ---
 title: tickcount
 sidebar_label: tickcount
-description: This function can be used as a replacement for GetTickCount, as it returns the number of milliseconds since the start-up of the server.
-tags: ["time"]
+description: 该函数可作为GetTickCount的替代方案，返回服务器启动至今经过的毫秒数。
+tags: ["时间"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-This function can be used as a replacement for GetTickCount, as it returns the number of milliseconds since the start-up of the server.
+该函数可作为 GetTickCount 的替代方案，返回服务器启动至今经过的毫秒数。
 
-| Name           | Description                                                                                                                                                                                |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| &granularity=0 | Upon return, this value contains the number of ticks that the internal system time will tick per second. This value therefore indicates the accuracy of the return value of this function. |
+| 名称           | 描述                                                                             |
+| -------------- | -------------------------------------------------------------------------------- |
+| &granularity=0 | 该引用参数返回时将被赋值为系统内部时钟每秒的滴答数，用于指示函数返回值的时间精度 |
 
-## Returns
+## 返回值
 
-The number of milliseconds since start-up of the system. For a 32-bit cell, this count overflows after approximately 24 days of continuous operation.
+系统启动后经过的毫秒数。对于 32 位存储单元，该计数器在连续运行约 24 天后会溢出。
 
-## Related Functions
+## 相关函数
 
-- [GetTickCount](GetTickCount): Returns a value which increases every millisecond.
+- [GetTickCount](GetTickCount): 返回一个每毫秒递增的时间戳数值

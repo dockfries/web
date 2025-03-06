@@ -1,26 +1,26 @@
 ---
 title: SetPVarString
 sidebar_label: SetPVarString
-description: Saves a string into a player variable.
-tags: ["player variable", "pvar"]
+description: 将字符串保存到玩家变量中。
+tags: ["玩家变量", "pvar"]
 ---
 
-## Description
+## 描述
 
-Saves a string into a player variable.
+将字符串保存到玩家变量中。
 
-| Name             | Description                                             |
-| ---------------- | ------------------------------------------------------- |
-| playerid         | The ID of the player whose player variable will be set. |
-| const pvar[]     | The name of the player variable.                        |
-| const value[]    | The string you want to save in the player variable.     |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag.              |
+| 参数名           | 描述                   |
+| ---------------- | ---------------------- |
+| playerid         | 要设置变量的玩家 ID    |
+| const pvar[]     | 玩家变量名称           |
+| const value[]    | 要保存的字符串值       |
+| OPEN_MP_TAGS:... | 不定数量的任意标签参数 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有返回值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerConnect(playerid)
@@ -31,29 +31,29 @@ public OnPlayerConnect(playerid)
         seconds,
         string[46];
 
-    gettime(hours, minutes, seconds); // get the time
-    format(string, sizeof(string), "Connected on %02d:%02d:%02d", hours, minutes, seconds); // create the string with the connect time
-    SetPVarString(playerid, "timeconnected", string); // save the string into a player variable
+    gettime(hours, minutes, seconds); // 获取当前时间
+    format(string, sizeof(string), "连接时间 %02d:%02d:%02d", hours, minutes, seconds); // 创建包含连接时间的字符串
+    SetPVarString(playerid, "timeconnected", string); // 将字符串存入玩家变量
 
-    // PRO TIP: You don't need `format` in open.mp
-    SetPVarString(playerid, "timeconnected", "Connected on %02d:%02d:%02d", hours, minutes, seconds);
+    // 专业建议：open.mp中无需使用format
+    SetPVarString(playerid, "timeconnected", "连接时间 %02d:%02d:%02d", hours, minutes, seconds);
     return 1;
 }
 ```
 
-## Notes
+## 重要说明
 
 :::tip
 
-Variables aren't reset until after [OnPlayerDisconnect](../callbacks/OnPlayerDisconnect) is called, so the values are still accessible in OnPlayerDisconnect.
+玩家变量在[OnPlayerDisconnect](../callbacks/OnPlayerDisconnect)回调完成后才会重置，因此断开连接时仍可访问变量值。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPVarInt](SetPVarInt): Set an integer for a player variable.
-- [GetPVarInt](GetPVarInt): Get the previously set integer from a player variable.
-- [GetPVarString](GetPVarString): Get the previously set string from a player variable.
-- [SetPVarFloat](SetPVarFloat): Set a float for a player variable.
-- [GetPVarFloat](GetPVarFloat): Get the previously set float from a player variable.
-- [DeletePVar](DeletePVar): Delete a player variable.
+- [SetPVarInt](SetPVarInt): 设置整型玩家变量
+- [GetPVarInt](GetPVarInt): 获取整型玩家变量值
+- [GetPVarString](GetPVarString): 获取字符串玩家变量值
+- [SetPVarFloat](SetPVarFloat): 设置浮点型玩家变量
+- [GetPVarFloat](GetPVarFloat): 获取浮点型玩家变量值
+- [DeletePVar](DeletePVar): 删除玩家变量

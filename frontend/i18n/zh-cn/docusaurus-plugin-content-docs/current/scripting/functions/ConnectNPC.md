@@ -32,7 +32,7 @@ public OnGameModeInit()
 
 :::tip
 
-NPC 默认没有名称标签，可通过[Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer)函数添加自定义 3D 文本标签
+NPC 默认没有名牌，可通过[Attach3DTextLabelToPlayer](Attach3DTextLabelToPlayer)函数添加自定义 3D 文本标签
 
 :::
 

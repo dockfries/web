@@ -1,34 +1,34 @@
 ---
 title: SetTeamCount
 sidebar_label: SetTeamCount
-description: This function is used to change the amount of teams used in the gamemode.
+description: 该函数用于设置游戏模式中使用的队伍数量。
 tags: []
 ---
 
-## Description
+## 描述
 
-This function is used to change the amount of teams used in the gamemode. It has no obvious way of being used, but can help to indicate the number of teams used for better (more effective) internal handling. This function should only be used in the OnGameModeInit callback. Important: You can pass 2 billion here if you like, this function has no effect at all.
+该函数用于设置游戏模式中使用的队伍数量。虽然无实际效果，但可用于优化内部队伍管理机制。应仅在 OnGameModeInit 回调函数中使用。重要提示：可传入任意数值（如 20 亿），本函数不会产生任何实际影响。
 
-| Name  | Description                         |
-| ----- | ----------------------------------- |
-| count | Number of teams the gamemode knows. |
+| 参数名 | 描述                 |
+| ------ | -------------------- |
+| count  | 游戏模式预设队伍数量 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有返回值。
 
-## Examples
+## 示例
 
 ```c
 public OnGameModeInit( )
 {
-    // We use 18 teams in this use Team-Deathmatch mode, define it;
+    // 我们在此团队死斗模式中使用18个队伍，进行定义
     SetTeamCount(18);
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerTeam](GetPlayerTeam): Check what team a player is on.
-- [SetPlayerTeam](SetPlayerTeam): Set a player's team.
+- [GetPlayerTeam](GetPlayerTeam): 检查玩家所在队伍
+- [SetPlayerTeam](SetPlayerTeam): 设置玩家所属队伍

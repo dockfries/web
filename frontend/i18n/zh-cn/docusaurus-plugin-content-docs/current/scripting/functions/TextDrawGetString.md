@@ -1,27 +1,27 @@
 ---
 title: TextDrawGetString
 sidebar_label: TextDrawGetString
-description: Gets the text of a textdraw.
-tags: ["textdraw"]
+description: 获取文本绘图的文字内容
+tags: ["文本绘图"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets the text of a textdraw.
+获取指定文本绘图的文字内容
 
-| Name                         | Description                                                 |
-| ---------------------------- | ----------------------------------------------------------- |
-| Text:textid                  | The ID of the textdraw to get the text of.                  |
-| string[]                     | An array into which to store the text, passed by reference. |
-| stringSize = sizeof (string) | The size of the string.                                     |
+| 参数名                       | 说明                                 |
+| ---------------------------- | ------------------------------------ |
+| Text:textid                  | 需要获取文字的文本绘图 ID            |
+| string[]                     | 存储文本内容的字符数组（按引用传递） |
+| stringSize = sizeof (string) | 数组容量上限                         |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数没有特定返回值
 
-## Examples
+## 示例
 
 ```c
 new Text:gMyTextdraw;
@@ -32,29 +32,29 @@ public OnGameModeInit()
 
     new string[16];
     TextDrawGetString(gMyTextdraw, string, sizeof(string));
-    // The `string` now contains 'Hello World!'
+    // string数组现在存储着'Hello World!'
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [TextDrawCreate](TextDrawCreate): Create a textdraw.
-- [TextDrawDestroy](TextDrawDestroy): Destroy a textdraw.
-- [TextDrawColor](TextDrawColor): Set the color of the text in a textdraw.
-- [TextDrawBoxColor](TextDrawBoxColor): Set the color of the box in a textdraw.
-- [TextDrawBackgroundColor](TextDrawBackgroundColor): Set the background color of a textdraw.
-- [TextDrawAlignment](TextDrawAlignment): Set the alignment of a textdraw.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
-- [TextDrawLetterSize](TextDrawLetterSize): Set the letter size of the text in a textdraw.
-- [TextDrawTextSize](TextDrawTextSize): Set the size of a textdraw box.
-- [TextDrawSetOutline](TextDrawSetOutline): Choose whether the text has an outline.
-- [TextDrawSetShadow](TextDrawSetShadow): Toggle shadows on a textdraw.
-- [TextDrawSetProportional](TextDrawSetProportional): Scale the text spacing in a textdraw to a proportional ratio.
-- [TextDrawUseBox](TextDrawUseBox): Toggle if the textdraw has a box or not.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
-- [TextDrawSetString](TextDrawSetString): Changes the text on a textdraw.
-- [PlayerTextDrawGetString](PlayerTextDrawGetString): Gets the text of a player-textdraw.
+- [TextDrawCreate](TextDrawCreate): 新建一个文本绘图
+- [TextDrawDestroy](TextDrawDestroy): 删除指定文本绘图
+- [TextDrawColor](TextDrawColor): 调整文本绘图的文字颜色
+- [TextDrawBoxColor](TextDrawBoxColor): 修改文本绘图的背景方框颜色
+- [TextDrawBackgroundColor](TextDrawBackgroundColor): 修改文本绘图的背景颜色
+- [TextDrawAlignment](TextDrawAlignment): 调整文本绘图的文字对齐方式
+- [TextDrawFont](TextDrawFont): 更改文本绘图的字体样式
+- [TextDrawLetterSize](TextDrawLetterSize): 调节文本绘图的字符大小
+- [TextDrawTextSize](TextDrawTextSize): 定义文本绘图方框的尺寸
+- [TextDrawSetOutline](TextDrawSetOutline): 控制文本轮廓的显示状态
+- [TextDrawSetShadow](TextDrawSetShadow): 切换文本阴影的启用状态
+- [TextDrawSetProportional](TextDrawSetProportional): 启用文本字符的比例间距
+- [TextDrawUseBox](TextDrawUseBox): 控制文本绘图方框的显示开关
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 向指定玩家显示文本绘图
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 对指定玩家隐藏文本绘图
+- [TextDrawShowForAll](TextDrawShowForAll): 向所有在线玩家显示文本绘图
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏指定文本绘图
+- [TextDrawSetString](TextDrawSetString): 修改文本绘图的文字内容
+- [PlayerTextDrawGetString](PlayerTextDrawGetString): 获取玩家专属文本绘图的文字

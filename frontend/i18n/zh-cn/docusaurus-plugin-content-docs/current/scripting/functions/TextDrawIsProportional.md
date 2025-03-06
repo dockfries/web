@@ -1,65 +1,65 @@
 ---
 title: TextDrawIsProportional
 sidebar_label: TextDrawIsProportional
-description: Checks if a textdraw is proportional.
-tags: ["textdraw"]
+description: 检查文本绘图是否启用等比例间距。
+tags: ["文本绘图"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Checks if a textdraw is proportional.
+检查文本绘图是否启用等比例间距。
 
-## Parameters
+## 参数
 
-| Name        | Description                      |
-| ----------- | -------------------------------- |
-| Text:textid | The ID of the textdraw to check. |
+| 名称        | 说明                  |
+| ----------- | --------------------- |
+| Text:textid | 需要检查的文本绘图 ID |
 
-## Return Values
+## 返回值
 
-Returns **true** if the textdraw is proportional, otherwise **false**.
+返回**true**表示已启用等比例间距，否则返回**false**。
 
-## Example Usage
+## 示例用法
 
 ```c
 new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(100.0, 33.0, "Example TextDraw");
+    gMyTextdraw = TextDrawCreate(100.0, 33.0, "示例文本绘图");
     TextDrawSetProportional(gMyTextdraw, true);
 
     if (TextDrawIsProportional(gMyTextdraw))
     {
-        // Textdraw is proportional
+        // 文本绘图已启用等比例间距
     }
     else
     {
-        // Textdraw is not proportional
+        // 文本绘图未启用等比例间距
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [TextDrawCreate](TextDrawCreate): Create a textdraw.
-- [TextDrawDestroy](TextDrawDestroy): Destroy a textdraw.
-- [TextDrawColor](TextDrawColor): Set the color of the text in a textdraw.
-- [TextDrawBoxColor](TextDrawBoxColor): Set the color of the box in a textdraw.
-- [TextDrawBackgroundColor](TextDrawBackgroundColor): Set the background color of a textdraw.
-- [TextDrawAlignment](TextDrawAlignment): Set the alignment of a textdraw.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
-- [TextDrawLetterSize](TextDrawLetterSize): Set the letter size of the text in a textdraw.
-- [TextDrawTextSize](TextDrawTextSize): Set the size of a textdraw box.
-- [TextDrawSetOutline](TextDrawSetOutline): Choose whether the text has an outline.
-- [TextDrawSetShadow](TextDrawSetShadow): Toggle shadows on a textdraw.
-- [TextDrawSetProportional](TextDrawSetProportional): Scale the text spacing in a textdraw to a proportional ratio.
-- [TextDrawUseBox](TextDrawUseBox): Toggle if the textdraw has a box or not.
-- [TextDrawSetString](TextDrawSetString): Set the text in an existing textdraw.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
+- [TextDrawCreate](TextDrawCreate): 创建文本绘图
+- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘图
+- [TextDrawColor](TextDrawColor): 设置字体颜色
+- [TextDrawBoxColor](TextDrawBoxColor): 设置文本框颜色
+- [TextDrawBackgroundColor](TextDrawBackgroundColor): 设置背景颜色
+- [TextDrawAlignment](TextDrawAlignment): 设置文本对齐方式
+- [TextDrawFont](TextDrawFont): 设置字体样式
+- [TextDrawLetterSize](TextDrawLetterSize): 设置字符尺寸
+- [TextDrawTextSize](TextDrawTextSize): 设置文本框尺寸
+- [TextDrawSetOutline](TextDrawSetOutline): 启用文本描边
+- [TextDrawSetShadow](TextDrawSetShadow): 启用文本阴影
+- [TextDrawSetProportional](TextDrawSetProportional): 启用等比例间距
+- [TextDrawUseBox](TextDrawUseBox): 启用文本框显示
+- [TextDrawSetString](TextDrawSetString): 更新文本内容
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 对玩家显示文本
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 对玩家隐藏文本
+- [TextDrawShowForAll](TextDrawShowForAll): 全局显示文本
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏文本

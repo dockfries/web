@@ -1,29 +1,29 @@
 ---
 title: ShowVehicle
 sidebar_label: ShowVehicle
-description: Shows the hidden vehicle.
-tags: ["vehicle"]
+description: 显示被隐藏的车辆。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 :::warning
 
-This function has not yet been implemented.
+警告：此功能尚未实现。
 
 :::
 
-## Description
+## 描述
 
-Shows the hidden vehicle.
+显示被隐藏的车辆。
 
-## Parametes
+## 参数
 
-| Name      | Description                    |
-| --------- | ------------------------------ |
-| vehicleid | The ID of the vehicle to show. |
+| 名称      | 说明              |
+| --------- | ----------------- |
+| vehicleid | 要显示的车辆 ID。 |
 
-## Examples
+## 示例
 
 ```c
 new g_Vehicle;
@@ -49,7 +49,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [HideVehicle](HideVehicle): Hides a vehicle from the game.
-- [IsVehicleHidden](IsVehicleHidden): Checks if a vehicle is hidden.
+- [HideVehicle](HideVehicle): 从游戏中隐藏车辆
+- [IsVehicleHidden](IsVehicleHidden): 检查车辆是否被隐藏

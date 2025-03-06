@@ -1,44 +1,45 @@
 ---
 title: strunpack
 sidebar_label: strunpack
-description: This function can be used to unpack a string.
-tags: ["string"]
+description: 该函数用于解包字符串。
+tags: ["字符串"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-This function can be used to unpack a string.
+该函数用于解包字符串。
 
-| Name                        | Description                                                                 |
-| --------------------------- | --------------------------------------------------------------------------- |
-| dest[]                      | The destination string to save the unpacked string in, passed by reference. |
-| const source[]              | The source, original packed string.                                         |
-| maxlength = sizeof (string) | The maximum size to insert.                                                 |
+## 参数
 
-## Returns
+| 名称                        | 说明                                         |
+| --------------------------- | -------------------------------------------- |
+| dest[]                      | 目标字符串（引用传递），用于存储解包后的内容 |
+| const source[]              | 源字符串（已打包的原始字符串）               |
+| maxlength = sizeof (string) | 最大解包长度（默认取目标字符串容量）         |
 
-The number of characters packed.
+## 返回值
 
-## Examples
+解包的字符数量。
+
+## 示例
 
 ```c
 new string[17];
 new pstring[17 char] = !"Hi, how are you?";
-strunpack(string, pstring);
+strunpack(string, pstring);  // 解包已压缩字符串
 ```
 
-## Related Functions
+## 相关函数
 
-- [ispacked](ispacked): Check if the given string is packed.
-- [strpack](strpack): This function can be used to pack a string.
-- [strcmp](strcmp): Compare two strings to check if they are the same.
-- [strfind](strfind): Search for a string in another string.
-- [strins](strins): Insert text into a string.
-- [strlen](strlen): Get the length of a string.
-- [strmid](strmid): Extract part of a string into another string.
-- [strpack](strpack): Pack a string into a destination string.
-- [strval](strval): Convert a string into an integer.
-- [strcat](strcat): Concatenate two strings into a destination reference.
-- [strdel](strdel): Delete part of a string.
+- [ispacked](ispacked): 检测字符串是否已打包
+- [strpack](strpack): 打包字符串
+- [strcmp](strcmp): 比较字符串是否相同
+- [strfind](strfind): 在字符串中搜索子串
+- [strins](strins): 插入字符串内容
+- [strlen](strlen): 获取字符串长度
+- [strmid](strmid): 截取子字符串
+- [strval](strval): 字符串转整型
+- [strcat](strcat): 字符串拼接
+- [strdel](strdel): 删除字符串片段

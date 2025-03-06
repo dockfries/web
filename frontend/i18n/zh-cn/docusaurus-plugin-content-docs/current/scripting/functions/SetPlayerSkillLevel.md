@@ -1,49 +1,49 @@
 ---
 title: SetPlayerSkillLevel
 sidebar_label: SetPlayerSkillLevel
-description: Set the skill level of a certain weapon type for a player.
-tags: ["player"]
+description: 设置玩家特定武器类型的技能等级。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set the skill level of a certain weapon type for a player.
+设置玩家特定武器类型的技能等级。
 
-| Name              | Description                                                                                          |
-| ----------------- | ---------------------------------------------------------------------------------------------------- |
-| playerid          | The ID of the player to set the weapon skill of.                                                     |
-| WEAPONSKILL:skill | The [weapon](../resources/weaponskills) to set the skill of.                                         |
-| level             | The skill level to set for that weapon, ranging from 0 to 999. A level out of range will max it out. |
+| 参数名            | 描述                                              |
+| ----------------- | ------------------------------------------------- |
+| playerid          | 要设置武器技能的玩家 ID                           |
+| WEAPONSKILL:skill | 要设置的[武器技能类型](../resources/weaponskills) |
+| level             | 技能等级值（0-999），超出范围的数值会自动取极值   |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有返回值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerSpawn(playerid)
 {
-    // Make the player use single-handed sawn-off shotguns.
+    // 使玩家使用单手持短管霰弹枪
     SetPlayerSkillLevel(playerid, WEAPONSKILL_SAWNOFF_SHOTGUN, 1);
     return 1;
 }
 ```
 
-## Notes
+## 重要说明
 
 :::warning
 
-The skill parameter is NOT the weapon ID, it is the skill type. Click [here](../resources/weaponskills) for a list of skill types.
+skill 参数不是武器 ID，而是技能类型。[点击此处](../resources/weaponskills)查看技能类型列表。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerSkillLevel](GetPlayerSkillLevel): Get the player skill level of a certain weapon type.
-- [SetPlayerArmedWeapon](SetPlayerArmedWeapon): Set a player's armed weapon.
-- [GivePlayerWeapon](GivePlayerWeapon): Give a player a weapon.
+- [GetPlayerSkillLevel](GetPlayerSkillLevel): 获取玩家武器技能等级
+- [SetPlayerArmedWeapon](SetPlayerArmedWeapon): 设置玩家手持武器
+- [GivePlayerWeapon](GivePlayerWeapon): 给予玩家武器
 
-## Related Information
+## 相关信息
 
-- [Weapon Skills](../resources/weaponskills#skill-levels): List of weapon skills that are used to set player's skill level.
+- [武器技能系统](../resources/weaponskills#skill-levels): 用于设置玩家技能等级的武器技能列表

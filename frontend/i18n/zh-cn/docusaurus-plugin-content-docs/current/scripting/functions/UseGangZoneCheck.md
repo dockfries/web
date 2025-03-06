@@ -1,28 +1,28 @@
 ---
 title: UseGangZoneCheck
 sidebar_label: UseGangZoneCheck
-description: Enables the callback when a player enters/leaves this zone
-tags: ["player", "gangzone"]
+description: 启用当玩家进入/离开该区域时的回调触发
+tags: ["玩家", "帮派区域"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Enables the callback when a player enters/leaves this zone.
+启用当玩家进入/离开指定帮派区域时的回调触发功能。
 
-| Name        | Description                                                    |
-| ----------- | -------------------------------------------------------------- |
-| zoneid      | The ID of the zone to enable area detection for.               |
-| bool:enable | Should entry detection be started or stopped? (`true`/`false`) |
+| 名称        | 描述                                           |
+| ----------- | ---------------------------------------------- |
+| zoneid      | 需要启用区域检测的帮派区域 ID                  |
+| bool:enable | 是否启用区域检测功能（`true`启用/`false`停用） |
 
-## Returns
+## 返回值
 
-**1:** The function executed successfully.
+**1:** 函数执行成功
 
-**0:** The function failed to execute. The gangzone specified does not exist.
+**0:** 函数执行失败（指定的帮派区域不存在）
 
-## Examples
+## 示例
 
 ```c
 new gGangZoneID = INVALID_GANG_ZONE;
@@ -31,7 +31,7 @@ public OnGameModeInit()
 {
     gGangZoneID = GangZoneCreate(1248.011, 2072.804, 1439.348, 2204.319);
 
-    // Enabled the callback when a player enters/leaves this zone
+    // 启用该区域的进出检测回调
     UseGangZoneCheck(gGangZoneID, true);
 }
 
@@ -40,7 +40,7 @@ public OnPlayerEnterGangZone(playerid, zoneid)
     if (zoneid == gGangZoneID)
     {
         new string[64];
-        format(string, sizeof(string), "You are entering gangzone %i", zoneid);
+        format(string, sizeof(string), "你正在进入帮派区域 %i", zoneid);
         SendClientMessage(playerid, 0xFFFFFFFF, string);
     }
     return 1;
@@ -51,34 +51,34 @@ public OnPlayerLeaveGangZone(playerid, zoneid)
     if (zoneid == gGangZoneID)
     {
         new string[64];
-        format(string, sizeof(string), "You are leaving gangzone %i", zoneid);
+        format(string, sizeof(string), "你正在离开帮派区域 %i", zoneid);
         SendClientMessage(playerid, 0xFFFFFFFF, string);
     }
     return 1;
 }
 ```
 
-## Related Callbacks
+## 相关回调
 
-The following callbacks might be useful, as they're related to this function in one way or another.
+以下回调函数与本文档功能相关：
 
-- [OnPlayerEnterGangZone](../callbacks/OnPlayerEnterGangZone): This callback is called when a player enters a gangzone.
-- [OnPlayerLeaveGangZone](../callbacks/OnPlayerLeaveGangZone): This callback is called when a player exited a gangzone.
+- [OnPlayerEnterGangZone](../callbacks/OnPlayerEnterGangZone): 当玩家进入帮派区域时触发
+- [OnPlayerLeaveGangZone](../callbacks/OnPlayerLeaveGangZone): 当玩家离开帮派区域时触发
 
-## Related Functions
+## 相关函数
 
-The following functions might be useful, as they're related to this function in one way or another.
+以下函数与本文档功能相关：
 
-- [GangZoneCreate](GangZoneCreate): Create a gangzone.
-- [GangZoneDestroy](GangZoneDestroy): Destroy a gangzone.
-- [GangZoneShowForPlayer](GangZoneShowForPlayer): Show a gangzone for a player.
-- [GangZoneShowForAll](GangZoneShowForAll): Show a gangzone for all players.
-- [GangZoneHideForPlayer](GangZoneHideForPlayer): Hide a gangzone for a player.
-- [GangZoneHideForAll](GangZoneHideForAll): Hide a gangzone for all players.
-- [GangZoneFlashForPlayer](GangZoneFlashForPlayer): Make a gangzone flash for a player.
-- [GangZoneFlashForAll](GangZoneFlashForAll): Make a gangzone flash for all players.
-- [GangZoneStopFlashForPlayer](GangZoneStopFlashForPlayer): Stop a gangzone flashing for a player.
-- [GangZoneStopFlashForAll](GangZoneStopFlashForAll): Stop a gangzone flashing for all players.
-- [IsValidGangZone](IsValidGangZone): Check if the gangzone valid.
-- [IsPlayerInGangZone](IsPlayerInGangZone): Check if the player in gangzone.
-- [IsGangZoneVisibleForPlayer](IsGangZoneVisibleForPlayer): Check if the gangzone is visible for player.
+- [GangZoneCreate](GangZoneCreate): 创建帮派区域
+- [GangZoneDestroy](GangZoneDestroy): 销毁帮派区域
+- [GangZoneShowForPlayer](GangZoneShowForPlayer): 为玩家显示帮派区域
+- [GangZoneShowForAll](GangZoneShowForAll): 全体显示帮派区域
+- [GangZoneHideForPlayer](GangZoneHideForPlayer): 对玩家隐藏帮派区域
+- [GangZoneHideForAll](GangZoneHideForAll): 全体隐藏帮派区域
+- [GangZoneFlashForPlayer](GangZoneFlashForPlayer): 为玩家闪烁显示区域
+- [GangZoneFlashForAll](GangZoneFlashForAll): 全体闪烁显示区域
+- [GangZoneStopFlashForPlayer](GangZoneStopFlashForPlayer): 停止玩家区域闪烁
+- [GangZoneStopFlashForAll](GangZoneStopFlashForAll): 停止全体区域闪烁
+- [IsValidGangZone](IsValidGangZone): 验证帮派区域有效性
+- [IsPlayerInGangZone](IsPlayerInGangZone): 检测玩家是否在区域内
+- [IsGangZoneVisibleForPlayer](IsGangZoneVisibleForPlayer): 检测区域对玩家可见性

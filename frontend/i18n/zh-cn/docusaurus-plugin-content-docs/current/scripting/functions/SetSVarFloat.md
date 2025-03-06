@@ -1,42 +1,42 @@
 ---
 title: SetSVarFloat
 sidebar_label: SetSVarFloat
-description: Set a float server variable.
-tags: ["server variable", "svar"]
+description: 设置浮点型服务器变量。
+tags: ["服务器变量", "svar"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7 R2' />
 
-## Description
+## 描述
 
-Set a float server variable.
+设置浮点型服务器变量。
 
-| Name         | Description                      |
-| ------------ | -------------------------------- |
-| const svar[] | The name of the server variable. |
-| Float:value  | The float to be set.             |
+| 参数名       | 说明             |
+| ------------ | ---------------- |
+| const svar[] | 服务器变量名称   |
+| Float:value  | 要设置的浮点数值 |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The variable name is null or over 40 characters.
+**false** - 函数执行失败（变量名为空或超过 40 字符）
 
-## Examples
+## 示例代码
 
 ```c
-// set "Version"
+// 设置版本号
 SetSVarFloat("Version", 0.37);
 
-// will print version that server has
-printf("Version: %.2f", GetSVarFloat("Version"));
+// 打印服务器版本号
+printf("当前版本: %.2f", GetSVarFloat("Version"));
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetSVarInt](SetSVarInt): Set an integer for a server variable.
-- [GetSVarInt](GetSVarInt): Get a player server as an integer.
-- [SetSVarString](SetSVarString): Set a string for a server variable.
-- [GetSVarString](GetSVarString): Get the previously set string from a server variable.
-- [GetSVarFloat](GetSVarFloat): Get the previously set float from a server variable.
-- [DeleteSVar](DeleteSVar): Delete a server variable.
+- [SetSVarInt](SetSVarInt): 设置整型服务器变量
+- [GetSVarInt](GetSVarInt): 获取服务器变量的整数值
+- [SetSVarString](SetSVarString): 设置字符串型服务器变量
+- [GetSVarString](GetSVarString): 获取服务器变量的字符串值
+- [GetSVarFloat](GetSVarFloat): 获取服务器变量的浮点数值
+- [DeleteSVar](DeleteSVar): 删除服务器变量

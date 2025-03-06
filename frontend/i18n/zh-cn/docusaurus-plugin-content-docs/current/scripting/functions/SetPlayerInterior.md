@@ -1,38 +1,38 @@
 ---
 title: SetPlayerInterior
 sidebar_label: SetPlayerInterior
-description: Set a player's interior.
-tags: ["player"]
+description: 设置玩家的室内场景。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set a player's interior. A list of currently known interiors and their positions can be found here.
+设置玩家的室内场景。当前已知室内场景及其坐标的完整列表可在此处查看。
 
-| Name       | Description                                                       |
-| ---------- | ----------------------------------------------------------------- |
-| playerid   | The ID of the player to set the interior of.                      |
-| interiorid | The [interior ID](../resources/interiorids) to set the player in. |
+| 参数       | 说明                                        |
+| ---------- | ------------------------------------------- |
+| playerid   | 要设置室内场景的玩家 ID                     |
+| interiorid | 要设置的[场景 ID](../resources/interiorids) |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player is not connected.
+**false** - 函数执行失败（玩家未连接）
 
-## Examples
+## 示例代码
 
 ```c
-// Set player to default interior (outside)
+// 将玩家设为默认室内场景（室外）
 SetPlayerInterior(playerid, 0);
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerInterior](GetPlayerInterior): Get the current interior of a player.
-- [LinkVehicleToInterior](LinkVehicleToInterior): Change the interior that a vehicle is seen in.
-- [OnPlayerInteriorChange](../callbacks/OnPlayerInteriorChange): Called when a player changes interior.
+- [GetPlayerInterior](GetPlayerInterior): 获取玩家当前室内场景
+- [LinkVehicleToInterior](LinkVehicleToInterior): 设置车辆关联的室内场景
+- [OnPlayerInteriorChange](../callbacks/OnPlayerInteriorChange): 玩家切换室内场景时触发
 
-## Related Resources
+## 相关资源
 
-- [Interior IDs](../resources/interiorids)
+- [场景 ID 列表](../resources/interiorids)

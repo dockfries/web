@@ -1,24 +1,24 @@
 ---
 title: SetPlayerShopName
 sidebar_label: SetPlayerShopName
-description: Loads or unloads an interior script for a player (for example the ammunation menu).
-tags: ["player"]
+description: 加载或卸载玩家的室内脚本（例如武器店菜单）。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Loads or unloads an interior script for a player (for example the ammunation menu).
+加载或卸载玩家的室内脚本（例如武器店菜单）。
 
-| Name             | Description                                                                            |
-| ---------------- | -------------------------------------------------------------------------------------- |
-| playerid         | The ID of the player to load the interior script for.                                  |
-| const shopname[] | The [shop script](../resources/shopnames) to load. Leave blank ("") to unload scripts. |
+| 名称             | 说明                                                               |
+| ---------------- | ------------------------------------------------------------------ |
+| playerid         | 要加载室内脚本的玩家 ID                                            |
+| const shopname[] | 要加载的[商店脚本](../resources/shopnames)。留空("")可卸载当前脚本 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -28,26 +28,26 @@ public OnPlayerCommandText(playerid, cmdtext[])
         SetPlayerInterior(playerid, 5);
         SetPlayerPos(playerid, 372.5565, -131.3607, 1001.4922);
         SetPlayerShopName(playerid, "FDPIZA");
-        SendClientMessage(playerid, 0xFFFFFFFF, "Welcome to Pizza Stack!");
+        SendClientMessage(playerid, 0xFFFFFFFF, "欢迎来到披萨栈！");
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-This function does not support casino scripts.
+本函数不支持赌场脚本。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [DisableInteriorEnterExits](DisableInteriorEnterExits): Disable the yellow door markers.
-- [SetPlayerInterior](SetPlayerInterior): Set a player's interior.
+- [DisableInteriorEnterExits](DisableInteriorEnterExits): 禁用黄色门框标记
+- [SetPlayerInterior](SetPlayerInterior): 设置玩家室内环境
 
-## Related Resources
+## 相关资源
 
-- [Shop Names](../resources/shopnames)
+- [商店脚本列表](../resources/shopnames)

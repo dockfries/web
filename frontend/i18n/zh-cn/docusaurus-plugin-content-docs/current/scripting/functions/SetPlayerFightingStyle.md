@@ -1,24 +1,24 @@
 ---
 title: SetPlayerFightingStyle
 sidebar_label: SetPlayerFightingStyle
-description: Set a player's special fighting style.
-tags: ["player"]
+description: 设置玩家的特殊战斗风格。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set a player's special fighting style. To use in-game, aim and press the 'secondary attack' key (ENTER by default).
+设置玩家的特殊战斗风格。需在游戏中瞄准后按下"次要攻击键"（默认 ENTER 键）触发。
 
-| Name              | Description                                                           |
-| ----------------- | --------------------------------------------------------------------- |
-| playerid          | The ID of player to set the fighting style of.                        |
-| FIGHT_STYLE:style | The fighting [style](../resources/fightingstyles) that should be set. |
+| 参数名            | 说明                                            |
+| ----------------- | ----------------------------------------------- |
+| playerid          | 要设置的玩家 ID                                 |
+| FIGHT_STYLE:style | 要设置的[战斗风格](../resources/fightingstyles) |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数没有返回值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -26,25 +26,25 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (strcmp(cmdtext, "/boxing", true) == 0)
     {
         SetPlayerFightingStyle(playerid, FIGHT_STYLE_BOXING);
-        SendClientMessage(playerid, 0xFFFFFFAA, "You have changed your fighting style to boxing!");
+        SendClientMessage(playerid, 0xFFFFFFAA, "你的战斗风格已切换为拳击模式！");
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This does not affect normal fist attacks - only special/secondary attacks (aim + press 'secondary attack' key).
+此设置仅影响特殊攻击（瞄准+次要攻击键），普通拳击攻击不受影响
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerFightingStyle](GetPlayerFightingStyle): Get a player's fighting style.
+- [GetPlayerFightingStyle](GetPlayerFightingStyle): 获取玩家的战斗风格
 
-## Related Resources
+## 相关资源
 
-- [Fighting Styles](../resources/fightingstyles)
+- [战斗风格列表](../resources/fightingstyles)

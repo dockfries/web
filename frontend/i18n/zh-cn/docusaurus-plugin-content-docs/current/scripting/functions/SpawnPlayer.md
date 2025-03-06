@@ -1,25 +1,25 @@
 ---
 title: SpawnPlayer
 sidebar_label: SpawnPlayer
-description: (Re)Spawns a player.
-tags: ["player"]
+description: 生成或重新生成玩家。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-(Re)Spawns a player.
+生成或重新生成玩家。
 
-| Name     | Description                    |
-| -------- | ------------------------------ |
-| playerid | The ID of the player to spawn. |
+| 参数名称 | 说明                |
+| -------- | ------------------- |
+| playerid | 要生成的目标玩家 ID |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player is not connected.
+**false** - 函数执行失败（玩家未连接）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -33,22 +33,22 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Known Bug(s):
+已知问题：
 
-- Kills the player if they are in a vehicle and then they spawn with a bottle in their hand. (Fixed in open.mp)
+• 若玩家处于车辆中执行生成，会导致玩家手持瓶子异常（该问题已在 open.mp 修复）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerSpawned](IsPlayerSpawned): Checks if a player is spawned.
-- [SetSpawnInfo](SetSpawnInfo): Set the spawn setting for a player.
-- [AddPlayerClass](AddPlayerClass): Add a class.
+- [IsPlayerSpawned](IsPlayerSpawned): 检测玩家是否处于生成状态
+- [SetSpawnInfo](SetSpawnInfo): 配置玩家生成参数
+- [AddPlayerClass](AddPlayerClass): 添加角色职业模板
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerSpawn](../callbacks/OnPlayerSpawn): Called when a player spawns.
+- [OnPlayerSpawn](../callbacks/OnPlayerSpawn): 玩家生成完成时触发

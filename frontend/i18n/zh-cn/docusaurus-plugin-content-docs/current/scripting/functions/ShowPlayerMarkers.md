@@ -1,55 +1,55 @@
 ---
 title: ShowPlayerMarkers
 sidebar_label: ShowPlayerMarkers
-description: Toggles player markers (blips on the radar).
-tags: ["player"]
+description: 切换玩家雷达标记（小地图上的光点显示状态）。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Toggles player markers (blips on the radar). Must be used when the server starts (OnGameModeInit). For other times, see [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer).
+切换玩家雷达标记（小地图上的光点显示状态）。必须在服务器启动时调用（OnGameModeInit 回调中）。如需运行时控制，请使用[SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer)。
 
-| Name                     | Description                                                                                                                     |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| PLAYER_MARKERS_MODE:mode | The [mode](../resources/markermodes) to use for markers. They can be streamed, meaning they are only visible to nearby players. |
+| 参数名称                 | 说明                                                                             |
+| ------------------------ | -------------------------------------------------------------------------------- |
+| PLAYER_MARKERS_MODE:mode | 使用的[标记模式](../resources/markermodes)。支持流式加载模式，仅对附近玩家可见。 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回特定值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
 {
-    // Player markers only visible to nearby players
+    // 玩家标记仅对附近玩家可见
     ShowPlayerMarkers(PLAYER_MARKERS_MODE_STREAMED);
 }
 ```
 
-## Marker Modes
+## 标记模式对照表
 
-| ID  | MODE                         |
-| --- | ---------------------------- |
-| 0   | PLAYER_MARKERS_MODE_OFF      |
-| 1   | PLAYER_MARKERS_MODE_GLOBAL   |
-| 2   | PLAYER_MARKERS_MODE_STREAMED |
+| ID  | 模式标识符                               |
+| --- | ---------------------------------------- |
+| 0   | PLAYER_MARKERS_MODE_OFF（禁用标记）      |
+| 1   | PLAYER_MARKERS_MODE_GLOBAL（全局显示）   |
+| 2   | PLAYER_MARKERS_MODE_STREAMED（流式加载） |
 
-## Notes
+## 注意事项
 
 :::tip
 
-It is also possible to set a player's color to a color that has full transparency (no alpha value). This makes it possible to show markers on a per-player basis.
+通过设置玩家颜色为完全透明（无 Alpha 通道值），可实现按玩家单独控制标记显示。此方法支持基于玩家的个性化标记显示方案。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): Set a player's marker.
-- [LimitPlayerMarkerRadius](LimitPlayerMarkerRadius): Limit the player marker radius.
-- [ShowNameTags](ShowNameTags): Set nametags on or off.
-- [SetPlayerColor](SetPlayerColor): Set a player's color.
+- [SetPlayerMarkerForPlayer](SetPlayerMarkerForPlayer): 为指定玩家设置标记显示
+- [LimitPlayerMarkerRadius](LimitPlayerMarkerRadius): 限制玩家标记可见范围
+- [ShowNameTags](ShowNameTags): 控制玩家名牌显示
+- [SetPlayerColor](SetPlayerColor): 设置玩家标识颜色
 
-## Related Resources
+## 相关资源
 
-- [Marker Modes](../resources/markermodes)
+- [标记模式说明](../resources/markermodes)

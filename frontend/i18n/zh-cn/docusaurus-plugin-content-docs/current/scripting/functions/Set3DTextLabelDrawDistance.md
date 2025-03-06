@@ -1,6 +1,6 @@
 ---
 title: Set3DTextLabelDrawDistance
-sidebar_label: 设置3D文本标签绘制距离
+sidebar_label: Set3DTextLabelDrawDistance
 description: 设置3D文本标签的可视距离
 tags: ["3d文本标签"]
 ---

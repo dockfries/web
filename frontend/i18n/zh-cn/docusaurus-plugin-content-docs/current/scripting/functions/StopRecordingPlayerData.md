@@ -1,23 +1,23 @@
 ---
 title: StopRecordingPlayerData
 sidebar_label: StopRecordingPlayerData
-description: Stops all the recordings that had been started with StartRecordingPlayerData for a specific player.
-tags: ["player"]
+description: 停止指定玩家通过StartRecordingPlayerData开始的所有数据录制。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Stops all the recordings that had been started with StartRecordingPlayerData for a specific player.
+停止指定玩家通过[StartRecordingPlayerData](StartRecordingPlayerData)开始的所有数据录制。
 
-| Name     | Description                                    |
-| -------- | ---------------------------------------------- |
-| playerid | The player you want to stop the recordings of. |
+| 参数名称 | 说明                          |
+| -------- | ----------------------------- |
+| playerid | 需要停止数据录制的目标玩家 ID |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回特定值。
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -25,12 +25,12 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (!strcmp("/stoprecording", cmdtext))
     {
         StopRecordingPlayerData(playerid);
-        SendClientMessage(playerid, 0xFFFFFFFF, "Your recorded file has been saved to the scriptfiles folder!");
+        SendClientMessage(playerid, 0xFFFFFFFF, "您的录制文件已保存至scriptfiles目录！");
         return 1;
     }
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [StartRecordingPlayerData](StartRecordingPlayerData): Start recording player data.
+- [StartRecordingPlayerData](StartRecordingPlayerData): 开始录制玩家数据

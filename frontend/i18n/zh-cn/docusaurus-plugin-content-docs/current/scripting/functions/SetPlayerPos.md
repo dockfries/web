@@ -1,35 +1,35 @@
 ---
 title: SetPlayerPos
 sidebar_label: SetPlayerPos
-description: Set a player's position.
-tags: ["player"]
+description: 设置玩家的位置。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Set a player's position.
+设置玩家的位置。
 
-| Name     | Description                                  |
-| -------- | -------------------------------------------- |
-| playerid | The ID of the player to set the position of. |
-| Float:x  | The X coordinate to position the player at.  |
-| Float:y  | The Y coordinate to position the player at.  |
-| Float:z  | The Z coordinate to position the player at.  |
+| 名称     | 说明                  |
+| -------- | --------------------- |
+| playerid | 要设置位置的玩家 ID。 |
+| Float:x  | 玩家位置的 X 坐标。   |
+| Float:y  | 玩家位置的 Y 坐标。   |
+| Float:z  | 玩家位置的 Z 坐标。   |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. This means the player specified does not exist.
+**false** - 函数执行失败。指定的玩家不存在。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid,cmdtext[])
 {
     if (!strcmp(cmdtext, "/middle", true))
     {
-        // Teleports players to the center of San Andreas when they type /middle
+        // 当玩家输入/middle时传送至圣安地列斯中心
         SetPlayerPos(playerid, 0.0, 0.0, 3.0);
         return 1;
     }
@@ -37,23 +37,23 @@ public OnPlayerCommandText(playerid,cmdtext[])
 }
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-Using this function on a player in a vehicle will instantly remove them from the vehicle. Useful for quickly ejecting players.
+对车辆中的玩家使用此函数会立即将其移出车辆。可用于快速弹出玩家。
 
 :::
 
 :::tip
 
-When setting a player's position to an interior, their interior must be set also.
+设置玩家位置至室内时，必须同时设置其室内环境。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerPosFindZ](SetPlayerPosFindZ): Set a player's position and find the ground.
-- [GetPlayerPos](GetPlayerPos): Get a player's position.
-- [SetVehiclePos](SetVehiclePos): Set the position of a vehicle.
-- [GetVehiclePos](GetVehiclePos): Get the position of a vehicle.
+- [SetPlayerPosFindZ](SetPlayerPosFindZ): 设置玩家位置并寻找地面高度
+- [GetPlayerPos](GetPlayerPos): 获取玩家位置
+- [SetVehiclePos](SetVehiclePos): 设置车辆位置
+- [GetVehiclePos](GetVehiclePos): 获取车辆位置

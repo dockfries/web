@@ -1,28 +1,28 @@
 ---
 title: SetPlayerObjectNoCameraCollision
 sidebar_label: SetPlayerObjectNoCameraCollision
-description: Toggles a player object camera collision.
-tags: ["player"]
+description: 切换玩家物体的视角碰撞状态。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Toggles a player object camera collision.
+切换玩家物体的视角碰撞状态。
 
-| Name     | Description                              |
-| -------- | ---------------------------------------- |
-| playerid | The playerID the object belongs to.      |
-| objectid | The ID of the object you want to toggle. |
+| 参数     | 说明                    |
+| -------- | ----------------------- |
+| playerid | 所属玩家的 ID           |
+| objectid | 要切换碰撞状态的物体 ID |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist.
+`false` - 函数执行失败（指定物体不存在）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerObjectMoved(playerid, objectid)
@@ -37,14 +37,14 @@ public OnPlayerObjectMoved(playerid, objectid)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This does not work inside the normal SA map boundaries.
+注意：在正常 SA 地图边界内此功能无效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetObjectNoCameraCollision](SetObjectNoCameraCollision): Disables collisions between camera and object.
+- [SetObjectNoCameraCollision](SetObjectNoCameraCollision): 禁用物体与视角之间的碰撞

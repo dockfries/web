@@ -1,46 +1,46 @@
 ---
 title: SetWorldTime
 sidebar_label: SetWorldTime
-description: Sets the world time (for all players) to a specific hour.
-tags: ["worldtime"]
+description: 为所有玩家设置全局时间至指定小时。
+tags: ["全局时间"]
 ---
 
-## Description
+## 描述
 
-Sets the world time (for all players) to a specific hour.
+为所有玩家设置全局时间至指定小时。
 
-| Name | Description            |
+| 名称 | 说明                   |
 | ---- | ---------------------- |
-| hour | The hour to set (0-23) |
+| hour | 要设置的小时值（0-23） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
-// Set the time to 12 o'clock (noon)
+// 设置时间为12点（正午）
 SetWorldTime(12);
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-This function is only relevant for players that do not use a passing clock - see [TogglePlayerClock](TogglePlayerClock).
+本函数仅对未启用动态时钟的玩家生效（参见[TogglePlayerClock](TogglePlayerClock)）。
 
 :::
 
 :::tip
 
-To set the minutes and/or to set the time for individual players, see [SetPlayerTime](SetPlayerTime).
+如需设置分钟或单独设置玩家时间，请参阅[SetPlayerTime](SetPlayerTime)。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetWorldTime](GetWorldTime): Get the current world time.
-- [SetPlayerTime](SetPlayerTime): Set a player's time.
-- [SetWeather](SetWeather): Set the global weather.
-- [SetGravity](SetGravity): Set the global gravity.
+- [GetWorldTime](GetWorldTime): 获取当前全局时间
+- [SetPlayerTime](SetPlayerTime): 设置玩家时间
+- [SetWeather](SetWeather): 设置全局天气
+- [SetGravity](SetGravity): 设置全局重力

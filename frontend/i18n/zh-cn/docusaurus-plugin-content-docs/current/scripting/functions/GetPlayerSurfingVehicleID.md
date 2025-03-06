@@ -1,37 +1,37 @@
 ---
 title: GetPlayerSurfingVehicleID
 sidebar_label: GetPlayerSurfingVehicleID
-description: Get the ID of the vehicle that the player is surfing (stuck to the roof of).
-tags: ["player", "vehicle"]
+description: 获取玩家正在“冲浪”（停留在车顶）的车辆ID。
+tags: ["玩家", "车辆"]
 ---
 
-## Description
+## 描述
 
-Get the ID of the vehicle that the player is surfing (stuck to the roof of).
+获取玩家当前正在“冲浪”（停留在车顶）的车辆 ID。
 
-| Name     | Description                                                      |
-| -------- | ---------------------------------------------------------------- |
-| playerid | The ID of the player you want to know the surfing vehicle ID of. |
+| 参数名   | 描述                                   |
+| -------- | -------------------------------------- |
+| playerid | 需要查询“冲浪”车辆 ID 的目标玩家标识符 |
 
-## Returns
+## 返回值
 
-The ID of the vehicle that the player is surfing. If they are not surfing a vehicle or the vehicle they are surfing has no driver, `INVALID_VEHICLE_ID`.
+成功返回被“冲浪”的车辆 ID。若玩家未“冲浪”任何车辆或目标车辆无驾驶员，返回`INVALID_VEHICLE_ID`。
 
-If the player specified is not connected, `INVALID_VEHICLE_ID` also.
+若指定玩家未连接服务器，同样返回`INVALID_VEHICLE_ID`。
 
-## Examples
+## 示例
 
 ```c
 new surfingVehicleId = GetPlayerSurfingVehicleID(playerid);
 if (surfingVehicleId == INVALID_VEHICLE_ID)
 {
-	SendClientMessage(playerid, COLOR_RED, "You are not surfing.");
+	SendClientMessage(playerid, COLOR_RED, "你当前没有“冲浪”任何车辆。");
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerVehicleID](GetPlayerVehicleID): Get the ID of the vehicle the player is in.
-- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): Check what seat a player is in.
-- [GetPlayerSurfingObjectID](GetPlayerSurfingObjectID): Gets the ID of the object the player is surfing on.
-- [GetPlayerSurfingOffsets](GetPlayerSurfingOffsets): Gets a player's surfing offsets.
+- [GetPlayerVehicleID](GetPlayerVehicleID): 获取玩家当前乘坐的车辆 ID
+- [GetPlayerVehicleSeat](GetPlayerVehicleSeat): 检测玩家在车辆内的座位位置
+- [GetPlayerSurfingObjectID](GetPlayerSurfingObjectID): 获取玩家正在“冲浪”的物体 ID
+- [GetPlayerSurfingOffsets](GetPlayerSurfingOffsets): 获取玩家“冲浪”时的坐标偏移量

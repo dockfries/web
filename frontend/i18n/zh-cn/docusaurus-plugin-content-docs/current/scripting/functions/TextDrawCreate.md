@@ -1,109 +1,107 @@
 ---
 title: TextDrawCreate
 sidebar_label: TextDrawCreate
-description: Creates a textdraw.
-tags: ["textdraw"]
+description: 创建文本绘图
+tags: ["文本绘图"]
 ---
 
-## Description
+## 描述
 
-Creates a textdraw. Textdraws are, as the name implies, text (mainly - there can be boxes, sprites and model previews (skins/vehicles/weapons/objects too) that is drawn on a player's screens. See this page for extensive information about textdraws.
+创建文本绘图。文本绘图（正如其名）是绘制在玩家屏幕上的文字元素（主要形式），也可包含方框、精灵和模型预览（皮肤/车辆/武器/物体等）。详见[文本绘图专题页面](../resources/textdrawsprites)获取详细信息。
 
-| Name             | Description                                              |
-| ---------------- | -------------------------------------------------------- |
-| Float:x          | The X (left/right) coordinate to create the textdraw at. |
-| Float:y          | The Y (up/down) coordinate to create the textdraw at.    |
-| const format[]   | The text that will appear in the textdraw.               |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag.               |
+| 参数名           | 说明                                          |
+| ---------------- | --------------------------------------------- |
+| Float:x          | 文本绘图的横向坐标（基于 640x480 基准坐标系） |
+| Float:y          | 文本绘图的纵向坐标（基于 640x480 基准坐标系） |
+| const format[]   | 文本绘图的显示内容（支持格式化字符串）        |
+| OPEN_MP_TAGS:... | 不定数量的参数（支持任意标签类型）            |
 
-## Returns
+## 返回值
 
-The ID of the created textdraw.
+创建的文本绘图 ID（从**0**开始递增）
 
-Textdraw IDs start at **0**.
-
-## Examples
+## 示例
 
 ```c
-// This variable is used to store the id of the textdraw
-// so that we can use it throught the script
+// 此变量用于存储文本绘图ID
+// 以便在脚本中全局使用
 new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    // This line is used to create the textdraw.
-    // Note: This creates a textdraw without any formatting.
-    gMyTextdraw = TextDrawCreate(240.0, 580.0, "Welcome to my OPEN.MP server");
+    // 创建文本绘图
+    // 注意：此示例创建无格式化的基础文本
+    gMyTextdraw = TextDrawCreate(240.0, 580.0, "欢迎来到我的OPEN.MP服务器");
     return 1;
 }
 
 public OnPlayerConnect(playerid)
 {
-    //This is used to show the player the textdraw when they connect.
+    // 当玩家连接时显示文本绘图
     TextDrawShowForPlayer(playerid, gMyTextdraw);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- The `x, y` coordinate is the top left coordinate for the text draw area based on a 640x480 "canvas" (irrespective of screen resolution).
-- If you plan on using [TextDrawAlignment](TextDrawAlignment) with alignment 3 (`TEXT_DRAW_ALIGN_RIGHT`), the `x, y` coordinate is the top right coordinate for the text draw.
-- This function merely CREATES the textdraw, you must use [TextDrawShowForPlayer](TextDrawShowForPlayer) or [TextDrawShowForAll](TextDrawShowForAll) to show it.
-- It is recommended to use WHOLE numbers instead of decimal positions when creating textdraws to ensure resolution friendly design.
+- `x, y`坐标基于 640x480 虚拟画布定位（与屏幕分辨率无关），表示文本区域左上角坐标
+- 若使用[TextDrawAlignment](TextDrawAlignment)设置右对齐（`TEXT_DRAW_ALIGN_RIGHT`），`x, y`将作为文本区域的右上角坐标
+- 本函数仅创建文本绘图，需调用[TextDrawShowForPlayer](TextDrawShowForPlayer)或[TextDrawShowForAll](TextDrawShowForAll)方可显示
+- 建议使用整数值而非小数坐标，以确保不同分辨率下的显示兼容性
 
 :::
 
 :::warning
 
-Keyboard key mapping codes (such as ~k~~VEHICLE_ENTER_EXIT~) don't work beyond 255th character.
+键盘按键映射代码（如~k~~VEHICLE_ENTER_EXIT~）在第 255 个字符后失效
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawDestroy](TextDrawDestroy): Destroy a textdraw.
-- [TextDrawColor](TextDrawColor): Set the color of the text in a textdraw.
-- [TextDrawBoxColor](TextDrawBoxColor): Set the color of the box in a textdraw.
-- [TextDrawBackgroundColor](TextDrawBackgroundColor): Set the background color of a textdraw.
-- [TextDrawAlignment](TextDrawAlignment): Set the alignment of a textdraw.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
-- [TextDrawLetterSize](TextDrawLetterSize): Set the letter size of the text in a textdraw.
-- [TextDrawTextSize](TextDrawTextSize): Set the size of a textdraw box.
-- [TextDrawSetOutline](TextDrawSetOutline): Choose whether the text has an outline.
-- [TextDrawSetShadow](TextDrawSetShadow): Toggle shadows on a textdraw.
-- [TextDrawSetProportional](TextDrawSetProportional): Scale the text spacing in a textdraw to a proportional ratio.
-- [TextDrawUseBox](TextDrawUseBox): Toggle if the textdraw has a box or not.
-- [TextDrawSetString](TextDrawSetString): Set the text in an existing textdraw.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
-- [IsTextDrawVisibleForPlayer](IsTextDrawVisibleForPlayer): Checks if a textdraw is shown for the player.
-- [IsValidTextDraw](IsValidTextDraw): Checks if a textdraw is valid.
-- [TextDrawGetAlignment](TextDrawGetAlignment): Gets the text alignment of a textdraw.
-- [TextDrawGetBackgroundColour](TextDrawGetBackgroundColour): Gets the background colour of a textdraw.
-- [TextDrawGetBoxColour](TextDrawGetBoxColour): Gets the box colour of a textdraw.
-- [TextDrawGetColour](TextDrawGetColour): Gets the text colour of a textdraw.
-- [TextDrawGetFont](TextDrawGetFont): Gets the text font of a textdraw.
-- [TextDrawGetLetterSize](TextDrawGetLetterSize): Gets the width and height of the letters.
-- [TextDrawGetOutline](TextDrawGetOutline): Gets the thickness of a textdraw's text's outline.
-- [TextDrawGetPos](TextDrawGetPos): Gets the position of a textdraw.
-- [TextDrawGetPreviewModel](TextDrawGetPreviewModel): Gets the preview model of a 3D preview textdraw.
-- [TextDrawGetPreviewRot](TextDrawGetPreviewRot): Gets the rotation and zoom of a 3D model preview textdraw.
-- [TextDrawGetPreviewVehCol](TextDrawGetPreviewVehCol): Gets the preview vehicle colors of a 3D preview textdraw.
-- [TextDrawGetPreviewVehicleColours](TextDrawGetPreviewVehicleColours): Gets the preview vehicle colours of a 3D preview textdraw.
-- [TextDrawGetShadow](TextDrawGetShadow): Gets the size of a textdraw's text's shadow.
-- [TextDrawGetString](TextDrawGetString): Gets the text of a textdraw.
-- [TextDrawGetTextSize](TextDrawGetTextSize): Gets the X axis and Y axis of the textdraw.
-- [TextDrawIsBox](TextDrawIsBox): Checks if a textdraw is box.
-- [TextDrawIsProportional](TextDrawIsProportional): Checks if a textdraw is proportional.
-- [TextDrawIsSelectable](TextDrawIsSelectable): Checks if a textdraw is selectable.
-- [TextDrawSetPos](TextDrawSetPos): Sets the position of a textdraw.
-- [TextDrawSetStringForPlayer](TextDrawSetStringForPlayer): Changes the text on a textdraw for a specific player.
+- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘图
+- [TextDrawColor](TextDrawColor): 设置文本颜色
+- [TextDrawBoxColor](TextDrawBoxColor): 设置方框颜色
+- [TextDrawBackgroundColor](TextDrawBackgroundColor): 设置背景颜色
+- [TextDrawAlignment](TextDrawAlignment): 设置对齐方式
+- [TextDrawFont](TextDrawFont): 设置字体类型
+- [TextDrawLetterSize](TextDrawLetterSize): 设置字符尺寸
+- [TextDrawTextSize](TextDrawTextSize): 设置文本区域尺寸
+- [TextDrawSetOutline](TextDrawSetOutline): 设置文字描边
+- [TextDrawSetShadow](TextDrawSetShadow): 设置阴影效果
+- [TextDrawSetProportional](TextDrawSetProportional): 启用比例间距
+- [TextDrawUseBox](TextDrawUseBox): 切换方框显示
+- [TextDrawSetString](TextDrawSetString): 更新文本内容
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 为玩家显示
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 为玩家隐藏
+- [TextDrawShowForAll](TextDrawShowForAll): 全局显示
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏
+- [IsTextDrawVisibleForPlayer](IsTextDrawVisibleForPlayer): 检测可见性
+- [IsValidTextDraw](IsValidTextDraw): 验证有效性
+- [TextDrawGetAlignment](TextDrawGetAlignment): 获取对齐方式
+- [TextDrawGetBackgroundColour](TextDrawGetBackgroundColour): 获取背景色
+- [TextDrawGetBoxColour](TextDrawGetBoxColour): 获取方框颜色
+- [TextDrawGetColour](TextDrawGetColour): 获取文本颜色
+- [TextDrawGetFont](TextDrawGetFont): 获取字体类型
+- [TextDrawGetLetterSize](TextDrawGetLetterSize): 获取字符尺寸
+- [TextDrawGetOutline](TextDrawGetOutline): 获取描边厚度
+- [TextDrawGetPos](TextDrawGetPos): 获取坐标位置
+- [TextDrawGetPreviewModel](TextDrawGetPreviewModel): 获取 3D 预览模型
+- [TextDrawGetPreviewRot](TextDrawGetPreviewRot): 获取 3D 模型旋转参数
+- [TextDrawGetPreviewVehCol](TextDrawGetPreviewVehCol): 获取车辆预览颜色
+- [TextDrawGetPreviewVehicleColours](TextDrawGetPreviewVehicleColours): 获取车辆配色方案
+- [TextDrawGetShadow](TextDrawGetShadow): 获取阴影尺寸
+- [TextDrawGetString](TextDrawGetString): 获取文本内容
+- [TextDrawGetTextSize](TextDrawGetTextSize): 获取文本区域尺寸
+- [TextDrawIsBox](TextDrawIsBox): 检测方框状态
+- [TextDrawIsProportional](TextDrawIsProportional): 检测比例间距
+- [TextDrawIsSelectable](TextDrawIsSelectable): 检测可选状态
+- [TextDrawSetPos](TextDrawSetPos): 设置坐标位置
+- [TextDrawSetStringForPlayer](TextDrawSetStringForPlayer): 玩家专属文本更新
 
-## Related Resources
+## 相关资源
 
-- [TextDraw Sprites](../resources/textdrawsprites)
+- [文本绘图精灵使用指南](../resources/textdrawsprites)

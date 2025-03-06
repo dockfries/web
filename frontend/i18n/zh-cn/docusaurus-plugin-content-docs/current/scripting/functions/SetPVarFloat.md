@@ -1,54 +1,54 @@
 ---
 title: SetPVarFloat
 sidebar_label: SetPVarFloat
-description: Set a float player variable's value.
-tags: ["player variable", "pvar"]
+description: 设置浮点型玩家变量的值。
+tags: ["玩家变量", "pvar"]
 ---
 
-## Description
+## 描述
 
-Set a float player variable's value.
+设置浮点型玩家变量的值。
 
-| Name         | Description                                             |
-| ------------ | ------------------------------------------------------- |
-| playerid     | The ID of the player whose player variable will be set. |
-| const pvar[] | The name of the player variable.                        |
-| Float:value  | The float you want to save in the player variable.      |
+| 名称         | 说明                |
+| ------------ | ------------------- |
+| playerid     | 要设置变量的玩家 ID |
+| const pvar[] | 变量名称            |
+| Float:value  | 要存储的浮点数值    |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. Either the player specified is not connected, or the variable name is null or over 40 characters.
+**false** - 函数执行失败。玩家未连接或变量名为空/超过 40 字符。
 
-## Examples
+## 示例
 
 ```c
 SavePlayerPos(playerid)
 {
     new Float:x, Float:y, Float:z;
-    GetPlayerPos(playerid, x, y, z); // Get the players position
+    GetPlayerPos(playerid, x, y, z); // 获取玩家位置
 
-    SetPVarFloat(playerid, "Xpos", x); // Save the float into a player variable
-    SetPVarFloat(playerid, "Ypos", y); // Save the float into a player variable
-    SetPVarFloat(playerid, "Zpos", z); // Save the float into a player variable
+    SetPVarFloat(playerid, "Xpos", x); // 将浮点数存入玩家变量
+    SetPVarFloat(playerid, "Ypos", y); // 将浮点数存入玩家变量
+    SetPVarFloat(playerid, "Zpos", z); // 将浮点数存入玩家变量
     return 1;
 }
 ```
 
-## Notes
+## 注意
 
 :::tip
 
-Variables aren't reset until after [OnPlayerDisconnect](../callbacks/OnPlayerDisconnect) is called, so the values are still accessible in OnPlayerDisconnect.
+变量在[OnPlayerDisconnect](../callbacks/OnPlayerDisconnect)回调后才会重置，因此在断开连接时仍可访问。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetPVarInt](SetPVarInt): Set an integer for a player variable.
-- [GetPVarInt](GetPVarInt): Get the previously set integer from a player variable.
-- [SetPVarString](SetPVarString): Set a string for a player variable.
-- [GetPVarString](GetPVarString): Get the previously set string from a player variable.
-- [GetPVarFloat](GetPVarFloat): Get the previously set float from a player variable.
-- [DeletePVar](DeletePVar): Delete a player variable.
+- [SetPVarInt](SetPVarInt): 设置整型玩家变量
+- [GetPVarInt](GetPVarInt): 获取整型玩家变量值
+- [SetPVarString](SetPVarString): 设置字符串型玩家变量
+- [GetPVarString](GetPVarString): 获取字符串型玩家变量值
+- [GetPVarFloat](GetPVarFloat): 获取浮点型玩家变量值
+- [DeletePVar](DeletePVar): 删除玩家变量

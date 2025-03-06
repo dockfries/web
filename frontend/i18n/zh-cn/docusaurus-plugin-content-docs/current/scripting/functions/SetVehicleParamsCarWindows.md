@@ -1,32 +1,32 @@
 ---
 title: SetVehicleParamsCarWindows
 sidebar_label: SetVehicleParamsCarWindows
-description: Allows you to open and close the windows of a vehicle.
-tags: ["vehicle"]
+description: 允许开关车辆的车窗。
+tags: ["车辆"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Allows you to open and close the windows of a vehicle.
+控制车辆车窗的开关状态。
 
-| Name            | Description                                                               |
-| --------------- | ------------------------------------------------------------------------- |
-| vehicleid       | The ID of the vehicle to set the window state of                          |
-| bool:frontLeft  | The state of the driver's window. 0 to open, 1 to close.                  |
-| bool:frontRight | The state of the passenger window. 0 to open, 1 to close.                 |
-| bool:rearLeft   | The state of the rear left window (if available). 0 to open, 1 to close.  |
-| bool:rearRight  | The state of the rear right window (if available). 0 to open, 1 to close. |
+| 名称            | 说明                                   |
+| --------------- | -------------------------------------- |
+| vehicleid       | 要设置车窗的车辆 ID                    |
+| bool:frontLeft  | 驾驶座车窗状态（0=开启，1=关闭）       |
+| bool:frontRight | 副驾驶座车窗状态（0=开启，1=关闭）     |
+| bool:rearLeft   | 左后车窗状态（若存在，0=开启，1=关闭） |
+| bool:rearRight  | 右后车窗状态（若存在，0=开启，1=关闭） |
 
-## Returns
+## 返回值
 
-**true** - The function executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. This means the vehicle does not exist.
+**false** - 函数执行失败。车辆不存在。
 
-## Related Functions
+## 相关函数
 
-- [SetVehicleParamsCarDoors](SetVehicleParamsCarDoors): Open and close the doors of a vehicle.
-- [GetVehicleParamsCarDoors](GetVehicleParamsCarDoors): Retrive the current state of a vehicle's doors.
-- [GetVehicleParamsCarWindows](GetVehicleParamsCarWindows): Retrive the current state of a vehicle's windows
+- [SetVehicleParamsCarDoors](SetVehicleParamsCarDoors): 控制车辆车门开关
+- [GetVehicleParamsCarDoors](GetVehicleParamsCarDoors): 获取车辆车门状态
+- [GetVehicleParamsCarWindows](GetVehicleParamsCarWindows): 获取车辆车窗状态

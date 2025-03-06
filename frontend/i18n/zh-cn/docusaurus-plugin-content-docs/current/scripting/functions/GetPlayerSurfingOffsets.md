@@ -1,28 +1,28 @@
 ---
 title: GetPlayerSurfingOffsets
 sidebar_label: GetPlayerSurfingOffsets
-description: Gets a player's surfing offsets.
-tags: ["player"]
+description: 获取玩家“冲浪”时的坐标偏移量。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Gets a player's surfing offsets.
+获取玩家“冲浪”时的坐标偏移量参数。
 
-| Name           | Description                                                                      |
-| -------------- | -------------------------------------------------------------------------------- |
-| playerid       | The ID of the player.                                                            |
-| &Float:offsetX | A float variable in which to store the offset X coordinate, passed by reference. |
-| &Float:offsetY | A float variable in which to store the offset Y coordinate, passed by reference. |
-| &Float:offsetZ | A float variable in which to store the offset Z coordinate, passed by reference. |
+| 参数名         | 描述                                      |
+| -------------- | ----------------------------------------- |
+| playerid       | 目标玩家标识符                            |
+| &Float:offsetX | 用于存储 X 轴偏移量的浮点变量（引用传递） |
+| &Float:offsetY | 用于存储 Y 轴偏移量的浮点变量（引用传递） |
+| &Float:offsetZ | 用于存储 Z 轴偏移量的浮点变量（引用传递） |
 
-## Returns
+## 返回值
 
-This function does not return any specific value.
+本函数不返回特定值。
 
-## Examples
+## 示例
 
 ```c
 new surfingVehicleId = GetPlayerSurfingVehicleID(playerid);
@@ -35,11 +35,11 @@ if (surfingVehicleId != INVALID_VEHICLE_ID)
 
     GetPlayerSurfingOffsets(playerid, offsetX, offsetY, offsetZ);
 
-    SendClientMessage(playerid, -1, "offsetX = %.2f offsetY = %.2f offsetZ = %.2f", offsetX, offsetY, offsetZ);
+    SendClientMessage(playerid, -1, "X轴偏移量 = %.2f Y轴偏移量 = %.2f Z轴偏移量 = %.2f", offsetX, offsetY, offsetZ);
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerSurfingObjectID](GetPlayerSurfingObjectID): Gets the ID of the object the player is surfing on.
-- [GetPlayerSurfingVehicleID](GetPlayerSurfingVehicleID): Get the ID of the vehicle that the player is surfing (stuck to the roof of).
+- [GetPlayerSurfingObjectID](GetPlayerSurfingObjectID): 获取玩家正在“冲浪”的物体 ID
+- [GetPlayerSurfingVehicleID](GetPlayerSurfingVehicleID): 获取玩家正在“冲浪”（停留在车顶）的车辆 ID

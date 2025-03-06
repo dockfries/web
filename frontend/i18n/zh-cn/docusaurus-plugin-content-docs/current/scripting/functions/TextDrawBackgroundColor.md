@@ -1,68 +1,68 @@
 ---
 title: TextDrawBackgroundColor
 sidebar_label: TextDrawBackgroundColor
-description: Adjusts the text draw area background color (the outline/shadow - NOT the box.
-tags: ["textdraw"]
+description: 调整文本绘图区域的背景颜色（轮廓/阴影部分，非盒子背景。盒子颜色请使用[TextDrawBoxColor](TextDrawBoxColor)）
+tags: ["文本绘图"]
 ---
 
-## Description
+## 描述
 
-Adjusts the text draw area background color (the outline/shadow - NOT the box. For box color, see [TextDrawBoxColor](TextDrawBoxColor)).
+调整文本绘图区域的背景颜色（仅影响轮廓/阴影部分，盒子背景颜色需使用[TextDrawBoxColor](TextDrawBoxColor)）。
 
-| Name             | Description                                           |
-| ---------------- | ----------------------------------------------------- |
-| Text:textid      | The ID of the textdraw to set the background color of |
-| backgroundColour | The color that the textdraw should be set to.         |
+| 参数             | 说明                        |
+| ---------------- | --------------------------- |
+| Text:textid      | 要设置背景颜色的文本绘图 ID |
+| backgroundColour | 目标背景颜色值（ARGB 格式） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+本函数不返回特定值。
 
-## Examples
+## 示例代码
 
 ```c
 new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(320.0, 425.0, "This is an example textdraw");
+    gMyTextdraw = TextDrawCreate(320.0, 425.0, "示例文本绘图");
     TextDrawUseBox(gMyTextdraw, true);
-    TextDrawBackgroundColor(gMyTextdraw, 0xFFFFFFFF); // Set the background color of MyTextdraw to white
+    TextDrawBackgroundColor(gMyTextdraw, 0xFFFFFFFF); // 将文本绘图背景设为白色
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- If [TextDrawSetOutline](TextDrawSetOutline) is used with size > 0, the outline color will match the color used in TextDrawBackgroundColor.
-- Changing the value of color seems to alter the color used in [TextDrawColor](TextDrawColor).
+- 当使用[TextDrawSetOutline](TextDrawSetOutline)且尺寸>0 时，轮廓颜色将与本函数设置的颜色一致
+- 修改颜色值会影响[TextDrawColor](TextDrawColor)的文本颜色表现
 
 :::
 
 :::tip
 
-If you want to change the background colour of a textdraw that is already shown, you don't have to recreate it. Simply use [TextDrawShowForPlayer](TextDrawShowForPlayer)/[TextDrawShowForAll](TextDrawShowForAll) after modifying the textdraw and the change will be visible.
+已显示的文本绘图修改后无需重建，使用[TextDrawShowForPlayer](TextDrawShowForPlayer)/[TextDrawShowForAll](TextDrawShowForAll)即可刷新显示
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [TextDrawCreate](TextDrawCreate): Create a textdraw.
-- [TextDrawDestroy](TextDrawDestroy): Destroy a textdraw.
-- [TextDrawColor](TextDrawColor): Set the color of the text in a textdraw.
-- [TextDrawBoxColor](TextDrawBoxColor): Set the color of the box in a textdraw.
-- [TextDrawAlignment](TextDrawAlignment): Set the alignment of a textdraw.
-- [TextDrawFont](TextDrawFont): Set the font of a textdraw.
-- [TextDrawLetterSize](TextDrawLetterSize): Set the letter size of the text in a textdraw.
-- [TextDrawTextSize](TextDrawTextSize): Set the size of a textdraw box.
-- [TextDrawSetOutline](TextDrawSetOutline): Choose whether the text has an outline.
-- [TextDrawSetShadow](TextDrawSetShadow): Toggle shadows on a textdraw.
-- [TextDrawSetProportional](TextDrawSetProportional): Scale the text spacing in a textdraw to a proportional ratio.
-- [TextDrawUseBox](TextDrawUseBox): Toggle if the textdraw has a box or not.
-- [TextDrawSetString](TextDrawSetString): Set the text in an existing textdraw.
-- [TextDrawShowForPlayer](TextDrawShowForPlayer): Show a textdraw for a certain player.
-- [TextDrawHideForPlayer](TextDrawHideForPlayer): Hide a textdraw for a certain player.
-- [TextDrawShowForAll](TextDrawShowForAll): Show a textdraw for all players.
-- [TextDrawHideForAll](TextDrawHideForAll): Hide a textdraw for all players.
+- [TextDrawCreate](TextDrawCreate): 创建文本绘图
+- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘图
+- [TextDrawColor](TextDrawColor): 设置文本颜色
+- [TextDrawBoxColor](TextDrawBoxColor): 设置盒子背景颜色
+- [TextDrawAlignment](TextDrawAlignment): 设置对齐方式
+- [TextDrawFont](TextDrawFont): 设置字体样式
+- [TextDrawLetterSize](TextDrawLetterSize): 设置字符尺寸
+- [TextDrawTextSize](TextDrawTextSize): 设置文本框尺寸
+- [TextDrawSetOutline](TextDrawSetOutline): 启用文本轮廓
+- [TextDrawSetShadow](TextDrawSetShadow): 控制阴影显示
+- [TextDrawSetProportional](TextDrawSetProportional): 启用比例间距
+- [TextDrawUseBox](TextDrawUseBox): 切换文本框显示
+- [TextDrawSetString](TextDrawSetString): 更新文本内容
+- [TextDrawShowForPlayer](TextDrawShowForPlayer): 对玩家显示
+- [TextDrawHideForPlayer](TextDrawHideForPlayer): 对玩家隐藏
+- [TextDrawShowForAll](TextDrawShowForAll): 全局显示
+- [TextDrawHideForAll](TextDrawHideForAll): 全局隐藏
