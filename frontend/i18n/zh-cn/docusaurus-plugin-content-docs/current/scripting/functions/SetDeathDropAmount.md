@@ -1,29 +1,29 @@
 ---
 title: SetDeathDropAmount
 sidebar_label: SetDeathDropAmount
-description: Sets death drops money.
+description: 设置玩家死亡时掉落的金额。
 tags: []
 ---
 
 :::warning
 
-Does not work, Use [CreatePickup](CreatePickup).
+该函数无效，请使用[CreatePickup](CreatePickup)
 
 :::
 
-## Description
+## 描述
 
-Sets death drops money.
+设置玩家死亡时掉落的金额。
 
-| Name   | Description             |
-| ------ | ----------------------- |
-| amount | Amount of money to set. |
+| 参数名 | 描述             |
+| ------ | ---------------- |
+| amount | 要设置的金额数目 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回任何特定值
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
@@ -33,19 +33,19 @@ public OnGameModeInit()
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-This function does not work in the current SA:MP version!
+该函数在当前 SA:MP 版本中无效！
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CreatePickup](CreatePickup): Create a pickup.
-- [GivePlayerMoney](GivePlayerMoney): Give a player money.
+- [CreatePickup](CreatePickup): 创建拾取物
+- [GivePlayerMoney](GivePlayerMoney): 给予玩家金钱
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerDeath](../callbacks/OnPlayerDeath): Called when a player dies.
+- [OnPlayerDeath](../callbacks/OnPlayerDeath): 当玩家死亡时调用

@@ -1,7 +1,7 @@
 ---
 title: SendClientMessageToAllf
-sidebar_label: SendClientMessageToAllf
-description: Displays a formatted message in chat to all players.
+sidebar_label: 发送格式化全局客户端消息
+description: 向所有玩家发送格式化聊天消息（已弃用）。
 tags: []
 ---
 
@@ -9,27 +9,27 @@ tags: []
 
 :::warning
 
-This function was deprecated.
+此函数已被弃用
 
-[SendClientMessageToAll](SendClientMessageToAll) function now is built-in with format!
+[SendClientMessageToAll](SendClientMessageToAll) 现已内置格式化功能！
 
 :::
 
-## Description
+## 描述
 
-Displays a formatted message in chat to all players. This is a multi-player equivalent of SendClientMessage.
+向所有玩家发送格式化聊天消息（该函数已弃用，请使用 SendClientMessageToAll 替代）。此功能等同于对每个玩家调用 SendClientMessage。
 
-| Name              | Description                                       |
-| ----------------- | ------------------------------------------------- |
-| color             | The color of the message (0xRRGGBBAA Hex format). |
-| const message[]   | The message to show (max 144 characters).         |
-| \{Float, \_\}:... | Indefinite number of arguments of any tag         |
+| 参数名           | 说明                                     |
+| ---------------- | ---------------------------------------- |
+| color            | 消息颜色（0xRRGGBBAA 十六进制格式）      |
+| const message[]  | 格式化消息内容（最多 144 字符）          |
+| {Float, \_\}:... | 可变参数列表（支持浮点型及其他类型参数） |
 
-## Returns
+## 返回值
 
-This function always returns true (1).
+该函数始终返回 true (1)。
 
-## Examples
+## 示例
 
 ```c
 #define HELLO_WORLD "Hello World"
@@ -38,7 +38,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (strcmp(cmdtext, "/helloworld", true) == 0)
     {
-        // Send a message to everyone.
+        // 向所有玩家发送消息
         SendClientMessageToAllf(-1, "%s!", HELLO_WORLD);
         return 1;
     }

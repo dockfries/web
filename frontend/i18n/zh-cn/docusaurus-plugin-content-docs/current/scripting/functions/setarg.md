@@ -1,27 +1,27 @@
 ---
 title: setarg
 sidebar_label: setarg
-description: Set an argument that was passed to a function.
-tags: ["core", "arguments", "args"]
+description: 设置传递给函数的参数。
+tags: ["核心", "参数", "args"]
 ---
 
 <LowercaseNote />
 
-## Description
+## 描述
 
-Set an argument that was passed to a function.
+设置传递给函数的参数。
 
-| Name  | Description                                                 |
-| ----- | ----------------------------------------------------------- |
-| arg   | The argument sequence number. Use 0 for the first argument. |
-| index | The index (if the argument is an array) _(optional=0)_      |
-| value | The value to set the argument to.                           |
+| 参数名 | 描述                                     |
+| ------ | ---------------------------------------- |
+| arg    | 参数序号（0 表示第一个参数）             |
+| index  | 索引（若参数是数组）_（可选，默认为 0）_ |
+| value  | 要设置的参数值                           |
 
-## Returns
+## 返回值
 
-**1** on success and **0** if the argument or the index are invalid.
+成功返回**1**，若参数或索引无效则返回**0**。
 
-## Related Functions
+## 相关函数
 
-- [getarg](getarg): Retrieve an argument from a variable argument list.
-- [numargs](numargs): Return the number of arguments.
+- [getarg](getarg): 从可变参数列表中获取参数
+- [numargs](numargs): 返回参数数量

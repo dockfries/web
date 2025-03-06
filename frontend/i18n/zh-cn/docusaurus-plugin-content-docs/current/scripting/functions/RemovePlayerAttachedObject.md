@@ -1,29 +1,29 @@
 ---
 title: RemovePlayerAttachedObject
 sidebar_label: RemovePlayerAttachedObject
-description: Remove an attached object from a player.
-tags: ["player", "object", "attachment"]
+description: 移除玩家身上的附加物体。
+tags: ["玩家", "物体", "附加物"]
 ---
 
-## Description
+## 描述
 
-Remove an attached object from a player.
+移除玩家身上已附加的物体。
 
-| Name     | Description                                                                                      |
-| -------- | ------------------------------------------------------------------------------------------------ |
-| playerid | The ID of the player to remove the object from.                                                  |
-| index    | The index of the object to remove (set with [SetPlayerAttachedObject](SetPlayerAttachedObject)). |
+| 参数名   | 说明                                                                             |
+| -------- | -------------------------------------------------------------------------------- |
+| playerid | 需要移除附加物体的玩家 ID                                                        |
+| index    | 要移除物体的索引值（通过[SetPlayerAttachedObject](SetPlayerAttachedObject)设置） |
 
-## Returns
+## 返回值
 
-**1** on success, **0** on failure.
+**1** 表示成功，**0** 表示失败。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
-    if (!strmp(cmdtext, "/remove", true)) // Remove Attached Objects
+    if (!strcmp(cmdtext, "/remove", true)) // 移除所有附加物体
     {
         for (new i = 0; i < MAX_PLAYER_ATTACHED_OBJECTS; i++)
         {
@@ -38,7 +38,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerAttachedObject](SetPlayerAttachedObject): Attach an object to a player
-- [IsPlayerAttachedObjectSlotUsed](IsPlayerAttachedObjectSlotUsed): Check whether an object is attached to a player in a specified index
+- [SetPlayerAttachedObject](SetPlayerAttachedObject): 给玩家附加物体
+- [IsPlayerAttachedObjectSlotUsed](IsPlayerAttachedObjectSlotUsed): 检查玩家是否在指定索引使用了附加物体

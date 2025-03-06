@@ -1,30 +1,30 @@
 ---
 title: RedirectDownload
 sidebar_label: RedirectDownload
-description: Redirect a player custom AddCharModel or AddSimpleModel download to a specific HTTP webpage.
-tags: ["custom model", "custom skin", "simple model"]
+description: 将玩家自定义的AddCharModel或AddSimpleModel模型下载请求重定向到指定的HTTP网页。
+tags: ["自定义模型", "自定义皮肤", "简单模型"]
 ---
 
 <VersionWarn version='SA-MP 0.3.DL R1' />
 
-## Description
+## 描述
 
-Redirect a player custom AddCharModel or AddSimpleModel download to a specific HTTP webpage.
+将玩家通过 AddCharModel 或 AddSimpleModel 请求的自定义模型下载重定向到指定的 HTTP 网页。
 
-## Parameters
+## 参数
 
-| Name        | Description                                                 |
-| ----------- | ----------------------------------------------------------- |
-| playerid    | The ID of the player that requested custom models download. |
-| const url[] | The URL to redirect download                                |
+| 参数名      | 说明                        |
+| ----------- | --------------------------- |
+| playerid    | 请求下载自定义模型的玩家 ID |
+| const url[] | 要重定向下载的 URL 链接     |
 
-## Return Values
+## 返回值
 
-**1:** The function executed successfully.
+**1:** 函数执行成功。
 
-**0:** The function failed to execute.
+**0:** 函数执行失败。
 
-## Example Usage from dl_redirect filterscript
+## 示例用法（来自 dl_redirect 滤镜脚本）
 
 ```c
 new baseurl[] = "https://files.sa-mp.com/server";
@@ -60,12 +60,12 @@ public OnPlayerRequestDownload(playerid, type, crc)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddCharModel](AddCharModel): Adds a new custom character model for download.
-- [AddSimpleModel](AddSimpleModel): Adds a new custom simple object model for download.
-- [AddSimpleModelTimed](AddSimpleModelTimed): Adds a new custom simple object model for download.
+- [AddCharModel](AddCharModel): 添加一个新的自定义角色模型供下载
+- [AddSimpleModel](AddSimpleModel): 添加一个新的自定义简单物体模型供下载
+- [AddSimpleModelTimed](AddSimpleModelTimed): 添加一个带时限的自定义简单物体模型供下载
 
-## Related Callbacks
+## 相关回调函数
 
-- [OnPlayerFinishedDownloading](../callbacks/OnPlayerFinishedDownloading): Called when a player finishes downloading custom models.
+- [OnPlayerFinishedDownloading](../callbacks/OnPlayerFinishedDownloading): 当玩家完成自定义模型下载时调用

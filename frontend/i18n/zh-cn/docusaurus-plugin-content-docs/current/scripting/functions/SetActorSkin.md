@@ -1,28 +1,28 @@
 ---
 title: SetActorSkin
 sidebar_label: SetActorSkin
-description: Set the skin of the actor.
-tags: ["actor"]
+description: 设置角色的皮肤。
+tags: ["角色"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Set the skin of the actor.
+设置角色的皮肤。
 
-| Name    | Description                     |
-| ------- | ------------------------------- |
-| actorid | The ID of the actor to set.     |
-| skin    | The ID of the skin to give them |
+| 参数名  | 描述            |
+| ------- | --------------- |
+| actorid | 要设置的角色 ID |
+| skin    | 要设置的皮肤 ID |
 
-## Returns
+## 返回值
 
-**true** - Success.
+**true** - 成功
 
-**false** - Failure (i.e. Actor is not created/valid).
+**false** - 失败（指定的角色不存在或无效）
 
-## Examples
+## 示例代码
 
 ```c
 new gMyActor;
@@ -30,12 +30,12 @@ new gMyActor;
 public OnGameModeInit()
 {
     gMyActor = CreateActor(179, 1153.9640, -1772.3915, 16.5920, 0.0000);
-    SetActorSkin(gMyActor, 270); // Change actor skin from 179 to 270
+    SetActorSkin(gMyActor, 270); // 将角色皮肤从179更改为270
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateActor](CreateActor): Create an actor (static NPC).
-- [GetActorSkin](GetActorSkin): Get the skin of the actor.
+- [CreateActor](CreateActor): 创建角色（静态 NPC）
+- [GetActorSkin](GetActorSkin): 获取角色的皮肤

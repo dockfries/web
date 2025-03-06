@@ -1,29 +1,29 @@
 ---
 title: SetModeRestartTime
 sidebar_label: SetModeRestartTime
-description: Sets the delay between loading main scripts, in seconds.
+description: 设置主脚本加载之间的延迟时间（单位：秒）。
 tags: []
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Sets the delay between loading main scripts, in seconds.
+设置主脚本加载之间的延迟时间（单位：秒）。
 
-## Parameters
+## 参数
 
-| Name          | Description         |
-| ------------- | ------------------- |
-| Float:seconds | Seconds to restart. |
+| 参数名        | 描述                   |
+| ------------- | ---------------------- |
+| Float:seconds | 重启延迟秒数（浮点数） |
 
-## Return Values
+## 返回值
 
-1 - Function executed successfully.
+1 - 函数执行成功
 
-0 - Function failed to execute. This means that the specified seconds should not be less than 1.
+0 - 函数执行失败（秒数不能小于 1）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -36,22 +36,22 @@ public OnPlayerCommandText(playerid, cmdtext[])
         }
 
         SetModeRestartTime(5.0);
-        SendClientMessage(playerid, -1, "[SERVER]: The server will restart in 5 seconds.");
+        SendClientMessage(playerid, -1, "[SERVER]: 服务器将在5秒后重启。");
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-The `seconds` parameter is a float.
+`seconds`参数为浮点数类型
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetModeRestartTime](GetModeRestartTime): Gets the delay between loading main scripts, in seconds.
-- [GameModeExit](GameModeExit): Ends the current gamemode.
+- [GetModeRestartTime](GetModeRestartTime): 获取主脚本加载之间的延迟时间（单位：秒）
+- [GameModeExit](GameModeExit): 结束当前游戏模式

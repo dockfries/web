@@ -1,63 +1,62 @@
 ---
 title: RemoveBuildingForPlayer
 sidebar_label: RemoveBuildingForPlayer
-description: Removes a standard San Andreas model for a single player within a specified range.
-tags: ["player"]
+description: 为单个玩家在指定范围内移除圣安地列斯的标准模型。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Removes a standard San Andreas model for a single player within a specified range.
+为单个玩家在指定范围内移除圣安地列斯的标准模型。
 
-| Name          | Description                                                                       |
-| ------------- | --------------------------------------------------------------------------------- |
-| playerid      | The ID of the player to remove the objects for.                                   |
-| modelid       | The model to remove.                                                              |
-| Float:centerX | The X coordinate around which the objects will be removed.                        |
-| Float:centerY | The Y coordinate around which the objects will be removed.                        |
-| Float:centerZ | The Z coordinate around which the objects will be removed.                        |
-| Float:radius  | The radius around the specified point to remove objects with the specified model. |
+| 参数名        | 说明                                           |
+| ------------- | ---------------------------------------------- |
+| playerid      | 需要移除物体的玩家 ID                          |
+| modelid       | 要移除的模型 ID                                |
+| Float:centerX | 移除物体范围的 X 轴中心坐标                    |
+| Float:centerY | 移除物体范围的 Y 轴中心坐标                    |
+| Float:centerZ | 移除物体范围的 Z 轴中心坐标                    |
+| Float:radius  | 以指定坐标为中心，移除该模型物体的球形半径范围 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回任何特定值。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerConnect(playerid)
 {
-    // When the player connects, objects with model 615 will be removed within a
-    // range of 200.0 from the point 0.0, 0.0, 0.0, which is the center of San Andreas.
+    // 当玩家连接时，在圣安地列斯中心坐标(0.0, 0.0, 0.0)200.0半径范围内移除615号模型物体
     RemoveBuildingForPlayer(playerid, 615, 0.0, 0.0, 0.0, 200.0);
     return 1;
 }
 
 public OnPlayerConnect(playerid)
 {
-    // When the player connects, all map objects will be removed.
+    // 当玩家连接时，移除6000.0半径范围内的所有地图物体
     RemoveBuildingForPlayer(playerid, -1, 0.0, 0.0, 0.0, 6000.0);
     return 1;
 }
 ```
 
-## Notes
+## 注意要点
 
 :::tip
 
-You can use **-1** for the modelid to remove all objects within the specified radius.
+可以使用 **-1** 作为 modelid 参数来移除指定半径内的所有物体。
 
 :::
 
 :::warning
 
-- There appears to be a limit of around 1000 lines/objects. There is no workaround.
-- When removing the same object for a player, they will crash. Commonly, players crash when reconnecting to the server because the server removes buildings on OnPlayerConnect.
+- 存在约 1000 个物体/行的移除限制，目前没有解决方案
+- 重复为玩家移除相同物体会导致崩溃。常见于玩家重连服务器时，服务器在 OnPlayerConnect 回调中执行建筑移除的情况
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerBuildingsRemoved](GetPlayerBuildingsRemoved): Gets the number of removed buildings for a player.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [DestroyPlayerObject](DestroyPlayerObject): Destroy a player object.
+- [GetPlayerBuildingsRemoved](GetPlayerBuildingsRemoved): 获取玩家已移除的建筑数量
+- [DestroyObject](DestroyObject): 销毁一个全局物体
+- [DestroyPlayerObject](DestroyPlayerObject): 销毁玩家专属物体

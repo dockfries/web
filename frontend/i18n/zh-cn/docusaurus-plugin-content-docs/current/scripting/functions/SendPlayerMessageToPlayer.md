@@ -1,56 +1,57 @@
 ---
 title: SendPlayerMessageToPlayer
 sidebar_label: SendPlayerMessageToPlayer
-description: Sends a message in the name of a player to another player on the server.
-tags: ["player"]
+description: 以玩家名义向指定玩家发送私聊消息。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Sends a message in the name of a player to another player on the server. The message will appear in the chat box but can only be seen by the user specified with 'playerid'. The line will start with the sender's name in their color, followed by the message in white.
+该函数允许以某玩家的名义向指定玩家发送私聊消息。消息会显示在接收者的聊天框，格式为「发送者名称（原色）: 白色消息内容」。
 
-| Name             | Description                                                |
-| ---------------- | ---------------------------------------------------------- |
-| playerid         | The ID of the player who will receive the message.         |
-| senderid         | The sender's ID. If invalid, the message will not be sent. |
-| const format[]   | The message that will be sent.                             |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag.                 |
+| 参数名           | 说明                                  |
+| ---------------- | ------------------------------------- |
+| playerid         | 接收消息的玩家 ID                     |
+| senderid         | 消息发送者 ID（若无效则消息不会发送） |
+| const format[]   | 要发送的消息内容                      |
+| OPEN_MP_TAGS:... | 可变参数列表（支持任意类型参数）      |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. This means the player specified does not exist.
+**false** - 函数执行失败（通常表示玩家不存在）
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/hello", true))
     {
-        SendPlayerMessageToPlayer(0, playerid, "Hello ID 0!"); // Will send a message to the user with the ID 0 in the name of the user who typed '/hello'.
-        // Assuming 'playerid' is called Tenpenny, the output will be 'Tenpenny: Hello ID 0!'
+        // 以执行命令玩家的名义向ID为0的玩家发送消息
+        SendPlayerMessageToPlayer(0, playerid, "Hello ID 0!");
+        // 假设执行者名为Tenpenny，接收者将看到："Tenpenny: Hello ID 0!"
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意要点
 
 :::warning
 
-Avoid using format specifiers in your messages without formatting the string that is sent. It will result in crashes otherwise.
+避免在消息中直接使用未转义的格式说明符（如%），否则会导致服务器崩溃
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SendPlayerMessageToAll](SendPlayerMessageToAll): Force a player to send text for all players.
-- [SendClientMessage](SendClientMessage): Send a message to a certain player.
-- [SendClientMessageToAll](SendClientMessageToAll): Send a message to all players.
+- [SendPlayerMessageToAll](SendPlayerMessageToAll): 模拟玩家发送全服消息
+- [SendClientMessage](SendClientMessage): 向指定玩家发送系统消息
+- [SendClientMessageToAll](SendClientMessageToAll): 向全服发送系统消息
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerText](../callbacks/OnPlayerText): Called when a player sends a message via the chat.
+- [OnPlayerText](../callbacks/OnPlayerText): 当玩家发送聊天消息时触发

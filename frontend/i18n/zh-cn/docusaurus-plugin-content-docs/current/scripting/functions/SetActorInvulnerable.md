@@ -1,48 +1,48 @@
 ---
 title: SetActorInvulnerable
 sidebar_label: SetActorInvulnerable
-description: Toggle an actor's invulnerability.
-tags: ["actor"]
+description: 切换角色的无敌状态。
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Toggle an actor's invulnerability.
+切换角色的无敌状态。
 
-| Name              | Description                                                        |
-| ----------------- | ------------------------------------------------------------------ |
-| actorid           | The ID of the actor to set invulnerability.                        |
-| bool:invulnerable | 'false' to make them vulnerable, 'true' to make them invulnerable. |
+| 参数名            | 描述                              |
+| ----------------- | --------------------------------- |
+| actorid           | 要设置无敌状态的角色 ID           |
+| bool:invulnerable | 'false'设为可伤害，'true'设为无敌 |
 
-## Returns
+## 返回值
 
-**true** - Success
+**true** - 成功
 
-**false** - Failure (i.e. Actor is not created).
+**false** - 失败（指定的角色不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new gMyActor;
 
 public OnGameModeInit()
 {
-    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // Actor as a salesperson in Ammunation.
+    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // 在武器店扮演销售员的角色
     SetActorInvulnerable(gMyActor, true);
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Once set invulnerable, the actor does not call [OnPlayerGiveDamageActor](OnPlayerGiveDamageActor). Players will have actor's invulnerability state changed only when it is restreamed to them.
+设置为无敌状态后，角色不会触发[OnPlayerGiveDamageActor](OnPlayerGiveDamageActor)回调。玩家只有在角色被重新流加载时才能看到无敌状态的变化。
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [IsActorInvulnerable](IsActorInvulnerable): Check if an actor is invulnerable.
+- [IsActorInvulnerable](IsActorInvulnerable): 检查角色是否无敌

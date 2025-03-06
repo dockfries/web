@@ -1,32 +1,32 @@
 ---
 title: sendstring
 sidebar_label: sendstring
-description: Sends a packet containing a string. (deprecated function)
-tags: ["datagram"]
+description: 发送包含字符串的数据包（已弃用函数）
+tags: ["数据报"]
 ---
 
 <LowercaseNote />
 
 :::warning
 
-This function is deprecated, Use [HTTP](HTTP) or [pawn-requests](https://github.com/Southclaws/pawn-requests) plugin.
+该函数已弃用，请使用[HTTP](HTTP)或[pawn-requests 插件](https://github.com/Southclaws/pawn-requests)
 
 :::
 
-## Description
+## 描述
 
-Sends a packet containing a string.
+发送包含字符串的网络数据包。
 
-| Name                     | Description                                                                                                                                                                                 |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| const message[]          | The buffer that contains the string to send. If this is an unpacked string, it will be UTF-8 encoded before being transferred.                                                              |
-| const destination[] = "" | The IP address and port number to which the packet must be sent. If absent or an empty string, this function will broadcast the packet and use the default port number 9930 _(optional="")_ |
+| 参数名                   | 说明                                                                                     |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| const message[]          | 包含要发送字符串的缓冲区。如果是未打包的字符串，传输前会进行 UTF-8 编码                  |
+| const destination[] = "" | 数据包目标地址的 IP 和端口。若为空或未指定，将使用默认端口 9930 进行广播 _(可选参数="")_ |
 
-## Return Values
+## 返回值
 
-**1** on success, **0** on failure.
+**1** 表示成功，**0** 表示失败。
 
-## Related Functions
+## 相关函数
 
-- [@receivestring](@receivestring): A packed was received.
-- [sendpacket](sendpacket): Sends a packet.
+- [@receivestring](@receivestring): 接收字符串数据包时触发
+- [sendpacket](sendpacket): 发送通用数据包

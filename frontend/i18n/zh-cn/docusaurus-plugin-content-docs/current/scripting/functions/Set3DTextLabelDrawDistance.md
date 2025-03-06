@@ -1,26 +1,26 @@
 ---
 title: Set3DTextLabelDrawDistance
-sidebar_label: Set3DTextLabelDrawDistance
-description: Sets the 3D text label draw distance.
-tags: ["3dtextlabel"]
+sidebar_label: 设置3D文本标签绘制距离
+description: 设置3D文本标签的可视距离
+tags: ["3d文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Sets the 3D text label draw distance.
+设置 3D 文本标签的可视渲染距离。
 
-| Name               | Description                                                    |
-| ------------------ | -------------------------------------------------------------- |
-| Text3D:textid      | The ID of the 3D text label to set the draw distance.          |
-| Float:drawDistance | The distance from where you are able to see the 3D Text Label. |
+| 参数名             | 说明                                               |
+| ------------------ | -------------------------------------------------- |
+| Text3D:textid      | 要设置的可视距离的 3D 文本标签 ID                  |
+| Float:drawDistance | 能够看到该 3D 文本标签的最远距离（单位：游戏单位） |
 
-## Returns
+## 返回值
 
-This function always returns true.
+该函数始终返回 true。
 
-## Examples
+## 示例
 
 ```c
 new Text3D:gMyLabel;
@@ -28,10 +28,10 @@ new Text3D:gMyLabel;
 gMyLabel = Create3DTextLabel("Hello World!", 0x008080FF, 30.0, 40.0, 50.0, 10.0, 0, false);
 
 Set3DTextLabelDrawDistance(gMyLabel, 20.0);
-// The draw distance changed from 10.0 to 20.0
+// 可视距离从10.0调整为20.0
 ```
 
-## Related Functions
+## 相关函数
 
-- [Get3DTextLabelDrawDistance](Get3DTextLabelDrawDistance): Gets the 3D text label draw distance.
-- [SetPlayer3DTextLabelDrawDistance](SetPlayer3DTextLabelDrawDistance): Sets the player 3D text label draw distance.
+- [Get3DTextLabelDrawDistance](Get3DTextLabelDrawDistance): 获取 3D 文本标签的可视距离
+- [SetPlayer3DTextLabelDrawDistance](SetPlayer3DTextLabelDrawDistance): 设置玩家视角下的 3D 文本标签可视距离

@@ -1,56 +1,58 @@
 ---
 title: SendDeathMessage
 sidebar_label: SendDeathMessage
-description: Adds a death to the 'killfeed' on the right-hand side of the screen for all players.
+description: 在全屏右侧的击杀信息栏添加死亡记录
 tags: []
 ---
 
-## Description
+## 描述
 
-Adds a death to the 'killfeed' on the right-hand side of the screen for all players.
+在全屏右侧的击杀信息栏添加死亡记录。
 
-| Name   | Description                                                                                                                 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------- |
-| killer | The ID of the killer (can be INVALID_PLAYER_ID).                                                                            |
-| killee | The ID of the player that died.                                                                                             |
-| weapon | The reason (not always a weapon) for the victim's death. Special icons can also be used (ICON_CONNECT and ICON_DISCONNECT). |
+| 参数名 | 说明                                                                                            |
+| ------ | ----------------------------------------------------------------------------------------------- |
+| killer | 凶手玩家 ID（可使用 INVALID_PLAYER_ID 表示无凶手）                                              |
+| killee | 死亡玩家的 ID                                                                                   |
+| weapon | 死亡原因（不一定是武器 ID），可使用特殊图标（ICON_CONNECT 连接图标和 ICON_DISCONNECT 断开图标） |
 
-## Returns
+## 返回值
 
-This function always returns **true**, even if the function fails to execute.
+该函数始终返回**true**，即使执行失败
 
-The function fails to execute (no death message shown) if 'playerid' is invalid.
+当玩家 ID 无效时，函数不会显示死亡信息
 
-If 'reason' is invalid, a generic skull-and-crossbones icon is shown.
+当死亡原因无效时，会显示默认骷髅交叉骨图标
 
-'killerid' being invalid (`INVALID_PLAYER_ID`) is valid.
+killerid 为无效值（`INVALID_PLAYER_ID`）是有效参数
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    SendDeathMessage(killerid, playerid, reason);
+    SendDeathMessage(killerid, playerid, reason); // 在玩家死亡时自动发送死亡信息
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Death messages can be cleared by using a valid player ID for 'playerid' that is not connected. To show a death message for just a single player, use [SendDeathMessageToPlayer](SendDeathMessageToPlayer). You can use NPCs to create your own custom death reasons.
+- 使用未连接的有效玩家 ID 可以清除死亡信息
+- 需向单个玩家显示死亡信息时请使用[SendDeathMessageToPlayer](SendDeathMessageToPlayer)
+- 可通过 NPC 创建自定义死亡原因
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SendDeathMessageToPlayer](SendDeathMessageToPlayer): Add a kill to the death list for a player.
+- [SendDeathMessageToPlayer](SendDeathMessageToPlayer): 向指定玩家发送死亡信息
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerDeath](../callbacks/OnPlayerDeath): Called when a player dies.
+- [OnPlayerDeath](../callbacks/OnPlayerDeath): 当玩家死亡时触发
 
-## Related Resources
+## 相关资源
 
-- [Weapon IDs and Death Reasons](../resources/weaponids)
+- [武器 ID 与死亡原因列表](../resources/weaponids)

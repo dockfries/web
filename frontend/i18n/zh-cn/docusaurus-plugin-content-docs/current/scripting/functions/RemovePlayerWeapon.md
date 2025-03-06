@@ -1,40 +1,40 @@
 ---
 title: RemovePlayerWeapon
 sidebar_label: RemovePlayerWeapon
-description: Remove a specified weapon from a player.
-tags: ["player"]
+description: 移除玩家指定的武器。
+tags: ["玩家"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Remove a specified weapon from a player.
+移除玩家指定的武器。
 
-| Name            | Description                                               |
-| --------------- | --------------------------------------------------------- |
-| playerid        | The ID of the player whose weapon to remove.              |
-| WEAPON:weaponid | The [ID of the weapon](../resources/weaponids) to remove. |
+| 参数名          | 说明                                      |
+| --------------- | ----------------------------------------- |
+| playerid        | 需要移除武器的玩家 ID                     |
+| WEAPON:weaponid | 要移除的[武器 ID](../resources/weaponids) |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. This means the player is not connected.
+**false** - 函数执行失败。通常表示玩家未连接。
 
-## Examples
+## 示例
 
 ```c
-RemovePlayerWeapon(playerid, WEAPON_DEAGLE); // Remove the Desert-Eagle from the player
+RemovePlayerWeapon(playerid, WEAPON_DEAGLE); // 移除玩家的沙漠之鹰手枪
 ```
 
-## Related Functions
+## 相关函数
 
-- [GivePlayerWeapon](GivePlayerWeapon): Give a player a weapon.
-- [ResetPlayerWeapons](ResetPlayerWeapons): Removes all weapons from a player.
-- [SetPlayerArmedWeapon](SetPlayerArmedWeapon): Set a player's armed weapon.
-- [GetPlayerWeapon](GetPlayerWeapon): Check what weapon a player is currently holding.
+- [GivePlayerWeapon](GivePlayerWeapon): 给予玩家武器
+- [ResetPlayerWeapons](ResetPlayerWeapons): 移除玩家所有武器
+- [SetPlayerArmedWeapon](SetPlayerArmedWeapon): 设置玩家手持武器
+- [GetPlayerWeapon](GetPlayerWeapon): 获取玩家当前手持武器
 
-## Related Resources
+## 相关资源
 
-- [Weapon IDs](../resources/weaponids)
+- [武器 ID 列表](../resources/weaponids)

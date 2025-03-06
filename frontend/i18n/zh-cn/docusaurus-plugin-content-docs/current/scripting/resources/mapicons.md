@@ -39,7 +39,7 @@ description: 可用的地图图标列表。
 | 24  | ![](https://assets.open.mp/assets/images/mapIcons/icon24.gif) | 疯狗多克              |                                                                                |
 | 25  | ![](https://assets.open.mp/assets/images/mapIcons/icon25.gif) | 卡里古拉赌场          |                                                                                |
 | 26  | ![](https://assets.open.mp/assets/images/mapIcons/icon26.gif) | 说唱明星              |                                                                                |
-| 27  | ![](https://assets.open.mp/assets/images/mapIcons/icon27.gif) | 改装厂                |                                                                                |
+| 27  | ![](https://assets.open.mp/assets/images/mapIcons/icon27.gif) | 改装店                |                                                                                |
 | 28  | ![](https://assets.open.mp/assets/images/mapIcons/icon28.gif) | OG 洛克               |                                                                                |
 | 29  | ![](https://assets.open.mp/assets/images/mapIcons/icon29.gif) | 披萨店                |                                                                                |
 | 30  | ![](https://assets.open.mp/assets/images/mapIcons/icon30.gif) | 警局                  |                                                                                |

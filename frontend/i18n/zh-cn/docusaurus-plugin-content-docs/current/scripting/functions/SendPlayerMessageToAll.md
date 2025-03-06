@@ -1,53 +1,53 @@
 ---
 title: SendPlayerMessageToAll
 sidebar_label: SendPlayerMessageToAll
-description: Sends a message in the name of a player to all other players on the server.
-tags: ["player"]
+description: 以玩家名义向服务器全体玩家发送仿冒消息
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Sends a message in the name of a player to all other players on the server. The line will start with the sender's name in their color, followed by the message in white.
+在服务器中以指定玩家身份向所有其他玩家发送仿冒消息。消息将以发送者的名称（使用其颜色）开头，后接白色文本内容。
 
-| Name             | Description                                                     |
-| ---------------- | --------------------------------------------------------------- |
-| senderid         | The ID of the sender. If invalid, the message will not be sent. |
-| const format[]   | The message that will be sent.                                  |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag.                      |
+| 参数名           | 说明                                        |
+| ---------------- | ------------------------------------------- |
+| senderid         | 发送者玩家 ID（无效 ID 将导致消息无法发送） |
+| const format[]   | 需要发送的消息内容                          |
+| OPEN_MP_TAGS:... | 不定数量的任意标签类型参数                  |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数没有特定返回值
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerText(playerid, text[])
 {
-    // format a message to contain the player's id in front of it
+    // 在消息前添加玩家ID前缀
     new string[144];
     format(string, sizeof(string), "(%d): %s", playerid, text);
     SendPlayerMessageToAll(playerid, string);
 
-    return 0; // return 0 prevents the original message being sent
+    return 0; // 返回0阻止原始消息发送
 
-    // Assuming 'playerid' is 0 and the player is called Tenpenny, the output will be 'Tenpenny:(0) <message>'
+    // 假设玩家ID为0且名为Tenpenny，输出格式为"Tenpenny:(0) <消息内容>"
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Avoid using format specifiers in your messages without formatting the string that is sent. It will result in crashes otherwise.
+请勿在未格式化字符串的情况下直接使用格式说明符，否则将导致游戏崩溃
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SendPlayerMessageToPlayer](SendPlayerMessageToPlayer): Force a player to send text for one player.
-- [SendClientMessageToAll](SendClientMessageToAll): Send a message to all players.
+- [SendPlayerMessageToPlayer](SendPlayerMessageToPlayer): 向指定玩家发送仿冒消息
+- [SendClientMessageToAll](SendClientMessageToAll): 向全体玩家发送系统消息
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerText](../callbacks/OnPlayerText): Called when a player sends a message via the chat.
+- [OnPlayerText](../callbacks/OnPlayerText): 当玩家通过聊天框发送消息时触发

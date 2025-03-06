@@ -1,30 +1,30 @@
 ---
 title: SetMyPos
 sidebar_label: SetMyPos
-description: Set position of the NPC
-tags: ["npc"]
+description: 设置NPC的位置
+tags: ["NPC"]
 ---
 
-## Description
+## 描述
 
-Set the position of the NPC.
+设置 NPC 的坐标位置。
 
-| Name    | Description                         |
-| ------- | ----------------------------------- |
-| Float:x | The X coordinate to put the NPC at. |
-| Float:y | The Y coordinate to put the NPC at. |
-| Float:z | The Z coordinate to put the NPC at. |
+| 参数名  | 描述                |
+| ------- | ------------------- |
+| Float:x | NPC 所在的 X 坐标值 |
+| Float:y | NPC 所在的 Y 坐标值 |
+| Float:z | NPC 所在的 Z 坐标值 |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回任何特定值。
 
-## Example
+## 示例代码
 
 ```c
-SetMyPos(0.0, 0.0, 3.0);
+SetMyPos(0.0, 0.0, 3.0); // 将NPC放置在坐标(0.0, 0.0, 3.0)
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetMyPos](GetMyPos): Get the NPC's current position.
+- [GetMyPos](GetMyPos): 获取 NPC 的当前坐标位置

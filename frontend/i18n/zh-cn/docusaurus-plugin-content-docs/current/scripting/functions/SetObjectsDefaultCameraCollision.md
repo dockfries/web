@@ -1,74 +1,70 @@
 ---
 title: SetObjectsDefaultCameraCollision
 sidebar_label: SetObjectsDefaultCameraCollision
-description: Allows camera collisions with newly created objects to be disabled by default.
-tags: ["object", "camera"]
+description: 设置新创建物体的默认视角碰撞状态
+tags: ["物体", "视角"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Allows camera collisions with newly created objects to be disabled by default.
+设置新创建物体的默认视角碰撞状态（是否禁用）。
 
-| Name         | Description                                                                                                    |
-| ------------ | -------------------------------------------------------------------------------------------------------------- |
-| bool:disable | `true` to disable camera collisions for newly created objects and `false` to enable them (enabled by default). |
+| 参数名       | 描述                                                    |
+| ------------ | ------------------------------------------------------- |
+| bool:disable | `true`禁用新创建物体的视角碰撞，`false`启用（默认启用） |
 
-## Returns
+## 返回值
 
-Note
+该函数没有传统意义上的返回值，但会影响后续创建的物体
 
-This function only affects the camera collision of objects created AFTER its use - it does not toggle existing objects' camera collisions.
+:::tip
+此设置仅影响调用函数之后新创建的物体，不会修改已存在物体的视角碰撞状态
+:::
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
 {
-    // Disable camera collision
+    // 禁用新物体的视角碰撞
     SetObjectsDefaultCameraCollision(true);
 
-    // Create mapped objects
+    // 创建地图物体
     CreateObject(...);
     CreateObject(...);
     CreateObject(...);
     CreateObject(...);
 
-    // The above objects will NOT have camera collisions
+    // 上述物体将不会产生视角碰撞
 
-    // Re-enable camera collisions
+    // 重新启用视角碰撞
     SetObjectsDefaultCameraCollision(false);
 
-    // Create mapped objects
+    // 创建更多地图物体
     CreateObject(...);
     CreateObject(...);
     CreateObject(...);
     CreateObject(...);
 
-    // The above objects WILL have camera collision
+    // 上述物体将保持正常视角碰撞
 
-    // BUT, the first set will still NOT have camera collisions
+    // 注意：之前创建的物体仍保持无碰撞状态
 
     return 1;
 }
 ```
 
-## Notes
-
-:::tip
-
-This function only affects the camera collision of objects created AFTER its use - it does not toggle existing objects' camera collisions.
-
-:::
+## 注意事项
 
 :::warning
 
-This function ONLY works outside the normal SA map boundaries (past 3000 units).
+该功能仅在地图边界外生效（X/Y 轴超过 ±3000 单位时）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SetObjectNoCameraCollision](SetObjectNoCameraCollision): Disables collisions between camera and object.
-- [SetPlayerObjectNoCameraCollision](SetPlayerObjectNoCameraCollision): Disables collisions between camera and player object.
+- [SetObjectNoCameraCollision](SetObjectNoCameraCollision): 禁用指定物体的视角碰撞
+- [SetPlayerObjectNoCameraCollision](SetPlayerObjectNoCameraCollision): 禁用玩家专属物体的视角碰撞

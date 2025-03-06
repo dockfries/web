@@ -1,19 +1,19 @@
 ---
 title: SendCommand
 sidebar_label: SendCommand
-description: This will force the NPC to write a desired command, and this way, getting the effects it would produce.
+description: 强制 NPC 执行指定控制台命令。
 tags: []
 ---
 
-## Description
+## 描述
 
-This will force the NPC to write a desired command, and this way, getting the effects it would produce.
+该函数允许 NPC 模拟执行指定的控制台命令，并产生相应的游戏效果。
 
-| Name          | Description                             |
-| ------------- | --------------------------------------- |
-| commandtext[] | The command text to be sent by the NPC. |
+| 参数名        | 说明                 |
+| ------------- | -------------------- |
+| commandtext[] | NPC 要执行的命令文本 |
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerText(playerid, text[])
@@ -22,14 +22,14 @@ public OnPlayerText(playerid, text[])
     {
         new string[80], name[MAX_PLAYER_NAME];
         GetPlayerName(playerid, name, sizeof(name));
-        SendCommand("/kill");
-        format(string, sizeof(string), "Hey %s! You are so mean, you make me so sad!", name);
+        SendCommand("/kill"); // 发送/kill命令
+        format(string, sizeof(string), "嘿 %s！你太刻薄了，这让我很伤心！", name);
         SendChat(string);
     }
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SendChat](../functions/SendChat): Sends a text as the NPC.
+- [SendChat](../functions/SendChat): 以 NPC 身份发送聊天消息

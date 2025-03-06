@@ -1,45 +1,45 @@
 ---
 title: RemoveVehicleComponent
 sidebar_label: RemoveVehicleComponent
-description: Remove a component from a vehicle.
-tags: ["vehicle"]
+description: 移除车辆的组件
+tags: ["车辆"]
 ---
 
-## Description
+## 描述
 
-Remove a component from a vehicle.
+从车辆上移除指定组件。
 
-| Name                                     | Description                    |
-| ---------------------------------------- | ------------------------------ |
-| vehicleid                                | ID of the vehicle.             |
-| [component](../resources/carcomponentid) | ID of the component to remove. |
+| 参数名                                   | 说明            |
+| ---------------------------------------- | --------------- |
+| vehicleid                                | 目标车辆的 ID   |
+| [component](../resources/carcomponentid) | 要移除的组件 ID |
 
-## Returns
+## 返回值
 
-**true** - The component was successfully removed from the vehicle.
+**true** - 组件成功从车辆移除
 
-**false** - The component was not removed because the vehicle does not exist.
+**false** - 移除失败，通常表示车辆不存在
 
-## Examples
+## 示例
 
 ```c
-// Remove Nitro from player vehicle
+// 移除玩家车辆的氮气加速组件
 new vehicleid = GetPlayerVehicleID(playerid);
 RemoveVehicleComponent(vehicleid, 1010);
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddVehicleComponent](AddVehicleComponent): Add a component to a vehicle.
-- [GetVehicleComponentInSlot](GetVehicleComponentInSlot): Check what components a vehicle has.
-- [GetVehicleComponentType](GetVehicleComponentType): Check the type of component via the ID.
-- [VehicleCanHaveComponent](VehicleCanHaveComponent): Is the component legal on the vehicle?
+- [AddVehicleComponent](AddVehicleComponent): 为车辆添加组件
+- [GetVehicleComponentInSlot](GetVehicleComponentInSlot): 获取车辆指定槽位的组件
+- [GetVehicleComponentType](GetVehicleComponentType): 通过组件 ID 获取组件类型
+- [VehicleCanHaveComponent](VehicleCanHaveComponent): 验证组件是否适配该车辆
 
-## Related Callbacks
+## 相关回调
 
-- [OnVehicleMod](../callbacks/OnVehicleMod): Called when a vehicle is modded.
-- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): Called when a vehicle enters or exits a mod shop.
+- [OnVehicleMod](../callbacks/OnVehicleMod): 当车辆被改装时触发
+- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当车辆进入/离开改装店时触发
 
-## Related Resources
+## 相关资源
 
-- [Car Component IDs](../resources/carcomponentid)
+- [车辆组件 ID 列表](../resources/carcomponentid)

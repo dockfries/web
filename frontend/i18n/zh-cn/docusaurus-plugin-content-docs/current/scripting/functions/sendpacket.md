@@ -1,33 +1,33 @@
 ---
 title: sendpacket
 sidebar_label: sendpacket
-description: Sends a packet. (deprecated function)
-tags: ["datagram"]
+description: 发送数据包（已弃用函数）
+tags: ["数据报"]
 ---
 
 <LowercaseNote />
 
 :::warning
 
-This function is deprecated, Use [HTTP](HTTP) or [pawn-requests](https://github.com/Southclaws/pawn-requests) plugin.
+该函数已弃用，请使用[HTTP](HTTP)或[pawn-requests 插件](https://github.com/Southclaws/pawn-requests)
 
 :::
 
-## Description
+## 描述
 
-Sends a packet.
+发送网络数据包。
 
-| Name                     | Description                                                                                                                                                                                 |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| const packet[]           | The buffer that contains the packet to send.                                                                                                                                                |
-| size                     | Buffer size.                                                                                                                                                                                |
-| const destination[] = "" | The IP address and port number to which the packet must be sent. If absent or an empty string, this function will broadcast the packet and use the default port number 9930 _(optional="")_ |
+| 参数名                   | 说明                                                                                     |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| const packet[]           | 包含要发送数据包的缓冲区                                                                 |
+| size                     | 缓冲区大小                                                                               |
+| const destination[] = "" | 数据包目标地址的 IP 和端口。若为空或未指定，将使用默认端口 9930 进行广播 _(可选参数="")_ |
 
-## Return Values
+## 返回值
 
-**1** on success, **0** on failure.
+**1** 表示成功，**0** 表示失败。
 
-## Related Functions
+## 相关函数
 
-- [@receivepacket](@receivepacket): A packed was received.
-- [sendstring](sendstring): Sends a packet containing a string.
+- [@receivepacket](@receivepacket): 接收数据包时触发
+- [sendstring](sendstring): 发送包含字符串的数据包

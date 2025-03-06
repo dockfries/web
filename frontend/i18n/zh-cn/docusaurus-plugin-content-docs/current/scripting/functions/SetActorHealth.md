@@ -1,42 +1,42 @@
 ---
 title: SetActorHealth
 sidebar_label: SetActorHealth
-description: Set the health of an actor.
-tags: ["actor"]
+description: 设置角色的生命值。
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Set the health of an actor.
+设置角色的生命值。
 
-| Name         | Description                               |
-| ------------ | ----------------------------------------- |
-| actorid      | The ID of the actor to set the health of. |
-| Float:health | The value to set the actors's health to.  |
+| 参数名       | 描述                         |
+| ------------ | ---------------------------- |
+| actorid      | 要设置生命值的角色 ID        |
+| Float:health | 要设置的生命值数值（浮点数） |
 
-## Returns
+## 返回值
 
-**true** - success
+**true** - 成功
 
-**false** - failure (i.e. actor is not created).
+**false** - 失败（指定的角色不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new gMyActor;
 
 public OnGameModeInit()
 {
-    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // Actor as salesperson in Ammunation
+    gMyActor = CreateActor(179, 316.1, -134.0, 999.6, 90.0); // 在武器店扮演销售员的角色
 
     SetActorHealth(gMyActor, 100.0);
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetActorHealth](GetActorHealth): Get the health of an actor.
-- [SetActorInvulnerable](SetActorInvulnerable): Set actor invulnerable.
+- [GetActorHealth](GetActorHealth): 获取角色的生命值
+- [SetActorInvulnerable](SetActorInvulnerable): 设置角色无敌状态

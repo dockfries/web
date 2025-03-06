@@ -1,43 +1,43 @@
 ---
 title: SendDeathMessageToPlayer
 sidebar_label: SendDeathMessageToPlayer
-description: Adds a death to the 'killfeed' on the right-hand side of the screen for a single player.
-tags: ["player"]
+description: 向指定玩家屏幕右侧的击杀信息栏添加死亡记录
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Adds a death to the 'killfeed' on the right-hand side of the screen for a single player.
+向指定玩家屏幕右侧的击杀信息栏添加死亡记录
 
-| Name     | Description                                                                                                                 |
-| -------- | --------------------------------------------------------------------------------------------------------------------------- |
-| playerid | The ID of the player to send the death message to.                                                                          |
-| killer   | The ID of the killer (can be INVALID_PLAYER_ID).                                                                            |
-| killee   | The ID of the player that died.                                                                                             |
-| weapon   | The reason (not always a weapon) for the victim's death. Special icons can also be used (ICON_CONNECT and ICON_DISCONNECT). |
+| 参数名   | 说明                                                                                            |
+| -------- | ----------------------------------------------------------------------------------------------- |
+| playerid | 接收死亡信息的玩家 ID                                                                           |
+| killer   | 凶手玩家 ID（可使用 INVALID_PLAYER_ID 表示无凶手）                                              |
+| killee   | 死亡玩家的 ID                                                                                   |
+| weapon   | 死亡原因（不一定是武器 ID），可使用特殊图标（ICON_CONNECT 连接图标和 ICON_DISCONNECT 断开图标） |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute.
+**false** - 函数执行失败（通常由无效玩家 ID 导致）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    // Sends a death message to "playerid" shows that "killerid" killed "playerid" for "reason"
+    // 向"playerid"发送死亡信息，显示"killerid"因"reason"击杀了"playerid"
     SendDeathMessageToPlayer(playerid, killerid, playerid, reason);
 
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SendDeathMessage](SendDeathMessage): Add a kill to the death list.
+- [SendDeathMessage](SendDeathMessage): 向全体玩家广播死亡信息
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerDeath](../callbacks/OnPlayerDeath): Called when a player dies.
+- [OnPlayerDeath](../callbacks/OnPlayerDeath): 当玩家死亡时触发

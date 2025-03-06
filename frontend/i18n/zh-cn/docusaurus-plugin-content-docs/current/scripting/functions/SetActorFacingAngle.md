@@ -1,28 +1,28 @@
 ---
 title: SetActorFacingAngle
 sidebar_label: SetActorFacingAngle
-description: Set the facing angle of an actor.
-tags: ["actor"]
+description: 设置角色的朝向角度。
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Set the facing angle of an actor.
+设置角色的朝向角度。
 
-| Name        | Description                                                              |
-| ----------- | ------------------------------------------------------------------------ |
-| actorid     | The ID of the actor to set the facing angle of. Returned by CreateActor. |
-| Float:angle | The facing angle to set for the actor.                                   |
+| 参数名      | 描述                                             |
+| ----------- | ------------------------------------------------ |
+| actorid     | 要设置朝向角度的角色 ID，由 CreateActor 函数返回 |
+| Float:angle | 要设置的朝向角度值（单位：度）                   |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The actor specified does not exist.
+**false** - 函数执行失败。指定的角色不存在
 
-## Examples
+## 示例代码
 
 ```c
 new MyActor;
@@ -33,25 +33,25 @@ public OnGameModeInit()
     return 1;
 }
 
-// Somewhere else
+// 其他位置
 SetActorFacingAngle(MyActor, 180.0);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-When creating an actor with [CreateActor](CreateActor), you specify it's facing angle. You do not need to use this function unless you want to change its facing angle later.
+使用[CreateActor](CreateActor)创建角色时，已经指定了其朝向角度。除非需要后续调整方向，否则无需使用此函数
 
 :::
 
 :::warning
 
-Players will see actor's facing angle changed only when it is restreamed to them.
+玩家只有在角色被重新流加载时才能看到朝向角度的变化
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetActorFacingAngle](GetActorFacingAngle): Get the facing angle of an actor.
-- [SetActorPos](SetActorPos): Set the position of an actor.
+- [GetActorFacingAngle](GetActorFacingAngle): 获取角色的朝向角度
+- [SetActorPos](SetActorPos): 设置角色的坐标位置

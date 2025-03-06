@@ -1,31 +1,31 @@
 ---
 title: RemoveServerRule
 sidebar_label: RemoveServerRule
-description: Remove the server rule.
-tags: ["rule"]
+description: 移除服务器规则
+tags: ["规则"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Remove the server rule.
+移除指定的服务器规则。
 
-| Name         | Description                     |
-| ------------ | ------------------------------- |
-| const rule[] | The server rule name to remove. |
+| 参数名       | 说明                   |
+| ------------ | ---------------------- |
+| const rule[] | 要移除的服务器规则名称 |
 
-## Returns
+## 返回值
 
-Returns true if the function executed successfully, otherwise false.
+成功执行返回 true，否则返回 false。
 
-## Examples
+## 示例
 
 ```c
 RemoveServerRule("rule");
 ```
 
-## Related Functions
+## 相关函数
 
-- [AddServerRule](AddServerRule): Add a server rule.
-- [IsValidServerRule](IsValidServerRule): Checks if the given server rule is valid.
+- [AddServerRule](AddServerRule): 添加服务器规则
+- [IsValidServerRule](IsValidServerRule): 验证服务器规则是否有效

@@ -1,32 +1,32 @@
 ---
 title: RemovePlayerFromVehicle
 sidebar_label: RemovePlayerFromVehicle
-description: Removes/ejects a player from their vehicle.
-tags: ["player", "vehicle"]
+description: 将玩家移出所在车辆。
+tags: ["玩家", "车辆"]
 ---
 
-## Description
+## 描述
 
-Removes/ejects a player from their vehicle.
+将玩家强制移出当前所在的车辆。
 
-| Name       | Description                                             |
-| ---------- | ------------------------------------------------------- |
-| playerid   | The ID of the player to remove from their vehicle.      |
-| bool:force | Force remove from vehicle instantly. (default: `false`) |
+| 参数名     | 说明                                  |
+| ---------- | ------------------------------------- |
+| playerid   | 需要移出车辆的玩家 ID                 |
+| bool:force | 是否强制立即移出车辆（默认：`false`） |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute. This means the player is not connected.
+**false** - 函数执行失败。通常表示玩家未连接。
 
-## Examples
+## 示例
 
 ```c
-// Example - Players can only drive vehicles if they have 10 score.
+// 示例 - 玩家必须拥有10分才能驾驶车辆
 public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
-    if (newstate == PLAYER_STATE_DRIVER && GetPlayerScore(playerid) < 10) // PlAYER_STATE_DRIVER = 2
+    if (newstate == PLAYER_STATE_DRIVER && GetPlayerScore(playerid) < 10) // PLAYER_STATE_DRIVER = 2
     {
         RemovePlayerFromVehicle(playerid);
     }
@@ -34,16 +34,16 @@ public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstat
 }
 ```
 
-## Notes
+## 注意要点
 
 :::tip
 
-- The exiting animation is not synced for other players.
-- This function will not work when used in [OnPlayerEnterVehicle](../callbacks/OnPlayerEnterVehicle), because the player isn't in the vehicle when the callback is called. Use [OnPlayerStateChange](../callbacks/OnPlayerStateChange) instead (see the example above).
-- If the player is in an RC vehicle, they will not be removed. (Use `.force = true` parameter or [ClearAnimations](ClearAnimations) function)
+- 退出车辆的动画效果不会同步给其他玩家
+- 该函数在[OnPlayerEnterVehicle](../callbacks/OnPlayerEnterVehicle)回调中无效，因为此时玩家尚未进入车辆。请改用[OnPlayerStateChange](../callbacks/OnPlayerStateChange)回调（参见上方示例）
+- 如果玩家正在遥控车（RC）中，该函数不会生效（需使用`.force = true`参数或[ClearAnimations](ClearAnimations)函数）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [PutPlayerInVehicle](PutPlayerInVehicle): Put a player in a vehicle.
+- [PutPlayerInVehicle](PutPlayerInVehicle): 将玩家放入指定车辆

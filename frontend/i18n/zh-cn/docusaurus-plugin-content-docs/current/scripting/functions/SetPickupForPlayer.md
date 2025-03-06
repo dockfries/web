@@ -1,37 +1,37 @@
 ---
 title: SetPickupForPlayer
 sidebar_label: SetPickupForPlayer
-description: Adjusts the pickup model, type, and position for a specific player.
-tags: ["player", "pickup"]
+description: 为指定玩家调整拾取物的模型、类型和位置。
+tags: ["玩家", "拾取物"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
 :::warning
 
-This function has not yet been implemented.
+该函数尚未实现
 
 :::
 
-## Description
+## 描述
 
-Adjusts the pickup model, type, and position for a specific player.
+为指定玩家调整拾取物的模型、类型和位置。
 
-| Name     | Description                                         |
-| -------- | --------------------------------------------------- |
-| playerid | The ID of the player.                               |
-| pickupid | The ID of the pickup.                               |
-| model    | The [model](../resources/pickupids) to set.         |
-| type     | The [pickup type](../resources/pickuptypes) to set. |
-| Float:x  | The x coordinate to set the pickup at.              |
-| Float:y  | The y coordinate to set the pickup at.              |
-| Float:z  | The z coordinate to set the pickup at.              |
+| 参数名   | 描述                                 |
+| -------- | ------------------------------------ |
+| playerid | 目标玩家 ID                          |
+| pickupid | 要调整的拾取物 ID                    |
+| model    | [模型 ID](../resources/pickupids)    |
+| type     | [拾取类型](../resources/pickuptypes) |
+| Float:x  | 新的 X 坐标                          |
+| Float:y  | 新的 Y 坐标                          |
+| Float:z  | 新的 Z 坐标                          |
 
-## Returns
+## 返回值
 
-This function always returns **true**.
+该函数始终返回 **true**
 
-## Examples
+## 示例代码
 
 ```c
 new g_Pickup;
@@ -51,21 +51,21 @@ public OnPlayerSpawn(playerid)
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreatePickup](CreatePickup): Create a pickup.
-- [AddStaticPickup](AddStaticPickup): Add a static pickup.
-- [DestroyPickup](DestroyPickup): Destroy a pickup.
-- [IsValidPickup](IsValidPickup): Checks if a pickup is valid.
-- [IsPickupStreamedIn](IsPickupStreamedIn): Checks if a pickup is streamed in for a specific player.
-- [IsPickupHiddenForPlayer](IsPickupHiddenForPlayer): Checks if a pickup is hidden for a specific player.
-- [SetPickupPos](SetPickupPos): Sets the position of a pickup.
-- [GetPickupPos](GetPickupPos): Gets the coordinates of a pickup.
-- [SetPickupModel](SetPickupModel): Sets the model of a pickup.
-- [GetPickupModel](GetPickupModel): Gets the model ID of a pickup.
-- [SetPickupType](SetPickupType): Sets the type of a pickup.
-- [GetPickupType](GetPickupType): Gets the type of a pickup.
-- [SetPickupVirtualWorld](SetPickupVirtualWorld): Sets the virtual world ID of a pickup.
-- [GetPickupVirtualWorld](GetPickupVirtualWorld): Gets the virtual world ID of a pickup.
-- [ShowPickupForPlayer](ShowPickupForPlayer): Shows a pickup for a specific player.
-- [HidePickupForPlayer](HidePickupForPlayer): Hides a pickup for a specific player.
+- [CreatePickup](CreatePickup): 创建拾取物
+- [AddStaticPickup](AddStaticPickup): 添加静态拾取物
+- [DestroyPickup](DestroyPickup): 销毁拾取物
+- [IsValidPickup](IsValidPickup): 验证拾取物有效性
+- [IsPickupStreamedIn](IsPickupStreamedIn): 检查拾取物是否已流加载给玩家
+- [IsPickupHiddenForPlayer](IsPickupHiddenForPlayer): 检查拾取物是否对玩家隐藏
+- [SetPickupPos](SetPickupPos): 设置拾取物坐标
+- [GetPickupPos](GetPickupPos): 获取拾取物坐标
+- [SetPickupModel](SetPickupModel): 设置拾取物模型
+- [GetPickupModel](GetPickupModel): 获取拾取物模型 ID
+- [SetPickupType](SetPickupType): 设置拾取物类型
+- [GetPickupType](GetPickupType): 获取拾取物类型
+- [SetPickupVirtualWorld](SetPickupVirtualWorld): 设置拾取物虚拟世界
+- [GetPickupVirtualWorld](GetPickupVirtualWorld): 获取拾取物虚拟世界 ID
+- [ShowPickupForPlayer](ShowPickupForPlayer): 对玩家显示拾取物
+- [HidePickupForPlayer](HidePickupForPlayer): 对玩家隐藏拾取物

@@ -63,7 +63,7 @@ public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstat
 ## 相关回调
 
 - [OnVehicleMod](../callbacks/OnVehicleMod): 当车辆被改装时触发
-- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当车辆进出改装厂时触发
+- [OnEnterExitModShop](../callbacks/OnEnterExitModShop): 当车辆进出改装店时触发
 
 ## 相关资源
 

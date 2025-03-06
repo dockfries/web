@@ -1,23 +1,23 @@
 ---
 title: SelectObject
 sidebar_label: SelectObject
-description: Display the cursor and allow the player to select an object.
+description: 显示光标并允许玩家选取物体
 tags: []
 ---
 
-## Description
+## 描述
 
-Display the cursor and allow the player to select an object. OnPlayerSelectObject is called when the player selects an object.
+显示光标并允许玩家选取物体。当玩家选中物体时会触发[OnPlayerSelectObject](../callbacks/OnPlayerSelectObject)回调。
 
-| Name     | Description                                                   |
-| -------- | ------------------------------------------------------------- |
-| playerid | The ID of the player that should be able to select the object |
+| 参数名   | 说明                  |
+| -------- | --------------------- |
+| playerid | 可以选取物体的玩家 ID |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数没有特定返回值
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
@@ -25,20 +25,20 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if (!strcmp(cmdtext, "/select", true))
     {
         SelectObject(playerid);
-        SendClientMessage(playerid, 0xFFFFFFFF, "SERVER: Please select the object you'd like to edit!");
+        SendClientMessage(playerid, 0xFFFFFFFF, "服务器：请选择您要编辑的物体！");
         return 1;
     }
     return 0;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [CreateObject](CreateObject): Create an object.
-- [DestroyObject](DestroyObject): Destroy an object.
-- [MoveObject](MoveObject): Move an object.
-- [EditObject](EditObject): Edit an object.
-- [EditPlayerObject](EditPlayerObject): Edit an object.
-- [EditAttachedObject](EditAttachedObject): Edit an attached object.
-- [CancelEdit](CancelEdit): Cancel the edition of an object.
-- [OnPlayerSelectObject](../callbacks/OnPlayerSelectObject): Called when a player selected an object.
+- [CreateObject](CreateObject): 创建物体
+- [DestroyObject](DestroyObject): 销毁物体
+- [MoveObject](MoveObject): 移动物体
+- [EditObject](EditObject): 编辑物体
+- [EditPlayerObject](EditPlayerObject): 编辑玩家所属物体
+- [EditAttachedObject](EditAttachedObject): 编辑附加物体
+- [CancelEdit](CancelEdit): 取消物体编辑
+- [OnPlayerSelectObject](../callbacks/OnPlayerSelectObject): 玩家选取物体时触发的回调

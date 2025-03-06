@@ -1,22 +1,22 @@
 ---
 title: Set3DTextLabelVirtualWorld
 sidebar_label: Set3DTextLabelVirtualWorld
-description: Sets the 3D text label virtual world id.
-tags: ["3dtextlabel"]
+description: 设置3D文本标签的虚拟世界ID。
+tags: ["3D文本标签"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Sets the 3D text label virtual world id.
+设置 3D 文本标签的虚拟世界 ID。
 
-| Name          | Description                                                |
-| ------------- | ---------------------------------------------------------- |
-| Text3D:textid | The ID of the 3D text label to set the virtual world id.   |
-| virtualWorld  | The virtual world in which you are able to see the 3D Text |
+| 参数名        | 描述                                |
+| ------------- | ----------------------------------- |
+| Text3D:textid | 要设置虚拟世界 ID 的 3D 文本标签 ID |
+| virtualWorld  | 可以看见该 3D 文本的虚拟世界 ID     |
 
-## Examples
+## 示例代码
 
 ```c
 new Text3D:gMyLabel;
@@ -24,10 +24,10 @@ new Text3D:gMyLabel;
 gMyLabel = Create3DTextLabel("Hello World!", 0x008080FF, 30.0, 40.0, 50.0, 10.0, 20, false);
 
 Set3DTextLabelVirtualWorld(gMyLabel, 60);
-// The virtual world id changed from '20' to '60'
+// 虚拟世界ID从'20'更改为'60'
 ```
 
-## Related Functions
+## 相关函数
 
-- [Get3DTextLabelVirtualWorld](Get3DTextLabelVirtualWorld): Gets the 3D text label virtual world id.
-- [SetPlayer3DTextLabelVirtualWorld](SetPlayer3DTextLabelVirtualWorld): Sets the player 3D text label virtual world id.
+- [Get3DTextLabelVirtualWorld](Get3DTextLabelVirtualWorld): 获取 3D 文本标签的虚拟世界 ID
+- [SetPlayer3DTextLabelVirtualWorld](SetPlayer3DTextLabelVirtualWorld): 设置玩家 3D 文本标签的虚拟世界 ID

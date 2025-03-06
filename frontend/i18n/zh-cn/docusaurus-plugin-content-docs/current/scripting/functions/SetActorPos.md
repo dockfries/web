@@ -1,30 +1,30 @@
 ---
 title: SetActorPos
 sidebar_label: SetActorPos
-description: Set the position of an actor.
-tags: ["actor"]
+description: 设置角色的坐标位置。
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Set the position of an actor.
+设置角色的坐标位置。
 
-| Name    | Description                                                          |
-| ------- | -------------------------------------------------------------------- |
-| actorid | The ID of the actor to set the position of. Returned by CreateActor. |
-| Float:x | The X coordinate to position the actor at.                           |
-| Float:y | The Y coordinate to position the actor at.                           |
-| Float:z | The Z coordinate to position the actor at.                           |
+| 参数名  | 描述                                             |
+| ------- | ------------------------------------------------ |
+| actorid | 要设置坐标位置的角色 ID，由 CreateActor 函数返回 |
+| Float:x | X 坐标值                                         |
+| Float:y | Y 坐标值                                         |
+| Float:z | Z 坐标值                                         |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The actor specified does not exist.
+**false** - 函数执行失败（指定的角色不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new gMyActor;
@@ -35,19 +35,19 @@ public OnGameModeInit()
     return 1;
 }
 
-// Somewhere else
+// 其他位置
 SetActorPos(gMyActor, 2062.2332, -1908.1423, 13.5485);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-When creating an actor with [CreateActor](CreateActor), you specify it's position. You do not need to use this function unless you want to change its position later.
+使用[CreateActor](CreateActor)创建角色时，已经指定了其坐标位置。除非需要后续调整位置，否则无需使用此函数
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetActorPos](GetActorPos): Get the position of an actor.
-- [CreateActor](CreateActor): Create an actor (static NPC).
+- [GetActorPos](GetActorPos): 获取角色的坐标位置
+- [CreateActor](CreateActor): 创建角色（静态 NPC）

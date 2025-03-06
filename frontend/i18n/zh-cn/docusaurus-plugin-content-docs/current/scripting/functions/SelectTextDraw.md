@@ -1,53 +1,53 @@
 ---
 title: SelectTextDraw
 sidebar_label: SelectTextDraw
-description: Display the cursor and allow the player to select a textdraw.
-tags: ["textdraw"]
+description: 显示光标并允许玩家选择文本绘图
+tags: ["文本绘图"]
 ---
 
-## Description
+## 描述
 
-Display the cursor and allow the player to select a textdraw
+显示光标并允许玩家选择文本绘图
 
-| Name        | Description                                                    |
-| ----------- | -------------------------------------------------------------- |
-| playerid    | The ID of the player that should be able to select a textdraw  |
-| hoverColour | The color of the textdraw when hovering over with mouse (RGBA) |
+| 参数名      | 说明                                      |
+| ----------- | ----------------------------------------- |
+| playerid    | 可进行文本绘图选择的玩家 ID               |
+| hoverColour | 鼠标悬停时文本绘图的高亮颜色（RGBA 格式） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数没有特定返回值
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (!strcmp(cmdtext, "/tdselect", true))
     {
-        SelectTextDraw(playerid, 0x00FF00FF); // Highlight green when hovering over
-        SendClientMessage(playerid, 0xFFFFFFFF, "SERVER: Please select a textdraw!");
+        SelectTextDraw(playerid, 0x00FF00FF); // 悬停时显示绿色高亮
+        SendClientMessage(playerid, 0xFFFFFFFF, "服务器：请选择一个文本绘图！");
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-It is the TEXT which will be highlighted when hovered over, NOT the box (if one is shown).
+悬停时高亮显示的是文本内容而非背景框（如果存在背景框）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [CancelSelectTextDraw](CancelSelectTextDraw): Cancel textdraw selection with the mouse
-- [TextDrawSetSelectable](TextDrawSetSelectable): Sets whether a textdraw is selectable through SelectTextDraw
-- [PlayerTextDrawSetSelectable](PlayerTextDrawSetSelectable): Sets whether a player-textdraw is selectable through SelectTextDraw
+- [CancelSelectTextDraw](CancelSelectTextDraw): 取消鼠标文本绘图选择模式
+- [TextDrawSetSelectable](TextDrawSetSelectable): 设置文本绘图是否可通过 SelectTextDraw 选择
+- [PlayerTextDrawSetSelectable](PlayerTextDrawSetSelectable): 设置玩家专属文本绘图是否可通过 SelectTextDraw 选择
 
-## Related Callbacks
+## 相关回调
 
-- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): Called when a player clicks on a textdraw.
-- [OnPlayerClickPlayerTextDraw](../callbacks/OnPlayerClickPlayerTextDraw): Called when a player clicks on a player-textdraw.
+- [OnPlayerClickTextDraw](../callbacks/OnPlayerClickTextDraw): 玩家点击文本绘图时触发
+- [OnPlayerClickPlayerTextDraw](../callbacks/OnPlayerClickPlayerTextDraw): 玩家点击专属文本绘图时触发

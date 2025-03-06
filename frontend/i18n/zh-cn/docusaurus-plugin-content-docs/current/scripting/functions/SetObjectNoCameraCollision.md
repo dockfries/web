@@ -1,27 +1,27 @@
 ---
 title: SetObjectNoCameraCollision
 sidebar_label: SetObjectNoCameraCollision
-description: Disable collisions between players' cameras and the specified object.
-tags: ["object", "camera"]
+description: 禁用玩家视角与指定物体的碰撞检测。
+tags: ["物体", "视角"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Disable collisions between players' cameras and the specified object.
+禁用玩家视角与指定物体的碰撞检测。
 
-| Name     | Description                                           |
-| -------- | ----------------------------------------------------- |
-| objectid | The ID of the object to disable camera collisions on. |
+| 参数名   | 描述                        |
+| -------- | --------------------------- |
+| objectid | 要禁用视角碰撞检测的物体 ID |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist.
+`false` - 函数执行失败（指定的物体不存在）
 
-## Examples
+## 示例代码
 
 ```c
 public OnObjectMoved(objectid)
@@ -36,15 +36,15 @@ public OnObjectMoved(objectid)
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-This only works outside the map boundaries (past -3000/3000 units on the x and/or y axis).
+该功能仅在地图边界外生效（X/Y 轴超过 ±3000 单位时）
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [HasObjectCameraCollision](HasObjectCameraCollision): Checks if an object has camera collision enabled.
-- [SetPlayerObjectNoCameraCollision](SetPlayerObjectNoCameraCollision): Disables collisions between camera and player object.
+- [HasObjectCameraCollision](HasObjectCameraCollision): 检查物体是否启用了视角碰撞检测
+- [SetPlayerObjectNoCameraCollision](SetPlayerObjectNoCameraCollision): 禁用视角与玩家专属物体的碰撞检测

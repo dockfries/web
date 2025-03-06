@@ -1,39 +1,39 @@
 ---
 title: SetObjectMoveSpeed
 sidebar_label: SetObjectMoveSpeed
-description: Set the move speed of an object.
-tags: ["object"]
+description: 设置物体的移动速度。
+tags: ["物体"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
 
-## Description
+## 描述
 
-Set the move speed of an object.
+设置物体的移动速度。
 
-| Name        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| objectid    | The ID of the object to set the move speed of.            |
-| Float:speed | The speed at which to move the object (units per second). |
+| 参数名      | 描述                      |
+| ----------- | ------------------------- |
+| objectid    | 要设置移动速度的物体 ID   |
+| Float:speed | 物体的移动速度（单位/秒） |
 
-## Returns
+## 返回值
 
-`true` - The function was executed successfully.
+`true` - 函数执行成功
 
-`false` - The function failed to execute. The object specified does not exist.
+`false` - 函数执行失败（指定的物体不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new objectid = CreateObject(985, 1003.39154, -643.33423, 122.35060,   0.00000, 1.00000, 24.00000);
 MoveObject(objectid, 1003.3915, -643.3342, 114.5122,  0.8);
 
 SetObjectMoveSpeed(objectid, 1.5);
-// Move speed changed from 0.8 to 1.5
+// 移动速度从0.8更改为1.5
 ```
 
-## Related Functions
+## 相关函数
 
-- [MoveObject](MoveObject): Move an object to a new position with a set speed.
-- [GetObjectMoveSpeed](GetObjectMoveSpeed): Get the move speed of an object.
-- [SetPlayerObjectMoveSpeed](SetPlayerObjectMoveSpeed): Set the move speed of a player-object.
+- [MoveObject](MoveObject): 将物体以指定速度移动到新位置
+- [GetObjectMoveSpeed](GetObjectMoveSpeed): 获取物体的移动速度
+- [SetPlayerObjectMoveSpeed](SetPlayerObjectMoveSpeed): 设置玩家专属物体的移动速度

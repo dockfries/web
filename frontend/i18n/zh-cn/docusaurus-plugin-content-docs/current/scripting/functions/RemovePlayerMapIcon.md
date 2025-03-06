@@ -1,34 +1,34 @@
 ---
 title: RemovePlayerMapIcon
 sidebar_label: RemovePlayerMapIcon
-description: Removes a map icon that was set earlier for a player using SetPlayerMapIcon.
-tags: ["player"]
+description: 移除玩家之前通过SetPlayerMapIcon设置的地图图标。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Removes a map icon that was set earlier for a player using SetPlayerMapIcon.
+移除玩家之前通过 SetPlayerMapIcon 设置的地图图标。
 
-| Name     | Description                                                                     |
-| -------- | ------------------------------------------------------------------------------- |
-| playerid | The ID of the player whose icon to remove.                                      |
-| iconid   | The ID of the icon to remove. This is the second parameter of SetPlayerMapIcon. |
+| 参数名   | 说明                                                    |
+| -------- | ------------------------------------------------------- |
+| playerid | 需要移除图标的玩家 ID                                   |
+| iconid   | 要移除的图标 ID（即 SetPlayerMapIcon 函数的第二个参数） |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功。
 
-**false** - The function failed to execute.
+**false** - 函数执行失败。
 
-## Examples
+## 示例
 
 ```c
 SetPlayerMapIcon(playerid, 12, 2204.9468, 1986.2877, 16.7380, 52, 0);
 
-// Later on
+// 之后
 RemovePlayerMapIcon(playerid, 12);
 ```
 
-## Related Functions
+## 相关函数
 
-- [SetPlayerMapIcon](/docs/scripting/functions/SetPlayerMapIcon): Create a mapicon for a player.
+- [SetPlayerMapIcon](/docs/scripting/functions/SetPlayerMapIcon): 为玩家创建地图图标

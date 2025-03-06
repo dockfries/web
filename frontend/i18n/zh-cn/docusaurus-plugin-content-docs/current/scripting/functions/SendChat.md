@@ -1,31 +1,31 @@
 ---
 title: SendChat
 sidebar_label: SendChat
-description: This will send a player text by the bot, just like using SendPlayerMessageToAll, but this function is to be used inside the NPC scripts.
+description: 允许NPC发送聊天消息，类似于SendPlayerMessageToAll，但专用于NPC脚本。
 tags: []
 ---
 
-## Description
+## 描述
 
-This will send a player text by the bot, just like using [SendPlayerMessageToAll](../functions/SendPlayerMessageToAll), but this function is to be used inside the NPC scripts.
+该函数允许 NPC 发送聊天消息，类似于[SendPlayerMessageToAll](../functions/SendPlayerMessageToAll)，但专用于 NPC 脚本内部使用。
 
-| Name  | Description                     |
-| ----- | ------------------------------- |
-| msg[] | The text to be sent by the NPC. |
+| 参数名 | 说明                 |
+| ------ | -------------------- |
+| msg[]  | NPC 要发送的文本内容 |
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerDeath(playerid)
 {
     new string[80], name[MAX_PLAYER_NAME];
     GetPlayerName(playerid, name, sizeof(name));
-    format(string, sizeof(string), "Oh no %s! I didn't want you to die that way!", name);
-    SendChat(string);
+    format(string, sizeof(string), "哦不%s！我不想让你就这样死去！", name);
+    SendChat(string); // 当玩家死亡时发送消息
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [SendCommand](../functions/SendCommand): Sends a command as the NPC.
+- [SendCommand](../functions/SendCommand): 以 NPC 身份发送命令

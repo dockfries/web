@@ -1,45 +1,45 @@
 ---
 title: SetGravity
 sidebar_label: SetGravity
-description: Set the gravity for all players.
+description: 为所有玩家设置重力值。
 tags: []
 ---
 
-## Description
+## 描述
 
-Set the gravity for all players.
+设置所有玩家的重力参数。
 
-| Name          | Description                                                           |
-| ------------- | --------------------------------------------------------------------- |
-| Float:gravity | The value that the gravity should be set to (between -50.0 and 50.0). |
+| 参数名        | 描述                                      |
+| ------------- | ----------------------------------------- |
+| Float:gravity | 要设置的重力值（有效范围：-50.0 至 50.0） |
 
-## Returns
+## 返回值
 
-This function always returns 1, even when it fails to execute if the gravity is out of the limits (lower than -50.0 or high than +50.0).
+该函数总是返回 1，即使重力值超出有效范围（低于-50.0 或高于+50.0）也会返回 1。
 
-## Examples
+## 示例代码
 
 ```c
 public OnGameModeInit()
 {
-    // Set moon-like gravity
+    // 设置类似月球的重力
     SetGravity(0.001);
 
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-Default gravity is 0.008.
+默认重力值为 0.008
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GetGravity](GetGravity): Get the currently set gravity.
-- [SetPlayerGravity](SetPlayerGravity): Set a player's gravity.
-- [SetWeather](SetWeather): Set the global weather.
-- [SetWorldTime](SetWorldTime): Set the global server time.
+- [GetGravity](GetGravity): 获取当前重力值
+- [SetPlayerGravity](SetPlayerGravity): 设置单个玩家的重力值
+- [SetWeather](SetWeather): 设置全局天气
+- [SetWorldTime](SetWorldTime): 设置全局服务器时间

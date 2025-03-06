@@ -1,32 +1,32 @@
 ---
 title: SetMyFacingAngle
 sidebar_label: SetMyFacingAngle
-description: Set the NPC's facing angle.
+description: 设置NPC的朝向角度。
 tags: []
 ---
 
-## Description
+## 描述
 
-Set the NPC's facing angle.
+设置 NPC 的朝向角度。
 
-| Name      | Description                 |
-| --------- | --------------------------- |
-| Float:ang | The new NPC's facing angle. |
+| 参数名    | 描述                         |
+| --------- | ---------------------------- |
+| Float:ang | 要设置的朝向角度值（浮点数） |
 
-## Examples
+## 示例代码
 
 ```c
-SetMyFacingAngle(0); //NPC faces north
+SetMyFacingAngle(0); // NPC面朝北方
 ```
 
 ```c
-       north (0)
+       北 (0)
           |
-(90) west- -east (270)
+(90) 西 - - 东 (270)
           |
-       south (180)
+       南 (180)
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetMyFacingAngle](../functions/GetMyFacingAngle): Get the NPC's facing angle.
+- [GetMyFacingAngle](../functions/GetMyFacingAngle): 获取 NPC 的朝向角度

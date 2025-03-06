@@ -1,29 +1,29 @@
 ---
 title: SendClientCheck
 sidebar_label: SendClientCheck
-description: Perform a memory check on the client.
+description: 在客户端执行内存检查
 tags: []
 ---
 
-## Description
+## 描述
 
-Perform a memory check on the client.
+在客户端执行内存检查
 
-| Name      | Description                                                    |
-| --------- | -------------------------------------------------------------- |
-| playerid  | The ID of the player to check.                                 |
-| type      | The type of check to perform. [See here](../resources/opcodes) |
-| memAddr   | The base address to check.                                     |
-| memOffset | The offset from the base address.                              |
-| byteCount | The number of bytes to check.                                  |
+| 参数名    | 说明                                                |
+| --------- | --------------------------------------------------- |
+| playerid  | 需要检查的玩家 ID                                   |
+| type      | 需要执行的检查类型 [参见此处](../resources/opcodes) |
+| memAddr   | 检查的基地址                                        |
+| memOffset | 相对于基地址的偏移量                                |
+| byteCount | 需要检查的字节数                                    |
 
-## Returns
+## 返回值
 
-1: The function was executed successfully.
+1: 函数执行成功
 
-0: The function failed to execute. The player is not connected.
+0: 函数执行失败（玩家未连接）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerConnect(playerid)
@@ -34,37 +34,37 @@ public OnPlayerConnect(playerid)
 
 public OnClientCheckResponse(playerid, actionid, memaddr, retndata)
 {
-    if (actionid == 0x48) // or 72
+    if (actionid == 0x48) // 或72
     {
-        print("The player is connecting using the PC client.");
+        print("玩家正在使用PC客户端连接。");
     }
     return 1;
 }
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-- There are 6 types of requests that the client processes (2, 5, 69, 70, 71, 72)
-- Type 72 doesn't use any of the other arguments [arg | offset | size].
-- The arg returns the uptime of the computer.
+- 客户端处理 6 种类型的请求（2、5、69、70、71、72）
+- 类型 72 不使用其他参数 [参数 | 偏移量 | 大小]
+- arg 参数返回计算机运行时间
 
 :::
 
 :::warning
 
-**SA:MP Server**: This function only works when it is in a filterscript.
+**SA:MP 服务器**：该函数仅在滤镜脚本中生效
 
-**Open Multiplayer Server**: This functions normally inside a gamemode / filterscript.
+**Open Multiplayer 服务器**：该函数在游戏模式/滤镜脚本中均可正常使用
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerUsingOfficialClient](IsPlayerUsingOfficialClient): Check if the player is using the official SA-MP client.
-- [IsPlayerUsingOmp](IsPlayerUsingOmp): Check if the player is using the open.mp launcher.
+- [IsPlayerUsingOfficialClient](IsPlayerUsingOfficialClient): 检查玩家是否使用官方 SA-MP 客户端
+- [IsPlayerUsingOmp](IsPlayerUsingOmp): 检查玩家是否使用 open.mp 启动器
 
-## Related Callbacks
+## 相关回调
 
-- [OnClientCheckResponse](../callbacks/OnClientCheckResponse): called when a SendClientCheck request completes.
+- [OnClientCheckResponse](../callbacks/OnClientCheckResponse): 当 SendClientCheck 请求完成时触发

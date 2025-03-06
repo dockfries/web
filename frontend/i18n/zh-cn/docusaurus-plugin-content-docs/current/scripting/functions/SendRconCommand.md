@@ -1,61 +1,61 @@
 ---
 title: SendRconCommand
 sidebar_label: SendRconCommand
-description: Sends an RCON (Remote Console) command.
-tags: ["administration"]
+description: 发送RCON（远程控制台）命令
+tags: ["管理"]
 ---
 
-## Description
+## 描述
 
-Sends an RCON (Remote Console) command.
+发送 RCON（远程控制台）命令
 
-| Name             | Description                                |
-| ---------------- | ------------------------------------------ |
-| const format[]   | The RCON command to be executed.           |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag. |
+| 参数名           | 说明                       |
+| ---------------- | -------------------------- |
+| const format[]   | 需要执行的 RCON 命令       |
+| OPEN_MP_TAGS:... | 不定数量的任意标签类型参数 |
 
-## Returns
+## 返回值
 
-This function always returns 1.
+该函数始终返回 1
 
-## Examples
+## 示例代码
 
 ```c
 SendRconCommand("gmx");
-// This is a scripted version of typing "/rcon gmx" in-game.
-// GMX restarts the game mode.
+// 等效于在游戏内输入"/rcon gmx"
+// GMX命令将重启游戏模式
 
-// Example using format()
+// 使用format()的示例
 new szMapName[] = "Los Santos";
 new szCmd[64];
 format(szCmd, sizeof(szCmd), "mapname %s", szMapName);
 SendRconCommand(szCmd);
 
-// PRO TIP: You don't need `format` in open.mp
+// 专业提示：open.mp中无需使用format
 SendRconCommand("game.map %s", szMapName);
 ```
 
-## Notes
+## 注意事项
 
 :::warning
 
-- Does not support login, due to the lack of a 'playerid' parameter.
-- 'password 0' will remove the server's password if one is set.
-- This function will result in [OnRconCommand](../callbacks/OnRconCommand) being called.
+- 因缺少 playerid 参数，不支持登录操作
+- 'password 0'命令将清除服务器已设置的密码
+- 该命令会触发[OnRconCommand](../callbacks/OnRconCommand)回调
 
 :::
 
 :::info
 
-See [config.json](../../server/config.json)
+参见[config.json](../../server/config.json)配置文件
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [IsPlayerAdmin](IsPlayerAdmin): Checks if a player is logged into RCON.
+- [IsPlayerAdmin](IsPlayerAdmin): 检查玩家是否具有 RCON 权限
 
-## Related Callbacks
+## 相关回调
 
-- [OnRconCommand](../callbacks/OnRconCommand): Called when an RCON command is sent.
-- [OnRconLoginAttempt](../callbacks/OnRconLoginAttempt): Called when an attempt to login to RCON is made.
+- [OnRconCommand](../callbacks/OnRconCommand): RCON 命令执行时触发
+- [OnRconLoginAttempt](../callbacks/OnRconLoginAttempt): RCON 登录尝试时触发

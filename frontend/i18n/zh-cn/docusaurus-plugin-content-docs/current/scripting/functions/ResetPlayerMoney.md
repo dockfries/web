@@ -1,36 +1,36 @@
 ---
 title: ResetPlayerMoney
 sidebar_label: ResetPlayerMoney
-description: Reset a player's money to $0.
-tags: ["player"]
+description: 将玩家的金钱重置为$0
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Reset a player's money to $0.
+将玩家的金钱重置为$0。
 
-| Name     | Description                                 |
-| -------- | ------------------------------------------- |
-| playerid | The ID of the player to reset the money of. |
+| 参数名   | 说明                  |
+| -------- | --------------------- |
+| playerid | 需要重置金钱的玩家 ID |
 
-## Returns
+## 返回值
 
-**1** - The function was executed successfully.
+**1** - 函数执行成功
 
-**0** - The function failed to execute. This means the player is not connected.
+**0** - 函数执行失败（玩家未连接）
 
-## Examples
+## 示例代码
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    SendClientMessage(playerid, 0xFFFFFFAA, "You died and lost all of your cash!");
+    SendClientMessage(playerid, 0xFFFFFFAA, "您已死亡，所有现金已被清空！");
     ResetPlayerMoney(playerid);
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetPlayerMoney](GetPlayerMoney): Check how much money a player has.
-- [GivePlayerMoney](GivePlayerMoney): Give a player money.
+- [GetPlayerMoney](GetPlayerMoney): 获取玩家当前金钱数额
+- [GivePlayerMoney](GivePlayerMoney): 给予玩家金钱

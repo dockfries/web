@@ -1,45 +1,45 @@
 ---
 title: ResetPlayerWeapons
 sidebar_label: ResetPlayerWeapons
-description: Removes all weapons from a player.
-tags: ["player"]
+description: 移除玩家所有武器。
+tags: ["玩家"]
 ---
 
-## Description
+## 描述
 
-Removes all weapons from a player.
+移除指定玩家的所有武器。
 
-| Name     | Description                                   |
-| -------- | --------------------------------------------- |
-| playerid | The ID of the player whose weapons to remove. |
+| 参数名   | 说明                  |
+| -------- | --------------------- |
+| playerid | 需要移除武器的玩家 ID |
 
-## Returns
+## 返回值
 
-**1** - The function was executed successfully.
+**1** - 函数执行成功。
 
-**0** - The function failed to execute. This means the player specified does not exist.
+**0** - 函数执行失败。通常表示指定玩家不存在。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    // Remove the killer's weapons
+    // 移除击杀者的所有武器
     ResetPlayerWeapons(killerid);
     return 1;
 }
 ```
 
-## Notes
+## 注意要点
 
 :::tip
 
-To remove individual weapons from a player, set their ammo to 0 using [SetPlayerAmmo](SetPlayerAmmo).
+如需移除单个武器，请使用[SetPlayerAmmo](SetPlayerAmmo)将对应武器的弹药量设为 0
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [GivePlayerWeapon](GivePlayerWeapon): Give a player a weapon.
-- [GetPlayerWeapon](GetPlayerWeapon): Check what weapon a player is currently holding.
-- [RemovePlayerWeapon](RemovePlayerWeapon): Remove a specified weapon from a player.
+- [GivePlayerWeapon](GivePlayerWeapon): 给予玩家武器
+- [GetPlayerWeapon](GetPlayerWeapon): 获取玩家当前手持武器
+- [RemovePlayerWeapon](RemovePlayerWeapon): 移除玩家指定武器

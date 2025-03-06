@@ -1,44 +1,44 @@
 ---
 title: SetActorVirtualWorld
 sidebar_label: SetActorVirtualWorld
-description: Set the virtual world of an actor.
-tags: ["actor"]
+description: 设置角色的虚拟世界。
+tags: ["角色"]
 ---
 
 <VersionWarn version='SA-MP 0.3.7' />
 
-## Description
+## 描述
 
-Set the virtual world of an actor. Only players in the same world will see the actor.
+设置角色的虚拟世界。只有处于相同虚拟世界的玩家才能看到该角色。
 
-| Name         | Description                                                                |
-| ------------ | -------------------------------------------------------------------------- |
-| actorid      | The ID of the actor (returned by CreateActor) to set the virtual world of. |
-| virtualWorld | The virtual world to put the actor ID.                                     |
+| 参数名       | 描述                                               |
+| ------------ | -------------------------------------------------- |
+| actorid      | 要设置虚拟世界的角色 ID（由 CreateActor 函数返回） |
+| virtualWorld | 角色所属的虚拟世界 ID                              |
 
-## Returns
+## 返回值
 
-**true** - The function was executed successfully.
+**true** - 函数执行成功
 
-**false** - The function failed to execute. The actor specified does not exist.
+**false** - 函数执行失败（指定的角色不存在）
 
-## Examples
+## 示例代码
 
 ```c
 new gMyActor;
 
 public OnGameModeInit()
 {
-    // Create the actor
+    // 创建角色
     gMyActor = CreateActor(69, 0.0, 0.0, 3.0, 0.0);
 
-    // Set their virtual world
+    // 设置虚拟世界
     SetActorVirtualWorld(gMyActor, 69);
     return 1;
 }
 ```
 
-## Related Functions
+## 相关函数
 
-- [GetActorVirtualWorld](GetActorVirtualWorld): Get the virtual world of an actor.
-- [CreateActor](CreateActor): Create an actor (static NPC).
+- [GetActorVirtualWorld](GetActorVirtualWorld): 获取角色的虚拟世界
+- [CreateActor](CreateActor): 创建角色（静态 NPC）

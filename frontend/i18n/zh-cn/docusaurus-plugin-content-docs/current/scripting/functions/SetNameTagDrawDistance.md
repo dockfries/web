@@ -1,38 +1,38 @@
 ---
 title: SetNameTagDrawDistance
 sidebar_label: SetNameTagDrawDistance
-description: Set the maximum distance to display the names of players.
+description: 设置显示玩家名牌的最大距离。
 tags: []
 ---
 
-## Description
+## 描述
 
-Set the maximum distance to display the names of players.
+设置显示玩家名牌的最大可见距离。
 
-| Name           | Description          |
-| -------------- | -------------------- |
-| Float:distance | The distance to set. |
+| 参数名         | 描述                              |
+| -------------- | --------------------------------- |
+| Float:distance | 要设置的可见距离（单位：SA 单位） |
 
-## Returns
+## 返回值
 
-This function does not return any specific values.
+该函数不返回任何特定值。
 
-## Examples
+## 示例代码
 
 ```c
 SetNameTagDrawDistance(20.0);
 ```
 
-## Notes
+## 注意事项
 
 :::tip
 
-Default distance is 70.0 SA units
+默认可见距离为 70.0 SA 单位
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [LimitGlobalChatRadius](LimitGlobalChatRadius): Limit the distance between players needed to see their chat.
-- [ShowNameTags](ShowNameTags): Set nametags on or off.
-- [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer): Show or hide a nametag for a certain player.
+- [LimitGlobalChatRadius](LimitGlobalChatRadius): 限制玩家之间的聊天可见距离
+- [ShowNameTags](ShowNameTags): 控制名牌显示开关
+- [ShowPlayerNameTagForPlayer](ShowPlayerNameTagForPlayer): 为指定玩家设置名牌可见性

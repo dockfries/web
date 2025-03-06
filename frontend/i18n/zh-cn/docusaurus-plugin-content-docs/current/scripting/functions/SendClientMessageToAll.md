@@ -1,33 +1,33 @@
 ---
 title: SendClientMessageToAll
 sidebar_label: SendClientMessageToAll
-description: Displays a message in chat to all players.
+description: 向所有玩家的聊天框发送消息。
 tags: []
 ---
 
-## Description
+## 描述
 
-Displays a message in chat to all players. This is a multi-player equivalent of [SendClientMessage](SendClientMessage).
+该函数向服务器内所有玩家的聊天框发送消息，功能等同于对每个玩家调用[SendClientMessage](SendClientMessage)。
 
-| Name             | Description                                       |
-| ---------------- | ------------------------------------------------- |
-| colour           | The color of the message (0xRRGGBBAA Hex format). |
-| const format[]   | The message to show (max 144 characters).         |
-| OPEN_MP_TAGS:... | Indefinite number of arguments of any tag.        |
+| 参数名           | 说明                                |
+| ---------------- | ----------------------------------- |
+| colour           | 消息颜色（0xRRGGBBAA 十六进制格式） |
+| const format[]   | 要显示的文本内容（最多 144 个字符） |
+| OPEN_MP_TAGS:... | 可变参数列表（支持任意类型参数）    |
 
-## Returns
+## 返回值
 
-This function always returns **true (1)**.
+该函数始终返回 **true (1)**。
 
-## Examples
+## 示例
 
 ```c
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     if (strcmp(cmdtext, "/helloworld", true) == 0)
     {
-        // Send a message to everyone.
-        SendClientMessageToAll(-1, "Hello!");
+        // 向全服玩家发送消息
+        SendClientMessageToAll(-1, "你好！");
         return 1;
     }
     if (strcmp(cmdtext, "/time", true) == 0)
@@ -39,23 +39,23 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
         gettime(hours, minutes, seconds);
 
-        // Send current time message to everyone.
-        SendClientMessageToAll(-1, "Current time is %02d:%02d:%02d", hours, minutes, seconds);
+        // 向全服发送当前时间
+        SendClientMessageToAll(-1, "当前时间为 %02d:%02d:%02d", hours, minutes, seconds);
         return 1;
     }
     return 0;
 }
 ```
 
-## Notes
+## 注意要点
 
 :::warning
 
-Avoid using format specifiers in your messages without formatting the string that is sent. It will result in crashes otherwise.
+避免在消息中直接使用未格式化的格式说明符（如%），否则会导致服务器崩溃
 
 :::
 
-## Related Functions
+## 相关函数
 
-- [SendClientMessage](SendClientMessage): Send a message to a certain player.
-- [SendPlayerMessageToAll](SendPlayerMessageToAll): Force a player to send text for all players.
+- [SendClientMessage](SendClientMessage): 向指定玩家发送消息
+- [SendPlayerMessageToAll](SendPlayerMessageToAll): 模拟玩家发送全服消息
