@@ -1,33 +1,33 @@
 ---
-title: TextDraw Sprites
-sidebar_label: TextDraw Sprites
-description: A list of textdraw sprites for use with TextDrawFont 4.
+title: 文本绘图精灵图
+sidebar_label: 文本绘图精灵图
+description: 适用于文本绘图字体4的精灵图列表
 ---
 
 :::info
 
-The following is a list of textdraw sprites (textures) that can be used in a (player)textdraw (with [font](../functions/TextDrawFont) ID 4) and shown to players. To use a sprite, the [text](../functions/TextDrawCreate) of a textdraw must be set according to a set format: `library:texture`. The extension `.txd` need not be appended. Currently, only the libraries found in `SA Dir/models/txd/` and `SA Dir/SAMP/` can be used.
+以下列表示可应用于（玩家）文本绘（使用[字体](../functions/TextDrawFont)ID 4）并向玩家展示的精灵图。要使用某个精灵图，必须将文本绘的[text](../functions/TextDrawCreate)属性设置为特定格式：`library:texture`。无需添加`.txd`扩展名。当前仅支持`SA Dir/models/txd/`和`SA Dir/SAMP/`目录下的库。
 
 :::
 
 :::note
 
-Some textdraw sprites appear smaller compared to their actual size in the preview column. For example `LOADSCS:loadsc1` is 512x512 by default.
+部分精灵图在预览列显示尺寸小于实际尺寸。例如`LOADSCS:loadsc1`默认尺寸为 512x512 像素。
 
 :::
 
-## Libraries
+## 库
 
 ### fonts.txd
 
-| Texture | Preview                                                           |
-| ------- | ----------------------------------------------------------------- |
-| font1   | ![](https://assets.open.mp/assets/images/sprites/fonts/font1.png) |
-| font2   | ![](https://assets.open.mp/assets/images/sprites/fonts/font2.png) |
+| 纹理  | 预览                                                              |
+| ----- | ----------------------------------------------------------------- |
+| font1 | ![](https://assets.open.mp/assets/images/sprites/fonts/font1.png) |
+| font2 | ![](https://assets.open.mp/assets/images/sprites/fonts/font2.png) |
 
 ### hud.txd
 
-| Texture             | Preview                                                                       |
+| 纹理                | 预览                                                                          |
 | ------------------- | ----------------------------------------------------------------------------- |
 | arrow               | ![](https://assets.open.mp/assets/images/sprites/hud/arrow.png)               |
 | fist                | ![](https://assets.open.mp/assets/images/sprites/hud/fist.png)                |
@@ -99,169 +99,169 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 | siterocket          | ![](https://assets.open.mp/assets/images/sprites/hud/siterocket.png)          |
 | skipicon            | ![](https://assets.open.mp/assets/images/sprites/hud/skipicon.png)            |
 
-### Weapon Icons
+### 武器图标
 
-| Texture                       | Weapon ID | Preview                                                                    |
-| ----------------------------- | --------- | -------------------------------------------------------------------------- |
-| hud:fist                      | 0         | ![](https://assets.open.mp/assets/images/weaponIcons/fist.png)             |
-| brassknuckle:BRASSKNUCKLEicon | 1         | ![](https://assets.open.mp/assets/images/weaponIcons/brassKnuckles.png)    |
-| golfclub:golfclubicon         | 2         | ![](https://assets.open.mp/assets/images/weaponIcons/golfClub.png)         |
-| nitestick:nitestickicon       | 3         | ![](https://assets.open.mp/assets/images/weaponIcons/nightStick.png)       |
-| knifecur:knifecuricon         | 4         | ![](https://assets.open.mp/assets/images/weaponIcons/knife.png)            |
-| bat:baticon                   | 5         | ![](https://assets.open.mp/assets/images/weaponIcons/baseballBat.png)      |
-| shovel:shovelicon             | 6         | ![](https://assets.open.mp/assets/images/weaponIcons/shovel.png)           |
-| poolcue:poolcueicon           | 7         | ![](https://assets.open.mp/assets/images/weaponIcons/poolCue.png)          |
-| katana:katanaicon             | 8         | ![](https://assets.open.mp/assets/images/weaponIcons/katana.png)           |
-| chnsaw:chnsawicon             | 9         | ![](https://assets.open.mp/assets/images/weaponIcons/chainsaw.png)         |
-| gun_dildo1:gun_dildo1icon     | 10        | ![](https://assets.open.mp/assets/images/weaponIcons/purpleDildo.png)      |
-| gun_dildo2:gun_dildo2icon     | 11        | ![](https://assets.open.mp/assets/images/weaponIcons/dildo.png)            |
-| gun_vibe1:gun_vibe1icon       | 12        | ![](https://assets.open.mp/assets/images/weaponIcons/vibrator.png)         |
-| gun_vibe2:gun_vibe2icon       | 13        | ![](https://assets.open.mp/assets/images/weaponIcons/silverVibrator.png)   |
-| flowera:floweraicon           | 14        | ![](https://assets.open.mp/assets/images/weaponIcons/flowers.png)          |
-| gun_cane:gun_caneicon         | 15        | ![](https://assets.open.mp/assets/images/weaponIcons/cane.png)             |
-| grenade:grenadeicon           | 16        | ![](https://assets.open.mp/assets/images/weaponIcons/grenade.png)          |
-| teargas:TearGasicon           | 17        | ![](https://assets.open.mp/assets/images/weaponIcons/tearGas.png)          |
-| molotov:molotovicon           | 18        | ![](https://assets.open.mp/assets/images/weaponIcons/molotovCocktail.png)  |
-| colt45:colt45icon             | 22        | ![](https://assets.open.mp/assets/images/weaponIcons/9mm.png)              |
-| silenced:silencedicon         | 23        | ![](https://assets.open.mp/assets/images/weaponIcons/silenced9mm.png)      |
-| desert_eagle:desert_eagleicon | 24        | ![](https://assets.open.mp/assets/images/weaponIcons/desertEagle.png)      |
-| chromegun:chromegunicon       | 25        | ![](https://assets.open.mp/assets/images/weaponIcons/shotgun.png)          |
-| sawnoff:sawnofficon           | 26        | ![](https://assets.open.mp/assets/images/weaponIcons/sawnoffShotgun.png)   |
-| shotgspa:shotgspaicon         | 27        | ![](https://assets.open.mp/assets/images/weaponIcons/combatShotgun.png)    |
-| micro_uzi:micro_uziicon       | 28        | ![](https://assets.open.mp/assets/images/weaponIcons/microSMG-Uzi.png)     |
-| mp5lng:mp5lngicon             | 29        | ![](https://assets.open.mp/assets/images/weaponIcons/mp5.png)              |
-| ak47:ak47icon                 | 30        | ![](https://assets.open.mp/assets/images/weaponIcons/ak47.png)             |
-| m4:M4icon                     | 31        | ![](https://assets.open.mp/assets/images/weaponIcons/m4.png)               |
-| tec9:tec9icon                 | 32        | ![](https://assets.open.mp/assets/images/weaponIcons/tec9.png)             |
-| cuntgun:cuntgunicon           | 33        | ![](https://assets.open.mp/assets/images/weaponIcons/countryRifle.png)     |
-| sniper:SNIPERicon             | 34        | ![](https://assets.open.mp/assets/images/weaponIcons/sniperRifle.png)      |
-| rocketla:rocketlaicon         | 35        | ![](https://assets.open.mp/assets/images/weaponIcons/rpg.png)              |
-| heatseek:heatseekicon         | 36        | ![](https://assets.open.mp/assets/images/weaponIcons/hsRocket.png)         |
-| flame:flameicon               | 37        | ![](https://assets.open.mp/assets/images/weaponIcons/flame-Thrower.png)    |
-| minigun:minigunicon           | 38        | ![](https://assets.open.mp/assets/images/weaponIcons/minigun.png)          |
-| satchel:satchelicon           | 39        | ![](https://assets.open.mp/assets/images/weaponIcons/satchelCharge.png)    |
-| bomb:bombicon                 | 40        | ![](https://assets.open.mp/assets/images/weaponIcons/detonator.png)        |
-| spraycan:SPRAYCANicon         | 41        | ![](https://assets.open.mp/assets/images/weaponIcons/spraycan.png)         |
-| fire_ex:fire_exicon           | 42        | ![](https://assets.open.mp/assets/images/weaponIcons/fireExtinguisher.png) |
-| camera:Cameraicon             | 43        | ![](https://assets.open.mp/assets/images/weaponIcons/camera.png)           |
-| nvgoggles:nvgogglesicon       | 44        | ![](https://assets.open.mp/assets/images/weaponIcons/nightVisGoggles.png)  |
-| irgoggles:irgogglesicon       | 45        | ![](https://assets.open.mp/assets/images/weaponIcons/thermalGoggles.png)   |
-| gun_para:gun_paraIcon         | 46        | ![](https://assets.open.mp/assets/images/weaponIcons/parachute.png)        |
-| cellphone:cellphoneicon       | -         | ![](https://assets.open.mp/assets/images/weaponIcons/cellphone.png)        |
-| jetpack:jetpackicon           | -         | ![](https://assets.open.mp/assets/images/weaponIcons/jetpack.png)          |
-| skateboard:skateboardIcon     | -         | ![](https://assets.open.mp/assets/images/weaponIcons/skateboard.png)       |
+| 纹理                          | 武器 ID | 预览                                                                       |
+| ----------------------------- | ------- | -------------------------------------------------------------------------- |
+| hud:fist                      | 0       | ![](https://assets.open.mp/assets/images/weaponIcons/fist.png)             |
+| brassknuckle:BRASSKNUCKLEicon | 1       | ![](https://assets.open.mp/assets/images/weaponIcons/brassKnuckles.png)    |
+| golfclub:golfclubicon         | 2       | ![](https://assets.open.mp/assets/images/weaponIcons/golfClub.png)         |
+| nitestick:nitestickicon       | 3       | ![](https://assets.open.mp/assets/images/weaponIcons/nightStick.png)       |
+| knifecur:knifecuricon         | 4       | ![](https://assets.open.mp/assets/images/weaponIcons/knife.png)            |
+| bat:baticon                   | 5       | ![](https://assets.open.mp/assets/images/weaponIcons/baseballBat.png)      |
+| shovel:shovelicon             | 6       | ![](https://assets.open.mp/assets/images/weaponIcons/shovel.png)           |
+| poolcue:poolcueicon           | 7       | ![](https://assets.open.mp/assets/images/weaponIcons/poolCue.png)          |
+| katana:katanaicon             | 8       | ![](https://assets.open.mp/assets/images/weaponIcons/katana.png)           |
+| chnsaw:chnsawicon             | 9       | ![](https://assets.open.mp/assets/images/weaponIcons/chainsaw.png)         |
+| gun_dildo1:gun_dildo1icon     | 10      | ![](https://assets.open.mp/assets/images/weaponIcons/purpleDildo.png)      |
+| gun_dildo2:gun_dildo2icon     | 11      | ![](https://assets.open.mp/assets/images/weaponIcons/dildo.png)            |
+| gun_vibe1:gun_vibe1icon       | 12      | ![](https://assets.open.mp/assets/images/weaponIcons/vibrator.png)         |
+| gun_vibe2:gun_vibe2icon       | 13      | ![](https://assets.open.mp/assets/images/weaponIcons/silverVibrator.png)   |
+| flowera:floweraicon           | 14      | ![](https://assets.open.mp/assets/images/weaponIcons/flowers.png)          |
+| gun_cane:gun_caneicon         | 15      | ![](https://assets.open.mp/assets/images/weaponIcons/cane.png)             |
+| grenade:grenadeicon           | 16      | ![](https://assets.open.mp/assets/images/weaponIcons/grenade.png)          |
+| teargas:TearGasicon           | 17      | ![](https://assets.open.mp/assets/images/weaponIcons/tearGas.png)          |
+| molotov:molotovicon           | 18      | ![](https://assets.open.mp/assets/images/weaponIcons/molotovCocktail.png)  |
+| colt45:colt45icon             | 22      | ![](https://assets.open.mp/assets/images/weaponIcons/9mm.png)              |
+| silenced:silencedicon         | 23      | ![](https://assets.open.mp/assets/images/weaponIcons/silenced9mm.png)      |
+| desert_eagle:desert_eagleicon | 24      | ![](https://assets.open.mp/assets/images/weaponIcons/desertEagle.png)      |
+| chromegun:chromegunicon       | 25      | ![](https://assets.open.mp/assets/images/weaponIcons/shotgun.png)          |
+| sawnoff:sawnofficon           | 26      | ![](https://assets.open.mp/assets/images/weaponIcons/sawnoffShotgun.png)   |
+| shotgspa:shotgspaicon         | 27      | ![](https://assets.open.mp/assets/images/weaponIcons/combatShotgun.png)    |
+| micro_uzi:micro_uziicon       | 28      | ![](https://assets.open.mp/assets/images/weaponIcons/microSMG-Uzi.png)     |
+| mp5lng:mp5lngicon             | 29      | ![](https://assets.open.mp/assets/images/weaponIcons/mp5.png)              |
+| ak47:ak47icon                 | 30      | ![](https://assets.open.mp/assets/images/weaponIcons/ak47.png)             |
+| m4:M4icon                     | 31      | ![](https://assets.open.mp/assets/images/weaponIcons/m4.png)               |
+| tec9:tec9icon                 | 32      | ![](https://assets.open.mp/assets/images/weaponIcons/tec9.png)             |
+| cuntgun:cuntgunicon           | 33      | ![](https://assets.open.mp/assets/images/weaponIcons/countryRifle.png)     |
+| sniper:SNIPERicon             | 34      | ![](https://assets.open.mp/assets/images/weaponIcons/sniperRifle.png)      |
+| rocketla:rocketlaicon         | 35      | ![](https://assets.open.mp/assets/images/weaponIcons/rpg.png)              |
+| heatseek:heatseekicon         | 36      | ![](https://assets.open.mp/assets/images/weaponIcons/hsRocket.png)         |
+| flame:flameicon               | 37      | ![](https://assets.open.mp/assets/images/weaponIcons/flame-Thrower.png)    |
+| minigun:minigunicon           | 38      | ![](https://assets.open.mp/assets/images/weaponIcons/minigun.png)          |
+| satchel:satchelicon           | 39      | ![](https://assets.open.mp/assets/images/weaponIcons/satchelCharge.png)    |
+| bomb:bombicon                 | 40      | ![](https://assets.open.mp/assets/images/weaponIcons/detonator.png)        |
+| spraycan:SPRAYCANicon         | 41      | ![](https://assets.open.mp/assets/images/weaponIcons/spraycan.png)         |
+| fire_ex:fire_exicon           | 42      | ![](https://assets.open.mp/assets/images/weaponIcons/fireExtinguisher.png) |
+| camera:Cameraicon             | 43      | ![](https://assets.open.mp/assets/images/weaponIcons/camera.png)           |
+| nvgoggles:nvgogglesicon       | 44      | ![](https://assets.open.mp/assets/images/weaponIcons/nightVisGoggles.png)  |
+| irgoggles:irgogglesicon       | 45      | ![](https://assets.open.mp/assets/images/weaponIcons/thermalGoggles.png)   |
+| gun_para:gun_paraIcon         | 46      | ![](https://assets.open.mp/assets/images/weaponIcons/parachute.png)        |
+| cellphone:cellphoneicon       | -       | ![](https://assets.open.mp/assets/images/weaponIcons/cellphone.png)        |
+| jetpack:jetpackicon           | -       | ![](https://assets.open.mp/assets/images/weaponIcons/jetpack.png)          |
+| skateboard:skateboardIcon     | -       | ![](https://assets.open.mp/assets/images/weaponIcons/skateboard.png)       |
 
 ### intro1.txd
 
-| Texture | Preview                                                             |
-| ------- | ------------------------------------------------------------------- |
-| intro1  | ![](https://assets.open.mp/assets/images/sprites/intro1/intro1.png) |
+| 纹理   | 预览                                                                |
+| ------ | ------------------------------------------------------------------- |
+| intro1 | ![](https://assets.open.mp/assets/images/sprites/intro1/intro1.png) |
 
 ### intro2.txd
 
-| Texture | Preview                                                             |
-| ------- | ------------------------------------------------------------------- |
-| intro2  | ![](https://assets.open.mp/assets/images/sprites/intro2/intro2.png) |
+| 纹理   | 预览                                                                |
+| ------ | ------------------------------------------------------------------- |
+| intro2 | ![](https://assets.open.mp/assets/images/sprites/intro2/intro2.png) |
 
 ### intro3.txd
 
-| Texture | Preview                                                             |
-| ------- | ------------------------------------------------------------------- |
-| intro3  | ![](https://assets.open.mp/assets/images/sprites/intro3/intro3.png) |
+| 纹理   | 预览                                                                |
+| ------ | ------------------------------------------------------------------- |
+| intro3 | ![](https://assets.open.mp/assets/images/sprites/intro3/intro3.png) |
 
 ### intro4.txd
 
-| Texture | Preview                                                             |
-| ------- | ------------------------------------------------------------------- |
-| intro4  | ![](https://assets.open.mp/assets/images/sprites/intro4/intro4.png) |
+| 纹理   | 预览                                                                |
+| ------ | ------------------------------------------------------------------- |
+| intro4 | ![](https://assets.open.mp/assets/images/sprites/intro4/intro4.png) |
 
 ### LD_BEAT.txd
 
-| Texture | Preview                                                              |
-| ------- | -------------------------------------------------------------------- |
-| chit    | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/chit.png)   |
-| circle  | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/circle.png) |
-| cring   | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/cring.png)  |
-| cross   | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/cross.png)  |
-| down    | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/down.png)   |
-| downl   | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/downl.png)  |
-| downr   | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/downr.png)  |
-| left    | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/left.png)   |
-| right   | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/right.png)  |
-| square  | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/square.png) |
-| triang  | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/triang.png) |
-| up      | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/up.png)     |
-| upl     | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/upl.png)    |
-| upr     | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/upr.png)    |
+| 纹理   | 预览                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| chit   | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/chit.png)   |
+| circle | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/circle.png) |
+| cring  | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/cring.png)  |
+| cross  | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/cross.png)  |
+| down   | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/down.png)   |
+| downl  | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/downl.png)  |
+| downr  | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/downr.png)  |
+| left   | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/left.png)   |
+| right  | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/right.png)  |
+| square | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/square.png) |
+| triang | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/triang.png) |
+| up     | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/up.png)     |
+| upl    | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/upl.png)    |
+| upr    | ![](https://assets.open.mp/assets/images/sprites/LD_BEAT/upr.png)    |
 
 ### LD_BUM.txd
 
-| Texture | Preview                                                           |
-| ------- | ----------------------------------------------------------------- |
-| bum1    | ![](https://assets.open.mp/assets/images/sprites/LD_BUM/bum1.png) |
-| bum2    | ![](https://assets.open.mp/assets/images/sprites/LD_BUM/bum2.png) |
+| 纹理 | 预览                                                              |
+| ---- | ----------------------------------------------------------------- |
+| bum1 | ![](https://assets.open.mp/assets/images/sprites/LD_BUM/bum1.png) |
+| bum2 | ![](https://assets.open.mp/assets/images/sprites/LD_BUM/bum2.png) |
 
 ### LD_CARD.txd
 
-| Texture | Preview                                                              |
-| ------- | -------------------------------------------------------------------- |
-| cd10c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10c.png)  |
-| cd10d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10d.png)  |
-| cd10h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10h.png)  |
-| cd10s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10s.png)  |
-| cd11c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd11c.png)  |
-| cd11d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd11d.png)  |
-| cd11h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd11h.png)  |
-| cd11s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd11s.png)  |
-| cd12c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd12c.png)  |
-| cd12d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd12d.png)  |
-| cd12h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd12h.png)  |
-| cd12s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd12s.png)  |
-| cd13c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd13c.png)  |
-| cd13d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd13d.png)  |
-| cd13h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd13h.png)  |
-| cd13s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd13s.png)  |
-| cd1c    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd1c.png)   |
-| cd1d    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd1d.png)   |
-| cd1h    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd1h.png)   |
-| cd1s    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd1s.png)   |
-| cd2c    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd2c.png)   |
-| cd2d    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd2d.png)   |
-| cd2h    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd2h.png)   |
-| cd2s    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd2s.png)   |
-| cd3c    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd3c.png)   |
-| cd3d    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd3d.png)   |
-| cd3h    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd3h.png)   |
-| cd3s    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd3s.png)   |
-| cd4c    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd4c.png)   |
-| cd4d    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd4d.png)   |
-| cd4h    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd4h.png)   |
-| cd4s    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd4s.png)   |
-| cd5c    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd5c.png)   |
-| cd5d    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd5d.png)   |
-| cd5h    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd5h.png)   |
-| cd5s    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd5s.png)   |
-| cd6c    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd6c.png)   |
-| cd6d    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd6d.png)   |
-| cd6h    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd6h.png)   |
-| cd6s    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd6s.png)   |
-| cd7c    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd7c.png)   |
-| cd7d    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd7d.png)   |
-| cd7h    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd7h.png)   |
-| cd7s    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd7s.png)   |
-| cd8c    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd8c.png)   |
-| cd8d    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd8d.png)   |
-| cd8h    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd8h.png)   |
-| cd8s    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd8s.png)   |
-| cd9c    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd9c.png)   |
-| cd9d    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd9d.png)   |
-| cd9h    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd9h.png)   |
-| cd9s    | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd9s.png)   |
-| cdback  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cdback.png) |
+| 纹理   | 预览                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| cd10c  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10c.png)  |
+| cd10d  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10d.png)  |
+| cd10h  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10h.png)  |
+| cd10s  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd10s.png)  |
+| cd11c  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd11c.png)  |
+| cd11d  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd11d.png)  |
+| cd11h  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd11h.png)  |
+| cd11s  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd11s.png)  |
+| cd12c  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd12c.png)  |
+| cd12d  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd12d.png)  |
+| cd12h  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd12h.png)  |
+| cd12s  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd12s.png)  |
+| cd13c  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd13c.png)  |
+| cd13d  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd13d.png)  |
+| cd13h  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd13h.png)  |
+| cd13s  | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd13s.png)  |
+| cd1c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd1c.png)   |
+| cd1d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd1d.png)   |
+| cd1h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd1h.png)   |
+| cd1s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd1s.png)   |
+| cd2c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd2c.png)   |
+| cd2d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd2d.png)   |
+| cd2h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd2h.png)   |
+| cd2s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd2s.png)   |
+| cd3c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd3c.png)   |
+| cd3d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd3d.png)   |
+| cd3h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd3h.png)   |
+| cd3s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd3s.png)   |
+| cd4c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd4c.png)   |
+| cd4d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd4d.png)   |
+| cd4h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd4h.png)   |
+| cd4s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd4s.png)   |
+| cd5c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd5c.png)   |
+| cd5d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd5d.png)   |
+| cd5h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd5h.png)   |
+| cd5s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd5s.png)   |
+| cd6c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd6c.png)   |
+| cd6d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd6d.png)   |
+| cd6h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd6h.png)   |
+| cd6s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd6s.png)   |
+| cd7c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd7c.png)   |
+| cd7d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd7d.png)   |
+| cd7h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd7h.png)   |
+| cd7s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd7s.png)   |
+| cd8c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd8c.png)   |
+| cd8d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd8d.png)   |
+| cd8h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd8h.png)   |
+| cd8s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd8s.png)   |
+| cd9c   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd9c.png)   |
+| cd9d   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd9d.png)   |
+| cd9h   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd9h.png)   |
+| cd9s   | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cd9s.png)   |
+| cdback | ![](https://assets.open.mp/assets/images/sprites/LD_CARD/cdback.png) |
 
 ### LD_CHAT.txd
 
-| Texture | Preview                                                               |
+| 纹理    | 预览                                                                  |
 | ------- | --------------------------------------------------------------------- |
 | badchat | ![](https://assets.open.mp/assets/images/sprites/LD_CHAT/badchat.png) |
 | dpad_64 | ![](https://assets.open.mp/assets/images/sprites/LD_CHAT/dpad_64.png) |
@@ -272,7 +272,7 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_DRV.txd
 
-| Texture | Preview                                                              |
+| 纹理    | 预览                                                                 |
 | ------- | -------------------------------------------------------------------- |
 | brboat  | ![](https://assets.open.mp/assets/images/sprites/LD_DRV/brboat.png)  |
 | brfly   | ![](https://assets.open.mp/assets/images/sprites/LD_DRV/brfly.png)   |
@@ -292,7 +292,7 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_DUAL.txd
 
-| Texture | Preview                                                               |
+| 纹理    | 预览                                                                  |
 | ------- | --------------------------------------------------------------------- |
 | backgnd | ![](https://assets.open.mp/assets/images/sprites/LD_DUAL/backgnd.png) |
 | dark    | ![](https://assets.open.mp/assets/images/sprites/LD_DUAL/dark.png)    |
@@ -311,7 +311,7 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_GRAV.txd
 
-| Texture  | Preview                                                                |
+| 纹理     | 预览                                                                   |
 | -------- | ---------------------------------------------------------------------- |
 | bee1     | ![](https://assets.open.mp/assets/images/sprites/LD_GRAV/bee1.png)     |
 | bee2     | ![](https://assets.open.mp/assets/images/sprites/LD_GRAV/bee2.png)     |
@@ -337,7 +337,7 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_NONE.txd
 
-| Texture | Preview                                                               |
+| 纹理    | 预览                                                                  |
 | ------- | --------------------------------------------------------------------- |
 | explm01 | ![](https://assets.open.mp/assets/images/sprites/LD_NONE/explm01.png) |
 | explm02 | ![](https://assets.open.mp/assets/images/sprites/LD_NONE/explm02.png) |
@@ -365,7 +365,7 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_OTB.txd
 
-| Texture | Preview                                                              |
+| 纹理    | 预览                                                                 |
 | ------- | -------------------------------------------------------------------- |
 | bckgrnd | ![](https://assets.open.mp/assets/images/sprites/LD_OTB/bckgrnd.png) |
 | bride1  | ![](https://assets.open.mp/assets/images/sprites/LD_OTB/bride1.png)  |
@@ -423,7 +423,7 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_OTB2.txd
 
-| Texture | Preview                                                               |
+| 纹理    | 预览                                                                  |
 | ------- | --------------------------------------------------------------------- |
 | backbet | ![](https://assets.open.mp/assets/images/sprites/LD_OTB2/backbet.png) |
 | butnA   | ![](https://assets.open.mp/assets/images/sprites/LD_OTB2/butnA.png)   |
@@ -439,13 +439,13 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_PLAN.txd
 
-| Texture | Preview                                                               |
+| 纹理    | 预览                                                                  |
 | ------- | --------------------------------------------------------------------- |
 | AirLogo | ![](https://assets.open.mp/assets/images/sprites/LD_PLAN/AirLogo.png) |
 
 ### LD_POKE.txd
 
-| Texture  | Preview                                                                |
+| 纹理     | 预览                                                                   |
 | -------- | ---------------------------------------------------------------------- |
 | addcoin  | ![](https://assets.open.mp/assets/images/sprites/LD_POKE/addcoin.png)  |
 | backcyan | ![](https://assets.open.mp/assets/images/sprites/LD_POKE/backcyan.png) |
@@ -457,82 +457,82 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_POOL.txd
 
-| Texture | Preview                                                            |
-| ------- | ------------------------------------------------------------------ |
-| ball    | ![](https://assets.open.mp/assets/images/sprites/LD_POOL/ball.png) |
-| nib     | ![](https://assets.open.mp/assets/images/sprites/LD_POOL/nib.png)  |
+| 纹理 | 预览                                                               |
+| ---- | ------------------------------------------------------------------ |
+| ball | ![](https://assets.open.mp/assets/images/sprites/LD_POOL/ball.png) |
+| nib  | ![](https://assets.open.mp/assets/images/sprites/LD_POOL/nib.png)  |
 
 ### LD_RACE.txd
 
-| Texture | Preview                                                              |
-| ------- | -------------------------------------------------------------------- |
-| race00  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race00.png) |
-| race01  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race01.png) |
-| race02  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race02.png) |
-| race03  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race03.png) |
-| race04  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race04.png) |
-| race05  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race05.png) |
-| race06  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race06.png) |
-| race07  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race07.png) |
-| race08  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race08.png) |
-| race09  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race09.png) |
-| race10  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race10.png) |
-| race11  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race11.png) |
-| race12  | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race12.png) |
+| 纹理   | 预览                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| race00 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race00.png) |
+| race01 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race01.png) |
+| race02 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race02.png) |
+| race03 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race03.png) |
+| race04 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race04.png) |
+| race05 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race05.png) |
+| race06 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race06.png) |
+| race07 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race07.png) |
+| race08 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race08.png) |
+| race09 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race09.png) |
+| race10 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race10.png) |
+| race11 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race11.png) |
+| race12 | ![](https://assets.open.mp/assets/images/sprites/LD_RACE/race12.png) |
 
 ### LD_RCE1.txd
 
-| Texture | Preview                                                              |
-| ------- | -------------------------------------------------------------------- |
-| race00  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race00.png) |
-| race01  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race01.png) |
-| race02  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race02.png) |
-| race03  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race03.png) |
-| race04  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race04.png) |
-| race05  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race05.png) |
+| 纹理   | 预览                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| race00 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race00.png) |
+| race01 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race01.png) |
+| race02 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race02.png) |
+| race03 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race03.png) |
+| race04 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race04.png) |
+| race05 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE1/race05.png) |
 
 ### LD_RCE2.txd
 
-| Texture | Preview                                                              |
-| ------- | -------------------------------------------------------------------- |
-| race06  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race06.png) |
-| race07  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race07.png) |
-| race08  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race08.png) |
-| race09  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race09.png) |
-| race10  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race10.png) |
-| race11  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race11.png) |
+| 纹理   | 预览                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| race06 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race06.png) |
+| race07 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race07.png) |
+| race08 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race08.png) |
+| race09 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race09.png) |
+| race10 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race10.png) |
+| race11 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE2/race11.png) |
 
 ### LD_RCE3.txd
 
-| Texture | Preview                                                              |
-| ------- | -------------------------------------------------------------------- |
-| race12  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race12.png) |
-| race13  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race13.png) |
-| race14  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race14.png) |
-| race15  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race15.png) |
-| race16  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race16.png) |
-| race17  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race17.png) |
+| 纹理   | 预览                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| race12 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race12.png) |
+| race13 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race13.png) |
+| race14 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race14.png) |
+| race15 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race15.png) |
+| race16 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race16.png) |
+| race17 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE3/race17.png) |
 
 ### LD_RCE4.txd
 
-| Texture | Preview                                                              |
-| ------- | -------------------------------------------------------------------- |
-| race18  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race18.png) |
-| race19  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race19.png) |
-| race20  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race20.png) |
-| race21  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race21.png) |
-| race22  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race22.png) |
-| race23  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race23.png) |
+| 纹理   | 预览                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| race18 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race18.png) |
+| race19 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race19.png) |
+| race20 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race20.png) |
+| race21 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race21.png) |
+| race22 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race22.png) |
+| race23 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE4/race23.png) |
 
 ### LD_RCE5.txd
 
-| Texture | Preview                                                              |
-| ------- | -------------------------------------------------------------------- |
-| race24  | ![](https://assets.open.mp/assets/images/sprites/LD_RCE5/race24.png) |
+| 纹理   | 预览                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| race24 | ![](https://assets.open.mp/assets/images/sprites/LD_RCE5/race24.png) |
 
 ### LD_ROUL.txd
 
-| Texture | Preview                                                               |
+| 纹理    | 预览                                                                  |
 | ------- | --------------------------------------------------------------------- |
 | roulbla | ![](https://assets.open.mp/assets/images/sprites/LD_ROUL/roulbla.png) |
 | roulgre | ![](https://assets.open.mp/assets/images/sprites/LD_ROUL/roulgre.png) |
@@ -540,53 +540,53 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_SHTR.txd
 
-| Texture | Preview                                                              |
-| ------- | -------------------------------------------------------------------- |
-| bstars  | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/bstars.png) |
-| cbarl   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/cbarl.png)  |
-| cbarm   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/cbarm.png)  |
-| cbarr   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/cbarr.png)  |
-| ex1     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ex1.png)    |
-| ex2     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ex2.png)    |
-| ex3     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ex3.png)    |
-| ex4     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ex4.png)    |
-| fire    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/fire.png)   |
-| fstar   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/fstar.png)  |
-| hbarl   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hbarl.png)  |
-| hbarm   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hbarm.png)  |
-| hbarr   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hbarr.png)  |
-| hi_a    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hi_a.png)   |
-| hi_b    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hi_b.png)   |
-| hi_c    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hi_c.png)   |
-| kami    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/kami.png)   |
-| nmef    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/nmef.png)   |
-| pa      | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/pa.png)     |
-| pm2     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/pm2.png)    |
-| pm3     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/pm3.png)    |
-| ps1     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ps1.png)    |
-| ps2     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ps2.png)    |
-| ps3     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ps3.png)    |
-| ship    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ship.png)   |
-| splsh   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/splsh.png)  |
-| ufo     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ufo.png)    |
-| un_a    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/un_a.png)   |
-| un_b    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/un_b.png)   |
-| un_c    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/un_c.png)   |
+| 纹理   | 预览                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| bstars | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/bstars.png) |
+| cbarl  | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/cbarl.png)  |
+| cbarm  | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/cbarm.png)  |
+| cbarr  | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/cbarr.png)  |
+| ex1    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ex1.png)    |
+| ex2    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ex2.png)    |
+| ex3    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ex3.png)    |
+| ex4    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ex4.png)    |
+| fire   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/fire.png)   |
+| fstar  | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/fstar.png)  |
+| hbarl  | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hbarl.png)  |
+| hbarm  | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hbarm.png)  |
+| hbarr  | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hbarr.png)  |
+| hi_a   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hi_a.png)   |
+| hi_b   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hi_b.png)   |
+| hi_c   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/hi_c.png)   |
+| kami   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/kami.png)   |
+| nmef   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/nmef.png)   |
+| pa     | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/pa.png)     |
+| pm2    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/pm2.png)    |
+| pm3    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/pm3.png)    |
+| ps1    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ps1.png)    |
+| ps2    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ps2.png)    |
+| ps3    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ps3.png)    |
+| ship   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ship.png)   |
+| splsh  | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/splsh.png)  |
+| ufo    | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/ufo.png)    |
+| un_a   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/un_a.png)   |
+| un_b   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/un_b.png)   |
+| un_c   | ![](https://assets.open.mp/assets/images/sprites/LD_SHTR/un_c.png)   |
 
 ### LD_SLOT.txd
 
-| Texture | Preview                                                              |
-| ------- | -------------------------------------------------------------------- |
-| bar1_o  | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/bar1_o.png) |
-| bar2_o  | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/bar2_o.png) |
-| bell    | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/bell.png)   |
-| cherry  | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/cherry.png) |
-| grapes  | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/grapes.png) |
-| r_69    | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/r_69.png)   |
+| 纹理   | 预览                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| bar1_o | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/bar1_o.png) |
+| bar2_o | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/bar2_o.png) |
+| bell   | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/bell.png)   |
+| cherry | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/cherry.png) |
+| grapes | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/grapes.png) |
+| r_69   | ![](https://assets.open.mp/assets/images/sprites/LD_SLOT/r_69.png)   |
 
 ### LD_TATT.txd
 
-| Texture | Preview                                                               |
+| 纹理    | 预览                                                                  |
 | ------- | --------------------------------------------------------------------- |
 | 10ls    | ![](https://assets.open.mp/assets/images/sprites/LD_TATT/10ls.png)    |
 | 10ls2   | ![](https://assets.open.mp/assets/images/sprites/LD_TATT/10ls2.png)   |
@@ -639,7 +639,7 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### LD_LOADSCS.txd
 
-| Texture     | Preview                                                                   |
+| 纹理        | 预览                                                                      |
 | ----------- | ------------------------------------------------------------------------- |
 | eax         | ![](https://assets.open.mp/assets/images/sprites/LOADSCS/eax.png)         |
 | loadsc0     | ![](https://assets.open.mp/assets/images/sprites/LOADSCS/loadsc0.png)     |
@@ -663,13 +663,13 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### outro.txd
 
-| Texture | Preview                                                           |
-| ------- | ----------------------------------------------------------------- |
-| outro   | ![](https://assets.open.mp/assets/images/sprites/outro/outro.png) |
+| 纹理  | 预览                                                              |
+| ----- | ----------------------------------------------------------------- |
+| outro | ![](https://assets.open.mp/assets/images/sprites/outro/outro.png) |
 
 ### samaps.txd
 
-| Texture      | Preview                                                                   |
+| 纹理         | 预览                                                                      |
 | ------------ | ------------------------------------------------------------------------- |
 | gtasamapbit1 | ![](https://assets.open.mp/assets/images/sprites/samaps/gtasamapbit1.png) |
 | gtasamapbit2 | ![](https://assets.open.mp/assets/images/sprites/samaps/gtasamapbit2.png) |
@@ -679,12 +679,12 @@ Some textdraw sprites appear smaller compared to their actual size in the previe
 
 ### splash1.txd
 
-| Texture      | Preview                                                               |
+| 纹理         | 预览                                                                  |
 | ------------ | --------------------------------------------------------------------- |
 | gtasamapbit1 | ![](https://assets.open.mp/assets/images/sprites/splash1/splash1.png) |
 
 ### splash2.txd
 
-| Texture      | Preview                                                               |
+| 纹理         | 预览                                                                  |
 | ------------ | --------------------------------------------------------------------- |
 | gtasamapbit1 | ![](https://assets.open.mp/assets/images/sprites/splash2/splash2.png) |

@@ -41,7 +41,7 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 
 :::tip
 
-观察模式下会隐藏 HUD 界面，适合需要纯净镜头控制的场景。玩家镜头附近的物体会自动流加载，适用于镜头插值功能。
+观察模式下会隐藏 HUD 界面，适合需要纯净视角控制的场景。玩家视角附近的物体会自动流加载，适用于视角插值功能。
 
 :::
 

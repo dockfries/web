@@ -15,7 +15,7 @@ tags: ["玩家", "视角"]
 | Float:x      | 视角观察点的 X 坐标                                                             |
 | Float:y      | 视角观察点的 Y 坐标                                                             |
 | Float:z      | 视角观察点的 Z 坐标                                                             |
-| CAM_MOVE:cut | [镜头切换风格](../resources/cameracutstyles)。可使用 CAMERA_MOVE 实现视角渐变效果 |
+| CAM_MOVE:cut | [视角切换风格](../resources/cameracutstyles)。可使用 CAMERA_MOVE 实现视角渐变效果 |
 
 ## 返回值
 
@@ -47,4 +47,4 @@ SetPlayerCameraLookAt(playerid, 324.34, 54.122, 173.35);
 
 ## 相关资源
 
-- [镜头切换风格列表](../resources/cameracutstyles)
+- [视角切换风格列表](../resources/cameracutstyles)

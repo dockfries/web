@@ -1,39 +1,34 @@
 ---
-title: SA-MP Objects
-sidebar_label: SA-MP Objects
-description: This page contains a list of the custom objects added by SA-MP.
+title: SA-MP物体
+sidebar_label: SA-MP物体
+description: 本页面包含由SA-MP添加的自定义物体列表。
 ---
 
 :::info
 
-You can refer this [website](https://dev.prineside.com/en/gtasa_samp_model_id/) for a preview and list of all supported objects along with their ids.
+您可以访问此[网站](https://dev.prineside.com/en/gtasa_samp_model_id/)查看所有支持物体的预览列表及其对应 ID。
 
 :::
 
-## **List of custom objects**
+## **自定义物体列表**
 
-This page contains a list of the custom objects added to SA:MP in the 0.3c,
-0.3d, 0.3e, 0.3x and 0.3.7 versions.
+本页面收录了 SA-MP 在 0.3c、0.3d、0.3e、0.3x 及 0.3.7 版本中新增的各类自定义物体。
 
 ---
 
-## **Objects added in 0.3.7 RC4 (61 objects)**
+## **0.3.7 RC4 版本新增物体（61 个物体）**
 
-The following objects (11692 to 11753) were added in SA-MP 0.3.7 RC4 and are not
-supplied with earlier versions!
+下列物体（ID 11692 至 11753）为 SA-MP 0.3.7 RC4 版本新增内容，早期版本不可用！
 
-### **A51 Replacement Land Bit**
+### **A51 基地地表替换**
 
-This object is designed to replace the land section at the Area 51 (69) Base
-(object ID 16203). Use the new filterscript called "a51_base" to see an
-example... it can be found in the "filterscripts" folder of the Windows 0.3.7
-server package.
+该物体用于替换 69 号区域（Area 51 基地）的地表模块（原物体 ID 16203）。可通过名为"a51_base"的滤镜脚本查看使用示例，该脚本位于 Windows 版 0.3.7 服务端包的"filterscripts"目录。
 
 ```
 11692	A51LandBit1
 ```
 
-### **Hills**
+### **山地地形**
 
 ```
 11693	Hills250x250Grass1
@@ -42,43 +37,40 @@ server package.
 11696	Hill250x250Rocky3
 ```
 
-### **Modular Rope Bridge**
+### **模块化绳索桥**
 
 ```
 11697	RopeBridgePart1
 11698	RopeBridgePart2
 ```
 
-### **More Road Signs**
+### **扩展道路标识**
 
-The speed limit sign below has a transparent material overlay (index 3) so you
-can use it with the SetObjectMaterialText() or SetPlayerObjectMaterialText()
-functions.
+下方限速标识包含透明材质覆盖层（索引 3），可配合 SetObjectMaterialText()或 SetPlayerObjectMaterialText()函数使用。
 
 ```
 11698	SAMPRoadSign46
 11700	SAMPRoadSign47
 ```
 
-### **Ambulance Lights**
+### **救护车灯光**
 
-First object is with lights on and second is with lights off.
+第一个物体为灯光开启状态，第二个为关闭状态。
 
 ```
 11701	AmbulanceLights1
 11702	AmbulanceLights2
 ```
 
-### **Magnetic Crane Object**
+### **电磁起重机**
 
-This object is the same as object ID 1382 except GTASA will not automatically
-attach the crane cable and magnet to it.
+该物体与 ID 1382 物体相同，但 GTASA 不会自动为其附加吊索和电磁铁。
 
 ```
 11703	MagnoCrane_03_2
 ```
 
-### **Extracted Items 2**
+### **提取物品系列 2**
 
 ```
 11704	BDupsMask1
@@ -118,7 +110,7 @@ attach the crane cable and magnet to it.
 11738	MedicCase1
 ```
 
-### **Extracted from Marco's Bistro**
+### **从 Marco's Bistro 提取**
 
 ```
 11739	MCake1
@@ -129,15 +121,15 @@ attach the crane cable and magnet to it.
 11744	MPlate1
 ```
 
-### **Hold All (Carry Bag) Edited**
+### **收纳包（改良版）**
 
-This object is the same as ID 2919 except it is smaller and not dynamic.
+该物体与 ID 2919 物体相同，但体积更小且不具备动态属性。
 
 ```
 11745	HoldAllEdited1
 ```
 
-### **Misc Items 3**
+### **杂项物品 3**
 
 ```
 11746 DoorKey1
@@ -145,20 +137,19 @@ This object is the same as ID 2919 except it is smaller and not dynamic.
 11748 BandagePack1
 ```
 
-### **Cutscene Handcuffs**
+### **过场动画手铐**
 
 ```
 11749	CSHandcuffs1
 ```
 
-The handcuffs below are the same as above except they are folded in half so they
-can be attached to an officers belt.
+下方手铐与上述物体相同，但采用对折设计以便悬挂于警员腰带。
 
 ```
 11750	CSHandcuffs2
 ```
 
-### **Area Boundaries**
+### **区域边界标识**
 
 ```
 11751	AreaBoundary50m
@@ -168,7 +159,7 @@ can be attached to an officers belt.
 
 ---
 
-## **Objects added in 0.3.7 RC3 (138 objects)**
+## **0.3.7 RC3 版本新增物体（138 个物体）**
 
 ```
 19871	CordonStand1
@@ -177,74 +168,63 @@ can be attached to an officers belt.
 19874	SoapBar1
 ```
 
-This door is the same as object ID 2947 except it is not dynamic (breakable) and
-the pivot point has been moved.
+此门与 ID 2947 物体相同，但移除了动态属性（不可破坏）并调整了枢轴点位置。
 
 ```
 19875	CRDoor01New
 ```
 
-### **Dillimore Gas Station**
+### **迪利莫尔加油站**
 
-Replaces object IDs 12853 and 12854 with an enterable version of the Dillimore
-Gas Station. Use the new filterscript called "dillimore_gas" to see an example..
-it can be found in the "filterscripts" folder of the Windows 0.3.7 server
-package.
+替换原有 ID 12853 和 12854 物体为可进入式加油站。可通过名为"dillimore_gas"的滤镜脚本查看使用示例，该脚本位于 Windows 版 0.3.7 服务端包的"filterscripts"目录。
 
 ```
 19876	DillimoreGasExt1
 19877	DillimoreGasInt1
 ```
 
-### **GTASA Skateboard**
+### **GTASA 滑板**
 
-Edited to work as a normal object and added vertex colours.
+经过改造可作为常规物体使用，并添加了顶点着色功能。
 
 ```
 19878	Skateboard1
 ```
 
-### **LS Wells Fargo**
+### **LS 富国银行大楼**
 
-This building is a replacement for the LS Wells Fargo building (object ID 4007).
-It makes the car park enterable. Use the new filterscript called "ls_wellsfargo"
-to see an example... it can be found in the "filterscripts" folder of the
-Windows 0.3.7 server package.
+该建筑替换了原 ID 4007 的富国银行大楼，新增可进入式停车场。可通过名为"ls_wellsfargo"的滤镜脚本查看示例，脚本位于 Windows 版 0.3.7 服务端包的"filterscripts"目录。
 
 ```
 19879	WellsFargoBuild1
 19880	WellsFargoGrgDoor1
 ```
 
-### **Kylie's Barn Fixed**
+### **凯莉谷仓修复版**
 
-This barn is the same as object ID 14871 except the collision (COL) has been
-fixed. Use the new filterscript called "kylies_barn" to see an example... it can
-be found in the "filterscripts" folder of the Windows 0.3.7 server package.
+此谷仓与 ID 14871 物体相同，但修复了碰撞体积问题。可通过"kylies_barn"滤镜脚本查看示例，该脚本位于服务端包的"filterscripts"目录。
 
 ```
 19881	KylieBarnFixed1
 ```
 
-### **Marco's Steak Cooked**
+### **烹饪版马可牛排**
 
-This steak is the same as object ID 19582 except it is cooked.
+该牛排与 ID 19582 物体相同，但呈现为已烹饪状态。
 
 ```
 19882	MarcosSteak2
 ```
 
-### **Slice of Bread**
+### **面包切片**
 
 ```
 19883	BreadSlice1
 ```
 
-### **More Water Slide Sections**
+### **扩展水滑道**
 
-These objects are designed to work with the old existing object IDs 19070
-to 19073. The old objects have also been updated to improve their look and fix
-some alpha rendering issues.
+这些物体可与旧版 ID 19070-19073 物体配合使用。旧版物体已更新优化外观并修复半透明渲染问题。
 
 ```
 19884	WSBend45Deg2
@@ -256,28 +236,25 @@ some alpha rendering issues.
 19890	WSStraight4
 ```
 
-The object below can be used to join these water slide sections to a tube.
+下方物体用于连接水滑道与管道：
 
 ```
 19891	WSTubeJoiner1
 ```
 
-The object below can be used to join these water slide sections to a modular
-road.
+下方物体用于连接水滑道与模块化道路：
 
 ```
 19892	WSRoadJoiner1
 ```
 
-### **Laptop (Old Style)**
+### **旧式笔记本电脑**
 
-Same laptop in open and closed positions. You can change the screen using the
-SetObjectMaterial() function on index 1. There are three screen variations in
-the TXD file (see below for picture):
+提供开启与闭合两种状态。可通过 SetObjectMaterial()函数修改索引 1 的屏幕材质，TXD 文件包含三种屏幕样式（参见下图）：
 
-- LaptopScreen1 = GTASA map screen (default)
-- LaptopScreen2 = Text screen
-- LaptopScreen3 = Police database screen
+- LaptopScreen1 = GTASA 地图界面（默认）
+- LaptopScreen2 = 文本界面
+- LaptopScreen3 = 警方数据库界面
 
 ```
 19893	LaptopSAMP1
@@ -286,16 +263,15 @@ the TXD file (see below for picture):
 
 ![Image:SAMP-Laptop-1.png](https://assets.open.mp/assets/images/objects/SAMP-Laptop-1.png)
 
-### **Ladder Fire Truck Lights**
+### **云梯消防车灯光**
 
-These lights can be used on top of the ladder fire truck. Note that they will
-only be visible at night.
+专为云梯消防车顶部设计的灯光，仅在夜晚可见。
 
 ```
 19895	LadderFireTruckLts1
 ```
 
-### **Misc Items**
+### **杂项物品**
 
 ```
 19896	CigarettePack1
@@ -305,29 +281,25 @@ only be visible at night.
 19900	ToolCabinet2
 ```
 
-### **ANIM Objects**
+### **动画物体**
 
-The objects below are ANIM objects (animated). They were added in the SA-MP 0.3c
-and 0.3.7 versions.
+以下为 ANIM 物体（含动画），最初发布于 SA-MP 0.3c 并在 0.3.7 版本更新：
 
 ```
 19901	AnimTube
 19902	EnExMarker4
 ```
 
-### **Misc Items Continued**
+### **扩展杂项物品**
 
 ```
 19903	MechanicComputer1
 19904	ConstructionVest1
 ```
 
-### **Area 51 (69) Buildings**
+### **51 区（69 号基地）建筑群**
 
-These objects are basically the same as the original buildings but now with an
-interior. Use the new filterscript called "a51_base" to see an example (replaced
-buildings at A51 with gates that open and close)... it can be found in the
-"filterscripts" folder of the Windows 0.3.7 server package.
+这些建筑在保留原外观基础上新增内部空间。可通过"a51_base"滤镜脚本查看基地大门开合示例，脚本位于 Windows 0.3.7 服务端包的"filterscripts"目录。
 
 ```
 19905	A51Building1
@@ -338,29 +310,27 @@ buildings at A51 with gates that open and close)... it can be found in the
 19910	A51Building3GrgDoor
 ```
 
-The door below is designed to fit on the A51/69 Military Hangar (object ID
-3268). It takes two doors to close the entrance.
+下方门体专为 51 区军用机库（ID 3268）设计，需双门配合关闭入口：
 
 ```
 19911	A51HangarDoor1
 ```
 
-### **Metal Gate and Big Fence**
+### **金属闸门及大型围栏**
 
-This gate is the same as object ID 980 except it has no signs on it and the
-pivot point is on the edge.
+此闸门与 ID 980 物体相同，但移除了表面标识并调整枢轴点至边缘。
 
 ```
 19912	SAMPMetalGate1
 ```
 
-Big metal fence which is useful for enclosing areas for events or mini-games.
+适用于活动场地围蔽的大型金属围栏：
 
 ```
 19913	SAMPBigFence1
 ```
 
-### **Extracted from Cutscene IMG and Edited 2**
+### **过场动画提取物 2（已编辑）**
 
 ```
 19914	CutsceneBat1
@@ -373,9 +343,9 @@ Big metal fence which is useful for enclosing areas for events or mini-games.
 19921	CutsceneToolBox1
 ```
 
-### **Modular Kitchen**
+### **模块化厨房**
 
-These objects can be used to assemble a modular kitchen in various ways.
+可通过以下物体自由组合模块化厨房空间：
 
 ```
 19922	MKTable1
@@ -399,7 +369,7 @@ These objects can be used to assemble a modular kitchen in various ways.
 19940	MKShelf3
 ```
 
-### **Misc Items 2**
+### **扩展杂项物品 2**
 
 ```
 19941	GoldBar1
@@ -408,9 +378,9 @@ These objects can be used to assemble a modular kitchen in various ways.
 19944	BodyBag1
 ```
 
-### **Checkpoints**
+### **新型检查点**
 
-These objects can be used as an alternative to the normal checkpoints.
+可作为替代常规检查点的物体：
 
 ```
 19945	CPSize16Red
@@ -420,9 +390,9 @@ These objects can be used as an alternative to the normal checkpoints.
 
 ![Image:SAMP-New-Checkpoints.png](https://assets.open.mp/assets/images/objects/SAMP-New-Checkpoints.png)
 
-### **Road Signs**
+### **道路标识系列**
 
-A collection of various road signs.
+收录多种道路标识。
 
 ```
 19948	SAMPRoadSign1
@@ -459,15 +429,14 @@ A collection of various road signs.
 19979	SAMPRoadSign32
 ```
 
-The two signs below have a transparent material overlay (index 3) so you can use
-it with the SetObjectMaterialText() or SetPlayerObjectMaterialText() functions.
+以下两个标识包含透明材质覆盖层（索引 3），可配合 SetObjectMaterialText()或 SetPlayerObjectMaterialText()函数使用：
 
 ```
 19980	SAMPRoadSign33
 19981	SAMPRoadSign34
 ```
 
-Speed limit signs.
+限速标识系列：
 
 ```
 19982	SAMPRoadSign35
@@ -485,7 +454,7 @@ Speed limit signs.
 
 ![Image:SAMP-Road-Signs.png](https://assets.open.mp/assets/images/objects/SAMP-Road-Signs.png)
 
-### **Extracted from Cutscene IMG and Edited 3**
+### **过场动画提取物 3（已编辑）**
 
 ```
 19993	CutsceneBowl1
@@ -497,7 +466,7 @@ Speed limit signs.
 19999	CutsceneChair2
 ```
 
-### **Extracted from Cutscene IMG and Edited 3 Continued**
+### **过场动画提取物 3（续）**
 
 ```
 11682	CutsceneCouch1
@@ -506,7 +475,7 @@ Speed limit signs.
 11685	CutsceneCouch4
 ```
 
-### **Redsands West Casino Extracted and Edited Items**
+### **红沙西赌场提取物（已编辑）**
 
 ```
 11686	CBarSection1
@@ -519,15 +488,15 @@ Speed limit signs.
 
 ---
 
-## **Objects added in 0.3.7 RC2 (82 objects)**
+## **0.3.7 RC2 版本新增物体（82 个物体）**
 
-### **Modular Island Road Corner**
+### **模块化岛屿道路转角**
 
 ```
 19788	15x15RoadCorner1
 ```
 
-### **Cubes**
+### **立方体**
 
 ```
 19789	Cube1mx1m
@@ -535,24 +504,21 @@ Speed limit signs.
 19791	Cube10mx10m
 ```
 
-### **Normal Sized Keycard**
+### **标准尺寸门禁卡**
 
 ```
 19792	SAMPKeycard1
 ```
 
-### **Fire Wood Log**
+### **木柴堆**
 
 ```
 19793	FireWoodLog1
 ```
 
-### **LS Prison Walls and Gates**
+### **LS 监狱围墙及闸门**
 
-These objects are designed to replace the walls and gates at the LS Prison so
-you can add your own working gates. Use the new filterscript called
-"ls_prisonwalls" to see an example. Note that it is only included in the
-Filterscripts folder of the Windows 0.3.7 server package.
+该系列物体用于替换 LS 监狱原有围墙和闸门，支持自定义可操作门体。可通过"ls_prisonwalls"滤镜脚本查看示例（仅 Windows 版 0.3.7 服务端包的 Filterscripts 目录包含该脚本）。
 
 ```
 19794	LSPrisonWalls1
@@ -560,83 +526,69 @@ Filterscripts folder of the Windows 0.3.7 server package.
 19796	LSPrisonGateSouth
 ```
 
-### **Police Visor Strobe**
+### **警用遮阳板频闪灯**
 
-This object is designed to be used inside your vehicle on the visor (eg in an
-undercover police vehicle). It uses UV animation so the flashing is visible
-during the day and night.
+设计用于车辆遮阳板内部（如便衣警车），采用 UV 动画技术实现昼夜可见的闪烁效果。
 
 ```
 19797	PoliceVisorStrobe1
 ```
 
-### **LS Apartments Car Park**
+### **LS 公寓停车场**
 
-This car park object is used with the replacement block of LS apartments
-(ID:19595). The filterscript called "ls_apartments1" shows an example of how it
-can be used... it can be found in the "filterscripts" folder of the Windows
-0.3.7 server package.
+该停车场物体需配合 LS 公寓楼替换模块（ID:19595）使用。示例脚本"ls_apartments1"位于服务端包的"filterscripts"目录。
 
 ```
 19798	LSACarPark1
 ```
 
-### **Caligula's Casino Vault Door Edited**
+### **卡里古拉赌场金库门（改良版**
 
-Edited to fix the pivot so it can be used with MoveObject() and also fixed the
-night vertex colours. Original object ID is 2634.
+优化枢轴点以适配 MoveObject()函数，并修复夜间顶点着色问题。原物体 ID 为 2634。
 
 ```
 19799	CaligulasVaultDoor
 ```
 
-### **LS BeachSide Car Park**
+### **LS 海滨停车场**
 
-This car park object is used with the replacement LS BeachSide building (IDs
-19596 and 19597). The filterscript called "ls_beachside" shows an example of how
-the building can be used... it can be found in the "filterscripts" folder of the
-Windows 0.3.7 server package. It is created by default from lines defined in the
-SAMP.IPL file.
+配合 LS 海滨建筑替换模块（ID 19596-19597）使用。示例脚本"ls_beachside"展示建筑使用方法，该物体默认通过 SAMP.IPL 文件定义生成。
 
 ```
 19800	LSACarPark1
 ```
 
-### **Balaclava**
+### **面罩**
 
 ```
 19801	Balaclava1
 ```
 
-### **Static Door**
+### **静态门体**
 
-This door is the same as object ID 1502 except it is static. You can animate it
-opening and closing with the MoveObject() function.
+与 ID 1502 物体相同但改为静态属性，可通过 MoveObject()函数实现开关动画。
 
 ```
 19802	GenDoorINT04Static
 ```
 
-### **Tow Truck Lights**
+### **拖车灯光**
 
-These lights can be used on top of the tow truck. The light configuration was
-created by Vince. Note that they will only be visible at night.
+专为拖车顶部设计的灯光系统（由 Vince 设计灯光配置），仅在夜间可见。
 
 ```
 19803	TowTruckLights1
 ```
 
-### **Padlock**
+### **挂锁**
 
 ```
 19804	Padlock1
 ```
 
-### **Extracted Items**
+### **提取物品系列**
 
-The whiteboard object below has a transparent material overlay (index 1) so you
-can use it with the SetObjectMaterialText() or SetPlayerObjectMaterialText()
-functions.
+下方白板物体包含透明材质覆盖层（索引 1），可配合 SetObjectMaterialText()或 SetPlayerObjectMaterialText()函数使用：
 
 ```
 19805	Whiteboard1
@@ -672,10 +624,9 @@ functions.
 19835	CoffeeCup1
 ```
 
-### **Objects That Use Particle.TXD**
+### ​**使用 Particle.TXD 材质的物体**
 
-The objects below use textures from the Particle.TXD GTASA file. The grass
-clumps can be used to create a mowing RP job.
+以下物体使用 GTASA 的 Particle.TXD 纹理文件。草丛物体可用于模拟除草作业场景。
 
 ```
 19836	BloodPool1
@@ -684,10 +635,9 @@ clumps can be used to create a mowing RP job.
 19839	GrassClump3
 ```
 
-### **Animated Waterfalls**
+### ​**动态瀑布**
 
-The objects below use UV animation to create moving water for a waterfall and/or
-river.
+通过 UV 动画技术实现水流效果，适用于瀑布/河流场景搭建。
 
 ```
 19840	WaterFall1
@@ -695,7 +645,7 @@ river.
 19842	WaterFallWater1
 ```
 
-### **Metal Panels**
+### ​**金属面板系列**
 
 ```
 19843	MetalPanel1
@@ -704,27 +654,23 @@ river.
 19846	MetalPanel4
 ```
 
-### **Leg of Ham**
+### ​**火腿腿**
 
 ```
 19847	LegHam1
 ```
 
-### **CargoBob Platform**
+### ​**货运波比平台**
 
-This platform is designed to attach to the side of the CargoBob helicopter using
-the AttachObjectToVehicle function so you can carry people around.
+该平台可通过 AttachObjectToVehicle 函数附加至货运波比直升机侧部，用于载人运输。
 
 ```
 19848	CargoBobPlatform1
 ```
 
-### **Modular Island House 1**
+### ​**模块化岛屿房屋 1**
 
-These objects are designed to work with the other modular island objects above
-(IDs:19529 to 19552). Use the new filterscript called "modular_houses" to see an
-example... it can be found in the "filterscripts" folder of the Windows 0.3.7
-server package.
+这些物体需配合前述模块化岛屿物体（ID:19529-19552）使用。示例脚本"modular_houses"位于 Windows 版 0.3.7 服务端包的"滤镜脚本目录"。
 
 ```
 19849	MIHouse1Land
@@ -747,27 +693,24 @@ server package.
 19866	MIFenceBlocks1
 ```
 
-### **Non-Breakable Mail Box**
+### ​**不可破坏邮箱**
 
-This mail box is same as object ID 1478 except it is not dynamic (breakable) and
-the night vertex colours (NVC) have been fixed.
+与 ID 1478 物体相同，但移除动态属性（不可破坏）并修复夜间顶点着色(NVC)。
 
 ```
 19867	MailBox1
 ```
 
-### **Non-Breakable Mesh Fences and Gate**
+### ​**不可破坏网状围栏及闸门**
 
-These fence sections are the same as object IDs 1411 and 1412 except they are
-not dynamic (breakable).
+以下围栏与 ID 1411-1412 物体相同，但改为不可破坏属性：
 
 ```
 19868	MeshFence1
 19869	MeshFence2
 ```
 
-This metal gate is the same as object ID 3036 except it is not dynamic
-(breakable).
+此金属闸门与 ID 3036 物体相同，但改为不可破坏属性：
 
 ```
 19870	MeshFence1
@@ -775,7 +718,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3.7 RC1 (265 objects)**
+## ​**0.3.7 RC1 版本新增物体（265 个物体）​**
 
 ```
 19305	sec_keypad2
@@ -785,7 +728,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3.7 (3 Objects)**
+## ​**0.3.7 版本新增物体（3 个物体）​**
 
 ```
 19305	sec_keypad2
@@ -795,7 +738,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3x RC2-4 (6 objects)**
+## ​**0.3x RC2-4 版本新增物体（6 个物体）​**
 
 ```
 19516	Hair2_nc
@@ -808,7 +751,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3e RC7 (31 objects)**
+## ​**0.3e RC7 版本新增物体（31 个物体）​**
 
 ```
 19475	Plane001
@@ -856,7 +799,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3e RC6 (5 objects)**
+## ​**0.3e RC6 版本新增物体（5 个物体）​**
 
 ```
 19470	forsale01
@@ -868,7 +811,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3e RC4 (44 objects)**
+## ​**0.3e RC4 版本新增物体（44 个物体）​**
 
 ```
 19426	wall066
@@ -919,7 +862,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3e RC3 (54 objects)**
+## ​**0.3e RC3 版本新增物体（54 个物体）​**
 
 ```
 19372	wall020
@@ -980,7 +923,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3e RC1 (25 objects)**
+## ​**0.3e RC1 版本新增物体（25 个物体）​**
 
 ```
 19347	badge01
@@ -1012,7 +955,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3d (8 objects)**
+## ​**0.3d 版本新增物体（8 个物体）​**
 
 ```
 19339	coffin01
@@ -1027,7 +970,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3d RC7 (16 Objects)**
+## ​**0.3d RC7 版本新增物体（16 个物体）​**
 
 ```
 19322	mallb_laW02
@@ -1050,7 +993,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3d RC3-3 (14 Objects)**
+## ​**0.3d RC3-3 版本新增物体（14 个物体）​**
 
 ```
 19308	taxi01
@@ -1071,7 +1014,7 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 
 ---
 
-## **Objects added in 0.3d RC3-3 (4 Objects)**
+## ​**0.3d RC3-3 版本新增物体（4 个物体）​**
 
 ```
 19301	mp_sfpd_nocell
@@ -1080,9 +1023,9 @@ This metal gate is the same as object ID 3036 except it is not dynamic
 19304	pd_jail_door_top01
 ```
 
-## **Bridge from GTALC**
+## ​**GTALC 移植桥梁**
 
-The following objects (19300 to 19307) were removed in SA:MP 0.3d
+以下物体（19300 至 19307）已在 SA:MP 0.3d 版本中移除
 
 ```
 19300	bridge_liftsec
@@ -1097,7 +1040,7 @@ The following objects (19300 to 19307) were removed in SA:MP 0.3d
 
 ---
 
-## **Objects added in 0.3c RC5 (143 Objects)**
+## ​**0.3c RC5 版本新增物体（143 个物体）​**
 
 ```
 19164	GTASAMap1
@@ -1239,7 +1182,7 @@ The following objects (19300 to 19307) were removed in SA:MP 0.3d
 
 ---
 
-## **Objects added in 0.3c RC4 (109 Objects)**
+## ​**0.3c RC4 版本新增物体（109 个物体）​**
 
 ```
 19054	XmasBox1
@@ -1357,7 +1300,7 @@ The following objects (19300 to 19307) were removed in SA:MP 0.3d
 
 ---
 
-## **Objects added in 0.3c RC2 and RC3 - 154 Objects**
+## **0.3c RC2 与 RC3 版本新增物体（154 个物体）**
 
 ```
 18851	TubeToRoad1
@@ -1567,11 +1510,11 @@ The following objects (19300 to 19307) were removed in SA:MP 0.3d
 
 ---
 
-## **Objects added in 0.3c RC1**
+## **0.3c RC1 版本新增物体**
 
-The objects below were added in 0.3c RC1.
+下列物体为 0.3c RC1 版本新增内容。
 
-### **Holding Objects**
+### **手持物品**
 
 ```
 18632	FishingRod
@@ -1590,7 +1533,7 @@ The objects below were added in 0.3c RC1.
 18645	MotorcycleHelmet1
 ```
 
-### **Lights**
+### **灯光**
 
 ```
 18646	PoliceLight1
@@ -1608,7 +1551,7 @@ The objects below were added in 0.3c RC1.
 18658	LightBeamBlue
 ```
 
-### **Spray Tags**
+### **喷漆标识**
 
 ```
 18659	SprayTag1
@@ -1622,7 +1565,7 @@ The objects below were added in 0.3c RC1.
 18667	SprayTag9
 ```
 
-### **Particle Effects**
+### **粒子特效**
 
 ```
 18668	blood_heli
@@ -1708,28 +1651,28 @@ The objects below were added in 0.3c RC1.
 18748	WS_factorysmoke
 ```
 
-### **SA:MP Logos**
+### **SA:MP 标识**
 
 ```
 18749	SAMPLogoSmall
 18750	SAMPLogoBig
 ```
 
-### **Land Masses**
+### **地形模块**
 
 ```
 18751	IslandBase1
 18752	Volcano
 ```
 
-### **Base Sections**
+### **基础模块**
 
 ```
 18753	Base125mx125m1
 18754	Base250mx250m1
 ```
 
-### **Elevator from VC**
+### **VC 移植电梯系统**
 
 ```
 18755	VCElevator1
@@ -1738,20 +1681,20 @@ The objects below were added in 0.3c RC1.
 18758	VCElevatorFront1
 ```
 
-### **DM Cages**
+### **死亡竞赛笼子**
 
 ```
 18759	DMCage1
 18760	DMCage2
 ```
 
-### **Racing**
+### **竞速**
 
 ```
 18761	RaceFinishLine1
 ```
 
-### **Parkour**
+### **跑酷模块**
 
 ```
 18762	Concrete1mx1mx5m
@@ -1762,7 +1705,7 @@ The objects below were added in 0.3c RC1.
 18767	ConcreteStair1
 ```
 
-### **Sky Diving Platforms**
+### **跳伞平台**
 
 ```
 18768	SkyDivePlatform1
@@ -1771,7 +1714,7 @@ The objects below were added in 0.3c RC1.
 18771	SpiralStair1
 ```
 
-### **Tunnel Sections**
+### **隧道片段**
 
 ```
 18772	TunnelSection1
@@ -1782,7 +1725,7 @@ The objects below were added in 0.3c RC1.
 18777	TunnelSpiral1
 ```
 
-### **Ramps**
+### **斜坡系列**
 
 ```
 18778	RampT1
@@ -1797,7 +1740,7 @@ The objects below were added in 0.3c RC1.
 18787	FunBoxRamp4
 ```
 
-### **Modular Road Sections**
+### **模块化道路片段**
 
 ```
 18788	MRoad40m
@@ -1816,7 +1759,7 @@ The objects below were added in 0.3c RC1.
 18801	MRoadLoop1
 ```
 
-### **Modular Bridge Sections**
+### **模块化桥梁片段**
 
 ```
 18802	MBridgeRamp1
@@ -1827,7 +1770,7 @@ The objects below were added in 0.3c RC1.
 18807	MBridge75mHalf
 ```
 
-### **Tubes and Funnels**
+### **管道与漏斗**
 
 ```
 18808	Tube50m1
@@ -1867,7 +1810,7 @@ The objects below were added in 0.3c RC1.
 18842	RB50mTube
 ```
 
-### **Spheres**
+### **球形**
 
 ```
 18843	GlassSphere1
@@ -1875,10 +1818,10 @@ The objects below were added in 0.3c RC1.
 18845	RTexturesphere
 ```
 
-### **More Stuff**
+### **其他扩展**
 
 ```
-18846	BigCesar (removed in SA-MP 0.3d RC3-3)
+18846	BigCesar（已在SA-MP 0.3d RC3-3版本移除）
 18847	HugeHalfPipe1
 18848	SamSiteNonDynamic
 18849	ParaDropNonDynamic

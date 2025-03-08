@@ -1,10 +1,10 @@
 ---
-title: Scripting Basics
-sidebar_label: Scripting Basics
-description: A short tutorial guiding you through the basics of the Pawn language and SA-MP/open.mp APIs.
+title: 脚本基础
+sidebar_label: 脚本基础
+description: 一份简短教程，引导您了解Pawn语言及SA-MP/open.mp API的基础知识。
 ---
 
-Below is an example of possibly the most basic script you can write:
+以下是一个可实现的最基础脚本示例：
 
 ```c
 #include <a_samp>
@@ -16,17 +16,17 @@ main()
 }
 ```
 
-The various aspects will be covered in turn but we'll start by looking at the first line.
+我们将逐一解析各个组成部分，首先从第一行开始。
 
 ---
 
-## Include
+## 头文件包含
 
 ```c
 #include <a_samp>
 ```
 
-This basically loads the code from pawno/includes/a_samp.inc into your script, so everything it has you can use. One of the things it has is:
+该指令将 pawno/includes/a_samp.inc 文件内容载入脚本，使其所有功能可用。该文件本身包含：
 
 ```c
 #include <core>
@@ -41,81 +41,83 @@ This basically loads the code from pawno/includes/a_samp.inc into your script, s
 #include <a_sampdb>
 ```
 
-This includes all the other files in that directory so by adding that one line you have access to all the functions in SA:MP (more on functions later).
+通过这一行包含指令，您即可使用 SA:MP 中所有功能函数（后续将详述函数概念）。
 
 ---
 
-## Calls
+## 函数调用
 
-The next part has two sides of a function call. main() is a function which you write the code for and is called from elsewhere, print(string\[\]) is a function with the code elsewhere which you call. Currently all this will do is load, print a string (i.e. print "Hello World!" (without the ""s) (a tradition in all scripting languages)) to the server console and end. The:
+后续代码包含两个函数调用：main()是您编写的主函数，print(string[])是系统预定义的输出函数。当前脚本会在服务器控制台输出"Hello World!"（遵循编程语言传统）后结束。代码段：
 
 ```c
 return 1;
 ```
 
-Passes a value (1) back to the place which called main to tell it what happened (the exact value passed here doesn't matter but in other places it does). You now have your first (very basic) script. If you select file->new in pawno it will give you a much bigger start point will all the callbacks in (see below), including main (which isn't technically a callback but acts like one).
+将值 1 返回给调用者以指示执行状态（此处返回值不影响逻辑，但在其他场景中可能有意义）。此时您已创建了首个基础脚本。使用 pawno 的"文件->新建"命令将生成更完整的模板，包含所有回调函数（详见下文）及 main 函数（虽非严格意义上的回调但行为类似）。
 
 ---
 
-## Statements
+## 语句结构
 
-The print and return lines have ';' (a semi colon) on them, this just denotes the end of a statement (a statement is a group of one or more functions and operators which together do something, similar to a sentence in common language). Most people put separate statements on separate lines but this is not required, it just makes things clearer, the following is equally valid:
+print 和 return 语句末尾的';'表示语句结束（语句由一组函数调用和运算符构成，类似自然语言中的句子）。通常建议每行单独书写语句以提升可读性，但以下形式同样有效：
 
 ```c
 main() { print("Hello World!"); return 1; }
 ```
 
-The {}s (braces (curly brackets), not parenthesis (brackets)) enclose a group of statements which should be executed together (like a paragraph in common language). If you did:
+{}符号（花括号）用于界定语句组（类似自然语言中的段落）。若写作：
 
 ```c
 main() print("Hello World!"); return 1;
 ```
 
-You would get an error because now the "return 1;" statement is not grouped so is not part of main. Braces group a set of statements into a single statement (called a compound statement) and functions have a single statement with them. Without the braces print and return are entirely separate statements, so there's two or them so, as a function can only have a single statement, the second is not in a function, which code can't be.
-
-But generally, you can expand compound statements with the use of the comma (,) operator but this is not suggested as it is not the best coding practice. An example follows:
+将引发错误，因为"return 1;"未被包含在 main 函数作用域内。花括号将多个语句合并为复合语句，而函数体必须由单个语句构成。通过逗号运算符可扩展复合语句：
 
 ```c
 main() print("Hello World!"), return 1;
 ```
 
-# Functions
-
-A function is basically a chunk of code which does something and can be told to do this thing from somewhere else. It can also pass data about what it did back to the place which told it to run (the place which "called" it).
+但此类写法不符合最佳编码实践。
 
 ---
 
-## Calling
+# 函数详解
+
+函数是可重复调用的代码单元，能够接收参数并返回执行结果。
+
+---
+
+## 函数调用
 
 ```c
 print("Hello World!");
 ```
 
-As described in [Starting out](/wiki/Scripting_Basics#Starting_out "Scripting Basics"), this calls the function called "print" (defined in a_samp.inc, which is why you need to include it) and tells it to display something in the server console (the word hello).
+如[入门章节](#starting-out)所述，该语句调用 a_samp.inc 中定义的 print 函数（故需包含该头文件），在服务器控制台输出指定内容。
 
-A function consists of the function name (e.g. print), which tells the system which chunk of code you want to call, and a parameter list, enclosed in ()s after the function name, which pass additional data to the function to help it run. If you didn't have parameters you would need millions of functions:
+函数由名称（如 print）和参数列表（置于()内）组成。参数机制避免了海量相似函数的产生：
 
 ```c
 printa();
 printaa();
 printab();
 printac();
-etc...
+// 等...
 ```
 
-Functions can have as many parameters as you like, from 0 up (there may be an upper limit but it's at least 128):
+函数参数数量可从 0 至 128+不等，例如：
 
 ```c
 printf("Hello World!", 1, 2, 3, 4, 5, 6);
 ```
 
-Don't worry about what that function does for now, just that it has 7 parameters, each separated by a comma.
+该示例函数包含 7 个参数，暂不深究其具体功能。
 
 ---
 
-## Defining
+## 自定义函数
 
-As well as being able to call existing functions you can also write and call your own:
+除调用现有函数外，您可创建自定义函数：
 
 ```c
 #include <a_samp>
@@ -132,7 +134,7 @@ MyFunction()
 }
 ```
 
-This just does exactly the same as the original code but is arranged differently. When main() is called when the mode is started (it's called automatically) it calls the new custom function called MyFunction(). This function prints the message in the server console then returns the number 1 to main(). main() takes the returned value (1) and then returns it to the server itself (i.e. the place which called main in the first place). As "return MyFunction();" is a single statement you could do:
+此实现与原始脚本功能相同但结构不同。当游戏模式启动时自动调用 main()，后者调用自定义的 MyFunction()。该函数输出信息后返回 1 至 main()，最终传回服务器。等效的简洁写法：
 
 ```c
 #include <a_samp>
@@ -146,7 +148,7 @@ MyFunction()
 }
 ```
 
-But most people don't for clarity. You can also not use the MyFunction return value at all and do:
+但通常建议保持代码可读性。亦可直接调用函数：
 
 ```c
 #include <a_samp>
@@ -166,9 +168,9 @@ MyFunction()
 
 ---
 
-## Parameters
+## 参数传递
 
-Parameters are a type of [variable](/wiki/Scripting_Basics#Variables "Scripting Basics") which you don't need to declare as they come from the place which called the function:
+参数是特殊的[变量](#variables)类型，由调用方传递给函数：
 
 ```c
 #include <a_samp>
@@ -185,35 +187,35 @@ MyFunction(string[])
 }
 ```
 
-This code still does the same thing but we're now telling MyFunction() what to display. The call passes the string "Hello World!" to the function where it is stored in a variable called string (the \[\] means it's an [array](/wiki/Scripting_Basics#Arrays "Scripting Basics") as explained later). The print function is the called, passing the contents of the string variable, we know it's a variable because it doesn't have the "" any more.
+本实现通过参数动态指定输出内容。调用时传递字符串至 string 数组参数（[]表示数组类型，详见[数组章节](#arrays)），print 函数输出该变量值（变量名不再使用引号包裹）。
 
-# Variables
+# 变量
 
-A variable is basically a bit of memory, it's where data is stored and can be changed and read as required. Variables are one or more cells, a cell is 32 bits (4 bytes) big and by default signed so they can store from -2147483648 to 2147483647 (although -2147483648 is poorly defined in PAWN and gives odd results if displayed). A variable made from more than one cell is called an array, strings are a special type of array where each cell holds a character of the string (or 4 characters in packed strings, but they're not covered here).
+变量本质上是一段内存空间，用于存储数据，可根据需求进行修改和读取。变量由一个或多个单元(cell)组成，每个单元为 32 位(4 字节)，默认带符号可存储范围从-2147483648 到 2147483647（尽管在 PAWN 中-2147483648 的定义不够完善，显示时会产生异常结果）。由多个单元组成的变量称为数组，字符串是一种特殊类型的数组，每个单元存储一个字符（在压缩字符串中可存储 4 个字符，但本文不涉及该内容）。
 
 ---
 
-## Declaration
+## 声明
 
-To create a new variable you have to declare it:
+创建新变量需进行声明：
 
 ```c
 new
     myVariable;
 ```
 
-This tells the system to create a new variable called myVariable, the initial value of this variable will be 0.
+这段代码将创建一个名为 myVariable 的变量，其初始值为 0。
 
 ---
 
-## Setting
+## 赋值
 
 ```c
 new
     myVariable = 7;
 ```
 
-This declares a new variable and sets it's initial value to 7, so printing the variable now will give 7. To display a variable which isn't a string we need to go back to the printf() function mentioned earlier and do:
+此声明同时将变量初始值设为 7，此时打印该变量将显示 7。要显示非字符串变量，需使用之前提到的 printf()函数：
 
 ```c
 new
@@ -221,7 +223,7 @@ new
 printf("%d", myVariable);
 ```
 
-Again, for now all you need to know is that this will print the value of myVariable (i.e. 7 at this point) to the server.
+当前阶段只需了解该代码会将 myVariable 的值（此时为 7）输出至服务器控制台。
 
 ```c
 new
@@ -231,54 +233,54 @@ myVariable = 8;
 printf("%d", myVariable);
 ```
 
-That code will print 7, change the value of the variable to 8 and display the new value in the server window too. There are many other things you can do to variables, some are listed below, most are listed elsewhere:
+此代码将先输出 7，然后将变量值修改为 8 并再次输出。以下是变量操作的常见方式（更多内容详见其他文档）：
 
 ```c
 myVariable = myVariable + 4;
 ```
 
-Sets the value of myVariable to the old value of myVariable plus 4, i.e. increase it's value by 4. This can also be written as:
+将 myVariable 的值增加 4，等效于：
 
 ```c
 myVariable += 4;
 ```
 
-Which just means "increase myVariable by 4".
+该语法表示"将 myVariable 增加 4"。
 
 ```c
 myVariable -= 4;
 ```
 
-That will decrease the value by 4.
+将值减少 4。
 
 ```c
 myVariable *= 4;
 ```
 
-That will multiply the value by 4.
+将值乘以 4。
 
 ```c
 myVariable /= 4;
 ```
 
-That will divide the value by 4.
+将值除以 4。
 
 ---
 
-## Arrays
+## 数组
 
-### Declaration
+### 声明
 
 ---
 
-An array is a variable in which you can store multiple pieces of data at once and access them dynamically. An array is declared to a set size at compile time so you need to know how many pieces of data you need to store in advance, a good example of this is the very common MAX_PLAYERS array, this will have one slot for every possibly connected player, so you know data for one player will not interfere with data for another player (more on defines later).
+数组是能同时存储多个数据的变量，支持动态访问。数组在编译时需确定固定长度，因此必须预先知道存储需求。典型示例是常见的 MAX_PLAYERS 数组，其为每个潜在连接玩家预留独立存储空间，确保不同玩家数据互不干扰（关于宏定义后续详述）。
 
 ```c
 new
     myArray[5];
 ```
 
-That code will declare an array 5 slots big, so you can store 5 pieces of normal data at once in that single what you can't do is something like the following:
+该代码声明长度为 5 的数组，可存储 5 个常规数据。但以下写法不可行：
 
 ```c
 new
@@ -286,13 +288,13 @@ new
     myArray[myVariable];
 ```
 
-That code looks like it would create an array the size of whatever number is stored in myVariable (here 5 but it could be anything), but you can't do this. In PAWN the memory for variables is assigned when you compile your code, this means arrays are always one size, you can't set the size to anything you like whenever you like.
+虽然看似创建基于变量值的动态数组，但在 PAWN 中变量内存于编译时分配，数组长度必须固定。
 
 ---
 
-### Accessing
+### 访问
 
-To set a value in an array you need to say which part of the array you want to store the data in, this CAN be done with another variable:
+数组赋值需指定存储位置，该位置可通过变量动态指定：
 
 ```c
 new
@@ -300,32 +302,38 @@ new
 myArray[2] = 7;
 ```
 
-This will declare an array with 5 slots and give the THIRD slot a value of 7, given that variables always start as 0 this will make the values in the array:
+此代码声明 5 单元数组，并将第三个单元赋值为 7（因索引从 0 开始），数组实际值为：
 
 ```
 0, 0, 7, 0, 0
 ```
 
-Why is it not:
+您可能会疑惑：为何不是：
 
 ```
 0, 7, 0, 0, 0
 ```
 
-you're wondering? It's because counting actually starts from the number 0, not 1. Consider the following:
+这是因为索引计数实际上是从 0 开始，而非 1。以如下序列为例：
 
 ```
 2, 4, 6, 8
 ```
 
-If you go through the list then after the number 2 you have already had one number (the 2), this means that if you are counting the numbers by the time you reach the number 4 you are already at one, you're not at one when you reach the 2, you're at zero. Thus the 2 is at position zero and the 4 is at position one, and thus it follows that the 6 is at position two, which is where the 7 in the first example above is. If we label the slots for the first example we get:
+当遍历该列表时，在数字 2 之后，您已经历了第一个元素（即 2 本身）。这意味着当您到达数字 4 时，实际上已经处于索引位置 1（而非 1 的位置对应数字 2）。因此：
+
+- 数字 2 位于索引 0
+- 数字 4 位于索引 1
+- 数字 6 位于索引 2（即前文示例中数字 7 所处位置）
+
+若给第一个示例中的数组单元标注索引，将得到：
 
 ```
 0 1 2 3 4
 0 0 7 0 0
 ```
 
-There are five slots but as you can see, and this is very important, THERE IS NO SLOT FIVE, doing the following could crash your server:
+特别注意：不存在索引 5 的单元，以下操作可能导致服务器崩溃：
 
 ```c
 new
@@ -333,7 +341,7 @@ new
 myArray[5] = 7;
 ```
 
-As mentioned above the array index (the index is the slot to which you're writing) can be anything, a number, a variable, or even a function which returns a value.
+数组索引可以是数字、变量或返回值函数：
 
 ```c
 new
@@ -342,7 +350,7 @@ new
 myArray[myIndex] = 7;
 ```
 
-Once you have an array and an index you can use that block exactly as if it were any other variable:
+数组元素可像普通变量般操作：
 
 ```c
 myArray[2] = myArray[2] + 1;
@@ -352,9 +360,9 @@ myArray[2]++;
 
 ---
 
-### Example
+### 示例
 
-As mentioned above a common type of array is the MAX_PLAYERS array. MAX_PLAYERS is not a variable, it's a define which is explained later, but for now accept that it is a constant number equal to the max number of players a server can hold (this by default is 500, even if you change the number in your server.cfg file). The following code uses normal variables to hold data for 4 players and do something with those players in a function (for simplicity's sake assume MAX_PLAYERS is 4 for now):
+如前所述，MAX_PLAYERS 数组是常见的数组类型。MAX_PLAYERS 并非变量，而是一个宏定义（后续详述），现阶段可将其视为表示服务器最大玩家容量的常量（默认 500，即使您在 server.cfg 文件中修改该数值）。以下代码使用普通变量存储 4 个玩家的数据，并通过函数处理这些玩家数据（为简化示例，假设此时 MAX_PLAYERS 为 4）：
 
 ```c
 new
@@ -367,17 +375,17 @@ SetPlayerValue(playerid, value)
 {
     switch(playerid)
     {
-        case 0: gPlayer0 = value; // is the same as doing if (playerid == 0)
-        case 1: gPlayer1 = value; // is the same as doing if (playerid == 1)
-        case 2: gPlayer2 = value; // is the same as doing if (playerid == 2)
-        case 3: gPlayer3 = value; // is the same as doing if (playerid == 3)
+        case 0: gPlayer0 = value; // 等同于 if (playerid == 0)
+        case 1: gPlayer1 = value; // 等同于 if (playerid == 1)
+        case 2: gPlayer2 = value; // 等同于 if (playerid == 2)
+        case 3: gPlayer3 = value; // 等同于 if (playerid == 3)
     }
 }
 ```
 
-See the section on control structures for more information on what's going on there, also note this could be done as a switch but that's less clear for the example and effectively the same code anyway.
+（更多控制结构信息请参考相关章节，虽然此处可使用 switch 语句实现，但为示例清晰仍采用此形式，两者代码效率基本一致）
 
-Now compare that to using an array with one slot per player, bearing in mind an array index can be any value:
+以下是与数组方案的对比。通过为每个玩家分配独立数组单元（注意数组索引可为任意有效值）：
 
 ```c
 new
@@ -389,34 +397,34 @@ SetPlayerValue(playerid, value)
 }
 ```
 
-That will create a global array (see section on scope) with one slot for every player, then the function will assign whatever is in the variable "value" to the slot for the player specified. The first example was large with only four players, using 4 lines per player, that's 2000 lines for 500 players (if can be less but it's still a lot), the second version is a single line no matter how many players you have.
+该方案将创建一个全局数组（作用域概念见相关章节），为每个玩家预分配存储单元。函数直接将"value"参数值赋给对应玩家的数组单元。前例在仅支持 4 玩家时已显冗长（每个玩家需 4 行代码），扩展到 500 玩家将需要 2000 行代码（虽可优化但仍繁琐）；后者无论玩家数量多少，始终只需单行代码实现。
 
 ---
 
-## Strings
+## 字符串
 
-### Basic use
+### 基础用法
 
 ---
 
-A string is a special type of array, one which is used to hold multiple characters to create a word or sentence or other human readable text. A character is one byte big (although there are extended sets where a character is multiple bytes but these are not well defined in SA:MP) and by default a character takes up one cell (one normal variable or one array slot). Characters are encoded in a system called [ASCII](http://www.asciitable.com/ "http://www.asciitable.com/"), the character "A" is represented by the number 65, telling the system to display a number will give 65, telling the system to display a character will give a capital a. Obviously is a single character takes up a single cell multiple characters (i.e. text) will take up multiple cells, collections of cells, as just explained, are called arrays.
+字符串是一种特殊类型的数组，用于存储多个字符以构成单词、句子或其他可读文本。单个字符占 1 字节（尽管存在多字节的扩展字符集，但在 SA:MP 中未明确定义），默认情况下每个字符占用 1 个单元（1 个常规变量或 1 个数组单元）。字符采用[ASCII](http://www.asciitable.com/ "http://www.asciitable.com/")编码系统表示，例如字符"A"对应数字 65。若直接显示数字将得到 65，若显示字符则呈现大写字母 A。由于单个字符占 1 个单元，多个字符组成的文本自然需要多个单元构成的数组。
 
-Strings in PAWN (and other languages) are what's called "NULL terminated", this means that when 0 is reached, the string ends. This is not the same as the character "0", represented by the number 48, this is the NULL character, represented by the number 0. This means that you can have a string array 20 cells large but only have a string 3 characters long if the fourth character is the NULL character, signalling the end of the string. You can not however have a string 20 characters long as the NULL character MUST be in the string, so in a 20 cell array you can have a 19 character string and a NULL termination character.
+PAWN 中的字符串采用"NULL 终止"机制，即遇到数值 0 时标志字符串结束（注意：字符"0"对应数值 48，而 NULL 字符对应数值 0）。这意味着在 20 单元的字符串数组中，若第 4 个单元为 NULL 字符，则实际有效字符串长度为 3 字符。但最大有效长度总为数组长度减一，因必须保留 NULL 终止符。
 
 ```c
 new
     myString[16] = "Hello World!";
 ```
 
-That code declares a new string with enough space for a 15 character string and sets it initially to the 5 character string "Hello World!", the double quotes around the text indicate that it's a string. Internally the array will look like:
+该代码声明了可容纳 15 字符的字符串数组，并初始化为"Hello World!"。双引号包裹表示字符串字面量。内部数组结构如下：
 
 ```
 104 101 108 108 111 0 x x x x x x x x x x
 ```
 
-The "x"s mean anything, in this example they will all be 0 but as they're after the null character is doesn't matter what they are, they won't affect the string.
+"x"表示任意值（本例中均为 0），因 NULL 字符后的内容不影响字符串解析。
 
-Strings can be manipulated like normal arrays, for example:
+字符串可像普通数组操作：
 
 ```c
 new
@@ -424,7 +432,7 @@ new
 myString[1] = 97;
 ```
 
-Will change the character in slot 1 to the character represented by the number 97 (a lower case "a"), resulting in the string reading "hallo". This can be written much more readably and easy to edit as:
+此代码将索引 1 的字符改为 97 对应的小写"a"，字符串变为"hallo"。更易读的写法：
 
 ```c
 new
@@ -432,7 +440,7 @@ new
 myString[1] = 'a';
 ```
 
-The single quotes around the "a" mean it's a character, not a string, characters don't need to be NULL terminated as they're only ever one cell long, they can also be used interchangeably with numbers if you know what they represent.
+单引号表示字符类型，无需 NULL 终止符。字符与对应数值可互换使用：
 
 ```c
 new
@@ -440,7 +448,7 @@ new
 myString[1] = '\0';
 ```
 
-'\\0' is two characters, however the \\ is a special character which modifies the next character, \\0 means NULL, that code is the same as doing:
+'\\0'中的反斜杠为转义符，表示 NULL 字符，等效于：
 
 ```c
 new
@@ -448,7 +456,7 @@ new
 myString[1] = 0;
 ```
 
-But is NOT the same as doing:
+但不同于：
 
 ```c
 new
@@ -456,77 +464,67 @@ new
 myString[1] = '0';
 ```
 
-The first and second versions will result in the string being simply:
-
-```
-h
-```
-
-The third version will result in the string being:
-
-```
-h0llo
-```
+前两种写法使字符串变为"h"，第三种则变为"h0llo"。
 
 ---
 
-### Escape character
+### 转义字符
 
-As briefly mentioned a backslash is a special character, doing:
+正如简要提到的那样，反斜线是一个特殊的字符，如果这样：
 
 ```
 '\'
 ```
 
-or:
+或：
 
 ```
 "\"
 ```
 
-Will give a compiler error because the \ modifies the next character so those constants will not be ended correctly, this can be used to create characters which can't normally be created, for example:
+将导致编译错误，因为反斜杠会转义后续字符，导致字符串未正确闭合。该特性可用于生成特殊字符，例如：
 
 ```c
 new
     myString[4] = "\"";
 ```
 
-That code will create a string consisting of only a double quote, normally a double quote signals the end of a written string but the backslash makes the double quote immediately after it a part of the string, and the double quote after that ends the string instead. Other special characters are:
+此代码创建仅含单个双引号的字符串。通常双引号会终止字符串定义，但通过转义符可使紧随其后的双引号成为字符串内容，而末尾的双引号则作为字符串终止符。其他特殊转义序列包括：
 
-| Code   | Name            | Purpose                                                                                                 |
-| ------ | --------------- | ------------------------------------------------------------------------------------------------------- |
-| \0     | NULL character  | Ends a string.                                                                                          |
-| EOS    | NULL character  | (same as above)                                                                                         |
-| \n     | Line feed       | use \n for a new line in Linux (also works in Windows)                                                  |
-| \r     | Carriage return | Use \r\n for a new line in Windows                                                                      |
-| \\\\   | Backslash       | Used to put an actual backslash in a string                                                             |
-| \'     | Single quote    | Used to use an actual single quote as a character in single quotes (use: '\'')                          |
-| \"     | Double quotes   | Used to put an actual double quote in a string                                                          |
-| \xNNN; | Hex number      | Used to set the character to the character represented by the hex number specified in place on NNN      |
-| \NNN;  | Number          | Used to set the character to the character represented by the number specified in place of NNN (see \0) |
+| Code   | 名称       | 用途                                          |
+| ------ | ---------- | --------------------------------------------- |
+| \0     | NULL 字符  | 终止字符串                                    |
+| EOS    | NULL 字符  | (同上)                                        |
+| \n     | 换行符     | Linux 系统换行（Windows 同样支持）            |
+| \r     | 回车符     | Windows 系统换行需使用\r\n                    |
+| \\\\   | 反斜杠     | 在字符串中插入实际反斜杠                      |
+| \'     | 单引号     | 在单引号字符中插入实际单引号（例：'\''）      |
+| \"     | 双引号     | 在字符串中插入实际双引号                      |
+| \xNNN; | 十六进制数 | 使用十六进制数值指定字符（例：\x41; 表示'A'） |
+| \NNN;  | 十进制数   | 使用十进制数值指定字符（例：\65; 表示'A'）    |
 
-Used to set the character to the character represented by the number specified in place of NNN (see \\0)
+用于将字符设置为由指定数字（替换 NNN）所代表的字符（参见\\0 的用法）
 
-There are others but those are the main ones.
+虽然还存在其他转义序列，但以上列出的为主要使用类型。
 
 ---
 
-## Tags
+## 标签
 
-A tag is an additional piece of information on a variable which defines where it can be used, providing information about its functionality. Tags can be strong (starting with a capitalized letter) or weak. For example:
+标签是变量的附加元信息，用于定义变量的使用场景和功能特性。标签可分为强标签（首字母大写）和弱标签。例如：
 
 ```c
 new
     Float:a = 6.0;
 ```
 
-The "Float" part is the tag, this defines this variable as a float (non-whole/real number) and determines where it can be used.
+"Float" 部分即为标签，声明该变量为浮点类型（非整数/实数），并限定其使用范围。
 
 ```c
 native SetGravity(Float:gravity);
 ```
 
-This means the SetGravity function takes a single parameter which has to be a float, for example:
+此声明表示 SetGravity 函数要求传入浮点型参数，例如：
 
 ```c
 SetGravity(6.0);
@@ -535,15 +533,15 @@ new
 SetGravity(fGrav);
 ```
 
-That will set the gravity to 6 (6.0 as a float) then 5 (5.0 as a float). Using the wrong tag in the wrong place will often give a tag mismatch:
+上述代码将重力分别设置为 6.0 和 5.0。若使用错误标签会导致类型不匹配错误：
 
 ```c
 SetGravity(MyTag:7);
 ```
 
-That will try set the gravity to 7 with the tag "MyTag", that is clearly not a "Float" so is wrong. Also note that tags are case sensitive.
+此代码尝试用"MyTag"标签的数值 7 设置重力，但该标签与"Float"不兼容。注意标签系统区分大小写。
 
-Custom tags can be defined by users:
+用户可自定义标签：
 
 ```c
 new myTag: variable = 0,
@@ -551,13 +549,13 @@ new myTag: variable = 0,
     AppleTag: another = 1;
 ```
 
-This is perfectly valid, however, when adding these two variables _directly_, you must use '\_:' to 'de-tag' them, otherwise the compiler will produce a 'tag mismatch' warning.
+此定义完全合法，但直接操作带标签变量时需使用'\_:'去除标签，否则编译器会报类型不匹配警告。
 
 ---
 
-## Scope
+## 作用域
 
-Scope is where a variable can be used. There are four main scopes: local, local static, global and global static. All variables can only be used after they are declared so this is right:
+变量作用域决定其可见范围，主要分为四类：局部变量、静态局部变量、全局变量和静态全局变量。所有变量必须在声明后使用，因此：
 
 ```c
 new
@@ -565,7 +563,7 @@ new
 printf("%d", var);
 ```
 
-This is wrong:
+为正确用法，而：
 
 ```c
 printf("%d", var);
@@ -573,11 +571,13 @@ new
     var = 4;
 ```
 
+将导致编译错误。
+
 ---
 
-### local
+### 局部变量
 
-A local variable is one declared "new" inside a function or part of a function:
+在函数或代码块内部声明的变量：
 
 ```c
 MyFunc()
@@ -586,17 +586,17 @@ MyFunc()
         var1 = 4;
     printf("%d", var1);
     {
-        // var1 still exists as this is a lower level
+        // var1 在此子作用域仍可见
         new
             var2 = 8;
         printf("%d %d", var1, var2);
     }
-    // var2 no longer exists as this is a higher level
+    // var2 在此父作用域不可见
 }
-// var1 no longer exists
+// var1 在函数外不可见
 ```
 
-Local variables are reset every time, for example:
+局部变量每次初始化时重置：
 
 ```c
 for (new i = 0; i < 3; i++)
@@ -608,7 +608,7 @@ for (new i = 0; i < 3; i++)
 }
 ```
 
-Will print:
+输出结果：
 
 ```
 1
@@ -616,13 +616,13 @@ Will print:
 1
 ```
 
-Because j is created, printed, incremented then destroyed, then the code loops.
+因 j 在每次循环中创建、打印、自增后销毁。
 
 ---
 
-### static local
+### 静态局部变量
 
-A static local can be used in the same place as a local but doesn't forget it's old value, for example:
+使用 static 关键字声明，保持生命周期持续性：
 
 ```c
 MyFunc()
@@ -631,17 +631,17 @@ MyFunc()
         var1 = 4;
     printf("%d", var1);
     {
-        // var1 still exists as this is a lower level
+       // var1 在此仍可见（作用域向上继承）
         static
             var2 = 8;
         printf("%d %d", var1, var2);
     }
-    // var2 no longer exists as this is a higher level
+    // var2 在此不可访问（超出其作用域）
 }
-// var1 no longer exists
+// var1 在函数外不可访问（超出其作用域）
 ```
 
-That code will behave exactly the same as the new example, however this:
+表面行为与局部变量相同，但下列情况：
 
 ```c
 for (new i = 0; i < 3; i++)
@@ -653,7 +653,7 @@ for (new i = 0; i < 3; i++)
 }
 ```
 
-Will print:
+输出结果：
 
 ```
 1
@@ -661,13 +661,13 @@ Will print:
 3
 ```
 
-Because `j` is static so remembers its old value.
+因 j 作为静态变量保留上次的值。
 
 ---
 
-### global
+### 全局变量
 
-Global variables are declared outside a function and can be used in any functions:
+在函数外声明，全程序可见：
 
 ```c
 new
@@ -679,15 +679,15 @@ MyFunc()
 }
 ```
 
-They are never reset or lost.
+全局变量永不重置。
 
 ---
 
-### global static
+### 静态全局变量
 
-Global static variables are like normal globals but can only be used in the file in which they are declared:
+使用 static 声明，仅在本文件内可见：
 
-File1:
+文件 1:
 
 ```c
 static
@@ -701,14 +701,14 @@ MyFunc()
 #include "File2"
 ```
 
-File2:
+文件 2:
 
 ```c
 MyFunc2()
 {
-    // This is wrong as gsMyVar doesn't exist here
-    printf("%d", gsMyVar);
+    // 此处无法访问gsMyVar
+    printf("%d", gsMyVar); // 编译错误
 }
 ```
 
-static can also be applied to functions in the same way.
+静态修饰符同样适用于函数声明。
