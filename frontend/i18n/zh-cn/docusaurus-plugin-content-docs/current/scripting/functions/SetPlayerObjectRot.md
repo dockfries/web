@@ -1,7 +1,7 @@
 ---
-title: "SetPlayerObjectRot"
-sidebar_label: "SetPlayerObjectRot"
-description: "设置物体在X、Y和Z轴上的旋转角度。"
+title: SetPlayerObjectRot
+sidebar_label: SetPlayerObjectRot
+description: 设置物体在X、Y和Z轴上的旋转角度。
 tags: ["玩家", "物体", "玩家物体"]
 ---
 

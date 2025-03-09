@@ -1,6 +1,6 @@
 ---
-title: "SA:MP 查询机制"
-sidebar_label: "SA:MP 查询机制"
+title: SA:MP 查询机制
+sidebar_label: SA:MP 查询机制
 ---
 
 ## 机制概述

@@ -1,7 +1,7 @@
 ---
 title: SetServerRuleFlags
 sidebar_label: SetServerRuleFlags
-description: "设置服务器规则的标志。"
+description: 设置服务器规则的标志。
 tags: ["规则"]
 ---
 

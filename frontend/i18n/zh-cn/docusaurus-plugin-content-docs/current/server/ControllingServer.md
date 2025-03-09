@@ -1,6 +1,6 @@
 ---
-title: "控制服务器"
-sidebar_label: "控制服务器"
+title: 控制服务器
+sidebar_label: 控制服务器
 description: 控制服务器的实用命令。
 ---
 

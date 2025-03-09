@@ -1,6 +1,6 @@
 ---
-title: "server.cfg"
-sidebar_label: "server.cfg"
+title: server.cfg
+sidebar_label: server.cfg
 description: 服务器配置文件
 ---
 

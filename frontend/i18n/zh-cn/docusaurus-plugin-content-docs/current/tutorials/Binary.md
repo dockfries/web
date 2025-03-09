@@ -1,6 +1,6 @@
 ---
-title: "二进制"
-sidebar_label: "二进制"
+title: 二进制
+sidebar_label: 二进制
 description: 深入探讨二进制与位运算符。
 ---
 

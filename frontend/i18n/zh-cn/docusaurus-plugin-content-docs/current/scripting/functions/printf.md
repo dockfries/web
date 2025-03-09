@@ -1,7 +1,7 @@
 ---
-title: "printf"
-sidebar_label: "printf"
-description: "在控制台（服务器窗口，非游戏内聊天框）输出格式化字符串。"
+title: printf
+sidebar_label: printf
+description: 在控制台（服务器窗口，非游戏内聊天框）输出格式化字符串。
 tags: ["控制台"]
 ---
 

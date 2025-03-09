@@ -1,7 +1,7 @@
 ---
 title: setproperty
 sidebar_label: setproperty
-description: "添加新属性或修改现有属性。"
+description: 添加新属性或修改现有属性。
 tags: ["核心功能", "属性"]
 ---
 

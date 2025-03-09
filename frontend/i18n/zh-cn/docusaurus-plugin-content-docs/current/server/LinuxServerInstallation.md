@@ -1,6 +1,6 @@
 ---
-title: "Linux系统安装服务器"
-sidebar_label: "Linux系统安装服务器"
+title: Linux系统安装服务器
+sidebar_label: Linux系统安装服务器
 description: 本指南提供在 Linux 系统上安装 open.mp 服务器的完整教程。
 ---
 

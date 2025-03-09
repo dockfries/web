@@ -1,6 +1,6 @@
 ---
-title: "在Linux上运行open.mp客户端"
-sidebar_label: "在Linux上运行open.mp客户端"
+title: 在Linux上运行open.mp客户端
+sidebar_label: 在Linux上运行open.mp客户端
 description: 在Linux系统运行open.mp客户端的操作指南
 ---
 

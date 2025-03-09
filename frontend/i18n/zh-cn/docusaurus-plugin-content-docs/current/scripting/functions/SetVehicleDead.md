@@ -1,7 +1,7 @@
 ---
 title: SetVehicleDead
 sidebar_label: SetVehicleDead
-description: "设置车辆为损毁状态。"
+description: 设置车辆为损毁状态。
 tags: ["车辆"]
 ---
 

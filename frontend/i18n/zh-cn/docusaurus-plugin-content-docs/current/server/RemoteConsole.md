@@ -1,6 +1,6 @@
 ---
-title: "远程控制台 (RCON)"
-sidebar_label: "远程控制台 (RCON)"
+title: 远程控制台 (RCON)
+sidebar_label: 远程控制台 (RCON)
 description: 远程服务器管理。
 ---
 

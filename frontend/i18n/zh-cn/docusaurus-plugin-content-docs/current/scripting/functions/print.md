@@ -1,7 +1,7 @@
 ---
-title: "print"
-sidebar_label: "print"
-description: "将字符串输出至服务器控制台（非游戏内聊天框）并记录日志（log.txt）。"
+title: print
+sidebar_label: print
+description: 将字符串输出至服务器控制台（非游戏内聊天框）并记录日志（log.txt）。
 tags: ["控制台"]
 ---
 

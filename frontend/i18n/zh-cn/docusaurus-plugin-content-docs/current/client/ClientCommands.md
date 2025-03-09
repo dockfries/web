@@ -1,6 +1,6 @@
 ---
-title: "客户端命令列表"
-sidebar_label: "客户端命令列表"
+title: 客户端命令列表
+sidebar_label: 客户端命令列表
 description: 所有客户端命令列表。
 ---
 

@@ -1,27 +1,27 @@
 ---
-title: "Keywords: Directives"
-sidebar_label: "Keywords: Directives"
+title: "关键词：预处理器指令"
+sidebar_label: "关键词：预处理器指令"
 ---
 
-Directives are instructions passed to the compiler to control how it interprets your source code.
+预处理器指令是传递给编译器的指令，用于控制其对源代码的解析方式。
 
 ## `#assert`
 
-This checks if constant expression is true and if not halts the compile.
+该指令用于检查常量表达式是否为真，若结果为假则终止编译。
 
 ```c
 #define MOO 10
 #assert MOO > 5
 ```
 
-This will compile fine.
+上述代码能通过编译。
 
 ```c
 #define MOO 1
 #assert MOO > 5
 ```
 
-That won't and will give a fatal error. This is similar to:
+该代码将触发致命错误终止编译。其效果等价于：
 
 ```c
 #define MOO 1
@@ -30,46 +30,46 @@ That won't and will give a fatal error. This is similar to:
 #endif
 ```
 
-However assert will give an error of:
+但使用#assert 会输出如下错误信息：
 
 ```
-Assertation failed: 1 > 5
+断言失败：1 > 5
 ```
 
-Wheras the second will give an error of:
+而后者会提示：
 
 ```
-User error: Moo check failed
+用户错误：Moo check failed
 ```
 
-Which may or may not be helpful.
+两者的错误提示信息在调试效果上各有优劣。
 
 ## `#define`
 
-`#define` is a text replacement directive, wherever the first symbol of the define is found the rest of it will be placed.
+`#define` 是文本替换指令，预处理器会将该指令首符号在代码中的所有出现替换为后续定义内容。
 
 ```c
 #define MOO 7
 printf("%d", MOO);
 ```
 
-Will be changed to:
+将被转换为：
 
 ```c
 printf("%d", 7);
 ```
 
-This is why all defines are lost in decompilation as they don't exist when the code is compiled (all directives are pre-processed). Defines don't have to contain numbers:
+这也是为何反编译时所有宏定义都会丢失——编译时宏已被展开（所有预处理指令都在编译前处理）。宏定义不仅限于数值：
 
 ```c
 #define PL new i = 0; i < MAX_PLAYERS; i++) if (IsPlayerConnected(i)
 
-for(PL) printf("%d connected", i);
+for(PL) printf("%d 已连接", i);
 ```
 
-Will compile to the player loop we all know and love (despise). Notice how the brackets are used here, some from the for and some from the define macro(the replacement).
+将展开为经典的玩家循环结构。注意此处括号的运用：部分来自 for 语句，部分来自宏展开。
 
-Another little known fact about defines is that they can be multi-line if you escape the new line. Generally a new line ends the define however the following is valid:
+另一个较少提及的特性是：通过反斜杠换行符可实现多行宏定义。常规情况下换行符会终止宏定义，但以下写法合法：
 
 ```c
 #define PL \
@@ -79,19 +79,19 @@ Another little known fact about defines is that they can be multi-line if you es
 printf("%d", MOO(6));
 ```
 
-That will output 42 (no, not chosen randomly). Notice the excessive brackets in the define? This is because defines are straight text replacements so that will compile as:
+该代码将输出 42。注意宏定义中额外的括号？这是为了确保宏展开后的运算顺序正确：
 
 ```c
 printf("%d", ((6) * 7));
 ```
 
-That's fine as it is but let's take this example:
+这种处理能有效避免运算优先级问题。例如：
 
 ```c
 printf("%d", MOO(5 + 6));
 ```
 
-You would expect that to compile to output 77 ((5 + 6) \* 7) and with the brackets it will, however without the brackets you have:
+预期结果为 77（(5 + 6) \* 7）。若未使用括号保护：
 
 ```c
 #define MOO(%0) \
@@ -100,13 +100,15 @@ You would expect that to compile to output 77 ((5 + 6) \* 7) and with the bracke
 printf("%d", MOO(5 + 6));
 ```
 
-Which converts to:
+将展开为：
 
 ```c
 printf("%d", MOO(5 + 6 * 7));
 ```
 
-Which, due to the order of operations, compules as (5 + (6 \* 7)), whiche is 47 and very wrong. One interesting fact about the parameters is that if you have too many, the last one is all the extra ones. So doing:
+由于运算符优先级，实际计算为 5 + (6\*7) = 47，导致错误结果。
+
+宏参数的另一个特性是：当参数数量超过形参数量时，最后一个形参会吸收所有剩余实参。例如：
 
 ```c
 #define PP(%0,%1) \
@@ -115,21 +117,21 @@ Which, due to the order of operations, compules as (5 + (6 \* 7)), whiche is 47 
 PP(%s %s %s, "hi", "hello", "hi");
 ```
 
-Will infact print:
+实际输出：
 
 ```
 hi hello hi
 ```
 
-As `%1` contains "hi", "hello", "hi". You may have also noticed the use of `#` to convert a literal into a string. This is a SA-MP only feature and can be useful. It was just added here to give a disting distinguishing between the parameters.
+因为`%1`包含了"hi", "hello", "hi"。你可能注意到此处`#`符号用于字面量字符串化，此为 SA-MP 特有功能并且很有用。此处添加这个符号的主要目的是实现参数间的明确区分。
 
 ## `#else`
 
-`#else` is like else, but for #if instead of if.
+`#else` 是条件编译中的"否则"分支，对应`#if`指令。
 
 ## `#elseif`
 
-`#elseif` is like else if but for #if.
+`#elseif` 实现条件编译中的"否则如果"逻辑。
 
 ```c
 #define MOO 10
@@ -145,23 +147,23 @@ As `%1` contains "hi", "hello", "hi". You may have also noticed the use of `#` t
 
 ## `#emit`
 
-This directive is unlisted in the pawn-lang.pdf table however does exist. It is basically an inline compiler. If you know AMX you can use this to put AMX opcodes directly into your code. The one limitation is that is allows only one argument. Syntax: `#emit <opcode> <argument>`. `<argument>` can be a rational number, integer or (local or global) symbol(variables, functions and labels). The list of opcodes and their meaning can be found in Pawn Toolkit ver. 3664.
+该指令未在 pawn-lang.pdf 中列明但实际存在。它实现内联汇编功能，允许直接插入 AMX 操作码到代码中。语法为：`#emit <操作码> <参数>`，`<参数>`可为有理数、整数或符号（变量/函数/标签）。具体操作码列表参考 Pawn Toolkit ver.3664。
 
 ## `#endif`
 
-`#endif` is like a close brace for if. #if doesn't use braces, everything is conditionally added up to the corresponding #endif.
+`#endif` 标志着`#if`条件块的结束，类似代码块中的右花括号。
 
 ## `#endinput, #endscript`
 
-This stops the inclusion of a single file.
+终止当前文件的包含过程。
 
 ## `#error`
 
-This halts the compiler instantly and gives a custom error message. See #assert for an example.
+立即终止编译并输出自定义错误信息。参见`#assert`示例。
 
 ## `#if`
 
-`#if` is to the proprocessor what if is to code. You can choose exactly what to compile and what not to from here. For example consider the following code:
+预处理器的条件判断指令，用于控制代码包含策略。与常规 if 语句不同，`#if`要求表达式必须为常量。 例如以下代码：
 
 ```c
 #define LIMIT 10
@@ -172,7 +174,7 @@ if (LIMIT < 10)
 }
 ```
 
-That will compile as:
+将被编译为：
 
 ```c
 if (10 < 10)
@@ -181,19 +183,19 @@ if (10 < 10)
 }
 ```
 
-Which will clearly never be true and the compiler knows it - so it tells you so, giving you a "constant expression" warning. The question is, if it will never be true what's the point of including it at all? You could just remove the code but then there will be no checks if someone changes LIMIT and recompiles. This is what #if is for. Unlike normal if which gives a warning if the expression is constant, #if expressions MUST be constant. So:
+显然该条件永远不可能为真，编译器会识别这种情况——因此给出"constant expression"警告。关键在于，既然条件永远不成立，保留这段代码的意义何在？虽然可以直接删除代码，但这将导致当有人修改 LIMIT 后重新编译时失去检查机制。这正是`#if`的应用场景。与普通 if 语句在表达式为常量时产生警告不同，`#if`表达式必须为常量表达式。因此：
 
 ```c
 #define LIMIT 10
 
 #if LIMIT < 10
-    #error Limit too low
+    #error 限制值过低
 #endif
 ```
 
-That will check that the limit is not too small when you compile and if it is will give a compile time error, rather than you having to test the mode to see if there's something wrong. This also means that no excess code is generated. Note the lack of brackets too, you can use them, and may need them in more complex expressions, but they're not required.
+该方式能在编译阶段直接检测限制值是否过小，若不符合要求则触发**编译时错误**，而无需通过运行测试来发现问题。这种机制还意味着不会生成冗余代码。注意此处省略了括号——虽然您可以使用括号，在复杂表达式中可能需要它们，但简单情况下并非必需。
 
-Here's another example:
+再看另一个示例：
 
 ```c
 #define LIMIT 10
@@ -208,7 +210,7 @@ else
 }
 ```
 
-Again this is a constant check, which will give a warning, but both prints will be compiled when we KNOW only one will ever run. Using #if this becomes:
+这同样属于常量检查的范畴，编译器会发出警告。尽管我们明确知道只有一条分支会被执行，但两条打印语句仍会被编译。使用`#if`预处理指令改写后：
 
 ```c
 #define LIMIT 10
@@ -220,25 +222,25 @@ Again this is a constant check, which will give a warning, but both prints will 
 #endif
 ```
 
-That way only the printf which is required will be compiled and the other one will still be in your source code incase they change LIMIT and recompile, but won't be included in the code as it's not needed. This way also means the pointless if isn't run every time your code is run, which is always good.
+通过这种方式，仅需保留的打印语句会被编译进最终代码，另一条语句仍驻留在源码中——既保证了当开发者修改 LIMIT 值后重新编译时的条件检测能力，又剔除了当前不需要的代码段。更重要的是，这种方式彻底消除了每次程序运行时执行无效条件判断的性能损耗，这对代码执行效率具有显著优化意义。
 
 ## `#include`
 
-This takes all the code from a specified file and inserts it into your code at the point at which the include line is. There are two types of include: relative and system (I just made those terms up, if you have better ones please say). Relative includes use double quotes around the filename and are located relative to the current file, so:
+该指令将指定文件的所有代码插入到当前文件包含指令所在位置。包含方式分为两类：相对路径包含与系统路径包含（此为自创术语，如有更佳命名欢迎提议）。相对路径包含使用双引号包裹文件名，路径解析基于当前文件所在目录：
 
 ```c
 #include "me.pwn"
 ```
 
-would include the file "me.pwn" from the same directory as the file including that file. The other type, system, includes the file from the "include" directory that is located either in same directory as is Pawn compiler or parent directory(paths:"include","../include"):
+上述指令将从当前文件所在目录引入"me.pwn"文件。系统路径包含则从 Pawn 编译器同级目录或上级目录的"include"文件夹（路径规则："include","../include"）中查找文件：
 
 ```c
-#include "<me>"
+#include <me>
 ```
 
-Would include the file "me.inc" (note the lack of extension, you can specify one if the file is not .p (not .pwn) or .inc) from the pawno/include directory (assuming you're using pawno).
+该指令将从 pawno/include 目录（假设使用 pawno 环境）引入"me.inc"文件（注意省略扩展名的默认规则，若文件非.p/.pwn/.inc 格式需显式指定扩展名）。
 
-Both these types can take directories:
+两种包含方式均支持子目录路径：
 
 ```c
 #include "folder/me.pwn"
@@ -248,30 +250,30 @@ Both these types can take directories:
 #include <folder/me>
 ```
 
-Both of those will include a file one directory down from their respective default directories. If the file does not exist compile fails instantly.
+上述指令将分别从相对路径和系统路径的默认目录下一级子目录查找文件。若文件不存在则立即触发编译失败。
 
 ## `#pragma`
 
-This is one of the most complex directives. It has a number of options to control how your script works. An example setting would look like:
+这是最复杂的预处理器指令之一，提供多项编译参数控制脚本行为。典型设置示例如：
 
 ```c
 #pragma ctrlchar '$'
 ```
 
-That changes the escape character from \ to $, so a new line, instead of being "\r\n" (windows CR-LF) would be "$r\$n". Many of the options are designed to control amx compilation for embedded systems and so limit things which are really almost unlimited on a PC, they are all listed in pawn-lang.pdf but only selected ones relevant to SA:MP are here:
+该指令将转义字符从\改为$，因此换行符将由"\r\n"变为"$r\$n"。多数参数设计用于嵌入式系统的 AMX 编译限制（PC 端通常无此限制），完整列表详见 pawn-lang.pdf，以下仅列出与 SA:MP 相关的核心参数：
 
-| Name       | Values                        | Description                                                                                                                                                                                                                                                                                                                                                             |
-| ---------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| codepage   | name/value                    | Sets the Unicode codepage to use for strings.                                                                                                                                                                                                                                                                                                                           |
-| compress   | 1/0                           | Unsupported in SA-MP - don't try to use it.                                                                                                                                                                                                                                                                                                                             |
-| deprecated | symbol                        | Generated a warning if the given symbol is used to tell people there's a better version available.                                                                                                                                                                                                                                                                      |
-| dynamic    | value(generally a power of 2) | Sets the size of memory (in cells) assigned to the stack and heap. Required if you get excess memory usage warning after compilation. (A weird table after the compiler copyright line)                                                                                                                                                                                 |
-| library    | dll name                      | Widley incorrectly used in SA-MP. This specifies the dll to get the native functions defined in the file it is from. It does not define a file **as** a library.                                                                                                                                                                                                        |
-| pack       | 1/0                           | Swap the meanings of !"" and "". See pawn-lang.pdf for more information on packed strings.                                                                                                                                                                                                                                                                              |
-| tabsize    | value                         | Another widely misused setting. This should be used to set the size of a tab to avoid compiler warnings which are wrong due to spaces and tabs being used interchangably. This is set to 4 in SA:MP as that is the size of a tab in pawno. Setting this to 0 will surpress all your indentation warnings but is highly unadvised as it allows entirely unreadable code. |
-| unused     | symbol                        | Like deprecated this appears after the symbol you wish to surpress the "symbol is never used" warning for. Generally the preferred method of doing this is by using stock however this is not always applicable (e.g. function parameters cannot not be compiled).                                                                                                      |
+| 参数名     | 取值范围              | 技术说明                                                                                                                                                                                       |
+| ---------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| codepage   | 名称/数值             | 设置字符串使用的 Unicode 代码页                                                                                                                                                                |
+| compress   | 1/0                   | SA-MP 环境不支持，切勿使用                                                                                                                                                                     |
+| deprecated | 符号名                | 对指定符号启用弃用警告，提示存在更优替代方案                                                                                                                                                   |
+| dynamic    | 数值（通常为 2 的幂） | 设置栈与堆的内存分配大小（单位：存储单元）。当编译后出现内存超额警告时需调整此值（编译器版权信息后的异常表格即为此类警告）                                                                     |
+| library    | DLL 名称              | SA-MP 社区常见误用参数。该参数指定获取原生函数（native functions）的 DLL 来源，并非用于声明文件作为库                                                                                          |
+| pack       | 1/0                   | 切换!""与""的语义。详见 pawn-lang.pdf 获取打包字符串的详细说明                                                                                                                                 |
+| tabsize    | 数值                  | 另一常见误用参数。用于设置制表符宽度以避免因混用空格/制表符导致的错误编译警告。SA:MP 中设为 4 以匹配 pawno 的制表符宽度。设为 0 将禁用所有缩进警告，但会导致代码可读性严重下降，强烈不建议使用 |
+| unused     | 符号名                | 对指定符号禁用"未使用"警告。通常更推荐使用 stock 修饰符实现类似效果，但某些场景不适用（例如函数参数无法被排除）                                                                                |
 
-### Deprecated
+### 弃用警告示例
 
 ```c
 new
@@ -282,11 +284,11 @@ new
 main() {printf("%d", gOldVariable);}
 ```
 
-That will give a warning that gOldVariable should not be used anymore. This is mostly useful for functions to preserve backwards compatability while updating the API.
+该代码将触发 gOldVariable 的弃用警告。此机制常用于函数级 API 更新时保持向后兼容性。
 
 ### `#tryinclude`
 
-This is similar to #include but if the file doesn't exist the compilation doesn't fail. This is useful for only including features in your script if a person has the correct plugin installed (or at least the plugin include):
+功能类似#include，但文件不存在时不会导致编译失败。该机制的核心价值在于：仅当用户安装了特定插件（或至少包含相关插件头文件）时，才在脚本中启用对应功能模块。
 
 **myinc.inc**
 
@@ -299,7 +301,7 @@ This is similar to #include but if the file doesn't exist the compilation doesn'
 stock MyIncFunc() {printf("Hello");}
 ```
 
-**Gamemode:**
+**游戏主脚本：​**
 
 ```c
 #tryinclude <myinc>
@@ -312,11 +314,11 @@ main()
 }
 ```
 
-That will only call MyIncFunc if the file with it in was found and compiled. This, as stated before, is good for things like IRC plugins to check if they actually have the plugin.
+仅当 myinc.inc 存在且成功编译时才会调用 MyIncFunc()。此特性特别适用于 IRC 插件等需要运行时检测插件是否加载的场景。
 
 ### `#undef`
 
-Removes a previously defined macro or constant symbol.
+移除已定义的宏或常量符号。
 
 ```c
 #define MOO 10
@@ -325,7 +327,7 @@ printf("%d", MOO);
 printf("%d", MOO);
 ```
 
-That will fail to compile as MOO doesn't exist anymore by the time the second printf is reached.
+该代码将在第二个 printf 处编译失败，因为 MOO 已被取消定义。
 
 ```c
 enum {
@@ -334,5 +336,5 @@ enum {
 
 printf("%d", e_example);
 #undef e_example
-printf("%d", e_example); // fatal error
+printf("%d", e_example); // 致命错误
 ```

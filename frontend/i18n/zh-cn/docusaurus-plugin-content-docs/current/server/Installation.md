@@ -1,6 +1,6 @@
 ---
-title: "从 SA:MP 服务器迁移游戏模式到 open.mp 的完整指南"
-sidebar_label: "服务器迁移指南"
+title: 从 SA:MP 服务器迁移游戏模式到 open.mp 的完整指南
+sidebar_label: 服务器迁移指南
 description: 本教程面向需要将游戏模式从 SA:MP 服务器迁移至 open.mp 服务器的开发者。
 ---
 

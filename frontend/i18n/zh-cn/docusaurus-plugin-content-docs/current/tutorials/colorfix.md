@@ -1,10 +1,10 @@
 ---
-title: "颜色修复"
-sidebar_label: "颜色修复"
-description: "基础脚本用于扩展玩家颜色库"
+title: 颜色修复
+sidebar_label: 颜色修复
+description: 基础脚本用于扩展玩家颜色库
 ---
 
-本教程需配合「[GetPlayerColor](../scripting/functions/GetPlayerColor)」使用，适用于未在玩家连接时调用「[SetPlayerColor](../scripting/functions/SetPlayerColor)」的脚本。
+本教程需配合「[GetPlayerColor](../scripting/functions/GetPlayerColor)」使用，适用于在玩家连接时调用「[SetPlayerColor](../scripting/functions/SetPlayerColor)」的脚本。
 
 ```pawn
 new PlayerColors[] = {

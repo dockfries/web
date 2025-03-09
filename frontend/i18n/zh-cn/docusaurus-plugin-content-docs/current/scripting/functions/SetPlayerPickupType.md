@@ -1,7 +1,7 @@
 ---
 title: SetPlayerPickupType
 sidebar_label: SetPlayerPickupType
-description: "设置玩家专属拾取物的类型。"
+description: 设置玩家专属拾取物的类型。
 tags: ["玩家", "拾取物", "玩家拾取物"]
 ---
 

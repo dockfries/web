@@ -1,6 +1,6 @@
 ---
-title: "高级数据结构"
-sidebar_label: "高级数据结构"
+title: 高级数据结构
+sidebar_label: 高级数据结构
 ---
 
 ## 数组操作

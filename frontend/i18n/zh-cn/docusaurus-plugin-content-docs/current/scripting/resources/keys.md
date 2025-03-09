@@ -1,6 +1,6 @@
 ---
-title: "按键定义"
-sidebar_label: "按键定义"
+title: 按键定义
+sidebar_label: 按键定义
 ---
 
 :::note

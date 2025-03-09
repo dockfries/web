@@ -1,6 +1,6 @@
 ---
-title: "open.mp 新增函数"
-sidebar_label: "open.mp 新增函数"
+title: open.mp 新增函数
+sidebar_label: open.mp 新增函数
 description: open.mp 新增函数与回调说明。
 ---
 

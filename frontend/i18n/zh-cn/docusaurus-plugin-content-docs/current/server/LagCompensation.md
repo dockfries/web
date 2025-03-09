@@ -1,6 +1,6 @@
 ---
-title: "延迟补偿机制"
-sidebar_label: "延迟补偿机制"
+title: 延迟补偿机制
+sidebar_label: 延迟补偿机制
 description: 延迟补偿机制说明。
 ---
 
