@@ -1,30 +1,30 @@
 ---
-title: "Basics: Variables"
-sidebar_label: "Basics: Variables"
-description: A beginner's guide to variables in Pawn
+title: "基础：变量"
+sidebar_label: "基础：变量"
+description: Pawn语言变量入门指南
 ---
 
-## Variables
+## 变量
 
-One of the most important concepts in programming is the concept of ‘variables’. In programming, a variable is an entity that is changeable, but in terms of what ? In Pawn language a variable holds a ‘value’ at any time and that value-as the name suggests-is ‘variable’ or ‘changeable’.
+编程中最重要的概念之一是「变量」。在编程中，变量是一个可变的实体，但具体是就什么而言可变？在 Pawn 语言中，变量在任何时刻都持有一个「值」，而这个值——正如其名所示——是「可变的」或「可更改的」。
 
-The reason why variables are so important is because they are basically small units of computer memory which can hold or ‘remember’ different values while the program is under execution (running), and that property turns out to be very useful in programming. For example, you want to keep track of the scores of 100 players in a game, you can do it easily by programming the computer to store (remember) and update those values. Later if you want to find the mean score of those players or want to create a leaderboard, those values from the variables can be easily accessed and used for that purpose.
+变量之所以如此重要，是因为它们本质上是计算机内存的小单元，可以在程序执行（运行）期间保存或「记住」不同的值，这一特性在编程中非常有用。例如，若想要追踪游戏中 100 名玩家的分数，您可以通过编程让计算机存储（记住）并更新这些值。之后如果您想计算这些玩家的平均分或创建排行榜，可以轻松从变量中访问这些值并用于相应目的。
 
-### Declaring Variables
+### 声明变量
 
-Following is the syntax for variable declaration :
+以下是变量声明的语法：
 
 ```c
-// Creating (more appropriately, 'declaring') a variable named 'myVariable
+// 创建（更准确地说，「声明」）一个名为'myVariable'的变量
 
 new myVariable;
 
-// The 'new' keyword is used for declaring a variable
-// In the above line a variable is declared with the name 'myVariable'
-// Semi-colon is used in the end to close the declaration statement.
+// 'new'关键字用于声明变量
+// 上述代码行声明了一个名为'myVariable'的变量
+// 结尾使用分号来结束声明语句
 ```
 
-The declaration syntax can be better understood by looking at some examples :
+通过查看一些示例可以更好地理解声明语法：
 
 ```c
 new var;
@@ -34,13 +34,13 @@ new vehicles;
 new topScore;
 ```
 
-Each of the above defined variable has a value by default, which is zero. There are different ways of assigning values to a variable. One method is directly assigning a value to the variable as it’s declared :
+上述每个已定义的变量都有一个默认值，即零。有多种方法可以为变量赋值。其中一种方法是在声明时直接为变量赋值：
 
 ```c
 new letters = 25;
 ```
 
-In the above example, a variable named ‘letters’ is being declared, with a value of 25. You will notice an equal sign which is a simple Assignment Operator that can be used for assigning values to variables. It evaluates the expression on its right and assigns the resultant value to the variable referenced on its left side. Other than assigning values directly at the declaration, you can also do it in later parts of the code :
+在上述示例中，声明了一个名为「letters」的变量，其值为 25。您会注意到等号是一个简单的赋值运算符，可用于为变量赋值。它会计算右侧的表达式，并将结果值赋给左侧引用的变量。除了在声明时直接赋值外，您也可以在代码的后续部分进行赋值：
 
 ```c
 new letters;
@@ -48,9 +48,9 @@ new letters;
 letters = 25;
 ```
 
-### Scopes
+### 作用域
 
-Modifying a variable's value is possible only if the part of the code where you’re referencing the variable is within the scope of that variable. Scope of a variable depends upon the code block or position where that variable was declared. For example a variable being declared outside any block of code, usually in the beginning of the script, has a ‘Global’ scope and can be accessed from anywhere within the script:
+只有在引用变量的代码部分位于该变量的作用域内时，才能修改变量的值。变量的作用域取决于声明该变量的代码块或位置。例如，在任何代码块外部声明的变量（通常在脚本开头）具有「全局」作用域，可以从脚本内的任何位置访问：
 
 ```c
 #include <open.mp>
@@ -61,7 +61,7 @@ public OnFilterScriptInit()
 {
     g_var = 10;
 
-    printf("The value is %i", g_var);
+    printf("当前值为 %i", g_var);
 
     return 1;
 }
@@ -70,19 +70,19 @@ public OnPlayerConnect(playerid)
 {
     g_var = 100;
 
-    printf("The value is %i", g_var);
+    printf("当前值为 %i", g_var);
 
     return 1;
 }
 
-// Output :
-// The value is 10
-// The value is 100
+// 输出：
+// 当前值为 10
+// 当前值为 100
 
-// Note: The second output line is shown only when a player connects.
+// 注意：第二个输出行仅在玩家连接时显示
 ```
 
-Other than ‘Global’ (scoped) variables, there are ‘local’ or ‘private’ variables that can be accessed only from inside the block of code where they were declared.
+除了「全局」（作用域）变量外，还有「局部」或「私有」变量，这些变量只能从声明它们的代码块内部访问：
 
 ```c
 #include <open.mp>
@@ -98,15 +98,15 @@ public OnFilterScriptInit()
 
 public OnPlayerConnect(playerid)
 {
-    localVar = 10; // This line will show an error upon compilation
+    localVar = 10; // 此行在编译时会显示错误
 
     return 1;
 }
 ```
 
-If you try to compile the code above, the compiler will show an error which is reasonable as a local variable is being references in a completely different block of code. Note: If it is a nested code block then the variable can be accessed from there.
+如果您尝试编译上述代码，编译器会显示错误，这是合理的，因为局部变量在一个完全不同的代码块中被引用。注意：如果是嵌套代码块，则可以从那里访问变量。
 
-One important thing to note is that you cannot declare variables with the same names if their scopes intercede. For example if you already have a variable named ‘score’ on a global scope, you cannot create another variable named ‘score’ on the global scope as well as a local one, and this is true for other way around as well (if you already have a local variable, avoid declaring a global variable with the same name).
+需要注意的重要一点是，如果变量的作用域相互交叉，则不能声明同名变量。例如，如果您在全局作用域中已有一个名为「score」的变量，则不能在全局作用域或局部作用域中创建另一个名为「score」的变量，反之亦然（如果已存在局部变量，请避免声明同名的全局变量）：
 
 ```c
 #include <open.mp>
@@ -115,40 +115,40 @@ new g_score;
 
 public OnFilterScriptInit()
 {
-    new g_score = 5; // This line will show an error.
+    new g_score = 5; // 此行会显示错误
     return 1;
 }
 ```
 
-### Naming Rules
+### 命名规则
 
-Now that you know how to declare variables, you need to know the naming rules for declaring variable which are listed below :
+既然您已经知道如何声明变量，您需要了解声明变量的命名规则，如下所列：
 
-- All variable names must begin with a letter or an underscore (`_`)
-- After the first initial letter, variable names can contain letters and numbers but no spaces or special characters.
-- The variable names are case sensitive i.e Uppercase letters are distinct from the lowercase letters.
-- Using a reserved word (keyword) as a variable name will show an error.
+- 所有变量名必须以字母或下划线（`_`）开头
+- 在第一个起始字母之后，变量名可以包含字母和数字，但不能包含空格或特殊字符
+- 变量名区分大小写，即大写字母与小写字母不同
+- 使用保留字（关键字）作为变量名会显示错误
 
-#### Examples :
+#### 示例：
 
 ```c
-new new; // Incorrect : Using a reserved word
-new _new; // Correct
+new new; // 错误：使用保留字
+new _new; // 正确
 
-new 10letters; // Incorrect : Name starting with a number
-new letters10; // Correct
-new letters_10; // Correct
+new 10letters; // 错误：名称以数字开头
+new letters10; // 正确
+new letters_10; // 正确
 
-new my name; // Incorrect : Space in the name
-new my_name; // Correct
+new my name; // 错误：名称中包含空格
+new my_name; // 正确
 
-new !nternet; // Incorrect
-new Internet; // Correct
+new !nternet; // 错误
+new Internet; // 正确
 ```
 
-### Storing different types of Data
+### 存储不同类型的数据
 
-After that, now lets look at some examples of what types of data can be stored in variable and how :
+接下来，让我们看看可以在变量中存储哪些类型的数据以及如何存储：
 
 ```c
 new letter = 'M';
@@ -158,34 +158,34 @@ new value = 100;
 
 
 new decimalValue = 1.0;
-// Works, but will show a compiler warning
-// warning 213: tag mismatch
+// 有效，但会显示编译器警告
+// warning 213: 标签不匹配
 
 
 new engineOn = true;
-// Works, and will not show a compiler warning but using a Tag is suggested
+// 有效，且不会显示编译器警告，但建议使用标签
 
 
 new sentence = "This is a sentence";
-// Will show an error.
-// error 006: must be assigned to an array
+// 会显示错误
+// error 006: 必须赋值给数组
 ```
 
-A variable is capable of holding a character, integer value, boolean (true or false) and a float value (decimal value). The comments in the above code show that storing a string in a variable results into an error (as strings can be stored in _Arrays_ only). Other than that, assigning a float value to a variable will result in a compiler warning, which can be avoided by adding ‘tags’. Without proper tags, the script will show warnings upon compilation but will be executable. Tags tell the compiler about the type of data that is intended to be stored in the variable, which in turn informs us in the form of errors or warning if we make a program-breaking mistake in the code. Example of tags :
+变量能够保存字符、整数值、布尔值（真或假）和浮点值（小数值）。上述代码中的注释显示，在变量中存储字符串会导致错误（因为字符串只能存储在*数组*中）。除此之外，为变量赋浮点值会导致编译器警告，这可以通过添加「标签」来避免。没有正确的标签，脚本在编译时会显示警告，但仍是可执行的。标签告诉编译器打算存储在变量中的数据类型，如果我们代码中出现破坏程序的错误，这反过来会以错误或警告的形式通知我们。标签示例：
 
 ```c
-new decimalValue = 1.0; // Incorrect
-new bool:decimalValue = 1.0 // Incorrect
-new Float:decimalValue = 1.0; // Correct
+new decimalValue = 1.0; // 错误
+new bool:decimalValue = 1.0 // 错误
+new Float:decimalValue = 1.0; // 正确
 
-new switchOn = 1.0; // Incorrect
-new switchOn = true; // Incorrect, doesn't show a warning
-new bool:switchOn = true; // Correct
+new switchOn = 1.0; // 错误
+new switchOn = true; // 错误，不会显示警告
+new bool:switchOn = true; // 正确
 ```
 
-Using correct tags is important to avoid any bugs or errors during program execution.
+使用正确的标签对于避免程序执行期间的任何错误或故障非常重要。
 
-Pawn being a typeless language allows us to store different types of data in the same variable which can be useful in some cases and troublesome in others, but such usage of variables is not recommended.
+Pawn 作为一种无类型语言，允许我们在同一个变量中存储不同类型的数据，这在某些情况下可能有用，但在其他情况下可能带来麻烦，因此不建议这样使用变量：
 
 ```c
 #include <open.mp>
@@ -205,12 +205,12 @@ public OnFilterScriptInit()
     printf("%f", var);
 
     var = true;
-    printf("%d", var); // prints a value 0 or 1
+    printf("%d", var); // 打印值0或1
 
     return 1;
 }
 
-// Output :
+// 输出：
 a
 1
 1.000000

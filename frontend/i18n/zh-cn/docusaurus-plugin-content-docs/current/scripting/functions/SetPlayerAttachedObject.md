@@ -49,7 +49,7 @@ public OnPlayerSpawn(playerid)
 
 :::tip
 
-本函数与 CreateObject/CreatePlayerObject 对象池相互独立
+本函数与 CreateObject/CreatePlayerObject 物体池相互独立
 
 :::
 

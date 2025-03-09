@@ -1,22 +1,22 @@
 ---
-title: "Keywords: Statements"
-sidebar_label: "Keywords: Statements"
+title: "关键字：语句"
+sidebar_label: "关键字：语句"
 ---
 
 ## `assert`
 
-Aborts execution with a runtime error if the expression evaluates to logically false. Seems to work only in the main() block. The assert statement should be used to indicate a logical(programmer's) error, never a run-time(user's) error.
+当表达式结果为逻辑假时，触发运行时错误并终止程序执行。该语句仅在`main()`代码块中生效。`assert`应用于标识逻辑（程序员）错误，而非运行时（用户）错误。
 
 ```c
 main()
 {
-    assert (MAX_PLAYERS == GetMaxPlayers()); // ascertain that the definition of MAX_PLAYERS is equal to the actual number of server slots in use
+    assert (MAX_PLAYERS == GetMaxPlayers()); // 验证MAX_PLAYERS宏定义是否与实际服务器玩家槽位数一致
 }
 ```
 
 ## `break`
 
-Breaks out of a loop instantly, only leaves the top level loop, not all current loops.
+立即终止当前循环执行，仅退出最内层循环而非所有嵌套循环。
 
 ```c
 for (new i = 0; i < 10; i++)
@@ -29,7 +29,7 @@ for (new i = 0; i < 10; i++)
 }
 ```
 
-Will produce:
+输出结果：
 
 ```c
 0
@@ -40,7 +40,7 @@ Will produce:
 5
 ```
 
-While:
+而：
 
 ```c
 for (new i = 0; i < 10; i++)
@@ -53,7 +53,7 @@ for (new i = 0; i < 10; i++)
 }
 ```
 
-Will produce:
+输出结果：
 
 ```c
 0
@@ -63,11 +63,11 @@ Will produce:
 4
 ```
 
-As the loop is instantly exited neither loop gets to 10 and the second one ends before the number 5 is printed.
+因循环立即终止，两个示例均未完成 10 次迭代，且第二个示例在打印数字 5 前退出。
 
 ## `case`
 
-Handles a specific result in a switch statement. The result can be either a single number, a selection of numbers or a range of numbers:
+处理`switch`语句中的特定匹配结果。支持单值匹配、多值枚举或数值范围匹配：
 
 ```c
 new
@@ -76,30 +76,30 @@ switch (switchVar)
 {
     case 1:
     {
-        printf("switchVar is 1");
+        printf("switchVar等于1");
     }
     case 4:
     {
-        printf("switchVar is 4");
+        printf("switchVar等于4");
     }
     case 2, 3, 5:
     {
-        printf("switchVar is either 2, 3 or 5");
+        printf("switchVar可能是2、3或5");
     }
     case 7 .. 11:
     {
-        printf("switchVar is somewhere between 7 and 11 inclusive (7, 8, 9, 10 or 11)");
+        printf("switchVar位于7到11之间（含7、8、9、10、11）");
     }
     default:
     {
-        printf("switchVar is not 1, 2, 3, 4, 5, 7, 8, 9, 10 or 11");
+        printf("switchVar不是1、2、3、4、5、7、8、9、10或11");
     }
 }
 ```
 
 ## `continue`
 
-Similar to break but just goes on to the next loop itteration. It is important to note that the point to which it jumps varies depending on which loop type you use.
+跳过当前循环迭代剩余代码，直接进入下一轮循环。需注意其在不同类型循环中的跳转位置差异。
 
 ```c
 for (new i = 0; i < 10; i++)
@@ -112,7 +112,7 @@ for (new i = 0; i < 10; i++)
 }
 ```
 
-Will produce:
+输出结果：
 
 ```c
 0
@@ -126,7 +126,7 @@ Will produce:
 9
 ```
 
-A continue after the print will basically do nothing. In a for loop continue jumps to the third statement in the for statement (in this example the "i++;" bit), this is different to how it behaves in a while loop:
+若`continue`置于打印语句之后则无效。在`for`循环中，`continue`跳转至循环条件更新部分（示例中的`i++`），而`while`循环中表现不同：
 
 ```c
 new
@@ -142,15 +142,15 @@ while (i < 10)
 }
 ```
 
-This will produce an infinate loop as continue will jump to AFTER the "i++;" and go back to the "while (i < 10)" part. At this time, "i" will still be 5 as "i++;" was never called, and so continue will be called again and "i" will be stuck at 5 forever.
+此代码将导致无限循环：`continue`跳转至`i++`之后，但`i`始终为 5，条件`i < 10`持续成立。
 
 ## `default`
 
-default handles switch statement results which aren't handled explicitly by case statements. See the case example for an example.
+处理`switch`语句中未被显式`case`覆盖的情况。参见上文`case`示例。
 
 ## `do`
 
-do is a type of loop which can be used with while to produce a loop which will always be run at least once. Note the semi-colon after the while () in the following example:
+`do-while`循环结构，保证代码块至少执行一次。注意`while()`后的分号：
 
 ```c
 new
@@ -163,13 +163,13 @@ do
 while (i < 10);
 ```
 
-"i" is clearly not less that 10 but this loop will produce:
+尽管初始条件`i < 10`不成立，仍输出：
 
 ```c
 10
 ```
 
-anyway. The similar while loop:
+对应的`while`循环：
 
 ```c
 new
@@ -181,9 +181,9 @@ while (i < 10)
 }
 ```
 
-} Will not give any output as the condition instantly fails.
+无任何输出，因条件检查在循环开始前执行。
 
-These are also useful for avoiding double checks:
+`do-while`可优化双重条件检查场景：
 
 ```c
 new
@@ -200,7 +200,7 @@ if (checkVar == 10)
 }
 ```
 
-This isn't obviously a major issue but you are checking checkVar twice in quick succession at the start of the loop, which is quite pointless, however the if is required as you need to do code if the condition is true but outside the loop (this is a fairly common situation). This can be improved by doing:
+虽然这不算严重问题，但您在循环开始时快速连续检查了两次`checkVar`变量，这显然没有实际意义。然而`if`语句是必要的，因为需要在条件为真时执行循环外的代码（这在编程中是较为常见的情况）。可通过以下方式优化：
 
 ```c
 new
@@ -218,47 +218,47 @@ if (checkVar == 10)
 }
 ```
 
-In this instance the result will be exactly the same but crucially with one less pointless check.
+两版功能相同，但后者减少了一次冗余条件检查。
 
 ## `else`
 
-else is called when an if statement fails (assuming it is present):
+当`if`语句条件不满足时执行`else`代码块：
 
 ```c
 new
     checkVar = 5;
 if (checkVar == 10)
 {
-    printf("This will never be called");
+    printf("此代码永不执行");
 }
 else
 {
-    printf("The if statement failed so this will be displayed");
+    printf("if条件失败，执行else代码块");
 }
 ```
 
-else can also be combined with if:
+支持`else if`链式条件：
 
 ```c
 new
     checkVar = 2;
 if (checkVar == 1)
 {
-    printf("This will not be called"):
+    printf("条件不成立，不执行");
 }
 else if (checkVar == 2)
 {
-    printf("The first if failed so the second was checked and is true");
+    printf("首个if失败，检查第二个条件并执行");
 }
 else
 {
-    printf("This will not be called as one of the ifs was true");
+    printf("任一条件成立，不执行此处");
 }
 ```
 
 ## `exit`
 
-This exits the current program instantly.
+此指令立即退出当前程序。
 
 ```c
 main()
@@ -270,15 +270,15 @@ main()
 
 ## `for`
 
-A for loop is a type of loop involving three stages, initialisation, comparison and update. These are each separated by a semicolon (Wink and can each be excluded by just setting a blank space. The most basic for loop is:
+for 循环是一种包含初始化、条件判断和更新三阶段的循环结构。各阶段由分号分隔（眨眼符号;），均可留空。最基础的 for 循环格式为：
 
 ```c
 for ( ; ; ) {}
 ```
 
-This has no initialisation, no comparison and no update and as a result will go forever (the comparison, being absent, defaults to true).
+该结构无初始化、无条件判断、无更新，因此将无限循环（缺失条件判断时默认为真）。
 
-One of the more common loops is:
+典型应用示例如下：
 
 ```c
 for (new i = 0; i < MAX_PLAYERS; i++)
@@ -287,15 +287,15 @@ for (new i = 0; i < MAX_PLAYERS; i++)
 }
 ```
 
-The initialisation in this loop is:
+此循环的初始化部分为：
 
 ```c
 new i = 0;
 ```
 
-The semicolon marks the end of the initialisation. This declares a new variable, called i, which can only be used with this loop. Next comparison is done. This compares i to MAX_PLAYERS (default 500 - see #define) and if it is less continues. Then the contents of the loop is run. Initially this will print "0". Finally the update is done "i++", this increases the value of i. Now a complete itteration is done, the loop loops, as its name implies, and goes back to the comparison stage (initialisation is only done once per call).
+分号标志着初始化结束。此处声明的新变量 i 仅在循环体内有效。随后执行条件判断，将 i 与 MAX_PLAYERS（默认值 500，参见#define）比较，若条件成立则继续循环。循环体执行完毕后执行更新语句"i++"递增变量值。完成完整迭代后，循环将返回条件判断阶段（初始化仅执行一次）。
 
-The result of this loop is all the numbers from 0 to 499 inclusive being printed out. The equivalent while loop (ignoring the effects of continue) would be:
+该循环将输出 0 到 499（含）的所有数字。等效的 while 循环（忽略 continue 的影响）为：
 
 ```c
 new
@@ -307,7 +307,7 @@ while (i < MAX_PLAYERS)
 }
 ```
 
-The three stages can be made a lot more complex if required using commas for the first and last sections and standard comparisons for the middle section:
+通过逗号运算符扩展初始化和更新阶段，可构建复杂循环结构：
 
 ```c
 for (new i = 0, j = 200; i < MAX_PLAYERS && j > 10; i++, j -= 2)
@@ -316,19 +316,19 @@ for (new i = 0, j = 200; i < MAX_PLAYERS && j > 10; i++, j -= 2)
 }
 ```
 
-This will create two new variables and set them to 0 and 200, then loop while one is less than 200 and the other is greater than 10, increasing one each time and decreasing the other by two each time.
+此例将创建两个变量并初始化为 0 和 200，循环条件为 i 小于 200 且 j 大于 10，每次迭代 i 递增，j 递减 2。
 
-As stated before the scope of variables is limited to the loop usually:
+注意循环变量的作用域限制：
 
 ```c
 for (new i = 0; i < MAX_PLAYERS; i++)
 {
     printf("%d", i);
 }
-printf("%d", i);
+printf("%d", i);  // 错误：i在循环外不可访问
 ```
 
-That will produce an error as "i" doesn't exist after the loop ends. However:
+若需在循环外访问变量，需在外部声明：
 
 ```c
 new
@@ -340,7 +340,7 @@ for ( ; i < MAX_PLAYERS; i++)
 printf("%d", i);
 ```
 
-Is fine as "i" is not declared in the loop. You could also initialise "i" in the loop but not declare it there:
+或采用外部变量初始化：
 
 ```c
 new
@@ -354,16 +354,16 @@ printf("%d", i);
 
 ## `goto`
 
-goto and labels are generally discouraged in the coding community as what they do can usually be done better by restructuring your code properly. However basically a goto is a jump:
+goto 语句和标签在编程社区中通常不推荐使用，因其功能可通过代码重构更好实现。基本语法为：
 
 ```c
 goto my_label;
-printf("This will never be printed");
+printf("此语句永不执行");
 my_label:
-printf("This will be printed");
+printf("此语句将被执行");
 ```
 
-The compiler however doesn't handle goto very well so that will not be optimised at all and things like:
+编译器对 goto 语句的处理并不理想，因此这类代码完全不会进行优化处理，例如以下情况：
 
 ```c
 {
@@ -381,7 +381,7 @@ The compiler however doesn't handle goto very well so that will not be optimised
 }
 ```
 
-Will give a warning about inconsistent return types as it things the true branch doesn't return anything when it actually does, just in a very roundabout way. Also:
+当遇到带有条件的返回分支时，编译器会发出"返回类型不一致"的警告——它错误地认为条件为真（true）的分支没有返回值，但实际上该分支通过非常迂回的方式（即 `goto` 跳转）最终仍会返回一个值。此外需注意：
 
 ```c
 MyFunction()
@@ -398,9 +398,9 @@ MyFunction()
 }
 ```
 
-Will give an unreachable code warning despite the fact it actually is reachable.
+即使相关代码实际可被正常访问，编译器仍会触发"无法访问的代码"警告。
 
-The basic syntax is:
+基本语法结构如下：
 
 ```c
 label:
@@ -408,11 +408,11 @@ label:
 goto label;
 ```
 
-The label should be on a line on it's own and ends in a colon, NOT a semicolon. Labels follow the same naming restrictions as variables and functions etc.
+标签应独占一行书写，且以冒号（:）结尾，而非分号（;）。标签命名需遵循与变量、函数等标识符相同的规范。
 
 ## `if`
 
-If is one of the most important operators. It determines wether something should be done or not and acts accordingly, it, along with goto, is the basis of almost all other control structures:
+`if` 是最重要的操作符之一。它用于判断是否执行某段代码，与 `goto` 共同构成几乎所有控制结构的基础：
 
 ```c
 for (new i = 0; i < 10; i++)
@@ -420,7 +420,7 @@ for (new i = 0; i < 10; i++)
 }
 ```
 
-Is equivalent to:
+等价于：
 
 ```c
 new
@@ -433,21 +433,31 @@ if (i < 10)
 }
 ```
 
-The conditions if can take are way too many for this post however some are listed below:
+`if` 的条件判断方式非常丰富，以下列举部分常用操作符：
 
-Operator Explanation Example Result when a=1, b=0 Result when a=1, b=1 Result when a=0, b=1 Result when a=0, b=0 == Checks if one thing is equal to another if (a == b) false true false true != Checks if one thing is not the same as another if (a != b) true false true false < Checks if one thing is less than another if (a < b) false false true false > Checks if one thing is greater than another if (a > b) true false false false \<= Checks if one thing is less than or equal to another if (a \<= b) false true true true >= Checks if one thing is greater than or equal to another if (a >= b) true true false true && Checks if two things are true (not 0) if (a && b) false true false false || Checks if at least one of two things are true (not 0) if (a || b) true true true false ! Checks if something is false if (!(a == b)) true false true false
+| 操作符 | 说明                   | 示例             | 当 a=1, b=0 时的结果 | 当 a=1, b=1 时的结果 | 当 a=0, b=1 时的结果 | 当 a=0, b=0 时的结果 |
+| ------ | ---------------------- | ---------------- | -------------------- | -------------------- | -------------------- | -------------------- |
+| `==`   | 等于判断               | `if (a == b)`    | false                | true                 | false                | true                 |
+| `!=`   | 不等于判断             | `if (a != b)`    | true                 | false                | true                 | false                |
+| `<`    | 小于判断               | `if (a < b)`     | false                | false                | true                 | false                |
+| `>`    | 大于判断               | `if (a > b)`     | true                 | false                | false                | false                |
+| `<=`   | 小于等于判断           | `if (a <= b)`    | false                | true                 | true                 | true                 |
+| `>=`   | 大于等于判断           | `if (a >= b)`    | true                 | true                 | false                | true                 |
+| `&&`   | 逻辑与（两者均为真）   | `if (a && b)`    | false                | true                 | false                | false                |
+| `\|\|` | 逻辑或（至少一者为真） | `if (a \|\| b)`  | true                 | true                 | true                 | false                |
+| `!`    | 逻辑非（取反）         | `if (!(a == b))` | true                 | false                | true                 | false                |
 
-Obviously with these you can build up complex conditionals:
+通过组合这些操作符可构建复杂条件判断：
 
 ```c
 if (a == b && (c != d || f < g))
 ```
 
-That will be true if a is the same as b and either f is less than g or c is not the same as d (or both).
+当 a 等于 b 且（c 不等于 d 或 f 小于 g）时，该条件成立。
 
 ## `return`
 
-This breaks out a function and can return data to the calling function:
+该关键字用于从函数中返回，并可向调用函数传递数据：
 
 ```c
 MyFunction()
@@ -462,7 +472,7 @@ OtherFunction()
 }
 ```
 
-someVar will now be 5.
+此时 someVar 的值将为 5。
 
 ```c
 MyFunction()
@@ -479,7 +489,7 @@ SomeFunction()
 }
 ```
 
-That will either return 1 or 0 to the calling function's if statement. 1 is true and 0 if false so the text will only be printed if 1 is returned. However:
+该代码将向调用函数的 if 语句返回 1 或 0。在条件判断中，1 代表真，0 代表假，因此仅当返回 1 时会打印文本。再看以下示例：
 
 ```c
 MyFunction()
@@ -496,9 +506,9 @@ SomeFunction()
 }
 ```
 
-That will return 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 or 10. Anything which is not 0 is true so the text will display if anything between 1 and 10 is returned.
+此时可能返回 0 至 10 之间的任意整数。非零值均视为真，因此当返回 1-10 时都会显示文本。
 
-You can also use return with strings:
+也可用于返回字符串：
 
 ```c
 MyFunction()
@@ -514,9 +524,9 @@ SomeFunction()
 }
 ```
 
-Will print "Hello" (without the quotes).
+将输出 "Hello"（不含引号）。
 
-You also don't have to return anything:
+函数可不返回任何值：
 
 ```c
 MyFunction()
@@ -530,7 +540,7 @@ SomeFunction()
 }
 ```
 
-However if you do this you must make sure the function's return is never used:
+但需确保返回值不被使用：
 
 ```c
 MyFunction()
@@ -547,7 +557,7 @@ SomeFunction()
 }
 ```
 
-Here SomeFunction is not returning anything however MyFunction is checking if the value returned from SomeFunction is true or not - it's neither as it just doesn't exist, so you will get a compiler error. No return is the default, so:
+此情况下 SomeFunction 未返回有效值，而 MyFunction 尝试检查其返回值的真假性，将导致编译器报错。空返回是默认行为，因此：
 
 ```c
 SomeFunction()
@@ -556,7 +566,7 @@ SomeFunction()
 }
 ```
 
-And:
+与：
 
 ```c
 SomeFunction()
@@ -564,9 +574,9 @@ SomeFunction()
 }
 ```
 
-Are the same.
+完全等效。
 
-Finally, you can't mix return values:
+注意返回值类型不可混用：
 
 ```c
 MyFunction()
@@ -587,7 +597,7 @@ SomeFunction()
 }
 ```
 
-This will give an error because it doesn't know what to do.
+将引发错误，因编译器无法确定返回类型。
 
 ```c
 SomeFunction()
@@ -599,11 +609,11 @@ SomeFunction()
 }
 ```
 
-Is also not allowed as the default return is nothing.
+同样非法，因默认返回为空值。
 
 ## `sleep`
 
-sleep is a psudo-function which makes execution pause for a given number of milliseconds:
+该伪函数可使当前执行暂停指定毫秒数：
 
 ```c
 printf("Time 0s");
@@ -611,15 +621,15 @@ sleep(1000);
 printf("Time 1s");
 ```
 
-This only works in main(), not callbacks however as it's run in the PAWN thread.
+注意该函数仅在 main() 函数中有效，不适用于回调函数，因其运行于 PAWN 线程中。
 
 ## `state`
 
-state is part of the PAWN state machine and autonoma system, see [this thread](https://forum.sa-mp.com/showthread.php?t=86850) for more information.
+`state` 是 PAWN 状态机及自动机系统的重要组成部分，详细信息请参阅[此主题帖](https://forum.sa-mp.com/showthread.php?t=86850)。
 
 ## `switch`
 
-switch is basically a structured if/else if/else system:
+`switch` 本质上是一种结构化的 if/else if/else 体系：
 
 ```c
 switch (someVar)
@@ -643,7 +653,7 @@ switch (someVar)
 }
 ```
 
-Is just a slightly more efficient (and much cleaner) way of doing:
+这等同于以下代码，但具有效率略高（且更加整洁）的实现方式：
 
 ```c
 if (someVar == 1)
@@ -666,7 +676,7 @@ else
 
 ## `while`
 
-while is a loop type similar to for and do..while. The basic operation is an if statement done which if true does some code and jumps back to the if. If it's false it goes to after the loop code - there is no else. Going back to the goto example:
+`while` 是与 `for` 和 `do..while` 相似的循环类型。其基本逻辑是：若条件判断为真则执行代码块并跳转回条件判断处，若为假则退出循环（无 else 分支）。参考以下 goto 实现示例：
 
 ```c
 new
@@ -679,7 +689,7 @@ if (i < 10)
 }
 ```
 
-This can also be written as:
+等价于：
 
 ```c
 new
@@ -690,4 +700,4 @@ while (i < 10)
 }
 ```
 
-See do and for more information.
+更多细节请参阅 `do` 和 `for` 循环的相关文档。

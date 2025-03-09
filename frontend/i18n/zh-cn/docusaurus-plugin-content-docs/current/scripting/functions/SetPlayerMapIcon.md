@@ -41,15 +41,15 @@ public OnPlayerConnect(playerid)
 
 :::tip
 
-• 使用无效图标类型将默认显示 ID1 白方块 ![](https://assets.open.mp/assets/images/mapIcons/icon1.gif)
-• 重复使用相同图标 ID 会覆盖已有图标
+- 使用无效图标类型将默认显示 ID1 白方块 ![](https://assets.open.mp/assets/images/mapIcons/icon1.gif)
+- 重复使用相同图标 ID 会覆盖已有图标
 
 :::
 
 :::warning
 
-• 突破 100 图标限制需使用[streamer 插件](https://github.com/samp-incognito/samp-streamer-plugin)
-• 启用地图图例时，类型 1/2/4/56 图标会导致游戏崩溃
+- 突破 100 图标限制需使用[streamer 插件](https://github.com/samp-incognito/samp-streamer-plugin)
+- 启用地图图例时，类型 1/2/4/56 图标会导致游戏崩溃
 
 :::
 

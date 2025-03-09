@@ -86,7 +86,7 @@ tags: []
 | 42   | 灭火器          | WEAPON_FIREEXTINGUISHER | 灭火/推动效果    |
 | 43   | 相机            | WEAPON_CAMERA           | 拍照功能         |
 | 46   | 降落伞          | WEAPON_PARACHUTE        | 高空降落装备     |
-| 49   | 载具            | WEAPON_VEHICLE          | 载具碰撞伤害     |
+| 49   | 车辆            | WEAPON_VEHICLE          | 车辆碰撞伤害     |
 | 53   | 溺水            | WEAPON_DROWN            | 溺水死亡类型     |
 | 54   | 碰撞            | WEAPON_COLLISION        | 物理碰撞伤害类型 |
 
@@ -185,7 +185,7 @@ tags: []
 
 在处理车辆相关部分时，如 Car Mod Type 中的“CARMODTYPE_SPOILER”应译为“扰流板改装”，并注释说明这是车辆改装类型之一。对于 VEHICLE_PARAMS，需要区分“VEHICLE_PARAMS_UNSET”为“参数未设置”，“VEHICLE_PARAMS_OFF”为“关闭状态”等。
 
-在对象材质部分，如 OBJECT_MATERIAL_SIZE_32x32 需要准确翻译尺寸，并说明这是材质纹理的尺寸。对于对齐方式，如“OBJECT_MATERIAL_TEXT_ALIGN_LEFT”翻译为“左对齐”，并注释其在文本显示中的应用。
+在物体材质部分，如 OBJECT_MATERIAL_SIZE_32x32 需要准确翻译尺寸，并说明这是材质纹理的尺寸。对于对齐方式，如“OBJECT_MATERIAL_TEXT_ALIGN_LEFT”翻译为“左对齐”，并注释其在文本显示中的应用。
 
 HTTP 错误部分需要注意技术术语的准确性，如“HTTP_ERROR_BAD_HOST”译为“错误的主机地址”，并说明连接失败的原因。同时，确保所有错误代码的注释清晰，便于开发者理解。
 
@@ -227,7 +227,7 @@ HTTP 错误部分需要注意技术术语的准确性，如“HTTP_ERROR_BAD_HOS
 |------|-----------------------------|---------------------------|
 | 0    | BULLET_HIT_TYPE_NONE         | 未命中任何目标             |
 | 1    | BULLET_HIT_TYPE_PLAYER       | 命中其他玩家               |
-| 2    | BULLET_HIT_TYPE_VEHICLE      | 命中载具                   |
+| 2    | BULLET_HIT_TYPE_VEHICLE      | 命中车辆                   |
 | 3    | BULLET_HIT_TYPE_OBJECT       | 命中地图物体               |
 | 4    | BULLET_HIT_TYPE_PLAYER_OBJECT | 命中玩家创建的物体         |
 
@@ -247,8 +247,8 @@ HTTP 错误部分需要注意技术术语的准确性，如“HTTP_ERROR_BAD_HOS
 | 0    | SPECIAL_ACTION_NONE           | 无特殊动作                 |
 | 1    | SPECIAL_ACTION_DUCK           | 蹲下动作                   |
 | 2    | SPECIAL_ACTION_USEJETPACK     | 使用喷气背包               |
-| 3    | SPECIAL_ACTION_ENTER_VEHICLE  | 进入载具动作               |
-| 4    | SPECIAL_ACTION_EXIT_VEHICLE   | 离开载具动作               |
+| 3    | SPECIAL_ACTION_ENTER_VEHICLE  | 进入车辆动作               |
+| 4    | SPECIAL_ACTION_EXIT_VEHICLE   | 离开车辆动作               |
 | 5    | SPECIAL_ACTION_DANCE1         | 舞蹈动作1                  |
 | 6    | SPECIAL_ACTION_DANCE2         | 舞蹈动作2                  |
 | 7    | SPECIAL_ACTION_DANCE3         | 舞蹈动作3                  |
@@ -322,7 +322,7 @@ HTTP 错误部分需要注意技术术语的准确性，如“HTTP_ERROR_BAD_HOS
 
 ## 视角切换方式
 
-| 数值 | 常量名称    | 摄像机移动类型             |
+| 数值 | 常量名称    | 视角移动类型             |
 |------|-----------|---------------------------|
 | 1    | CAMERA_MOVE | 平滑移动视角             |
 | 2    | CAMERA_CUT  | 直接切换视角             |
@@ -340,12 +340,12 @@ HTTP 错误部分需要注意技术术语的准确性，如“HTTP_ERROR_BAD_HOS
 | 数值 | 常量名称                     | 记录用途说明                 |
 |------|----------------------------|---------------------------|
 | 1    | PLAYER_RECORDING_TYPE_NONE  | 无录制状态                 |
-| 2    | PLAYER_RECORDING_TYPE_DRIVER | 载具驾驶记录             |
+| 2    | PLAYER_RECORDING_TYPE_DRIVER | 车辆驾驶记录             |
 | 3    | PLAYER_RECORDING_TYPE_ONFOOT | 步行动作记录             |
 
 # a_vehicles
 
-## 载具改装类型
+## 车辆改装类型
 
 | 数值 | 常量名称                | 改装部件类型                 |
 |------|-----------------------|---------------------------|
@@ -364,7 +364,7 @@ HTTP 错误部分需要注意技术术语的准确性，如“HTTP_ERROR_BAD_HOS
 | 12   | CARMODTYPE_VENT_RIGHT   | 右侧通风口改装           |
 | 13   | CARMODTYPE_VENT_LEFT    | 左侧通风口改装           |
 
-## 载具参数状态
+## 车辆参数状态
 
 | 数值 | 常量名称             | 参数状态说明                 |
 |------|--------------------|---------------------------|
@@ -372,11 +372,11 @@ HTTP 错误部分需要注意技术术语的准确性，如“HTTP_ERROR_BAD_HOS
 | 1    | VEHICLE_PARAMS_OFF   | 参数关闭状态             |
 | 2    | VEHICLE_PARAMS_ON    | 参数启用状态             |
 
-## 载具模型信息
+## 车辆模型信息
 
 | 数值 | 常量名称                          | 模型数据信息                 |
 |------|---------------------------------|---------------------------|
-| 1    | VEHICLE_MODEL_INFO_SIZE          | 载具模型尺寸               |
+| 1    | VEHICLE_MODEL_INFO_SIZE          | 车辆模型尺寸               |
 | 2    | VEHICLE_MODEL_INFO_FRONTSEAT     | 前座坐标位置             |
 | 3    | VEHICLE_MODEL_INFO_REARSEAT      | 后座坐标位置             |
 | 4    | VEHICLE_MODEL_INFO_PETROLCAP     | 油箱盖位置               |

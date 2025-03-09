@@ -1,7 +1,7 @@
 ---
 title: TextDrawBackgroundColour
 sidebar_label: TextDrawBackgroundColour
-description: 设置文本绘制的背景颜色（轮廓/阴影颜色，非文本框颜色）。
+description: 设置文本绘图的背景颜色（轮廓/阴影颜色，非文本框颜色）。
 tags: ["textdraw"]
 ---
 
@@ -9,13 +9,13 @@ tags: ["textdraw"]
 
 ## 描述
 
-设置文本绘制元素的背景颜色（此颜色影响文本轮廓和阴影，若要设置文本框颜色请使用 [TextDrawBoxColour](TextDrawBoxColour)）。
+设置文本绘图元素的背景颜色（此颜色影响文本轮廓和阴影，若要设置文本框颜色请使用 [TextDrawBoxColour](TextDrawBoxColour)）。
 
 ## 参数
 
 | 名称             | 说明                       |
 | ---------------- | -------------------------- |
-| Text:textid      | 目标文本绘制的 ID          |
+| Text:textid      | 目标文本绘图的 ID          |
 | backgroundColour | 要设置的背景颜色值（RGBA） |
 
 ## 返回值
@@ -29,7 +29,7 @@ new Text:gMyTextdraw;
 
 public OnGameModeInit()
 {
-    gMyTextdraw = TextDrawCreate(320.0, 425.0, "示例文本绘制");
+    gMyTextdraw = TextDrawCreate(320.0, 425.0, "示例文本绘图");
     TextDrawUseBox(gMyTextdraw, true);
     TextDrawBackgroundColour(gMyTextdraw, 0xFFFFFFFF); // 设置白色背景
     return 1;
@@ -46,14 +46,14 @@ public OnGameModeInit()
 
 :::tip
 
-修改已显示的文本绘制背景颜色时，无需重新创建元素。只需调用 [TextDrawShowForPlayer](TextDrawShowForPlayer)/[TextDrawShowForAll](TextDrawShowForAll) 重新显示即可立即生效。
+修改已显示的文本绘图背景颜色时，无需重新创建元素。只需调用 [TextDrawShowForPlayer](TextDrawShowForPlayer)/[TextDrawShowForAll](TextDrawShowForAll) 重新显示即可立即生效。
 
 :::
 
 ## 相关函数
 
-- [TextDrawCreate](TextDrawCreate): 创建文本绘制
-- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘制
+- [TextDrawCreate](TextDrawCreate): 创建文本绘图
+- [TextDrawDestroy](TextDrawDestroy): 销毁文本绘图
 - [TextDrawColour](TextDrawColour): 设置文本字体颜色
 - [TextDrawBoxColour](TextDrawBoxColour): 设置文本框颜色
 - [TextDrawAlignment](TextDrawAlignment): 设置文本对齐方式

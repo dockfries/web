@@ -35,8 +35,8 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
 :::tip
 
-• 启用[TogglePlayerClock](TogglePlayerClock)后天气会渐变切换，而非立即生效
-• 游戏仅支持 0-20 共 21 种天气 ID，但未做范围校验
+- 启用[TogglePlayerClock](TogglePlayerClock)后天气会渐变切换，而非立即生效
+- 游戏仅支持 0-20 共 21 种天气 ID，但未做范围校验
 
 :::
 

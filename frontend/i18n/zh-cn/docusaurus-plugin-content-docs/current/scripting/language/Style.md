@@ -1,43 +1,43 @@
 ---
-title: "Pawn Style Guide"
-sidebar_label: "Pawn Style Guide"
-description: A short guide on the generally accepted naming conventions and other aspects of Pawn source code to aid easier communication of intent and streamline debugging and sharing of code.
+title: "Pawn 代码风格指南"
+sidebar_label: "Pawn 代码风格指南"
+description: "关于Pawn源码通用命名规范及其他代码风格要素的简明指南，旨在提升代码意图传达效率，并优化调试与共享流程。"
 ---
 
-This document is a short guide on the generally accepted naming conventions and other aspects of Pawn source code to aid easier communication of intent and streamline debugging and sharing of code.
+本文档是关于 Pawn 源码通用命名规范及其他代码风格要素的简明指南，旨在提升代码意图传达效率，并优化调试与共享流程。
 
-See also:
+扩展阅读：
 
 - [Modern Pawn](https://github.com/Southclaws/sampctl/wiki/Modern-Pawn)
 - [Pawn Package](https://github.com/Southclaws/sampctl/wiki/Packages)
 
-## Terminology
+## 术语定义
 
-### Statement
+### 语句（Statement）
 
-A statement is a piece of code that imperatively tells the host program to do something. A statement is a valid piece of code that yields some result.
+语句是命令式指示宿主程序执行操作的代码单元，由可产生结果的合法代码构成。
 
 ```c
 a = b + c;
 ```
 
-This is a statement composed of a variable being assigned the result of an [#Expression].
+这是由变量赋值操作组成的语句，其右侧使用了[#表达式]。
 
 ```c
 SetPlayerColor(playerid, 0xFF4700FF);
 ```
 
-This is a statement telling the program to call a function with some arguments.
+这是调用函数并传递参数的语句。
 
 ```c
 x + 8
 ```
 
-This is _not_ a statement as the result is not used anywhere, this is just an [#Expression].
+这并非语句，因其结果未被使用，仅构成一个[#表达式]。
 
-### Compound Statement
+### 复合语句（Compound Statement）
 
-A compound statement is a collection of statements surrounded by braces.
+由大括号包裹的多个语句集合。
 
 ```c
 {
@@ -46,7 +46,7 @@ A compound statement is a collection of statements surrounded by braces.
 }
 ```
 
-This is a compound statement composed of two statements.
+包含两个语句的复合语句。
 
 ```c
 if (a == b)
@@ -55,31 +55,31 @@ if (a == b)
 }
 ```
 
-This is a compound statement with an `if` condition, this is usually referred to as an "if statement".
+带有`if`条件的复合语句，通常称为"if 语句"。
 
 ```c
 return Function1(), Function2(), Function3();
 ```
 
-This is _not_ a compound statement, it's a chain of statements separated by commas. This form of chaining statements is considered bad practice.
+这并非复合语句，而是通过逗号分隔的语句链。此类写法属于不良实践。
 
-### Expression
+### 表达式（Expression）
 
-An expression is a piece of syntax that yields a value, it's not a valid statement unless the yielded value is used in some way.
+可产生值的语法单元，除非该值被使用，否则不能构成有效语句。
 
-Expressions are often composed to form statements.
+表达式通常组合形成语句。
 
 ```c
 a + b
 ```
 
-This is a simple addition expression that takes two values and applies the add operator to them.
+简单的加法表达式，对两个值执行加法运算。
 
-## Guidelines
+## 代码规范
 
-### Braces
+### 大括号格式
 
-Allman braces are preferred:
+推荐使用 Allman 风格大括号：
 
 ```pawn
 function()
@@ -88,7 +88,7 @@ function()
 }
 ```
 
-However, if you can't shake the muscle memory, K&R braces are also valid Pawn:
+若已形成肌肉记忆，亦可采用 K&R 风格：
 
 ```pawn
 function() {
@@ -96,9 +96,9 @@ function() {
 }
 ```
 
-### Switches
+### 条件分支
 
-Switches must use two indent levels, one for the `switch` block and another for each `case` statement or compound statement.
+`switch`语句需使用两级缩进：一级用于`switch`代码块，另一级用于每个`case`子句或复合语句。
 
 ```pawn
 switch (variable)
@@ -119,30 +119,30 @@ switch (variable)
 {
     case 0:
     {
-        // code...
+        // 代码...
         return 0;
     }
     case 1:
     {
-        // code...
+        // 代码...
         return 1;
     }
     case 2:
     {
-        // code...
+        // 代码...
         return 2;
     }
     default:
     {
-        // code...
+        // 代码...
         return -1;
     }
 }
 ```
 
-### Compound Statements (Blocks)
+### 复合语句（代码块）
 
-Blocks must always use braces, even if only a single line of code exists within a block. This applies to all levels including functions.
+代码块必须始终使用大括号包裹，即使仅包含单行代码。此规则适用于所有层级，包括函数定义。
 
 ```pawn
 func()
@@ -179,30 +179,30 @@ func()
 }
 ```
 
-### Naming
+### 命名规范
 
-#### Functions
+#### 函数命名
 
-Functions must be named with `PascalCase`.
+函数必须采用`PascalCase`大驼峰命名法。
 
-#### Global Variables
+#### 全局变量
 
-Global variables declared using `new` must always use `g_` prefixed PascalCase, so `g_VariableName`, however if they are declared using `static` they must always use `s_` prefixed PascalCase, so `s_VariableName`
+- 通过`new`声明的全局变量必须始终使用`g_`前缀的大驼峰命名法，如`g_VariableName`
+- 通过`static`声明的全局变量必须始终使用`s_`前缀的大驼峰命名法，如`s_VariableName`
+- 常量全局变量必须使用全大写蛇形命名法（SCREAMING_SNAKE_CASE）
 
-Constant globals must use `SCREAMING_SNAKE_CASE`.
+#### 局部变量
 
-#### Local Variables
+局部变量必须使用`camelCase`小驼峰命名法，且禁止使用单字母命名，以下情况除外：
 
-Local variables must always use `camelCase` and must never use single letter names, apart from:
+- `for`循环中的`i`, `j`, `k`等迭代变量
+- 数学上下文中使用的`x`, `y`, `z`等坐标变量
 
-- `i`, `j`, `k`, etc in `for` loops
-- `x`, `y`, `z`, etc in mathematical contexts
+#### 枚举类型
 
-#### Enumerators
+具名枚举类型必须使用`E_`前缀（强标签）或`e_`前缀（弱标签）：
 
-Enumerators, if named, must be prefixed with `E_` (a strong tag) or `e_` (a weak tag)
-
-Enumerator fields must also be `SCREAMING_SNAKE_CASE` and use the enumerator name as a prefix.
+枚举字段必须同样采用全大写蛇形命名法`（SCREAMING_SNAKE_CASE）`，并以枚举器名称作为前缀。例如：
 
 ```pawn
 static enum E_PLAYER_DATA {
@@ -211,7 +211,7 @@ static enum E_PLAYER_DATA {
 }
 ```
 
-Using a weak tag
+弱标签示例：
 
 ```pawn
 static enum e_PLAYER_DATA {
@@ -220,7 +220,7 @@ static enum e_PLAYER_DATA {
 }
 ```
 
-Non-named enumerator fields must also be `SCREAMING_SNAKE_CASE` and use the enumerator name as a prefix.
+匿名枚举字段必须同样使用全大写蛇形命名法，并以枚举类型名称为前缀：
 
 ```pawn
 static enum {
@@ -229,33 +229,29 @@ static enum {
 }
 ```
 
-Enumerators must always be declared `static` unless used outside the module.
+除非需跨模块使用，否则枚举必须始终声明为`static`。
 
-#### Macros and Pre-Processor Definitions
+#### 宏与预处理定义
 
-Macros must always use `SCREAMING_SNAKE_CASE` regardless of their usage.
+- 宏定义必须始终使用全大写蛇形命名法（`SCREAMING_SNAKE_CASE`）
+- 预处理常量定义同样使用全大写蛇形命名法
 
-Pre-Processor definitions (constant definitions) must also use `SCREAMING_SNAKE_CASE`.
+此规范有助于区分变量/常量、函数/宏的关系。
 
-This helps differentiate between variables and constants as well as functions and macros.
+建议避免创造新语法元素，以防止初学者混淆语言特性与库函数。但部分历史遗留库因兼容性要求可能例外。
 
-It's generally advised to avoid inventing new syntactical elements in order to prevent confusion among newcomers as to which words are part of the language and which words are from libraries.
+### 文档规范
 
-However, some older libraries do this and cannot change because of backwards compatibility.
-
-### Documentation
-
-Always document exported functions with a simple line comment in the format `// FunctionName does X, Y and Z and returns A` where the first word is the name of the function itself followed by a brief description of what it does. No need to waste time describing each individual parameter. For example:
+导出函数必须使用行注释进行文档说明，格式为`// FunctionName 实现X、Y、Z功能并返回A`，首词为函数名，后接功能简述。无需详细描述每个参数，例如：
 
 ```pawn
-// LoadPlayerAccount is called to initiate the account load process. This
-// function will trigger HTTP calls to get player data, it will display dialogs
-// to the player and eventually, once the process has completed, the event
-// `OnPlayerLogin` is emitted on success. On failure, the player is kicked.
+// LoadPlayerAccount 用于初始化账户加载流程。本函数将触发HTTP请求
+// 获取玩家数据，向玩家显示对话框，最终在流程完成后触发`OnPlayerLogin`
+// 事件。若加载失败则踢出玩家。
 stock Error:LoadPlayerAccount(playerid)
 {
-    // code...
+    // 代码...
 }
 ```
 
-Each package should have a `README` and, if necessary, each module should have a comment on the very first line describing what that module provides.
+每个代码包应包含`README`文档，必要时在模块首行添加功能描述注释。

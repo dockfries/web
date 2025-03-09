@@ -1,44 +1,44 @@
 ---
-title: "Keywords: Operators"
-sidebar_label: "Keywords: Operators"
+title: "关键字：操作符"
+sidebar_label: "关键字：操作符"
 ---
 
 ## `char`
 
-char returns the number of cells required to hold the given number of characters in a packed string. I.e. the number of 4-byte cells required to hold a given number of bytes. For example:
+`char` 返回存储指定数量字符（打包字符串）所需的内存单元数。即存储给定字节数所需的 4 字节内存单元数量。例如：
 
 ```c
 4 char
 ```
 
-Returns 1.
+返回 1。
 
 ```c
 3 char
 ```
 
-Returns 1 (you can't have 3/4 of a variable).
+返回 1（无法存在 3/4 个变量单元）。
 
 ```c
 256 char
 ```
 
-Returns 64 (256 divided by 4).
+返回 64（256 除以 4）。
 
-This is generally used in variable declarations.
+通常用于变量声明：
 
 ```c
 new
     someVar[40 char];
 ```
 
-Will make an array 10 cells big.
+将创建包含 10 个单元的数组（40 / 4 = 10）。
 
-For more information on packed strings read pawn-lang.pdf.
+关于打包字符串的详细信息请参阅 pawn-lang.pdf。
 
 ## `defined`
 
-Checks if a symbol exists. Generally used in #if statements:
+检查符号是否已定义，主要用于预处理指令 `#if`：
 
 ```c
 new
@@ -46,11 +46,11 @@ new
 #if defined someVar
     printf("%d", someVar);
 #else
-    #error The variable 'someVar' isn't defined
+    #error 变量 'someVar' 未定义
 #endif
 ```
 
-Most commonly it's used to check if a define is defined and generate code accordingly:
+常见用途是根据宏定义生成不同代码：
 
 ```c
 #define FILTERSCRIPT
@@ -74,7 +74,7 @@ public OnGameModeInit()
 
 ## `sizeof`
 
-Returns the size in ELEMENTS of an array:
+返回数组的 元素数量：
 
 ```c
 new
@@ -82,13 +82,13 @@ new
 printf("%d", sizeof (someVar));
 ```
 
-Output:
+输出：
 
 ```c
 10
 ```
 
-And:
+多维数组示例：
 
 ```c
 new
@@ -96,7 +96,7 @@ new
 printf("%d %d", sizeof (someVar), sizeof (someVar[]));
 ```
 
-Gives:
+输出：
 
 ```c
 2 10
@@ -104,11 +104,11 @@ Gives:
 
 ## `state`
 
-This again is related to the PAWN autonoma code and thus not covered here.
+该关键字与 PAWN 自动机系统相关，本文不做详细说明。
 
 ## `tagof`
 
-This returns a number representing the tag of a variable:
+返回表示变量标签的数值：
 
 ```c
 new
@@ -117,19 +117,19 @@ new
 printf("%d %d", tagof (someVar), tagof (someFloat));
 ```
 
-Gives:
+输出可能显示为乱码：
 
 ```c
 -./,),(-*,( -1073741820
 ```
 
-Which is a slight bug but basically means:
+实际对应十六进制值：
 
 ```c
 0x80000000 0xC0000004
 ```
 
-To check, for example, if a variable is a float (with the tag 'Float:'):
+检查变量是否为浮点类型（带 `Float:` 标签）：
 
 ```c
 new Float: fValue = 6.9;
@@ -138,10 +138,10 @@ new tag = tagof (fValue);
 
 if (tag == tagof (Float:))
 {
-    print("float");
+    print("浮点类型");
 }
 else
 {
-    print("not a float");
+    print("非浮点类型");
 }
 ```

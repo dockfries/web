@@ -1,16 +1,21 @@
 ---
-title: "Scripting: Tags"
-sidebar_label: "Scripting: Tags"
-description: A guide for Tags, a type-like feature of the Pawn language providing safety features for working with values of different intent.
+title: "脚本编写: 标签"
+sidebar_label: "脚本编写: 标签"
+description: "关于标签（Tags）的指南，这是Pawn语言中一种类类型特性，为处理不同用途的值提供安全机制。"
 ---
 
-## Introduction
+## 引言
 
-A tag is a prefix to a variable which tells the compiler to treat the variable specially under certain circumstances. For example you can use tags to define where a variable can and can't be used, or a special way to add two variables together.
+标签（Tag）是变量的前缀，用于告知编译器在特定情况下特殊处理该变量。例如您可以通过标签定义变量的使用范围，或者指定变量的特殊运算方式。
 
-There are two types of tag - strong tags (starting with a capital letter) and weak tags (starting with a lower case letter), for the most part they're the same however under certain circumstances weak tags can be converted to tagless silently by the compiler, i.e. you won't get a warning, most of the time with weak tags, and all the time with strong tags, implicitly changing the tag will result in a warning to tell you data is likely being used wrong.
+标签分为两种类型：
 
-A very simple example is the following:
+- **强标签**（以大写字母开头）
+- **弱标签**（以小写字母开头）
+
+两者的主要区别在于：弱标签在某些情况下可能被编译器静默转换为无标签变量（即不会产生警告），而强标签在隐式转换时总会触发警告。
+
+以下是一个简单示例：
 
 ```c
 new
@@ -18,11 +23,11 @@ new
 myFile += 4;
 ```
 
-The `fopen` function will return a value with a tag of type `File:`, there is no problem on that line as the return value is being stored to a variable also with a tag of `File:` (note the cases are the same too). However on the next line the value `4` is added to the file handle. `4` has no tag (it is actually tag type `_:` but variables, values and functions with no tag are automatically set to that and you don't need to worry about it normally) and myFile has a tag of `File:`, obviously nothing and something can't possibly be the same so the compiler will issue a warning, this is good as a handle to a file is meaningless in terms of it's actual value and so modifying it will merely destroy the handle and mean the file can't be closed as there is no longer a valid handle to pass and close the file with.
+`fopen`函数返回带有`File:`标签的值，首行赋值操作没有问题（注意标签大小写需一致）。但第二行对文件句柄进行数值加法运算时，`4`是无标签值，而`myFile`带有`File:`标签，这种类型不匹配将触发编译器警告。这种机制非常有用，因为文件句柄的实际数值没有意义，修改它会导致句柄失效从而无法关闭文件。
 
-### Strong tags
+### 强标签
 
-As mentioned above a strong tag is any tag starting with a capital letter. Examples of these in SA:MP include:
+强标签以大写字母开头，SA:MP 中的常见示例包括：
 
 ```c
 Float:
@@ -30,7 +35,7 @@ File:
 Text:
 ```
 
-These cannot be mixed with other variable types and will always issue a warning when you try to do so:
+强标签变量不可与其他类型混用，以下操作都会触发警告：
 
 ```c
 new
@@ -38,18 +43,18 @@ new
     File:myFile,
     myBlank;
 
-myFile = fopen("file.txt", io_read); // File: = File:, no warning
+myFile = fopen("file.txt", io_read); // File: = File:，无警告
 
-myFloat = myFile; // Float: = File:, "tag mismatch" warning
+myFloat = myFile; // Float: = File:，"标签不匹配"警告
 
-myFloat = 4; // Float: = _: (none), "tag mismatch" warning
+myFloat = 4; // Float: = _:（无标签），"标签不匹配"警告
 
-myBlank = myFloat; // _: (none) = Float:, "tag mismatch" warning
+myBlank = myFloat; // _:（无标签） = Float:，"标签不匹配"警告
 ```
 
-### Weak tags
+### 弱标签
 
-A weak tag behaves mostly the same as a strong tag however the compiler will not issue a warning when the destination is tagless and the source is a weak tag. For example compare the following strong and weak tag codes, the first with the strong tag will give a warning, the second with the weak tag will not:
+弱标签的行为与强标签基本相似，但当目标变量无标签时，弱标签转换不会触发警告：
 
 ```c
 new
@@ -57,17 +62,17 @@ new
     weak:myWeak,
     myNone;
 
-myNone = myStrong; // Warning
-myNone = myWeak; // No warning
+myNone = myStrong; // 触发警告
+myNone = myWeak; // 无警告
 ```
 
-However the reverse is not true:
+但反向操作仍会触发警告：
 
 ```c
-myWeak = myNone; // Warning
+myWeak = myNone; // 触发警告
 ```
 
-This is also true with functions, calling a function with a tagless parameter, passing a weak tagged variable will not give a warning:
+函数参数传递同理：向无标签参数传递弱标签变量不会触发警告：
 
 ```c
 new
@@ -82,7 +87,7 @@ MyFunction(myVar)
 }
 ```
 
-But calling a function with a tagged parameter (weak or strong), passing an untagged parameter will give a warning. Examples of weak tags in SA:MP are less well known as such though are often used and include:
+但向带标签参数（无论强弱）传递无标签参数会触发警告。SA:MP 中弱标签的典型示例包括：
 
 ```c
 bool:
@@ -90,22 +95,22 @@ filemode:
 floatround_method:
 ```
 
-## Use
+## 使用方法
 
-### Declaring
+### 声明变量
 
-Declaring a variable with a tag is very simple, just write the tag, there's no need to define a tag in advance in any way however this is possible and does have it's uses as will become apparent later:
+声明带标签变量非常简单，直接书写标签即可（无需预先定义标签）：
 
 ```c
 new
     Mytag:myVariable;
 ```
 
-Declaring a variable with one of the existing tags will allow you to use that variable with the functions and operators already written for that tag type.
+使用现有标签声明变量后，即可将该变量用于该标签对应的函数和运算符。
 
-### Functions
+### 函数定义
 
-Creating a function to take or return a tag is very simple, just prefix the relevant part with the desired tag type, for example:
+定义带标签参数的函数时，只需在参数或返回值前添加标签：
 
 ```c
 Float:GetValue(File:fHnd, const name[])
@@ -114,13 +119,13 @@ Float:GetValue(File:fHnd, const name[])
 }
 ```
 
-That function takes the handle to a file and returns a float value (presumably a value read from the file and corresponding to the value name passed in `name[]`). This function would most likely use the `floatstr` function, which also returns a Float: (as you can tell by looking at the status bar of pawno when you click on the function in the right hand function list), after taking a string. The implementation of this function is not important but it will convert the string to an IEEE float value, which is then stored as a cell (it's actually strictly stored as an integer which just happens to have an identical bit pattern to the relevant IEEE number as PAWN is typeless, but that's what tags are partially there to combat).
+该函数接收文件句柄并返回浮点数值（假设是从文件中读取并与`name[]`参数传递的数值名称对应的值）。此函数很可能使用`floatstr`函数（通过在 Pawno 右侧函数列表点击该函数时查看状态栏可知，该函数也返回`Float:`类型值）进行字符串转换。虽然具体实现细节无关紧要，但其核心逻辑是将字符串转换为 IEEE 浮点数值，并以 PAWN 单元(cell)形式存储（实际上严格存储为整型数值，只是其位模式恰好与对应的 IEEE 浮点数一致——这正是标签机制部分要解决的问题，因为 PAWN 本身是无类型语言）。
 
-### Operators
+### 运算符重载
 
-Operators such as `+`, `==`, `>` etc can be overloaded for different tags, i.e. doing `+` on two Float:s does something different to doing it on two non-tagged variables. This is especially useful in the case of float variables as as mentioned they are not really floats they are integers with a very specific bit pattern, if the operators were not overloaded the operations would simply be performed on the integers which would give gibberish if the answer were interpreted as a float again. For this reason the Float: tag has overloaded versions of most of the operators to call special functions to do the maths in the server instead of in pawn.
+运算符（例如 `+`、`==`、`>` 等）可为不同标签实现重载。这意味着对两个`Float:`变量执行`+`运算，其行为将与无标签变量的加法运算截然不同。该特性对浮点型变量尤为重要——如先前所述，`Float:`变量并非真正的浮点数，而是采用特定位模式的整型存储。若未重载运算符，这些运算将在整型层面直接执行，若将结果重新解释为浮点数将产生无效结果。因此`Float:`标签重载了多数运算符，通过调用服务端的特殊数学函数实现运算（而非在 PAWN 脚本层处理）。
 
-An operator is exactly like a normal function but instead of a function name you use "operator(**symbol**)" where (**symbol**) is the operator you want to overwrite. The valid operators are:
+运算符重载函数的定义方式与普通函数类似，区别在于需使用"operator(**符号**)"语法代替函数名，其中(**符号**)代表被重载的运算符。可重载的合法运算符包括：
 
 ```c
 +
@@ -140,7 +145,7 @@ An operator is exactly like a normal function but instead of a function name you
 %
 ```
 
-Things like `\`, `*`, `=` etc are done automatically. Things like `&` etc can't be overloaded. You can also overload an operator multiple times with different combinations of tag. For example:
+诸如`\`、`*`、`=`等运算符会被自动处理。而`&`等位运算符无法被重载。您还可以针对不同的标签组合多次重载同一个运算符。例如：
 
 ```c
 stock Float:operator=(Mytag:oper)
@@ -149,7 +154,7 @@ stock Float:operator=(Mytag:oper)
 }
 ```
 
-If you add that to your code and do:
+添加此代码后，以下操作将不再触发警告：
 
 ```c
 new
@@ -159,17 +164,17 @@ new
 myFloat = myTag;
 ```
 
-You will no longer get a compiler warning as you would have before because the `=` operator for the case `Float: = Mytag:` is now handled so the compiler knows exactly what to do.
+由于`Float: = Mytag:`这种情况下的赋值运算符`=`已被显式处理，编译器现在能够准确理解其操作逻辑，因此您将不再收到此前会出现的编译器警告。
 
-### Overwriting
+### 标签覆盖
 
-In the overloading example above the functional line was:
+使用`_:`前缀可强制忽略变量标签。但需谨慎处理类型转换：
 
 ```c
 return float(_:oper);
 ```
 
-This is an example of tag overwriting, the `_:` in front of oper means the compiler basically ignores the fact that oper has a tag type of Mytag: and treats it as tag type `_:` (i.e. no tag type). The function `float()` tags a normal number so must be passed one. In that example it is assumed that `Mytag` stores an ordinary integer but overwriting must be dealt with very carefully, for example the following will give very odd results:
+这是标签覆盖的典型示例。操作数前的`_:`表示编译器将忽略`oper`变量原有的`Mytag:`标签类型，强制将其视为`_:`标签类型（即无标签类型）。`float()`函数用于将普通数值标记为浮点类型，因此必须接收无标签数值。在此示例中，我们假设`Mytag`存储的是普通整型数值，但进行标签覆盖时必须格外谨慎。例如下列操作将产生异常结果：
 
 ```c
 new
@@ -178,4 +183,4 @@ new
 f1 = float(_:f2);
 ```
 
-Sense would dictate that `f1` would end up as `4.0`, however it won't. As mentioned f2 stores a representation of `4.0`, not just `4` as an integer would, this means the actual value of the variable as an integer is a very odd number. Thus if you tell the compiler to treat the variable as an integer it will simply take the bit pattern in the variable as the value, it won't convert the float to an integer, so you will get an almost random number (it's not actually random as there's a pattern to IEEE floating points but it will be nothing like `4.0`).
+根据常识推断，`f1`应被赋值为`4.0`，但实际结果并非如此。如前所述，`f2`变量存储的是`4.0`的 IEEE 浮点位模式表示（而非简单的整型数值`4`），这意味着当您要求编译器将该变量作为整型处理时，它会直接将变量中的位模式作为整型值读取（而不会执行浮点到整型的数值转换）。因此您将得到一个看似随机的数字（实际上该数值遵循 IEEE 浮点规范的结构规律，但其整型表现形式与`4.0`毫无相似性）。
