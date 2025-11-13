@@ -32,14 +32,21 @@ public OnPlayerCommandText(playerid, cmdtext[])
     {
         new npcid = PlayerNPC[playerid];
         if (npcid == INVALID_NPC_ID)
-            return SendClientMessage(playerid, 0xFF0000FF, "You have no NPC.");
+            return SendClientMessage(playerid, 0xFF0000FF, "You are not debugging a NPC.");
 
-        new count = NPC_GetPathPointCount(g_PatrolPath);
+        new count = NPC_GetPathPointCount(PlayerPatrolPath[playerid]);
 
-        if (NPC_IsValidPath(g_PatrolPath))
+        if (NPC_IsValidPath(PlayerPatrolPath[playerid]))
         {
-            NPC_MoveByPath(npcid, g_PatrolPath, NPC_MOVE_TYPE_WALK);
+            NPC_MoveByPath(npcid, PlayerPatrolPath[playerid], NPC_MOVE_TYPE_WALK);
             SendClientMessage(playerid, 0x00FF00FF, "NPC %d started patrol route with %d points", npcid, count);
+
+            StopPlayerPatrolTimer(playerid);
+            PlayerPatrolTimer[playerid] = SetTimerEx("CheckPathProgress", 2000, true, "i", playerid);
+        }
+        else
+        {
+            SendClientMessage(playerid, 0xFF0000FF, "Failed to start patrol route");
         }
         return 1;
     }
@@ -49,18 +56,21 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
 ## Notes
 
-- Path must be created with NPC_CreatePath before use
-- Use NPC_AddPointToPath to add waypoints to the path
-- Path types include loop, once, and ping-pong modes
-- Movement flags can be combined for different behaviors
+- Path must be created with `NPC_CreatePath` and contain at least one point before calling this function
+- Use `NPC_AddPointToPath` to build the route and `NPC_ClearPath` if you need to reset it
+- Set `reversed = true` to have the NPC traverse the path in the opposite order
+- Returns `false` if the NPC is invalid, already performing an incompatible action, or the path cannot be followed
 
 ## Related Functions
 
 - [NPC_CreatePath](NPC_CreatePath): Create a new path
 - [NPC_AddPointToPath](NPC_AddPointToPath): Add point to path
+- [NPC_ClearPath](NPC_ClearPath): Remove all points from a path
 - [NPC_StopMove](NPC_StopMove): Stop path movement
 - [NPC_GetCurrentPathPointIndex](NPC_GetCurrentPathPointIndex): Get current point
 
 ## Related Callbacks
 
 - [OnNPCFinishMovePath](../callbacks/OnNPCFinishMovePath): Called when NPC finishes moving along a path
+- [OnNPCFinishMovePathPoint](../callbacks/OnNPCFinishMovePathPoint): Called when NPC reaches each waypoint
+- [OnNPCFinishMove](../callbacks/OnNPCFinishMove): Called when NPC finishes any movement
