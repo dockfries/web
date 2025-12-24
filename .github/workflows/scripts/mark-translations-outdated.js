@@ -10,6 +10,7 @@ const WARNING_COMPONENTS = {
   'pt-BR': 'StaleTranslationWarningPT',
   'ru': 'StaleTranslationWarningRU',
   'fr': 'StaleTranslationWarningFR',
+  'zh-CN': 'StaleTranslationWarningZH_CN'
 };
 
 const DEFAULT_WARNING_COMPONENT = 'StaleTranslationWarning';

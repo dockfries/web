@@ -26,6 +26,7 @@ import StaleTranslationWarningES from "./translations/es/stale-translation-warni
 import VersionWarnZH_CN from "./translations/zh-CN/version-warning";
 import LowercaseNoteZH_CN from "./translations/zh-CN/lowercase-note";
 import TipNPCCallbacksZH_CN from "./translations/zh-CN/npc-callbacks-tip";
+import StaleTranslationWarningZH_CN from "./translations/zh-CN/stale-translation-warning";
 
 import VersionWarnTR from "./translations/tr/version-warning";
 import LowercaseNoteTR from "./translations/tr/lowercase-note";
@@ -62,6 +63,7 @@ const templates = {
   VersionWarnZH_CN,
   LowercaseNoteZH_CN,
   TipNPCCallbacksZH_CN,
+  StaleTranslationWarningZH_CN,
   VersionWarnTR,
   LowercaseNoteTR,
   TipNPCCallbacksTR,
