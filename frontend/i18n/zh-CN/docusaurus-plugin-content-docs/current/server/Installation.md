@@ -78,9 +78,11 @@ description: 将游戏模式从 SA:MP 服务器迁移至 open.mp 服务器的指
 | Pawn.RakNet       | https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp               |
 | sampvoice         | https://github.com/AmyrAhmady/sampvoice/releases/tag/v3.1.5-omp              |
 | discord-connector | https://github.com/maddinat0r/samp-discord-connector/releases/tag/v0.3.6-pre |
+| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack)            |
+| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr                  |
 | SKY               | 改用 Pawn.RakNet                                                             |
 | YSF               | 无需使用，open.mp 已原生支持大部分功能                                       |
-| FCNPC             | 当前暂不支持                                                                 |
+| FCNPC             | 传统的 FCNPC 插件已被官方的 open.mp NPC 组件 取代                              |
 
 ## 步骤 6
 

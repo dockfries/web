@@ -78,9 +78,11 @@ Put the following plugins in the **../components** folder, not in the **../plugi
 | Pawn.RakNet       | https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp               |
 | sampvoice         | https://github.com/AmyrAhmady/sampvoice/releases/tag/v3.1.5-omp              |
 | discord-connector | https://github.com/maddinat0r/samp-discord-connector/releases/tag/v0.3.6-pre |
+| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack)            |
+| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr                  |
 | SKY               | Use Pawn.RakNet instead                                                      |
 | YSF               | You don't need YSF because open.mp already declared most of the same natives |
-| FCNPC             | Currently not supported                                                      |
+| FCNPC             | Replaced with the official open.mp NPC component                             |
 
 ## Step 6
 

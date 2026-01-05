@@ -15,11 +15,11 @@ Ova funkcija započinje malim slovom.
 
 Ovom se funkcijom može raspakirati string.
 
-| Ime                     | Deskripcija                                                                 |
-| ----------------------- | --------------------------------------------------------------------------- |
-| dest[]                  | Odredišni string za spremanje nepakiranog stringa, proslijeđeno referencom. |
-| const source[]          | Izvor, originalno upakovani string.                                         |
-| maxlength=sizeof string | Maksimalna veličina za unijeti.                                             |
+| Ime                       | Deskripcija                                                                 |
+| ------------------------- | --------------------------------------------------------------------------- |
+| dest[]                    | Odredišni string za spremanje nepakiranog stringa, proslijeđeno referencom. |
+| const source[]            | Izvor, originalno upakovani string.                                         |
+| maxlength = sizeof (dest) | Maksimalna veličina za unijeti.                                             |
 
 ## Returns
 

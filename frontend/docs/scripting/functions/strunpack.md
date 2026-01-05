@@ -11,11 +11,11 @@ tags: ["string"]
 
 This function can be used to unpack a string.
 
-| Name                        | Description                                                                 |
-| --------------------------- | --------------------------------------------------------------------------- |
-| dest[]                      | The destination string to save the unpacked string in, passed by reference. |
-| const source[]              | The source, original packed string.                                         |
-| maxlength = sizeof (string) | The maximum size to insert.                                                 |
+| Name                      | Description                                                                 |
+| ------------------------- | --------------------------------------------------------------------------- |
+| dest[]                    | The destination string to save the unpacked string in, passed by reference. |
+| const source[]            | The source, original packed string.                                         |
+| maxlength = sizeof (dest) | The maximum size to insert.                                                 |
 
 ## Returns
 

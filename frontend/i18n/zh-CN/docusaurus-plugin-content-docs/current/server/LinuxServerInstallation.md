@@ -163,7 +163,7 @@ description: 在 Ubuntu 或其他基于 Debian 的 Linux 系统上安装 open.mp
     ```
 
     ```
-    sudo apt install libc6:i386 screen
+    sudo apt install libatomic1 libatomic1:i386 libc6:i386 screen
     ```
 
 12. 使服务器可执行：

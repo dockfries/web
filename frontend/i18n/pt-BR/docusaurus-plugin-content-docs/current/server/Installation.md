@@ -66,15 +66,17 @@ Coloque os seguintes plugins na pasta **../components**, não na pasta **../plug
 
 :::
 
-| Plugin            | OMP                                                                          |
-| ----------------- | ---------------------------------------------------------------------------- |
-| Pawn.CMD          | https://github.com/katursis/Pawn.CMD/releases/tag/3.4.0-omp                  |
-| Pawn.RakNet       | https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp               |
-| sampvoice         | https://github.com/AmyrAhmady/sampvoice/releases/tag/v3.1.5-omp              |
-| discord-connector | https://github.com/maddinat0r/samp-discord-connector/releases/tag/v0.3.6-pre |
-| SKY               | Use Pawn.RakNet em vez disso                                                 |
+| Plugin            | OMP                                                                               |
+| ----------------- | --------------------------------------------------------------------------------- |
+| Pawn.CMD          | https://github.com/katursis/Pawn.CMD/releases/tag/3.4.0-omp                       |
+| Pawn.RakNet       | https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp                    |
+| sampvoice         | https://github.com/AmyrAhmady/sampvoice/releases/tag/v3.1.5-omp                   |
+| discord-connector | https://github.com/maddinat0r/samp-discord-connector/releases/tag/v0.3.6-pre      |
+| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack)                 |
+| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr                       |
+| SKY               | Use Pawn.RakNet em vez disso                                                      |
 | YSF               | Você não precisa do YSF porque o open.mp já declarou a maioria das mesmas natives |
-| FCNPC             | Atualmente não suportado                                                     |
+| FCNPC             | Substituído pelo componente oficial de NPC do open.mp                             |
 
 ## Passo 6
 

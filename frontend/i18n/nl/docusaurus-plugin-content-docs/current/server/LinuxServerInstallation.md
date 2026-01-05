@@ -145,7 +145,7 @@ Zoek een online handleiding of de documentatie van je hosting als je niet zeker 
     ```
 
     ```
-    sudo apt install libc6:i386
+    sudo apt install libatomic1 libatomic1:i386 libc6:i386
     ```
 
 11. Server uitvoerbaar maken:

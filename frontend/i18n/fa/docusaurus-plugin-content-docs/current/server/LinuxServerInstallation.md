@@ -151,7 +151,7 @@ description: "راه اندازی سرور بر روی لینوکس"
     ```
 
     ```
-    sudo apt install libc6:i386
+    sudo apt install libatomic1 libatomic1:i386 libc6:i386
     ```
 
 11. قابل اجرا کردن سرور:

@@ -145,7 +145,7 @@ Procure guias online ou a documentação do seu provedor de hospedagem se não t
     ```
 
     ```
-    sudo apt install libc6:i386
+    sudo apt install libatomic1 libatomic1:i386 libc6:i386
     ```
 
 11. Tornando o servidor executável:

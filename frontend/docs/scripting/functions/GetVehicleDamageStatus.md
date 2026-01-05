@@ -18,10 +18,10 @@ Retrieve the damage statuses of a vehicle.
 | Name                        | Description                                                        |
 | --------------------------- | ------------------------------------------------------------------ |
 | vehicleid                   | The ID of the vehicle to get the damage statuses of.               |
-| VEHICLE_PANEL_STATUS:panels | A variable to store the panel damage data in, passed by reference. |
-| VEHICLE_DOOR_STATUS:doors   | A variable to store the door damage data in, passed by reference.  |
-| VEHICLE_LIGHT_STATUS:lights | A variable to store the light damage data in, passed by reference. |
-| VEHICLE_TYRE_STATUS:tyres   | A variable to store the tire damage data in, passed by reference.  |
+| VEHICLE_PANEL_STATUS:panels | A set of bits containing the panel damage status. See [Panel States](../resources/panelstates) |
+| VEHICLE_DOOR_STATUS:doors   | A set of bits containing the door damage status. See [Door States](../resources/doorstates) |
+| VEHICLE_LIGHT_STATUS:lights | A set of bits containing the light damage status. See [Light States](../resources/lightstates) |
+| VEHICLE_TIRE_STATUS:tires   | A set of bits containing the tire damage status. See [Tire States](../resources/tirestates)  |
 
 ## Returns
 
@@ -57,6 +57,10 @@ printf("Vehicle Status: [Panels]: %d - [Doors]: %d - [Lights]: %d - [Tyres]: %d"
 
 - [Damage Status](../resources/damagestatus)
 - [Vehicle Panel Status](../resources/vehicle-panel-status)
+- [Panel States](../resources/panelstates)
 - [Vehicle Door Status](../resources/vehicle-door-status)
+- [Door States](../resources/doorstates)
 - [Vehicle Light Status](../resources/vehicle-light-status)
+- [Light States](../resources/lightstates)
 - [Vehicle Tire Status](../resources/vehicle-tire-status)
+- [Tire States](../resources/tirestates)

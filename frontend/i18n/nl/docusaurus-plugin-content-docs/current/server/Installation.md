@@ -72,8 +72,10 @@ Plaats de volgende plugins in de map **../components**, niet in **../plugins**!
 | Pawn.RakNet       | https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp               |
 | sampvoice         | https://github.com/AmyrAhmady/sampvoice/releases/tag/v3.1.5-omp              |
 | discord-connector | https://github.com/maddinat0r/samp-discord-connector/releases/tag/v0.3.6-pre |
+| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack)            |
+| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr                  |
 | SKY               | Gebruik Pawn.RakNet in plaats daarvan                                        |
-| YSF               | Niet nodig: open.mp heeft de meeste gelijkwaardige natives al                 |
+| YSF               | Niet nodig: open.mp heeft de meeste gelijkwaardige natives al                |
 | FCNPC             | Momenteel niet ondersteund                                                   |
 
 ## Stap 6

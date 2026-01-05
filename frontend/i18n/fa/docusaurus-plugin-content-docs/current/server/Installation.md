@@ -78,6 +78,8 @@ include های مورد نیاز (مثلاً `sscanf2.inc`، `streamer.inc`) ر�
 | Pawn.RakNet       | https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp               |
 | sampvoice         | https://github.com/AmyrAhmady/sampvoice/releases/tag/v3.1.5-omp              |
 | discord-connector | https://github.com/maddinat0r/samp-discord-connector/releases/tag/v0.3.6-pre |
+| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack)            |
+| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr                  |
 | SKY               | به جای آن از Pawn.RakNet استفاده کنید                                      |
 | YSF               | شما نیازی به YSF ندارید زیرا open.mp قبلاً بیشتر همان native ها را اعلان کرده |
 | FCNPC             | در حال حاضر پشتیبانی نمی‌شود                                                      |

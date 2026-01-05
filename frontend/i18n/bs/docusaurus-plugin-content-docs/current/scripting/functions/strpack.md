@@ -15,11 +15,11 @@ Ova funkcija započinje malim slovom.
 
 Upakuj string. Upakovani stringovi koriste 75% manje memorije.
 
-| Ime                     | Deskripcija                                                             |
-| ----------------------- | ----------------------------------------------------------------------- |
-| dest[]                  | Odredišni string za sačuvati upakovani string, proslijeđeno referencom. |
-| const source[]          | Izvor, originalni string.                                               |
-| maxlength=sizeof string | Maksimalna veličina za unijeti.                                         |
+| Ime                       | Deskripcija                                                             |
+| ------------------------- | ----------------------------------------------------------------------- |
+| dest[]                    | Odredišni string za sačuvati upakovani string, proslijeđeno referencom. |
+| const source[]            | Izvor, originalni string.                                               |
+| maxlength = sizeof (dest) | Maksimalna veličina za unijeti.                                         |
 
 ## Returns
 

@@ -152,7 +152,7 @@ Seek online guides or your hosting provider's documentation if you're unsure how
 ## Phase 3: Configuring and Starting the Server
 
 11. Installing the required packages:
-    - Since the server runs as a 32-bit application, you need to enable 32-bit architecture support and install screen:
+    - Since the server runs as a 32-bit application, you need to enable 32-bit architecture support and install the required libraries plus screen:
 
     ```
     sudo dpkg --add-architecture i386
@@ -163,7 +163,7 @@ Seek online guides or your hosting provider's documentation if you're unsure how
     ```
 
     ```
-    sudo apt install libc6:i386 screen
+    sudo apt install libatomic1 libatomic1:i386 libc6:i386 screen
     ```
 
 12. Making the server executable:
