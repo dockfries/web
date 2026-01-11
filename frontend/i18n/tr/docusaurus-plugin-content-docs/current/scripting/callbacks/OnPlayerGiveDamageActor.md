@@ -62,5 +62,5 @@ Bu fonksiyon hasar almayan NPC'lerde çağırılmaz, (NPC'ler varsayılan olarak
 
 ## Bağlantılı Geri Çağırmalar
 
-- [OnActorStreamOut](OnActorStreamOut): Called when an actor is streamed out by a player.
+- [OnActorStreamOut](OnActorStreamOut): Called when an actor streams out by a player.
 - [OnPlayerStreamIn](OnPlayerStreamIn): Called when a player streams in for another player.

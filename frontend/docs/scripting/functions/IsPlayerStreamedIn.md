@@ -39,12 +39,6 @@ if (IsPlayerStreamedIn(playerid, 0))
 
 :::
 
-:::warning
-
-Players aren't streamed in on their own client, so if playerid is the same as forplayerid it will return false!
-
-:::
-
 ## Related Functions
 
 - [IsActorStreamedIn](IsActorStreamedIn): Checks if an actor is streamed in for a player.

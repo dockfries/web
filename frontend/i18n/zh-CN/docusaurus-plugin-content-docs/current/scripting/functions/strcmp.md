@@ -53,8 +53,7 @@ if (!strcmp(string1, string2) && !isnull(string1) && !isnull(string2))
 
 :::warning
 
-- 当任一字符串为空时此函数会返回 **0**，请使用 `isnull()` 进行空值检测
-- 比较来自文本文件的字符串时需注意回车符 (`\r`) 和换行符 (`\n`)，使用 [fread](fread) 读取时会包含这些特殊字符
+比较来自文本文件的字符串时需注意回车符 (`\r`) 和换行符 (`\n`)，使用 [fread](fread) 读取时会包含这些特殊字符
 
 :::
 

@@ -53,7 +53,7 @@ if (!strcmp(string1, string2) && !isnull(string1) && !isnull(string2))
 
 :::warning
 
-Ova funkcija vraća 0 ako je bilo koji niz prazan. Provjerite ima li null nizova pomoću isnull (). Ako uspoređujete nizove iz tekstualne datoteke, trebali biste uzeti u obzir posebne znakove 'carriage return' i 'new line' (\r \n), kada su uključeni, kada koristite fread.
+Ako uspoređujete nizove iz tekstualne datoteke, trebali biste uzeti u obzir posebne znakove 'carriage return' i 'new line' (\r \n), kada su uključeni, kada koristite fread.
 
 :::
 

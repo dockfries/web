@@ -39,12 +39,6 @@ if (IsPlayerStreamedIn(playerid, 0))
 
 :::
 
-:::warning
-
-玩家无法在自己的客户端流加载自身，当 playerid 与 forplayerid 相同时始终返回 false！
-
-:::
-
 ## 相关函数
 
 - [IsActorStreamedIn](IsActorStreamedIn): 检测角色是否已为玩家流加载

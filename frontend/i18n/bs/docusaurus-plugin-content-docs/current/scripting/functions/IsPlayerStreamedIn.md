@@ -37,12 +37,6 @@ Igrači nestaju ako su udaljeni više od 150 metara (vidi server.cfg - stream_di
 
 :::
 
-:::warning
-
-Igrači se ne prenose putem vlastitog klijenta (nisu učitani u vlastitom klijentu), pa ako je playerid isti kao forplayerid, vratit će se false!
-
-:::
-
 ## Srodne Funkcije
 
 - [IsActorStreamedIn](IsActorStreamedIn): Provjeri da li je aktor učitan kod igrača.

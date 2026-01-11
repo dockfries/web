@@ -37,5 +37,5 @@ public OnPlayerStreamIn(playerid, forplayerid)
 ## Gerelateerde Callbacks
 
 - [OnPlayerStreamOut](OnPlayerStreamOut): Deze callback wordt aangeroepen wanneer een speler uit beeld streamt voor een andere speler.
-- [OnActorStreamIn](OnPlayerStreamOut): Deze callback wordt aangeroepen wanneer een actor wordt ingestreamd.
+- [OnActorStreamIn](OnActorStreamIn): Deze callback wordt aangeroepen wanneer een actor wordt ingestreamd.
 - [OnVehicleStreamIn](OnVehicleStreamIn): Deze callback wordt aangeroepen wanneer een voertuig wordt ingestreamd.

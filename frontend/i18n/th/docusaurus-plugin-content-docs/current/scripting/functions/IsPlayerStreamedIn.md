@@ -37,12 +37,6 @@ Players stream out if they are more than 150 meters away (see server.cfg - strea
 
 :::
 
-:::warning
-
-Players aren't streamed in on their own client, so if playerid is the same as forplayerid it will return false!
-
-:::
-
 ## ฟังก์ชั่นที่เกี่ยวข้องกัน
 
 - [IsActorStreamedIn](IsActorStreamedIn): Checks if an actor is streamed in for a player.

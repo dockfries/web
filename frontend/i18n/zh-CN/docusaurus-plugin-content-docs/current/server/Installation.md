@@ -68,6 +68,15 @@ description: 将游戏模式从 SA:MP 服务器迁移至 open.mp 服务器的指
 
 下表所列插件必须使用兼容 omp 的版本！
 
+:::
+
+| 插件              | OMP 兼容版本                                                      |
+| ----------------- | ----------------------------------------------------------------- |
+| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack) |
+| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr       |
+
+:::warning
+
 请将以下插件放入 **../components** 目录而非 **../plugins**！
 
 :::
@@ -78,8 +87,7 @@ description: 将游戏模式从 SA:MP 服务器迁移至 open.mp 服务器的指
 | Pawn.RakNet       | https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp               |
 | sampvoice         | https://github.com/AmyrAhmady/sampvoice/releases/tag/v3.1.5-omp              |
 | discord-connector | https://github.com/maddinat0r/samp-discord-connector/releases/tag/v0.3.6-pre |
-| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack)            |
-| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr                  |
+| sscanf            | https://github.com/Y-Less/sscanf/releases/tag/v2.13.8                        |
 | SKY               | 改用 Pawn.RakNet                                                             |
 | YSF               | 无需使用，open.mp 已原生支持大部分功能                                       |
 | FCNPC             | 传统的 FCNPC 插件已被官方的 open.mp NPC 组件 取代                              |

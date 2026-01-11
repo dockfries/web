@@ -39,12 +39,6 @@ if (IsPlayerStreamedIn(playerid, 0))
 
 :::
 
-:::warning
-
-بازیکنان در کلاینت خودشون stream نمی‌شن، پس اگه playerid همون forplayerid باشه false برمی‌گردونه!
-
-:::
-
 ## توابع مرتبط
 
 - [IsActorStreamedIn](IsActorStreamedIn): چک می‌کنه که آیا یه actor برای بازیکن stream شده یا نه.

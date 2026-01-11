@@ -1,7 +1,7 @@
 ---
 title: OnActorStreamIn
 sidebar_label: OnActorStreamIn
-description: This callback is called when an actor is streamed in by a player's client.
+description: This callback is called when an actor streams in by a player's client.
 tags: ["actor"]
 ---
 
@@ -9,7 +9,7 @@ tags: ["actor"]
 
 ## Description
 
-This callback is called when an actor is streamed in by a player's client.
+This callback is called when an actor streams in by a player's client.
 
 | Name        | Description                                                   |
 | ----------- | ------------------------------------------------------------- |
@@ -40,4 +40,4 @@ public OnActorStreamIn(actorid, forplayerid)
 
 The following callbacks might be useful, as they're related to this callback in one way or another.
 
-- [OnActorStreamOut](OnActorStreamOut): This callback is called when an actor is streamed out by a player's client.
+- [OnActorStreamOut](OnActorStreamOut): This callback is called when an actor streams out by a player's client.

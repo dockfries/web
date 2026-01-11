@@ -1,13 +1,13 @@
 ---
 title: OnPlayerStreamOut
 sidebar_label: OnPlayerStreamOut
-description: This callback is called when a player is streamed out from some other player's client.
+description: This callback is called when a player streams out from some other player's client.
 tags: ["player"]
 ---
 
 ## คำอธิบาย
 
-This callback is called when a player is streamed out from some other player's client.
+This callback is called when a player streams out from some other player's client.
 
 | Name        | Description                                     |
 | ----------- | ----------------------------------------------- |

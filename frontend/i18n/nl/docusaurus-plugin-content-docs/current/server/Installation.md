@@ -62,6 +62,15 @@ Plaats vereiste plugins (bijv. `sscanf.dll`, `streamer.dll`) in de map **plugins
 
 Als je de onderstaande plugins gebruikt, moet je een versie gebruiken die compatibel is met omp!
 
+:::
+
+| Plugin            | OMP                                                               |
+| ----------------- | ----------------------------------------------------------------- |
+| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack) |
+| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr       |
+
+:::warning
+
 Plaats de volgende plugins in de map **../components**, niet in **../plugins**!
 
 :::
@@ -72,8 +81,7 @@ Plaats de volgende plugins in de map **../components**, niet in **../plugins**!
 | Pawn.RakNet       | https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp               |
 | sampvoice         | https://github.com/AmyrAhmady/sampvoice/releases/tag/v3.1.5-omp              |
 | discord-connector | https://github.com/maddinat0r/samp-discord-connector/releases/tag/v0.3.6-pre |
-| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack)            |
-| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr                  |
+| sscanf            | https://github.com/Y-Less/sscanf/releases/tag/v2.13.8                        |
 | SKY               | Gebruik Pawn.RakNet in plaats daarvan                                        |
 | YSF               | Niet nodig: open.mp heeft de meeste gelijkwaardige natives al                |
 | FCNPC             | Momenteel niet ondersteund                                                   |

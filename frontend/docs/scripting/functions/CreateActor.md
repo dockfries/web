@@ -86,6 +86,6 @@ Actors are designed to just stand somewhere, for example cashiers and bartenders
 
 ## Related Callbacks
 
-- [OnActorStreamIn](../callbacks/OnActorStreamIn): Called when an actor is streamed in by a player.
-- [OnActorStreamOut](../callbacks/OnActorStreamOut): Called when an actor is streamed out by a player.
+- [OnActorStreamIn](../callbacks/OnActorStreamIn): Called when an actor streams in by a player.
+- [OnActorStreamOut](../callbacks/OnActorStreamOut): Called when an actor streams out by a player.
 - [OnPlayerGiveDamageActor](../callbacks/OnPlayerGiveDamageActor): This callback is called when a player gives damage to an actor.

@@ -39,5 +39,5 @@ public OnPlayerStreamIn(playerid, forplayerid)
 Следеће повратне функције могу бити корисне, јер су на неки начин повезане са овом повратном функцијом.
 
 - [OnPlayerStreamOut](OnPlayerStreamOut): Ова повратна функција се позива када играч буде уклоњен из стримовања за другог играча.
-- [OnActorStreamIn](OnPlayerStreamOut): Ова повратна функција се позива када играч стримује актора.
+- [OnActorStreamIn](OnActorStreamIn): Ова повратна функција се позива када играч стримује актора.
 - [OnVehicleStreamIn](OnVehicleStreamIn): Ова повратна функција се позива када возило стримује за играча.

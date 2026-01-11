@@ -66,5 +66,5 @@ This function does not get called if the actor is set invulnerable (WHICH IS BY 
 
 ## Related Callbacks
 
-- [OnActorStreamOut](OnActorStreamOut): Called when an actor is streamed out by a player.
+- [OnActorStreamOut](OnActorStreamOut): Called when an actor streams out by a player.
 - [OnPlayerStreamIn](OnPlayerStreamIn): Called when a player streams in for another player.

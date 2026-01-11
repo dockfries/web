@@ -49,7 +49,7 @@ if (!strcmp(string1, string2) && !isnull(string1) && !isnull(string2))
 
 :::warning
 
-Fungsi ini me-return 0 jika stringnya kosong. Cek string kosong dengan isnull(). Jika anda bandingkan strings dari sebuah file teks, anda harus mempertimbangkan karakter khusus seperti 'carriage return' dan 'new line' (\r \n), seperti yang telah disertakan, saat menggunakan fread.
+Jika anda bandingkan strings dari sebuah file teks, anda harus mempertimbangkan karakter khusus seperti 'carriage return' dan 'new line' (\r \n), seperti yang telah disertakan, saat menggunakan fread.
 
 :::
 

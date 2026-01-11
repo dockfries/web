@@ -1,13 +1,13 @@
 ---
 title: OnPlayerStreamOut
 sidebar_label: OnPlayerStreamOut
-description: This callback is called when a player is streamed out from some other player's client.
+description: This callback is called when a player streams out from some other player's client.
 tags: ["player"]
 ---
 
 ## Description
 
-This callback is called when a player is streamed out from some other player's client.
+This callback is called when a player streams out from some other player's client.
 
 | Name        | Description                                     |
 | ----------- | ----------------------------------------------- |
@@ -45,5 +45,5 @@ OnPlayerStreamOut is not called for both players when a player disconnects
 The following callbacks might be useful, as they're related to this callback in one way or another.
 
 - [OnPlayerStreamIn](OnPlayerStreamIn): This callback is called when a player streams in for another player.
-- [OnActorStreamIn](OnPlayerStreamOut): This callback is called when an actor is streamed in by a player.
-- [OnVehicleStreamIn](OnPlayerStreamOut): This callback is called when a vehicle streams in for a player.
+- [OnActorStreamOut](OnActorStreamOut): This callback is called when an actor streams out by a player.
+- [OnVehicleStreamOut](OnVehicleStreamOut): This callback is called when a vehicle streams out for a player.

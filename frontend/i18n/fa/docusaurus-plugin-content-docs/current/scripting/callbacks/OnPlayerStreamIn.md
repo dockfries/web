@@ -39,5 +39,5 @@ public OnPlayerStreamIn(playerid, forplayerid)
 کالبک‌های زیر ممکن است مفید باشند، زیرا به نوعی با این کالبک مرتبط هستند.
 
 - [OnPlayerStreamOut](OnPlayerStreamOut): این کالبک زمانی فراخوانده می‌شود که بازیکن برای بازیکن دیگری stream out شود.
-- [OnActorStreamIn](OnPlayerStreamOut): این کالبک زمانی فراخوانده می‌شود که اکتور توسط بازیکن stream in شود.
+- [OnActorStreamIn](OnActorStreamIn): این کالبک زمانی فراخوانده می‌شود که اکتور توسط بازیکن stream in شود.
 - [OnVehicleStreamIn](OnVehicleStreamIn): این کالبک زمانی فراخوانده می‌شود که وسیله نقلیه برای بازیکن stream in شود.

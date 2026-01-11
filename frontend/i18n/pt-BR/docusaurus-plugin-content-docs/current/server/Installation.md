@@ -62,6 +62,15 @@ Coloque os plugins necessários (por exemplo, `sscanf.dll`, `streamer.dll`) na p
 
 Se você usa os seguintes plugins da tabela, você deve colocar uma versão do plugin que seja compatível com omp!
 
+:::
+
+| Plugin            | OMP                                                               |
+| ----------------- | ----------------------------------------------------------------- |
+| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack) |
+| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr       |
+
+:::warning
+
 Coloque os seguintes plugins na pasta **../components**, não na pasta **../plugins**!
 
 :::
@@ -72,8 +81,7 @@ Coloque os seguintes plugins na pasta **../components**, não na pasta **../plug
 | Pawn.RakNet       | https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp                    |
 | sampvoice         | https://github.com/AmyrAhmady/sampvoice/releases/tag/v3.1.5-omp                   |
 | discord-connector | https://github.com/maddinat0r/samp-discord-connector/releases/tag/v0.3.6-pre      |
-| rustext           | https://github.com/ziggi/rustext/releases/tag/v2.0.11 (nomemhack)                 |
-| keylistener       | https://github.com/edgyaf/keylistener/releases/tag/1.1.2-pr                       |
+| sscanf            | https://github.com/Y-Less/sscanf/releases/tag/v2.13.8                             |
 | SKY               | Use Pawn.RakNet em vez disso                                                      |
 | YSF               | Você não precisa do YSF porque o open.mp já declarou a maioria das mesmas natives |
 | FCNPC             | Substituído pelo componente oficial de NPC do open.mp                             |

@@ -43,5 +43,5 @@ OnPlayerStreamOut wordt niet voor beide spelers aangeroepen wanneer een speler d
 ## Gerelateerde Callbacks
 
 - [OnPlayerStreamIn](OnPlayerStreamIn): Deze callback wordt aangeroepen wanneer een speler ingestreamd wordt voor een andere speler.
-- [OnActorStreamIn](OnPlayerStreamOut): Deze callback wordt aangeroepen wanneer een actor wordt ingestreamd.
-- [OnVehicleStreamIn](OnPlayerStreamOut): Deze callback wordt aangeroepen wanneer een voertuig wordt ingestreamd.
+- [OnActorStreamIn](OnActorStreamIn): Deze callback wordt aangeroepen wanneer een actor wordt ingestreamd.
+- [OnVehicleStreamIn](OnVehicleStreamIn): Deze callback wordt aangeroepen wanneer een voertuig wordt ingestreamd.
