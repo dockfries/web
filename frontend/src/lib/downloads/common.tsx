@@ -6,7 +6,7 @@ import React, { useState } from "react";
 
 import Admonition from "../../components/Admonition";
 import { INITIAL_VISIBLE_RELEASES } from "./constants";
-import styles from "../downloads.module.css";
+import styles from "../../pages/downloads.module.css";
 
 export interface Release {
   tag: string;

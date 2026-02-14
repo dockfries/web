@@ -2,7 +2,7 @@ import Translate from "@docusaurus/Translate";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import React from "react";
 
-import { Release, ReleaseListPage } from "./common";
+import { Release, ReleaseListPage } from "../../lib/downloads/common";
 
 type ReleaseModule = {
   default: React.ComponentType;
