@@ -178,6 +178,9 @@
   "animations.title": {
     "message": "Visualizador de Animações open.mp"
   },
+  "animations.subtitle": {
+    "message": "Navegue e pré-visualize todas as animações disponíveis no open.mp."
+  },
   "animations.library": {
     "message": "Biblioteca:"
   },
