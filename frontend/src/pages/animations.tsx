@@ -83,7 +83,7 @@ const AnimationsPage = () => {
       <div className={styles.pageContainer}>
             <Heading as="h1" className={styles.pageTitle}>
               <Translate id="animations.title" description="Animations page title">
-                Animations Viewer
+                open.mp Animations Viewer
               </Translate>
             </Heading>
             <p className={styles.pageSubtitle}>
