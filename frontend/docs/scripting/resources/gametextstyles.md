@@ -82,7 +82,7 @@ You can use the following text styles in game texts.
 
 ---
 
-## Text Styles added by [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes)
+## Text Styles added by [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes) / [GameText+](https://github.com/itsneufox/GameText-Plus)
 
 | Style    | Preview                                                              | Description                                        |
 | -------- | -------------------------------------------------------------------- | -------------------------------------------------- |

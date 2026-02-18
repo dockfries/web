@@ -57,7 +57,7 @@ Gebruik niet te veel kleuren/specials in één gametext; dit kan clients laten c
 | Stijl 5 | ![](https://assets.open.mp/assets/images/gameTextStyles/style5.png) | ~3s zichtbaar; weigert bij spam (gefixet in fixes.inc)                                                            |
 | Stijl 6 | ![](https://assets.open.mp/assets/images/gameTextStyles/style6.png) | N/B                                                                                                               |
 
-## Stijlen toegevoegd door [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes)
+## Stijlen toegevoegd door [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes) / [GameText+](https://github.com/itsneufox/GameText-Plus)
 
 | Stijl    | Voorbeeld                                                           | Omschrijving                        |
 | -------- | ------------------------------------------------------------------- | ----------------------------------- |
