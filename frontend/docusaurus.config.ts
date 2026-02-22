@@ -72,6 +72,7 @@ const config: Config = {
       "ta",
       "th",
       "tr",
+      "uk",
       "vi",
       "zh-CN",
       "zh-TW",
