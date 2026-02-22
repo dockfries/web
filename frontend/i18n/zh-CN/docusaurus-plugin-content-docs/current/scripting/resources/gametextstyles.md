@@ -68,9 +68,7 @@ description: 文本绘图与游戏文本的样式说明
 
 ---
 
-## fixes.inc 扩展样式
-
-通过[fixes.inc](https://github.com/pawn-lang/sa-mp-fixes)扩展的样式：
+## [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes) / [GameText+](https://github.com/itsneufox/GameText-Plus) 扩展样式
 
 | 样式    | 预览图                                                               | 原型参照                       |
 | ------- | -------------------------------------------------------------------- | ------------------------------ |

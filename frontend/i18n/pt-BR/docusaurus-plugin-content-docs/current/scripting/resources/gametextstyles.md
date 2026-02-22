@@ -79,7 +79,7 @@ Você pode usar os seguintes estilos de texto em gametext.
 
 ---
   
-## Estilos de texto adicionados por [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes)
+## Estilos de texto adicionados por [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes) / [GameText+](https://github.com/itsneufox/GameText-Plus)
 
 |  Estilo   | Pré-visualização                                 | Descrição                                        |
 | -------- | --------------------------------------- | -------------------------------------------------- |
