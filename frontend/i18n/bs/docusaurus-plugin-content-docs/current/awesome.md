@@ -16,7 +16,6 @@ description: Kursirana lista korisnih alata, biblioteka i plugina za SA-MP devel
 - **[Pawn Syntax - Visual Marketplace](https://marketplace.visualstudio.com/items?itemName=southclaws.vscode-pawn)** - Pawn se samodovršava za Visual Studio Code.
 - **[SA-MP Zone Editor](https://bitbucket.org/Grimrandomer/samp-zone-editor/downloads)** - Zone Editor za izradu područja i ostalog.
 - **[SA-MP Map Editor](https://github.com/openmultiplayer/archive/raw/master/tools/Map%20Editor.zip)** - Popularni Map Editor za SA:MP.
-- **[open.mp Server Browser](https://github.com/adib-yg/openmp-server-browser)** - GUI preglednik open.mp servera za radnu površinu.
 
 ## Biblioteke
 

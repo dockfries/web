@@ -39,7 +39,6 @@ description: Lista oficial com ferramentas úteis, libs, gamemodes, filterscript
 - **[actor_robbery](https://github.com/PatrickGTR/actor_robbery)** - Inspirado no GTA V roubo de lojas. actor_robbery.inc imita isso!
 - **[samp-aviation](https://github.com/Southclaws/samp-aviation)** - A basic pitch-based altitude and roll-based heading autopilot for SA-MP.
 - **[samp-logger](https://github.com/Southclaws/samp-logger)** - Logger estruturado, provê uma simples gama de funções para realizar o Log e Debug.
-Simple structured logger which provides a simple set of functions for logging and debugging.
 - **[TDW Recursion Scanner](https://github.com/tdworg/samp-include-rscan)** - Lib para encontrar recursões no código.
 - **[easyDialog](https://github.com/Awsomedude/easyDialog)** - Faça os dialogs serem mais fáceis de usar em modo geral.
 - **[mdialog](https://github.com/Open-GTO/mdialog)** - Sistema de Dialog moderno, similar ao easyDialog.

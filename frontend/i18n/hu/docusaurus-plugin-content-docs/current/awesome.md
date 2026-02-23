@@ -16,7 +16,6 @@ description: Az SA-MP fejlesztéséhez hasznos eszközök, könyvtárak és bőv
 - **[Pawn Syntax - Visual Marketplace](https://marketplace.visualstudio.com/items?itemName=southclaws.vscode-pawn)** - Pawn autocomplet a Visual Studio Code-hoz.
 - **[SA-MP Zone Editor](https://bitbucket.org/Grimrandomer/samp-zone-editor/downloads)** - Zóna szerkesztő a terület és egyéb dolgok készítéséhez.
 - **[SA-MP Map Editor](https://github.com/openmultiplayer/archive/raw/master/tools/Map%20Editor.zip)** - Népszerű térkép szerkesztő SA:MP-hoz.
-- **[open.mp Server Browser](https://github.com/adib-yg/openmp-server-browser)** - open.mp szerverkereső grafikus felhasználói felülete.
 
 ## Könyvtárak
 

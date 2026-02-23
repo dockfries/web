@@ -16,7 +16,6 @@ description: Danh sách được tuyển chọn các tool, librarie, gamemode, f
 - **[Pawn Syntax - Visual Marketplace](https://marketplace.visualstudio.com/items?itemName=southclaws.vscode-pawn)** - Pawn Syntax cho Visual Studio Code.
 - **[SA-MP Zone Editor](https://bitbucket.org/Grimrandomer/samp-zone-editor/downloads)** - Trình chỉnh sửa vùng để tạo vùng và các thứ khác.
 - **[SA-MP Map Editor](https://github.com/openmultiplayer/archive/raw/master/tools/Map%20Editor.zip)** - Trình chỉnh sửa bản đồ cho SA:MP.
-- **[open.mp Server Browser](https://github.com/adib-yg/openmp-server-browser)** - open.mp server trình duyệt GUI cho máy tính để bàn.
 
 ## Libraries
 

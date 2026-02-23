@@ -16,7 +16,6 @@ description: 精心整理的实用工具、库、游戏模式、滤镜脚本和�
 - **[Pawn语法 - Visual市场](https://marketplace.visualstudio.com/items?itemName=southclaws.vscode-pawn)** - Visual Studio Code的Pawn自动补全插件。
 - **[SA-MP区域编辑器](https://bitbucket.org/Grimrandomer/samp-zone-editor/downloads)** - 用于创建区域和其他内容的区域编辑器。
 - **[SA-MP地图编辑器](https://github.com/openmultiplayer/archive/raw/master/tools/Map%20Editor.zip)** - 流行的SA:MP地图编辑器。
-- **[open.mp服务器浏览器](https://github.com/adib-yg/openmp-server-browser)** - 桌面版open.mp服务器浏览器GUI。
 
 ## 库
 

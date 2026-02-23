@@ -16,7 +16,6 @@ description: فهرستی منظم از ابزارها، کتابخانه‌ها
 - **[Pawn Syntax - Visual Marketplace](https://marketplace.visualstudio.com/items?itemName=southclaws.vscode-pawn)** - تکمیل خودکار Pawn برای Visual Studio Code.
 - **[SA-MP Zone Editor](https://bitbucket.org/Grimrandomer/samp-zone-editor/downloads)** - ویرایشگر Zone برای ساخت Area و موارد مشابه.
 - **[SA-MP Map Editor](https://github.com/openmultiplayer/archive/raw/master/tools/Map%20Editor.zip)** - ویرایشگر نقشه محبوب برای SA:MP.
-- **[open.mp Server Browser](https://github.com/adib-yg/openmp-server-browser)** - مرورگر سرور open.mp با رابط گرافیکی برای دسکتاپ.
 
 ## کتابخانه‌ها
 
