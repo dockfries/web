@@ -16,7 +16,6 @@ description: SA-MP geliştirmeleri için kullanışlı araçlar, kütüphaneler,
 - **[Pawn Syntax - Visual Marketplace](https://marketplace.visualstudio.com/items?itemName=southclaws.vscode-pawn)** - Visual Studio Code için Pawn otomatik tamamlamaları.
 - **[SA-MP Bölge Düzenleyici](https://bitbucket.org/Grimrandomer/samp-zone-editor/downloads)** - Bölge ve benzeri oluşturmak için Bölge Düzenleyici.
 - **[SA-MP Harita Düzenleyici](https://github.com/openmultiplayer/archive/raw/master/tools/Map%20Editor.zip)** - Popüler SA:MP Harita Düzenleyici.
-- **[open.mp Sunucu Tarayıcısı](https://github.com/adib-yg/openmp-server-browser)** - Masaüstü için open.mp sunucu tarayıcı arayüzü.
 
 ## Kütüphaneler
 

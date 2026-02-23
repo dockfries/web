@@ -16,7 +16,6 @@ description: Информна листа корисних алата, библи
 - **[Pawn Синтакса - Визуелно Трговиште](https://marketplace.visualstudio.com/items?itemName=southclaws.vscode-pawn)** - Аутоматско допуњавање Павн кода за Визуелни Студио Код.
 - **[SA-MP Уређивач Зона](https://bitbucket.org/Grimrandomer/samp-zone-editor/downloads)** - Уређивач за прављење Зона и слично.
 - **[SA-MP Уређивач Мапа](https://github.com/openmultiplayer/archive/raw/master/tools/Map%20Editor.zip)** - Популарни Уређивач Мапа за SA:MP.
-- **[open.mp Претраживач Сервера](https://github.com/adib-yg/openmp-server-browser)** - open.mp претраживач сервера графички интерфејс за Рачунар.
 
 ## Библиотеке
 
