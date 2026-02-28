@@ -32,6 +32,7 @@ description: 精心整理的实用工具、库、游戏模式、滤镜脚本和�
 - **[weapon-config](https://github.com/oscar-broman/samp-weapon-config)** - 更稳定、响应更快的伤害系统，包含多项新功能。
 - **[samp-geoip](https://github.com/Southclaws/SAMP-geoip)** - 基于IP地址的地理信息查询。
 - **[progress2](https://github.com/Southclaws/progress2)** - 以进度条形式显示时间、生命值、车辆燃油等信息。
+- **[GameText+](https://github.com/itsneufox/GameText-Plus)** - 一款同时兼容 SA-MP 与 open.mp 的插件，旨在提升原生游戏文本的显示效果。
 - **[weapon-data](https://github.com/Southclaws/samp-weapon-data)** - 精细调整、可自定义的武器数据。
 - **[MV_Youtube](https://github.com/MichaelBelgium/MV_Youtube)** - 音频流的Youtube转换API。
 - **[MySQL预处理语句](https://github.com/PatrickGTR/MySQL-Prepared-Statements)** - 为PAWN MySQL插件模拟预处理语句。
@@ -74,8 +75,8 @@ description: 精心整理的实用工具、库、游戏模式、滤镜脚本和�
 - **[sscanf](https://github.com/Y-Less/sscanf)** - 将字符串转换为多种值类型（整数、浮点数、玩家等）。
 - **[MySQL插件](https://github.com/pBlueG/SA-MP-MySQL)** - 连接服务器到MySQL数据库。
 - **[流加载插件](https://github.com/samp-incognito/samp-streamer-plugin)** - 突破SA:MP多项限制（物体、拾取物等）。
-- **[原生检查器](https://github.com/openmultiplayer/archive/raw/master/plugins/nativechecker.zip)** - 服务器启动时检查原生函数。
-- **[FCNPC](https://github.com/ziggi/FCNPC)** - 增强标准NPC功能的插件（截至2023年1月暂不支持open.mp）。
+- **[原生检查器](https://github.com/openmultiplayer/archive/raw/master/plugins/nativechecker.zip)** - 服务器启动时检查原生函数。在 open.mp 中无需使用此插件，因为 open.mp 已内置原生检测机制。
+- **[FCNPC](https://github.com/ziggi/FCNPC)** - 增强标准NPC功能的插件。该插件在 open.mp 中无法运行，但你可以使用官方提供的 NPC 组件替代。
 - **[文件管理器](https://github.com/JaTochNietDan/SA-MP-FileManager)** - 允许管理根目录文件（不限于scriptfiles目录）。
 - **[Pawn.Raknet](https://github.com/katursis/Pawn.RakNet)** - 分析RakNet网络流量。
 - **[samp-precise-timers](https://github.com/bmisiak/samp-precise-timers)** - 提供精确定时器的Rust插件（open.mp已内置此功能）。
@@ -153,10 +154,11 @@ description: 精心整理的实用工具、库、游戏模式、滤镜脚本和�
 
 ## 滤镜脚本
 
-- **[地图修复](https://github.com/NexiusTailer/MapFix)** - 修复GTA圣安地列斯地图的纹理错误。
-- **[SA:MP动画浏览器](https://github.com/Southclaws/samp-animbrowse)** - SA:MP动画浏览工具。
-- **[检测安卓用户](https://github.com/Fairuz-Afdhal/IsPlayerUsingAndroid)** - 检测玩家是否使用安卓设备。
-- **[文本绘图编辑器](https://github.com/Nickk888SAMP/TextDraw-Editor)** - 功能丰富的文本绘图编辑器。
-- **[终极创造器](https://github.com/NexiusTailer/Ultimate-Creator)** - 具备多项功能的先进地图编辑器。
-- **[Fusez地图编辑器](https://github.com/fusez/Map-Editor-V3)** - 游戏内地图编辑器。
-- **[材质工作室](https://github.com/Pottus/Texture-Studio)** - 支持16种材质索引和颜色设置的室内地图编辑器。
+- **[MapFix](https://github.com/NexiusTailer/MapFix)** - 修复GTA圣安地列斯地图的纹理错误。
+- **[SA:MP Animbrowse](https://github.com/Southclaws/samp-animbrowse)** - SA:MP动画浏览工具。
+- **[IsPlayerUsingAndroid](https://github.com/Fairuz-Afdhal/IsPlayerUsingAndroid)** - 检测玩家是否使用安卓设备。
+- **[TextDraw-Editor](https://github.com/Nickk888SAMP/TextDraw-Editor)** - 功能丰富的文本绘图编辑器。
+- **[Nexor's Textdraw Editor](https://github.com/nexquery/samp-textdraw-editor)** - 该编辑器为你提供诸多功能，如：分组、恢复被删内容、撤销操作更改，从文件导入文本绘图。
+- **[Ultimate Creator](https://github.com/NexiusTailer/Ultimate-Creator)** - 具备多项功能的先进地图编辑器。
+- **[Fusez's Map Editor](https://github.com/fusez/Map-Editor-V3)** - 游戏内地图编辑器。
+- **[Texture Studio](https://github.com/Pottus/Texture-Studio)** - 支持16种材质索引和颜色设置的室内地图编辑器。
