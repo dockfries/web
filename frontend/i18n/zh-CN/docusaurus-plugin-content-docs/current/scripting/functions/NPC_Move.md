@@ -72,3 +72,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 ## 相关回调
 
 - [OnNPCFinishMove](../callbacks/OnNPCFinishMove): NPC 完成移动时调用。
+
+## 相关资源
+
+- [NPC 常量](../resources/npc-constants)
