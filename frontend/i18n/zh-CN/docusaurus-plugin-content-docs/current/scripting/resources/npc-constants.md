@@ -57,7 +57,7 @@ tags: ["npc", "常量"]
 | 0   | NPC_ENTITY_CHECK_NONE         | 无碰撞检查                   |
 | 1   | NPC_ENTITY_CHECK_PLAYER       | 检查与玩家的碰撞             |
 | 2   | NPC_ENTITY_CHECK_NPC          | 检查与其他 NPC 的碰撞        |
-| 4   | NPC_ENTITY_CHECK_ACTOR        | 检查与演员的碰撞             |
+| 4   | NPC_ENTITY_CHECK_ACTOR        | 检查与角色的碰撞             |
 | 8   | NPC_ENTITY_CHECK_VEHICLE      | 检查与车辆的碰撞             |
 | 16  | NPC_ENTITY_CHECK_OBJECT       | 检查与物体的碰撞             |
 | 32  | NPC_ENTITY_CHECK_POBJECT_ORIG | 检查与玩家物体的碰撞（原始） |

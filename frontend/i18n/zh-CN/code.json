@@ -143,7 +143,7 @@
     "description": "标签列表页面的标题"
   },
   "announcement.serverVersion": {
-    "message": "open.mp服务器{version}版本已发布！包含多项修复、性能优化及新功能！"
+    "message": "open.mp服务器{version}版本已发布！包含多项修复、性能优化及新特性！"
   },
   "announcement.changelog": {
     "message": "更新日志"
@@ -161,7 +161,7 @@
     "message": "忽略此消息"
   },
   "homepage.heroDescription": {
-    "message": "为《侠盗猎车手：圣安地列斯》打造的全新多人模式模组，与{samp}实现{compatibility}。"
+    "message": "为《侠盗猎车手：圣安地列斯》打造的全新多人联机模组，与{samp}实现{compatibility}。"
   },
   "homepage.heroDescription.compatibility": {
     "message": "完全向后兼容"
