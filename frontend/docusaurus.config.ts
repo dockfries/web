@@ -252,7 +252,6 @@ const config: Config = {
         alt: "open.mp logo",
         src: "images/assets/logo.svg",
       },
-      style: "dark",
       links: [
         {
           title: "Documentations",
