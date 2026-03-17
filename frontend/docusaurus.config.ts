@@ -346,6 +346,11 @@ const config: Config = {
       // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
       insights: false,
     },
+    colorMode: {
+      defaultMode: "light",
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
   } satisfies Preset.ThemeConfig,
 };
 
