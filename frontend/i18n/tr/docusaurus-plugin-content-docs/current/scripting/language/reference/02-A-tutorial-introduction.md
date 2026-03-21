@@ -143,7 +143,7 @@ ve
 
 aynı diziyi yazdırır.
 
---- 
+---
 
 `"while" döngüsü: 116`
 
@@ -262,7 +262,7 @@ Tarihler, çeşitli algoritmalar ve dönüşüm rutinleri için özellikle zengi
 
 "Julian Gün Sayısı", Josephus Scaliger'e† atfedilir ve 4714 M.Ö. 24 Kasım'dan bu yana geçen gün sayısını sayar (proleptik Gregoryen takvimi‡). Scaliger, bu tarihi, üç iyi kurulmuş döngünün - eski Julian takviminin 28 yıllık Güneş Döngüsü, 19 yıllık Meton Döngüsü ve 15 yıllık Indiction Döngüsü (antik Roma'da vergilerin veya hükümet gereksinimlerinin periyodik) - aynı zamana gelmesini işaretlediği ve uzak geçmişte bu özel tarihten önce hiçbir edebiyatın veya kaydedilmiş tarihin bilinmediği tarih olarak seçti. Scaliger, bu konsepti tarih belgelerindeki tarihleri uzlaştırmak için kullandı,
 
- daha sonraki astronomlar, iki olay arasındaki aralıkları daha kolay hesaplamak için bunu benimsedi.
+daha sonraki astronomlar, iki olay arasındaki aralıkları daha kolay hesaplamak için bunu benimsedi.
 
 ---
 
@@ -541,7 +541,6 @@ main fonksiyonu önce bir mesajı görüntüler ve kullanıcının yazması gere
 Sonsuz bir döngü için tipik bir kullanım, ortada bir teste ihtiyaç duyulan bir döngüdür - bir nevi while ve do... while döngüsü arasında bir melez. pawn, doğrudan ortada bir testle döngüleri desteklemez, ancak koşullu bir break ile sonsuz bir döngü kodlayarak bir tane taklit edebilirsiniz. Bu örnek programda döngü:
 
 - diziden bir kelime alır - testten önce kod;
-  
 - yeni bir kelimenin kullanılabilir olup olmadığını test eder ve değilse döngüden çıkar - ortada test;
 
 - kelimeyi ve sıra numarasını yazdırır - testten sonraki kod.
@@ -672,13 +671,13 @@ Bir küme, elemanlar için genel amaçlı bir konteynerdir. Bir kümenin bir ele
 
 Küme işlemleri ile bit işlemleri arasındaki ilişki aşağıdaki tabloda özetlenmiştir. Tabloda, büyük harf bir küme için ve küçük harf bir kümeden bir eleman için temsil eder.
 
-| Kavram        | Matematiksel Gösterim | Pawn İfadesi   |
-| ------------ | --------------------- | --------------- |
-| Kesişim      | A ∩ B                 | A & B           |
-| Birleşim      | A ∪ B                 | A I B           |
-| Tamamlayıcı   | A                     | ~A              |
-| Boş küme      | ε                     | 0               |
-| Üyelik        | x ∈ A                 | (1 {'<<'} x ) & A   |
+| Kavram      | Matematiksel Gösterim | Pawn İfadesi      |
+| ----------- | --------------------- | ----------------- |
+| Kesişim     | A ∩ B                 | A & B             |
+| Birleşim    | A ∪ B                 | A I B             |
+| Tamamlayıcı | A                     | ~A                |
+| Boş küme    | ε                     | 0                 |
+| Üyelik      | x ∈ A                 | (1 {'<<'} x ) & A |
 
 ---
 
@@ -858,7 +857,7 @@ Main fonksiyonu önce bir mesaj kutusu oluşturur ve kullanıcının girdiği bi
 
 Listeleme: rpnparse.inc
 
-```c
+````c
 
 /* ana rpn ayrıştırıcı ve leksikal analiz, Ters Lehçe Notasyonu hesap makinesinin bir parçası */
 #include <rational>
@@ -1382,7 +1381,7 @@ Listeleme: traffic2.p
 
 ```c
 
-/* Daha gerçekçi bir trafik lambası senkronizatörü, acil araçlar için bir "geçersiz kılma" içerir 
+/* Daha gerçekçi bir trafik lambası senkronizatörü, acil araçlar için bir "geçersiz kılma" içerir
 */
 
 #include <time>
@@ -1523,13 +1522,13 @@ Bakım sırasında veya hatta başlangıçta, bir assertion tarafından yakalanm
 
 Programlar büyüdükçe, programın ve işlevlerin belgelenmesi özellikle bir ekiple çalışırken bakım için hayati öneme sahiptir. Pawn dil araçları, kodu belgelerken size yardımcı olacak bazı özelliklere sahiptir. Bir programı veya kütüphaneyi yorumlar içinde belgeleme, birkaç avantaja sahiptir - örneğin: belgeleme programla daha kolay bir şekilde güncellenebilir, programlama yorumları şimdi belgeleme olarak da kullanılır ve ayrıca ayrıştırıcı, sentaks açıklamaları ve çapraz referanslar oluşturmanıza yardımcı olur.
 
-Her üç eğik çizgi ile başlayan yorum ("/// ") ve bir beyaz boşluktan sonra veya bir eğik çizgi ve iki yıldız ile başlayan yorum ("/** ") ve bir beyaz boşluktan sonra başlayan özel bir belgeleme yorumudur. Pawn derleyicisi belgeleme yorumlarını çıkarır ve bunları bir "rapor" dosyasına isteğe bağlı olarak yazar. Rapor oluşturmayı etkinleştirmek için uygulama belgelerine veya ek B'ye bakınız.
+Her üç eğik çizgi ile başlayan yorum ("/// ") ve bir beyaz boşluktan sonra veya bir eğik çizgi ve iki yıldız ile başlayan yorum ("/\*\* ") ve bir beyaz boşluktan sonra başlayan özel bir belgeleme yorumudur. Pawn derleyicisi belgeleme yorumlarını çıkarır ve bunları bir "rapor" dosyasına isteğe bağlı olarak yazar. Rapor oluşturmayı etkinleştirmek için uygulama belgelerine veya ek B'ye bakınız.
 
 Ayrıca, "/\*\*" ile başlayan yorumlar "\*/ ile kapatılmalıdır". Tek satır belgeleme yorumları ("///") satırın sonunda kapanır.
 
 Rapor dosyası, ardından bir XSL/XSLT stili sayesinde HTML belgesine dönüştürülebilen bir XML dosyasıdır veya basılı belgeler oluşturmak için diğer
 
- araçlardan geçirilebilir. Rapor dosyasının sözdizimi, "Net" geliştirici ürünlerine uyumlu olacak şekilde tasarlanmıştır - pawn derleyicisi, çıkarılan belgeleme dizelerinin yanı sıra diğer bilgileri de raporda saklar. Rapor dosyası, "smalldoc.xsl" stil sayfasına bir referans içerir.
+araçlardan geçirilebilir. Rapor dosyasının sözdizimi, "Net" geliştirici ürünlerine uyumlu olacak şekilde tasarlanmıştır - pawn derleyicisi, çıkarılan belgeleme dizelerinin yanı sıra diğer bilgileri de raporda saklar. Rapor dosyası, "smalldoc.xsl" stil sayfasına bir referans içerir.
 
 ---
 
@@ -1827,13 +1826,13 @@ daysinmonth(month, year)
 
 “.Net” geliştirici ürünleri tarafından oluşturulan XML dosyasının formatı Microsoft belgelerinde belgelenmiştir. Pawn ayrıştırıcısı, bir projede kullanılan her işlev, genel değişken veya sabit için, belgelendirme açıklamalarını kullanıp kullanmadığınıza bakılmaksızın, her birinin mini bir açıklamasını oluşturur. Ayrıştırıcı ayrıca kendi etiketlerinden birkaçını oluşturur:
 
-| name       | info                                                                                                                                                                                                                               |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| attribute  | Bir işlevin "native" veya "stock" gibi öznitelikleri.                                                                                                                                                                            |
-| automaton  | İşlemin ait olduğu otomat.                                                                                                                                                                               |
-| dependency | İşlemin gerektirdiği sembollerin (diğer işlevler, genel değişkenler ve/genel sabitler) adları. İstenirse, bağımlılıklardan bir çağ ağacı oluşturulabilir.                                                    |
-| param      | İşlev parametreleri. Bir belgelendirme açıklamasında bir parametre açıklaması eklediğinizde, bu açıklama parametre için otomatik oluşturulan içerikle birleştirilir.                                                              |
-| paraminfo  | Bir parametre üzerindeki etiketler ve dizi veya referans bilgisi.                                                                                                                                                                            |
+| name       | info                                                                                                                                                                                                                        |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| attribute  | Bir işlevin "native" veya "stock" gibi öznitelikleri.                                                                                                                                                                       |
+| automaton  | İşlemin ait olduğu otomat.                                                                                                                                                                                                  |
+| dependency | İşlemin gerektirdiği sembollerin (diğer işlevler, genel değişkenler ve/genel sabitler) adları. İstenirse, bağımlılıklardan bir çağ ağacı oluşturulabilir.                                                                   |
+| param      | İşlev parametreleri. Bir belgelendirme açıklamasında bir parametre açıklaması eklediğinizde, bu açıklama parametre için otomatik oluşturulan içerikle birleştirilir.                                                        |
+| paraminfo  | Bir parametre üzerindeki etiketler ve dizi veya referans bilgisi.                                                                                                                                                           |
 | referrer   | Bu sembolü kullanan tüm işlevler; yani, bu değişken/fonksiyonu kullanan veya çağıran tüm işlevler. Bu bilgi, bir "çapraz referans" olarak hizmet vermek için yeterlidir - "referrer" ağacı, "dependency" ağacının tersidir. |
 
 ---
@@ -1842,28 +1841,28 @@ daysinmonth(month, year)
 
 ###### Şekil 2: Kaynak kodundan oluşturulan belge
 
-| name       | info                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name       | info                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | stacksize  | İşlemin yığına ve belleğe kaç hücre tahsis edeceğinin tahmini sayısı. Bu yığın kullanım tahmini, işlemi uygulamaya yönelik belgelerde belirtilen işlevin yanı sıra "çağrılan" işlevlerin yığın gereksinimlerini içermez. Örneğin, readdate işlevinin yığın üzerinde 6 hücre kullanılması belgelenir, ancak ayrıca 4 ilave hücre alan daysinmonth'u çağırır —ve bu da isleapyear'u çağırır. readdate işlevinin toplam yığın gereksinimlerini hesaplamak için çağrı ağacı dikkate alınmalıdır. Lokal değişkenler ve işlev parametreleri dışında, derleyici aynı zamanda karmaşık ifadelerde ara sonuçları saklamak için yığıını kullanır. Bu ara sonuçların gereksinim duyduğu yığın alanı da bu rapordan hariç tutulur. Genel olarak, ara sonuçlar için gereken üst bilgi kümülatif değildir (tüm işlevler üzerinde), bu nedenle her işleve "güvenlik marjı" eklemek yanıltıcı olurdu. Genel olarak, program için bir güvenlik marjı eklemek oldukça tavsiye edilir. Çağrı ağacına dayanarak maksimum tahmini yığın kullanımını söyleyebilen -v seçeneği için 168. sayfadaki ek B'ye bakın. |
-| tagname    | Sabit, değişken, işlev sonucu veya işlev parametre(ler)inin etiketi.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| transition | The transitions that the function provokes and their conditions —see the section of automatons on page 38.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| tagname    | Sabit, değişken, işlev sonucu veya işlev parametre(ler)inin etiketi.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| transition | The transitions that the function provokes and their conditions —see the section of automatons on page 38.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ---
 
 Belgelendirme yorum(lar)ındaki tüm metin, bağlı olduğu her işlev, değişken veya sabite kopyalanır. Belgelendirme yorumundaki metin, başka bir işleme tabi tutulmadan kopyalanır —tek bir istisna hariç, aşağıya bakınız. Rapor dosyasının geri kalanı XML formatında olduğu ve XML belgesini çevrimiçi belgelendirmek için en uygun yolun bir XSLT işleyici (örneğin, modern bir tarayıcı) aracılığıyla olduğu düşünüldüğünde, belgelendirme yorumlarında herhangi bir biçimlendirmeyi HTML etiketleri kullanarak yapmayı seçebilirsiniz. HTML etiketlerini genellikle açıkça kapatmanız gerekecektir; HTML standardı bunu gerektirmese de, XML/XSLT işleyicileri genellikle gerektirir. Pawn araç seti, aşağıdaki XML/HTML etiketlerini destekleyen bir eşleşen stil şeeti ile birlikte gelen bir örnek XSLT dosyasına sahiptir:
 
-| name                          | info                                                                                                                                               |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<code> </code>`              | Monospace fontunda biçimlendirilmiş kaynak kodu; " & ", " < " ve " > " karakterlerinin sırasıyla " &amp; ", " &lt; " ve " &gt; " olarak yazılması gerekmektedir.             |
-| `<example> </example>`        | Alt başlık "Örnek" altında ayarlanan metin.                                                                                                           |
-| `<param name="..."> </param>` | Bir parametre açıklaması, parametre adının açılış etiketinin içinde görünmesi ( "name=" seçeneği) ve parametre açıklamasının onu takip etmesi ile birlikte. |
-| `<paramref name="..." />`     | Bir parametre referansı, parametre adının açılış etiketinin içinde görünmesi ("name=" seçeneği).                                         |
-| `<remarks> </remarks>`        | Alt başlık "Remarks" altında ayarlanan metin.                                                                                                           |
-| `<returns> </returns>`        | Alt başlık "Returns" altında ayarlanan metin.                                                                                                           |
-| `<seealso> </seealso>`        | Alt başlık "See also" altında ayarlanan metin.                                                                                                           |
-| `<summary> </summary>`        | Sembol başlığının hemen altına ayarlanan metin.                                                                                                |
-| `<section> </section>`        | Metni bir başlık içinde ayarlar. Bu, bir işleve veya bir değişkene bağlı olmayan belgelerde kullanılmalıdır.                             |
-| `<subsection> </subsection>`  | Metni bir alt başlık içinde ayarlar. Bu, bir işleve veya bir değişkene bağlı olmayan belgelerde kullanılmalıdır.                         |
+| name                          | info                                                                                                                                                             |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<code> </code>`              | Monospace fontunda biçimlendirilmiş kaynak kodu; " & ", " < " ve " > " karakterlerinin sırasıyla " &amp; ", " &lt; " ve " &gt; " olarak yazılması gerekmektedir. |
+| `<example> </example>`        | Alt başlık "Örnek" altında ayarlanan metin.                                                                                                                      |
+| `<param name="..."> </param>` | Bir parametre açıklaması, parametre adının açılış etiketinin içinde görünmesi ( "name=" seçeneği) ve parametre açıklamasının onu takip etmesi ile birlikte.      |
+| `<paramref name="..." />`     | Bir parametre referansı, parametre adının açılış etiketinin içinde görünmesi ("name=" seçeneği).                                                                 |
+| `<remarks> </remarks>`        | Alt başlık "Remarks" altında ayarlanan metin.                                                                                                                    |
+| `<returns> </returns>`        | Alt başlık "Returns" altında ayarlanan metin.                                                                                                                    |
+| `<seealso> </seealso>`        | Alt başlık "See also" altında ayarlanan metin.                                                                                                                   |
+| `<summary> </summary>`        | Sembol başlığının hemen altına ayarlanan metin.                                                                                                                  |
+| `<section> </section>`        | Metni bir başlık içinde ayarlar. Bu, bir işleve veya bir değişkene bağlı olmayan belgelerde kullanılmalıdır.                                                     |
+| `<subsection> </subsection>`  | Metni bir alt başlık içinde ayarlar. Bu, bir işleve veya bir değişkene bağlı olmayan belgelerde kullanılmalıdır.                                                 |
 
 ---
 

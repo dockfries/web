@@ -934,7 +934,7 @@ counting from zero; here, the value of the first constant, A, is explicitly set 
 
 _its predecessor incremented by any value (not just 1) —e.g., “(+= 5)”;_
 
-_its predecessor multiplied by any value —e.g., “(*= 3)”;_
+_its predecessor multiplied by any value —e.g., “(\*= 3)”;_
 
 _its predecessor bit-shifted to the left by any value —e.g., “(\<\<= 1)”;_
 
@@ -2201,7 +2201,7 @@ Como o restante do relatório está em XML (e a forma mais comum de gerar docume
 
 | name                          | info                                                                                                                                               |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<code> </code>`              | Preformatted source code in a monospaced font; although the “&”, “\<” and “>” must be typed as “&amp;”, “&lt;” and “&rt;” respectively.             |
+| `<code> </code>`              | Preformatted source code in a monospaced font; although the “&”, “\<” and “>” must be typed as “&amp;”, “&lt;” and “&rt;” respectively.            |
 | `<example> </example>`        | Text set under the sub-header “Example”.                                                                                                           |
 | `<param name="..."> </param>` | A parameter description, with the parameter name appearing inside the opening tag (the “name=” option) and the parameter description following it. |
 | `<paramref name="..." />`     | A reference to a parameter, with the parameter name appearing inside the opening tag (the “name=” option).                                         |

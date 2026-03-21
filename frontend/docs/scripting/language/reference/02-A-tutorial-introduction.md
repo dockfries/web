@@ -1161,7 +1161,7 @@ counting from zero; here, the value of the first constant, A, is explicitly set 
 
 _its predecessor incremented by any value (not just 1) —e.g., “(+= 5)”;_
 
-_its predecessor multiplied by any value —e.g., “(*= 3)”;_
+_its predecessor multiplied by any value —e.g., “(\*= 3)”;_
 
 _its predecessor bit-shifted to the left by any value —e.g., “(\<\<= 1)”;_
 
@@ -2417,7 +2417,7 @@ double as documentation, and the parser helps your documentation efforts in
 generating syntax descriptions and cross references.
 
 Every comment that starts with three slashes
-(“/// ”) followed by white-space, or that starts with a slash and two stars (“/** ”)
+(“/// ”) followed by white-space, or that starts with a slash and two stars (“/\*\* ”)
 followed by white-space is a
 special documentation comment. The pawn compiler extracts documentation
 comments and optionally writes these to a “report” file. See the application

@@ -119,9 +119,9 @@ são assumidas como constantes numéricas.
 | '\\'                 | \   | o caractere de escape                            |
 | '\''                 | '   | aspas simples                                    |
 | '\"'                 | "   | aspas duplas                                     |
-| '\%              | %   | sinal de porcentagem                                 |
-| '\ddd;'          |     | código do caractere com código decimal "ddd"         |
-| '\xhhh;'         |     | código do caractere com código hexadecimal "hhh"     |
+| '\%                  | %   | sinal de porcentagem                             |
+| '\ddd;'              |     | código do caractere com código decimal "ddd"     |
+| '\xhhh;'             |     | código do caractere com código hexadecimal "hhh" |
 
 O ponto e vírgula após os códigos ddd; e xhhh; é opcional.
 Seu propósito é dar à sequência de escape um símbolo de
@@ -276,19 +276,19 @@ que uma variável (local ou global), uma função ou outra constante
 
 **Constantes predefinidas**
 
-| Nome     | Descrição                                                                                                                                                                                                                                                                                   |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| cellbits | O tamanho de uma célula em bits; geralmente 32.                                                                                                                                                                                                                                             |
-| cellmax  | O maior valor positivo válido que uma célula pode conter; geralmente 2147483647.                                                                                                                                                                                                            |
-| cellmin  | O maior valor negativo válido que uma célula pode conter; geralmente -2147483648.                                                                                                                                                                                                           |
-| charbits | O tamanho de um caractere empacotado em bits; geralmente 8.                                                                                                                                                                                                                                 |
-| charmax  | O maior valor válido de caractere empacotado; geralmente um caractere empacotado é de 8 bits e o valor máximo válido é 255.                                                                                                                                                                 |
-| charmin  | O menor valor válido de caractere, tanto para valores empacotados quanto desempacotados; atualmente definido como zero (0).                                                                                                                                                                 |
-| debug    | O nível de debug: 2 se o parser cria informações simbólicas completas mais verificação de limites em tempo de execução, 1 se o parser gera apenas verificação em tempo de execução (assertions e verificações de limites de array), e 0 (zero) se todo suporte de debug foi desativado.     |
-| false    | 0 (esta constante é marcada como bool:)                                                                                                                                                                                                                                                     |
-| \_\_Pawn | O número da versão do compilador pawn em Decimais Codificados em Binário (BCD) — ou seja, para a versão 2.8.1 a constante é "0x281".                                                                                                                                                        |
-| true     | 1 (esta constante é marcada como bool:)                                                                                                                                                                                                                                                     |
-| ucharmax | O maior valor de caractere desempacotado, seu valor depende do tamanho de uma célula. Um uso típico para esta constante é verificar se uma string é empacotada ou desempacotada, veja página 137.                                                                                           |
+| Nome     | Descrição                                                                                                                                                                                                                                                                               |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| cellbits | O tamanho de uma célula em bits; geralmente 32.                                                                                                                                                                                                                                         |
+| cellmax  | O maior valor positivo válido que uma célula pode conter; geralmente 2147483647.                                                                                                                                                                                                        |
+| cellmin  | O maior valor negativo válido que uma célula pode conter; geralmente -2147483648.                                                                                                                                                                                                       |
+| charbits | O tamanho de um caractere empacotado em bits; geralmente 8.                                                                                                                                                                                                                             |
+| charmax  | O maior valor válido de caractere empacotado; geralmente um caractere empacotado é de 8 bits e o valor máximo válido é 255.                                                                                                                                                             |
+| charmin  | O menor valor válido de caractere, tanto para valores empacotados quanto desempacotados; atualmente definido como zero (0).                                                                                                                                                             |
+| debug    | O nível de debug: 2 se o parser cria informações simbólicas completas mais verificação de limites em tempo de execução, 1 se o parser gera apenas verificação em tempo de execução (assertions e verificações de limites de array), e 0 (zero) se todo suporte de debug foi desativado. |
+| false    | 0 (esta constante é marcada como bool:)                                                                                                                                                                                                                                                 |
+| \_\_Pawn | O número da versão do compilador pawn em Decimais Codificados em Binário (BCD) — ou seja, para a versão 2.8.1 a constante é "0x281".                                                                                                                                                    |
+| true     | 1 (esta constante é marcada como bool:)                                                                                                                                                                                                                                                 |
+| ucharmax | O maior valor de caractere desempacotado, seu valor depende do tamanho de uma célula. Um uso típico para esta constante é verificar se uma string é empacotada ou desempacotada, veja página 137.                                                                                       |
 
 **Nomes de tag**
 
@@ -296,10 +296,10 @@ Uma tag consiste em um identificador seguido por dois pontos. Não pode haver es
 
 **Nomes de tag predefinidos**
 
-| Nome   | Descrição                                                                                        |
-| ------ | ------------------------------------------------------------------------------------------------ |
-| bool:  | Para flags "verdadeiro/falso". As constantes predefinidas true e false têm esta tag.             |
-| Fixed: | Números racionais tipicamente têm esta tag quando o suporte a ponto fixo está habilitado (página 121). |
+| Nome   | Descrição                                                                                                   |
+| ------ | ----------------------------------------------------------------------------------------------------------- |
+| bool:  | Para flags "verdadeiro/falso". As constantes predefinidas true e false têm esta tag.                        |
+| Fixed: | Números racionais tipicamente têm esta tag quando o suporte a ponto fixo está habilitado (página 121).      |
 | Float: | Números racionais tipicamente têm esta tag quando o suporte a ponto flutuante está habilitado (página 121). |
 
 ---
