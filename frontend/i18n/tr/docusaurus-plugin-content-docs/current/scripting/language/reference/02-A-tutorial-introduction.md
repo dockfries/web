@@ -752,7 +752,7 @@ Daha dikkat çekici olan, enum anahtar kelimesi ve sabit listesini başlatan aç
 
 - öncülünün belirli bir değere sola kaydırılması —örneğin, `(<<= 1)`;-
 
-Unutmayın ki ikili aritmetikte, bir bitin bir konum sola kaydırılması, iki ile çarpılması anlamına gelir, bu da `(/*= 2)` ve `(<<= 1)`'in aynı şeyi yaptığı anlamına gelir.
+Unutmayın ki ikili aritmetikte, bir bitin bir konum sola kaydırılması, iki ile çarpılması anlamına gelir, bu da `(*= 2)` ve `(<<= 1)`'in aynı şeyi yaptığı anlamına gelir.
 
 Kümelerle çalışırken karşımıza çıkan tipik bir görev, kümedeki elemanların sayısını belirlemektir. Bu işlemi yapan basit bir işlev aşağıda gösterilmiştir:
 
@@ -1088,21 +1088,21 @@ Listeleme: turtle.p
 
 @keypressed(key)
 {
-    /_ mevcut konumu al */
+    /* mevcut konumu al */
     yeni x, y
     wherexy x, y
 
-    /_ mevcut konumu nasıl güncelleyeceğini belirle */
+    /* mevcut konumu nasıl güncelleyeceğini belirle */
     switch (key)
     {
-        case 'u': y-- /_ yukarı */
-        case 'd': y++ /_ aşağı */
-        case 'l': x-- /_ sola */
-        case 'r': x++ /_ sağa */
-        case '\e': exit /_ Escape = çıkış */
+        case 'u': y-- /* yukarı */
+        case 'd': y++ /* aşağı */
+        case 'l': x-- /* sola */
+        case 'r': x++ /* sağa */
+        case '\e': exit /* Escape = çıkış */
     }
 
-    /_ imleç konumunu ayarla ve bir şeyler çiz */
+    /* imleç konumunu ayarla ve bir şeyler çiz */
     moveturtle x, y
 }
 
@@ -1230,7 +1230,7 @@ main()
 @keypressed(key) <slash>
 {
     state (key != ’/’) plain
-    state (key == ’/*’) comment
+    state (key == ’*’) comment
     echo ’/’    /* Önceki durumdan gelen ’/’ karakterini yazdır */
     if (key != ’/’)
         echo key
@@ -1239,13 +1239,13 @@ main()
 @keypressed(key) <comment>
 {
     echo key
-    state (key == ’/*’) star
+    state (key == ’*’) star
 }
 
 @keypressed(key) <star>
 {
     echo key
-    state (key != ’/*’) comment
+    state (key != ’*’) comment
     state (key == ’/’) plain
 }
 
@@ -1523,9 +1523,9 @@ Bakım sırasında veya hatta başlangıçta, bir assertion tarafından yakalanm
 
 Programlar büyüdükçe, programın ve işlevlerin belgelenmesi özellikle bir ekiple çalışırken bakım için hayati öneme sahiptir. Pawn dil araçları, kodu belgelerken size yardımcı olacak bazı özelliklere sahiptir. Bir programı veya kütüphaneyi yorumlar içinde belgeleme, birkaç avantaja sahiptir - örneğin: belgeleme programla daha kolay bir şekilde güncellenebilir, programlama yorumları şimdi belgeleme olarak da kullanılır ve ayrıca ayrıştırıcı, sentaks açıklamaları ve çapraz referanslar oluşturmanıza yardımcı olur.
 
-Her üç eğik çizgi ile başlayan yorum ("/// ") ve bir beyaz boşluktan sonra veya bir eğik çizgi ve iki yıldız ile başlayan yorum ("//_/ ") ve bir beyaz boşluktan sonra başlayan özel bir belgeleme yorumudur. Pawn derleyicisi belgeleme yorumlarını çıkarır ve bunları bir "rapor" dosyasına isteğe bağlı olarak yazar. Rapor oluşturmayı etkinleştirmek için uygulama belgelerine veya ek B'ye bakınız.
+Her üç eğik çizgi ile başlayan yorum ("/// ") ve bir beyaz boşluktan sonra veya bir eğik çizgi ve iki yıldız ile başlayan yorum ("/** ") ve bir beyaz boşluktan sonra başlayan özel bir belgeleme yorumudur. Pawn derleyicisi belgeleme yorumlarını çıkarır ve bunları bir "rapor" dosyasına isteğe bağlı olarak yazar. Rapor oluşturmayı etkinleştirmek için uygulama belgelerine veya ek B'ye bakınız.
 
-Ayrıca, "_/" ile başlayan yorumlar "_/ ile kapatılmalıdır". Tek satır belgeleme yorumları ("///") satırın sonunda kapanır.
+Ayrıca, "/\*\*" ile başlayan yorumlar "\*/ ile kapatılmalıdır". Tek satır belgeleme yorumları ("///") satırın sonunda kapanır.
 
 Rapor dosyası, ardından bir XSL/XSLT stili sayesinde HTML belgesine dönüştürülebilen bir XML dosyasıdır veya basılı belgeler oluşturmak için diğer
 
@@ -1742,8 +1742,8 @@ weekday(day, month, year)
 bool: readdate(&day, &month, &year)
 {
     print "Bir tarih girin (gg-aa-yyyy): ";
-    day = getvalue(\_, '-', '/');
-    month = getvalue(\_, '-', '/');
+    day = getvalue(_, '-', '/');
+    month = getvalue(_, '-', '/');
     year = getvalue();
     return 1 <= month && month <= 12 && 1 <= day && day <= daysinmonth(month, year);
 }
@@ -1820,7 +1820,7 @@ daysinmonth(month, year)
 {
     static daylist[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
     assert 1 <= month && month <= 12;
-    return daylist[month - 1] + \_:(month == 2 && isleapyear(year));
+    return daylist[month - 1] + _:(month == 2 && isleapyear(year));
 }
 
 ```

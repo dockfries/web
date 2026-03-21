@@ -934,12 +934,12 @@ counting from zero; here, the value of the first constant, A, is explicitly set 
 
 _its predecessor incremented by any value (not just 1) —e.g., “(+= 5)”;_
 
-_its predecessor multiplied by any value —e.g., “(_= 3)”;\_
+_its predecessor multiplied by any value —e.g., “(*= 3)”;_
 
 _its predecessor bit-shifted to the left by any value —e.g., “(\<\<= 1)”;_
 
 Note that, in binary arithmetic, shifting left by one bit amounts to the same
-as multiplying by two, meaning that `(/*= 2)` and `(<<= 1)` do the same thing.
+as multiplying by two, meaning that `(*= 2)` and `(<<= 1)` do the same thing.
 
 When working with sets, a typical task that pops up is to determine the number
 of elements in the set. A straightforward function that does this is below:
@@ -1340,28 +1340,28 @@ Listing: turtle.p
 
 @keypressed(key)
 {
-    /_ get current position */
+    /* get current position */
     new x, y
     wherexy x, y
 
-    /_ determine how the update the current position */
+    /* determine how the update the current position */
     switch (key)
     {
-        case ’u’: y-- /_ up */
-        case ’d’: y++ /_ down */
-        case ’l’: x-- /_ left */
-        case ’r’: x++ /_ right */
-        case ’\e’: exit /_ Escape = exit */
+        case ’u’: y-- /* up */
+        case ’d’: y++ /* down */
+        case ’l’: x-- /* left */
+        case ’r’: x++ /* right */
+        case ’\e’: exit /* Escape = exit */
     }
 
-    /_ adjust the cursor position and draw something */
+    /* adjust the cursor position and draw something */
     moveturtle x, y
 }
 
 moveturtle(x, y)
 {
     gotoxy x, y
-    print ’/*’
+    print ’*’
     gotoxy x, y
 }
 
@@ -1504,7 +1504,7 @@ main()
 @keypressed(key) <slash>
 {
     state (key != ’/’) plain
-    state (key == ’/*’) comment
+    state (key == ’*’) comment
     echo ’/’    /* print ’/’ held back from previous state */
     if (key != ’/’)
         echo key
@@ -1513,13 +1513,13 @@ main()
 @keypressed(key) <comment>
 {
     echo key
-    state (key == ’/*’) star
+    state (key == ’*’) star
 }
 
 @keypressed(key) <star>
 {
     echo key
-    state (key != ’/*’) comment
+    state (key != ’*’) comment
     state (key == ’/’) plain
 }
 
@@ -1711,7 +1711,7 @@ new bool: button_memo <red_wait, green_wait_interim, yellow_wait>
     switch (key)
     {
         case ’ ’: button_press
-        case ’/*’: mirt_detect
+        case ’*’: mirt_detect
     }
 }
 
@@ -2073,8 +2073,8 @@ weekday(day, month, year)
 bool: readdate(&day, &month, &year)
 {
     print "Give a date (dd-mm-yyyy): "
-    day = getvalue(\_,’-’,’/’)
-    month = getvalue(\_,’-’,’/’)
+    day = getvalue(_,’-’,’/’)
+    month = getvalue(_,’-’,’/’)
     year = getvalue()
     return 1 <= month <= 12 && 1 <= day <= daysinmonth(month,year)
 }
@@ -2159,7 +2159,7 @@ daysinmonth(month, year)
 {
     static daylist[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
     assert 1 <= month <= 12
-    return daylist[month-1] + \_:(month == 2 && isleapyear(year))
+    return daylist[month-1] + _:(month == 2 && isleapyear(year))
 }
 
 ```

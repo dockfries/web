@@ -349,7 +349,7 @@ Listing: increment usage
 ```c
 
 increment(a)
-increment(a, \_)
+increment(a, _)
 increment(a, 1)
 
 ```
@@ -381,8 +381,8 @@ Listing: divmod usage
 new p, q
 
 divmod(10, 3, p, q)
-divmod(10, 3, p, \_)
-divmod(10, 3, \_, q)
+divmod(10, 3, p, _)
+divmod(10, 3, _, q)
 divmod(10, 3, p)
 divmod 10, 3, p, q
 

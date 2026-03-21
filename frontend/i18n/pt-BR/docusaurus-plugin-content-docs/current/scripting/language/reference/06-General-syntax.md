@@ -18,13 +18,13 @@
 
 **Comentários**
 
-    Texto entre os tokens /_ e _/ (ambos os tokens podem estar na mesma
+    Texto entre os tokens /* e */ (ambos os tokens podem estar na mesma
     linha ou em linhas diferentes) e texto após // (até o final da linha)
     é um comentário de programação. O parser trata um comentário como
     espaço em branco. Comentários não podem ser aninhados.
 
-    Um comentário que começa com "/\*_ " (duas estrelas e espaço em branco
-    após a segunda estrela) e termina com "_/" é um comentário de documentação.
+    Um comentário que começa com "/** */ " (duas estrelas e espaço em branco
+    após a segunda estrela) e termina com "*/" é um comentário de documentação.
     Um comentário que começa com "/// " (três barras e espaço em branco
     após a terceira barra) também é um comentário de documentação. O parser
     pode tratar comentários de documentação de forma especial; por exemplo,
