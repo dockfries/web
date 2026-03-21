@@ -356,6 +356,17 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
   } satisfies Preset.ThemeConfig,
+
+  stylesheets: [
+    {
+      rel: "preconnect",
+      href: "https://rsms.me/",
+    },
+    {
+      rel: "stylesheet",
+      href: "https://rsms.me/inter/inter.css",
+    },
+  ],
 };
 
 export default config;

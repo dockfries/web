@@ -4,26 +4,10 @@
  * work well for content-centric websites.
  */
 
-@font-face {
-  font-family: "english-grotesque";
-  src: url("/fonts/english-grotesque_700.woff2") format("woff2"),
-    url("/fonts/english-grotesque_700.woff") format("woff");
-  font-display: auto;
-  font-style: normal;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "english-grotesque";
-  src: url("/fonts/english-grotesque_300.woff2") format("woff2"),
-    url("/fonts/english-grotesque_300.woff") format("woff");
-  font-display: auto;
-  font-style: normal;
-  font-weight: 300;
-}
-
-html {
-  font-family: "english-grotesque", var(--ifm-heading-font-family);
+@supports (font-variation-settings: normal) {
+  :root { 
+    font-family: InterVariable, sans-serif, var(--ifm-heading-font-family);
+  }
 }
 
 h1,
@@ -31,8 +15,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: "english-grotesque", var(--ifm-heading-font-family);
+h6,
+html {
+  font-family: Inter, sans-serif, var(--ifm-heading-font-family);
 }
 
 /* You can override the default Infima variables here. */
@@ -49,6 +34,9 @@ h6 {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-button-font-weight: 600;
   --ifm-footer-background-color:rgba(255, 255, 255, 0.35);
+
+  font-family: 'Inter', sans-serif, var(--ifm-heading-font-family);
+  font-feature-settings: 'liga' 1, 'calt' 1;
 
   background-image: url(/images/assets/map.png);
   background-size: cover;
