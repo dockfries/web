@@ -215,8 +215,10 @@ export function ReleaseListPage({ config }: ReleaseListPageProps): React.ReactEl
                       className={`button button--primary button--lg ${styles.downloadButton}`}
                       to={asset.url}
                     >
-                      {asset.label}{/dynssl/i.test(asset.label) && " *"}
-                      <span className={styles.buttonSize}>({asset.size})</span>
+                      <div className={styles.downloadLabel}>
+                        <span>{asset.label}{/dynssl/i.test(asset.label) && " *"}</span>
+                        <span className={styles.buttonSize}>({asset.size})</span>
+                      </div>
                     </Link>
                   ))
                 ) : (
