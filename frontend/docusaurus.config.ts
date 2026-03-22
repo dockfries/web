@@ -355,6 +355,11 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
+    docs: {
+      sidebar: {
+        autoCollapseCategories: true,
+      },
+    },
   } satisfies Preset.ThemeConfig,
 
   stylesheets: [
