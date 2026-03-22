@@ -139,6 +139,10 @@ const config: Config = {
                 label: "Tutorials",
                 position: 4,
               },
+              meta: {
+                label: "Meta",
+                position: 5,
+              },
             };
 
             const normalizeCategoryNames = (items: NormalizedSidebarItem[]) => {
