@@ -234,4 +234,4 @@ equivalente a (a*b)/c por causa da associação da esquerda para a direita, e a=
 
 ---
 
-[Voltar ao Índice](00-Contents)
+[Voltar ao Índice](Contents)

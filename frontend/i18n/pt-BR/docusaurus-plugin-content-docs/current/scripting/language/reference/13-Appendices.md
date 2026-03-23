@@ -321,4 +321,4 @@ PAWN incorpora ideias de uma série de linguagens, mas o projeto original foi in
 
 ---
 
-[Voltar ao Índice](00-Contents)
+[Voltar ao Índice](Contents)

@@ -1744,4 +1744,4 @@ Bu kitapçığın çift doğası, konuları nasıl sunduğu sıralamada kendini 
 
 ---
 
-[İçerik listesine geri dön](00-Contents)
+[İçerik listesine geri dön](Contents)

@@ -28,4 +28,4 @@ Pawn için, adlandırılmış argümanların —size işlev argümanlarını her
 
 ---
 
-[İçerik listesine geri dön](00-Contents)
+[İçerik listesine geri dön](Contents)
