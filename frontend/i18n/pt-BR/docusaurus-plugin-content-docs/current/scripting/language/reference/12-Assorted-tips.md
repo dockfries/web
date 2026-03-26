@@ -174,6 +174,7 @@ fibonacci(n)
 ```
 
 Listagem: fibonacci — função iterativa
+
 ```c
 /* Calcular um número de Fibonacci pela iteração */
 fibonacci(n)
@@ -207,6 +208,7 @@ padrão, a primeira constante enum tem o valor zero. Você pode usar valores enu
 para criar matrizes "nomeados", como a sugestão do exemplo abaixo.
 
 Listagem: definições de constantes de cor
+
 ```c
 enum color
 {
@@ -257,6 +259,7 @@ As linhas abaixo são um exemplo simples de como fazer o loop por todos os carac
 em uma string empacotada.
 
 Listagem: comentário acima da função packedstring
+
 ```c
 /* Função que conta os caracteres 'e' em uma string empacotada */
 packedstring(string{})
@@ -273,17 +276,17 @@ packedstring(string{})
 Os formatadores de saída printf e strformat foram baseados na função printf da linguagem de programação C.
 PAWN suporta os seguintes formatadores:
 
-| Formatador | Significado                                                                                                                |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------- |
-| **%b**     | número na base binária                                                                                                     |
-| **%c**     | caractere                                                                                                                  |
-| **%d**     | número na base decimal (e sinalizado)                                                                                      |
-| **%f**     | número de ponto flutuante                                                                                                  |
-| **%q**     | número de ponto fixo                                                                                                        |
-| **%r**     | número racional em notação de fração ("1/4" em vez de "0.25")                                                               |
-| **%s**     | string                                                                                                                     |
-| **%x**     | número na base hexadecimal                                                                                                 |
-| **%%**     | literal `%`                                                                                                                |
+| Formatador | Significado                                                   |
+| ---------- | ------------------------------------------------------------- |
+| **%b**     | número na base binária                                        |
+| **%c**     | caractere                                                     |
+| **%d**     | número na base decimal (e sinalizado)                         |
+| **%f**     | número de ponto flutuante                                     |
+| **%q**     | número de ponto fixo                                          |
+| **%r**     | número racional em notação de fração ("1/4" em vez de "0.25") |
+| **%s**     | string                                                        |
+| **%x**     | número na base hexadecimal                                    |
+| **%%**     | literal `%`                                                   |
 
 O formatador %f está disponível apenas se a implementação incluir suporte a
 ponto flutuante. Observe que %f apenas formata o número; não converte
@@ -307,12 +310,11 @@ de fração para entrada de constantes de ponto fixo ou ponto flutuante em PAWN.
 O ponto de interrogação (?) em uma string de formato dispara uma invocação automática de um prompt na saída. Por exemplo:
 
 Listagem: formatador de consulta
+
 ```c
 new value
 getvalue(value, "?Valor da chave = ")
 ```
-
-
 
 O caractere "?" na instrução também exibe
 um caractere de prompt "?", após o texto "Valor da chave = ".
@@ -325,6 +327,7 @@ o tag. Por exemplo, para ver a diferença entre horas e minutos, você pode defi
 as tags como:
 
 Listagem: tag fraco
+
 ```c
 new hours:h = 3
 new minutes:m = 58
@@ -340,6 +343,7 @@ válidos (mais adiante). Você pode usar uma variável com uma tag forte apenas 
 com a mesma tag é esperada. Veja as páginas 68 e 78 para mais informações sobre tags.
 
 Listagem: tag forte
+
 ```c
 enum Boolean: /* o nome de enum da diretiva enum é uma tag "forte" */
 {
@@ -355,6 +359,7 @@ Se você usasse IsPositive na instrução condicional como abaixo
 (onde variável "n" é um inteiro normal)
 
 Listagem: usando uma função com tag forte como condição (com bug)
+
 ```c
 if (IsPositive(n))
     // ...
@@ -392,6 +397,7 @@ runaway scripts — um script que vai além do seu ciclo de vida aceitável. Den
 A função callback, abaixo, verifica o nível de recursão. Se o nível de recursão for zero, é uma "função de nível superior" que foi chamada diretamente ou indiretamente pela função callback anterior executada. A função então lembra a hora em que foi chamada. Funções de nível não superior são aquelas que são funções de callback aninhadas. Para elas, a função apenas verifica se o script atingiu outro "marco" de chamada e verifica a diferença de tempo com o momento em que a primeira função de callback foi ativada.
 
 Listagem: abort.p
+
 ```c
 @receita(time, const heession_id[], count)
     check_recursion_level(time)
@@ -470,6 +476,7 @@ memória de forma assíncrona e independente do script PAWN. Quando a aquisiçã
 concluída, a função IsTimeReady retorna true e os dados no array estarão válidos.
 
 Listagem: obter tempo de maneira assíncrona
+
 ```c
 #pragma dynamic 16
 
@@ -500,6 +507,7 @@ os dados são consultados em uma chamada de função explícita, retornar os dad
 de referência é tão válido quanto via variável global.
 
 Listagem: obter tempo com poll
+
 ```c
 GetTimePoll(time[])
 {
@@ -521,6 +529,7 @@ A função printf é uma função de propósito geral com uma lista de parâmetr
 Se a implementação precisar economizar memória — em outras palavras, se você precisar de um executável menor na ROM — você pode definir sua própria funções nativas para casos especiais. Por exemplo, em vez de usar printf para exibir uma mensagem de depuração como a linha acima, você pode usar:
 
 Listagem: funções alternativas para printf
+
 ```c
 #define dbgstring(%1) printf("%s", %1)
 #define dbgvalue(%1)  printf("%d", %1)
@@ -528,13 +537,13 @@ Listagem: funções alternativas para printf
 
 ## PAWN contra a escassez de memória
 
-Comparado a soluções puramente baseadas em hardware, a memória de código de um sistema em 
+Comparado a soluções puramente baseadas em hardware, a memória de código de um sistema em
 PAWN normalmente será maior. Por um lado, você executa muitas implementações
 de código usando PAWN que executam a funcionalidade, mas não estariam lá em um
 solução por hardware (hardware sozinho implementa diretamente a funcionalidade).
 Por outro lado, você tem o overhead do próprio sistema de execução de
 bytecode — a "Máquina Abstrata".
- 
+
 Os requisitos de memória da máquina abstrata são:
 
 - O código (ROM) da própria máquina abstrata. A máquina abstrata mais simples, incluindo uma interface de impressão para depuração, uma interface para gerenciamento de
@@ -556,6 +565,7 @@ Ao definir uma macro LIMIT, certifique-se de não adicionar um ponto e vírgula.
 Uma definição como:
 
 Listagem: armadilha potencial — ponto e vírgula após uma substitução de macro #define
+
 ```c
 #define LIMIT 10;
 ```
@@ -571,6 +581,7 @@ não se estendem através de linhas e não atravessam strings. Portanto, se voc�
 a macro abaixo:
 
 Listagem: armadilha potencial — correspondência de padrão em uma macro #define
+
 ```c
 #define a(%1) abc(%1, 2)
 ```
@@ -603,4 +614,4 @@ em uma string, também não é substituída.
 
 ---
 
-[Voltar ao Índice](00-Contents)
+[Voltar ao Índice](Contents)
