@@ -97,7 +97,7 @@ description: Az SA-MP fejlesztéséhez hasznos eszközök, könyvtárak és bőv
 - **[IRC Plugin](https://github.com/samp-incognito/samp-irc-plugin)** - Lehetővé teszi IRC botok létrehozását és kezelését az SA-MP szerveren keresztül.
 - **[pawn-requests](https://github.com/Southclaws/pawn-requests)** - Egy API-t biztosít az HTTP(S) API-val való interakcióhoz, szöveges és JSON adattípusok támogatásával.
 - **[pawn-redis](https://github.com/Southclaws/pawn-redis)** - Hozzáférést biztosít egy gyors memóriadatbázishoz és aszinkron üzenetcsatornákhoz más programok között.
-- **[Chrono](https://github.com/Southclaws/pawn-chrono)** -  Egy modern Pawn könyvtár a dátumok és idők kezeléséhez.
+- **[Chrono](https://github.com/Southclaws/pawn-chrono)** - Egy modern Pawn könyvtár a dátumok és idők kezeléséhez.
 - **[rustext](https://github.com/ziggi/rustext)** - Orosz szöveg javító bővítmény a SA-MP-hez: GameText, TextDraw és Menük.
 - **[Advanced SA NickName](https://github.com/KrYpToDeN/Advanced-SA-NickName)** - Támogatás bármilyen szimbólum használatához a becenevekben.
 - **[SAMPSON](https://github.com/Hual/SAMPSON)** - Egy JSON bővítmény az SA-MP-hez.

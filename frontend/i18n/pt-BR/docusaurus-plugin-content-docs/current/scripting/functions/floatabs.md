@@ -11,9 +11,9 @@ tags: ["math", "floating-point"]
 
 Esta função retorna o valor absoluto de um float.
 
-| Name        | Description                                   |
-| ----------- | --------------------------------------------- |
-| Float:value | O valor float para obter o valor absoluto.    |
+| Name        | Description                                |
+| ----------- | ------------------------------------------ |
+| Float:value | O valor float para obter o valor absoluto. |
 
 ## Retorno
 

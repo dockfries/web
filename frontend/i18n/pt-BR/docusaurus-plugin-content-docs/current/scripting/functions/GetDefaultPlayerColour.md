@@ -11,9 +11,9 @@ tags: ["player"]
 
 Obtém a cor padrão para o ID do jogador.
 
-| Name     | Description                                                               |
-| -------- | ------------------------------------------------------------------------- |
-| playerid | O ID do jogador para obter a cor. Não precisa estar conectado.            |
+| Name     | Description                                                    |
+| -------- | -------------------------------------------------------------- |
+| playerid | O ID do jogador para obter a cor. Não precisa estar conectado. |
 
 ## Retorno
 

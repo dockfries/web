@@ -11,11 +11,11 @@ tags: ["npc", "node", "navigation"]
 
 Este callback é chamado quando um NPC tenta mudar de um nó de navegação para outro durante a movimentação baseada em nós. Isso permite que você controle se a mudança de nó deve ser permitida ou negada.
 
-| Nome      | Descrição                                         |
-| --------- | ------------------------------------------------- |
-| npcid     | O ID do NPC tentando mudar de nó                  |
-| newnodeid | O ID do novo nó para o qual o NPC quer se mover   |
-| oldnodeid | O ID do nó atual onde o NPC está                  |
+| Nome      | Descrição                                       |
+| --------- | ----------------------------------------------- |
+| npcid     | O ID do NPC tentando mudar de nó                |
+| newnodeid | O ID do novo nó para o qual o NPC quer se mover |
+| oldnodeid | O ID do nó atual onde o NPC está                |
 
 ## Retornos
 

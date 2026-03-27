@@ -21,13 +21,13 @@ Existem duas maneiras de criar pickups. [CreatePickup](../scripting/functions/Cr
 
 **Parâmetros:**
 
-| model        | O modelo que você gostaria de usar para o pickup.                                                                     |
-| ------------ | --------------------------------------------------------------------------------------------------------------------- |
-| type         | O tipo de spawn do pickup, veja mais abaixo nesta página.                                                             |
-| Float:X      | A coordenada X para o pickup aparecer.                                                                                |
-| Float:Y      | A coordenada Y para o pickup aparecer.                                                                                |
-| Float:Z      | A coordenada Z para o pickup aparecer.                                                                                |
-| Virtualworld | O ID do mundo virtual do pickup. Um valor de -1 fará o pickup aparecer em todos os mundos virtuais.                   |
+| model        | O modelo que você gostaria de usar para o pickup.                                                   |
+| ------------ | --------------------------------------------------------------------------------------------------- |
+| type         | O tipo de spawn do pickup, veja mais abaixo nesta página.                                           |
+| Float:X      | A coordenada X para o pickup aparecer.                                                              |
+| Float:Y      | A coordenada Y para o pickup aparecer.                                                              |
+| Float:Z      | A coordenada Z para o pickup aparecer.                                                              |
+| Virtualworld | O ID do mundo virtual do pickup. Um valor de -1 fará o pickup aparecer em todos os mundos virtuais. |
 
 Para este exemplo, criaremos um pickup de dinheiro na Grove Street.
 

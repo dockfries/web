@@ -11,10 +11,10 @@ tags: ["core", "pubvar", "public variable"]
 
 Define uma variável pública específica no script atual.
 
-| Name         | Description                                    |
-| ------------ | ---------------------------------------------- |
-| const name[] | O nome da variável pública.                    |
-| value        | O valor a ser armazenado na variável pública.  |
+| Name         | Description                                   |
+| ------------ | --------------------------------------------- |
+| const name[] | O nome da variável pública.                   |
+| value        | O valor a ser armazenado na variável pública. |
 
 ## Retorno
 

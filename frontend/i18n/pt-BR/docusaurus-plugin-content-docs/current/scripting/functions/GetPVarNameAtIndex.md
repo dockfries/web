@@ -9,12 +9,12 @@ tags: ["player variable", "pvar"]
 
 Recupera o nome de uma pVar de jogador pelo índice.
 
-| Name                   | Description                                                          |
-| ---------------------- | -------------------------------------------------------------------- |
-| playerid               | O ID do jogador cuja variável de jogador terá o nome obtido.         |
-| index                  | O índice da pVar do jogador.                                         |
-| output[]               | Uma string para armazenar o nome da pVar, passada por referência.    |
-| size = sizeof (output) | O tamanho máximo da string retornada.                                |
+| Name                   | Description                                                       |
+| ---------------------- | ----------------------------------------------------------------- |
+| playerid               | O ID do jogador cuja variável de jogador terá o nome obtido.      |
+| index                  | O índice da pVar do jogador.                                      |
+| output[]               | Uma string para armazenar o nome da pVar, passada por referência. |
+| size = sizeof (output) | O tamanho máximo da string retornada.                             |
 
 ## Retorno
 

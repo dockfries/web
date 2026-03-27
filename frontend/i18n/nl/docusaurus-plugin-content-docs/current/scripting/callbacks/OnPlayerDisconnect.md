@@ -9,10 +9,10 @@ tags: ["player"]
 
 Deze callback wordt aangeroepen wanneer een speler de verbinding met de server verbreekt.
 
-| Naam     | Beschrijving                                        |
-| -------- | -------------------------------------------------- |
-| playerid | Het ID van de speler die de verbinding verbrak.   |
-| reason   | De reden voor de verbreek. Zie tabel hieronder.   |
+| Naam     | Beschrijving                                    |
+| -------- | ----------------------------------------------- |
+| playerid | Het ID van de speler die de verbinding verbrak. |
+| reason   | De reden voor de verbreek. Zie tabel hieronder. |
 
 ## Returns
 
@@ -24,7 +24,7 @@ Wordt altijd als eerste aangeroepen in filterscripts.
 
 ## Redenen
 
-| ID  | Reden        | Details                                                                                   |
+| ID  | Reden         | Details                                                                                  |
 | --- | ------------- | ---------------------------------------------------------------------------------------- |
 | 0   | Timeout/Crash | De verbinding van de speler ging verloren. Hun game crashte of hun netwerk had een fout. |
 | 1   | Quit          | De speler stopte opzettelijk, via het /quit (/q) commando of via het pauze-menu.         |

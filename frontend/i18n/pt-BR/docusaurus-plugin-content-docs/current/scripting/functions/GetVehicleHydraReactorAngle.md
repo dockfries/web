@@ -13,9 +13,9 @@ Obtém o ângulo do reator do hydra do veículo.
 
 ## Parâmetros
 
-| Name      | Description           |
-| --------- | --------------------- |
-| vehicleid | O ID do veículo.      |
+| Name      | Description      |
+| --------- | ---------------- |
+| vehicleid | O ID do veículo. |
 
 ## Exemplos
 

@@ -13,7 +13,7 @@ description: 對製作腳本有幫助的工具、函數庫和插件的列表。
 - **[SA:MP Plugin Template Library](https://github.com/katursis/samp-ptl)** - 使用這個模板函數庫，可以輕鬆快速地創建自己的插件。
 - **[SA-MP Fiddle](https://fiddle.sa-mp.dev)** - 一個測試用的平台，可以用於測試腳本、進行除錯、分享代碼。
 - **[Pawn Syntax - Sublime](https://packagecontrol.io/packages/Pawn%20syntax)** - Sublime Text 的自動完成擴充套件，非常有幫助。
-- **[Pawn Syntax - Visual Marketplace](https://marketplace.visualstudio.com/items?itemName=southclaws.vscode-pawn)** -  Visual Studio Code 的自動完成擴充套件，非常有幫助。
+- **[Pawn Syntax - Visual Marketplace](https://marketplace.visualstudio.com/items?itemName=southclaws.vscode-pawn)** - Visual Studio Code 的自動完成擴充套件，非常有幫助。
 - **[SA-MP Zone Editor](https://bitbucket.org/Grimrandomer/samp-zone-editor/downloads)** - 一個地盤區域的編輯器。
 - **[SA-MP Map Editor](https://github.com/openmultiplayer/archive/raw/master/tools/Map%20Editor.zip)** - 一個貼近大眾的地圖編輯器。
 

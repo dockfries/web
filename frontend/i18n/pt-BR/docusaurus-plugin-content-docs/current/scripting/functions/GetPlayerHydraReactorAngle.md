@@ -13,9 +13,9 @@ Obtém o ângulo do reator do hydra do veículo do jogador.
 
 ## Parâmetros
 
-| Name     | Description          |
-| -------- | -------------------- |
-| playerid | O ID do jogador.     |
+| Name     | Description      |
+| -------- | ---------------- |
+| playerid | O ID do jogador. |
 
 ## Exemplos
 

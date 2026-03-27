@@ -11,9 +11,9 @@ tags: ["math", "floating-point"]
 
 Obtém a parte fracionária de um float. Isso significa o valor dos números após o ponto decimal.
 
-| Name        | Description                                     |
-| ----------- | ----------------------------------------------- |
-| Float:value | O float do qual obter a parte fracionária.      |
+| Name        | Description                                |
+| ----------- | ------------------------------------------ |
+| Float:value | O float do qual obter a parte fracionária. |
 
 ## Retorno
 

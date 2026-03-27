@@ -17,5 +17,3 @@ Sommige interiors laden scripts op basis van shopnaam. [SetPlayerShopName](../fu
 | AMMUN3   | Ammunation    | The third Ammu-Nation interior   | 290.242, -109.508, 1000.545 |
 | AMMUN4   | Ammunation    | The fourth Ammu-Nation interior  | 308.148, -141.104, 998.618  |
 | AMMUN5   | Ammunation    | The fifth Ammu-Nation interior   | 312.791, -165.949, 998.618  |
-
-

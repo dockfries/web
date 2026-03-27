@@ -27,14 +27,14 @@ Agora uma breve explicação sobre os argumentos de [CreateMenu](../scripting/fu
 
 **Parâmetros:**
 
-| Parâmetro       | Especifica                                                            |
-| --------------- | --------------------------------------------------------------------- |
-| title           | O cabeçalho do menu                                                   |
-| columns         | O número aqui define quantas colunas são usadas (2 é o máximo)        |
-| Float:x         | A posição em altura do menu na tela (da esquerda para a direita)      |
-| Float:y         | A posição em largura do menu na tela (de cima para baixo)             |
-| Float:col1width | A largura da primeira coluna                                          |
-| Float:col2width | A largura da segunda coluna                                           |
+| Parâmetro       | Especifica                                                       |
+| --------------- | ---------------------------------------------------------------- |
+| title           | O cabeçalho do menu                                              |
+| columns         | O número aqui define quantas colunas são usadas (2 é o máximo)   |
+| Float:x         | A posição em altura do menu na tela (da esquerda para a direita) |
+| Float:y         | A posição em largura do menu na tela (de cima para baixo)        |
+| Float:col1width | A largura da primeira coluna                                     |
+| Float:col2width | A largura da segunda coluna                                      |
 
 ## Adicionar alguns itens ao menu
 
@@ -47,7 +47,7 @@ AddMenuItem(teleportmenu, 0, "SF");
 AddMenuItem(teleportmenu, 0, "SF");
 AddMenuItem(teleportmenu, 0, "LV");
 AddMenuItem(teleportmenu, 0, "LV");
- 
+
 AddMenuItem(teleportmenu, 1, "Grove Street");
 AddMenuItem(teleportmenu, 1, "Starfish Tower");
 AddMenuItem(teleportmenu, 1, "Wheel Arch Angels");
@@ -58,10 +58,10 @@ AddMenuItem(teleportmenu, 1, "Come-a-Lot");
 
 A explicação para [AddMenuItem](../scripting/functions/AddMenuItem):
 
-| menuid | O menuid do menu onde o item deve ser exibido    |
-| ------ | ------------------------------------------------ |
-| column | A coluna na qual o item deve ser mostrado        |
-| text   | O texto do item                                  |
+| menuid | O menuid do menu onde o item deve ser exibido |
+| ------ | --------------------------------------------- |
+| column | A coluna na qual o item deve ser mostrado     |
+| text   | O texto do item                               |
 
 ## Criando os efeitos para os itens
 

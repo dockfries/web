@@ -13,9 +13,9 @@ Obtém a velocidade do trem.
 
 ## Parâmetros
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | O ID do veículo.       |
+| Name      | Description      |
+| --------- | ---------------- |
+| vehicleid | O ID do veículo. |
 
 ## Exemplos
 

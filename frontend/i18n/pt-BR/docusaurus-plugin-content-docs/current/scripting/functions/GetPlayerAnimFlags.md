@@ -11,8 +11,8 @@ tags: ["player", "animation"]
 
 Obtém as flags de animação do jogador.
 
-| Name     | Description                                         |
-| -------- | --------------------------------------------------- |
+| Name     | Description                                            |
+| -------- | ------------------------------------------------------ |
 | playerid | O ID do jogador do qual você quer as flags de animação |
 
 ## Retorno

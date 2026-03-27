@@ -9,9 +9,9 @@ tags: []
 
 Dobij trenutni ugao posmatranja NPC-a.
 
-| Ime                  | Deskripcija                                                      |
-| -------------------- | ---------------------------------------------------------------- |
-| &Float:Angle         | Float za spremanje ugla, proslijeđen referencom.                 |
+| Ime          | Deskripcija                                      |
+| ------------ | ------------------------------------------------ |
+| &Float:Angle | Float za spremanje ugla, proslijeđen referencom. |
 
 ## Returns
 

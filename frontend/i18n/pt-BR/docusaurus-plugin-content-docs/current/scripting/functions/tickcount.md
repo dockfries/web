@@ -11,9 +11,9 @@ tags: ["time"]
 
 Esta função pode ser usada como substituição para GetTickCount, pois retorna o número de milissegundos desde a inicialização do servidor.
 
-| Name           | Description                                                                                                                                                                                |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| &granularity=0 | Ao retornar, este valor contém o número de ticks que o tempo interno do sistema marca por segundo. Portanto, este valor indica a precisão do valor de retorno desta função.             |
+| Name           | Description                                                                                                                                                                 |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| &granularity=0 | Ao retornar, este valor contém o número de ticks que o tempo interno do sistema marca por segundo. Portanto, este valor indica a precisão do valor de retorno desta função. |
 
 ## Retorno
 

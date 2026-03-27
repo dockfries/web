@@ -10,10 +10,10 @@ O valor de saúde do veículo usado por [SetVehicleHealth](../functions/SetVehic
 
 :::
 
-| Vehicle health | Effect on the engine                                                                                  |
-| -------------- | ----------------------------------------------------------------------------------------------------- |
-| > 650          | Nenhum. O motor ainda está praticamente normal                                                         |
-| 550-650        | O motor está superaquecendo e emitirá fumaça branca                                                   |
-| 390-550        | O motor está superaquecendo bastante e emitirá fumaça cinza                                           |
-| 250-390        | O motor está ficando muito quente e emitirá fumaça preta                                               |
-| < 250          | O motor pegará fogo e o veículo explodirá alguns segundos depois, a menos que seja reparado          |
+| Vehicle health | Effect on the engine                                                                        |
+| -------------- | ------------------------------------------------------------------------------------------- |
+| > 650          | Nenhum. O motor ainda está praticamente normal                                              |
+| 550-650        | O motor está superaquecendo e emitirá fumaça branca                                         |
+| 390-550        | O motor está superaquecendo bastante e emitirá fumaça cinza                                 |
+| 250-390        | O motor está ficando muito quente e emitirá fumaça preta                                    |
+| < 250          | O motor pegará fogo e o veículo explodirá alguns segundos depois, a menos que seja reparado |

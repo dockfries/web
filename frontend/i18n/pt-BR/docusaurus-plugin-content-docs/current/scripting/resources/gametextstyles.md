@@ -8,8 +8,9 @@ Esta página aborda tudo o que você precisa saber sobre estilos de gametext e c
 Usado principalmente por [GameText](../functions/GameTextForPlayer) e [GameTextForAll](../functions/GameTextForAll).
 
 ---
-  
+
 ## Cores do texto
+
 É possível desenhar certas partes do seu texto em cores diferentes. Para fazer isso, você simplesmente precisa usar os slugs de cores listados abaixo e encapsular a parte do texto que deseja desenhar em uma cor específica (ex: \~y\~Eu sou desenhado em amarelo!\~y\~).
 
 | Codigo               | Cor                                                                 | Descrição                                               |
@@ -43,20 +44,21 @@ Usado principalmente por [GameText](../functions/GameTextForPlayer) e [GameTextF
 | `~w~~h~ (or ~s~~h~)` | ![](https://assets.open.mp/assets/images/gameTextStyles/wh.png)     | Todas as cores se tornam assim quando muito iluminadas. |
 
 ---
-  
+
 ## Carácteres especiais
+
 Diferentemente das cores de texto, esses slugs (código de texto) não exigem encapsulamento. Eles podem ser usados como estão.
 
-| Código | Descrição                                                                                                                                                                                        |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `~n~`  | Nova linha                                                                                                                                                                                       |
-| `~h~`  | Clareie as cores selecionadas.  O texto pode aparecer entre a cor principal e o clareamento, por exemplo `~r~Olá ~h~mundo` tornará "Olá" vermelho e "mundo" um vermelho ligeiramente mais claro. |
-| `~u~`  | Seta para cima (cinza)                                                                                                                                                                           |
-| `~d~`  | Seta para baixo (cinza)                                                                                                                                                                          |
-| `~<~`  | Seta para a esquerda (cinza)                                                                                                                                                                     |
-| `~>~`  | Seta para a direita (cinza)                                                                                                                                                                      |
-| `~]~`  | Exibe um `*` símbolo (somente nos estilos de texto 3, 4 e 5)                                                                                                                                     |
-| `~k~`  | Mapeamento de teclas do teclado (ex: `~k~~VEHICLE_TURRETLEFT~` e `~k~~PED_FIREWEAPON~`). Veja [aqui](keys) uma lista de chaves.                                                                  |
+| Código | Descrição                                                                                                                                                                                       |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `~n~`  | Nova linha                                                                                                                                                                                      |
+| `~h~`  | Clareie as cores selecionadas. O texto pode aparecer entre a cor principal e o clareamento, por exemplo `~r~Olá ~h~mundo` tornará "Olá" vermelho e "mundo" um vermelho ligeiramente mais claro. |
+| `~u~`  | Seta para cima (cinza)                                                                                                                                                                          |
+| `~d~`  | Seta para baixo (cinza)                                                                                                                                                                         |
+| `~<~`  | Seta para a esquerda (cinza)                                                                                                                                                                    |
+| `~>~`  | Seta para a direita (cinza)                                                                                                                                                                     |
+| `~]~`  | Exibe um `*` símbolo (somente nos estilos de texto 3, 4 e 5)                                                                                                                                    |
+| `~k~`  | Mapeamento de teclas do teclado (ex: `~k~~VEHICLE_TURRETLEFT~` e `~k~~PED_FIREWEAPON~`). Veja [aqui](keys) uma lista de chaves.                                                                 |
 
 :::caution
 
@@ -65,9 +67,10 @@ Tenha cuidado, usar muitas cores de texto ou caracteres especiais em um gametext
 :::
 
 ## Estilos de texto
+
 Você pode usar os seguintes estilos de texto em gametext.
 
-|  Estilo  | Pré-visualização                                                    | Descrição                                                                                                                                                                                                                       |
+| Estilo   | Pré-visualização                                                    | Descrição                                                                                                                                                                                                                       |
 | -------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Estilo 0 | ![](https://assets.open.mp/assets/images/gameTextStyles/style0.png) | Aparece por 9 segundos, independentemente da configuração de tempo. Oculta textdraws e qualquer outro gametext na tela (corrigido em fixes.inc / GameText+)                                                                     |
 | Estilo 1 | ![](https://assets.open.mp/assets/images/gameTextStyles/style1.png) | Desaparece após 8 segundos, independentemente do tempo definido. Se você tiver uma configuração de tempo maior que isso, ele reaparecerá após desaparecer e repetirá até que o tempo acabe (corrigido em fixes.inc / GameText+) |
@@ -78,10 +81,10 @@ Você pode usar os seguintes estilos de texto em gametext.
 | Estilo 6 | ![](https://assets.open.mp/assets/images/gameTextStyles/style6.png) | N/A                                                                                                                                                                                                                             |
 
 ---
-  
+
 ## Estilos de texto adicionados por [fixes.inc](https://github.com/pawn-lang/sa-mp-fixes) / [GameText+](https://github.com/itsneufox/GameText-Plus)
 
-|  Estilo   | Pré-visualização                                                     | Descrição                                                    |
+| Estilo    | Pré-visualização                                                     | Descrição                                                    |
 | --------- | -------------------------------------------------------------------- | ------------------------------------------------------------ |
 | Estilo 7  | ![](https://assets.open.mp/assets/images/gameTextStyles/style7.png)  | Baseado em nomes de veículos.                                |
 | Estilo 8  | ![](https://assets.open.mp/assets/images/gameTextStyles/style8.png)  | Baseado em nomes de locais.                                  |

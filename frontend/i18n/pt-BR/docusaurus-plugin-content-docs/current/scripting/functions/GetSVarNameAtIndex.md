@@ -9,11 +9,11 @@ tags: ["server variable", "svar"]
 
 Recupera o nome de uma sVar pelo índice.
 
-| Name                   | Description                                                |
-| ---------------------- | ---------------------------------------------------------- |
-| index                  | O índice da sVar.                                          |
+| Name                   | Description                                                       |
+| ---------------------- | ----------------------------------------------------------------- |
+| index                  | O índice da sVar.                                                 |
 | output[]               | Uma string para armazenar o nome da sVar, passada por referência. |
-| size = sizeof (output) | O tamanho máximo da string retornada.                      |
+| size = sizeof (output) | O tamanho máximo da string retornada.                             |
 
 ## Retorno
 

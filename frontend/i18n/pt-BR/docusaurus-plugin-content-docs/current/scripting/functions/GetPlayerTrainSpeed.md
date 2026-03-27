@@ -13,9 +13,9 @@ Obtém a velocidade do trem do jogador.
 
 ## Parâmetros
 
-| Name     | Description           |
-| -------- | --------------------- |
-| playerid | O ID do jogador.      |
+| Name     | Description      |
+| -------- | ---------------- |
+| playerid | O ID do jogador. |
 
 ## Exemplos
 

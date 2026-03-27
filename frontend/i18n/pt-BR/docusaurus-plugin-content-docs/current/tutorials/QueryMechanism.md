@@ -25,7 +25,7 @@ Se você tem dúvidas sobre por que extrair e o que são octetos de IP e bytes d
 | :--------------: | :---------------: |
 |        4         |      "SAMP"       |
 |        4         |   Octetos do IP   |
-|        1         |  Porta & 0xFF     |
+|        1         |   Porta & 0xFF    |
 |        1         | Porta >> 8 & 0xFF |
 |        1         |      OPCODE       |
 
@@ -57,27 +57,27 @@ A resposta consiste nos mesmos primeiros 11 bytes enviados, o que chamamos de Ca
 
 #### Tipo de Resposta `i`
 
-| Byte        | Chave      | Largura em Bytes | Descrição                                                       |
-| ----------- | ---------- | ---------------- | --------------------------------------------------------------- |
-| 11          | Password   | 1                | 0 ou 1, dependendo se a senha está definida                     |
-| 12-13       | Players    | 2                | Número atual de jogadores online                                |
-| 14-15       | MaxPlayers | 2                | Número máximo de jogadores permitidos no servidor                |
-| 16-19       | (strlen)   | 4                | Comprimento do hostname do servidor                             |
-| 20 + strlen | Hostname   | (strlen)         | Hostname do servidor                                            |
-| 21-24       | (strlen)   | 4                | Comprimento do gamemode do servidor                             |
-| 25 + strlen | Gamemode   | (strlen)         | Gamemode do servidor                                            |
-| 26-29       | (strlen)   | 4                | Comprimento do idioma do servidor                               |
-| 30 + strlen | Language   | (strlen)         | Idioma do servidor                                              |
+| Byte        | Chave      | Largura em Bytes | Descrição                                         |
+| ----------- | ---------- | ---------------- | ------------------------------------------------- |
+| 11          | Password   | 1                | 0 ou 1, dependendo se a senha está definida       |
+| 12-13       | Players    | 2                | Número atual de jogadores online                  |
+| 14-15       | MaxPlayers | 2                | Número máximo de jogadores permitidos no servidor |
+| 16-19       | (strlen)   | 4                | Comprimento do hostname do servidor               |
+| 20 + strlen | Hostname   | (strlen)         | Hostname do servidor                              |
+| 21-24       | (strlen)   | 4                | Comprimento do gamemode do servidor               |
+| 25 + strlen | Gamemode   | (strlen)         | Gamemode do servidor                              |
+| 26-29       | (strlen)   | 4                | Comprimento do idioma do servidor                 |
+| 30 + strlen | Language   | (strlen)         | Idioma do servidor                                |
 
 #### Tipo de Resposta `r`
 
-| Byte        | Chave     | Largura em Bytes | Descrição                                  |
-| ----------- | --------- | ---------------- | ------------------------------------------ |
-| 11-12       | RuleCount | 2                | Número de regras fornecidas pelo servidor  |
-| 13          | (strlen)  | 1                | Comprimento do nome da regra               |
-| 14 + strlen | Rulename  | (strlen)         | Nome da regra                              |
-| 15          | (strlen)  | 1                | Comprimento do valor da regra              |
-| 16 + strlen | RuleValue | (strlen)         | Valor da regra                             |
+| Byte        | Chave     | Largura em Bytes | Descrição                                 |
+| ----------- | --------- | ---------------- | ----------------------------------------- |
+| 11-12       | RuleCount | 2                | Número de regras fornecidas pelo servidor |
+| 13          | (strlen)  | 1                | Comprimento do nome da regra              |
+| 14 + strlen | Rulename  | (strlen)         | Nome da regra                             |
+| 15          | (strlen)  | 1                | Comprimento do valor da regra             |
+| 16 + strlen | RuleValue | (strlen)         | Valor da regra                            |
 
 _(Repita a partir do Byte 13 para cada regra, quantas vezes for `RuleCount`)_
 
@@ -107,12 +107,12 @@ _(Repita a partir do Byte 13 para cada jogador, quantas vezes for `PlayerCount`)
 
 #### Tipo de Resposta `p`
 
-| Byte | Chave    | Largura em Bytes | Descrição                                                                |
-| ---- | -------- | ---------------- | ------------------------------------------------------------------------ |
-| 11   | número 1 | 1                | Primeiro número da sequência pseudo-aleatória enviada pelo cliente       |
-| 12   | número 2 | 1                | Segundo número da sequência pseudo-aleatória                             |
-| 13   | número 3 | 1                | Terceiro número da sequência pseudo-aleatória                            |
-| 14   | número 4 | 1                | Quarto número da sequência pseudo-aleatória                              |
+| Byte | Chave    | Largura em Bytes | Descrição                                                          |
+| ---- | -------- | ---------------- | ------------------------------------------------------------------ |
+| 11   | número 1 | 1                | Primeiro número da sequência pseudo-aleatória enviada pelo cliente |
+| 12   | número 2 | 1                | Segundo número da sequência pseudo-aleatória                       |
+| 13   | número 3 | 1                | Terceiro número da sequência pseudo-aleatória                      |
+| 14   | número 4 | 1                | Quarto número da sequência pseudo-aleatória                        |
 
 ## Código de Exemplo em C
 

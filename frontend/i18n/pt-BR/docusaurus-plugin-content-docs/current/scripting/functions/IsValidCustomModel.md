@@ -11,8 +11,8 @@ tags: ["custom model", "custom skin", "simple model"]
 
 Verifica se um ID de modelo customizado é válido.
 
-| Name    | Description                                |
-| ------- | ------------------------------------------ |
+| Name    | Description                                  |
+| ------- | -------------------------------------------- |
 | modelid | O ID do modelo customizado a ser verificado. |
 
 ## Retorno

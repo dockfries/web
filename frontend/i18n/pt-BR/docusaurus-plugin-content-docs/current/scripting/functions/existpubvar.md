@@ -11,9 +11,9 @@ tags: ["core", "pubvar", "public variable"]
 
 Verifica se uma variável pública específica existe no script atual.
 
-| Name         | Description                          |
-| ------------ | ------------------------------------ |
-| const name[] | O nome da variável pública.          |
+| Name         | Description                 |
+| ------------ | --------------------------- |
+| const name[] | O nome da variável pública. |
 
 ## Retorno
 

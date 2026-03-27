@@ -11,9 +11,9 @@ tags: ["menu"]
 
 Obtém o número de colunas ativas.
 
-| Name        | Description                                   |
-| ----------- | --------------------------------------------- |
-| Menu:menuid | O ID do menu de onde obter as colunas.        |
+| Name        | Description                            |
+| ----------- | -------------------------------------- |
+| Menu:menuid | O ID do menu de onde obter as colunas. |
 
 ## Retorno
 

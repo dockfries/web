@@ -11,8 +11,8 @@ tags: ["vehicle"]
 
 Obtém o ID do cavalo mecânico anexado a um veículo.
 
-| Name      | Description                                |
-| --------- | ------------------------------------------ |
+| Name      | Description                                      |
+| --------- | ------------------------------------------------ |
 | vehicleid | O ID do veículo do qual obter o cavalo mecânico. |
 
 ## Retorno

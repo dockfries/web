@@ -9,8 +9,8 @@ tags: ["string"]
 
 ## Descrição
 
-| Nome | Descrição                                   |
-| ---- | ------------------------------------------- |
+| Nome | Descrição                                    |
+| ---- | -------------------------------------------- |
 | c    | O valor para o qual os bytes serão trocados. |
 
 ## Retorno

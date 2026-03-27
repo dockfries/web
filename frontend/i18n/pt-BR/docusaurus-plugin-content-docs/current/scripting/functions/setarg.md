@@ -11,11 +11,11 @@ tags: ["core", "arguments", "args"]
 
 Define um argumento que foi passado para uma função.
 
-| Name  | Description                                                  |
-| ----- | ------------------------------------------------------------ |
+| Name  | Description                                                        |
+| ----- | ------------------------------------------------------------------ |
 | arg   | O número sequencial do argumento. Use 0 para o primeiro argumento. |
-| index | O índice (se o argumento for um array) _(optional=0)_       |
-| value | O valor a ser definido no argumento.                         |
+| index | O índice (se o argumento for um array) _(optional=0)_              |
+| value | O valor a ser definido no argumento.                               |
 
 ## Retorno
 

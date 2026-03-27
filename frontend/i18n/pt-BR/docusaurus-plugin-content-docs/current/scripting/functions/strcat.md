@@ -7,11 +7,9 @@ tags: ["string"]
 
 <LowercaseNote />
 
-## Descrição 
+## Descrição
 
 Esta função concatena (junta) duas strings numa string de destino.
-
-
 
 | Nome                      | Descrição                                                     |
 | ------------------------- | ------------------------------------------------------------- |

@@ -47,7 +47,7 @@ description: Una lista de herramientas, librerías y plugins útiles para desarr
 - **_[SA:MP Command Guess](https://github.com/Kirima2nd/samp-command-guess)_** - Un adivinador de comandos para SA:MP utilizando la función de distancia Levenshtein.
 - **_[vending](https://github.com/wuzi/vending)_** - Máquinas expendedoras del lado del servidor para SA-MP.
 - **_[mathutil](https://github.com/ScavengeSurvive/mathutil)_** - Una lista de funciones matemáticas útiles.
-- **_[rotations.inc](https://github.com/sampctl/rotations.inc)_** -  Una lista de funciones de rotación útiles de Nero_3D's rotations.inc.
+- **_[rotations.inc](https://github.com/sampctl/rotations.inc)_** - Una lista de funciones de rotación útiles de Nero_3D's rotations.inc.
 - **_[SA-MP Distance Functions](https://github.com/Y-Less/samp-distance)_** - Lista de funciones útiles de comprobación del distanciamiento.
 - **_[New SA-MP callbacks](https://github.com/emmet-jones/New-SA-MP-callbacks)_** - Una lista de nuevas funciones callback útiles.
 - **_[Alternative Dialogs](https://github.com/NexiusTailer/Alternative-Dialogs)_** - Diálogos Textdraw con un nuevo diseño.

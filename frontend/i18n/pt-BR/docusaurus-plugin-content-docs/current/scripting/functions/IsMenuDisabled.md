@@ -11,8 +11,8 @@ tags: ["menu"]
 
 Verifica se um menu está desabilitado.
 
-| Name        | Description                   |
-| ----------- | ----------------------------- |
+| Name        | Description                    |
+| ----------- | ------------------------------ |
 | Menu:menuid | O ID do menu a ser verificado. |
 
 ## Retorno

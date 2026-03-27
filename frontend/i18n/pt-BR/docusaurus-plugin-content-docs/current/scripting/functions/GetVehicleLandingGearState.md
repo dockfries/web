@@ -13,9 +13,9 @@ Obtém o [estado do trem de pouso](../resources/landinggearstate) atual do veíc
 
 ## Parâmetros
 
-| Name      | Description            |
-| --------- | ---------------------- |
-| vehicleid | O ID do veículo.       |
+| Name      | Description      |
+| --------- | ---------------- |
+| vehicleid | O ID do veículo. |
 
 ## Exemplos
 

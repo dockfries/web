@@ -11,9 +11,9 @@ tags: ["player"]
 
 Obtém o Z Aim de um jogador. (relacionado à câmera e mira)
 
-| Name     | Description           |
-| -------- | --------------------- |
-| playerid | O ID do jogador.      |
+| Name     | Description      |
+| -------- | ---------------- |
+| playerid | O ID do jogador. |
 
 ## Retorno
 

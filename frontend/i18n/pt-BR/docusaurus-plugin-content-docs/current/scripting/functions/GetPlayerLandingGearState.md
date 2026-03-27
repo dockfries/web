@@ -13,9 +13,9 @@ Obtém o [estado do trem de pouso](../resources/landinggearstate) do veículo at
 
 ## Parâmetros
 
-| Name     | Description           |
-| -------- | --------------------- |
-| playerid | O ID do jogador.      |
+| Name     | Description      |
+| -------- | ---------------- |
+| playerid | O ID do jogador. |
 
 ## Exemplos
 
