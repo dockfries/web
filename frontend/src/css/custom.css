@@ -478,6 +478,7 @@ html[data-theme="dark"] {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  gap: 18px;
 }
 
 .server-info {
@@ -490,6 +491,9 @@ html[data-theme="dark"] {
 
 .server-game-mode {
   margin-top: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .copy-badge-container {
@@ -787,6 +791,10 @@ html[data-theme="dark"] {
   .server-details,
   .copy-badge-text {
     font-size: 0.875rem;
+  }
+
+  .loading-banner-heading {
+    font-size: 1.2rem;
   }
 }
 
